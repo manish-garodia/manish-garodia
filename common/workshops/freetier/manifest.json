@@ -17,9 +17,19 @@
 			"filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/remote-desktop/using-novnc-remote-desktop.md"
 		},
         {
-            "title": "Introduction",
+            "title": "LiveLabs Template",
+            "description": "LiveLabs template",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/sample-livelabs-templates/livelabs-template/livelabs-template.md"
+        },
+        {
+            "title": "Sample Introduction",
             "description": "Lab description",
-            "filename": "./../../intro/filepath.md"
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/sample-livelabs-templates/livelabs-template/sample-introduction.md"
+        },
+        {
+            "title": "Lab Template",
+            "description": "Lab template",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/sample-livelabs-templates/livelabs-template/sample-lab-template.md"
         },
 		{
 			"title": "Lab 1: Generate SSH Keys",
