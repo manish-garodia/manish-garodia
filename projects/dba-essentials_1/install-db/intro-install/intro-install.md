@@ -1,8 +1,7 @@
-# Oracle Database 21c Installation
+# Oracle Database Administration Essentials
 
 ## Introduction
 
-<if type="install-db">
 **Oracle Database Administration Essentials** is a task-oriented, quick start approach to familiarize you with Oracle Database administration. It features the basic know-hows of Oracle Database and helps you perform various tasks necessary to keep the database operational.
 
 Estimated Workshop Time: 2 hours 
@@ -22,8 +21,8 @@ Watch this video to learn about the core *Oracle Database Breakthrough Innovatio
   **Note:** If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
 
 ### Objective
-</if>
-In the subsequent labs, you will learn different ways of installing and configuring Oracle Database 21c.
+
+In this workshop, you will learn different ways of installing and configuring Oracle Database 21c.
 
 
 ## How to Install Oracle Database?
