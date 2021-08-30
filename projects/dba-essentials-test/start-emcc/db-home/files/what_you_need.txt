@@ -1,0 +1,3 @@
+- Oracle Database 21c installed
+
+- Enterprise Manager Cloud Control 13.5 configured
