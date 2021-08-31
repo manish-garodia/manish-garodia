@@ -3,7 +3,7 @@
 ## Introduction
 
 <if type="install-db">
-**Oracle Database Administration Essentials** is a task-oriented, quick start approach to familiarize you with Oracle Database administration. It features the basic know-hows of Oracle Database and helps you perform essential tasks to administer Oracle Database.
+**Oracle Database Administration Essentials** is a task-oriented, quick start approach to familiarize you with Oracle Database administration. It features the basic know-hows of Oracle Database and helps you perform various tasks necessary to keep the database operational.
 
 Estimated Workshop Time: 2 hours 
 
@@ -41,7 +41,7 @@ Setting up Oracle Database is a two-step process, which involves installing the 
 
 	- If you select *Create and configure a single instance database*, the setup wizard not only installs the Oracle Database software but also invokes Oracle DBCA automatically to create a single instance database.
 
-	- If you select *Set Up Software Only*, the setup wizard installs only the Oracle Database software but does not create the database. To create a container database, run Oracle DBCA after you complete the software installation.
+	- [](include:sw-only)
 
 	## About Oracle Database Configuration Assistant (Oracle DBCA)
 

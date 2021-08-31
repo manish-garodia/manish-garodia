@@ -22,7 +22,7 @@ Watch this video to learn about the core *Oracle Database Breakthrough Innovatio
 
 ## What this workshop is about?
 
-**Oracle Database Administration Essentials** is a task-oriented, quick start approach to familiarize you with Oracle Database administration. It features the basic know-hows of Oracle Database and helps you perform essential tasks to administer Oracle Database.
+**Oracle Database Administration Essentials** is a task-oriented, quick start approach to familiarize you with Oracle Database administration. It features the basic know-hows of Oracle Database and helps you perform tasks essential to administer Oracle Database.
 
 These tasks include, but are not limited to, configuring and managing - 
 
