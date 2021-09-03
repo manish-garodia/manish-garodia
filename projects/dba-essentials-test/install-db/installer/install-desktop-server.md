@@ -2,13 +2,13 @@
 
 ## Introduction
 
-This lab walks you through the steps for installing Oracle Database 21c and configuring it. You can perform two types of installation for Oracle Database.
+This lab walks you through the steps for installing Oracle Database 21c and configuring it. With the database installer, you can perform two types of installation.
 
-- **Option 1:** *Desktop class* with minimal configuration.  
-  Estimated time: 20 mins
+- **Option 1:** *Desktop class* with minimal configuration  
+  Estimated Time: 20 mins
 
-- **Option 2:** *Server class* with advanced configuration.  
-  Estimated time: 30 mins
+- **Option 2:** *Server class* with advanced configuration  
+  Estimated Time: 30 mins
 
 > To install both system classes on the same host, you need different Oracle home locations.  
 
@@ -18,11 +18,19 @@ This lab walks you through the steps for installing Oracle Database 21c and conf
 
 Install the Oracle Database software and create a single instance container database using Oracle Database Setup Wizard (Installer).
 
+### Prerequisites
+
+This lab assumes you have:
+- A Free Tier, Paid or LiveLabs Oracle Cloud account
+- You have completed:
+	- Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
+	- Lab: Setup Compute Instance
+
 ## Task 1: Start Database Installer
 
 1. Log in to your host as *oracle*, the user who is authorized to install the Oracle Database software and create Oracle Database.  
 
-2. Open a terminal window and verify the current working directory is Oracle home. This is the directory where the database installer is located.
+2. Open a terminal window and change the current working directory to Oracle home. This is the directory where the database installer is located.
 
 	```
 	$ <copy>cd /u01/app/oracle/product/21.0.0/dbhome_1</copy>
@@ -33,6 +41,8 @@ Install the Oracle Database software and create a single instance container data
 	```
 	$ <copy>./runInstaller</copy>
 	```
+
+Now, select one of the following options to install Oracle Database. 
 
 ## Option 1: Install Oracle Database (Desktop Class)
 
@@ -94,74 +104,74 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
    ![Execute Scripts](../common/images/db21c-common-002-rootscript.png)
 
-    A. Open a new terminal window and log in as root.
+9. Open a new terminal window and log in as root.
 
-	 ```
-	 $ <copy>sudo su -</copy>
-	 (Requires no password)
-	 ```
+	```
+	$ <copy>sudo su -</copy>
+	(Requires no password)
+	```
 
-	B. Run the script `orainstRoot.sh` located in the `oraInventory` folder.
+10. Run the script `orainstRoot.sh` located in the `oraInventory` folder.
 
-	 ```
-	 $ <copy>/u01/app/oraInventory/orainstRoot.sh</copy>
-	 ```
+	```
+	$ <copy>/u01/app/oraInventory/orainstRoot.sh</copy>
+	```
 
-	 It returns the following output. 
+	It returns the following output. 
 
-	 ```
-	 Changing permissions of /u01/app/oraInventory.
-	 Adding read,write permissions for group.
-	 Removing read,write,execute permissions for world.
+	```
+	Changing permissions of /u01/app/oraInventory.
+	Adding read,write permissions for group.
+	Removing read,write,execute permissions for world.
 
-	 Changing groupname of /u01/app/oraInventory to dba.
-	 The execution of the script is complete.
-	 ```
+	Changing groupname of /u01/app/oraInventory to dba.
+	The execution of the script is complete.
+	```
 
-	C. Run the script `root.sh` from Oracle home.
+11. Run the script `root.sh` from Oracle home.
 
-	 ```
-	 $ <copy>/u01/app/oracle/product/21.0.0/dbhome_1/root.sh</copy>
-	 ```
-	 
-	 It returns the following output. 
+	```
+	$ <copy>/u01/app/oracle/product/21.0.0/dbhome_1/root.sh</copy>
+	```
+	
+	It returns the following output. 
 
-	 ```
-     The following environment variables are set as:
-	 ORACLE_OWNER= oracle
-     ORACLE_HOME=  /u01/app/oracle/product/21.0.0/dbhome_1
+	```
+    The following environment variables are set as:
+	ORACLE_OWNER= oracle
+    ORACLE_HOME=  /u01/app/oracle/product/21.0.0/dbhome_1
 
-	 Enter the full pathname of the local bin directory: [/usr/local/bin]: Enter
-	 
-	 /usr/local/bin is read only.  Continue without copy (y/n) or retry (r)? [y]: y
+	Enter the full pathname of the local bin directory: [/usr/local/bin]: Enter
+	
+	/usr/local/bin is read only.  Continue without copy (y/n) or retry (r)? [y]: y
 
-     Warning: /usr/local/bin is read only. No files will be copied.
+    Warning: /usr/local/bin is read only. No files will be copied.
 
-	 Entries will be added to the /etc/oratab file as needed by
-	 Database Configuration Assistant when a database is created
-	 Finished running generic part of root script.
-	 Now product-specific root actions will be performed.
-	 ```
+	Entries will be added to the /etc/oratab file as needed by
+	Database Configuration Assistant when a database is created
+	Finished running generic part of root script.
+	Now product-specific root actions will be performed.
+	```
 
 	Close the terminal window.  
 
-	> This step is applicable for Linux and UNIX operating systems only. If you have installed Oracle Database earlier, the next time you run the database installer, it displays only one script ```root.sh```.
+	> This step is applicable for Linux and UNIX operating systems only. If you have installed Oracle Database earlier, the next time you run the database installer, it displays only one script `root.sh`.
 
 	<!--B. If you provided the privileged user credentials in step 13, click **Yes** in the dialog box to run the configuration script automatically.
 
    ![Image alt text](images/db21c_common_016b_autoscript.png)-->
 
-9. Return to the Execute Configuration Scripts window and click **OK** to continue. The installer proceeds with creating Oracle Database as per your configuration.
+12. Return to the Execute Configuration Scripts window and click **OK** to continue. The installer proceeds with creating Oracle Database as per your configuration.
 
 	![Finish Installation](images/db21c-desk-008-installsuccess.png)
 
-	Congratulations! You have installed the Oracle Database software and configured the database successfully.
+	Congratulations! You have successfully installed Oracle Database.
 
 Click **Close** to exit Oracle Database Setup Wizard.
 
-If you have installed Oracle Database using Option 1, skip Option 2 and **proceed the next lab**. 
+If you have installed Oracle Database using Option 1, skip Option 2 and **proceed to the next lab**. 
 
-## Option 2: Install Oracle Database (Server Class)
+## Option 2: Install and Configure Oracle Database (Server Class)
 
 The `runInstaller` command from Oracle home starts the database installer with the Configuration Option window.
 
@@ -297,68 +307,68 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
    ![Execute Scripts](../common/images/db21c-common-002-rootscript.png)
 
-    A. Open a new terminal window and log in as root.
+18. Open a new terminal window and log in as root.
 
-	 ```
-	 $ <copy>sudo su -</copy>
-	 (Requires no password)
-	 ```
+	```
+	$ <copy>sudo su -</copy>
+	(Requires no password)
+	```
 
-	B. Run the script `orainstRoot.sh` located in the `oraInventory` folder.
+19. Run the script `orainstRoot.sh` located in the `oraInventory` folder.
 
-	 ```
-	 $ <copy>/u01/app/oraInventory/orainstRoot.sh</copy>
-	 ```
+	```
+	$ <copy>/u01/app/oraInventory/orainstRoot.sh</copy>
+	```
 
-	 It returns the following output. 
+	It returns the following output. 
 
-	 ```
-	 Changing permissions of /u01/app/oraInventory.
-	 Adding read,write permissions for group.
-	 Removing read,write,execute permissions for world.
+	```
+	Changing permissions of /u01/app/oraInventory.
+	Adding read,write permissions for group.
+	Removing read,write,execute permissions for world.
 
-	 Changing groupname of /u01/app/oraInventory to dba.
-	 The execution of the script is complete.
-	 ```
+	Changing groupname of /u01/app/oraInventory to dba.
+	The execution of the script is complete.
+	```
 
-	C. Run the script `root.sh` from Oracle home.
+20. Run the script `root.sh` from Oracle home.
 
-	 ```
-	 $ <copy>/u01/app/oracle/product/21.0.0/dbhome_1/root.sh</copy>
-	 ```
-	 
-	 It returns the following output. 
+	```
+	$ <copy>/u01/app/oracle/product/21.0.0/dbhome_1/root.sh</copy>
+	```
+	
+	It returns the following output. 
 
-	 ```
-     The following environment variables are set as:
-	 ORACLE_OWNER= oracle
-     ORACLE_HOME=  /u01/app/oracle/product/21.0.0/dbhome_1
+	```
+    The following environment variables are set as:
+	ORACLE_OWNER= oracle
+    ORACLE_HOME=  /u01/app/oracle/product/21.0.0/dbhome_1
 
-	 Enter the full pathname of the local bin directory: [/usr/local/bin]: Enter
-	 
-	 /usr/local/bin is read only.  Continue without copy (y/n) or retry (r)? [y]: y
+	Enter the full pathname of the local bin directory: [/usr/local/bin]: Enter
+	
+	/usr/local/bin is read only.  Continue without copy (y/n) or retry (r)? [y]: y
 
-     Warning: /usr/local/bin is read only. No files will be copied.
+    Warning: /usr/local/bin is read only. No files will be copied.
 
-	 Entries will be added to the /etc/oratab file as needed by
-	 Database Configuration Assistant when a database is created
-	 Finished running generic part of root script.
-	 Now product-specific root actions will be performed.
-	 ```
+	Entries will be added to the /etc/oratab file as needed by
+	Database Configuration Assistant when a database is created
+	Finished running generic part of root script.
+	Now product-specific root actions will be performed.
+	```
 
 	Close the terminal window.  
 
-	> This step is applicable for Linux and UNIX operating systems only. If you have installed Oracle Database earlier, the next time you run the database installer, it displays only one script ```root.sh```.
+	> This step is applicable for Linux and UNIX operating systems only. If you have installed Oracle Database earlier, the next time you run the database installer, it displays only one script `root.sh`.
 
 	<!--B. If you provided the privileged user credentials in step 13, click **Yes** in the dialog box to run the configuration script automatically.
 
    ![Image alt text](images/db21c_common_016b_autoscript.png)-->
 
-18. Return to the Execute Configuration Scripts window and click **OK** to continue. The installer proceeds with creating Oracle Database as per your configuration.
+21. Return to the Execute Configuration Scripts window and click **OK** to continue. The installer proceeds with creating Oracle Database as per your configuration.
 
 	![Finish Installation](images/db21c-srv-018-install-success.png)
 
-	Congratulations! You have installed the Oracle Database software and configured the database successfully.
+	Congratulations! You have successfully installed the Oracle Database software and configured the database.
 
 Click **Close** to exit Oracle Database Setup Wizard.
 
@@ -368,6 +378,6 @@ You may now **proceed to the next lab**.
 
 - **Author**: Manish Garodia, Principal User Assistance Developer, Database Technologies
 
-- **Contributors**: Suresh Rajan (Senior Manager, User Assistance Development), Prakash Jashnani (Manager, User Assistance Development), Subhash Chandra (Principal User Assistance Developer), Subrahmanyam Kodavaluru (Principal Member Technical Staff), Dharma Sirnapalli (Principal Member Technical Staff), Malai Stalin (Senior Manager, Software Development)
+- **Contributors**: Suresh Rajan, Prakash Jashnani, Subhash Chandra, Subrahmanyam Kodavaluru, Dharma Sirnapalli, Malai Stalin
 
 - **Last Updated By/Date**: Manish Garodia, September 2021

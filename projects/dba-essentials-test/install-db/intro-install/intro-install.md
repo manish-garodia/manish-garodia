@@ -2,8 +2,7 @@
 
 ## About this Workshop
 
-<if type="install-db">
-**Oracle Database Administration Essentials** is a task-oriented, quick start approach to familiarize you with Oracle Database administration. It features the basic know-hows of Oracle Database and helps you perform essential tasks to administer Oracle Database.
+**Oracle Database Administration Essentials** is a task-oriented, quick start approach to familiarize you with Oracle Database administration. It features the basic know-hows of Oracle Database and helps you perform tasks essential to administer Oracle Database.
 
 Estimated Workshop Time: 2 hours 
 
@@ -11,22 +10,19 @@ Watch this video to learn about the core *Oracle Database Breakthrough Innovatio
 
 [](youtube:sFQqiGCSh9c)
 
-> Read the blog on the core Oracle Database 21c features - [Introducing Oracle Database 21c](https://blogs.oracle.com/database/introducing-oracle-database-21c).
+### Objective
 
-> ![Introducing Oracle Database 21c](images/intro-db21-vp-blog.png)
+In this workshop, you will learn how to install Oracle Database 21c for *Desktop class* and *Server class*. 
+
+After installing Oracle Database, you will create additional databases with *Typical configuration* and *Advanced configuration*.
 
 ### Prerequisites
 
-- An Oracle Cloud Account - Please view this workshop's LiveLabs landing page to see which environments are supported
+- A Free Tier, Paid or LiveLabs Oracle Cloud account
 
-  **Note:** If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
+**Note:** If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
 
-### Objective
-</if>
-In the subsequent labs, you will learn different ways of installing and configuring Oracle Database 21c.
-
-
-## How to Install Oracle Database?
+## Appendix 1: How to Install Oracle Database?
 
 Setting up Oracle Database is a two-step process, which involves installing the Oracle Database software and creating a database.
 
@@ -68,7 +64,7 @@ Whereas if you select the *Typical* mode, though it gives fewer choices to confi
 
 Let us install Oracle Database 21c as explained in the subsequent labs and explore these options in detail.
 
-## Installation Prerequisites
+### Installation Prerequisites
 
 Before installing the Oracle Database software, the installer performs several automated checks to verify whether the hardware and the software required for installation are available. If your computer does not meet any specific requirement, it displays a corresponding error message. The requirements may vary depending upon the computer and the operating system you are using.
 
@@ -87,6 +83,7 @@ Oracle Database Enterprise Edition requires *7.8 GB* of local disk storage space
 
 ## Learn More
 
+- [Blog on Introducing Oracle Database 21c](https://blogs.oracle.com/database/introducing-oracle-database-21c)
 - [Oracle Database Documentation](https://docs.oracle.com/en/database/oracle/oracle-database/index.html)
 - [Oracle Cloud Infrastructure Documentation](https://docs.oracle.com/en-us/iaas/Content/Identity/Concepts/overview.htm)
 
