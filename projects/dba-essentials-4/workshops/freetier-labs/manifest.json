@@ -38,6 +38,11 @@
 			"filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc.md"
 		},
         {
+            "title": "Install Oracle Database 21c on OCI Compute",
+            "description": "Introduction to Oracle Database 21c Installation.",
+            "filename": "./../../install-db/intro-install/intro-install.md"
+        },
+        {
             "title": "Lab 4: Install Oracle Database (Desktop Class)",
             "description": "How to install Oracle Database 21c with minimal configuration.",
             "filename": "./../../install-db/installer/install-desktop-server.md",

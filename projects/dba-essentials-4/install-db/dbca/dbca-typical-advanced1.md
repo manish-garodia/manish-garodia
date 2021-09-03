@@ -4,33 +4,33 @@
 
 This lab shows how to create a single instance container database with <if type="typical">typical</if><if type="advanced">advanced</if> configuration. It does not install the Oracle Database software.
 
-Estimated Time: <if type="typical">20</if><if type="advanced">30</if> minutes
+Estimated Lab Time: <if type="typical">20</if><if type="advanced">30</if> minutes
 
 ### Objective
 
 Create an additional Oracle Database using Oracle Database Configuration Assistant (Oracle DBCA).
 
-## Task 1: Start Oracle DBCA
+### Assumptions
 
-Run Oracle DBCA after installing the Oracle Database software. A starter database may already exist on the host.
+- The Oracle Database software is installed and a starter database may already be created.
 
-1. Log in to your host as *oracle*, the user who is authorized to install the Oracle Database software and create Oracle Database.  
+- You logged in as *oracle*, the user who is authorized to install the Oracle Database software and create Oracle Database.  
 
-2. Open a terminal window and change the current working directory to `$ORACLE_HOME/bin`. This is the directory where Oracle DBCA is located.
+- In the terminal window, you changed the current working directory to `$ORACLE_HOME/bin` where Oracle DBCA is located.
 
 	```
 	$ <copy>cd /u01/app/oracle/product/21.0.0/dbhome_1/bin</copy>
 	```
 
-3. From `$ORACLE_HOME/bin`, run this command to start Oracle DBCA.
+- From ```$ORACLE_HOME/bin```, you launched Oracle DBCA with this command.
 
 	```
 	$ <copy>./dbca</copy>
 	```
 
-## Task 2: Create<if type="advanced"> and Configure</if> a Container Database
+## Task 1: Create<if type="advanced"> and Configure</if> a Container Database
 
-The `dbca` command from `$ORACLE_HOME/bin` starts Oracle DBCA with the Database Operation window.
+The `dbca` command from ```$ORACLE_HOME/bin``` starts Oracle DBCA with the Database Operation window.
 
 At any point, you can go **Back** to the previous window or **Cancel** database creation. You can click **Help** to view more information on the current window.
 
@@ -56,7 +56,7 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 
 	The password created in this window is associated with admin user accounts, namely SYS, SYSTEM, and PDBADMIN. After you create Oracle Database, enter the admin username and use this password to connect to the database.
 
-	**Note:** The password must conform to the Oracle recommended standards. 
+	**Note**: The password must conform to the Oracle recommended standards. 
 
 	The default **Database Character set** for Oracle Database is *AL32UTF8 - Unicode UTF-8 Universal character set*. 
 	
@@ -84,7 +84,7 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 
 	Removed this note as per review comments from Malai Stalin
 
-	**Note:** The General Purpose or Transaction Processing template and the Data Warehouse template create an Oracle Database with the `COMPATIBLE` initialization parameter set to `12.2.0.0.0`. This ensures that the new features in Oracle Database 21c are compatible with older versions of the database up to version 12c Release 2.  
+	**Note**: The General Purpose or Transaction Processing template and the Data Warehouse template create an Oracle Database with the `COMPATIBLE` initialization parameter set to `12.2.0.0.0`. This ensures that the new features in Oracle Database 21c are compatible with older versions of the database up to version 12c Release 2.  
 	-->
 
 	> For more complex environments, you can select the Custom Database option. This option does not use any templates and it usually increases the time taken to create an Oracle Database. 
@@ -206,7 +206,7 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 
 	![Set Admin Password](images/dbca21c-adv-011-syspwd.png)
 
-	**Note:** The password must conform to the Oracle recommended standards. 
+	**Note**: The password must conform to the Oracle recommended standards. 
 
 12. The Creation Option window displays the default option **Create database** selected.  
 	For the remaining fields, leave the defaults and click **Next**.
@@ -227,7 +227,7 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 
 	The confirmation message in the Finish window indicates that you created an Oracle Database successfully
 
-	**Password Management**
+	## Password Management
 
 	In the Finish window, click **Password Management** to view the status of Oracle Database user accounts. Except SYS and SYSTEM, all other users are initially in locked state.
 
@@ -239,9 +239,7 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 
 Click **Close** to exit Oracle Database Configuration Assistant.
 
-<if type="typical">You may now **proceed to the next lab**.</if>
-
-<if type="advanced">Congratulations! You have successfully completed this workshop on *Oracle Database 21c installation*.</if>
+<if type="typical">You may now [proceed to the next lab](#next).</if>
 
 ## Acknowledgements
 
@@ -249,4 +247,4 @@ Click **Close** to exit Oracle Database Configuration Assistant.
 
 - **Contributors**: Suresh Rajan (Senior Manager, User Assistance Development), Prakash Jashnani (Manager, User Assistance Development), Subhash Chandra (Principal User Assistance Developer), Subrahmanyam Kodavaluru (Principal Member Technical Staff), Dharma Sirnapalli (Principal Member Technical Staff)<if type="advanced">, Malai Stalin (Senior Manager, Software Development)</if>
 
-- **Last Updated By/Date**: Manish Garodia, September 2021
+- **Last Updated By/Date**: Manish Garodia, August 2021

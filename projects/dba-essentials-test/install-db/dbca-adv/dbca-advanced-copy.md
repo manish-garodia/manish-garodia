@@ -22,7 +22,7 @@ Run Oracle DBCA after installing the Oracle Database software. A starter databas
 	$ <copy>cd /u01/app/oracle/product/21.0.0/dbhome_1/bin</copy>
 	```
 
-3. From `$ORACLE_HOME/bin`, run this command to start Oracle DBCA.
+3. From `$ORACLE_HOME/bin`, run `dbca` to start Oracle DBCA.
 
 	```
 	$ <copy>./dbca</copy>
