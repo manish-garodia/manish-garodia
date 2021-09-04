@@ -2,23 +2,24 @@
 
 ## Introduction
 
-This lab shows how to create a single instance container database. It does not install the Oracle Database software. You can create a container database in the following modes. 
+This lab shows how to create a single instance container database. It does not install the Oracle Database software. You can create container database in the following modes. 
 
-- *Typical mode*  
+- *Typical*  
   Estimated Time: 20 mins
 
-- *Advanced mode*  
+- *Advanced*  
   Estimated Time: 30 mins
 
 ### Objective
 
-Create an additional Oracle Database using Oracle Database Configuration Assistant (Oracle DBCA).
+Create additional Oracle Databases with typical configuration and advanced configuration using Oracle Database Configuration Assistant (Oracle DBCA).
 
 ### Prerequisites
 
-This lab assumes you have:
-- A Free Tier, Paid or LiveLabs Oracle Cloud account
+This lab assumes:
+- You have a Free Tier, Paid or LiveLabs Oracle Cloud account
 - You have completed:
+	- Lab: Create SSH Keys
     - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
     - Lab: Setup Compute Instance
 	- Lab: Install Oracle Database
@@ -41,9 +42,11 @@ You can run Oracle DBCA only after you install the Oracle Database software usin
 	$ <copy>./dbca</copy>
 	```
 
+Now, perform the following tasks to create container databases.
+
 ## Task 2: Create a Container Database (Typical Mode)
 
-The `dbca` command from `$ORACLE_HOME/bin` starts Oracle DBCA with the Database Operation window.
+Run Oracle DBCA from `$ORACLE_HOME/bin` as explained in *Task 1*. Oracle DBCA starts with the Database Operation window. 
 
 At any point, you can go **Back** to the previous window or **Cancel** database creation. You can click **Help** to view more information on the current window.
 
@@ -53,13 +56,14 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 
 	> With Oracle DBCA, you can perform other administrative tasks, such as configure or delete an existing Oracle Database and manage PDBs and templates.
 
-2. Oracle DBCA displays the default creation mode, **Typical configuration**, selected with the pre-filled configuration parameters. 
+2. Oracle DBCA displays the default creation mode, **Typical configuration**, selected with pre-filled configuration parameters. 
 
-	For this lab, specify the **Administrative password** and enter the following.  
-	**Global database name** - *orcl1.us.oracle.com*  
+	For this lab, enter the following.  
+	**Global database name** - Specify a unique name, for example, *orcl1.us.oracle.com*  
+	**Administrative password** - Set the password for admin user accounts  
 	**Pluggable database name** - *orclpdb1*  
-
-	For the remaining fields, leave the defaults and click **Next**.
+	
+	The values may differ depending on the system you are using. For the remaining fields, leave the defaults and click **Next**.
 
     ![Typical Configuration](images/dbca21c-typical-002-typmode.png)
 
@@ -72,6 +76,8 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 	The default **Database Character set** for Oracle Database is *AL32UTF8 - Unicode UTF-8 Universal character set*. 
 	
 	> *AL32UTF8* is Oracle's name for the standard Unicode encoding UTF-8, which enables universal support for virtually all languages of the world. 
+
+	Along with CDB, Oracle DBCA also creates a PDB as per the Pluggable database name.
 
 3. Review the summary and click **Finish** to create your Oracle Database.
 
@@ -93,11 +99,11 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 
 	Click **OK** to save any changes you made and to close the Password Management window.
 
-Click **Close** to exit Oracle Database Configuration Assistant.
+Click **Close** to exit Oracle Database Configuration Assistant. You can start Oracle DBCA again to create another container database with advanced configuration. 
 
 ## Task 3: Create and Configure a Container Database (Advanced Mode)
 
-The `dbca` command from `$ORACLE_HOME/bin` starts Oracle DBCA with the Database Operation window.
+Run Oracle DBCA from `$ORACLE_HOME/bin` as explained in *Task 1*. Oracle DBCA starts with the Database Operation window. 
 
 At any point, you can go **Back** to the previous window or **Cancel** database creation. You can click **Help** to view more information on the current window.
 
@@ -133,10 +139,12 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 
 4. The Database Identification window displays pre-filled names and the System Identifier (SID) for Oracle Database.  
 
-	For this lab, enter the following and click **Next**.  
-	**Global database name** - *orcl2.us.oracle.com*  
+	For this lab, enter the following.  
+	**Global database name** - Specify a unique name, for example, *orcl2.us.oracle.com*  
 	**SID** - *orcl2*  
 	**PDB name** - *orcl2pdb1*  
+
+	The values may differ depending on the system you are using. For the remaining fields, leave the defaults and click **Next**.
 
 	![Oracle SID](images/dbca21c-adv-004-id.png)
 
@@ -164,7 +172,7 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 	For this lab, do not select these options. -->
 
 6. Select **Specify Fast Recovery Area** to set up a backup and recovery area, its directory location, and size.  
-	For this lab, leave the defaults and click **Next**.
+	For the remaining fields, leave the defaults and click **Next**.
 
     ![Fast Recovery](images/dbca21c-adv-006-recovery.png)
 
@@ -181,6 +189,8 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 	For this lab, de-select the existing listener if already selected. Select the checkbox **Create a new listener** and enter the following values:  
 	 **Listener name** - *LISTENER1*  
 	 **Listener port** - *1526*
+	 
+	 The values may differ depending on the system you are using. 
 
     ![Listener Selection](images/dbca21c-adv-007-listener.png)
 
@@ -211,17 +221,17 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 
 	    > If the total physical memory of your Oracle Database instance is greater than 4 GB, you cannot select the 'Use Automatic Memory Management' option. Instead, *Use Automatic Shared Memory Management* to distribute the available memory among various components as required, thereby allowing the system to maximize the use of all available SGA memory.
 
-	- **Sizing** - For this lab, a maximum of *320* processes can connect simultaneously to your Oracle Database. You can change this as per your requirement.  
-
-		> While using predefined templates, the **Block size** option is not enabled. Oracle DBCA creates an Oracle Database with the default block size of *8 KB*.
+	- **Sizing** - Specify the maximum number of processes that can connect simultaneously to your Oracle Database, for example, *320*.   
 
 		![Size](images/dbca21c-adv-009b-size.png)
 
+		> While using predefined templates, the **Block size** option is not enabled. Oracle DBCA creates an Oracle Database with the default block size of *8 KB*.
+
 	- **Character sets** - The *Use Unicode (AL32UTF8)* option is selected by default. 
 
-		> *AL32UTF8* is Oracle's name for the standard Unicode encoding UTF-8, which enables universal support for virtually all languages of the world. 
-
 		![Character Sets](images/dbca21c-adv-009c-charset.png)
+
+		> *AL32UTF8* is Oracle's name for the standard Unicode encoding UTF-8, which enables universal support for virtually all languages of the world. 
 
 	- **Connection mode** - *Dedicated server mode* allows a dedicated server process for each user process.
 

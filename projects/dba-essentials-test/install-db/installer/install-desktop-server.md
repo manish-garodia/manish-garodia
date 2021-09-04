@@ -16,13 +16,14 @@ This lab walks you through the steps for installing Oracle Database 21c and conf
 
 ### Objective
 
-Install the Oracle Database software and create a single instance container database using Oracle Database Setup Wizard (Installer).
+Install the Oracle Database software and create a starter database for Desktop class or Server class using Oracle Database Setup Wizard (Installer).
 
 ### Prerequisites
 
-This lab assumes you have:
-- A Free Tier, Paid or LiveLabs Oracle Cloud account
+This lab assumes:
+- You have a Free Tier, Paid or LiveLabs Oracle Cloud account
 - You have completed:
+	- Lab: Create SSH Keys
 	- Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
 	- Lab: Setup Compute Instance
 
@@ -46,7 +47,7 @@ Now, select one of the following options to install Oracle Database.
 
 ## Option 1: Install Oracle Database (Desktop Class)
 
-The `runInstaller` command from Oracle home starts the database installer with the Configuration Option window.
+Run the database installer from Oracle home as explained in *Task 1*. The installer starts with the Configuration Option window. 
 
 At any point, you can go **Back** to the previous window or **Cancel** the installation. You can click **Help** to view more information on the current window.
 
@@ -64,21 +65,28 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 	The *Server class* option is used for advanced installation with detailed configuration.
 
-3. The Typical Install Configuration window displays the pre-filled names and values for configuration parameters. Set the **Password** for Oracle Database.
+3. The Typical Install Configuration window displays the pre-filled names and values for configuration parameters. 
 
-  ![Typical Configuration](images/db21c-desk-003-config.png)
+	For this lab, enter the following.  
+	**Global database name** - Specify a unique name, for example, *orcl.us.oracle.com*  
+	**Password** - Set the password for admin user accounts  
+	**Pluggable database name** - *orclpdb*  
 
+	The values may differ depending on the system you are using. For the remaining fields, leave the defaults and click **Next**.
+
+   ![Typical Configuration](images/db21c-desk-003-config.png)
+
+	> You cannot create multiple Oracle Databases on a host with the same **Global database name**. If an Oracle Database with the specified name already exists, enter a different name, for example, *orcl2.us.oracle.com*.  
+	
 	The password created in this window is associated with admin user accounts, namely SYS, SYSTEM, and PDBADMIN. After you create Oracle Database, enter the admin username and use this password to connect to the database.
 
 	**Note:** The password must conform to the Oracle recommended standards. 
 
-	> You cannot create multiple Oracle Databases on a host with the same **Global database name**. If an Oracle Database with the specified name already exists, enter a different name, for example, *orcl2.us.oracle.com*.  
+	Along with CDB, Oracle DBCA also creates a PDB as per the Pluggable database name.
 
-	Along with CDB, Oracle DBCA also creates a PDB as per the **Pluggable database name** field. For this lab, leave the defaults and click **Next**.
+4. The first time you install Oracle Database on your host, the installer prompts you to specify the location of `oraInventory`, the directory for Oracle Database inventory. This directory provides a centralized inventory for all Oracle software products installed on the host. 
 
-4. The first time you install Oracle Database on your host, the installer prompts you to specify the location of `oraInventory`, the directory for Oracle Database inventory. This directory provides a centralized inventory for all Oracle software products installed on the host. The default operating system group for Oracle inventory is *dba*.  
-
-	For this lab, leave the defaults and click **Next**.
+	For this lab, do not change **Inventory Directory**, select the operating system group for Oracle inventory as *dba* and click **Next**.
 
 	![oraInventory Location](images/db21c-desk-004-inventory.png)
 
@@ -86,7 +94,7 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 5. You need to run root scripts to configure your Oracle Database.  
 	<!--If you select **Automatically run configuration scripts** then skip step 7-A.-->
-	For this lab, do not select the checkbox and run the scripts manually as explained in the later step. Click **Next**.
+	For this lab, do not select the checkbox and run the scripts manually as explained in the later steps. Click **Next**.
 
 	![Root Scripts](images/db21c-desk-005-rootscript.png)
 
@@ -173,7 +181,7 @@ If you have installed Oracle Database using Option 1, skip Option 2 and **procee
 
 ## Option 2: Install and Configure Oracle Database (Server Class)
 
-The `runInstaller` command from Oracle home starts the database installer with the Configuration Option window.
+Run the database installer from Oracle home as explained in *Task 1*. The installer starts with the Configuration Option window. 
 
 At any point, you can go **Back** to the previous window or **Cancel** the installation. You can click **Help** to view more information on the current window.
 
@@ -201,9 +209,9 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
    ![Oracle Base Location](images/db21c-srv-004-baseloc.png)
 
-5. The first time you install Oracle Database on your host, the installer prompts you to specify the location of `oraInventory`, the directory for Oracle Database inventory. This directory provides a centralized inventory for all Oracle software products installed on the host. The default operating system group for Oracle inventory is *dba*.  
+5. The first time you install Oracle Database on your host, the installer prompts you to specify the location of `oraInventory`, the directory for Oracle Database inventory. This directory provides a centralized inventory for all Oracle software products installed on the host. 
 
-	For this lab, leave the defaults and click **Next**.
+	For this lab, do not change **Inventory Directory**, select the operating system group for Oracle inventory as *dba* and click **Next**.
 
 	![oraInventory Location](images/db21c-srv-005-inventory.png)
 
@@ -223,6 +231,8 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
    ![Oracle SID](images/db21c-srv-007-id.png)
 
+	The values may differ depending on the system you are using.
+
 	> _**Oracle SID**_ is a unique name given to an Oracle Database. It distinguishes this instance of Oracle Database from other instances on the host.
 
 	>> You cannot create multiple Oracle Databases on a host with the same SID. If an Oracle Database with the specified SID already exists, enter a different SID, for example, *orcl3*. 
@@ -230,18 +240,19 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 	> Similarly, specify a *unique Global database name* for each Oracle Database on the same host.
 
 
-8. In the Configuration Options window, you can specify the amount of memory you want to allocate and select the character sets.
+8. In the Configuration Options window, you can specify the memory you want to allocate and select the character sets.
 
-    - **Memory** - For this lab, the allocated memory specified is *5906* MB. You may choose a different value based on your requirement.  
+    - **Memory** - Allocate memory for your Oracle Database as per your requirement, for example, *5906* MB.  
+	For this lab, leave the default value.  
 	For more information on memory management, see [About Automatic Memory Management Installation Options](https://docs.oracle.com/en/database/oracle/oracle-database/21/ladbi/about-automatic-memory-management-installation-options.html#GUID-38F46564-B167-4A78-A974-8C7CEE34EDFE).
 
      ![Memory](images/db21c-srv-008a-memory.png)
 
 	- **Character sets** - The *Use Unicode (AL32UTF8)* option is selected by default. 
-	
-	    > *AL32UTF8* is Oracle's name for the standard Unicode encoding UTF-8, which enables universal support for virtually all languages of the world.
 
 	 ![Character sets](images/db21c-srv-008b-charset.png)
+
+		> *AL32UTF8* is Oracle's name for the standard Unicode encoding UTF-8, which enables universal support for virtually all languages of the world.
 
 	For this lab, leave the defaults and click **Next**.
 
@@ -278,9 +289,9 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 	**Note:** The password must conform to the Oracle recommended standards. 
  
-13. In the Privileged Operating System groups window, you can grant your user account administrative access to Oracle Database. For this, you select the value for each OS Group listed below. The values represent the OS groups to which your user belong.  
+13. In the Privileged Operating System groups window, you can grant your user account administrative access to Oracle Database. For this, select the value for each OS Group listed below. The values represent the OS groups to which your user belong.  
 
-    For this lab, select the Database Operator group as *dba*. For rest of the groups, *dba* is selected by default.
+    For this lab, select *dba* for all the groups and click **Next**.
 
     ![OS Groups](images/db21c-srv-013-osgroups.png)
 
@@ -289,7 +300,7 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 14. You need to run root scripts to configure your Oracle Database.  
 	<!--If you select **Automatically run configuration scripts** then skip step 7-A.-->
-	For this lab, do not select the checkbox and run the scripts manually as explained in the later step. Click **Next**.
+	For this lab, do not select the checkbox and run the scripts manually as explained in the later steps. Click **Next**.
 
 	![Root Scripts](images/db21c-srv-014-rootscript.png)
 

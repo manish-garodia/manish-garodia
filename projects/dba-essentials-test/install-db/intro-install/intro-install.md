@@ -12,9 +12,7 @@ Watch this video to learn about the core *Oracle Database Breakthrough Innovatio
 
 ### Objective
 
-In this workshop, you will learn how to install Oracle Database 21c for *Desktop class* and *Server class*. 
-
-After installing Oracle Database, you will create additional databases with *Typical configuration* and *Advanced configuration*.
+In this workshop, you will learn how to install Oracle Database 21c for *Desktop class* and for *Server class* using the database installer. After installation, run Oracle DBCA to create additional databases with *Typical configuration* and *Advanced configuration*.
 
 ### Prerequisites
 
@@ -93,6 +91,6 @@ Click on the next lab to **get started**.
 
 - **Author**: Manish Garodia, Principal User Assistance Developer, Database Technologies
 
-- **Contributors**: Suresh Rajan (Senior Manager, User Assistance Development), Prakash Jashnani (Manager, User Assistance Development), Subhash Chandra (Principal User Assistance Developer), Subrahmanyam Kodavaluru (Principal Member Technical Staff), Dharma Sirnapalli (Principal Member Technical Staff)
+- **Contributors**: Suresh Rajan, Prakash Jashnani, Subhash Chandra, Subrahmanyam Kodavaluru, Dharma Sirnapalli
 
 - **Last Updated By/Date**: Manish Garodia, September 2021
