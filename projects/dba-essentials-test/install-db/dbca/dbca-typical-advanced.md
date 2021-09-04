@@ -3,21 +3,18 @@
 ## Introduction
 
 This lab shows how to create a single instance container database. It does not install the Oracle Database software. You can create container database in the following modes. 
-
 - *Typical*  
-  Estimated Time: 20 mins
-
 - *Advanced*  
-  Estimated Time: 30 mins
 
-### Objective
+Estimated Time: 1 hour
+
+### Objectives
 
 Create additional Oracle Databases with typical configuration and advanced configuration using Oracle Database Configuration Assistant (Oracle DBCA).
 
 ### Prerequisites
 
-This lab assumes:
-- You have a Free Tier, Paid or LiveLabs Oracle Cloud account
+- A Free Tier, Paid or LiveLabs Oracle Cloud account
 - You have completed:
 	- Lab: Create SSH Keys
     - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
@@ -26,7 +23,7 @@ This lab assumes:
 
 ## Task 1: Start Oracle DBCA
 
-You can run Oracle DBCA only after you install the Oracle Database software using the database installer. A starter database can already exist on the host.
+You can run Oracle DBCA only after you install the Oracle Database software using the database installer. For this lab, a starter database already exists on the host.
 
 1. Log in to your host as *oracle*, the user who is authorized to install the Oracle Database software and create Oracle Database.  
 
@@ -67,7 +64,7 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 
     ![Typical Configuration](images/dbca21c-typical-002-typmode.png)
 
-	> You cannot create multiple Oracle Databases with the same Global database name. If an Oracle Database with the specified name already exists, enter a different name.  
+	> You cannot create multiple Oracle Databases with the same Global database name. If an Oracle Database with the specified name already exists, enter a different name, for example, *orcl3.us.oracle.com*.  
 
 	The password created in this window is associated with admin user accounts, namely SYS, SYSTEM, and PDBADMIN. After you create Oracle Database, enter the admin username and use this password to connect to the database.
 
@@ -134,7 +131,7 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 	**Note:** The General Purpose or Transaction Processing template and the Data Warehouse template create an Oracle Database with the `COMPATIBLE` initialization parameter set to `12.2.0.0.0`. This ensures that the new features in Oracle Database 21c are compatible with older versions of the database up to version 12c Release 2.  
 	-->
 
-	> For more complex environments, you can select the Custom Database option. This option does not use any templates and it usually increases the time taken to create an Oracle Database. 
+	> For environments that are more complex, you can select the Custom Database option. This option does not use any templates and it usually increases the time taken to create an Oracle Database. 
 	>> For this lab, do not select this option.
 
 4. The Database Identification window displays pre-filled names and the System Identifier (SID) for Oracle Database.  
@@ -196,7 +193,7 @@ At any point, you can go **Back** to the previous window or **Cancel** database 
 
 	> A _**Listener**_ is a network service that runs on Oracle Database server. It is responsible for receiving incoming connection requests to and from the database and for managing the network traffic.
 
-	>> If you have created an Oracle Database earlier, a listener already exists. You can select the existing listener in the window. On the other hand, if you have installed only the Oracle Database software and did not create a database, the listener does not exist. You need to create a new listener from this window. 
+	>> If you created an Oracle Database earlier, a listener already exists. You can select the existing listener in this window. On the other hand, if you installed only the Oracle Database software and did not create a database, the listener does not exist. You need to create a new listener from this window. 
 
 	> You cannot use the same listener name to create multiple Oracle Databases. If an Oracle Database with the specified listener already exists, enter a different name for the listener, for example, *LISTENER2*.
 

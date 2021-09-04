@@ -10,7 +10,7 @@ Watch this video to learn about the core *Oracle Database Breakthrough Innovatio
 
 [](youtube:sFQqiGCSh9c)
 
-### Objective
+### Objectives
 
 In this workshop, you will learn how to install Oracle Database 21c for *Desktop class* and for *Server class* using the database installer. After installation, run Oracle DBCA to create additional databases with *Typical configuration* and *Advanced configuration*.
 
@@ -50,7 +50,7 @@ Consider the scenarios:
 
 - **Case#1** You have installed only the database software with the database installer. Then you need to run Oracle DBCA to create your Oracle Database.
 
-- **Case#2** Along with the software, you have also created an Oracle Database with the installer. You can still use Oracle DBCA to create additional databases.
+- **Case#2** Along with the software, you have also created a starter database with the installer. You can still use Oracle DBCA to create additional databases.
 
 > You can run Oracle DBCA only after you install the Oracle Database software using the database installer.  
 

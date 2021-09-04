@@ -5,23 +5,22 @@
 This lab walks you through the steps for installing Oracle Database 21c and configuring it. With the database installer, you can perform two types of installation.
 
 - **Option 1:** *Desktop class* with minimal configuration  
-  Estimated Time: 20 mins
+  Estimated Time: 20 minutes
 
 - **Option 2:** *Server class* with advanced configuration  
-  Estimated Time: 30 mins
+  Estimated Time: 30 minutes
 
 > To install both system classes on the same host, you need different Oracle home locations.  
 
 >> For this workshop, select any one of these. 
 
-### Objective
+### Objectives
 
-Install the Oracle Database software and create a starter database for Desktop class or Server class using Oracle Database Setup Wizard (Installer).
+Install the Oracle Database software and create a starter database for Desktop class or for Server class using Oracle Database Setup Wizard (Installer).
 
 ### Prerequisites
 
-This lab assumes:
-- You have a Free Tier, Paid or LiveLabs Oracle Cloud account
+- A Free Tier, Paid or LiveLabs Oracle Cloud account
 - You have completed:
 	- Lab: Create SSH Keys
 	- Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
@@ -65,9 +64,10 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 	The *Server class* option is used for advanced installation with detailed configuration.
 
-3. The Typical Install Configuration window displays the pre-filled names and values for configuration parameters. 
+3. The Typical Install Configuration window displays pre-filled names and values for configuration parameters. 
 
 	For this lab, enter the following.  
+	**OSDBA group** - Select *dba*  
 	**Global database name** - Specify a unique name, for example, *orcl.us.oracle.com*  
 	**Password** - Set the password for admin user accounts  
 	**Pluggable database name** - *orclpdb*  
@@ -86,7 +86,7 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 4. The first time you install Oracle Database on your host, the installer prompts you to specify the location of `oraInventory`, the directory for Oracle Database inventory. This directory provides a centralized inventory for all Oracle software products installed on the host. 
 
-	For this lab, do not change **Inventory Directory**, select the operating system group for Oracle inventory as *dba* and click **Next**.
+	For this lab, do not change the **Inventory Directory**, select the operating system group for Oracle inventory as *dba* and click **Next**.
 
 	![oraInventory Location](images/db21c-desk-004-inventory.png)
 
@@ -211,7 +211,7 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 5. The first time you install Oracle Database on your host, the installer prompts you to specify the location of `oraInventory`, the directory for Oracle Database inventory. This directory provides a centralized inventory for all Oracle software products installed on the host. 
 
-	For this lab, do not change **Inventory Directory**, select the operating system group for Oracle inventory as *dba* and click **Next**.
+	For this lab, do not change the **Inventory Directory**, select the operating system group for Oracle inventory as *dba* and click **Next**.
 
 	![oraInventory Location](images/db21c-srv-005-inventory.png)
 
@@ -227,11 +227,16 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 	**Note:** The General Purpose or Transaction Processing template and the Data Warehouse template create an Oracle Database with the `COMPATIBLE` initialization parameter set to `12.2.0.0.0`. This ensures that the new features in Oracle Database 21c are compatible with older versions of the database up to version 12c Release 2.
 	-->
 
-7. The Database Identifiers window displays pre-filled names and the System Identifier (SID) for Oracle Database. Leave the defaults and click **Next**.
+7. The Database Identifiers window displays pre-filled names and the System Identifier (SID) for Oracle Database.
+
+	For this lab, enter the following and click **Next**.  
+	**Global database name** - Specify a unique name, for example, *orcl.us.oracle.com*  
+	**Oracle system identifier (SID)** - *orcl*  
+	**Pluggable database name** - *orclpdb*  
+	
+	The values may differ depending on the system you are using.
 
    ![Oracle SID](images/db21c-srv-007-id.png)
-
-	The values may differ depending on the system you are using.
 
 	> _**Oracle SID**_ is a unique name given to an Oracle Database. It distinguishes this instance of Oracle Database from other instances on the host.
 
@@ -240,9 +245,9 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 	> Similarly, specify a *unique Global database name* for each Oracle Database on the same host.
 
 
-8. In the Configuration Options window, you can specify the memory you want to allocate and select the character sets.
+8. In the Configuration Options window, you can allocate the memory and select the character sets.
 
-    - **Memory** - Allocate memory for your Oracle Database as per your requirement, for example, *5906* MB.  
+    - **Memory** - Specify the memory you want to allocate for your Oracle Database, for example, *5906* MB.  
 	For this lab, leave the default value.  
 	For more information on memory management, see [About Automatic Memory Management Installation Options](https://docs.oracle.com/en/database/oracle/oracle-database/21/ladbi/about-automatic-memory-management-installation-options.html#GUID-38F46564-B167-4A78-A974-8C7CEE34EDFE).
 
@@ -291,7 +296,7 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
  
 13. In the Privileged Operating System groups window, you can grant your user account administrative access to Oracle Database. For this, select the value for each OS Group listed below. The values represent the OS groups to which your user belong.  
 
-    For this lab, select *dba* for all the groups and click **Next**.
+    For this lab, select *dba* for all groups and click **Next**.
 
     ![OS Groups](images/db21c-srv-013-osgroups.png)
 
