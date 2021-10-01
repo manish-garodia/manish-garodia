@@ -7,6 +7,7 @@ Now that Oracle Database 21c is installed on your system, let's fire it up, and 
 <!--[](youtube:8VgdTYmfJYs)-->
 
 
+
 ## Learn More
 
 - [Oracle Enterprise Manager Cloud Control (EMCC)](https://docs.oracle.com/en/database/oracle/oracle-database/index.html)
