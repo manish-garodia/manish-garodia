@@ -4,21 +4,21 @@
 
 In this lab we will review and startup all components required to successfully run this workshop.
 
-*Estimated Lab Time:* 10 Minutes.
+Estimated Time: 10 Minutes
 
 ### Objectives
 - Initialize the workshop environment.
 
 ### Prerequisites
-This lab assumes you have:
+This lab assumes you have -
 - A Free Tier, Paid or LiveLabs Oracle Cloud account
 - SSH Private Key to access the host via SSH (*Free-tier* and *Paid Tenants* only)
-- You have completed:
+- You have completed -
     - Lab: Generate SSH Keys (*Free-tier* and *Paid Tenants* only)
     - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
-    - Lab: Environment Setup
+    - Lab: Setup Compute Instance
 
-## Task 1: Validate That Required Processes are Up and Running.
+## Task 1: Validate That Required Processes are Up and Running
 1. Now with access to your remote desktop session, proceed as indicated below to validate your environment before you start executing the subsequent labs. The following Processes should be up and running:
 
     - Database Listeners
@@ -147,7 +147,7 @@ This lab assumes you have:
 
 ### **Update the Named Credentials with the new SSH Key**
 
-4. From the EM Console as *SYSMAN*, navigate to "***Setup menu >> Security>> Named Credential***" and Select ROOT credential;
+4. From the EM Console as *SYSMAN*, navigate to "***Setup menu*** > ***Security*** > ***Named Credential***" and Select ROOT credential;
 
 5. Click Edit. Replace the existing entry with the *SSH Private Key* you copied to *"/tmp"*. Keep the General section unchanged and update the *Credential Properties* as followed:
 
@@ -157,7 +157,7 @@ This lab assumes you have:
 
     ![](images/update_ssh_creds-1.png " ")
 
-6. On the file browser, navigate to *"+Other Locations >> tmp"* and select the file *rsa_priv*
+6. On the file browser, navigate to *+Other Locations* > *tmp* and select the file *rsa_priv*
 
     ![](images/update_ssh_creds-2.png " ")
 
@@ -167,7 +167,7 @@ This lab assumes you have:
     ![](images/update_ssh_creds-4.png " ")
 
 8. Setup oracle Named Credentials using Job System. This will set up the user oracle password on the host and update the Named Credentials used in this workshop.
-Navigate to "***Enterprise >> Job >> Library***" and select "SETUP ORACLE CREDENTIALS"; Click Submit.
+Navigate to ***Enterprise*** > ***Job*** > ***Library*** and select "SETUP ORACLE CREDENTIALS"; Click Submit.
 
     ![](images/named_creds_job.jpg " ")
 
