@@ -1,6 +1,6 @@
 {
   "workshoptitle": "Oracle Database Administration Essentials for Database 21c",
-  "help": "livelabs-help-db_us@oracle.com",
+  "help": "livelabs-help-db_us@oracle.com",  
   "tutorials": [
     {
       "title": "Introduction",
@@ -15,7 +15,7 @@
     {
       "title": "Lab 1: Prepare Setup",
       "description": "How to download your ORM stack and update security rules for an existing VCN.",
-      "filename": "../../install-db/prepare-setup/prepare-setup.md"
+      "filename": "./../../install-db/prepare-setup/prepare-setup.md"
     },
     {
       "title": "Lab 2: Setup Compute Instance",
@@ -24,20 +24,40 @@
       "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc.md"
     },
     {
-      "title": "Lab 3: Install Oracle Database on OCI Compute",
+      "title": "Lab 3: Install Oracle Database 21c on OCI Compute",
       "description": "How to install Oracle Database 21c for Desktop class (minimal configuration) and Server class (advanced configuration).",
-      "filename": "../../install-db/intro-install/intro-install-if.md",
+      "filename": "./../../install-db/intro-install/intro-install-if.md",
 	  "type":"dbae"
     },
     {
-      "title": "Lab 8: Get started with DBA",
-      "description": "<TBD>",
-      "filename": "./../../start-emcc/intro-emcc/intro-emcc.md"
+      "title": "Lab 8: EM - Oracle Database Administration (DBA)",
+      "description": "The workshop on Oracle Enterprise Manager Cloud Control (Oracle EMCC) Database Administration (DBA).",
+      "filename": "./../../em-dba/intro-emcc/intro-emcc.md",
+	  "type":"dbae"
     },
     {
-      "title": "Lab 9: Basic SQL Commands",
-      "description": "<TBD>",
-      "filename": "./../../start-emcc/db-details/view-db-details.md"
+      "title": "Lab 8: Configure Network Environment",
+      "description": "The workshop on <TBD>",
+      "filename": "./../../nw/intro/intro-nw.md",
+	  "type":"dbae"
+    },
+    {
+      "title": "Lab 8: Manage Oracle Database Instance and Memory",
+      "description": "The workshop on <TBD>",
+      "filename": "./../../nw/intro/intro-nw.md",
+	  "type":"dbae"
+    },
+    {
+      "title": "Lab 8: Perform Backup and Recovery",
+      "description": "The workshop on <TBD>",
+      "filename": "./../../nw/intro/intro-nw.md",
+	  "type":"dbae"
+    },
+    {
+      "title": "Lab 11: Deinstall Oracle Database",
+      "description": "The workshop on <TBD>",
+      "filename": "./../../nw/intro/intro-nw.md",
+	  "type":"dbae"
     },
     {
       "title": "Need Help?",
