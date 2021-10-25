@@ -120,7 +120,7 @@ This lab assumes you have -
 
 ### **Generate SSH Keys**
 
-1. From your remote desktop session, open a terminal window run the following to generate the key pair
+1. From your remote desktop session, open a terminal window and run the following to generate the key pair
 
     ```
     <copy>
@@ -129,7 +129,7 @@ This lab assumes you have -
     </copy>
     ```
 
-2. Accept defaults for file and passphrase by press *Enter* three times to create a key with no passphrase.
+2. Accept defaults for file and passphrase by pressing *Enter* three times to create a key with no passphrase.
 
     ![](images/ssh-key-gen.png " ")
 
@@ -143,11 +143,11 @@ This lab assumes you have -
     </copy>
     ```
 
-    ![](images/update_ssh_creds-0.png " ")
+    ![](images/update-ssh-creds-0.png " ")
 
 ### **Update the Named Credentials with the new SSH Key**
 
-4. From the EM Console as *SYSMAN*, navigate to "***Setup menu*** > ***Security*** > ***Named Credential***" and Select ROOT credential;
+4. From the EM Console as *SYSMAN*, navigate to ***Setup menu*** > ***Security*** > ***Named Credential*** and Select ROOT credential;
 
 5. Click Edit. Replace the existing entry with the *SSH Private Key* you copied to *"/tmp"*. Keep the General section unchanged and update the *Credential Properties* as followed:
 
@@ -155,25 +155,25 @@ This lab assumes you have -
     - Delete any content from *SSH Public Key* Textbox
     - Click *Browse* to select the *Private Key*
 
-    ![](images/update_ssh_creds-1.png " ")
+    ![](images/update-ssh-creds-1.png " ")
 
 6. On the file browser, navigate to *+Other Locations* > *tmp* and select the file *rsa_priv*
 
-    ![](images/update_ssh_creds-2.png " ")
+    ![](images/update-ssh-creds-2.png " ")
 
 7. Click *Test and Save*
 
-    ![](images/update_ssh_creds-3.png " ")
-    ![](images/update_ssh_creds-4.png " ")
+    ![](images/update-ssh-creds-3.png " ")
+    ![](images/update-ssh-creds-4.png " ")
 
 8. Setup oracle Named Credentials using Job System. This will set up the user oracle password on the host and update the Named Credentials used in this workshop.
 Navigate to ***Enterprise*** > ***Job*** > ***Library*** and select "SETUP ORACLE CREDENTIALS"; Click Submit.
 
-    ![](images/named_creds_job.jpg " ")
+    ![](images/named-creds-job.jpg " ")
 
 9. Click Submit again on the Job submission Page
 
-    ![](images/named_creds_job_submit.jpg " ")
+    ![](images/named-creds-job-submit.jpg " ")
 
 10. The Job will be submitted successfully. Click on SETUP ORACLE CREDENTIALS Job link to view the Job
 
@@ -181,9 +181,9 @@ Navigate to ***Enterprise*** > ***Job*** > ***Library*** and select "SETUP ORACL
 
 11. The Job should show Status **Succeeded**
 
-    ![](images/named_creds_job_succeeded.jpg " ")
+    ![](images/named-creds-job-succeeded.jpg " ")
 
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
 ## Appendix 1: Managing Startup Services
 
