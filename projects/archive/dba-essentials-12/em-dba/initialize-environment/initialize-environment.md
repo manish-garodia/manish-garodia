@@ -12,9 +12,7 @@ Estimated Time: 10 Minutes
 ### Prerequisites
 This lab assumes you have -
 - A Free Tier, Paid or LiveLabs Oracle Cloud account
-- SSH Private Key to access the host via SSH (*Free-tier* and *Paid Tenants* only)
 - You have completed -
-    - Lab: Generate SSH Keys (*Free-tier* and *Paid Tenants* only)
     - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
     - Lab: Setup Compute Instance
 
@@ -24,16 +22,10 @@ This lab assumes you have -
     - Database Listeners
         - LISTENER
         - LISTENER_1522
-        - LISTENER_1523
-        - LISTENER_1524
-        - LISTENER_1525
     - Database Server Instances
         - emrep
-        - sales
-        - finance
-        - hr
-        - cdb186
         - db19c
+		- orcl
     - Enterprise Manager - Management server (OMS)
     - Enterprise Manager - Management Agent (emagent)
 
@@ -310,4 +302,4 @@ While you will only need the browser to perform all tasks included in this works
 ## Acknowledgements
   - **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology
   - **Contributors** - Ashish Kumar
-  - **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, July 2021
+  - **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, October 2021
