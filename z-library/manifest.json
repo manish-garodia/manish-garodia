@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs on Test Env",
+    "tutorials": [
+        {
+            "title": "Welcome to MG space!",
+            "description": "This is the landing page for the oracle/learning-library repo",
+            "filename": "./../common/intro/README.md"
+        }
+    ]
+}
