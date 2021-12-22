@@ -5,6 +5,11 @@
             "title": "Welcome to MG space!",
             "description": "This is the landing page for the oracle/learning-library repo",
             "filename": "./../common/intro/README.md"
+        },
+        {
+            "title": "Lab 1: MG Library",
+            "description": "This is the landing page for the oracle/learning-library repo",
+            "filename": "./../common/mg-library/mg-library.md"
         }
     ]
 }
