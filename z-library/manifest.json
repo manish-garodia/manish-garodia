@@ -1,10 +1,11 @@
 {
     "workshoptitle": "LiveLabs on Test Env",
+	"include": {"Connect-To-SQL": "https://raw.githubusercontent.com/oracle/learning-library/data-management-library/autonomous-database/shared/adb-provision/adb-provision-conditional.md"},
     "tutorials": [
         {
             "title": "Welcome to MG space!",
             "description": "This is the landing page for the oracle/learning-library repo",
-            "filename": "./../common/intro/README.md"
+            "filename": "./../common/intro/readme.md"
         },
         {
             "title": "Lab 1: MG Library",
