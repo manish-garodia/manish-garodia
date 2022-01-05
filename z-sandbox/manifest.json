@@ -1,0 +1,26 @@
+{
+    "workshoptitle": "LiveLabs in Sandbox",
+    "tutorials": [
+        {
+            "title": "Welcome to MG space!",
+            "description": "This is the landing page for the oracle/learning-library repo",
+            "filename": "./../common/intro/readme.md"
+        },
+        {
+            "title": "Lab 1: MG Library",
+            "description": "This is the landing page for the oracle/learning-library repo",
+            "filename": "./../common/mg-library/mg-library.md"
+        },
+        {
+            "title": "Lab #: Oracle Database 21c Gold Image",
+            "description": "Pre-installation setup, post installation steps, troubleshooting.",
+            "filename": "./../common/mg-library/procedures/install-db-goldimage/install-db-goldimage.md",
+			"type": "hidden"
+        },
+        {
+            "title": "Lab #: Install Oracle EMCC 13.5",
+            "description": "Description",
+            "filename": "./../common/mg-library/procedures/install-em/steps-install-emcc/steps-install-emcc.md"
+        }
+    ]
+}

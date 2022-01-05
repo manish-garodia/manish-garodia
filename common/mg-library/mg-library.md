@@ -1,5 +1,6 @@
 # MG Library
 
-work-in-progress
+TBD
 
-![Image Alt text](./../images/maintenance-work-in-progress.jpg)
+![Image Alt text](./../images/maintenance-work-in-progress.jpg " ")**Caption:** Work-in-progress
+
