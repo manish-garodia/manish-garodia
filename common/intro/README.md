@@ -14,8 +14,7 @@
 </i>
 
 ----
-- 📫 Reach me at [manish.garodia@oracle.com](mailto:manish.garodia%40oracle.com)
-
+- 📫 Reach me at [manish.garodia@oracle.com](./files/email.md)
 
 ## DBA Essentials workshops
 

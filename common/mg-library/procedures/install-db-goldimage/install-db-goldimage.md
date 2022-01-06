@@ -221,7 +221,7 @@ DB install are available as gold images.
 [EM Exp for DB 21c](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5500/em)
 
 - User name - *system*
-- Password - *Welcome_1*
+- Password - Enter the password <if type="hidden">*Welcome_1*</if>
 - Container name - (leave empty)
 
 **Note:** If you forget the database passwors, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
@@ -464,7 +464,7 @@ Using `/opt`
 	```
 
 
-## Troubleshooting
+## Troubleshoot
 
 ### Create directory under root
 
@@ -506,7 +506,7 @@ No protocol specified
 
 Can't connect to X11 window server using ':1' as the value of the DISPLAY variable.
 
-**Resolution:** Copy ~/.Xauthority to the `oracle` folder under `/home`.
+**Solution:** Copy ~/.Xauthority to the `oracle` folder under `/home`.
 
 ```
 <copy>cp ~/.Xauthority /home/oracle</copy>
@@ -569,3 +569,7 @@ The xdpyinfo program must be installed.
 
 Refer [Installation Guide - xdpyinfo Errors](https://docs.oracle.com/cd/E89497_01/html/rpm_80_installation/GUID-842C3883-9BC1-4D37-82C1-9E7F24628AA7.htm).
 
+## Acknowledgements
+
+ - **Author** - Manish Garodia, Team Database UAD
+ - **Last Updated on** - January 5, (Wed) 2022
