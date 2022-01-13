@@ -464,7 +464,7 @@ Using `/opt`
 	```
 
 
-## Troubleshoot
+## Troubleshooting
 
 ### Create directory under root
 

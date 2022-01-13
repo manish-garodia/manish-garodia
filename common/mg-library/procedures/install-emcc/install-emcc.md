@@ -242,7 +242,7 @@ These credentials are required for the maintenance of EM.
 - Middleware folder - `cd /scratch/u01/software/em/middleware/bin`
 - Agent folder - `cd /scratch/u01/software/em/agent/agent_13.5.0.0.0/bin`
 
-## Troubleshoot
+## Troubleshooting
 
 Check the log file under `/tmp/OraInstalldate_time/Installdate_time.log`
 
