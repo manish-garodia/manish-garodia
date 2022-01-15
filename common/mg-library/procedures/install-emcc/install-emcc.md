@@ -1,4 +1,4 @@
-# Oracle EMCC 13.5 Installation
+# Install Oracle EMCC 13.5
 
 ## Introduction
 This lab covers the steps on how to install Oracle EMCC on VM. 

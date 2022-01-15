@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs in MG Library",
+    "tutorials": [
+        {
+            "title": "Lab #: Install Oracle EMCC 13.5",
+            "description": "Pre-installation setup, EMCC installation, troubleshooting, EMCC Deinstallation.",
+            "filename": "./../../common/mg-library/procedures/install-emcc/install-emcc.md"
+        }
+    ]
+}

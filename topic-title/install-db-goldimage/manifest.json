@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs in MG Library",
+    "tutorials": [
+        {
+            "title": "Lab #: Oracle Database 21c Gold Image",
+            "description": "VM access and environment details, Pre-installation setup, post installation steps, troubleshooting.",
+            "filename": "./../../common/mg-library/procedures/install-db-goldimage/install-db-goldimage.md"
+        }
+    ]
+}
