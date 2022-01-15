@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs in MG Library",
+    "tutorials": [
+        {
+            "title": "Lab #: Access VM and Configure VNC",
+            "description": "Access VM and configure vnc.",
+            "filename": "./../common/mg-library/procedures/access-vm-config-vnc/access-vm-config-vnc.md"
+        }
+    ]
+}
