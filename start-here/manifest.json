@@ -13,13 +13,18 @@
         },
         {
             "title": "Lab #: Oracle Database 21c Gold Image",
-            "description": "Pre-installation setup, post installation steps, troubleshooting.",
+            "description": "VM access and environment details, Pre-installation setup, post installation steps, troubleshooting.",
             "filename": "./../common/mg-library/procedures/install-db-goldimage/install-db-goldimage.md"
         },
         {
             "title": "Lab #: Install Oracle EMCC 13.5",
-            "description": "Description",
+            "description": "Pre-installation setup, EMCC installation, troubleshooting, EMCC Deinstallation.",
             "filename": "./../common/mg-library/procedures/install-emcc/install-emcc.md"
+        },
+        {
+            "title": "Lab #: Compute Instance and Custom Images",
+            "description": "Description",
+            "filename": "./../common/mg-library/procedures/compute-instance-custom-image/compute-instance-custom-image.md"
         }
     ]
 }
