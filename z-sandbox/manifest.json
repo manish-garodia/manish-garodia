@@ -12,8 +12,14 @@
             "filename": "./../common/mg-library/mg-library.md"
         },
         {
+            "title": "Lab #: Access VM and Configure VNC",
+            "description": "Access VM and configure vnc.",
+            "filename": "./../common/mg-library/procedures/access-vm-config-vnc/access-vm-config-vnc.md",
+			"type": "hidden"
+        },
+        {
             "title": "Lab #: Oracle Database 21c Gold Image",
-            "description": "VM access and environment details, Pre-installation setup, post installation steps, troubleshooting.",
+            "description": "Pre-installation setup, post installation steps, troubleshooting.",
             "filename": "./../common/mg-library/procedures/install-db-goldimage/install-db-goldimage.md",
 			"type": "hidden"
         },
