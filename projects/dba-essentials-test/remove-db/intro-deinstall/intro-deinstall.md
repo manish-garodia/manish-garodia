@@ -8,7 +8,7 @@ Estimated Workshop Time: 45 mins
 
 ### Objectives
 
-In this workshop, you will learn how to use the *deinstall* command to remove Oracle Database from your host. During database removal, *deinstall* will delete the Oracle home and the Oracle Database components along with uninstalling the database software.
+In this workshop, you will learn how to use the *deinstall* command to remove Oracle Database from your host. During database removal, *deinstall* will delete the Oracle home and the Oracle Database components along with removing the database software.
 
 **Note:** If you have any user data in Oracle base or Oracle home locations, then `deinstall` deletes this data also. To safeguard your data and files, move them outside Oracle base and Oracle home before running `deinstall`. 
 
@@ -76,4 +76,4 @@ Click on the next lab to **Get Started**.
 
 -   **Contributors** - Subrahmanyam Kodavaluru, Suresh Rajan, Prakash Jashnani, Malai Stalin, Subhash Chandra, Dharma Sirnapalli
 
--   **Last Updated By/Date** - Manish Garodia, December 2021
+-   **Last Updated By/Date** - Manish Garodia, January 2022
