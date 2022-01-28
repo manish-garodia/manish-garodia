@@ -62,7 +62,7 @@ text-align: center;
 |**D-8**             | Backup and Recovery Operations  | [9281](https://apex.oraclecorp.com/pls/apex/f?p=24885:14:12214020181921::::P14_ID:9281) | [Freetier](http://127.0.0.1:3001/mg-playground/projects/dba-essentials-test/backup-recovery/workshops/freetier/) |||
 |**D-9**             | TBD                             |        |            |      |                           |
 |**D-10**            | TBD                             |        |            |      |                           |
-|**A-11**            | Uninstall Oracle Database From Your Host | [8341](https://apex.oraclecorp.com/pls/apex/f?p=24885:320:12904126839438::::P320_ROWID:ADaLzyAIsAAAAXJAAA) | [Freetier](http://127.0.0.1:3001/mg-playground/projects/dba-essentials-test/remove-db/workshops/freetier/) | Freetier | Freetier |
+|**A-11**            | Remove Oracle Database From Your Host | [8341](https://apex.oraclecorp.com/pls/apex/f?p=24885:320:12904126839438::::P320_ROWID:ADaLzyAIsAAAAXJAAA) | [Freetier](http://127.0.0.1:3001/mg-playground/projects/dba-essentials-test/remove-db/workshops/freetier/) | [Freetier](https://manish-garodia.github.io/learning-library/data-management-library/database/21c/dba-essentials/configure-network-env/workshops/freetier/) | [Freetier](https://oracle.github.io/learning-library/data-management-library/database/21c/dba-essentials/configure-network-env/workshops/freetier/) |
 
 </div class="heatMap">
 
