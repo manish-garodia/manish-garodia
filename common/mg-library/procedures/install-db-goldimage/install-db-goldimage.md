@@ -4,7 +4,7 @@
 
 This lab covers the pre-installation setup and post installation tasks for Oracle Database 21c gold image. It also discusses some troubleshooting scenarios and tips.
 
-## Pre-installation setup
+## Task 1: Pre-installation setup
 
 DB install are available as gold images.
 
@@ -94,7 +94,7 @@ DB install are available as gold images.
 
 **Note:** If you forget the database passwors, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
 
-## Post Installation steps
+## Task 2: Post Installation steps
 
 #### Listeners
 - DB 21c - port *1522*
@@ -332,7 +332,7 @@ Using `/opt`
 	```
 
 
-## Troubleshooting
+## Task 3: Troubleshooting
 
 ### **Create directory under root**
 
@@ -444,4 +444,4 @@ Refer [Installation Guide - xdpyinfo Errors](https://docs.oracle.com/cd/E89497_0
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - January 15, (Sat) 2022
+ - **Last Updated on** - February 1, (Tue) 2022

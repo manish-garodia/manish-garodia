@@ -3,7 +3,7 @@
 ## Introduction
 This lab shows how to access the VM and configure the VNC. 
 
-## Request account access
+## Task 1: Request account access
 
 <table>
     <thead>
@@ -34,23 +34,7 @@ This lab shows how to access the VM and configure the VNC.
 
 ![Request access](/images/ldap-kerberos-access.png)
 
-## Internal Test Environment
-
-- Host user name: *sso* or global UID *mgarodia*
-<if type="hidden">
-- TigerVNC pwd: *welcome1*
-- LDAP/Kerberos pwd: *Livelabs\*1*
-</if>
-
-| VM hostname                                             | Description                           |
-|---------------------------------------------------------|-------------------------------------  |
-| phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com   | OCI machine <br>IP: `100.104.88.84`   |
-| slc10wsw.us.oracle.com:2                                | Uno machine <br>User ID: `1477205`    |
-|<if type="hidden">phoenix62465.dev1sub1phx.databasede1phx.oraclevcn.com:1 | Suresh Mohan's VM <br>pwd: *welcome1* </if>|
-| den03ckl.us.oracle.com:1                                | Temp machine from Subbu <br> cuser:welcome <br>root:Welcome123 |
-
-
-## Configure VNC
+## Task 2: Configure VNC in the VM
 
 Go to [MyDesktop applications](https://mydesktop.oraclecorp.com/myd_sso/apps.main) and install *PuTTY*, if not already installed. 
 
@@ -131,8 +115,23 @@ Go to [MyDesktop applications](https://mydesktop.oraclecorp.com/myd_sso/apps.mai
 	```
 	</if>
 
+## Internal Test Environments
+
+- Host user name: *sso* or global UID *mgarodia*
+<if type="hidden">
+- TigerVNC pwd: *welcome1*
+- LDAP/Kerberos pwd: *Livelabs\*1*
+</if>
+
+| VM hostname                                             | Description                           |
+|---------------------------------------------------------|-------------------------------------  |
+| phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com   | OCI machine <br>IP: `100.104.88.84`   |
+| slc10wsw.us.oracle.com:2                                | Uno machine <br>User ID: `1477205`    |
+|<if type="hidden">phoenix62465.dev1sub1phx.databasede1phx.oraclevcn.com:1 | Suresh Mohan's VM <br>pwd: *welcome1* </if>|
+| den03ckl.us.oracle.com:1                                | Temp machine from Subbu <br> cuser:welcome <br>root:Welcome123 |
+
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - January 15, (Sat) 2022
+ - **Last Updated on** - February 1, (Tue) 2022
 

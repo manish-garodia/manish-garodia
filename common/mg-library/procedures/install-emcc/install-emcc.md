@@ -3,7 +3,7 @@
 ## Introduction
 This lab covers the steps on how to install Oracle EMCC on VM. 
 
-## Pre-installation setup
+## Task 1: Pre-installation setup
 1. Download the EM package and validate.
 1. Make the bin file executable.
 1. Set the `DISPLAY` environment variable.
@@ -78,7 +78,7 @@ Check and fix the prerequisites with the [EM Prerequisite Kit](https://docs.orac
 | `phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:1` | `/scratch/u01/installers/emcc135`       | Not executable |
 | `slc10wsw.us.oracle.com:2`                                | `/scratch/em_software13.5`              |                |
 
-## Install Oracle EMCC 13.5
+## Task 2: Install Oracle EMCC 13.5
 
 1. Launch the installer. 
 
@@ -242,7 +242,7 @@ These credentials are required for the maintenance of EM.
 - Middleware folder - `cd /scratch/u01/software/em/middleware/bin`
 - Agent folder - `cd /scratch/u01/software/em/agent/agent_13.5.0.0.0/bin`
 
-## Troubleshooting
+## Task 3: Troubleshooting
 
 Check the log file under `/tmp/OraInstalldate_time/Installdate_time.log`
 
@@ -374,7 +374,7 @@ Check the log file under `/tmp/OraInstalldate_time/Installdate_time.log`
 	$ <copy>XX:+UnlockCommercialFeatures -XX:+ResourceManagement</copy>
 	```
 
-## Deinstall EMCC
+## Task 4: Deinstall EMCC
 
 **Option 1**
 
@@ -415,4 +415,4 @@ $ <copy>sh /scratch/u01/ManishDoc/deinstall_emcc.sh</copy>
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - January 5, (Wed) 2022
+ - **Last Updated on** - February 1, (Tue) 2022
