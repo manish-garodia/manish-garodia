@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs in MG Library",
+    "tutorials": [
+        {
+            "title": "Lab #: Compute Instance and Custom Image",
+            "description": "How to create and manage compute instances and custom images in the OCI tenancy.",
+            "filename": "./../../common/mg-library/procedures/compute-instance-custom-image/compute-instance-custom-image.md"
+        }
+    ]
+}
