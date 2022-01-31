@@ -1,98 +1,185 @@
+# Compute Instance and Custom Image
 
+## Introduction
 
-http://150.230.160.80:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true
-150.230.185.102
+This lab discusses about creating and managing compute instances and custom images in the OCI tenancy. 
 
-Set up a VM for Livelabs
-----------------------------
-Create an instance, keep the prerequisites, create user accounts, install the required applications, and create a custom image. 
-The custom image creates a package of the instance you have configured. When you create a new instance from this custom image, it generates a copy of the instance server with preconfigured settings, for example, libraries, user accounts, applications, etc.
+## About noVNC environment
 
-If the host name of the instance changes, EM fails to run. Therefore, keep the hostname static. 
+Basic steps for setting up a noVNC environment include -
 
-Create a user and then install Vnc because to run NoVnc, it requires a user account on the host. 
+1. Create an instance.
 
-Store the database installer and the packages in Object store, give public access, and directly download in the isntance using this command: wget URL
+1. Prepare the environment with the prerequisites, such as:
+    - Create user accounts
+	- Copy files and folders
+    - Install the applications
+	- Any other requirements
 
-You don't have to transfer the files from local host or laptop to the server. 
+1. Create a custom image and export to the Object Storage.
 
-If the bucket visibility is public, anyone can access it from anywhere. 
+	The custom image creates a package of the instance that you have configured. It acts as a backup, and you can recreate another instance from it. When you create a new instance from this custom image, it generates a copy of the original instance server with preconfigured settings, for example, libraries, user accounts, applications, and so on. After creating the custom image, you can terminate the instance. 
 
-After creating the custom image, you can terminate the instance. The custom images acts as a backup and you can create another instance from it. Do not delete the custom image. 
-After the livelabs is production and there is no dependency on the custom image, even if you delete the custom image, connect with Rene or Ashish to get the image back. 
+	> **Note:** Do not delete the custom image from the tenancy before publishing it to the OCI marketplace.  
+	After the Livelabs goes to production, it has no dependency on the custom image. Now, if you delete the custom image, connect with the OCI team (Rene or Ashish) to get the image back. 
 
-Terraform scripts will automate these steps and create an instance for the users from the custom image. The users will not have access to internal systems and they need not go through these steps to set up their VM.
-The OCI team (Rene or Ashish) deploys the custom image to the marketplace as private, it is not available for public view. OCI has 26 regions, any image existing in a specific tenancy is available to the team and the teams from other regions in OCI do not have access to the image. 
-If the image is published to OCI marketplace, it is available to all the 26 regions in OCI. 
+### Points to consider
 
+If the host name of the instance changes, Enterprise Manager fails to run. Therefore, keep the *host name static*. To run noVNC, it requires a user account on the host. Create the user and then install Vnc.
 
+You cannot transfer files and folders from the local host or a laptop to the noVNC server. 
+ - Upload objects or packages, for example Oracle Database 21c installer, to the Object store. 
+ - Give public access and directly download it in the instance using the command `wget URL`.   
+   If the bucket visibility is public, anyone can access it from anywhere. 
 
-Import an existing image
-----------------------------
-1. Log in to the tenancy
-2. Hamburger (Sandwich bars) > Compute > Custom Images
-3. Click Import Image and specify the following 
-   - Select the compartment
-   - Enter a name
-   - Import from an Object Storage URL
-   - Image type: OCI
-4. Click Import Image
+The users need not go through these detailed steps to set up their VM. Nor do they have access to the internal systems. The *terraform scripts* automate these steps and create an instance for the users from the custom image. 
 
+The OCI team (Rene or Ashish) deploys the custom image to the marketplace as *private* because it is not available for public view. The OCI has **26 regions** which are associated with specific teams. An image existing in a tenancy is available only to that team. The teams from other regions in the OCI do not have access to that image. 
+But if an image is published to the OCI marketplace, then it is available to all (26) regions in the OCI. 
 
-Create a new image
---------------------
-1. Log in to the tenancy
-2. Hamburger (Sandwich bars) > Compute > Instances
-3. Click Create Instance and specify the following. 
-4. Enter a name, select the compartment. 
-5. Under Image and shape, click Edit. 
-   Default image and shape
-   Default image - Oracle Linux 7.9 (Do click Change Image)
-   Default shape - VM.Standard.E2.1.Micro, OCPU Count 1, Memory 1GB, Network Bandwidth 0.48 gbps
-6. Click Change Shape and specify the following. 
-   Instance type: Virtual machine (default)
-   Shape series: AMD
-   Shape Name: VM.Standard.E3.Flex
-   No of OCPU: 2 (memory changes to 32 GB automatically)
-7. Leave the default networking: vcn20200616-1735
-8. Add SSH keys > Generate a key pair for me. Save both Private key (*.key) and Public key (*.pub). 
-   Upload public key files: If you already have a public key. 
-   Paste public keys: Paste the contents of the public key. 
-   The next time when you create a new instance, use the same public key which you already have. While creating an instance, you give the Public Key. Private key is required to access the server and configure a static hostname. 
-   If you skip downloading the keys now, you do get a second chance to download them ever again. 
-9. Boot volume - 46 GB (default). Click Specify a custom boot volume size if you want to increase the boot volume now. Starting size is 50 GB, max up to 32 TB. Or, you can keep the default boot volume 46 GB and increase it later after creating the instance. But you cannot decrease the volume of an existing instance. 
+## Task 1: Create a Custom Image from an Instance
 
-10. Click Create to create the instance. 
-    Save stack if you want to create stacks from the instance.
+tbd
 
-    The lifetime of an instance is forever, until you stop and delete the instance. 
+## Task 2: Import an existing image using a URL
 
-11. After the instance status changes to running, copy the Public IP Address (it is publicly accessible). You cannot connect the the server using the Private IP. 
+Import an existing image into the Object Storage of your tenancy using a PAR URL. 
 
+1. Log in to the tenancy.
+1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.
+1. Click **Import image** and specify the following.
+    - Select the *compartment*
+    - Enter a *name* for the image
+    - Operating system - *Linux* (leave the default)
+    - Import from an Object Storage URL - Paste the URL
+    - Image type - *OCI*
+1. Click **Import image**.
 
-Convert the private key (*.key) to *.ppk format using PuTTYgen (or Mobaxterm) 
--------------------------------------
-If you want to connect to the instance server:
-- From a Windows system, use the ppk file in Putty. 
-- From a Mac machine, use the key file . 
+## Task 3: Create an instance from an image
 
-1. Open PuTTYgen and load the private key.
-   Displays a message "Successfully imported foreign key..." > click OK. 
-2. Save private key. Passphrase is optional > click Yes. 
-3. Enter a filename and click Save (as *.ppk format). 
+tbd
+
+## Task 4: Want to create a New Compute Instance from scratch?
+
+**High-level steps for provisioning an instance -**
+
+A. Create an Instance   
+B. Convert Private Key to PPK   
+C. Log in to Instance Server   
+D. Create users and groups
+E. Enable port 6080 for noVNC
+
+----
+### **A. Create an Instance**
+
+1. Log in to the tenancy.
+1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.
+1. Click **Create Instance** and specify the following. 
+1. Enter a *name* for the instance.
+1. Select the *compartment* where to create the instance.  
+
+	## Defaults
+	<if type="hidden">
+
+	| Type      | Details          | Action                  |
+	|-----------|------------------|-------------------------|
+	| Placement |                  | Leave the defaults      |
+	| Image     | Oracle Linux 7.9 | Do not change the image |
+    | Shape     | VM.Standard.E2.1.Micro <br>OCPU Count 1 <br>Memory 1 GB <br>Network Bandwidth 0.48 gbps | Change the shape as explained below |   
+	</if>
+	  - **Placement** - <ins>Do not change</ins>
+      - **Default image** - *Oracle Linux 7.9* <ins>Do not change</ins>.
+      - **Default shape** -
+	     - VM.Standard.E2.1.Micro
+	     - OCPU Count 1
+	     - Memory 1 GB
+	     - Network Bandwidth 0.48 gbps  
+
+	  Leave the default placement and image, and change the shape as explained below. 
+
+1. Under Image and shape, click **Edit** > **Change shape**. 
+    - **Instance type** - *Virtual machine* (default selected)
+    - **Shape series** - *AMD*
+    - **Shape name** - *VM.Standard.E3.Flex*
+    - **No of OCPUs** - *2* (the memory changes to *32 GB* automatically)
+
+	Click **Select shape**.
+
+1. For networking, leave the defaults *vcnyyyymmdd-xxxx*. For example, `vcn-20220131-2306`.
+
+1. Under Add SSH keys, Generate a key pair for me. (default selected).  
+   **Save Private key** (`*.key`) and **Save Public key** (`*.pub`) to your local system. 
+   
+    > **Note:** Ensure to save both the keys. If you skip downloading the keys now, you do not get a second chance to download them ever again. 
+
+    ## Other options
+    For SSH keys:
+     - **Upload public key files** - If you already have a public key. 
+     - **Paste public keys** - Paste the contents of the public key. 
+
+    The next time when you create a new instance, you can use the same public key that you already have. 
+
+	While creating an instance, enter the Public Key. The Private key is required to access the server and to configure a static host name. 
+
+1. The default boot volume is *46 GB*.
+
+   To increase the boot volume, click **Specify a custom boot volume size**. Starting size is 50 GB, maximum up to 32 TB.
+
+	> **Note:** Alternatively, keep the default boot volume 46 GB for now and increase it later after creating the instance. But you cannot decrease the volume of an existing instance. 
+
+1. Click **Create** to create the instance.   
+   **Save stack** if you want to create stacks from the instance.
+
+    > **Note:** The lifetime of an instance is <i>forever</i>, until you stop the instance and delete it. 
+
+The instance status displays *Provisioning*. After the status changes to *Running*, copy the **Public IP Address** (it is publicly accessible). You cannot connect to the server using the Private IP.
+
+----
+### **B. Convert Private Key to PPK**
+
+To authenticate and connect to the instance server  -
+- from a **Windows** system - use the *.ppk* file in PuTTY. 
+- from a **Mac** machine - use the *.key* file. 
+
+You can convert the private key (`*.key`) to `*.ppk` using PuTTYgen (or Mobaxterm).
+
+1. Open PuTTYgen and **Load** the private key.  
+   It displays a notice - `Successfully imported foreign key...`   
+
+   Click **OK**. 
+
+1. Click **Save private key**.   
+   The key passphrase is optional.
+
+   Click **Yes**.
+
+1. Enter a *file name* and click **Save**.   
+   It converts the private into the `*.ppk` format. 
 
 Close PuTTYgen.
 
-Log in to the instance server
--------------------------------------
-1. Open PuTTY and enter the public IP of the instance in the host name. 
-2. Under Category > SSH, click Auth. (Save the session for future connections)
-3. Browse for the *.ppk file generated above > Open. 
-   Disconnect VPN to connect to the server. Right-click on the title bar which reads PuTTY (inactive) and Restart Session, if required > Yes.
-4. Login as: opc (requires no password)
+----
+### **C. Log in to Instance Server**
 
-Create users and groups in the instance
------------------------------------------
+1. Open PuTTY.
+
+1. Under Host Name, enter the **Public IP** of the instance.   
+   Leave the default port *22* and connection type *ssh*. 
+
+1. In the **Category** pane on the left, go to **Connection** > **SSH** > **Auth**. 
+
+1. **Browse** for the ppk file generated above and click **Open**. 
+
+    > **Note:** Disconnect VPN to connect to the instance server.   
+	Right-click on the title bar which reads PuTTY (inactive) and **Restart Session** > **Yes**, if required.
+
+   You can **Save the session** for future logins.
+
+Log in to the instance server as *opc*. It does not require any password.
+
+----
+# **D. Create users and groups**
+
 1. Log in to the instance server using putty. 
 2. Run these commands.
 Change user to root: sudo su -
@@ -133,7 +220,7 @@ Subequent times change to root:
 sudo su -
 
 
-Enable port 6080 for noVnc
+**E. Enable port 6080 for noVNC**
 -------------------------------------
 
 1. Log in to the tenancy
@@ -226,7 +313,7 @@ Instance name: DBAEssentials_21c_os-only
 Public IP: 150.136.138.183
 Image 1: dbaessentials_21c_os-only_v1
 
-NoVNC URL: 
+noVNC URL: 
 http://150.136.138.183:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true
 
 Instance 2
@@ -235,7 +322,7 @@ Instance name: DBAEssentials_21c_installer
 Public IP: 129.213.163.15
 Image 2: dbaessentials_21c_installer_v1
 
-NoVNC URL:
+noVNC URL:
 http://129.213.163.15:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true
 
 Bucket name: db-installer
@@ -362,3 +449,10 @@ username: SureshRRajan
 password: Merleauponty@67
 
 
+## noVNC Environments
+
+Image with EMCC from Rene -
+http://150.230.160.80:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true
+
+Test labs for EMCC -
+http://150.230.185.102:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true
