@@ -13,25 +13,25 @@
         },
         {
             "title": "Lab #: Access VM and Configure VNC",
-            "description": "Access VM and configure vnc.",
+            "description": "How to access the VM and configure the VNC.",
             "filename": "./../common/mg-library/procedures/access-vm-config-vnc/access-vm-config-vnc.md",
 			"type": "hidden"
         },
         {
             "title": "Lab #: Oracle Database 21c Gold Image",
-            "description": "Pre-installation setup, post installation steps, troubleshooting.",
+            "description": "Pre-installation setup and post installation tasks for Oracle Database 21c gold image. It also discusses some troubleshooting scenarios and tips.",
             "filename": "./../common/mg-library/procedures/install-db-goldimage/install-db-goldimage.md",
 			"type": "hidden"
         },
         {
             "title": "Lab #: Install Oracle EMCC 13.5",
-            "description": "Description",
+            "description": "How to install Oracle EMCC on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EMCC.",
             "filename": "./../common/mg-library/procedures/install-emcc/install-emcc.md",
 			"type": "hidden"
         },
         {
             "title": "Lab #: Compute Instance and Custom Images",
-            "description": "Description",
+            "description": "How to create and manage compute instances and custom images in the OCI tenancy.",
             "filename": "./../common/mg-library/procedures/compute-instance-custom-image/compute-instance-custom-image.md",
 			"type": "hidden"
         }

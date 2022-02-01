@@ -3,7 +3,7 @@
     "tutorials": [
         {
             "title": "Lab #: Install Oracle EMCC 13.5",
-            "description": "Pre-installation setup, EMCC installation, troubleshooting, EMCC Deinstallation.",
+            "description": "How to install Oracle EMCC on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EMCC.",
             "filename": "./../../common/mg-library/procedures/install-emcc/install-emcc.md"
         }
     ]

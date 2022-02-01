@@ -1,7 +1,7 @@
 # Install Oracle EMCC 13.5
 
 ## Introduction
-This lab covers the steps on how to install Oracle EMCC on VM. 
+This lab covers the steps on how to install Oracle EMCC on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EMCC. 
 
 ## Task 1: Pre-installation setup
 1. Download the EM package and validate.

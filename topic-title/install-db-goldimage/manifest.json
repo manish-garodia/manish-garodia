@@ -3,7 +3,7 @@
     "tutorials": [
         {
             "title": "Lab #: Oracle Database 21c Gold Image",
-            "description": "VM access and environment details, Pre-installation setup, post installation steps, troubleshooting.",
+            "description": "Pre-installation setup and post installation tasks for Oracle Database 21c gold image. It also discusses some troubleshooting scenarios and tips.",
             "filename": "./../../common/mg-library/procedures/install-db-goldimage/install-db-goldimage.md"
         }
     ]
