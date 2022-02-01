@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "LiveLabs in MG Library",
+    "tutorials": [
+        {
+            "title": "Lab 1: MG Library",
+            "description": "This is the landing page for the oracle/learning-library repo",
+            "filename": "./../common/mg-library/mg-library.md"
+        }
+    ]
+}
