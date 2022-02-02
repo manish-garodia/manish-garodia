@@ -8,7 +8,7 @@
 -->
 ## List of topics
 
-| sl # | Topic title                   | Description                |
+| sl # | Title                         | Description                |
 |------|-------------------------------|----------------------------|
 | 1    | [Access VM and Configure VNC](https://manish-garodia.github.io/mg-playground/topic-title/access-vm-config-vnc/) | How to access the VM and configure the VNC. |
 | 2    | [Compute Instance and Custom Image](https://manish-garodia.github.io/mg-playground/topic-title/compute-instance-custom-image/) | How to create and manage compute instances and custom images in the OCI tenancy. |
@@ -18,3 +18,7 @@
 
 ![Image Alt text](./../images/maintenance-work-in-progress.jpg " ")**Caption:** Work-in-progress
 
+## Acknowledgements
+
+ - **Author** - Manish Garodia, Team Database UAD
+ - **Last Updated on** - February 1, (Tue) 2022
