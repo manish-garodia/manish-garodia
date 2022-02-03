@@ -1,22 +1,32 @@
 # MG Library
 
+## Introduction
+
+This lab contains a list of various topics. Select a topic to open it in a separate tab. 
+
 <!--
 - [Access VM and Configure VNC](https://manish-garodia.github.io/mg-playground/topic-title/access-vm-config-vnc/)
 - [Compute Instance and Custom Image](https://manish-garodia.github.io/mg-playground/topic-title/compute-instance-custom-image/)
 - [Oracle Database 21c Gold Image](https://manish-garodia.github.io/mg-playground/topic-title/install-db-goldimage/)
 - [Install Oracle EMCC 13.5](https://manish-garodia.github.io/mg-playground/topic-title/install-emcc/)
 -->
+
+<if type="hidden">
+[Link to MG Library on Github](https://manish-garodia.github.io/mg-playground/mg-library/)
+
+[Link to topic title on clone](http://127.0.0.1:3001/mg-playground/topic-title/)
+</if>
+
 ## List of topics
 
 | sl # | Title                         | Description                |
 |------|-------------------------------|----------------------------|
 | 1    | [Access VM and Configure VNC](https://manish-garodia.github.io/mg-playground/topic-title/access-vm-config-vnc/) | How to access the VM and configure the VNC. |
-| 2    | [Compute Instance and Custom Image](https://manish-garodia.github.io/mg-playground/topic-title/compute-instance-custom-image/) | How to create and manage compute instances and custom images in the OCI tenancy. |
-| 3    | [Oracle Database 21c Gold Image](https://manish-garodia.github.io/mg-playground/topic-title/install-db-goldimage/) | Pre-installation setup and post installation tasks for Oracle Database 21c gold image. It also discusses some troubleshooting scenarios and tips. |
-| 4    | [Install Oracle EMCC 13.5](https://manish-garodia.github.io/mg-playground/topic-title/install-emcc/) | How to install Oracle EMCC on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EMCC. |
-| 5    | working on it ... | ... |
-
-![Image Alt text](./../images/maintenance-work-in-progress.jpg " ")**Caption:** Work-in-progress
+| 2    | [Oracle Database 21c Gold Image](https://manish-garodia.github.io/mg-playground/topic-title/install-db-goldimage/) | Pre-installation setup and post installation tasks for Oracle Database 21c gold image. It also discusses some troubleshooting scenarios and tips. |
+| 3    | [Install Oracle EMCC 13.5](https://manish-garodia.github.io/mg-playground/topic-title/install-emcc/) | How to install Oracle EMCC on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EMCC. |
+| 4    | [Compute Instance and Custom Image](https://manish-garodia.github.io/mg-playground/topic-title/compute-instance-custom-image/) | How to create and manage compute instances and custom images in the OCI tenancy. |
+| 5    | Fun with Git and markdown | wip |
+| 6    | working on it ... | ... |
 
 ## Acknowledgements
 

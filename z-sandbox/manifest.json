@@ -4,12 +4,14 @@
         {
             "title": "Welcome to MG space!",
             "description": "This is the landing page for the oracle/learning-library repo",
-            "filename": "./../common/intro/readme.md"
+            "filename": "./../common/intro/readme.md",
+			"type": "hidden"
         },
         {
             "title": "Lab 1: MG Library",
             "description": "This is the landing page for the oracle/learning-library repo",
-            "filename": "./../common/mg-library/mg-library.md"
+            "filename": "./../common/mg-library/mg-library.md",
+			"type": "hidden"
         },
         {
             "title": "Lab #: Access VM and Configure VNC",
@@ -34,6 +36,11 @@
             "description": "How to create and manage compute instances and custom images in the OCI tenancy.",
             "filename": "./../common/mg-library/procedures/compute-instance-custom-image/compute-instance-custom-image.md",
 			"type": "hidden"
+        },
+        {
+            "title": "Lab #: Fun with Git and Markdown",
+            "description": "description",
+            "filename": "./../common/mg-library/procedures/fun-with-git-md/fun-with-git-md.md"
         }
     ]
 }

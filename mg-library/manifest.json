@@ -2,8 +2,8 @@
     "workshoptitle": "LiveLabs in MG Library",
     "tutorials": [
         {
-            "title": "Lab 1: MG Library",
-            "description": "This is the landing page for the oracle/learning-library repo",
+            "title": "Lab #: MG Library",
+            "description": "This lab contains a list of various topics.",
             "filename": "./../common/mg-library/mg-library.md"
         }
     ]

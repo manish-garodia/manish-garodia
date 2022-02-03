@@ -30,6 +30,11 @@
             "title": "Lab #: Compute Instance and Custom Images",
             "description": "How to create and manage compute instances and custom images in the OCI tenancy.",
             "filename": "./../common/mg-library/procedures/compute-instance-custom-image/compute-instance-custom-image.md"
+        },
+        {
+            "title": "Lab #: Fun with Git and Markdown",
+            "description": "description",
+            "filename": "./../common/mg-library/procedures/fun-with-git-md/fun-with-git-md.md"
         }
     ]
 }

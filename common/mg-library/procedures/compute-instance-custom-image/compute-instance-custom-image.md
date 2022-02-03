@@ -4,7 +4,7 @@
 
 This lab discusses about creating and managing compute instances and custom images in the OCI tenancy. 
 
-## About the noVNC environment
+## About noVNC environment
 
 The basic steps for setting up a noVNC environment include -
 
@@ -38,6 +38,8 @@ The OCI has **26 regions** which are associated with specific teams.
  - An image existing in a tenancy is available only to that team. The teams from other regions in the OCI do not have access to that image. 
  - But if an image is published to the OCI marketplace, then it is available to all (26) regions in the OCI. 
 
+<if type="hidden">
+
 ## Credentials and specifications
 
  - Instance cretentials
@@ -63,15 +65,14 @@ The OCI has **26 regions** which are associated with specific teams.
 		</copy>
 		```
 
-		| User name or email | Password        |
-		| -------------------|-----------------| 
-		| <if type="hidden">SureshRRajan       | *Merleauponty@67* </if>|
-		| ManishGarodia      | Enter the password <if type="hidden">- *Sujangarh,21*</if> |
+		| User name or email | Password          |
+		| -------------------|-------------------| 
+		| ManishGarodia      | Enter the password <!-- *Sujangarh,21*--> |
+		| <!--SureshRRajan        *Merleauponty@67* -->|
 
-	<if type="hidden">
-	- **User name** or **email** - *SureshRRajan*
-	- **Password** - *Merleauponty@67*
-	</if>
+		<!--  - **User name** or **email** - *SureshRRajan*
+			- **Password** - *Merleauponty@67* 
+		-->
 
 	## Tenancy specifications
 
@@ -90,7 +91,7 @@ The OCI has **26 regions** which are associated with specific teams.
 	 - **Bucket name** - *db-installer*, *images-for-livelabs-workshops*
 	 - **Object name** - `dbaessentials_21c_installer`
 
-		## PAR URLS
+		## PAR URLs
 		
 		 - PAR URL for Image 2 - expired on Aug 20, 2021
 
@@ -114,12 +115,15 @@ The OCI has **26 regions** which are associated with specific teams.
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/-aidsyb5OOwAE-8q6Tdxq_rr2V-v5PLADtckYgtzZ-xichKWSv7RK4WNMUWuQdzt/n/natdsecurity/b/stage/o/emcc-livelabs-v3-int-02-10.20.2021
 			```
+</if>
 
-## Task 1: Create a Custom Image from an Instance
+## Task 1: How to create a custom image from an instance?
 
 Creating a custom image from an instance is a two-step process -
  - Clean up the instance
- - Create the custom image
+ - Create the image
+
+1. Log in to the instance as *opc* using PuTTY.
 
 1. Check the host name in the `hosts` file.
 
@@ -150,14 +154,26 @@ Creating a custom image from an instance is a two-step process -
 
 	> **Note:** Always *clean up* the instance before creating a custom image.
 
+1. Check the `hosts` file again and verify that the instance is clean.
+
+	```
+	$ <copy>cat /etc/hosts</copy>
+	```
 
 1. Follow this task to create a custom image. 
 
 	[Task 2: Create Custom Image](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/?lab=7-labs-create-custom-image-for-marketplace#Task2:CreateCustomImage)
 
+> **Note:** Ensure to select the correct *compartment* while creating the custom image. If you create the image in a wrong compartment by mistake, you can *Move Resource* and bring the image back to the relevant compartment. 
+
+After creating the custom image - 
+ - Export the image to the object store 
+ - Share the PAR URL with the OCI team
+ - The OCI team downloads the image and publishes it to the OCI marketplace. 
+
 	## Instance cleanup commands (handy)
 
-	- Log in to the instance as the *opc* user using PuTTY.
+	- Log in to the instance as *opc* using PuTTY.
 	- Run these commands to clean up the instance.
 
 	1. Download the script.
@@ -214,102 +230,142 @@ Creating a custom image from an instance is a two-step process -
 		</copy>
 		```
 
-## Task 2: Import an existing image using a URL
+## Task 2: How to import an existing image using a URL?
 
 Import an existing image into the Object Storage of your tenancy using a PAR URL. 
 
 1. Log in to the tenancy.
-1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.
+
+1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.  
+   Check if the compartment is correct. 
+
 1. Click **Import image** and specify the following.
     - Select the *compartment*
     - Enter a *name* for the image
     - Operating system - *Linux* (leave the default)
     - Import from an Object Storage URL - Paste the URL
     - Image type - *OCI*
+
 1. Click **Import image**.
 
-## Task 3: Create an instance from an image **wip**
+You can create an instance from the imported image and modify the enviroment as required.
 
-tbd
+## Task 3: Options for creating instance
 
-## Task 4: Want to create a New Compute Instance from scratch? **wip**
+After logging in to the tenancy: 
+
+ - **Case #1** - Create a new instance from scratch altogether.
+
+ - **Case #2** - Create an instance from an existing custom image.
+
+	> **Note:** Create an instance from the custom image to verify whether the image has the correct prerequisites, the packages, the configurations, and the environment.
+
+   ## 1. To create an instance from scratch
+
+	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+		Check if the compartment is correct. 
+
+	1. On the Instances page, click **Create instance**. 
+	
+	1. Follow [Task 4: Create a compute instance](?lab=compute-instance-custom-image#Task4:Howtocreateacomputeinstance?).
+
+   ## 2. To create an instance from an existing image
+
+	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.   
+	   Check if the compartment is correct. 
+
+	1. Click the *image name* from which you want to create the instance.
+
+	1. On the Custom image details page, click **Create instance**.
+	
+	1. Follow [Task 4: Create a compute instance](?lab=compute-instance-custom-image#Task4:Howtocreateacomputeinstance?).
+
+## Task 4: How to create a compute instance?
+
+Following the **Create instance** button, do these steps.
+
+1. Enter a *name* for the instance.
+
+1. Select the *compartment* for the instance to create in.  
+
+	## Defaults
+	  <!--
+			| Type      | Details          | Action                  |
+			|-----------|------------------|-------------------------|
+			| Placement |                  | Leave the defaults      |
+			| Image     | Oracle Linux 7.9 | Do not change the image |
+			| Shape     | VM.Standard.E2.1.Micro <br>OCPU Count 1 <br>Memory 1 GB <br>Network Bandwidth 0.48 gbps | Change the shape as explained below |   
+	  -->
+	  - **Placement** - <ins>Do not change</ins>
+	  - **Default image** - <ins>Do not change</ins>
+
+	  The image can be:
+		 - a Linux version, for example *Oracle Linux 7.9*, for a new instance from scratch, or
+		 - the custom image from which it is created.
+
+	  - **Default shape** -
+		 - Shape - *VM.Standard.E2.1.Micro*
+		 - OCPU Count - *1*
+		 - Memory - *1 GB*
+		 - Network Bandwidth - *0.48 gbps*
+
+	  Leave the default placement and image, and change the shape as explained below. 
+
+1. Under Image and shape, click **Edit** > **Change shape**. 
+	- **Instance type** - *Virtual machine* (default selected)
+	- **Shape series** - *AMD*
+	- **Shape name** - *VM.Standard.E3.Flex*
+	- **No of OCPUs** - *2* (the memory changes to *32 GB* automatically)
+
+	Click **Select shape**.
+
+1. For networking, leave the defaults *vcnyyyymmdd-xxxx*. For example, `vcn-20220131-2306`.
+
+1. Under Add SSH keys, the window displays the default **Generate a key pair for me** selected.  
+   Save both the keys to your local system, **Save Private key** (`*.key`) and **Save Public key** (`*.pub`). 
+   
+	> **Note:** Ensure to save both, the private key and the public key. If you skip downloading the keys now, you do not get a second chance to download them ever again. 
+
+	## Other options
+	For SSH keys:
+	 - **Upload public key files** - If you already have a public key. 
+	 - **Paste public keys** - If you want to paste the contents of the public key. 
+
+	The next time when you create a new instance, you can use the same public key that you already have. 
+
+	While creating an instance, enter the Public Key. The Private key is required to access the server and to configure a static host name. 
+
+1. Determine the boot volume for the instance.
+	- For a new instance, the default size is *46 GB*.
+	- For an instance from an image, the boot volume takes the size of the image. 
+
+	Optionally, you can click **Specify a custom boot volume size** to increase the size. Skip this for now and use the default boot volume. 
+
+	> **Note:** After creating the instance, you can increase the boot volume later. But you cannot decrease the size of an existing instance.   
+	The boot volume size starts at *50 GB* with a maximum is up to *32 TB*.
+
+1. Click **Create** to create the instance.   
+   You can **Save stack** if you want to create stacks from the instance. Skip this for now. 
+
+	> **Note:** The lifetime of an instance is <i>forever</i>, until you stop the instance and delete it. 
+
+The instance status displays *Provisioning*. After sometime, the status changes to *Running*. Note the **Public IP Address** of the instance (because it is publicly accessible). You cannot connect to the server using the Private IP.
+
+<if type="hidden">
+
+## Task 5: Provision an instance post creation **wip**
 
 > This task is still work-in-progress, not fully completed.
 
-High-level steps for provisioning an instance -
+After creating the instance from scratch, provision the instance as follows.
 
-1. Create an Instance   
-2. Convert Private Key to PPK   
-3. Log in to Instance Server   
-4. Create users and groups  
-5. Enable port 6080 for noVNC
-   
-   ## 1. Create an Instance
-
-	1. Log in to the tenancy.
-	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.
-	1. Click **Create Instance** and specify the following. 
-	1. Enter a *name* for the instance.
-	1. Select the *compartment* where to create the instance.  
-
-		## Defaults
-		<if type="hidden">
-
-		| Type      | Details          | Action                  |
-		|-----------|------------------|-------------------------|
-		| Placement |                  | Leave the defaults      |
-		| Image     | Oracle Linux 7.9 | Do not change the image |
-		| Shape     | VM.Standard.E2.1.Micro <br>OCPU Count 1 <br>Memory 1 GB <br>Network Bandwidth 0.48 gbps | Change the shape as explained below |   
-		</if>
-		  - **Placement** - <ins>Do not change</ins>
-		  - **Default image** - *Oracle Linux 7.9* <ins>Do not change</ins>.
-		  - **Default shape** -
-			 - VM.Standard.E2.1.Micro
-			 - OCPU Count 1
-			 - Memory 1 GB
-			 - Network Bandwidth 0.48 gbps  
-
-		  Leave the default placement and image, and change the shape as explained below. 
-
-	1. Under Image and shape, click **Edit** > **Change shape**. 
-		- **Instance type** - *Virtual machine* (default selected)
-		- **Shape series** - *AMD*
-		- **Shape name** - *VM.Standard.E3.Flex*
-		- **No of OCPUs** - *2* (the memory changes to *32 GB* automatically)
-
-		Click **Select shape**.
-
-	1. For networking, leave the defaults *vcnyyyymmdd-xxxx*. For example, `vcn-20220131-2306`.
-
-	1. Under Add SSH keys, Generate a key pair for me. (default selected).  
-	   **Save Private key** (`*.key`) and **Save Public key** (`*.pub`) to your local system. 
-	   
-		> **Note:** Ensure to save both the keys. If you skip downloading the keys now, you do not get a second chance to download them ever again. 
-
-		## Other options
-		For SSH keys:
-		 - **Upload public key files** - If you already have a public key. 
-		 - **Paste public keys** - Paste the contents of the public key. 
-
-		The next time when you create a new instance, you can use the same public key that you already have. 
-
-		While creating an instance, enter the Public Key. The Private key is required to access the server and to configure a static host name. 
-
-	1. The default boot volume is *46 GB*.
-
-	   To increase the boot volume, click **Specify a custom boot volume size**. Starting size is 50 GB, maximum up to 32 TB.
-
-		> **Note:** Alternatively, keep the default boot volume 46 GB for now and increase it later after creating the instance. But you cannot decrease the volume of an existing instance. 
-
-	1. Click **Create** to create the instance.   
-	   **Save stack** if you want to create stacks from the instance.
-
-		> **Note:** The lifetime of an instance is <i>forever</i>, until you stop the instance and delete it. 
-
-	The instance status displays *Provisioning*. After the status changes to *Running*, copy the **Public IP Address** (it is publicly accessible). You cannot connect to the server using the Private IP.
+1. Convert Private Key to PPK
+2. Log in to Instance Server
+3. Create users and groups
+4. Enable port *6080* for noVNC
 
     ----
-	## 2. Convert Private Key to PPK
+	## 1. Convert Private Key to PPK
 
 	To authenticate and connect to the instance server  -
 	- from a **Windows** system - use the *.ppk* file in PuTTY. 
@@ -333,7 +389,7 @@ High-level steps for provisioning an instance -
 	Close PuTTYgen.
 
 	----
-	## 3. Log in to Instance Server
+	## 2. Log in to Instance Server
 
 	1. Open PuTTY.
 
@@ -355,18 +411,18 @@ High-level steps for provisioning an instance -
 
 	 - **Format**
 
-	 ```
-	 user@instance_hostname
-	 ```
+		 ```
+		 user@instance_hostname
+		 ```
 
 	 - **Example**
 
-	 ```
-	 oracle@dbaessentials
-	 ```
+		 ```
+		 oracle@dbaessentials
+		 ```
 	
 	----
-	## 4. Create users and groups
+	## 3. Create users and groups
 
 	1. Open PuTTY. 
 
@@ -451,13 +507,14 @@ High-level steps for provisioning an instance -
 		```
 
 	----
-	## 5. Enable port 6080 for noVNC
+	## 4. Enable port 6080 for noVNC
 
 	1. Log in to the tenancy.
 
-	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.
+	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+		Check if the compartment is correct. 
 
-	1. Click the **instance name** for which you want to enable the port. 
+	1. Click the *instance name* for which you want to enable the port. 
 	
 	1. Under Instance details, click the **Virtual cloud network** name, for example *vcn-20200616-1735*.
 
@@ -482,7 +539,7 @@ High-level steps for provisioning an instance -
 
 	1. Modify the rule and click **Save changes**.
 
-## Task 5: LiveLabs Instance terminal
+## Task 6: LiveLabs Instance terminal
 
 Change the default home directory in the instance terminal for the `oracle` user. 
 
@@ -560,13 +617,14 @@ chmod -R 775 /oracle
 chmod g+s /oracle
 ```
 
-## Task 6: Increase Boot Volume
+## Task 7: Increase Boot Volume
 
 1. Log in to the tenancy.
 
-1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.
+1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+   Check if the compartment is correct. 
 
-1. Click the **instance name** for which you want to increase the boot volume. 
+1. Click the *instance name* for which you want to increase the boot volume. 
 
 1. Under **Resources** on the left, open **Boot volume**. 
 
@@ -598,6 +656,8 @@ After the volume is provisioned, for the volume resize to take effect, log in to
 
 > **Note:** Increasing the boot volume of an instance does not affect the volume size of the existing custom image. You must create the custom image again with the new (increased) boot volume. 
 
+</if>
+
 ## Learn More
 
 - [Setup Graphical Remote Desktop](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/)
@@ -608,4 +668,4 @@ After the volume is provisioned, for the volume resize to take effect, log in to
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 1, (Tue) 2022
+ - **Last Updated on** - February 3, (Thu) 2022
