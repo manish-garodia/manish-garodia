@@ -117,7 +117,13 @@ The OCI has **26 regions** which are associated with specific teams.
 			```
 </if>
 
-## Task 1: How to create a custom image from an instance?
+## Options for custom image
+
+Either of the following will get you a custom image.
+ - *Create* a custom image from an instance - follow [Task 1A](?lab=compute-instance-custom-image#Task1A:Howtocreateacustomimagefromaninstance?). 
+ - *Import* an existing image into your tenancy using a URL - follow [Task 1B](?lab=compute-instance-custom-image#Task1B:HowtoimportanexistingimageusingaURL?).
+
+## Task 1A: How to create a custom image from an instance?
 
 Creating a custom image from an instance is a two-step process -
  - Clean up the instance
@@ -230,9 +236,9 @@ After creating the custom image -
 		</copy>
 		```
 
-## Task 2: How to import an existing image using a URL?
+## Task 1B: How to import an existing image using a URL?
 
-Import an existing image into the Object Storage of your tenancy using a PAR URL. 
+Import an existing image from another Object Storage into your tenancy using a PAR URL. 
 
 1. Log in to the tenancy.
 
@@ -250,7 +256,7 @@ Import an existing image into the Object Storage of your tenancy using a PAR URL
 
 You can create an instance from the imported image and modify the enviroment as required.
 
-## Task 3: Options for creating instance
+## Task 2: Options for creating instance
 
 After logging in to the tenancy: 
 
@@ -280,7 +286,7 @@ After logging in to the tenancy:
 	
 	1. Follow [Task 4: Create a compute instance](?lab=compute-instance-custom-image#Task4:Howtocreateacomputeinstance?).
 
-## Task 4: How to create a compute instance?
+## Task 3: How to create a compute instance?
 
 Following the **Create instance** button, do these steps.
 
@@ -353,7 +359,7 @@ The instance status displays *Provisioning*. After sometime, the status changes 
 
 > **Note:** If you create a compute instance from scratch, enable port *6080* for noVNC.
 
-## Task 5: Enable port 6080 for noVNC
+## Task 4: Enable port 6080 for noVNC
 
 1. Log in to the tenancy.
 
@@ -389,7 +395,7 @@ You can now connect to the noVNC remote desktop and provision a green button res
 
 <if type="hidden">
 
-## Task 6: Set up the instance post creation **wip**
+## Task 5: Set up the instance post creation **wip**
 
 > This task is still work-in-progress, not fully completed.
 
@@ -541,7 +547,7 @@ After creating the instance from scratch, set up the instance as follows.
 		$ <copy>sudo su - opc</copy>
 		```
 
-## Task 7: LiveLabs Instance terminal
+## Task 6: LiveLabs Instance terminal
 
 Change the default home directory in the instance terminal for the `oracle` user. 
 
@@ -619,7 +625,7 @@ chmod -R 775 /oracle
 chmod g+s /oracle
 ```
 
-## Task 8: Increase Boot Volume
+## Task 7: Increase Boot Volume
 
 1. Log in to the tenancy.
 
