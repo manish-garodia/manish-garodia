@@ -8,7 +8,7 @@
 <i>
 
 ----
-- 👀 &nbsp;&nbsp;I’m exploring &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ins>GitHub, GitBash, GitDesktop</ins>.  
+- 👀 &nbsp;&nbsp;I’m exploring &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ins>GitHub, GitBash, GitDesktop, GitLab</ins>.  
 - 🌱 &nbsp;&nbsp;I’m from &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #FCF3CF">Oracle Database UA development</span> team.
 - 💞️ &nbsp;&nbsp;I’m looking &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to collaborate on developing workshops on LiveLabs.
 </i>

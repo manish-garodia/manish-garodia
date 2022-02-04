@@ -351,18 +351,53 @@ Following the **Create instance** button, do these steps.
 
 The instance status displays *Provisioning*. After sometime, the status changes to *Running*. Note the **Public IP Address** of the instance (because it is publicly accessible). You cannot connect to the server using the Private IP.
 
+> **Note:** If you create a compute instance from scratch, enable port *6080* for noVNC.
+
+## Task 5: Enable port 6080 for noVNC
+
+1. Log in to the tenancy.
+
+1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+	Check if the compartment is correct. 
+
+1. Click the *instance name* for which you want to enable the port. 
+
+1. Under Instance details, click the **Virtual cloud network** name, for example *vcn-20200616-1735*.
+
+1. Under **Resources** on the left, open **Security List**. Click the *Default Security List for vcn-20200616-1735*.
+
+   **Note:** By default, the Destination Port Range has only port *22* enabled. Since port 22 is for SSH, it means you can do only SSH. 
+
+1. Click **Add Ingress Rules** and specify the following.
+
+	- **Source Type** - *CIDR* (default selected)
+	- **Source CIDR** - *0.0.0.0/0*
+	- **IP Protocol** - *TCP* (default selected)
+	- **Source Port Range** - *All*
+	- **Destination Port Range** - *6080*
+	- **Description** - Optionally, add a brief description. 
+
+1. Click **Add Ingress Rules** to enable port 6080.
+
+You can now connect to the noVNC remote desktop and provision a green button reservation for your Livelabs workshop.
+
+### Modify a Port
+
+1. Click the **three dots** on the right of an ingress rule and select **Edit**. 
+
+1. Modify the rule and click **Save changes**.
+
 <if type="hidden">
 
-## Task 5: Provision an instance post creation **wip**
+## Task 6: Set up the instance post creation **wip**
 
 > This task is still work-in-progress, not fully completed.
 
-After creating the instance from scratch, provision the instance as follows.
+After creating the instance from scratch, set up the instance as follows.
 
 1. Convert Private Key to PPK
 2. Log in to Instance Server
 3. Create users and groups
-4. Enable port *6080* for noVNC
 
     ----
 	## 1. Convert Private Key to PPK
@@ -506,40 +541,7 @@ After creating the instance from scratch, provision the instance as follows.
 		$ <copy>sudo su - opc</copy>
 		```
 
-	----
-	## 4. Enable port 6080 for noVNC
-
-	1. Log in to the tenancy.
-
-	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
-		Check if the compartment is correct. 
-
-	1. Click the *instance name* for which you want to enable the port. 
-	
-	1. Under Instance details, click the **Virtual cloud network** name, for example *vcn-20200616-1735*.
-
-	1. Under **Resources** on the left, open **Security List**. Click the *Default Security List for vcn-20200616-1735*.
-
-	   **Note:** By default, the Destination Port Range has only port *22* enabled. Since port 22 is for SSH, it means you can do only SSH. 
-
-	1. Click **Add Ingress Rules** and specify the following.
-
-		- **Source Type** - *CIDR* (default selected)
-		- **Source CIDR** - *0.0.0.0/0*
-		- **IP Protocol** - *TCP* (default selected)
-		- **Source Port Range** - *All*
-		- **Destination Port Range** - *6080*
-		- **Description** - Optionally, add a brief description. 
-
-	   Click **Add Ingress Rules** to enable port 6080.
-
-	### Modify a Port
-
-	1. Click the **three dots** on the right of an ingress rule and select **Edit**. 
-
-	1. Modify the rule and click **Save changes**.
-
-## Task 6: LiveLabs Instance terminal
+## Task 7: LiveLabs Instance terminal
 
 Change the default home directory in the instance terminal for the `oracle` user. 
 
@@ -617,7 +619,7 @@ chmod -R 775 /oracle
 chmod g+s /oracle
 ```
 
-## Task 7: Increase Boot Volume
+## Task 8: Increase Boot Volume
 
 1. Log in to the tenancy.
 
