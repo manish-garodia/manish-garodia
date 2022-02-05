@@ -1,0 +1,10 @@
+{
+    "workshoptitle": "Labs in MG Library",
+    "tutorials": [
+        {
+            "title": "Lab #: Fun with Git-Bits",
+            "description": "description",
+            "filename": "./../common/mg-library/procedures/fun-with-git-bits/fun-with-git-bits.md"
+        }
+    ]
+}

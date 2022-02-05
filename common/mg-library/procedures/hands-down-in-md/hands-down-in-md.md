@@ -1,4 +1,4 @@
-# Fun with Git and Markdown
+# Hands down in Markdown
 
 coming soon... stay tuned
 

@@ -1,10 +1,10 @@
 {
-    "workshoptitle": "LiveLabs in MG Library",
+    "workshoptitle": "Labs in MG Library",
     "tutorials": [
         {
             "title": "Lab #: Fun with Git and Markdown",
             "description": "description",
-            "filename": "./../common/mg-library/procedures/fun-with-git-md/fun-with-git-md.md"
+            "filename": "./../common/mg-library/procedures/hands-down-in-md/hands-down-in-md.md"
         }
     ]
 }
