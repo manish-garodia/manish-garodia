@@ -115,6 +115,13 @@ The OCI has **26 regions** which are associated with specific teams.
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/-aidsyb5OOwAE-8q6Tdxq_rr2V-v5PLADtckYgtzZ-xichKWSv7RK4WNMUWuQdzt/n/natdsecurity/b/stage/o/emcc-livelabs-v3-int-02-10.20.2021
 			```
+
+		 - PAR URL for WS3, WS8, WS11 image - created on 4 FEb 2022, valid till 18 Feb. 
+
+			```
+			https://objectstorage.us-ashburn-1.oraclecloud.com/p/8Priv4KCP6ttV0Rqc9Zy0bis2ui_rPu1xWKMSZWSv941Fyl6QV2lg9uANgdlNPaJ/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-installed-appuser_v1
+			```
+
 </if>
 
 ## Options for custom image
@@ -129,7 +136,9 @@ Creating a custom image from an instance is a two-step process -
  - Clean up the instance
  - Create the image
 
-1. Log in to the instance as *opc* using PuTTY.
+VPN is disconnected, yes? Follow these steps.
+
+1. Log in to the instance server as *opc* using PuTTY.
 
 1. Check the host name in the `hosts` file.
 
@@ -393,6 +402,15 @@ You can now connect to the noVNC remote desktop and provision a green button res
 
 1. Modify the rule and click **Save changes**.
 
+## Task 5: Manage resources in your tenancy
+
+- Move resources between compartments
+- Edit instance name
+- Terminate an instance
+- Export custom image
+- Delete an image
+- Increase boot volume of an instance
+
 <if type="hidden">
 
 ## Task 5: Set up the instance post creation **wip**
@@ -432,6 +450,8 @@ After creating the instance from scratch, set up the instance as follows.
 	----
 	## 2. Log in to Instance Server
 
+	VPN is disconnected, yes? Follow these steps.
+
 	1. Open PuTTY.
 
 	1. Under Host Name, enter the **Public IP** of the instance.   
@@ -464,6 +484,8 @@ After creating the instance from scratch, set up the instance as follows.
 	
 	----
 	## 3. Create users and groups
+
+	Ensure to disconnect VPN before proceeding.
 
 	1. Open PuTTY. 
 
@@ -591,7 +613,10 @@ Completed till 1:04:43
 
 ### Change the hostname from the instance
 
+Ensure to disconnect VPN before proceeding.
+
 1. Log in to the instance server using putty. 
+
 2. Run these commands.
 
 First time change user to root: 
@@ -677,3 +702,4 @@ After the volume is provisioned, for the volume resize to take effect, log in to
 
  - **Author** - Manish Garodia, Team Database UAD
  - **Last Updated on** - February 3, (Thu) 2022
+ - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
