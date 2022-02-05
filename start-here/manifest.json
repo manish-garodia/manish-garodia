@@ -1,40 +1,15 @@
 {
-    "workshoptitle": "LiveLabs in MG Library",
+    "workshoptitle": "Labs in MG Library",
     "tutorials": [
         {
             "title": "Welcome to MG space!",
-            "description": "This is the landing page for the oracle/learning-library repo",
+            "description": "This is the landing page for my personal space MG.",
             "filename": "./../common/intro/readme.md"
         },
         {
             "title": "Lab 1: MG Library",
-            "description": "This is the landing page for the oracle/learning-library repo",
+            "description": "Contains list of topics developed from notes on specific areas. These notes converge from various sources, such as discussions, trainings, experiments, and failures.",
             "filename": "./../common/mg-library/mg-library.md"
-        },
-        {
-            "title": "Lab #: Access VM and Configure VNC",
-            "description": "How to access the VM and configure the VNC.",
-            "filename": "./../common/mg-library/procedures/access-vm-config-vnc/access-vm-config-vnc.md"
-        },
-        {
-            "title": "Lab #: Oracle Database 21c Gold Image",
-            "description": "Pre-installation setup and post installation tasks for Oracle Database 21c gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.",
-            "filename": "./../common/mg-library/procedures/install-db-goldimage/install-db-goldimage.md"
-        },
-        {
-            "title": "Lab #: Install Oracle EMCC 13.5",
-            "description": "How to install Oracle EMCC on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EMCC.",
-            "filename": "./../common/mg-library/procedures/install-emcc/install-emcc.md"
-        },
-        {
-            "title": "Lab #: Compute Instance and Custom Images",
-            "description": "How to create and manage compute instances and custom images in the OCI tenancy.",
-            "filename": "./../common/mg-library/procedures/compute-instance-custom-image/compute-instance-custom-image.md"
-        },
-        {
-            "title": "Lab #: Fun with Git and Markdown",
-            "description": "description",
-            "filename": "./../common/mg-library/procedures/fun-with-git-md/fun-with-git-md.md"
         }
     ]
 }

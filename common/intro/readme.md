@@ -66,7 +66,13 @@ text-align: center;
 
 </div class="heatMap">
 
-## **Playground** - Test Env
+## Explore **Playground**
+
+TBD
+
+## Tables - Test Env
+
+Sample table 1
 
 
 |-----------------+------------+-----------------+----------------|
@@ -82,7 +88,8 @@ text-align: center;
 | Footer row      |            |                 |                |
 |-----------------+------------+-----------------+----------------|
 
-## Test Tables
+
+Sample table 2
 
 |---
 | Default aligned | Left aligned | Center aligned | Right aligned
@@ -100,6 +107,7 @@ text-align: center;
 
  - **Author** - Manish Garodia, Team Database UAD
  - **Last Updated on** - February 2, (Wed) 2022
+ - **Questions/Feedback?** - Write to [manish.garodia@oracle.com](./files/email.md)
 
 <if type="hidden"> </if>
 

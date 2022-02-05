@@ -1,9 +1,9 @@
 {
-    "workshoptitle": "LiveLabs in MG Library",
+    "workshoptitle": "Labs in MG Library",
     "tutorials": [
         {
             "title": "Lab #: MG Library",
-            "description": "This lab contains a list of various topics.",
+            "description": "Contains a list of topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, and failures.",
             "filename": "./../common/mg-library/mg-library.md"
         }
     ]

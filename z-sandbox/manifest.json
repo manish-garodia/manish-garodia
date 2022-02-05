@@ -1,15 +1,15 @@
 {
-    "workshoptitle": "LiveLabs in Sandbox",
+    "workshoptitle": "Labs in my Sandbox",
     "tutorials": [
         {
             "title": "Welcome to MG space!",
-            "description": "This is the landing page for the oracle/learning-library repo",
+            "description": "This is the landing page for my personal space MG.",
             "filename": "./../common/intro/readme.md",
 			"type": "hidden"
         },
         {
             "title": "Lab 1: MG Library",
-            "description": "This is the landing page for the oracle/learning-library repo",
+            "description": "Contains list of topics developed from notes on specific areas. These notes converge from various sources, such as discussions, trainings, experiments, and failures.",
             "filename": "./../common/mg-library/mg-library.md",
 			"type": "hidden"
         },
@@ -38,9 +38,16 @@
 			"type": "hidden"
         },
         {
-            "title": "Lab #: Fun with Git and Markdown",
+            "title": "Lab #: Fun with Git-Bits",
             "description": "description",
-            "filename": "./../common/mg-library/procedures/fun-with-git-md/fun-with-git-md.md"
+            "filename": "./../common/mg-library/procedures/fun-with-git-bits/fun-with-git-bits.md",
+			"type": "hidden"
+        },
+        {
+            "title": "Lab #: Hands down in Markdown",
+            "description": "description",
+            "filename": "./../common/mg-library/procedures/hands-down-in-md/hands-down-in-md.md",
+			"type": "hidden"
         }
     ]
 }
