@@ -34,7 +34,7 @@ You cannot transfer files and folders from the local host or a laptop to the noV
 
 The users need not go through these detailed steps to set up their VM. Nor do they have access to the internal systems. The *terraform scripts* automate these steps and create an instance for the users from the custom image. The OCI team (Rene or Ashish) deploys the custom image to the marketplace as *private* because it is not available for public view. 
 
-The OCI has **26 regions** which are associated with specific teams. 
+The OCI has **26 regions** that are associated with specific teams. 
  - An image existing in a tenancy is available only to that team. The teams from other regions in the OCI do not have access to that image. 
  - But if an image is published to the OCI marketplace, then it is available to all (26) regions in the OCI. 
 
@@ -42,7 +42,7 @@ The OCI has **26 regions** which are associated with specific teams.
 
 ## Credentials and specifications
 
- - Instance cretentials
+ - Instance credentials
  - Tenancy credentials
  - Tenancy specifications
 
@@ -116,7 +116,7 @@ The OCI has **26 regions** which are associated with specific teams.
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/-aidsyb5OOwAE-8q6Tdxq_rr2V-v5PLADtckYgtzZ-xichKWSv7RK4WNMUWuQdzt/n/natdsecurity/b/stage/o/emcc-livelabs-v3-int-02-10.20.2021
 			```
 
-		 - PAR URL for WS3, WS8, WS11 image - created on 4 FEb 2022, valid till 18 Feb. 
+		 - PAR URL for WS3, WS8, WS11 image - created on 4 Feb 2022, valid till 18 Feb. 
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/8Priv4KCP6ttV0Rqc9Zy0bis2ui_rPu1xWKMSZWSv941Fyl6QV2lg9uANgdlNPaJ/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-installed-appuser_v1
@@ -124,146 +124,146 @@ The OCI has **26 regions** which are associated with specific teams.
 
 </if>
 
-## Options for custom image
+## Task 1: Options for custom image
 
 Either of the following will get you a custom image.
- - *Create* a custom image from an instance - follow [Task 1A](?lab=compute-instance-custom-image#Task1A:Howtocreateacustomimagefromaninstance?). 
- - *Import* an existing image into your tenancy using a URL - follow [Task 1B](?lab=compute-instance-custom-image#Task1B:HowtoimportanexistingimageusingaURL?).
+ - **Option 1** - *Create* a custom image from an instance. 
+ - **Option 2** - *Import* an existing image into your tenancy using a URL.
 
-## Task 1A: How to create a custom image from an instance?
+	## 1. How to create a custom image from an instance?
 
-Creating a custom image from an instance is a two-step process -
- - Clean up the instance
- - Create the image
+	Creating a custom image from an instance is a two-step process -
+	 - Clean up the instance
+	 - Create the image
 
-VPN is disconnected, yes? Follow these steps.
+	VPN is disconnected, yes? Follow these steps.
 
-1. Log in to the instance server as *opc* using PuTTY.
+	1. Log in to the instance server as *opc* using PuTTY.
 
-1. Check the host name in the `hosts` file.
-
-	```
-	$ <copy>cat /etc/hosts</copy>
-	```
-
-	If the instance is clean, it displays only the following two. 
-	
-	```
-	127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
-	::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-	```
-
-	But if instance needs to be cleaned, it displays a third line.
-
-	Example - 
-
-	```
-	10.0.0.225   dbaessentials.livelabs.oraclevcn.com  dbaessentials
-	```
-
-	Clean up the instance first before proceeding with the custom image. 
-
-1. Follow this task to clean the instance. 
-
-	[Task 1: Cleanup Instance for Image Capture](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/?lab=7-labs-create-custom-image-for-marketplace#Task1:CleanupInstanceforImageCapture)
-
-	> **Note:** Always *clean up* the instance before creating a custom image.
-
-1. Check the `hosts` file again and verify that the instance is clean.
-
-	```
-	$ <copy>cat /etc/hosts</copy>
-	```
-
-1. Follow this task to create a custom image. 
-
-	[Task 2: Create Custom Image](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/?lab=7-labs-create-custom-image-for-marketplace#Task2:CreateCustomImage)
-
-> **Note:** Ensure to select the correct *compartment* while creating the custom image. If you create the image in a wrong compartment by mistake, you can *Move Resource* and bring the image back to the relevant compartment. 
-
-After creating the custom image - 
- - Export the image to the object store 
- - Share the PAR URL with the OCI team
- - The OCI team downloads the image and publishes it to the OCI marketplace. 
-
-	## Instance cleanup commands (handy)
-
-	- Log in to the instance as *opc* using PuTTY.
-	- Run these commands to clean up the instance.
-
-	1. Download the script.
+	1. Check the host name in the `hosts` file.
 
 		```
-		<copy>
-		cd /tmp
-		wget https://raw.githubusercontent.com/oracle/oci-utils/master/libexec/oci-image-cleanup -O /tmp/oci-image-cleanup.sh
-		chmod +x oci-image-cleanup.sh
-		</copy>
+		$ <copy>cat /etc/hosts</copy>
 		```
 
-	1. Stop the VNC service. 
-
+		If the instance is clean, it displays only the following two. 
+		
 		```
-		<copy>
-		cat > /tmp/stopvnc.sh <<EOF
-		#!/bin/bash
-		cd /etc/systemd/system
-		for i in \$(ls vncserver_*@*)
-		do
-		  sudo systemctl stop \$i
-		done
-		EOF
-		chmod +x /tmp/stopvnc.sh
-		/tmp/stopvnc.sh
-		</copy>
+		127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+		::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 		```
 
-	1. Run the script. 
+		But, if instance needs to be cleaned, it displays a third line.
+
+		Example - 
 
 		```
-		<copy>
-		cat > /tmp/cleanup.sh <<EOF
-		#!/bin/bash
-		sudo service rsyslog stop
-		sudo service auditd stop
-		sudo sh -c 'yes| /tmp/oci-image-cleanup.sh'
-		sudo find /var/log -type f -exec cp /dev/null {} \;
-		sudo find /var/log -type f -size 0 -exec rm {} +
-		sudo rm -rf /var/lib/cloud/instances/*
-		sudo rm -f /home/opc/get-pip.py
-		sudo rm -f /home/opc/.bashrc-orig
-		sudo rm -f /home/oracle/.bash_history
-		sudo sed -i -e 's|\\\(^.*PermitRootLogin.*$\\\)|PermitRootLogin no|g' /etc/ssh/sshd_config
-		sudo sed -i -e 's|root:x:0:0:root:/root:/bin/bash|root:x:0:0:root:/root:/sbin/nologin|g' /etc/passwd
-		sudo ln -sf /root/bootstrap/firstboot.sh /var/lib/cloud/scripts/per-instance/firstboot.sh
-		sudo ln -sf /root/bootstrap/eachboot.sh /var/lib/cloud/scripts/per-boot/eachboot.sh
-		sudo rm -f /u01/app/osa/non-marketplace-init/system-configured
-		sudo rm -f /var/log/audit/audit.log
-		EOF
-		chmod +x /tmp/cleanup.sh
-		/tmp/cleanup.sh
-		</copy>
+		10.0.0.225   dbaessentials.livelabs.oraclevcn.com  dbaessentials
 		```
 
-## Task 1B: How to import an existing image using a URL?
+		Clean up the instance first before proceeding with the custom image. 
 
-Import an existing image from another Object Storage into your tenancy using a PAR URL. 
+	1. Follow this task to clean the instance. 
 
-1. Log in to the tenancy.
+		[Task 1: Cleanup Instance for Image Capture](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/?lab=7-labs-create-custom-image-for-marketplace#Task1:CleanupInstanceforImageCapture)
 
-1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.  
-   Check if the compartment is correct. 
+		> **Note:** Always *clean up* the instance before creating a custom image.
 
-1. Click **Import image** and specify the following.
-    - Select the *compartment*
-    - Enter a *name* for the image
-    - Operating system - *Linux* (leave the default)
-    - Import from an Object Storage URL - Paste the URL
-    - Image type - *OCI*
+	1. Check the `hosts` file again and verify that the instance is clean.
 
-1. Click **Import image**.
+		```
+		$ <copy>cat /etc/hosts</copy>
+		```
 
-You can create an instance from the imported image and modify the enviroment as required.
+	1. Follow this task to create a custom image. 
+
+		[Task 2: Create Custom Image](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/?lab=7-labs-create-custom-image-for-marketplace#Task2:CreateCustomImage)
+
+	> **Note:** Ensure to select the correct *compartment* while creating the custom image. If you create the image in a wrong compartment by mistake, you can *Move Resource* and bring the image back to the relevant compartment. 
+
+	After creating the custom image - 
+	 - Export the image to the object store 
+	 - Share the PAR URL with the OCI team
+	 - The OCI team downloads the image and publishes it to the OCI marketplace. 
+
+		## Instance cleanup commands (handy)
+
+		- Log in to the instance as *opc* using PuTTY.
+		- Run these commands to clean up the instance.
+
+		1. Download the script.
+
+			```
+			<copy>
+			cd /tmp
+			wget https://raw.githubusercontent.com/oracle/oci-utils/master/libexec/oci-image-cleanup -O /tmp/oci-image-cleanup.sh
+			chmod +x oci-image-cleanup.sh
+			</copy>
+			```
+
+		1. Stop the VNC service. 
+
+			```
+			<copy>
+			cat > /tmp/stopvnc.sh <<EOF
+			#!/bin/bash
+			cd /etc/systemd/system
+			for i in \$(ls vncserver_*@*)
+			do
+			  sudo systemctl stop \$i
+			done
+			EOF
+			chmod +x /tmp/stopvnc.sh
+			/tmp/stopvnc.sh
+			</copy>
+			```
+
+		1. Run the script. 
+
+			```
+			<copy>
+			cat > /tmp/cleanup.sh <<EOF
+			#!/bin/bash
+			sudo service rsyslog stop
+			sudo service auditd stop
+			sudo sh -c 'yes| /tmp/oci-image-cleanup.sh'
+			sudo find /var/log -type f -exec cp /dev/null {} \;
+			sudo find /var/log -type f -size 0 -exec rm {} +
+			sudo rm -rf /var/lib/cloud/instances/*
+			sudo rm -f /home/opc/get-pip.py
+			sudo rm -f /home/opc/.bashrc-orig
+			sudo rm -f /home/oracle/.bash_history
+			sudo sed -i -e 's|\\\(^.*PermitRootLogin.*$\\\)|PermitRootLogin no|g' /etc/ssh/sshd_config
+			sudo sed -i -e 's|root:x:0:0:root:/root:/bin/bash|root:x:0:0:root:/root:/sbin/nologin|g' /etc/passwd
+			sudo ln -sf /root/bootstrap/firstboot.sh /var/lib/cloud/scripts/per-instance/firstboot.sh
+			sudo ln -sf /root/bootstrap/eachboot.sh /var/lib/cloud/scripts/per-boot/eachboot.sh
+			sudo rm -f /u01/app/osa/non-marketplace-init/system-configured
+			sudo rm -f /var/log/audit/audit.log
+			EOF
+			chmod +x /tmp/cleanup.sh
+			/tmp/cleanup.sh
+			</copy>
+			```
+
+	## 2. How to import an existing image using a URL?
+
+	Import an existing image from another Object Storage into your tenancy using a PAR URL. 
+
+	1. Log in to the tenancy.
+
+	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.  
+	   Check if the compartment is correct. 
+
+	1. On the Images page, click **Import image** and specify the following.
+		- Select the *compartment*
+		- Enter a *name* for the image
+		- Operating system - *Linux* (leave the default)
+		- Import from an Object Storage URL - Paste the URL
+		- Image type - *OCI*
+
+	1. Click **Import image**.
+
+	You can create an instance from the imported image and modify the environment as required.
 
 ## Task 2: Options for creating instance
 
@@ -282,7 +282,7 @@ After logging in to the tenancy:
 
 	1. On the Instances page, click **Create instance**. 
 	
-	1. Follow [Task 4: Create a compute instance](?lab=compute-instance-custom-image#Task4:Howtocreateacomputeinstance?).
+	1. Follow [Task 3: How to create a compute instance?](?lab=compute-instance-custom-image#Task3:Howtocreateacomputeinstance?).
 
    ## 2. To create an instance from an existing image
 
@@ -293,9 +293,13 @@ After logging in to the tenancy:
 
 	1. On the Custom image details page, click **Create instance**.
 	
-	1. Follow [Task 4: Create a compute instance](?lab=compute-instance-custom-image#Task4:Howtocreateacomputeinstance?).
+		Alternatively, click on the three dots on the right of the image name and select **Create instance**.
+
+	1. Follow [Task 3: How to create a compute instance?](?lab=compute-instance-custom-image#Task3:Howtocreateacomputeinstance?).
 
 ## Task 3: How to create a compute instance?
+
+> **Note:** Whether from an image or from scratch, the steps for creating an instance is the same. 
 
 Following the **Create instance** button, do these steps.
 
@@ -334,9 +338,11 @@ Following the **Create instance** button, do these steps.
 
 	Click **Select shape**.
 
+	> **Note:** Adding a shape compatibility to an image does not guarantee that the image will work on the shape. You should test the image on the shape after you add compatibility. Some images (especially Windows) might never be cross-compatible with other shapes because of driver or hardware differences.
+
 1. For networking, leave the defaults *vcnyyyymmdd-xxxx*. For example, `vcn-20220131-2306`.
 
-1. Under Add SSH keys, the window displays the default **Generate a key pair for me** selected.  
+1. Under Add SSH keys, the page displays the default **Generate a key pair for me** selected.  
    Save both the keys to your local system, **Save Private key** (`*.key`) and **Save Public key** (`*.pub`). 
    
 	> **Note:** Ensure to save both, the private key and the public key. If you skip downloading the keys now, you do not get a second chance to download them ever again. 
@@ -364,18 +370,20 @@ Following the **Create instance** button, do these steps.
 
 	> **Note:** The lifetime of an instance is <i>forever</i>, until you stop the instance and delete it. 
 
-The instance status displays *Provisioning*. After sometime, the status changes to *Running*. Note the **Public IP Address** of the instance (because it is publicly accessible). You cannot connect to the server using the Private IP.
+The instance status displays *Provisioning*. After some time, the status changes to *Running*. Note the **Public IP Address** of the instance (because it is publicly accessible). You cannot connect to the server using the Private IP.
 
 > **Note:** If you create a compute instance from scratch, enable port *6080* for noVNC.
 
 ## Task 4: Enable port 6080 for noVNC
+
+To access the remote desktop for noVNC environment, enable port *6080*.
 
 1. Log in to the tenancy.
 
 1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
 	Check if the compartment is correct. 
 
-1. Click the *instance name* for which you want to enable the port. 
+1. On the Instances page, click the *instance name* for which you want to enable the port. 
 
 1. Under Instance details, click the **Virtual cloud network** name, for example *vcn-20200616-1735*.
 
@@ -402,18 +410,151 @@ You can now connect to the noVNC remote desktop and provision a green button res
 
 1. Modify the rule and click **Save changes**.
 
-## Task 5: Manage resources in your tenancy
+## Task 5: Manage your tenancy
 
-- Move resources between compartments
-- Edit instance name
-- Terminate an instance
-- Export custom image
-- Delete an image
-- Increase boot volume of an instance
+After logging into your tenancy, you can do various administrative activities, such as:
+
+1. Access the Object Storage
+2. Export a custom image
+3. Delete an image
+4. Move resources between compartments
+5. Edit an instance name
+6. Terminate an instance
+7. Increase the boot volume of an instance
+
+	----
+	## 1. To access the Object Storage
+
+	1. Click on the hamburger (sandwich bars) and go to **Storage** > **Buckets**.   
+		Check if the compartment is correct. 
+
+		The Object Storage & Archive Storage page displays the buckets.
+
+	1. Click the *bucket name* to view its contents. 
+
+	----
+	## 2. To export a custom image
+
+	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.   
+		Check if the compartment is correct. 
+
+	1. On the Images page, click the *custom image name* that you want to export. 
+	
+		Alternatively, click on the three dots on the right of the image name and select **Export**.
+
+	1. On the Custom image details page, click **Export** to export the image to the object store. 
+
+	After some time, go to the object storage and verify that the custom image is exported successfully.
+
+	----
+	## 3. To delete an image
+
+	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.   
+		Check if the compartment is correct. 
+
+	1. On the Images page, click the *custom image name* that you want to delete. 
+
+		Alternatively, click on the three dots on the right of the image name and select **Delete**.
+
+	1. On the Custom image details page, click **More Actions** > **Delete**. 
+
+	1. On the confirmation screen, click **Delete** to remove the custom image permanently.
+
+	The custom image is deleted from the tenancy immediately.
+
+	----
+	## 4. To move resources between compartments
+
+	You can move resources from one compartment to another within your tenancy. For example, let us move an instance to another compartment. 
+
+	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+		Check if the compartment is correct. 
+
+	1. On the Instances page, click the *instance name* that you want to move. 
+
+	1. On the Instance details page, click **More Actions** > **Move Resource**.
+
+	1. Select the *compartment* where you want to move the resource.
+
+	1. Click **Move Resource** to move the instance to the selected compartment.
+
+	The instance is moved to the new compartment immediately. It is not displayed in the compartment anymore. Change to the new compartment and verify that it dispays the instance.
+
+	Similarly, you can move images, buckets in the object store, etc between compartments. Moving a bucket to another compartment also moves all the underlying objects stored within the bucket. 
+
+	> **Note:** Moving a resource does not export it to the Object Store. Nor can you move a resource from your tenancy to another tenancy or region.
+
+	----
+	## 5. To edit an instance name
+
+	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+		Check if the compartment is correct. 
+
+	1. On the Instance details page, click **Edit** and specify a new name. 
+
+	1. Click **Save changes**.
+
+	----
+	## 6. To terminate an instance
+
+	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+		Check if the compartment is correct. 
+
+	1. On the Instances page, click the *instance name* that you want to delete. 
+
+		Alternatively, click on the three dots on the right of the instance name and select **Terminate**.
+
+	1. On the Instance details page, click **More Actions** > **Terminate**. 
+
+	1. On the confirmation screen, select *Permanently delete the attached boot volume*. 
+
+	1. Click **Terminate instance** to remove the instance permanently.
+
+	The instance status displays *Terminated*. After some time, the instance is removed from the tenancy.
+
+	## 7. To increase the boot volume of an instance
+
+	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+	   Check if the compartment is correct. 
+
+	1. On the Instances page, click the *instance name* for which you want to increase the boot volume. 
+
+	1. Under **Resources** on the left, open **Boot volume**. 
+
+	1. Click the **Boot volume name** > **Edit**.
+
+	1. Increase the **Volume Size** (in GB), for example *64* GB.
+
+	1. Click **Save Changes**.
+
+	After the volume is provisioned, for the volume resize to take effect, log in to puTTY as *opc* and do the following -
+
+	 - Run the rescan commands. 
+	 - Extend the partition manually. 
+
+	**Steps**
+
+	1. Rescan the disk.
+
+		```
+		<copy>
+		sudo dd iflag=direct if=/dev/oracleoci/oraclevda of=/dev/null count=1
+		echo "1" | sudo tee /sys/class/block/`readlink /dev/oracleoci/oraclevda | cut -d'/' -f 2`/device/rescan
+		</copy>
+		```
+
+	2. Extend the root partition.
+
+		```
+		<copy>sudo /usr/libexec/oci-growfs</copy>
+		```
+
+	> **Note:** Increasing the boot volume of an instance does not affect the volume size of the existing custom image. You must create the custom image again with the new (increased) boot volume. 
+
 
 <if type="hidden">
 
-## Task 5: Set up the instance post creation **wip**
+## Task 6: Set up the instance post creation **wip**
 
 > This task is still work-in-progress, not fully completed.
 
@@ -580,7 +721,7 @@ Change the default home directory in the instance terminal for the `oracle` user
 	http://[your instance public-ip address]:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true
 	```
 
-1. Open a terminal window and go to the the home folder
+1. Open a terminal window and go to the home folder.
 
 	```
 	$ <copy>cd /home/oracle</copy>
@@ -598,7 +739,7 @@ Change the default home directory in the instance terminal for the `oracle` user
 	<copy>cd /u01/app/oracle/product/21.0.0/dbhome_1</copy>
 	```
 
-1. Save the file `baserc`.
+1. Save the file `bashrc`.
 
 	### Restart noVNC
 	
@@ -623,7 +764,7 @@ First time change user to root:
 
 sudo su - || (sudo sed -i -e 's|root:x:0:0:root:/root:.*$|root:x:0:0:root:/root:/bin/bash|g' /etc/passwd && sudo su -)
 
-Subequent times change to root:
+Subsequent times change to root:
 sudo su -
 
 
@@ -650,44 +791,6 @@ chmod -R 775 /oracle
 chmod g+s /oracle
 ```
 
-## Task 7: Increase Boot Volume
-
-1. Log in to the tenancy.
-
-1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
-   Check if the compartment is correct. 
-
-1. Click the *instance name* for which you want to increase the boot volume. 
-
-1. Under **Resources** on the left, open **Boot volume**. 
-
-1. Click the **Boot volume name** > **Edit**.
-
-1. Increase the **Volume Size** (in GB), for example *64* GB, and **Save Changes**.
-
-After the volume is provisioned, for the volume resize to take effect, log in to puTTY as *opc* and do the following -
-
- - Run the rescan commands. 
- - Extend the partition manually. 
-
-**Steps**
-
-1. Rescan the disk.
-
-	```
-	<copy>
-	sudo dd iflag=direct if=/dev/oracleoci/oraclevda of=/dev/null count=1
-	echo "1" | sudo tee /sys/class/block/`readlink /dev/oracleoci/oraclevda | cut -d'/' -f 2`/device/rescan
-	</copy>
-	```
-
-2. Extend the root partition.
-
-	```
-	<copy>sudo /usr/libexec/oci-growfs</copy>
-	```
-
-> **Note:** Increasing the boot volume of an instance does not affect the volume size of the existing custom image. You must create the custom image again with the new (increased) boot volume. 
 
 </if>
 
@@ -701,5 +804,5 @@ After the volume is provisioned, for the volume resize to take effect, log in to
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 3, (Thu) 2022
+ - **Last Updated on** - February 6, (Sat) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
