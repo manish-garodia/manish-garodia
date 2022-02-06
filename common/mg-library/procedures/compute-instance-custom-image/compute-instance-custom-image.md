@@ -465,8 +465,6 @@ After logging into your tenancy, you can do various administrative activities, s
 	----
 	## 4. To move resources between compartments
 
-	You can move resources from one compartment to another within your tenancy. For example, let us move an instance to another compartment. 
-
 	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
 		Check if the compartment is correct. 
 
@@ -478,9 +476,11 @@ After logging into your tenancy, you can do various administrative activities, s
 
 	1. Click **Move Resource** to move the instance to the selected compartment.
 
-	The instance is moved to the new compartment immediately. It is not displayed in the compartment anymore. Change to the new compartment and verify that it dispays the instance.
+		The instance is moved to the new compartment immediately. It is not displayed in the compartment anymore. Change to the new compartment and verify that it dispays the instance.
 
-	Similarly, you can move images, buckets in the object store, etc between compartments. Moving a bucket to another compartment also moves all the underlying objects stored within the bucket. 
+	Similarly, you can move images, buckets in the object store, etc. between compartments. Moving a bucket to another compartment also moves all the underlying objects stored within the bucket. 
+
+	You can move resources from one compartment to another within your tenancy. In this example, we moved an instance to another compartment. 
 
 	> **Note:** Moving a resource does not export it to the Object Store. Nor can you move a resource from your tenancy to another tenancy or region.
 
