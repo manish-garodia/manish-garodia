@@ -103,11 +103,19 @@ Sample table 2
 |===
 | Footer row
 
+## Secret tips and tricks
+
+Glad for your enthusiasm, but it is on its way... 
+
+coming soon... stay tuned  ![git](./../../../images/git-black-small.png) 
+
+![Work-in-progress](./../../../images/maintenance-work-in-progress.jpg " ")**Caption:** Work-in-progress
+
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
  - **Last Updated on** - February 2, (Wed) 2022
- - **Questions/Feedback?** - Write to [manish.garodia@oracle.com](./files/email.md)
+ - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./files/email.md)
 
 <if type="hidden"> </if>
 

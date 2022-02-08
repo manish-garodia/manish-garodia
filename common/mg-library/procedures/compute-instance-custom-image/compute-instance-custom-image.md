@@ -549,8 +549,7 @@ After logging into your tenancy, you can do various administrative activities, s
 		<copy>sudo /usr/libexec/oci-growfs</copy>
 		```
 
-	> **Note:** Increasing the boot volume of an instance does not affect the volume size of the existing custom image. You must create the custom image again with the new (increased) boot volume. 
-
+	> **Note:** Increasing the boot volume of an instance does not affect the volume size of the existing custom image. For the custom image to have the new (increased) boot volume, create the image again. 
 
 <if type="hidden">
 
@@ -710,7 +709,7 @@ After creating the instance from scratch, set up the instance as follows.
 		$ <copy>sudo su - opc</copy>
 		```
 
-## Task 6: LiveLabs Instance terminal
+## Task 7: LiveLabs Instance terminal
 
 Change the default home directory in the instance terminal for the `oracle` user. 
 
@@ -799,7 +798,6 @@ chmod g+s /oracle
 - [Setup Graphical Remote Desktop](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/)
 
 - [Create Custom OCI Compute Image for Marketplace Publishing](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/?lab=7-labs-create-custom-image-for-marketplace)
-
 
 ## Acknowledgements
 
