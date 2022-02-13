@@ -1,20 +1,10 @@
 # Automatic Memory Management
 
-<!-- Comment from Manish Garodia: The lab number in the manifest for freeetier is incorrect. -->
-
 ## Introduction
 
 This lab shows how to enable Automatic Memory Management for Oracle Database from Oracle Enterprise Manager Cloud Control (Oracle EMCC) and SQL command line.
 
 Estimated time: 15 minutes
-
-### Purpose
-
-<!-- Comment from Manish Garodia: Should we move the purpose to the introduction lab. -->
-
-The simplest way to manage instance memory is to allow the Database Instance to automatically manage and tune it for you. You set a target memory size initialization parameter (`MEMORY_TARGET`) and optionally a maximum memory size initialization parameter (`MEMORY_MAX_TARGET`). The total memory that the instance uses remains relatively constant, based on the value of `MEMORY_TARGET`, and the instance automatically distributes memory between the system global area (SGA) and the instance program global area (instance PGA). As memory requirements change, the instance dynamically redistributes memory between the SGA and instance PGA.  
-
-If you do not enable Automatic Memory Management for your Oracle Database, then you must manually set the memory for both SGA and PGA. While installing Oracle Database, the installer gives you an option to enable Automatic Memory Management. If you did not enable Automatic Memory Management during database installation, you can enable it as explained in this lab.
 
 ### Objectives  
 
@@ -23,11 +13,9 @@ Enable Automatic Memory Management for Oracle Database from either Oracle EMCC o
 ### Prerequisites  
 This lab assumes you have -
 -   A Free Tier, Paid or LiveLabs Oracle Cloud account
--   Completed all the previous labs succesfully. 
+-   Completed all the previous labs succesfully.
 
 ## Task 1: Set the Environment  
-
-<!-- Comment from Manish Garodia: Please verify this task with the other labs. Looks like the steps are not updated. -->
 
 To enable Automatic Memory Management feature using SQL commands, you must set the environment first. 
 
@@ -39,7 +27,7 @@ To enable Automatic Memory Management feature using SQL commands, you must set 
     $ <copy>cd /u01/app/oracle/product/21.0.0/dbhome_1/bin</copy>
     ```
 
-3.  Run the command `oraenv` to set the environment variables, if not already set.
+3.  Run the command `oraenv` to set the environment variables.
 
     ```
     $ <copy>./oraenv</copy>
@@ -51,18 +39,16 @@ To enable Automatic Memory Management feature using SQL commands, you must set 
     ORACLE_SID = [oracle] ? <copy>orcl</copy>
     The Oracle base has been set to /u01/app/oracle
     ```
-    This command also sets the Oracle home path to 
-    ```
-    /u01/app/oracle/product/21.0.0/dbhome\_1.
-    ```
+    This command also sets the Oracle home path to `/u01/app/oracle/product/21.0.0/dbhome_1.`
 
 You have set the environment variables for the active terminal session. You can now connect to Oracle Database and run the commands.
 
 **Note:** Every time you open a new terminal window, you must set the environment variables to connect to Oracle Database from that terminal. Environment variables from one terminal do not apply automatically to other terminals. 
+Alternatively, you may run the script file `.set-env-db.sh` from the home location and enter the number for `ORACLE_SID`, for example, *3* for `orcl`. It sets the environment variables automatically.
 
 ## Task 2: Options to Enable Automatic Memory Management
 
-You can enable Automatic Memory Management for your Oracle Database from either Oracle EMCC or the SQL command line.  
+You can enable Automatic Memory Management for your Oracle Database from either Oracle EMCC or the SQL command line. 
 
 -   To enable Automatic Memory Management from Oracle EMCC, follow *Task 2A* of this lab.
 -   To enable Automatic Memory Management from the SQL command line, follow *Task 2B* of this lab. 
@@ -155,7 +141,7 @@ To enable Automatic Memory Management, shut down and restart the Oracle Database
 
     **Note:** The preceding steps instruct you to set the parameters `SGA_TARGET` and `PGA_AGGREGATE_TARGET` to *0* so that the size of the SGA and instance PGA are tuned up and down as required, without restrictions.  
 
-	For the new values of the parameters to take effect, shut down and start the Database Instance. 
+	For the new values of the parameters to take effect, shut down and start the Database Instance.
 
 7.  Shut down the Database Instance in *IMMEDIATE* mode. 
 
@@ -192,9 +178,8 @@ To enable Automatic Memory Management, shut down and restart the Oracle Database
 9.  Execute `show parameter target` command to view the new values of the initialization parameters.
 
     ```
-    SQL> <copy>startup</copy>
+    SQL> <copy>show parameter target</copy>
     ```
-	<!-- Comment from Manish Garodia: Please check the above command. -->
 
     ```
     NAME                                 TYPE        VALUE
@@ -221,7 +206,7 @@ After logging in to Oracle EMCC, you can view the status of Automatic Memory Man
 
 1.  From the **Targets** menu, select **Databases**.  
 
-    ![Databases](../auto-memory-management/images/emcc-target-db.png)  
+    ![Databases](../auto-memory-management/images/emcc-target-db.png " ")  
 
     The Databases page displays a list of Oracle Databases added to Oracle EMCC as managed targets.   
 	The values may differ depending on the system you are using.  
@@ -231,38 +216,33 @@ After logging in to Oracle EMCC, you can view the status of Automatic Memory Man
 2.  Click on the Database Instance name, *orcl.us.oracle.com*, to open the instance home page.  
 	The values may differ depending on the system you are using.  
 
-    ![Instance Homepage](../auto-memory-management/images/emcc-instance-hompage.png)  
+    ![Instance Homepage](../auto-memory-management/images/emcc-instance-hompage.png " ")  
 
 3.  From the **Performance** menu, select **Advisors Home**.  
 
-    ![Advisors Home](../auto-memory-management/images/performance-advisorshome.png)  
+    ![Advisors Home](../auto-memory-management/images/performance-advisorshome.png " ")  
 
 4.  On the Advisors tab, select **Memory Advisors**.  
 
-    ![Memory Advisors](../auto-memory-management/images/advisors-memoryadvisors.png)  
+    ![Memory Advisors](../auto-memory-management/images/advisors-memoryadvisors.png " ")  
 
-	<!-- Comment from Manish Garodia: In the below note, the statement is not clear - It adjusts memory sizes. Who adjusts, memory advisors or automatic memory management? It has 3 advisors, but on the window I see many advisors, again not clear. -->
-
-    **Note:** The Memory Advisors option is available only from the Database Instance home page, and not from the PDB home page. You can use Memory Advisors when the Automatic Memory Management feature is disabled. It adjusts memory sizes. It has three advisors that give recommendations on the shared pool in the SGA, the buffer cache in the SGA and the PGA. The Memory Advisors page displays the details on memory usage for the SGA. The Shared pool and buffer cache are part of the SGA.   
+    **Note:** The Memory Advisors option is available only from the Database Instance home page, and not from the PDB home page. You can use Memory Advisors when the Automatic Memory Management feature is disabled. The Memory Advisors automatically adjusts the memory distribution among the various SGA and PGA for optimal performance. These adjustments are made within the boundaries of your total SGA and PGA target values. If the Memory Advisor finds that the current amount of available memory is inadequate and adversely affecting performance, it recommends you to increase your SGA or PGA target value. You can set new values for the SGA and PGA using the Memory Advisor.   
 
     If the **Maximum SGA Size (MB)** field consists of a positive number that is greater than or equal to the desired total amount of memory to allocate to the database, then you can directly **Enable** Automatic Memory Management option without performing rest of the steps.  
 
-5.  In the **Maximum SGA Size (MB)** field, enter the maximum permissible size for database memory and click **Apply**.   
+5.  In the **Maximum SGA Size (MB)** field, enter the maximum permissible size for database memory and click **Apply**. For this lab the Maximum SGA Size entered is *6 GB*.  
 
-	<!-- Comments from Manish Garodia: Can you suggest some value for the max SGA size? You can state it as an example. 
-	For this lab, the Maximum SGA Size entered is 6 GB. -->
-
-    ![Maximum SGA Size](../auto-memory-management/images/totalsgasize-greater-maxmemory.png)  
+    ![Maximum SGA Size](../auto-memory-management/images/totalsgasize-greater-maxmemory.png " ")  
 
 	**Note:** To decide the maximum SGA size, use the sum of the current sizes of the SGA and instance PGA as a guideline, and optionally add some extra values for extension.
 
-6.  A confirmation page appears indicating that you must restart Oracle Database. Click **Yes** to restart the database. 
+6.  A confirmation page appears indicating that you must restart Oracle Database. Click **Yes** to restart the database.
 
-	<!-- Comments from Manish Garodia: Where to click yes. Should we add the screenshot for this step. -->
+	![Restart confirmation](../auto-memory-management/images/confirmation-restart.png " ")
 
 	The Restart Database credentials page appears.  
 
-    ![Restart Database Credentials](../auto-memory-management/images/restartdb_namedcred.png)  
+    ![Restart Database Credentials](../auto-memory-management/images/restartdb_namedcred.png " ")  
 
 7.  For Host Credentials, specify the following.  
 
@@ -270,7 +250,7 @@ After logging in to Oracle EMCC, you can view the status of Automatic Memory Man
     Oracle EMCC fills in the **UserName** and **Password** fields automatically.  
     You can click **More Details** and then click **Test** to verify that the specified host credentials are working.  
 
-8.  For Database credentials, specify the following.  
+8.  For Database credentials, specify the following.
 
     **Credential**: *Preferred*. This is the default value selected.  
     **Preferred Credential Name**: *SYSDBA Database Credentials*. This is the credential you assigned during Oracle Database installation.  
@@ -280,80 +260,54 @@ After logging in to Oracle EMCC, you can view the status of Automatic Memory Man
 9.  A restart database confirmation window appears. Click **OK** to restart the database.   
 	Oracle Database takes a while to restart. After which you receive an update message of successful database restart.  
 
-	<!-- Comments from Manish Garodia: Should we add the screenshot for this step. -->
+    ![Restart Database confirmation message](../auto-memory-management/images/restart-db-confirmation.png " ")  
 
-10.  Click **Refresh** to return to the Database home page. 
 
-	<!-- Comments from Manish Garodia: Click refresh to do what. I added the remaining text from the lab shut down and start up instance. -->
+10.  Click **Refresh** to return to the Database home page.
 
-	Now, go to to the Memory Advisors page and view the status of Automatic Memory Management as follows.
+    ![Successful restart confirmation message](../auto-memory-management/images/update-restart-confirmation.png " ")
+
+	Now, go to the Memory Advisors page and view the status of Automatic Memory Management as follows.
 
 11.  On the Database home page, click on the Database Instance name, *orcl.us.oracle.com*, to open the instance home page.   
 
-    ![Instance Homepage](../auto-memory-management/images/emcc-instance-hompage.png)  
+    ![Instance Homepage](../auto-memory-management/images/emcc-instance-hompage.png " ")  
 
 12.  From the **Performance** menu, select **Advisors Home**.  
 
-    ![Advisors Home](../auto-memory-management/images/performance-advisorshome.png)  
+    ![Advisors Home](../auto-memory-management/images/performance-advisorshome.png " ")  
 
 13.  In the Advisors section, select **Memory Advisors**.  
 
-    ![Memory Advisors](../auto-memory-management/images/advisors-memoryadvisors.png)  
+    ![Memory Advisors](../auto-memory-management/images/advisors-memoryadvisors.png " ")  
 
 14.  The Memory Advisors page displays the status of Automatic Memory Management as `Disabled`. Click **Enable** to enable this option.  
 
-    ![Enable button](../auto-memory-management/images/enable-with-skip.png)
+    ![Enable button](../auto-memory-management/images/enable-with-skip.png " ")
 
-15.  On the Enable Automatic Memory Management page, in the **Total Memory Size for Automatic Memory Management** field, enter the desired amount of memory to allocate to the database, and then click **OK**.  
+15.  On the Enable Automatic Memory Management page, in the **Total Memory Size for Automatic Memory Management** field, enter the desired amount of memory to allocate to the database and then click **OK**. For this lab, *5.12 GB* is used as **Total Memory Size for Automatic Memory Management**. 
 
-	<!-- Comments from Manish Garodia: Can you suggest some value for the total memory size? You can state it as an example. -->
-
-    ![Enable Automatic Memory Management](../auto-memory-management/images/enable-amm-screen.png)  
-
-	<!-- Comments from Manish Garodia: In the step you instruct to modify the total memory size but in the screenshot, the max memory size is highlighted? -->
+    ![Enable Automatic Memory Management](../auto-memory-management/images/enable-amm-screen.png " ")  
 
     The window displays a message to confirm that you have enabled Automatic Memory Management. Oracle Database will automatically adjust the memory sizes to achieve optimal distribution.   
 
-You can verify that you have enabled the Automatic Memory Management option for your Oracle Database. From the instance home page, go to Memory Advisors as explained in this task above. The Automatic Memory Management option displays *Enabled*.  
+	You can verify that you have enabled the Automatic Memory Management option for your Oracle Database. From the instance home page, go to Memory Advisors as explained in this task above. The Automatic Memory Management option displays *Enabled*.  
 
-<!-- Comments from Manish Garodia: Would be good to add a screenshot here. -->
+	![Successful Automatic Memory Management](../auto-memory-management/images/enabled-amm.png " ")
 
 ## Task 3: Disable Automatic Memory Management from Oracle EMCC
 
-From Oracle EMCC, you can disable Automatic Memory Management for your Oracle Database and manage the memory sizes manually.
+From Memory Advisors home page in Oracle EMCC, you can disable Automatic Memory Management for your Oracle Database and manage the memory sizes manually.
 
-1.  From the **Targets** menu, select **Databases**.  
+1.  Click **Disable** next to the Automatic Memory Management option.  
 
-    ![Databases](../auto-memory-management/images/emcc-target-db.png)  
-
-    The Databases page displays a list of Oracle Databases added to Oracle EMCC as managed targets.  
-	The values may differ depending on the system you are using.  
-
-    ![Database List](../shutdown-startup-instance/images/emcc-dbvalues.png " ")  
-
-2.  Click on the Database Instance name, *orcl.us.oracle.com*, to open the instance home page.  
-
-    ![Instance Homepage](../auto-memory-management/images/emcc-instance-hompage.png)  
-
-3.  From the **Performance** menu, select **Advisors Home**.  
-
-    ![Advisors Home](../auto-memory-management/images/performance-advisorshome.png)  
-
-4.  In the Advisors section, select **Memory Advisors**.  
-
-    ![Memory Advisors](../auto-memory-management/images/advisors-memoryadvisors.png)  
-
-5.  Click **Disable** next to the Automatic Memory Management option.  
-
-    ![Disable Automatic Memory Management](../auto-memory-management/images/memoryadvisors-disable.png)  
+    ![Disable Automatic Memory Management](../auto-memory-management/images/memoryadvisors-disable.png " ")  
 
     You have disabled Automatic Memory Management for your Oracle Database. The Memory Advisors page displays **Disabled** next to the Automatic Memory Management option.  
 
-    ![Disabled Automatic Memory Management](../auto-memory-management/images/disabled-amm.png)  
+    ![Disabled Automatic Memory Management](../auto-memory-management/images/disabled-amm.png " ")  
 
-<!-- Comments from Manish Garodia: What happens after clicking disable in step 5. Any confirmation? which page is displayed. Does it go to the database home page or stays on the same page. 
-
-In that case, we can delete the steps from 1 to 4 and make the task very short and simple, with only 2 steps. -->
+	You can now log out of Oracle EMCC.
 
 Congratulations! You have successfully completed the workshop on *Database Instance and Memory Management*.
 

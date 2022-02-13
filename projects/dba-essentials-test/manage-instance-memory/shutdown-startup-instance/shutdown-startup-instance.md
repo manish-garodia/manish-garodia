@@ -138,21 +138,22 @@ To run SQL commands, you must start the Database Instance.
     Database opened.
     ```
 
-    The Database Instance starts in the default mode, *OPEN*. 
-	
-	**Note:** When you start the CDB, all PDBs remain in the mounted mode. There is no default mechanism to automatically open PDBs when the CDB starts. 
+    The Database Instance starts in the default mode, *OPEN*.
+
+	**Note:** When you start the CDB, all PDBs remain in the mounted mode. There is no default mechanism to automatically open PDBs when the CDB starts.
 
 2. 	View the current status of the PDBs.
 
     ```
     SQL> <copy>show pdbs</copy>
     ```
-	``` 
-        CON_ID CON_NAME                  OPEN MODE  RESTRICTED
-	---------- ------------------------- ---------- ----------
-			 2 PDB$SEED                  READ ONLY  NO
-			 3 ORCLPDB                   READ WRITE NO
-	```
+  	```
+        CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+    ---------- ------------------------------ ---------- ----------
+             2 PDB$SEED                       READ ONLY  NO
+             3 ORCLPDB                        MOUNTED
+
+  	```
 
 3.  Start all PDBs in your Oracle Database.
 
@@ -180,10 +181,6 @@ You have restarted the Database Instance successfully.
 
 ##Task 4: Shut down the Database Instance from Oracle EMCC
 
-<!--
-	Comment from Manish Garodia: Please add this " ") to all images after the file name *.png. Example shown in step 1. Please modify in all labs in the workshop.
--->
-
 Log in to Oracle EMCC from a web browser and shut down the Database Instance as follows.
 
 1.  From the **Targets** menu, select **Databases**.
@@ -192,20 +189,20 @@ Log in to Oracle EMCC from a web browser and shut down the Database Instance as 
 
     The Databases page displays a list of Oracle Databases added to Oracle EMCC as managed targets.  
     The values may differ depending on the system you are using.  
-    ![Database List](../shutdown-startup-instance/images/emcc-dbvalues.png)  
+    ![Database List](../shutdown-startup-instance/images/emcc-dbvalues.png " ")  
 
 2.  Click on the Database Instance name, *orcl.us.oracle.com*, to open the instance home page.   
 	The values may differ depending on the system you are using.
-    ![Instance Homepage](../shutdown-startup-instance/images/emcc-instance-hompage.png)  
+    ![Instance Homepage](../shutdown-startup-instance/images/emcc-instance-hompage.png " ")  
 
 3.  From **Oracle Database** menu, go to **Control** option and select **Startup/Shutdown**.   
 	The values may differ depending on the system you are using.
 
-    ![Startup or Shutdown](../shutdown-startup-instance/images/startup-shutdown.png)  
+    ![Startup or Shutdown](../shutdown-startup-instance/images/startup-shutdown.png " ")  
 
     The Host and Database Credentials page appears.  
 
-    ![Startup or Shutdown Credentials](../shutdown-startup-instance/images/startup-shutdown-credential.png)  
+    ![Startup or Shutdown Credentials](../shutdown-startup-instance/images/startup-shutdown-credential.png " ")  
 
 4.  For Host Credentials, specify the following.  
 
@@ -222,17 +219,17 @@ Log in to Oracle EMCC from a web browser and shut down the Database Instance as 
 
 6.  The window prompts you to confirm the operation. Click **Yes** to initiate the `SHUTDOWN IMMEDIATE` operation on Oracle Database.   
 	The values may differ depending on the system you are using.
-    ![Shutdown immediate](../shutdown-startup-instance/images/shutdown-immediate.png)  
+    ![Shutdown immediate](../shutdown-startup-instance/images/shutdown-immediate.png " ")  
 
     The Startup/Shutdown Activity Information page appears, informing you that the database is being shut down.   
 	The values may differ depending on the system you are using.
 
-    ![Startup or Shutdown Activity Information](../shutdown-startup-instance/images/startup-shutdown-activity.png)  
+    ![Startup or Shutdown Activity Information](../shutdown-startup-instance/images/startup-shutdown-activity.png " ")  
 
 7.  After a few minutes, click **Refresh** to return to the Database home page.   
 	The values may differ depending on the system you are using.
 
-    ![Database down state](../shutdown-startup-instance/images/database-down-state.png)  
+    ![Database down state](../shutdown-startup-instance/images/database-down-state.png " ")  
 
 The downward red arrow in the status indicates that Oracle Database is down.  
 
@@ -240,61 +237,40 @@ The downward red arrow in the status indicates that Oracle Database is down.
 
 After shutting down Oracle Database in Oracle EMCC, you can start the Database Instance by following the instructions as provided below.
 
-1.  From the **Targets** menu, select **Databases**.  
-
-    ![Databases](../shutdown-startup-instance/images/emcc-target-db.png)  
-
-    The Databases page appears. The values may differ depending on the system you are using.  
-
-    ![Database List](../shutdown-startup-instance/images/emcc-dbvalues.png)  
-
-2.  Click on the Database Instance name, *orcl.us.oracle.com*, to open the instance home page.  
-    The values may differ depending on the system you are using.  
-
-    ![Instance Home page](../shutdown-startup-instance/images/emcc-instance-hompage.png)  
-
-	<!--
-	Comment from Manish Garodia: We can safely delete step 1 and 2 and make the task simpler. Step 3 will become step 1 and number the remaining steps accordingly. 
-	-->
-
-3.  On the instance home page from the **Oracle Database** menu, select **Control** option and click **Startup/Shutdown**.   
+1.  On the instance home page from the **Oracle Database** menu, select **Control** option and click **Startup/Shutdown**.   
 	The values may differ depending on the system you are using.
 
-	<!--
-	Comment from Manish Garodia: The image below is incorrect. The database instance shows upwards green arrow, whereas in your previous task, you have shut down the instance. 
-	-->
-
-    ![Startup or Shutdown](../shutdown-startup-instance/images/startup-shutdown.png)  
+    ![Startup or Shutdown](../shutdown-startup-instance/images/startup-shutdown.png " ")  
 
     The Host and Database Credentials page appears.
 
-    ![Startup or Shutdown Credentials](../shutdown-startup-instance/images/startup-shutdown-credential.png)
+    ![Startup or Shutdown Credentials](../shutdown-startup-instance/images/startup-shutdown-credential.png " ")
 
-4.  For Host Credentials, specify the following.  
+2.  For Host Credentials, specify the following.  
 
     **Credential**: *Named*  
     Oracle EMCC fills in the **UserName** and **Password** fields automatically.  
     You can click **More Details** and then click **Test** to verify that the specified host credentials are working.  
 
-5.  For Database Credentials, specify the following.  
+3.  For Database Credentials, specify the following.  
 
     **Credential**: *Preferred*. This is the default value selected.  
     **Preferred Credential Name**: *SYSDBA Database Credentials*. This is the credential you assigned during Oracle Database installation.  
 
     Click **OK** to proceed.  
 
-6.  Click **Yes** to start the database in the `OPEN` mode.  
+4.  Click **Yes** to start the database in the `OPEN` mode.  
 
-    ![Startup or Shutdown confirmation](../shutdown-startup-instance/images/startup-shutdown-confirmation.png)  
+    ![Startup or Shutdown confirmation](../shutdown-startup-instance/images/startup-shutdown-confirmation.png " ")  
 
     The Startup/Shutdown Activity Information page appears, informing you that the database is being started.  
 
-    ![Startup or Shutdown Activity Information](../shutdown-startup-instance/images/startup-shutdown-activity-info.png)  
+    ![Startup or Shutdown Activity Information](../shutdown-startup-instance/images/startup-shutdown-activity-info.png " ")  
 
-7.  After a few minutes, click **Refresh** to return to the Database home page.   
+5.  After a few minutes, click **Refresh** to return to the Database home page.   
 	The values may differ depending on the system you are using.
 
-    ![Database Home page](../shutdown-startup-instance/images/dbhomepage.png)
+    ![Database Home page](../shutdown-startup-instance/images/dbhomepage.png " ")
     The upward green arrow in the status indicates that Oracle Database is up and running.
 
 To learn more about the various start up modes, see [Appendix 1: Overview of Oracle Database Instance and Memory Management](?lab=intro-instance-memory#Appendix1:OverviewofOracleDatabaseInstanceandMemoryManagement) in the *Introduction* lab.

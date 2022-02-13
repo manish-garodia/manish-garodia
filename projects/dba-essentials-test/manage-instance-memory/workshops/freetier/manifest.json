@@ -42,7 +42,7 @@
       "filename": "./../../initialize-parameters/initialize-parameters.md"
     },
     {
-      "title": "Lab 7: Automatic Memory Management",
+      "title": "Lab 6: Automatic Memory Management",
       "description": "How to enable Automatic Memory Management for Oracle Database from Oracle Enterprise Manager Cloud Control (Oracle EMCC) and SQL command line.",
       "filename": "./../../auto-memory-management/auto-memory-management.md"
     },

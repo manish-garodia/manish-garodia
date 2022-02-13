@@ -98,6 +98,10 @@ Oracle Database can manage the SGA memory and instance PGA memory . You designat
 
 Upon installation, you can let Oracle Database manage the memory automatically, or select to manually configure the instance memory structures. For both manual and automatic memory management, Oracle Database sends alerts which identify memory sizing problems that require your attention.  
 
+The simplest way to manage instance memory is to allow the Database Instance to automatically manage and tune it for you. You set a target memory size initialization parameter (`MEMORY_TARGET`) and optionally a maximum memory size initialization parameter (`MEMORY_MAX_TARGET`). The total memory that the instance uses remains relatively constant, based on the value of `MEMORY_TARGET`, and the instance automatically distributes memory between the system global area (SGA) and the instance program global area (instance PGA). As memory requirements change, the instance dynamically redistributes memory between the SGA and instance PGA.
+
+If you do not enable Automatic Memory Management for your Oracle Database, then you must manually set the memory for both SGA and PGA. While installing Oracle Database, the installer gives you an option to enable Automatic Memory Management. If you did not enable Automatic Memory Management during database installation, you can enable it as explained in this workshop.
+
 Click on the next lab to **Get Started**.
 
 ## Learn More

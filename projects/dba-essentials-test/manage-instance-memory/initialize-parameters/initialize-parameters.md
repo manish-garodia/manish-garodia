@@ -1,6 +1,4 @@
-# Shut down and Start up the Database Instance
-
-<!-- Comment from Manish Garodia: The lab title is incorrect -->
+# Manage Initialization Parameters
 
 ## Introduction
 
@@ -16,8 +14,8 @@ View and modify the initialization parameters of the Database Instance from Orac
 
 This lab assumes you have -
 -   A Free Tier, Paid or LiveLabs Oracle Cloud account
--   Completed all the previous labs succesfully. 
--   Ensure that Oracle EMCC has Oracle Database 21c and the listener added as managed targets.
+-   Completed all the previous labs succesfully.
+-   Oracle EMCC with Oracle Database 21c and listener added as managed targets.
 
 ## Task 1: View and modify the initialization parameters
 
@@ -46,16 +44,15 @@ For this lab, view the initialization parameter `processes` and modify the value
 
     The Database login screen appears.
 
-4.  Select *Named* Credential to log in to Oracle Database. This option fills the credential details automatically.   
+4.  The Database Login page displays the default option, *Named* Credential, selected. This option fills the          credential details automatically.   
 	The values may differ depending on the system you are using.
-
-	<!-- Comment from Manish Garodia: If this named credential option is selected by default, then we should mantion that. -->
 
     ![Login Credentials](./images/db-login.png " ")  
 
-	Click **Login** to proceed. 
-	
-	<!-- Comments from Manish Garodia: Should we add the screenshot which comes after login. -->
+	Click **Login** to proceed.
+
+    ![Initialization Parameters page](./images/initializeparameters-login.png " ")
+
 
 	The Initialization Parameters window has two tabs:
     - **Current** — This default tab displays all initialization parameter values that are currently active and in memory for the Database Instance.
@@ -84,18 +81,16 @@ For this lab, view the initialization parameter `processes` and modify the value
 
     ![View SPFile](./images/view-processes-spfile.png " ")  
 
-	The window displays the value of the parameter `processes`. Similarly, you can view the values of other initialization parameters. 
+	The window displays the value of the parameter `processes`. Similarly, you can view the values of other initialization parameters.
 
 7.  Click the **Current** tab. In the **Name** field, enter the full name of the parameter *open_cursors*. Leave the defaults for the other fields and click **Go** to search for the parameter.
 
-	<!-- Comments from Manish Garodia: Should we add a screenshot with the original value first. -->
-
     ![Current tab](./images/currenttab.png " ")  
 
-8.	Set the value for the parameter `open_cursors` to *350*.   
+8.	Set the value for the parameter `open_cursors` to, for example, *350*.   
 	The **Comments** field is optional. You may enter a text explaining the reason for the change.
 
-    **Note:** Ensure that the **Apply changes in current running instance(s) mode to SPFile** option is not selected. Select this option only to modify the initialization parameter for the currently running instance.  
+    **Note:** Ensure that the **Apply changes in current running instance(s) mode to SPFile** option is not selected. Select this option only to modify the initialization parameter for the currently running instance and record the modifications in the server parameter file before the database restarts.  
 
     Click **Apply**. A confirmation message appears. The **Current** tab displays the updated value of `open_cursors`.  
 
@@ -103,17 +98,12 @@ For this lab, view the initialization parameter `processes` and modify the value
 
 9.  Click the **SPFile** tab. In the **Name** field, enter the full name of the parameter *processes*. Leave the defaults for the other fields and click **Go** to search for the parameter.
 
-	<!-- Comments from Manish Garodia: Should we add a screenshot with the original value first. -->
-
     ![Value change processes](./images/edit-processes-spfile.png " ")  
 
-10. Set the value of the parameter `processes` to *300*.  
+10. Set the value of the parameter `processes` to, for example, *300*.  
 	The **Comments** field is optional. You may enter a text explaining the reason for the change.
 
-	<!-- Comments from Manish Garodia: Is this note applicable. Please verify, else please mention either to select or deselect or leave defaults.
-
-    **Note:** Ensure that the **Apply changes in current running instance(s) mode to SPFile** option is not selected. Select this option only to modify the initialization parameter for the currently running instance.  
-	-->
+  **Note:** Ensure that the **Apply changes in SPFile mode to the current running instance(s)** option is not selected. Select this option only to modify the initialization parameter for the currently running instance and record the modifications in the server parameter file before the database restarts.  
 
     Click **Apply**. A confirmation message appears. The **SPFile** tab displays the updated value of `processes`.   
 
@@ -123,9 +113,9 @@ Similarly, you can view and modify the initialization parameters of the Containe
 
 ![Switch containers](./images/switch-containers.png " ")  
 
-In a PDB, the Initialization Parameters page includes the PDB Modifiable column. Each initialization parameter that can be modified at the PDB level has a check mark in the PDB Modifiable column. 
+In a PDB, the Initialization Parameters page includes the PDB Modifiable column. Each initialization parameter that can be modified at the PDB level has a check mark in the PDB Modifiable column.
 
-**Note:** Any initialization parameter in a PDB that does not have a check mark in the PDB Modifiable column can be set and modified only in the root. The value set in the root applies to the individual PDBs in the multitenant CDB. 
+**Note:** Any initialization parameter in a PDB that does not have a check mark in the PDB Modifiable column can be set and modified only in the root. The value set in the root applies to the individual PDBs in the multitenant CDB.
 
 Initialization parameters exist at both the CDB level and the PDB level. By default, initialization parameters at the PDB level inherit the value from the initialization parameters at the CDB level. 
 
