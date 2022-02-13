@@ -1,9 +1,10 @@
 {
-    "workshoptitle": "LiveLabs in MG Library",
+    "workshoptitle": "Labs in MG Library",
     "tutorials": [
         {
             "title": "Lab #: Oracle Database 21c Gold Image",
             "description": "Pre-installation setup and post installation tasks for Oracle Database 21c gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.",
+			"publisheddate": "01-Feb-2022",
             "filename": "./../../common/mg-library/procedures/install-db-goldimage/install-db-goldimage.md"
         }
     ]

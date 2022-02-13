@@ -4,7 +4,8 @@
         {
             "title": "Lab #: Fun with Git-Bits",
             "description": "description",
-            "filename": "./../common/mg-library/procedures/fun-with-git-bits/fun-with-git-bits.md"
+			"publisheddate": "01-Feb-2022",
+            "filename": "./../../common/mg-library/procedures/fun-with-git-bits/fun-with-git-bits.md"
         }
     ]
 }

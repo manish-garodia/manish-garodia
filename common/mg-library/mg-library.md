@@ -1,8 +1,8 @@
 # MG Library
 
-## Introduction
+## Learn from errors
 
-This lab contains a list of topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, and failures. 
+This lab contains a list of topics developed from notes on specific areas. These notes converge from various sources, for example *discussions*, *trainings*, *experiments*, *mistakes*, and *failures*. 
 
 Select a topic to open its lab in a separate tab.
 

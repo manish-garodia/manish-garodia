@@ -1,18 +1,18 @@
-# Oracle Database 21c Gold Image
+# Oracle Database Gold Image
 
 ## Introduction
 
-This lab covers the pre-installation setup and post installation tasks for Oracle Database 21c gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.
+This lab covers the pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.
 
 ## Task 1: Pre-installation setup
 
-DB install are available as gold images.
+Oracle Database installers are available internally as gold images.
 
 1. Visit [DB shiphome gold image annoucements](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?spaceKey=DBTEST&title=Database+Shiphome+Announcement+Home) and look for [21c Linux64](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=2248170665).
 
 1. Under **Shiphome Location**, check <ins>Database Goldimage</ins>. 
 
-	## Database Goldimage
+	## Database 21c gold image
 
 	| Select <i>any</i> server      | Link      |
 	|:------------------------------|-----------|
