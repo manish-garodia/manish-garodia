@@ -56,6 +56,13 @@
             "filename": "./../common/mg-library/procedures/hands-down-in-md/hands-down-in-md.md",
 			"publisheddate": "01-Feb-2022",
 			"type": "hidden"
+        },
+        {
+            "title": "Lab #: Vale",
+            "description": "description",
+            "filename": "./../common/test-labs/vale.md",
+			"publisheddate": "15-Feb-2022",
+			"type": "hidden"
         }
     ]
 }
