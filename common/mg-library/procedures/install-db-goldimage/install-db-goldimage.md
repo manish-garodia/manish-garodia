@@ -85,14 +85,20 @@ Oracle Database installers are available internally as gold images.
 
 ### Log in to EM Express
 
-[EM Exp for DB 19c](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5501/em)   
-[EM Exp for DB 21c](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5500/em)
+EM Exp for DB 19c
+ - [CDB$ROOT port 5501](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5501/em)   
+ - [ORCL19CCDB port 5502](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5502/em)   
 
-- User name - *system*
-- Password - Enter the password <if type="hidden">*Welcome_1*</if>
-- Container name - (leave empty)
+EM Exp for DB 21c
+ - [CDB$ROOT port 5500](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5500/em)
+ - [ORCLPDB port 5504](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5504/em)
 
-**Note:** If you forget the database passwors, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
+**Credentials**
+ - User name - *system*
+ - Password - Enter the password <if type="hidden">*Welcome_1*</if>
+ - Container name - (leave empty)
+
+> **Note:** If you forget the database password, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
 
 ## Task 2: Post Installation steps
 
@@ -141,6 +147,7 @@ Oracle Database installers are available internally as gold images.
 	```
 	$ <copy>./oraenv</copy>
 	```
+
 	----
 	## 2. Connect to SQL command line
 	Using -
