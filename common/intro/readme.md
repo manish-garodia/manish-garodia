@@ -68,7 +68,20 @@ text-align: center;
 
 ## Explore **Playground**
 
-TBD
+Index of mg space (scope: clone)
+
+
+| Markdown files                        | Manifests (clone)     | Path                                    |
+|---------------------------------------|-----------------------|-----------------------------------------|
+| readme                                | [start-here](http://127.0.0.1:3001/mg-playground/start-here/) [z-sandbox](http://127.0.0.1:3001/mg-playground/z-sandbox/) | `common\intro`                          |
+| mg-library                            | [mg-library](http://127.0.0.1:3001/mg-playground/mg-library/)            | `common\mg-library`                     |
+| access-vm-config-vnc                  | [topic-title](http://127.0.0.1:3001/mg-playground/topic-title/access-vm-config-vnc/)           | `common\mg-library\procedures`          |
+| compute-instance-custom-image         | [topic-title](http://127.0.0.1:3001/mg-playground/topic-title/compute-instance-custom-image/)           | `common\mg-library\procedures`          |
+| fun-with-git-bits                     | [topic-title](http://127.0.0.1:3001/mg-playground/topic-title/fun-with-git-bits/)           | `common\mg-library\procedures`          |
+| hands-down-in-md                      | [topic-title](http://127.0.0.1:3001/mg-playground/topic-title/hands-down-in-md/)           | `common\mg-library\procedures`          |
+| install-db-goldimage                  | [topic-title](http://127.0.0.1:3001/mg-playground/topic-title/install-db-goldimage/)           | `common\mg-library\procedures`          |
+| install-emcc                          | [topic-title](http://127.0.0.1:3001/mg-playground/topic-title/install-emcc/)           | `common\mg-library\procedures`          |
+
 
 ## Tables - Test Env
 
