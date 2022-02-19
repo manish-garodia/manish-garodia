@@ -58,6 +58,13 @@
 			"type": "hidden"
         },
         {
+            "title": "Lab #: GitHub PRs",
+            "description": "description",
+            "filename": "./../common/mg-library/misc-concepts/github-pr.md",
+			"publisheddate": "19-Feb-2022",
+			"type": "hidden"
+        },
+        {
             "title": "Lab #: Vale",
             "description": "description",
             "filename": "./../common/test-labs/vale.md",
