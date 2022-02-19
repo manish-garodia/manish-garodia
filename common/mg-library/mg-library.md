@@ -14,9 +14,11 @@ Select a topic to open its lab in a separate tab.
 -->
 
 <if type="hidden">
-[Link to MG Library on Github](https://manish-garodia.github.io/mg-playground/mg-library/)
+[Open MG Library on Github](https://manish-garodia.github.io/mg-playground/mg-library/)
 
-[Link to topic title on clone](http://127.0.0.1:3001/mg-playground/topic-title/)
+[Open mg-playground in clone](http://127.0.0.1:3001/mg-playground/z-sandbox/)
+
+[Open topic title list in clone](http://127.0.0.1:3001/mg-playground/topic-title/)
 </if>
 
 ## List of topics
@@ -34,7 +36,7 @@ Select a topic to open its lab in a separate tab.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 1, (Tue) 2022
+ - **Last Updated on** - February 6, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)
  
  
