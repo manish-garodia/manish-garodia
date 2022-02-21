@@ -4,14 +4,14 @@
         {
             "title": "Welcome to MG space!",
             "description": "This is the landing page for my personal space MG.",
-			"publisheddate": "02-Feb-2022",
+			"publisheddate": "12-Feb-2022",
             "filename": "./../common/intro/readme.md",
 			"type": "hidden"
         },
         {
             "title": "Lab 1: MG Library",
-            "description": "Contains list of topics developed from notes on specific areas. These notes converge from various sources, such as discussions, trainings, experiments, and failures.",
-			"publisheddate": "01-Feb-2022",
+            "description": "Contains a list of topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures.",
+			"publisheddate": "06-Feb-2022",
             "filename": "./../common/mg-library/mg-library.md",
 			"type": "hidden"
         },
@@ -61,7 +61,7 @@
             "title": "Lab #: GitHub PRs",
             "description": "description",
             "filename": "./../common/mg-library/misc-concepts/github-pr.md",
-			"publisheddate": "19-Feb-2022",
+			"publisheddate": "20-Feb-2022",
 			"type": "hidden"
         },
         {

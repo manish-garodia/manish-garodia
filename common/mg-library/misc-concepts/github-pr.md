@@ -75,6 +75,27 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 - WS3 pull requests
 
 	----
+	## Merge request #*4558* - Feb 20, 2022
+
+	Submitted PR for WS3 from my fork on Github on *Sun Feb 20*. Approved on **Feb 21**.
+
+	**Sub**: <ins>(*#8321*) Final changes for production as per Office hours</ins>
+
+	Hello,
+
+	The workshop is production-ready. Final changes as agreed in the Office hours.    
+
+	Changes: 
+	- Updated the note tag
+	- All occurrences of the database name throughout the workshop changed from *orcl.us.oracle.com* to *CDB1*
+	- Updated the code blocks as per the custom image to reflect the new database name
+	- Updated the Oracle home location as per the custom image
+	- Updated the acknowledgement date
+
+	Please approve the PR. Thank you  
+	~MG
+
+	----
 	## Merge request #*4404* - Jan 21, 2022
 
 	Submitted PR for WS3 (draft copy) from my fork on Github on *Fri Jan 21*. Approved on **Jan 22**.
