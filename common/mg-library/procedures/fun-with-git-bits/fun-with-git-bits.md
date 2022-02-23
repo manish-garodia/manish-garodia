@@ -1,95 +1,91 @@
-# Fun with Git-Bits
-
-## Introduction
-
-The lab contains basic concepts and commands of github, git desktop, and gitbash ![git](./../../../images/git-black-small.png).
+# ![GitHub](./../../../images/git-black-small.png) &nbsp;Fun with Git-Bits
 
 ## The fork, the clone, the OLL master
 
-The fork creates a copy of the entire Oracle learning-library (OLL) master repository into our GitHub (GH) account. 
- - Cannot fork a single (or a specific) folder from OLL. In GH, it works as a repository.
- - Cannot create multiple forks from OLL. 
+The information in this lab revolves around - 
 
-Creating a new fork opens the existing repository from our GH account, which is already forked.
+### ![GitHub](./../../../images/git-black-small.png) &nbsp;&nbsp;&nbsp;&nbsp;GitHub 
 
-- **Head repository** - where to get data from
-- **Base repository** - where to push data to
+### ![GitHub Desktop](./../../../images/github-desktop-small.png) &nbsp;&nbsp;&nbsp;&nbsp;GitHub Desktop
 
-Merge pull request to update the fork from the latest changes in OLL. Fetch origin from Git Desktop and bring the clone up-to-date.
+### ![Git Bash](./../../../images/git-bash-small.png) &nbsp;&nbsp;&nbsp;&nbsp;Git Bash 
 
-If we use a file from another location outside the workshop and the file gets modified, for example a lab from the common library, GH automatically updates that file in our workshop. No action required from our side. The turnaround time to approve pull requests may vary, from 2 days to a week or more. 
+## Learn about git
 
-If you submit a pull request from the fork to OLL, the labs will not show up on LiveLabs immediately. The admin (Livelabs reviewers) will review the submissions on OLL, creates the required pages, and finally makes them available on the LiveLabs application.
+- Basic concepts
+- Do's and Don'ts
+- A few good practices
+- *Fetch* vs *Pull*
 
-- All interactions between the clone and the fork can take place using either one of these.
-	- *GitHub Desktop*
-	- *Git GUI* 
-	- *GitBash*
+	----
+	## Basic concepts
 
- For example, create a clone from the fork, update the clone from the fork, push the clone to fork, and so on.
+	The fork creates a copy of the entire Oracle learning-library (OLL) master repository into our GitHub (GH) account. 
+	 - Cannot fork a single (or a specific) folder from OLL. In GH, it works as a repository.
+	 - Cannot create multiple forks from OLL. 
 
-- All interactions between the fork and OLL takes places on the GH page (through a web browser).
+	Creating a new fork opens the existing repository from our GH account, which is already forked.
 
-	> **Note**: To view the details of a file, such as date/timestamp or last modified by, use the GH page.
+	- **Head repository** - where to get data from
+	- **Base repository** - where to push data to
 
-### Preview a lab
+	Merge pull request to update the fork from the latest changes in OLL. Fetch origin from Git Desktop and bring the clone up-to-date.
 
-**A. View a lab or workshop from the fork**
+	If we use a file from another location outside the workshop and the file gets modified, for example a lab from the common library, GH automatically updates that file in our workshop. No action required from our side. The turnaround time to approve pull requests may vary, from 2 days to a week or more. 
 
-```
-<fork>.github.io/<filepath>/filename
-```
+	If you submit a pull request from the fork to OLL, the labs will not show up on LiveLabs immediately. The admin (Livelabs reviewers) will review the submissions on OLL, creates the required pages, and finally makes them available on the LiveLabs application.
 
-#### Prerequisites
+	- All interactions between the clone and the fork can take place using either one of these.
+		- *GitHub Desktop*
+		- *Git GUI* 
+		- *Git Bash*
 
-1. From the fork repo, go to **Settings** > **GitHub pages**. 
-2. Under **Source**, select **Branch master** > */root*.
+	 For example, create a clone from the fork, update the clone from the fork, push the clone to fork, and so on.
 
-	It may take ~30-60 mins to publish the site/repo and show-up the preview.
+	- All interactions between the fork and OLL takes places on the GH page (through a web browser).
 
-**B. View html preview of the workshop in OLL**
+		> **Note**: To view the details of a file, such as date/timestamp or last modified by, use the GH page.
 
-```
-oracle.github.io/<path to index.html>
-```
+	### Preview a lab
 
-### Recommendations for working on LiveLabs
+	**A. View a lab or workshop from the fork**
 
-#### Option A: New repo
+	```
+	<fork>.github.io/<filepath>/filename
+	```
 
-1.  Create a new repo: 2-day DBA.
-2.  Add all team members as contributors.
-3.  Create clones of this repo and all members work independently.
-4.  When the entire workshop is ready any one create a fork, keep all files at one place, and push the fork altogether to OLL.
+	#### Prerequisites
 
-Ensure to pull from this repo every time someone modifies any file to avoid conflicts.
+	1. From the fork repo, go to **Settings** > **GitHub pages**. 
+	2. Under **Source**, select **Branch master** > */root*.
 
-#### Option B: Clone from a common fork
+		It may take ~30-60 mins to publish the site/repo and show-up the preview.
 
-1.  One person to create a fork repo of OLL and add others as contributors to that fork.
-2.  Everyone else clone from the common fork.
-3.  Work independently on respective clones and push to the fork.
-4.  The creator updates the fork and finally sends pull request from the fork to merge with OLL.
+	**B. View html preview of the workshop in OLL**
 
-	## Best practices
+	```
+	oracle.github.io/<path to index.html>
+	```
 
-	You must keep your fork and clone updated with Oracle learning-library, even though you are not actively working on your workshop or your workshop has no modifications. 
+	### Recommendations for working on LiveLabs
 
-	If you do not update your clone and fork for a long time and the number of commit changes with OLL master is significantly high, you may find conflicts while merging or submitting a pull request. Then you may need to delete your fork and your clone, and then redo like afresh. 
+	#### Option A: New repo
 
-	> Update the fork first before pushing the changes from clone to fork and then pull request from fork to OLL. This step ensures other person's changes are also merged.   
-	*GH does not allow such pull requests, which creates conflicts*.
+	1.  Create a new repo: 2-day DBA.
+	2.  Add all team members as contributors.
+	3.  Create clones of this repo and all members work independently.
+	4.  When the entire workshop is ready any one create a fork, keep all files at one place, and push the fork altogether to OLL.
 
-	If you modify an older version of a file, GH returns a conflict error on pull request. In such case, update the fork and clone, make changes your file, and submit the pull request again.
+	Ensure to pull from this repo every time someone modifies any file to avoid conflicts.
 
-	Update the fork if someone else modifies a file in-progress.
+	#### Option B: Clone from a common fork
 
-	If more than one person is working on the same lab, they must keep their fork updated to avoid conflicts.
+	1.  One person to create a fork repo of OLL and add others as contributors to that fork.
+	2.  Everyone else clone from the common fork.
+	3.  Work independently on respective clones and push to the fork.
+	4.  The creator updates the fork and finally sends pull request from the fork to merge with OLL.
 
-	If a lab is in development and a writer wants to initiate a review, do it from the fork, not from OLL. 
-
-	Create a fork from the GH page and create a clone of fork from Git Desktop. If it takes longer, disconnect VPN and try creating the clone again.
-
+	----
 	## Do's and Don'ts
 
 	 Do not do 'pull origin' to update the fork every day.
@@ -98,31 +94,44 @@ Ensure to pull from this repo every time someone modifies any file to avoid conf
 
 	 Push to OLL only on completion of a lab/md/file(s) or ready for release.
 
-	## Advanced concepts
+	----
+	## A few good practices
 
-	TBD
+	1. You must keep your fork and clone updated with Oracle learning-library, even though you are not actively working on your workshop or your workshop has no modifications. 
 
-## Some more concepts
+	1. If you do not update your clone and fork for a long time and the number of commit changes with OLL master is significantly high, you may find conflicts while merging or submitting a pull request. Then you may need to delete your fork and your clone, and then redo like afresh. 
 
-If your fork repo is <ins>old</ins> (not updated), and the clone is <ins>in sync</ins> (up-to-date) with the fork, then `merge upstream/master` will not show any changes. If you try to merge with `upstream/master`, it will show that - <i>your branch is up-to-date</i>. In reality, both clone and fork are <ins>behind</ins> OLL master. 
+		> Update the fork first before pushing the changes from clone to fork and then pull request from fork to OLL. This step ensures other person's changes are also merged.   
+	*GH does not allow such pull requests, which creates conflicts*.
 
-> **Note:** Always fetch origin (or fetch upstream) to update the fork from `upstream/master` and then try to `merge upstream`. 
+	1. Update the fork if someone else modifies a file in-progress.
 
-When you submit a PR to OLL master, any further merging from your Github account is blocked. Until a code owner reviews and approves the PR, you cannot submit another PR in parallel.  
+	1. If more than one person is working on the same lab, they must keep their fork updated to avoid conflicts.
 
-> **Note:** After submitting the PR if you make changes to any files, you can still commit to master and submit a *merge request* instead. 
+	1. If your fork repo is <ins>old</ins> (not updated), and the clone is <ins>in sync</ins> (up-to-date) with the fork, then `merge upstream/master` will not show any changes. If you try to merge with `upstream/master`, it will show that - <i>your branch is up-to-date</i>. In reality, both clone and fork are <ins>behind</ins> OLL master. 
 
-----
+		> **Note:** Always fetch origin (or fetch upstream) to update the fork from `upstream/master` and then try to `merge upstream`. 
 
-### **Fetch** vs **Pull**
+	1. If you modify an older version of a file, GH returns a conflict error on pull request. In such case, update the fork and clone, make changes your file, and submit the pull request again.
 
-| git fetch | git pull |
-|-----------|----------|
-| Tells your clone to get the meta-data information from OLL master. It checks if any updates are available but does not do any file transfer. |  Not only does a check for updates but also brings down all changes from OLL master to the clone. |
+	1. When you submit a PR to OLL master, any further merging from your Github account is blocked. Until a code owner reviews and approves the PR, you cannot submit another PR in parallel.  
 
-In short, the *git pull* command does a *git fetch* followed by a *git merge*. 
+		> **Note:** After submitting the PR if you make changes to any files, you can still commit to master and submit a *merge request* instead. 
 
-## Start with GitHub Desktop
+	1. Create a fork from the GH page and create a clone of fork from Git Desktop. If it takes longer, disconnect VPN and try creating the clone again.
+
+	1. If a lab is in development and a writer wants to initiate a review, do it from the fork, not from OLL. 
+
+	----
+	## **Fetch** vs **Pull**
+
+	| git fetch | git pull |
+	|-----------|----------|
+	| Tells your clone to get the meta-data information from OLL master. It checks if any updates are available but does not do any file transfer. |  Not only does a check for updates but also brings down all changes from OLL master to the clone. |
+
+	In short, the *git pull* command does a *git fetch* followed by a *git merge*. 
+
+## Get along with GitHub Desktop
 
 1. Go to **File** > **Options**.
 1. The **Accounts** tab shows that you are logged in to your GitHub account. 
@@ -294,38 +303,34 @@ Now, to update your fork repo and the clone you have:
 		Done. Your pull request is submitted for review. Wait for the approval.
 
 
-## Dive into GitBash
+## Take a plunge in Git Bash
 
 in-progress
 
+<if type="hidden">
+
 ## TBD from here
 
+Common `git` commands
 
-### change the default starting folder
-The easiest way without installing msysgit is right click on the Git Bash shortcut icon → Start in: → "C:\Program Files (x86)".
+### change the drive
+cd /d/GitHub
 
-Change the Start in entry and point out the Git Bash starting position. If you don't remove the --cd-to-home part from the Target box, the Start in change gets overridden.
+### navigate between folders
+cd <folder_name>
 
-Default:
-Target: "C:\Program Files\Git\git-bash.exe" --cd-to-home
-Start in: %HOMEDRIVE%%HOMEPATH%
-
-Change to:
-Target: remove --cd to home - "C:\Program Files\Git\git-bash.exe"
-Start in: D:\GitHub
+### display log
+git log
 
 ### git config location
 ~/.gitconfig
 
-### view config file
-vi ~/.gitconfig
+### display the contents of config file
 cat ~/.gitconfig
 
-### to navigate between the folders the cd command is used
-cd <folder_name>
-
-### to change drive
-cd /d/GitHub
+### modify config file
+vi ~/.gitconfig
+more ~/.gitconfig
 
 ### set your username
 git config --global user.name "FIRST_NAME LAST_NAME"
@@ -336,29 +341,29 @@ git config --global user.email "MY_NAME@example.com"
 ### add repository URL 
 git remote add origin repository_URL
 
-### initializing a Local repository
+### initialize a local repo
 git init
 
-### view branches in repository
+### display branches in the repo
 git branch
 
 ### create a new branch
 git branch branch_name
 
-### safe delete a branch
+### Remove a branch
+safe delete 
+
 git branch -d branch_name
 
-### force delete a branch
+force delete
+
 git branch -D branch_name
 
 ### clone repository
 git clone url
 git clone url custom_name
 
-### view log
-git log
-
-### Syntax
+### commit full syntax
 
 ```
 git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
@@ -373,19 +378,28 @@ git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
 
 ### Commit steps
 
-### stage the files or committing
-git add <file_name>
+### stage files for committing 
+
+Stage the changed files in the local repo for committing 
+
+To stage a specific file or folder
+
+git add [file-name]
+
+To stage all files and folders 
+
 git add .
 git add -A
 git add --a
 git add --all
 
-use "git restore --staged <file>..." to unstage
+To un-stage a file (undo staging)
+git restore --staged [file]...
 
-### see the staged files
+### display the staged files
 git status
 
-### see compact status
+### display compact status
 git status --short
 
 Short status flags are:
@@ -394,15 +408,21 @@ A - Files added to stage
 M - Modified files
 D - Deleted files
 
-### adds changed files and commit the files staged in local repository.
+### stage and commit along
+To stage the changed files and to commit them in a single step
 git commit -am "commit_name"
 
 The -a option will automatically stage every changed, already tracked file. It works good if no new files are added. If there are new additions or deletions, use git add and git commit -m separately. -am will add all files but with git add you can add individual files to the staging area. 
 
-git commit (without any flags
+To open an editor and add both summary and description: 
+Leave an empty line between the summary and description.
+
+git commit (without any flags)
+
+save the file :wq, exit without saving :q! (does not commit with an empty file)
 
 ### push changes from local repository to GitHub.
-git push origin master
+git push origin main
 
 ### display user name
 git config user.name
@@ -421,7 +441,7 @@ git clone https://github.com/bg-manish/northern-lights
 ### notepad++: select text in column mode
 Keeping 'Shift' and 'Alt' pressed, use the cursor keys to select text.
 
-### Merge clone and Update fork
+### merge clone and update fork
 
 git checkout master
 
@@ -429,7 +449,7 @@ git merge upstream/master
 
 git push origin master
 
-### Undo Commit
+### undo Commit
 
 bring back from staging, before commit push origin, without hurting any files or local changes. 
 
@@ -440,7 +460,7 @@ git commit --amend
 
 git commit pull origin main
 
-### to discard the changes in working directory and update from master. All local changes will be lost
+### discard the changes in working directory and update from master. All local changes will be lost
 git restore 
 
 ### Others
@@ -455,7 +475,7 @@ git --version
 git diff master origin/master 
 
 
-### Proxy
+### proxy config
 
 git config --global --unset http.proxy
 
@@ -514,7 +534,7 @@ git branch -M main
 git push -u origin main
 
 
-### Update fork with - Fetch and merge
+### Update fork with - fetch and merge
 Merge upstream/master
 
 git checkout master
@@ -524,21 +544,46 @@ git push origin master
 
 Message: Merge remote-tracking branch 'upstream/master'
 
+</if>
 
 ## Tricks up-the-sleeves
 
-### If upstream master does not show up in Github desktop
+- Scenarios, solutions, troubleshooting options
 
-1. Delete the master file under 
+	## Git Bash :: default start location ::
 
-<clone>\<local-repository>\.git\refs\remotes\upstream
+	A quick way to set the default start location (without installing `msysgit`) - 
 
-D:\GitHub\learning-library\.git\refs\remotes\upstream
+	1. Right-click Git Bash (shortcut icon) > select **Properties**.
 
-2. fetch again.
+		Default -
 
+		- **Target** - *"C:\Program Files\Git\git-bash.exe" --cd-to-home*
+		- **Start in** - *%HOMEDRIVE%%HOMEPATH%*
 
-### Your branch is X commits ahead : how to clean this without pushing
+	1. Modify **Start in** and point to the desired location, preferrably the directory where your Clone resides.   
+	   Remove --cd-to-home.
+
+		Change to -
+		
+		- **Target** - *"C:\Program Files\Git\git-bash.exe"*   
+		- **Start in** - `[desired-location]` for example *D:\GitHub*
+
+		> **Note:** Do not forget to delete `--cd to home` from **Target**, otherwise the **Start in** value gets overridden.
+
+		## Okay, show me the screenshot >>
+
+		![Git Bash start in](./../../../images/gitbash-startin.jpg)
+
+<if type="hidden">
+
+### Bring your repo in sync with OLL master (up-to-date)
+
+```
+Your branch is X commits ahead 
+```
+
+If you get this above message on your fork, how to clean this without pushing to OLL master? 
 
 git fetch upstream
 
@@ -584,34 +629,80 @@ Here: 'git reset --hard upstream/master' will reset 'master' HEAD on the updated
 
 But since some commits where previously done on 'master' and pushed on the fork ('origin/master'), you would need to replace that history with the new master state. Hence the 'git push --force'.
 
-Rebasing mybranch allows for those current patches to be based on the most up-to-date commit of the original repo.
+- Rebasing mybranch allows for those current patches to be based on the most up-to-date commit of the original repo.
+
+</if>
+
+	----
+	## Rename objects in GitHub
+
+	Applicable to both - <i>files</i> and <i>folders</i>. 
+
+	- **Option 1**: Open *Git Bash*
+		1. Go to the file in the Clone. 
+		1. Use the Linux command for moving/renaming files and folders. 
+
+			```
+			$ <copy>mv <old name> <new name></copy>
+			```
+
+	- **Option 2**: Directly on *GitHub*
+		1. Open the repo in a browser.
+		1. Go to the file and > select **Edit file**. 
+		1. Place the cursor at the first character of the file name and hit backspace.
+
+	- **Option 3**: Open the Windows Explorer and
+		1. Move the file to another location, outside the Clone.
+		1. Right-click (F2) and rename.
+		1. Copy the file back to the original location with the new name. 
+
+		> **Note:** Renaming a file or a folder at the same location in Windows Explorer does not help because the names are not case-sensitive. 
+
+	- **Final Option 3**: if all the above failed - 
+		1. Delete the file (or move it out to another location) 
+		1. Create a folder with the new name (or rename at another location and copy it back). 
+		1. Commit to master with the new name.
+
+	----
+	## Upstream master does not show up in GitHub Desktop?
+
+	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/msater` under `Other branches`, then do the following. 
+
+	1. Open the remote upstream folder in this location.
+
+		```
+		$ <clone>\<local-repository>\.git\refs\remotes\upstream
+		```
+
+		**Example** -
+
+		```
+		D:\GitHub\learning-library\.git\refs\remotes\upstream
+		```
+
+	1. Delete the master file.
+
+	1. Fetch again to get a new copy of the master file.
+
+	Now, upstream/master will show up again in the merge window. 
 
 <if type="hidden">
 
-### Rename files in Github
+	## Repo-name suggestions
 
-1. in Gitbash using linux commands
-mv <old name> <new name> 
-
-2. Open github in browser, go to the file, and select edit file. 
-Place cursor at the first character of the file name and hit backspace
-
-3. delete the folder (or move out to another location) and copy again. commit changes with the new name.
-
-
-### Repository names
-
-silver-fork
-fluffy-cat
-time-machine
-rainbow-colors
-symmetrical-potato
-shining-star
-micky-mouse
-johnny-bravo
-taj-mahal
-mount-everest
-whos-the-boss
+	choco-bites  
+	fluffy-cat  
+	johnny-bravo  
+	keep-the-change  
+	micky-mouse  
+	mount-everest  
+	rainbow-colors  
+	shining-star  
+	silver-fork  
+	boiled-potatoes  
+	taj-mahal  
+	time-machine  
+	whos-the-boss  
 
 </if>
 
