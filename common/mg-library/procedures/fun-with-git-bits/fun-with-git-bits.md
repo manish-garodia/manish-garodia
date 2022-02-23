@@ -255,6 +255,7 @@ Now, to update your fork repo and the clone you have:
 	
 	> **Note:** It may take a few minutes for your fork to build the Github pages. 
 
+	----
 	## Merge the fork with OLL master (PRs)
 
 	Want to merge your updated fork repo with OLL master? *Submit a pull request*.   
@@ -262,6 +263,7 @@ Now, to update your fork repo and the clone you have:
 	 
 	- Options to open your fork repo
 
+		----
 		## Open your fork repo
 
 		- **Option A: using a browser**
@@ -281,6 +283,7 @@ Now, to update your fork repo and the clone you have:
 
 			> **Note:** If you have submitted a pull request already and it is under review (waiting for approval), then you cannot create another pull request in parallel. The **Branch** menu will have an option to **Show pull request** instead. 
 
+		----
 		## Submit pull request (PR)
 
 		To submit a PR:
@@ -302,10 +305,219 @@ Now, to update your fork repo and the clone you have:
 
 		Done. Your pull request is submitted for review. Wait for the approval.
 
+## Take a plunge into *Git Bash*
 
-## Take a plunge in Git Bash
+ - Learn about staging, commit, and other commonly used commands
+ - work-in-progress
 
-in-progress
+	## All about commit
+
+	The main steps for pushing the local changes from the clone to the fork repo -
+
+	1. View local changes
+	1. Stage files for committing
+	1. Commit to master
+	1. Push from clone to fork
+		
+		----
+		## 1. View local changes
+
+		 - Display the staged/unstaged files in the clone. 
+
+			```
+			$ <copy>git status</copy>
+			```
+
+			> **Note:** It is a good practice to view git status at the beginning and also in between or at the end before commit, to verify the correct files are included in the commit. 
+
+			----
+			## Display compact status
+
+			```
+			$ <copy>git status --short</copy>
+			```
+
+			The `short status` flags are -
+			 - *??* - untracked files
+			 - *A* - files added to stage
+			 - *M* - modified files
+			 - *D* - deleted files
+
+		----
+		## 2. Stage files for committing
+
+		You can stage one or more changed files and folders in the local repo for committing.
+
+		 - To stage a specific file or folder
+
+			```
+			$ git add [full path of the file or folder]
+			```
+			Example
+			```
+			$ git add common/intro/readme.md
+			```
+
+			----
+			## Other staging options
+
+			1. 	```
+				use wildcards in the file name
+				$ git add [*file-name*]
+				```
+
+				Example
+				```
+				$ <copy>git add *install-emcc*</copy>
+				```
+
+			1. 	```
+				specify the file type (*.png)
+				$ git add [file.extension]
+				```
+
+				Example
+				```
+				$ <copy>git add *.png</copy>
+				```
+
+			----
+			## Stage all files
+
+			Use anyone
+			
+			1. 	```
+				$ <copy>git add .</copy>
+				```
+
+			1. 	```
+				$ <copy>git add -A</copy>
+				```
+
+			1. 	```
+				$ <copy>git add --a</copy>
+				```
+
+			1. 	```
+				$ <copy>git add --all</copy>
+				```
+
+				With these, you can stage all files and folders (modified, added, and deleted) together.
+
+			----
+			## To un-stage a file
+
+			Undo staging
+
+			```
+			$ git restore --staged [file-name]...
+			```
+
+		----
+		## 3. To commit to master
+
+		1. Initiate the commit (without any flags).  
+
+			```
+			$ <copy>git commit</copy>
+			```
+
+			This command opens a file in an editor where you can enter the details, including the <i>summary</i> and <i>description</i>.
+
+			> **Note:** The first line is the <i>summary</i> and remaining portion is the <i>description</i>. Leave an empty line between the summary and description.
+
+		1. Save the file for commit, *:wq*.
+
+			Another option is, quit without saving, *:q!*. This will cancel the commit and go back to staging.
+
+			**Scenario**  
+			Suppose, you forgot to stage some files, or want to un-stage a wrong file, you can quit without saving and cancel the commit. 
+				
+			> **Note:** Git Bash does not commit with an empty file. 
+
+			----
+			## Still hungry for more?
+
+			 - Sometimes, you may want to stage and commit together in a single command. 
+
+				----
+				## Stage and commit along
+
+				To stage the files and also commit them together in a single step -
+
+				```
+				$ <copy>git commit -am "commit-name"</copy>
+				```
+
+				**Flags**
+				 - *-a* stages every changed, tracked file automatically. Use this flag if no new files are added. However, if you have new additions or deletions, do a `git add` and then `git commit -m` separately.			 
+				 - *-am* adds all changed files with the commit message. 
+
+				----
+				## undo commit
+
+				Suppose, your commit message is wrong or you want to bring back from staging, before `commit push origin`, without hurting any files or local changes.
+
+				```
+				$ <copy>git reset HEAD~</copy>
+				```
+
+				----
+				## Change the last commit
+
+				If you have entered an wrong message in the log, or forgot to add more files to staging, you can amend your last commit. 
+
+				Thus, instead of doing a new commit, you combine the staged changes with your previous commit. 
+
+				1. 	```
+					$ <copy>git commit --amend</copy>
+					```
+
+				1. 	```
+					$ <copy>git commit pull origin main</copy>
+					```
+
+					Do this just after the `commit` command, before issuing a `push origin`.
+
+				----
+				## What is the full syntax for commit?
+
+				```
+				git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
+					   [--dry-run] [(-c | -C | --squash) <commit> | --fixup [(amend|reword):]<commit>)]
+					   [-F <file> | -m <msg>] [--reset-author] [--allow-empty]
+					   [--allow-empty-message] [--no-verify] [-e] [--author=<author>]
+					   [--date=<date>] [--cleanup=<mode>] [--[no-]status]
+					   [-i | -o] [--pathspec-from-file=<file> [--pathspec-file-nul]]
+					   [(--trailer <token>[(=|:)<value>])…​] [-S[<keyid>]]
+					   [--] [<pathspec>…​]
+				```
+
+		----
+		## 4. Push from clone to fork
+
+		 - After the files are committe to master, push origin from clone to fork.
+
+			```
+			$ <copy>git push origin main</copy>
+			```
+
+	----
+	## Merge clone and update fork
+
+	1.  ```
+		$ <copy>git checkout master</copy>
+		```
+
+	1. 	```
+		$ <copy>git merge upstream/master</copy>
+		```
+
+	1. 	```
+		$ <copy>git push origin master</copy>
+		```
+
+		Your clone is now merged with `master` and your fork repo is updated.
 
 <if type="hidden">
 
@@ -317,7 +529,7 @@ Common `git` commands
 cd /d/GitHub
 
 ### navigate between folders
-cd <folder_name>
+cd <folder-name>
 
 ### display log
 git log
@@ -363,66 +575,6 @@ git branch -D branch_name
 git clone url
 git clone url custom_name
 
-### commit full syntax
-
-```
-git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
-	   [--dry-run] [(-c | -C | --squash) <commit> | --fixup [(amend|reword):]<commit>)]
-	   [-F <file> | -m <msg>] [--reset-author] [--allow-empty]
-	   [--allow-empty-message] [--no-verify] [-e] [--author=<author>]
-	   [--date=<date>] [--cleanup=<mode>] [--[no-]status]
-	   [-i | -o] [--pathspec-from-file=<file> [--pathspec-file-nul]]
-	   [(--trailer <token>[(=|:)<value>])…​] [-S[<keyid>]]
-	   [--] [<pathspec>…​]
-```
-
-### Commit steps
-
-### stage files for committing 
-
-Stage the changed files in the local repo for committing 
-
-To stage a specific file or folder
-
-git add [file-name]
-
-To stage all files and folders 
-
-git add .
-git add -A
-git add --a
-git add --all
-
-To un-stage a file (undo staging)
-git restore --staged [file]...
-
-### display the staged files
-git status
-
-### display compact status
-git status --short
-
-Short status flags are:
-?? - Untracked files
-A - Files added to stage
-M - Modified files
-D - Deleted files
-
-### stage and commit along
-To stage the changed files and to commit them in a single step
-git commit -am "commit_name"
-
-The -a option will automatically stage every changed, already tracked file. It works good if no new files are added. If there are new additions or deletions, use git add and git commit -m separately. -am will add all files but with git add you can add individual files to the staging area. 
-
-To open an editor and add both summary and description: 
-Leave an empty line between the summary and description.
-
-git commit (without any flags)
-
-save the file :wq, exit without saving :q! (does not commit with an empty file)
-
-### push changes from local repository to GitHub.
-git push origin main
 
 ### display user name
 git config user.name
@@ -440,25 +592,6 @@ git clone https://github.com/bg-manish/northern-lights
 
 ### notepad++: select text in column mode
 Keeping 'Shift' and 'Alt' pressed, use the cursor keys to select text.
-
-### merge clone and update fork
-
-git checkout master
-
-git merge upstream/master
-
-git push origin master
-
-### undo Commit
-
-bring back from staging, before commit push origin, without hurting any files or local changes. 
-
-git reset HEAD~
-
-### change commit message
-git commit --amend 
-
-git commit pull origin main
 
 ### discard the changes in working directory and update from master. All local changes will be lost
 git restore 
@@ -550,6 +683,7 @@ Message: Merge remote-tracking branch 'upstream/master'
 
 - Scenarios, solutions, troubleshooting options
 
+	----
 	## Git Bash :: default start location ::
 
 	A quick way to set the default start location (without installing `msysgit`) - 
@@ -575,63 +709,98 @@ Message: Merge remote-tracking branch 'upstream/master'
 
 		![Git Bash start in](./../../../images/gitbash-startin.jpg)
 
-<if type="hidden">
+	----
+	## The fork is ahead of OLL master?
 
-### Bring your repo in sync with OLL master (up-to-date)
+	```
+	Your branch is X commits ahead 
+	```
 
-```
-Your branch is X commits ahead 
-```
+	You do a `fetch origin`, `merge upstream/master`, and `push origin` to update both clone and fork repo with OLL master. Even after updating both clone and fork, you get a *commits mismatch* message on your fork. 
 
-If you get this above message on your fork, how to clean this without pushing to OLL master? 
+	This means that your fork is not fully synced with OLL master. If you get this message on your fork, how to clean this without submitting a pull request to OLL master? 
 
-git fetch upstream
+	To bring your fork repo in sync with OLL master (fully up-to-date) -
 
-git checkout master
+	1. Open Git Bash and go to the clone directory.
 
-	Output
-	Already on 'master'
-	Your branch is up to date with 'origin/master'.
+	1.	```
+		$ <copy>git fetch upstream</copy>
+		```
 
-git reset --hard upstream/master
+	1.	```
+		$ <copy>git checkout master</copy>
+		```
 
-	Output
-	Updating files: 100% (1126/1126), done.
-	HEAD is now at e7edee3254 Update title (#4398)
+		## Result
 
-git push --force
+		```
+		Already on 'master'
+		Your branch is up to date with 'origin/master'.
+		```
 
-	Output
-	Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
-	To https://github.com/manish-garodia/learning-library.git
-	 + bf93e2e310...e7edee3254 master -> master (forced update)
+	1.	```
+		$ <copy>git reset --hard upstream/master</copy>
+		```
 
-git checkout master
+		## Result
 
-	Output
-	Already on 'master'
-	Your branch is up to date with 'origin/master'.
+		```
+		Updating files: 100% (1126/1126), done.
+		HEAD is now at e7edee3254 Update title (#4398)
+		```
 
-git rebase master
+	1.	```
+		$ <copy>git push --force</copy>
+		```
 
-	Output
-	Current branch master is up to date.
+		## Result
 
-git push -u origin master
+		```
+		Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+		To https://github.com/manish-garodia/learning-library.git
+		 + bf93e2e310...e7edee3254 master -> master (forced update)
+		```
 
-	Output
-	Everything up-to-date
-	Branch 'master' set up to track remote branch 'master' from 'origin'.
+	1.	```
+		$ <copy>git checkout master</copy>
+		```
 
+		## Result
 
-Explanation
-Here: 'git reset --hard upstream/master' will reset 'master' HEAD on the updated 'upstream/master', in order for master to reflect the exact same history as the one in the original repo.
+		```
+		Already on 'master'
+		Your branch is up to date with 'origin/master'.
+		```
 
-But since some commits where previously done on 'master' and pushed on the fork ('origin/master'), you would need to replace that history with the new master state. Hence the 'git push --force'.
+	1. 	```
+		$ <copy>git rebase master</copy>
+		```
 
-- Rebasing mybranch allows for those current patches to be based on the most up-to-date commit of the original repo.
+		## Result
 
-</if>
+		```
+		Current branch master is up to date.
+		```
+
+	1. 	```
+		$ <copy>git push -u origin master</copy>
+		```
+
+		## Result
+
+		```
+		Everything up-to-date
+		Branch 'master' set up to track remote branch 'master' from 'origin'.
+		```
+
+		## Need an explanation?
+
+		Here, `git reset --hard upstream/master` will *reset master HEAD* on the updated `upstream/master`, in order for `master` to reflect the exact same history as the one in the remote repo.
+
+		But since some commits where previously done on master and pushed on the fork (`origin/master`), you would need to replace that history with the new master state. Hence, the `git push --force`.
+
+		Now, rebasing `mybranch` allows those current patches to be based on the most up-to-date commit in the remote repo.
 
 	----
 	## Rename objects in GitHub
@@ -666,7 +835,9 @@ But since some commits where previously done on 'master' and pushed on the fork 
 	----
 	## Upstream master does not show up in GitHub Desktop?
 
-	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/msater` under `Other branches`, then do the following. 
+	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/msater` under `Other branches`. 
+	
+	The following will resolve this. 
 
 	1. Open the remote upstream folder in this location.
 
@@ -680,11 +851,11 @@ But since some commits where previously done on 'master' and pushed on the fork 
 		D:\GitHub\learning-library\.git\refs\remotes\upstream
 		```
 
-	1. Delete the master file.
+	1. Delete the master file in the clone.
 
-	1. Fetch again to get a new copy of the master file.
+	1. Fetch again to get a new copy of the master file from the fork.
 
-	Now, upstream/master will show up again in the merge window. 
+	Now, `upstream/master` will be displayed again in the merge window. 
 
 <if type="hidden">
 
@@ -710,5 +881,5 @@ But since some commits where previously done on 'master' and pushed on the fork 
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 20, (Sun) 2022
+ - **Last Updated on** - February 23, (Wed) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
