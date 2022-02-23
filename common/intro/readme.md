@@ -1,20 +1,19 @@
-# Welcome to MG space
+# Welcome to MG space..!
 
-
-[![](./../../../learning-library/common/images/livelabs-banner-formarketplace.png)](http://bit.ly/golivelabs)
+![mg space](./../images/mg-space.jpg) 
 ----
 
-- 👋 Hi, I’m <mark>@manish-garodia</mark>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 👋 Hi, I’m <mark>@manish-garodia</mark>
 <i>
 
 ----
-- 👀 &nbsp;&nbsp;I’m exploring &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ins>GitHub, GitBash, GitDesktop, GitLab</ins>.  
-- 🌱 &nbsp;&nbsp;I’m from &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #FCF3CF">Oracle Database UA development</span> team.
-- 💞️ &nbsp;&nbsp;I’m looking &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to collaborate on developing workshops on LiveLabs.
+- 👀 &nbsp;&nbsp;I’m exploring &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ins>the probabilities of learn, unlearn, and re-learn</ins>.  
+- 🌱 &nbsp;&nbsp;I’m from &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #FCF3CF">the User Asssistance Development</span> team.
+- 💞️ &nbsp;&nbsp;I’m looking &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at the ways to expand the universe of knowledge.
 </i>
 
 ----
-- 📫 Reach me at [manish.garodia@oracle.com](./files/email.md)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📫 Reach me at [manish.garodia@oracle.com](./files/email.md)
 
 ## DBA Essentials workshops
 
