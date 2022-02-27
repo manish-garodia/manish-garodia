@@ -88,7 +88,7 @@ The information in this lab revolves around -
 	----
 	## Do's and Don'ts
 
-	 Do not do 'pull origin' to update the fork every day.
+	 Do not `pull origin` every day to update the fork.
 
 	 Do not submit pull requests from fork to OLL every day, else the moderators/admins would reject.
 
@@ -125,6 +125,8 @@ The information in this lab revolves around -
 	----
 	## **Fetch** vs **Pull**
 
+	The `fetch` command and the `pull` command looks similar but they perform different functions and serve different purposes. 
+
 	| git fetch | git pull |
 	|-----------|----------|
 	| Tells your clone to get the meta-data information from OLL master. It checks if any updates are available but does not do any file transfer. |  Not only does a check for updates but also brings down all changes from OLL master to the clone. |
@@ -143,7 +145,7 @@ Now, to update your fork repo and the clone you have:
 	![Update fork and clone](./../../../images/update-fork-clone-grey.png " ")
 
 	----
-	## Option 1: Update the fork and pull to clone (browser)
+	## Option 1: Update fork > pull to clone (browser)
 
 	In this method, you update your fork repo first and then pull origin to the clone.
 
@@ -195,7 +197,7 @@ Now, to update your fork repo and the clone you have:
 		The clone is now updated. 
 
 	----
-	## Option 2: Update the clone and push to fork (GitHub Desktop)
+	## Option 2: Update clone > push to fork (GitHub Desktop)
 	
 	Update both clone and fork together using GitHub Desktop.
 
@@ -454,13 +456,15 @@ Now, to update your fork repo and the clone you have:
 				 - *-am* adds all changed files with the commit message. 
 
 				----
-				## undo commit
+				## Rollback (undo) commit
 
-				Suppose, your commit message is wrong or you want to bring back from staging, before `commit push origin`, without hurting any files or local changes.
+				Suppose, your commit message is wrong or you want to bring back from staging, before issuing a `push origin`, without hurting any files or local changes.
 
 				```
 				$ <copy>git reset HEAD~</copy>
 				```
+
+				Erases your git history instead of making a new commit. 
 
 				----
 				## Change the last commit
@@ -469,15 +473,11 @@ Now, to update your fork repo and the clone you have:
 
 				Thus, instead of doing a new commit, you combine the staged changes with your previous commit. 
 
-				1. 	```
-					$ <copy>git commit --amend</copy>
-					```
+				```
+				$ <copy>git commit --amend</copy>
+				```
 
-				1. 	```
-					$ <copy>git commit pull origin main</copy>
-					```
-
-					Do this just after the `commit` command, before issuing a `push origin`.
+				Do this just after the `commit` command, before issuing a `push origin`.
 
 				----
 				## What is the full syntax for commit?
@@ -493,6 +493,10 @@ Now, to update your fork repo and the clone you have:
 					   [--] [<pathspec>…​]
 				```
 
+				```
+				$ <copy>git commit pull origin main</copy>
+				```
+
 		----
 		## 4. Push from clone to fork
 
@@ -503,181 +507,188 @@ Now, to update your fork repo and the clone you have:
 			```
 
 	----
-	## Merge clone and update fork
+	## Update fork and clone :: fetch and merge ::
 
-	1.  ```
-		$ <copy>git checkout master</copy>
+	- You have multiple ways to update the clone and the fork repo. 
+
+		----
+		## Option 1: Update clone > push to fork
+
+		Update the clone from OLL master and then push the changes from clone to fork. 
+
+		1.  ```
+			$ <copy>git checkout master</copy>
+			```
+
+		1. 	```
+			$ <copy>git merge upstream/master</copy>
+			```
+
+			The changes in OLL master are merged with the clone. The clone is up-to-date with OLL master.
+
+		1. 	```
+			$ <copy>git push origin master</copy>
+			```
+
+			The updates in the clone are pushed to the fork repo. Both clone and fork are in sync with OLL master.
+
+		----
+		## Option 2: Update fork > pull to clone
+
+		Update the fork and pull the changes from fork to clone. 
+
+		Use these commands to find the difference between the clone and your fork repo.  
+
+		- 	```
+			git fetch
+			```
+
+		- 	```
+			git fetch origin main
+			```
+
+			It does not update the clone.
+
+		After you update your fork from OLL master using `fetch and merge` in a web browser, it is time to update the clone. Use this command to merge the changes from your fork into your clone.
+
+		- 	```
+			git pull --all
+			```
+
+			Brings the clone up-to-date with the changes in the fork. 
+
+	----
+	## Set up proxy config
+
+	1.	```
+		$ <copy>git config --global --unset http.proxy</copy>
 		```
 
 	1. 	```
-		$ <copy>git merge upstream/master</copy>
+		$ <copy>git config --global --get http.proxy</copy>
 		```
 
-	1. 	```
-		$ <copy>git push origin master</copy>
+		Output
+
+		```
+		http://manish.garodia@oracle.com:Oracle.com@www-proxy-idc.in.oracle.com:80
 		```
 
-		Your clone is now merged with `master` and your fork repo is updated.
+	1.	Syntax
 
-<if type="hidden">
+		```
+		$ git config --global http.proxy http[s]://userName:password@proxyaddress.com:port
+		```
 
-## TBD from here
+		Example
 
-Common `git` commands
+		```
+		$ <copy>git config --global http.proxy http://manish.garodia%40oracle.com:Oracle.com@www-proxy-idc.in.oracle.com:80</copy>
+		```
 
-### change the drive
-cd /d/GitHub
+		> **Note:** Encode `@` in username with `%40`.
 
-### navigate between folders
-cd <folder-name>
+	----
+	## Start a new repo
 
-### display log
-git log
+	Open Git Bash and go to the directory where you want to create the repo. Create a new repo, *musical-lamp*, from the command line.
 
-### git config location
-~/.gitconfig
+	1. 	Create a file `readme.md` and add a title to the lab.
 
-### display the contents of config file
-cat ~/.gitconfig
+		```
+		$ <copy>echo "# musical-lamp" >> README.md</copy>
+		```
 
-### modify config file
-vi ~/.gitconfig
-more ~/.gitconfig
+	1. 	Initialize the repo.
+		```
+		$ <copy>git init</copy>
+		```
 
-### set your username
-git config --global user.name "FIRST_NAME LAST_NAME"
+	1. 	Stage the `README.md` file for committing.
 
-### set your email address
-git config --global user.email "MY_NAME@example.com"
+		```
+		$ <copy>git add README.md</copy>
+		```
 
-### add repository URL 
-git remote add origin repository_URL
+	1. 	Commit the file to master with a message, <i>first commit</i>.
 
-### initialize a local repo
-git init
+		```
+		$ <copy>git commit -m "first commit"</copy>
+		```
 
-### display branches in the repo
-git branch
+	----
+	Push the repo from the command line.
 
-### create a new branch
-git branch branch_name
+	1. 	Add a new remote repo. 
 
-### Remove a branch
-safe delete 
+		```
+		$ <copy>git remote add origin https://github.com/bg-manish/musical-lamp.git</copy>
+		```
 
-git branch -d branch_name
+		To change the url of an existing remote repo:
 
-force delete
+		```
+		$ <copy>git remote set-url origin git@github.com:User/musical-lamp.git</copy>
+		```
 
-git branch -D branch_name
+	1. 	Set up a branch, *main*, for the repo. 
 
-### clone repository
-git clone url
-git clone url custom_name
+		```
+		$ <copy>git branch -M main</copy>
+		```
 
+	1. 	Push the changes from clone to remote repo. 
 
-### display user name
-git config user.name
+		```
+		$ <copy>git push -u origin main</copy>
+		```
 
-### display configuration settings
-git config --list
+		- Once you use `git push -u origin main`, from next time onwards you can use only `git push` without any flags. 
+		- If you do only `git push` (without -u), then next time you use `git pull`, you have to enter the remote repository url when git pulling.
 
-### undo local changes to the state of the git repo, undo git stage
-git reset
+		To check existing remotes:
 
-### create a new clone
-git clone https://github.com/<your-username>/<your-repository>
+		```
+		$ <copy>git remote -v</copy>
+		```
 
-git clone https://github.com/bg-manish/northern-lights
+	----
+	## Common `git` commands
 
-### notepad++: select text in column mode
-Keeping 'Shift' and 'Alt' pressed, use the cursor keys to select text.
+	| Command                                                | Usage                                     |
+	|--------------------------------------------------------|-------------------------------------------|
+	| `cd /d/GitHub`                                         | change drives                             |
+	| `cd <folder-name>`                                     | navigate between folders                  | 
+	| `git log`                                              | display log                               | 
+	| **Configuration**                                      |
+	| `~/.gitconfig`                                         | git config location                       | 
+	| `cat ~/.gitconfig`<br>`more ~/.gitconfig`              | display contents of config file           | 
+	| `vi ~/.gitconfig`                                      | modify config file                        | 
+	| `git config --list`                                    | display configuration settings            |
+	| `git config --list --show-origin`                      | view all variables in the config file     |
+	| `git config user.name`                                 | display git user name                     |
+	| `git config --global user.name "FIRST-NAME LAST-NAME"` | set git user name                         | 
+	| `git config --global user.email "MY-NAME@example.com"` | set git email address                     | 
+	| `git remote add origin repository-URL`                 | add repository URL                        | 
+	| **Branch**                                             |
+	| `git branch`                                           | display branches in repo                  | 
+	| `git branch branch-name`                               | create a new branch                       | 
+	| `git branch -d branch-name`                            | remove a branch - <i>**safe** delete</i>  |
+	|`git branch -D branch-name`                             | remove a branch - <i>**force** delete</i> |
+	| **Clone**                                              |
+	| `git init`                                             | initialize a local (new) repo             | 
+	| `git clone url` <br>`git clone url custom-name`        | clone a repository                        | 
+	| Syntax - <br>`git clone https://github.com/<your-username>/<your-repository>`<br>Example - <br>`git clone https://github.com/bg-manish/northern-lights`            | create a new clone                        | 
+	| `git rm` | If you just use only `rm`, you will need to follow it up with `git add <fileRemoved>`. Whereas `git rm` does this in one step (both file removal and staging for deletion on the next commit). It keeps a copy in the local file system until commit. |
+	| `git --version`                                        | current version of git                    |
 
-### discard the changes in working directory and update from master. All local changes will be lost
-git restore 
+	### Yet to be tested (not verified)
 
-### Others
-
-git revert
-git rm
-
-git config --list --show-origin
-
-git --version
-
-git diff master origin/master 
-
-
-### proxy config
-
-git config --global --unset http.proxy
-
-git config --global --get http.proxy
-output
-http://manish.garodia@oracle.com:Oracle.com@www-proxy-idc.in.oracle.com:80
-
-
-git config --global http.proxy http://username:pass@proxy.com:port
-git config --global http.proxy http[s]://userName:password@proxyaddress:port
-
-git config --global http.proxy http://manish.garodia%40oracle.com:Oracle.com@www-proxy-idc.in.oracle.com:80
-
-encode @ in username with %40
-
-### config
-
-
-
-### Push and Pull
-
-git fetch origin main
-
-### merges the files from remote repository into local repository
-git pull --all
-
-In Unix systems the end of a line is represented with a line feed (LF). In windows a line is represented with a carriage return (CR) and a line feed (LF) thus (CRLF). when you get code from git that was uploaded from a unix system they will only have an LF.
-
-If you are a single developer working on a windows machine, and you don't care that git automatically replaces LFs to CRLFs, you can turn this warning off by typing the following in the git command line
-
-If you want, you can deactivate this feature in your git core config using
-git config core.autocrlf false
-
-But it would be better to just get rid of the warnings using
-git config core.autocrlf true
-
-
-### startup
-
-create a new repository on the command line
-
-echo "# musical-lamp" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/bg-manish/musical-lamp.git
-git push -u origin main
-
- Once you use git push -u origin main, from next time onwards you can use only git push without any flags. if you do git push only, then next time you use git pull you have to enter the remote repository url when git pulling
-
-push an existing repository from the command line
-
-git remote add origin https://github.com/bg-manish/musical-lamp.git
-git branch -M main
-git push -u origin main
-
-
-### Update fork with - fetch and merge
-Merge upstream/master
-
-git checkout master
-git merge upstream/master
-Dont save the file :q!
-git push origin master
-
-Message: Merge remote-tracking branch 'upstream/master'
-
-</if>
+	- `git restore`   
+	discard changes in working directory and update from master, all local changes will be lost | 
+	- `git revert`   
+	create a new commit with the changes that are rolled back. |
+	- `git diff master origin/master`
 
 ## Tricks up-the-sleeves
 
@@ -719,6 +730,8 @@ Message: Merge remote-tracking branch 'upstream/master'
 	You do a `fetch origin`, `merge upstream/master`, and `push origin` to update both clone and fork repo with OLL master. Even after updating both clone and fork, you get a *commits mismatch* message on your fork. 
 
 	This means that your fork is not fully synced with OLL master. If you get this message on your fork, how to clean this without submitting a pull request to OLL master? 
+
+	**What to do**
 
 	To bring your fork repo in sync with OLL master (fully up-to-date) -
 
@@ -837,6 +850,8 @@ Message: Merge remote-tracking branch 'upstream/master'
 
 	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/msater` under `Other branches`. 
 	
+	**What to do**
+
 	The following will resolve this. 
 
 	1. Open the remote upstream folder in this location.
@@ -857,9 +872,58 @@ Message: Merge remote-tracking branch 'upstream/master'
 
 	Now, `upstream/master` will be displayed again in the merge window. 
 
+	----
+	## warning: LF will be replaced by CRLF in [file]
+
+	You are issuing a `git add` command and get the following message .
+
+	```
+	warning: LF will be replaced by CRLF in ansible.cfg.
+	The file will have its original line endings in your working directory
+	```
+
+	**What it means**
+
+	In Unix systems, the end of a line is represented with a line feed (LF). In Windows, a line is represented with a carriage return (CR) and a line feed (LF) thus (CRLF). 
+	
+	When you get code from git that was uploaded from a Unix system, they will only have an LF.
+
+	**What to do**
+
+	- If you are a single developer working on a Windows machine, you can simply turn this warning off from the command line.
+
+		```
+		$ <copy>git config core.autocrlf true</copy>
+		```
+
+	- You can also deactivate this feature in your git core config. 
+
+		```
+		$ <copy>git config core.autocrlf false</copy>
+		```
+
+	- But maybe you want to just get rid of the warnings altogether.
+
+		```
+		$ <copy>git config core.autocrlf true</copy>
+		```
+
+		```
+		$ <copy>git config --global core.autocrlf true</copy>
+		```
+
+		## Cite source 
+
+		[Virtual geek on vcloud-lab](http://vcloud-lab.com/entries/devops/resolved-git-warning-lf-will-be-replaced-by-crlf-in-file)
+
+	## Notepad++: select text in column mode
+
+	Keeping **Shift** and **Alt** pressed, use the cursor keys to select text in column mode.
+
+
 <if type="hidden">
 
-	## Repo-name suggestions
+	## Crazy repo-names
 
 	choco-bites  
 	fluffy-cat  
@@ -881,5 +945,5 @@ Message: Merge remote-tracking branch 'upstream/master'
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 23, (Wed) 2022
+ - **Last Updated on** - February 27, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
