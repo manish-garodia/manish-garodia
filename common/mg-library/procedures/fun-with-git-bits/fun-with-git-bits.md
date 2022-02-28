@@ -653,11 +653,11 @@ After committing your changes to master, go to your fork repo and *create a pull
 		Use these commands to find the difference between the clone and your fork repo.  
 
 		- 	```
-			git fetch
+			$ <copy>git fetch</copy>
 			```
 
 		- 	```
-			git fetch origin main
+			$ <copy>git fetch origin main</copy>
 			```
 
 			It does not update the clone.
@@ -665,7 +665,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 		After you update your fork from OLL master using `fetch and merge` in a web browser, it is time to update the clone. Use this command to merge the changes from your fork into your clone.
 
 		- 	```
-			git pull --all
+			$ <copy>git pull --all</copy>
 			```
 
 			Brings the clone up-to-date with the changes in the fork. 
@@ -811,6 +811,10 @@ After committing your changes to master, go to your fork repo and *create a pull
 	----
 	## Git Bash :: default start location ::
 
+	**Problem statement**  
+	You want to change the default directory to start in when you open Git Bash. 
+
+	**What to do**  
 	A quick way to set the default start location (without installing `msysgit`) - 
 
 	1. Right-click Git Bash (shortcut icon) > select **Properties**.
@@ -837,6 +841,9 @@ After committing your changes to master, go to your fork repo and *create a pull
 	----
 	## The fork is ahead of OLL master?
 
+	**Problem statement**  
+	Your fork says -
+
 	```
 	Your branch is X commits ahead 
 	```
@@ -845,9 +852,8 @@ After committing your changes to master, go to your fork repo and *create a pull
 
 	This means that your fork is not fully synced with OLL master. If you get this message on your fork, how to clean this without submitting a pull request to OLL master? 
 
-	**What to do**
-
-	To bring your fork repo in sync with OLL master (fully up-to-date) -
+	**What to do**  
+	Bring your fork repo in sync with OLL master (fully up-to-date) as follows.
 
 	1. Open Git Bash and go to the clone directory.
 
@@ -932,10 +938,14 @@ After committing your changes to master, go to your fork repo and *create a pull
 	----
 	## Rename objects in GitHub
 
+	**Problem statement**  
+	You want to rename files or folders in your repo, but GitHub does not reflect your changes.
+
+	**What to do**  
 	Applicable to both - <i>files</i> and <i>folders</i>. 
 
 	- **Option 1**: Open *Git Bash*
-		1. Go to the file in the Clone. 
+		1. Go to the file in the clone. 
 		1. Use the Linux command for moving/renaming files and folders. 
 
 			```
@@ -962,16 +972,16 @@ After committing your changes to master, go to your fork repo and *create a pull
 	----
 	## warning: LF will be replaced by CRLF in [file]
 
-	You are issuing a `git add` command and get the following message .
+	**Problem statement**  
+	You issue a `git add` command and get the following message.
 
 	```
 	warning: LF will be replaced by CRLF in ansible.cfg.
 	The file will have its original line endings in your working directory
 	```
 
-	**What it means**
-
-	In Unix systems, the end of a line is represented with a line feed (LF). In Windows, a line is represented with a carriage return (CR) and a line feed (LF) thus (CRLF). 
+	**What it means**  
+	In Unix systems, the end of a line is represented with a line feed (LF). In Windows, a line is represented with a carriage return (CR) and a line feed (LF), thus (CRLF). 
 	
 	When you get code from git that was uploaded from a Unix system, they will only have an LF.
 
@@ -1010,11 +1020,10 @@ After committing your changes to master, go to your fork repo and *create a pull
 	----
 	## Upstream master does not show up in GitHub Desktop?
 
+	**Problem statement**  
 	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/msater` under `Other branches`. 
 	
 	**What to do**
-
-	The following will resolve this. 
 
 	1. Open the remote upstream folder in this location.
 
@@ -1036,8 +1045,12 @@ After committing your changes to master, go to your fork repo and *create a pull
 
 	</if>
 
-	## Notepad++: select text in column mode
+	## Notepad++ tips
 
+	**Problem statement**  
+	You want to select the text in column mode.
+
+	**What to do**  
 	Keeping **Shift** and **Alt** pressed, use the cursor keys to select text in column mode.
 
 	<if type="hidden">
