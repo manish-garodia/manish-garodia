@@ -1,7 +1,7 @@
 # ![GitHub](./../../../images/git-black-small.png) &nbsp;Fun with Git-Bits
 
 ## The fork, the clone, the OLL master
-
+<if type="gitconcepts">
 The information in this lab revolves around - 
 
 ### ![GitHub](./../../../images/git-black-small.png) &nbsp;&nbsp;&nbsp;&nbsp;GitHub 
@@ -9,13 +9,25 @@ The information in this lab revolves around -
 ### ![GitHub Desktop](./../../../images/github-desktop-small.png) &nbsp;&nbsp;&nbsp;&nbsp;GitHub Desktop
 
 ### ![Git Bash](./../../../images/git-bash-small.png) &nbsp;&nbsp;&nbsp;&nbsp;Git Bash 
+</if>
 
-## Learn about git
 
+## Learn about git<if type="gitconcepts"> concepts</if><if type="gitdesktop"> desktop</if><if type="gitbash"> bash</if>
+
+
+<if type="gitconcepts">
 - Basic concepts
 - Do's and Don'ts
 - A few good practices
+</if>
+<if type="gitdesktop">
+- 
+</if>
+<if type="gitbash">
 - *Fetch* vs *Pull*
+</if>
+
+	<if type="gitconcepts">
 
 	----
 	## Basic concepts
@@ -122,6 +134,26 @@ The information in this lab revolves around -
 
 	1. If a lab is in development and a writer wants to initiate a review, do it from the fork, not from OLL. 
 
+	</if>
+
+	<if type="gitdesktop">
+
+	## Sync between clone, fork, and OLL master
+
+	1. Go to **File** > **Options**.
+	1. The **Accounts** tab shows that you are logged in to your GitHub account. 
+
+	<br>
+	Now, to update your fork repo and the clone you have:
+	- <font style="color:rgb(112,173,71);">**Option 1** - from **Fork**, *fetch* OLL master and then in Github Desktop *pull origin* to **Clone**</font>
+	- <font style="color:rgb(91,155,213);">**Option 2** - from **Clone**, *merge* with OLL master in GitHub Desktop and then *push origin* to **Fork**</font>
+
+		![Update fork and clone](./../../../images/update-fork-clone-grey.png " ")
+
+	</if>
+
+	<if type="gitbash">
+
 	----
 	## **Fetch** vs **Pull**
 
@@ -133,16 +165,13 @@ The information in this lab revolves around -
 
 	In short, the *git pull* command does a *git fetch* followed by a *git merge*. 
 
+	</if>
+
+<if type="gitdesktop">
+
 ## Get along with GitHub Desktop
 
-1. Go to **File** > **Options**.
-1. The **Accounts** tab shows that you are logged in to your GitHub account. 
-
-Now, to update your fork repo and the clone you have:
-- <font style="color:rgb(112,173,71);">**Option 1** - from **Fork**, *fetch* OLL master and then in Github Desktop *pull origin* to **Clone**</font>
-- <font style="color:rgb(91,155,213);">**Option 2** - from **Clone**, *merge* with OLL master in GitHub Desktop and then *push origin* to **Fork**</font>
-
-	![Update fork and clone](./../../../images/update-fork-clone-grey.png " ")
+- 
 
 	----
 	## Option 1: Update fork > pull to clone (browser)
@@ -257,55 +286,62 @@ Now, to update your fork repo and the clone you have:
 	
 	> **Note:** It may take a few minutes for your fork to build the Github pages. 
 
+	</if>
+
+<if type="gitconcepts">
+
+## Merge the fork with OLL master (PRs)
+
+Want to merge your updated fork repo with OLL master? *Submit a pull request*.   
+After committing your changes to master, go to your fork repo and *create a pull request*. 
+ 
+- Options to open your fork repo
+
 	----
-	## Merge the fork with OLL master (PRs)
+	## Open your fork repo
 
-	Want to merge your updated fork repo with OLL master? *Submit a pull request*.   
-	After committing your changes to master, go to your fork repo and *create a pull request*. 
-	 
-	- Options to open your fork repo
+	- **Option A: using a browser**
 
-		----
-		## Open your fork repo
+		1. Log in to your GitHub account in a browser.
 
-		- **Option A: using a browser**
+		1. Go to your fork repo `<your-account>/learning-library`.
 
-			1. Log in to your GitHub account in a browser.
+	- **Option B: using GitHub Desktop**
 
-			1. Go to your fork repo `<your-account>/learning-library`.
+		1. Open GitHub Desktop.
 
-		- **Option B: using GitHub Desktop**
+		1. From **Branch** > select **Create pull request**.  
+			It opens OLL master in a browser.
 
-			1. Open GitHub Desktop.
+		1. Go to your fork repo `<your-account>/learning-library`.
 
-			1. From **Branch** > select **Create pull request**.  
-				It opens OLL master in a browser.
+		> **Note:** If you have submitted a pull request already and it is under review (waiting for approval), then you cannot create another pull request in parallel. The **Branch** menu will have an option to **Show pull request** instead. 
 
-			1. Go to your fork repo `<your-account>/learning-library`.
+	----
+	## Submit pull request (PR)
 
-			> **Note:** If you have submitted a pull request already and it is under review (waiting for approval), then you cannot create another pull request in parallel. The **Branch** menu will have an option to **Show pull request** instead. 
+	To submit a PR:
+	
+	1. From your fork repo, go to **Pull requests** > click **New pull request**.
 
-		----
-		## Submit pull request (PR)
+		> **Note:** The page must display that you are **<i><font style="color:rgb(63,185,61);">Able to merge</font></i>** (in green). 
 
-		To submit a PR:
-		
-		1. From your fork repo, go to **Pull requests** > click **New pull request**.
+	1. Review your comment for the PR.
+	
+		> **Note:** Do not forget to mention the workshop ID in the subject line of the comment. 
 
-			> **Note:** The page must display that you are **<i><font style="color:rgb(63,185,61);">Able to merge</font></i>** (in green). 
+	1. Click **Create pull request**.   
+		It creates a merge request with a four-digit code and displays a message. 
 
-		1. Review your comment for the PR.
-		
-			> **Note:** Do not forget to mention the workshop ID in the subject line of the comment. 
+		```
+		[user] wants to merge 1 commit into oracle:master from [user]:master
+		```
 
-		1. Click **Create pull request**.   
-			It creates a merge request with a four-digit code and displays a message. 
+	Done. Your pull request is submitted for review. Wait for the approval.
 
-			```
-			[user] wants to merge 1 commit into oracle:master from [user]:master
-			```
+</if>
 
-		Done. Your pull request is submitted for review. Wait for the approval.
+<if type="gitbash">
 
 ## Take a plunge into *Git Bash*
 
@@ -541,6 +577,7 @@ Now, to update your fork repo and the clone you have:
 					$ <copy>git commit -c ORIG_HEAD</copy>
 					```
 
+					It opens an editor and displays the log message from your previous commit. You may edit or add more to the message and commit again. 
 
 				----
 				## Change the last commit
@@ -761,11 +798,15 @@ Now, to update your fork repo and the clone you have:
 	### Yet to be tested (not verified)
 
 	- `git revert`   
-	create a new commit with the changes that are rolled back. |
+	create a new commit with the changes that are rolled back.
+
+</if>
 
 ## Tricks up-the-sleeves
 
 - Scenarios, solutions, troubleshooting options
+
+	<if type="gitbash">
 
 	----
 	## Git Bash :: default start location ::
@@ -919,33 +960,6 @@ Now, to update your fork repo and the clone you have:
 		1. Commit to master with the new name.
 
 	----
-	## Upstream master does not show up in GitHub Desktop?
-
-	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/msater` under `Other branches`. 
-	
-	**What to do**
-
-	The following will resolve this. 
-
-	1. Open the remote upstream folder in this location.
-
-		```
-		$ <clone>\<local-repository>\.git\refs\remotes\upstream
-		```
-
-		**Example** -
-
-		```
-		D:\GitHub\learning-library\.git\refs\remotes\upstream
-		```
-
-	1. Delete the master file in the clone.
-
-	1. Fetch again to get a new copy of the master file from the fork.
-
-	Now, `upstream/master` will be displayed again in the merge window. 
-
-	----
 	## warning: LF will be replaced by CRLF in [file]
 
 	You are issuing a `git add` command and get the following message .
@@ -989,12 +1003,44 @@ Now, to update your fork repo and the clone you have:
 
 		[Virtual geek on vcloud-lab](http://vcloud-lab.com/entries/devops/resolved-git-warning-lf-will-be-replaced-by-crlf-in-file)
 
+	</if>
+
+	<if type="gitdesktop">
+
+	----
+	## Upstream master does not show up in GitHub Desktop?
+
+	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/msater` under `Other branches`. 
+	
+	**What to do**
+
+	The following will resolve this. 
+
+	1. Open the remote upstream folder in this location.
+
+		```
+		$ <clone>\<local-repository>\.git\refs\remotes\upstream
+		```
+
+		**Example** -
+
+		```
+		D:\GitHub\learning-library\.git\refs\remotes\upstream
+		```
+
+	1. Delete the master file in the clone.
+
+	1. Fetch again to get a new copy of the master file from the fork.
+
+	Now, `upstream/master` will be displayed again in the merge window. 
+
+	</if>
+
 	## Notepad++: select text in column mode
 
 	Keeping **Shift** and **Alt** pressed, use the cursor keys to select text in column mode.
 
-
-<if type="hidden">
+	<if type="hidden">
 
 	## Crazy repo-names
 
@@ -1012,7 +1058,7 @@ Now, to update your fork repo and the clone you have:
 	time-machine  
 	whos-the-boss  
 
-</if>
+	</if>
 
 
 ## Acknowledgements

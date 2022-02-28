@@ -48,8 +48,9 @@
             "description": "The information in this lab revolves around github, git desktop, git bash.",
             "filename": "./../common/mg-library/procedures/fun-with-git-bits/fun-with-git-bits.md",
 			"publisheddate": "27-Feb-2022",
-			"type": "hidden"
-        },
+			"type": "hidden",
+			"type":{"gitconcepts":"General concepts","gitdesktop":"GitHub Desktop","gitbash":"Git Bash"}
+		},
         {
             "title": "Lab #: Hands down in Markdown",
             "description": "description",
