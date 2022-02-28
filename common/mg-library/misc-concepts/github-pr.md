@@ -9,6 +9,27 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 - WS11 pull requests
 
 	----
+	## Merge request #*0000* - Feb 28, 2022
+
+	Submitted PR for WS11 (final copy) from my fork on Github on *Mon Feb 28*. Approved on
+
+	**Sub**: <ins>(*8341*) Final changes for production as per Office hours</ins>
+
+	Hello,
+
+	Final changes as discussed in the Office hours.
+
+	- Modified the title of Introduction lab
+	- Modified the Oracle Database SID and Oracle home path in all labs throughout the workshop
+	- Updated the prerequisites in `deinstall-db` and added lab names
+	- Updated the date in acknowledgements
+	- Other minor changes
+
+	Please approve the PR so that the workshop can be released soon. 
+	Thank you
+	~MG
+
+	----
 	## Merge request #*4510* - Feb 15, 2022
 
 	Submitted PR for WS11 (draft copy) from my fork on Github on *Tue Feb 15*. Approved on **Feb 16**.

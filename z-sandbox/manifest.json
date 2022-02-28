@@ -11,7 +11,7 @@
         {
             "title": "Lab 1: MG Library",
             "description": "Contains a list of topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures.",
-			"publisheddate": "06-Feb-2022",
+			"publisheddate": "27-Feb-2022",
             "filename": "./../common/mg-library/mg-library.md",
 			"type": "hidden"
         },
@@ -45,9 +45,9 @@
         },
         {
             "title": "Lab #: Fun with Git-Bits",
-            "description": "description",
+            "description": "The information in this lab revolves around github, git desktop, git bash.",
             "filename": "./../common/mg-library/procedures/fun-with-git-bits/fun-with-git-bits.md",
-			"publisheddate": "01-Feb-2022",
+			"publisheddate": "27-Feb-2022",
 			"type": "hidden"
         },
         {

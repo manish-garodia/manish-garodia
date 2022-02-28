@@ -3,14 +3,14 @@
     "tutorials": [
         {
             "title": "Welcome to MG space..!",
-            "description": "This is the landing page for my personal space MG.",
+            "description": "The landing page for my personal space MG.",
 			"publisheddate": "12-Feb-2022",
             "filename": "./../common/intro/readme.md"
         },
         {
             "title": "Lab 1: MG Library",
             "description": "Contains a list of topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures.",
-			"publisheddate": "06-Feb-2022",
+			"publisheddate": "22-Feb-2022",
             "filename": "./../common/mg-library/mg-library.md"
         }
     ]

@@ -38,7 +38,7 @@ Pick a topic and open it in a separate tab.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 22, (Sun) 2022
+ - **Last Updated on** - February 27, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)
  
  

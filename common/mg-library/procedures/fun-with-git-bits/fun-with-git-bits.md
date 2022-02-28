@@ -309,28 +309,32 @@ Now, to update your fork repo and the clone you have:
 
 ## Take a plunge into *Git Bash*
 
- - Learn about staging, commit, and other commonly used commands
- - work-in-progress
+ - Learn about stage, commit, push, pull, fetch, git configurations, and other commonly used commands
 
 	## All about commit
 
 	The main steps for pushing the local changes from the clone to the fork repo -
 
-	1. View local changes
+	1. Display local changes
 	1. Stage files for committing
 	1. Commit to master
 	1. Push from clone to fork
-		
-		----
-		## 1. View local changes
 
-		 - Display the staged/unstaged files in the clone. 
+		----
+		## 1. Display local changes
+
+		 - View the staged/unstaged files in the clone. 
+
+			----
+			## Display modified files in the clone
+
+			View the files that are modified, moved, added, or deleted in the clone. It displays only the files and not the content changes within the files. 
 
 			```
 			$ <copy>git status</copy>
 			```
 
-			> **Note:** It is a good practice to view git status at the beginning and also in between or at the end before commit, to verify the correct files are included in the commit. 
+			> **Tip:** It is a good practice to view git status at the beginning and also in between or at the end before commit, to verify the correct files are included in the commit. 
 
 			----
 			## Display compact status
@@ -344,6 +348,24 @@ Now, to update your fork repo and the clone you have:
 			 - *A* - files added to stage
 			 - *M* - modified files
 			 - *D* - deleted files
+
+			----
+			## Display content changes in the clone
+
+			Compare the clone with the fork. View the content changes line-by-line within the modified files in the clone. 
+
+			- **for detailed view**
+
+				```
+				$ <copy>git diff origin/main</copy>
+				```
+			Press ***q*** to quit.
+
+			- **for quick view**
+
+				```
+				$ <copy>git diff</copy>
+				```
 
 		----
 		## 2. Stage files for committing
@@ -361,7 +383,7 @@ Now, to update your fork repo and the clone you have:
 			```
 
 			----
-			## Other staging options
+			## More staging options
 
 			1. 	```
 				use wildcards in the file name
@@ -384,7 +406,7 @@ Now, to update your fork repo and the clone you have:
 				```
 
 			----
-			## Stage all files
+			## Stage all files together
 
 			Use anyone
 			
@@ -404,19 +426,48 @@ Now, to update your fork repo and the clone you have:
 				$ <copy>git add --all</copy>
 				```
 
-				With these, you can stage all files and folders (modified, added, and deleted) together.
+				With these, you can stage all files and folders (modified, moved, added, and deleted) together in a single step.
 
 			----
-			## To un-stage a file
+			## Undo (Rollback) staging
 
-			Undo staging
+			**Use case:** You have staged your modified files in the clone but not yet committed to master. And you want to bring them back and make more changes to a staged file, before committing. 
+
+			You can undo staging without hurting the files or losing your changes. This will bring a staged file back into its previous unstaged condition but will not affect the content changes. 
+			
+			It is safe to use.
 
 			```
-			$ git restore --staged [file-name]...
+			$ <copy>git restore --staged [file-name]</copy>
+			``` 
+
+			Note the flag **--staged** used in this command. If you do not use this flag, then all local changes will be lost ***permanently***. 
+
+			**See also** *Discard local changes*
+
+			----
+			## Discard local changes
+
+			**Use case**: The local changes in the clone are incorrect and you want the files back from the master. 
+
+			<i>DO NOT</i> use these, unless you want to discard all changes made in the clone and update from master. 
+
 			```
+			$ git restore [file-name]...
+			$ git restore *.*
+			$ git restore .
+			```
+
+			**Warning:** All local changes will be **lost forever**.
+
+			The `git restore` command without the *--staged* flag will forget all local changes. This command is irreversible, you cannot retrieve the discarded changes ever again. 
+
+			> **Note:** If you stage some files followed by `git restore`, then all unstaged files (local changes) will be lost but the files that are already staged will remain intact, ready for committing. 
+
+			**See also** *un-stage a file*
 
 		----
-		## 3. To commit to master
+		## 3. Commit to master
 
 		1. Initiate the commit (without any flags).  
 
@@ -456,15 +507,40 @@ Now, to update your fork repo and the clone you have:
 				 - *-am* adds all changed files with the commit message. 
 
 				----
-				## Rollback (undo) commit
+				## Undo (rollback) commit and redo
 
-				Suppose, your commit message is wrong or you want to bring back from staging, before issuing a `push origin`, without hurting any files or local changes.
+				**Use case**: Your commit message is wrong or you want to bring back for more editing, before issuing a `push origin`. You can undo the last commit without hurting any files or local changes. 
+				
+				It is safe to use.
 
-				```
-				$ <copy>git reset HEAD~</copy>
-				```
+				1. You have committed your files already. 
+				
+					```
+					$ git commit -m "something terribly misguided"
+					```
 
-				Erases your git history instead of making a new commit. 
+				1. Undo the last commit and bring back prior to the staging state. The changes are still visible, and not lost. 
+
+					```
+					$ <copy>git reset HEAD~</copy>
+					```
+
+					This step erases your git history instead of making a new commit. 
+
+				1. Make changes as necessary.
+
+				1. Stage the files again, including any new files.
+
+					```
+					$ <copy>git add .</copy>
+					```
+
+				1. Redo commit along with the new changes. 
+
+					```
+					$ <copy>git commit -c ORIG_HEAD</copy>
+					```
+
 
 				----
 				## Change the last commit
@@ -500,11 +576,11 @@ Now, to update your fork repo and the clone you have:
 		----
 		## 4. Push from clone to fork
 
-		 - After the files are committe to master, push origin from clone to fork.
+		After the files are committe to master, `push origin` from clone to fork.
 
-			```
-			$ <copy>git push origin main</copy>
-			```
+		```
+		$ <copy>git push origin main</copy>
+		```
 
 	----
 	## Update fork and clone :: fetch and merge ::
@@ -684,11 +760,8 @@ Now, to update your fork repo and the clone you have:
 
 	### Yet to be tested (not verified)
 
-	- `git restore`   
-	discard changes in working directory and update from master, all local changes will be lost | 
 	- `git revert`   
 	create a new commit with the changes that are rolled back. |
-	- `git diff master origin/master`
 
 ## Tricks up-the-sleeves
 
@@ -927,9 +1000,9 @@ Now, to update your fork repo and the clone you have:
 
 	choco-bites  
 	fluffy-cat  
-	johnny-bravo  
+	johhny-bravo  
 	keep-the-change  
-	micky-mouse  
+	mickey-mouse  
 	mount-everest  
 	rainbow-colors  
 	shining-star  
