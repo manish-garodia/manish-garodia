@@ -9,9 +9,9 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 - WS11 pull requests
 
 	----
-	## Merge request #*0000* - Feb 28, 2022
+	## Merge request #*4645* - Mar 08, 2022
 
-	Submitted PR for WS11 (final copy) from my fork on Github on *Mon Feb 28*. Approved on
+	Submitted PR for WS11 (final copy) from my fork on Github on *Tue Mar 8*. Approved on **Mar 8**.
 
 	**Sub**: <ins>(*8341*) Final changes for production as per Office hours</ins>
 
@@ -26,7 +26,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	- Other minor changes
 
 	Please approve the PR so that the workshop can be released soon. 
-	Thank you
+	Thank you  
 	~MG
 
 	----
@@ -435,7 +435,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 19, (Sat) 2022
+ - **Last Updated on** - March 8, (Tue) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../intro/files/email.md)
 
 

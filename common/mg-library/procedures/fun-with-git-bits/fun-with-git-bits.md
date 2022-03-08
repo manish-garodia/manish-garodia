@@ -286,7 +286,7 @@ The information in this lab revolves around -
 	
 	> **Note:** It may take a few minutes for your fork to build the Github pages. 
 
-	</if>
+</if>
 
 <if type="gitconcepts">
 
@@ -552,7 +552,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 				1. You have committed your files already. 
 				
 					```
-					$ git commit -m "something terribly misguided"
+					$ <copy>git commit -m "something terribly misguided"</copy>
 					```
 
 				1. Undo the last commit and bring back prior to the staging state. The changes are still visible, and not lost. 
@@ -834,6 +834,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 
 		> **Note:** Do not forget to delete `--cd to home` from **Target**, otherwise the **Start in** value gets overridden.
 
+		----
 		## Okay, show me the screenshot >>
 
 		![Git Bash start in](./../../../images/gitbash-startin.jpg)
@@ -927,6 +928,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 		Branch 'master' set up to track remote branch 'master' from 'origin'.
 		```
 
+		----
 		## Need an explanation?
 
 		Here, `git reset --hard upstream/master` will *reset master HEAD* on the updated `upstream/master`, in order for `master` to reflect the exact same history as the one in the remote repo.
@@ -934,6 +936,8 @@ After committing your changes to master, go to your fork repo and *create a pull
 		But since some commits where previously done on master and pushed on the fork (`origin/master`), you would need to replace that history with the new master state. Hence, the `git push --force`.
 
 		Now, rebasing `mybranch` allows those current patches to be based on the most up-to-date commit in the remote repo.
+
+	</if>
 
 	----
 	## Rename objects in GitHub
@@ -964,16 +968,69 @@ After committing your changes to master, go to your fork repo and *create a pull
 
 		> **Note:** Renaming a file or a folder at the same location in Windows Explorer does not help because the names are not case-sensitive. 
 
-	- **Final Option 3**: if all the above failed - 
+	- **Final Option 3**: if all the above failed, take the long route - 
 		1. Delete the file (or move it out to another location) 
 		1. Create a folder with the new name (or rename at another location and copy it back). 
 		1. Commit to master with the new name.
+
+	Use Option #3 as the last resort. 
+
+	----
+	## Recv failure: Connection was reset
+
+	**Problem statement**  
+	You do a `git push origin`, ` git pull origin`, or `git fetch` from Git Bash or Git Desktop and get the following message.
+
+	```
+	fatal: unable to access   
+	'https://github.com/[your-account]/[your-repo].git/':   
+	Recv failure: Connection was reset
+	```
+
+	**What happened**  
+
+	The clone could not talk to the fork or the remote repo. 
+	- Port 80 might be blocked, or 
+	- you have not set the proxy configurations
+	- your internet is down
+
+	**What to do**  
+
+	1. Check your internet connection. 
+	1. VPN must be connected for the clone to talk to the fork repo. Disconnect the VPN and reconnect. 
+	1. Check the proxy configurations for git. See [Set up proxy config](https://manish-garodia.github.io/mg-playground/z-sandbox/?lab=fun-with-git-bits&type=gitbash#TakeaplungeintoGitBash)
+
+	----
+	## Could not resolve proxy: [proxy-URL]
+
+	**Problem statement**  
+	You run a git command and get the following message.
+
+	Error in Git Bash - 
+	```
+	fatal: unable to access 'https://github.com/[your-account]/[your-repo].git/': 
+	Could not resolve proxy: [proxy-url]
+	```
+
+	Error in Git Desktop - 
+	![Proxy issue-VPN error](./../../../images/proxy-error-mask.png)
+
+	**What happened**   
+	VPN is disconnected. 
+
+	**What to do**  
+	1. Connect VPN and try again. 
+	1. If VPN is already connected, disconnect VPN and reconnect. 
+
+	VPN must be connected for the clone to talk to the fork repo. 
+
+	<if type="gitbash">
 
 	----
 	## warning: LF will be replaced by CRLF in [file]
 
 	**Problem statement**  
-	You issue a `git add` command and get the following message.
+	You `git add` one or more files and get the following message.
 
 	```
 	warning: LF will be replaced by CRLF in ansible.cfg.
@@ -1073,9 +1130,8 @@ After committing your changes to master, go to your fork repo and *create a pull
 
 	</if>
 
-
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 27, (Sun) 2022
+ - **Last Updated on** - March 8, (Tue) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
