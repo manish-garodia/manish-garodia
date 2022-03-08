@@ -17,8 +17,8 @@ This lab assumes you have -
 - An Oracle Cloud Account - Please view this workshop's LiveLabs landing page to see which environments are supported.
 - Oracle Database 21c installed and configured.
 - Completed -
-	- Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
-	- Lab: Setup Compute Instance
+	- Lab: Prepare setup (*Free-tier* and *Paid Tenants* only)
+	- Lab: Setup compute instance
 
 
 ## **Task 1:** Remove Oracle Database
@@ -29,13 +29,12 @@ To remove Oracle Database from your host system, do the following. 
 
 1.  Log in to your host as *oracle*, the user who can remove Oracle Database.
 
-1.  Change the current working directory to `$ORACLE_HOME/deinstall`. This is the directory where `deinstall` is located.  
+1.  Change the current working directory to `$ORACLE_HOME/deinstall`. This is the directory where `deinstall` is located.   
+    The path may differ depending on the system you are using. For this lab, `deinstall` is located in the following directory. 
 
     ```
 	$ <copy>cd /opt/oracle/product/21c/dbhome_1/deinstall</copy>
 	```
-
-	The path may differ depending on the system you are using.
 
 	> **Note:** Do not shut down the Oracle Database or stop any database processes before running `deinstall`.
 
@@ -45,7 +44,7 @@ To remove Oracle Database from your host system, do the following. 
 	$ <copy>./deinstall</copy>
 	```
 
-    > **Note:** For every step, `deinstall` displays the default input values in brackets [ ]. You can either specify the values manually or press **Enter** to leave the default values and proceed. 
+    > **Note:** For every step, `deinstall` displays the default input options in brackets [ ]. You can either specify the options manually or press **Enter** to leave the default option and proceed. 
 
 	## Output
 
@@ -129,7 +128,7 @@ To remove Oracle Database from your host system, do the following. 
 	```
 
 
-1.  The `deinstall` command prompts you to modify the details of the discovered databases. The default value is *n* which means no.
+1.  The `deinstall` command prompts you to modify the details of the discovered databases. The default option is *n* which means no.
 
 	```
 	The details of database(s) CDB1 have been discovered automatically. Do you still want to modify the details of CDB1 database(s)? [n]: **Enter**
@@ -137,7 +136,7 @@ To remove Oracle Database from your host system, do the following. 
 
     > **Note:** If you enter `y` in this prompt, `deinstall` allows you to specify the details of your Oracle Database. You can manually enter each detail, such as the type of database, the diagnostic destination location, the storage type, the fast recovery area location, the spfile location, whether Archive Mode is enabled, and so on.  
 
-    For this lab, press **Enter** to select the default value and `deinstall` automatically discovers the details of your Oracle Database.
+    For this lab, press **Enter** to select the default option and `deinstall` automatically discovers the details of your Oracle Database.
 
 	## Output
 
@@ -166,7 +165,7 @@ To remove Oracle Database from your host system, do the following. 
 
     Enter ***y*** to initiate the removal process.
 
-	> **Note:** The default value is **n** which means no. If you directly press Enter or specify **n** here, then `deinstall` exits without removing the Oracle Database.   
+	> **Note:** The default option is **n** which means no. If you directly press Enter or specify **n** here, then `deinstall` exits without removing the Oracle Database.   
 
     The deconfiguration clean operation creates log files and completes removing the database.
 

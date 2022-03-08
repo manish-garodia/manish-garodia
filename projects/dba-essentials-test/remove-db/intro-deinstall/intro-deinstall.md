@@ -1,4 +1,4 @@
-# Oracle Database 21c Deinstallation
+# Oracle Database 21c deinstallation
 
 ## About this workshop
 
