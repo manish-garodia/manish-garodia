@@ -69,17 +69,17 @@ text-align: center;
 
 Index of mg space (scope: clone)
 
-
-| Markdown files                        | Manifests (clone)     | Path                                    |
-|---------------------------------------|-----------------------|-----------------------------------------|
-| readme                                | [start-here](http://127.0.0.1:3001/mg-playground/start-here/) [z-sandbox](http://127.0.0.1:3001/mg-playground/z-sandbox/) | `common\intro`                          |
-| mg-library                            | [mg-library](http://127.0.0.1:3001/mg-playground/mg-library/)            | `common\mg-library`                     |
-| access-vm-config-vnc                  | [topic-title](http://127.0.0.1:3001/mg-playground/topic-title/access-vm-config-vnc/)           | `common\mg-library\procedures`          |
-| compute-instance-custom-image         | [topic-title](http://127.0.0.1:3001/mg-playground/topic-title/compute-instance-custom-image/)           | `common\mg-library\procedures`          |
-| fun-with-git-bits                     | [topic-title](http://127.0.0.1:3001/mg-playground/topic-title/fun-with-git-bits/)           | `common\mg-library\procedures`          |
-| hands-down-in-md                      | [topic-title](http://127.0.0.1:3001/mg-playground/topic-title/hands-down-in-md/)           | `common\mg-library\procedures`          |
-| install-db-goldimage                  | [topic-title](http://127.0.0.1:3001/mg-playground/topic-title/install-db-goldimage/)           | `common\mg-library\procedures`          |
-| install-emcc                          | [topic-title](http://127.0.0.1:3001/mg-playground/topic-title/install-emcc/)           | `common\mg-library\procedures`          |
+| Markdown-manifest (clone)             | Path                                                   |
+|---------------------------------------|--------------------------------------------------------|
+| readme [start-here](http://127.0.0.1:3001/mg-playground/start-here/) <if type="hidden">[z-sandbox](http://127.0.0.1:3001/mg-playground/z-sandbox/)</if>  | `common\intro`  |
+| [mg-library](http://127.0.0.1:3001/mg-playground/mg-library/)   | `common\mg-library`          |
+| [access-vm-config-vnc](http://127.0.0.1:3001/mg-playground/topic-title/access-vm-config-vnc/)  | `common\mg-library\procedures`          |
+| [compute-instance-custom-image](http://127.0.0.1:3001/mg-playground/topic-title/compute-instance-custom-image/)  | `common\mg-library\procedures`          |
+| [fun-with-git-bits](http://127.0.0.1:3001/mg-playground/topic-title/fun-with-git-bits/)        | `common\mg-library\procedures`          |
+|<if type="hidden"> [github-pr](http://127.0.0.1:3001/mg-playground/topic-title/github-pr/)                        | `common\mg-library\misc-concepts` </if> |
+| [hands-down-in-md](http://127.0.0.1:3001/mg-playground/topic-title/hands-down-in-md/)          |  `common\mg-library\procedures`          |
+| [install-db-goldimage](http://127.0.0.1:3001/mg-playground/topic-title/install-db-goldimage/)  |  `common\mg-library\procedures`          |
+| [install-emcc](http://127.0.0.1:3001/mg-playground/topic-title/install-emcc/)                  | `common\mg-library\procedures`          |
 
 
 ## Tables - Test Env
@@ -117,7 +117,7 @@ Sample table 2
 
 ## Secret tips and tricks
 
-Glad for your enthusiasm, but it is on its way... 
+Glad to see your enthusiasm, but it is on its way... 
 
 coming soon... stay tuned 
 
@@ -126,7 +126,7 @@ coming soon... stay tuned
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 12, (Sat) 2022
+ - **Last Updated on** - March 13, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./files/email.md)
 
 <if type="hidden"> </if>

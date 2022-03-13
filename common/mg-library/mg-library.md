@@ -32,13 +32,14 @@ Pick a topic and open it in a separate tab.
 | 3    | [Install Oracle EMCC 13.5](https://manish-garodia.github.io/mg-playground/topic-title/install-emcc/) | How to install Oracle EMCC on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EMCC. |
 | 4    | [Compute Instance and Custom Image](https://manish-garodia.github.io/mg-playground/topic-title/compute-instance-custom-image/) | How to create and manage compute instances and custom images in the OCI tenancy. |
 | 5    | [Fun with git-bits](https://manish-garodia.github.io/mg-playground/topic-title/fun-with-git-bits/) | All you need to know about git ![git](./../images/git-black-small.png) to get going. |
+| <if type="hidden">5-a    | [GitHub pull requests](https://manish-garodia.github.io/mg-playground/topic-title/github-pr/) | History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github. </if> |
 | 6    | Hands down in markdown | wip |
 | 7    | working on it ... | suggest me some |
 
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 27, (Sun) 2022
+ - **Last Updated on** - March 13, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)
  
  

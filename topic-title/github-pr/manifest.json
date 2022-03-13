@@ -1,0 +1,12 @@
+{
+    "workshoptitle": "Labs in MG Library",
+    "tutorials": [
+        {
+            "title": "Lab #: GitHub PRs",
+            "description": "History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github.",
+			"publisheddate": "08-Mar-2022",
+            "filename": "./../../common/mg-library/misc-concepts/github-pr.md"
+        }
+    ]
+}
+

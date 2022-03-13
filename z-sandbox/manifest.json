@@ -11,7 +11,7 @@
         {
             "title": "Lab 1: MG Library",
             "description": "Contains a list of topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures.",
-			"publisheddate": "27-Feb-2022",
+			"publisheddate": "13-Mar-2022",
             "filename": "./../common/mg-library/mg-library.md",
 			"type": "hidden"
         },
@@ -60,9 +60,9 @@
         },
         {
             "title": "Lab #: GitHub PRs",
-            "description": "description",
+            "description": "History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github.",
             "filename": "./../common/mg-library/misc-concepts/github-pr.md",
-			"publisheddate": "20-Feb-2022",
+			"publisheddate": "8-Mar-2022",
 			"type": "hidden"
         },
         {
