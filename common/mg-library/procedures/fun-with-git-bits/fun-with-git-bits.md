@@ -1,14 +1,14 @@
-# ![GitHub](./../../../images/git-black-small.png) &nbsp;Fun with Git-Bits
+# ![GitHub](./images/git-black-small.png) &nbsp;Fun with Git-Bits
 
 ## The fork, the clone, the OLL master
 <if type="gitconcepts">
 The information in this lab revolves around - 
 
-### ![GitHub](./../../../images/git-black-small.png) &nbsp;&nbsp;&nbsp;&nbsp;GitHub 
+### ![GitHub](./images/git-black-small.png) &nbsp;&nbsp;&nbsp;&nbsp;GitHub 
 
-### ![GitHub Desktop](./../../../images/github-desktop-small.png) &nbsp;&nbsp;&nbsp;&nbsp;GitHub Desktop
+### ![GitHub Desktop](./images/github-desktop-small.png) &nbsp;&nbsp;&nbsp;&nbsp;GitHub Desktop
 
-### ![Git Bash](./../../../images/git-bash-small.png) &nbsp;&nbsp;&nbsp;&nbsp;Git Bash 
+### ![Git Bash](./images/git-bash-small.png) &nbsp;&nbsp;&nbsp;&nbsp;Git Bash 
 </if>
 
 
@@ -148,7 +148,7 @@ The information in this lab revolves around -
 	- <font style="color:rgb(112,173,71);">**Option 1** - from **Fork**, *fetch* OLL master and then in Github Desktop *pull origin* to **Clone**</font>
 	- <font style="color:rgb(91,155,213);">**Option 2** - from **Clone**, *merge* with OLL master in GitHub Desktop and then *push origin* to **Fork**</font>
 
-		![Update fork and clone](./../../../images/update-fork-clone-grey.png " ")
+		![Update fork and clone](./images/update-fork-clone-grey.png " ")
 
 	</if>
 
@@ -582,16 +582,34 @@ After committing your changes to master, go to your fork repo and *create a pull
 				----
 				## Change the last commit
 
-				If you have entered an wrong message in the log, or forgot to add more files to staging, you can amend your last commit. 
+				If you entered a wrong message in the log, or forgot to add some files to staging, you can amend your last commit (just before push origin). 
 
 				Thus, instead of doing a new commit, you combine the staged changes with your previous commit. 
+
+				To modify the commit message:
 
 				```
 				$ <copy>git commit --amend</copy>
 				```
 
-				Do this just after the `commit` command, before issuing a `push origin`.
+				> **Note:** Do this just after the `commit` command, before issuing a `push origin`.
 
+				To add more files for staging to the previous commit:
+
+				1. Add the missed file or files.
+				
+					```
+					$ <copy>git add common/mg-library/procedures/fun-with-git-bits/fun-with-git-bits.md</copy>
+					```
+
+				1. Amend the last commit. 
+
+					```
+					$ <copy>git commit --amend --no-edit
+					```
+
+				With the `--no-edit` flag, you amend your commit without changing the commit message.
+				
 				----
 				## What is the full syntax for commit?
 
@@ -837,7 +855,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 		----
 		## Okay, show me the screenshot >>
 
-		![Git Bash start in](./../../../images/gitbash-startin.jpg)
+		![Git Bash start in](./images/gitbash-startin.jpg)
 
 	----
 	## The fork is ahead of OLL master?
@@ -1013,7 +1031,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 	```
 
 	Error in Git Desktop - 
-	![Proxy issue-VPN error](./../../../images/proxy-error-mask.png)
+	![Proxy issue-VPN error](./images/proxy-error-mask.png " ")
 
 	**What happened**   
 	VPN is disconnected. 
@@ -1133,5 +1151,5 @@ After committing your changes to master, go to your fork repo and *create a pull
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - March 8, (Tue) 2022
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
+ - **Last Updated on** - March 27, (Sun) 2022
+ - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
