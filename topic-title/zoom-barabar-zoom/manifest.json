@@ -4,8 +4,8 @@
         {
             "title": "Lab #: Zoom Barabar Zoom",
             "description": "Integrate Zoom with Outlook calender and add the plug Zoom for Outlook.",
-            "filename": "./../common/mg-library/procedures/zoom-barabar-zoom/zoom-barabar-zoom.md",
+            "filename": "./../../common/mg-library/procedures/zoom-barabar-zoom/zoom-barabar-zoom.md",
 			"publisheddate": "27-Mar-2022"
-        },
+        }
     ]
 }
