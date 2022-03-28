@@ -32,7 +32,7 @@ This lab shows how to access the VM and configure the VNC.
 
 <ins>Request type</ins>: Select *Application* instance. Entitlements not required.
 
-![Request access](/images/ldap-kerberos-access.png)
+![Request access](/images/ldap-kerberos-access.png " ")
 
 ## Task 2: Configure VNC in the VM
 

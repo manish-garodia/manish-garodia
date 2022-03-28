@@ -1,6 +1,6 @@
 # Welcome to MG space..!
 
-![mg space](./../images/mg-space.jpg) 
+![mg space](./../images/mg-space.jpg " ") 
 ----
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 👋 Hi, I’m <mark>@manish-garodia</mark>

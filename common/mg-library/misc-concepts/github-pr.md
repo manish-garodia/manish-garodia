@@ -9,9 +9,23 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 - WS11 pull requests
 
 	----
+	## Merge request #*4695* - Mar 16, 2022
+
+	Submitted PR for WS11 (final copy) from my fork on Github on *Tue Mar 16*. Approved on **Mar 16**.
+
+	**Sub**: <ins>(8341) Updated ORM stack as discussed in Office hours</ins>
+
+	Hello,
+	As discussed in the office hours, updated the lab prepare-setup and modified the ORM stack for freetier. Also, modified the manifests accordingly. 
+	Removed the common get-started from livelabs manifest. 
+
+	Request for approval please  
+	Thanks, MG
+
+	----
 	## Merge request #*4645* - Mar 08, 2022
 
-	Submitted PR for WS11 (final copy) from my fork on Github on *Tue Mar 8*. Approved on **Mar 8**.
+	Submitted PR for WS11 from my fork on Github on *Tue Mar 8*. Approved on **Mar 8**.
 
 	**Sub**: <ins>(*8341*) Final changes for production as per Office hours</ins>
 
@@ -435,7 +449,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - March 8, (Tue) 2022
+ - **Last Updated on** - March 16, (Wed) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../intro/files/email.md)
 
 

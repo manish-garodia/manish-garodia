@@ -122,6 +122,11 @@ The OCI has **26 regions** that are associated with specific teams.
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/8Priv4KCP6ttV0Rqc9Zy0bis2ui_rPu1xWKMSZWSv941Fyl6QV2lg9uANgdlNPaJ/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-installed-appuser_v1
 			```
 
+		 - PAR URL for WS4 image - created on 25 Mar 2022, valid till 15 Apr. 
+
+			```
+			https://objectstorage.us-ashburn-1.oraclecloud.com/p/wQ-t802jacSqeclmlefOKENYpTniIi59C6FACdUF2iBhMClAy8-XdbNHy98ys7Ap/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-emcc_v2
+			```
 </if>
 
 ## Task 1: Options for custom image
@@ -802,5 +807,5 @@ chmod g+s /oracle
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 6, (Sat) 2022
+ - **Last Updated on** - March 26, (Sat) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
