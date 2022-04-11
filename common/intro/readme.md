@@ -72,14 +72,14 @@ Index of mg space (scope: clone)
 | Markdown-manifest (clone)             | Path                                                   |
 |---------------------------------------|--------------------------------------------------------|
 | readme [start-here](http://127.0.0.1:3001/mg-playground/start-here/) <if type="hidden">[z-sandbox](http://127.0.0.1:3001/mg-playground/z-sandbox/)</if>  | `common\intro`  |
-| [mg-library](http://127.0.0.1:3001/mg-playground/mg-library/)   | `common\mg-library`          |
-| [access-vm-config-vnc](http://127.0.0.1:3001/mg-playground/topic-title/access-vm-config-vnc/)  | `common\mg-library\procedures`          |
-| [compute-instance-custom-image](http://127.0.0.1:3001/mg-playground/topic-title/compute-instance-custom-image/)  | `common\mg-library\procedures`          |
-| [fun-with-git-bits](http://127.0.0.1:3001/mg-playground/topic-title/fun-with-git-bits/)        | `common\mg-library\procedures`          |
-|<if type="hidden"> [github-pr](http://127.0.0.1:3001/mg-playground/topic-title/github-pr/)                        | `common\mg-library\misc-concepts` </if> |
-| [hands-down-in-md](http://127.0.0.1:3001/mg-playground/topic-title/hands-down-in-md/)          |  `common\mg-library\procedures`          |
-| [install-db-goldimage](http://127.0.0.1:3001/mg-playground/topic-title/install-db-goldimage/)  |  `common\mg-library\procedures`          |
-| [install-emcc](http://127.0.0.1:3001/mg-playground/topic-title/install-emcc/)                  | `common\mg-library\procedures`          |
+| [mg-library](http://127.0.0.1:3001/mg-playground/mg-library/)   | `common\lib-cellar`          |
+| [access-vm-config-vnc](http://127.0.0.1:3001/mg-playground/topic-title/access-vm-config-vnc/)  | `common\lib-cellar\procedures`          |
+| [compute-instance-custom-image](http://127.0.0.1:3001/mg-playground/topic-title/compute-instance-custom-image/)  | `common\lib-cellar\procedures`          |
+| [fun-with-git-bits](http://127.0.0.1:3001/mg-playground/topic-title/fun-with-git-bits/)        | `common\lib-cellar\procedures`          |
+|<if type="hidden"> [github-pr](http://127.0.0.1:3001/mg-playground/topic-title/github-pr/)                        | `common\lib-cellar\misc-concepts` </if> |
+| [hands-down-in-md](http://127.0.0.1:3001/mg-playground/topic-title/hands-down-in-md/)          |  `common\lib-cellar\procedures`          |
+| [install-db-goldimage](http://127.0.0.1:3001/mg-playground/topic-title/install-db-goldimage/)  |  `common\lib-cellar\procedures`          |
+| [install-emcc](http://127.0.0.1:3001/mg-playground/topic-title/install-emcc/)                  | `common\lib-cellar\procedures`          |
 
 
 ## Tables - Test Env
@@ -126,7 +126,7 @@ coming soon... stay tuned
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - March 13, (Sun) 2022
+ - **Last Updated on** - April 11, (Mon) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./files/email.md)
 
 <if type="hidden"> </if>

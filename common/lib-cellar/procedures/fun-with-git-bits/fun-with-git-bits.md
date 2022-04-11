@@ -1133,6 +1133,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 	## Crazy repo-names
 
 	choco-bites  
+	beautiful-chaos
 	fluffy-cat  
 	johhny-bravo  
 	keep-the-change  
