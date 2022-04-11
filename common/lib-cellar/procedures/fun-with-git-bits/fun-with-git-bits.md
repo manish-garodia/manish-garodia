@@ -445,39 +445,52 @@ After committing your changes to master, go to your fork repo and *create a pull
 			## Stage all files together
 
 			Use anyone
-			
-			1. 	```
+
+			1. This command works only from the root directory only.
+
+				```
 				$ <copy>git add .</copy>
+				 
 				```
 
-			1. 	```
+			1. These commands work from anywhere in the local repo (clone). 
+
+			- 	```
 				$ <copy>git add -A</copy>
 				```
 
-			1. 	```
+			- 	```
 				$ <copy>git add --a</copy>
 				```
 
-			1. 	```
+			-	```
 				$ <copy>git add --all</copy>
 				```
 
-				With these, you can stage all files and folders (modified, moved, added, and deleted) together in a single step.
+				With these, you can stage all files and folders (modified, moved, added, or deleted) together in a single step.
 
 			----
 			## Undo (Rollback) staging
 
-			**Use case:** You have staged your modified files in the clone but not yet committed to master. And you want to bring them back and make more changes to a staged file, before committing. 
+			**Use case:** You have staged your modified files in the clone but not yet committed to master. And you want to bring them back and make more changes to the staged files, before committing. 
 
-			You can undo staging without hurting the files or losing your changes. This will bring a staged file back into its previous unstaged condition but will not affect the content changes. 
+			You can undo staging without hurting the files or losing your local changes. This will bring the staged files back into their previous unstaged condition but will not affect the content changes. 
 			
-			It is safe to use.
+			**Note:** This command is *safe* to use.
 
-			```
-			$ <copy>git restore --staged [file-name]</copy>
-			``` 
+			- To unstage a single file:
 
-			Note the flag **--staged** used in this command. If you do not use this flag, then all local changes will be lost ***permanently***. 
+				```
+				$ <copy>git restore --staged [file-name]</copy>
+				``` 
+
+				Note the flag **--staged** used in this command. If you do not use this flag, then all local changes will be lost ***permanently***. 
+
+			- To unstage everything but keep you local changes intact:
+
+				```
+				$ <copy>git reset</copy>
+				``` 
 
 			**See also** *Discard local changes*
 

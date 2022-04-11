@@ -1,0 +1,112 @@
+{
+	"blocks": [
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": ":vertical_traffic_light:  Published new workshop  :checkered_flag:"
+			}
+		},
+		{
+			"type": "context",
+			"elements": [
+				{
+					"text": ":spiral_calendar_pad:    `in March 2022`",
+					"type": "mrkdwn"
+				}
+			]
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": " :arrow_right:  _*DBA Essentials - Remove Oracle Database 21c*_ \n         _*from your host system*_"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "View Workshop   :eyes:",
+					"emoji": true
+				},
+				"style": "primary",
+				"value": "dba_essentials",
+				"url": "https://bit.ly/ws11-removedb",
+				"action_id": "button-action"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "This workshop helps you learn how to remove the Oracle Database software and delete the database. \n\nWe have this workshop released to production with the green button. :large_green_square: \nThanks to all contributors and teams."
+			}
+		},
+		{
+			"type": "image",
+			"image_url": "https://bit.ly/ws11-launch-img",
+			"alt_text": "DBA Essentials workshop"
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":oracleo:  |  *Previously released workshops*  |  :oracleo:"
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": ":goldstar:  Install Oracle Database 21c",
+						"emoji": true
+					},
+					"value": "install_db",
+					"url": "https://bit.ly/ws1-installdb"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": ":goldstar:  DB Admin with Enterprise Manager",
+						"emoji": true
+					},
+					"value": "em_dba",
+					"url": "https://bit.ly/ws2-startemcc"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": ":goldstar:  Configure Network Environment",
+						"emoji": true
+					},
+					"value": "config_nw",
+					"url": "https://bit.ly/ws3-confignw"
+				}
+			]
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":bulb: *Tip:* Search for the keyword `essentials` on the Livelabs site if you'd like to see all _DBA Essentials workshops_ (with an exception) released thus far."
+			}
+		}
+	]
+}
