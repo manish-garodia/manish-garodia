@@ -5,7 +5,7 @@
             "title": "Lab #: Access VM and Configure VNC",
             "description": "How to access the VM and configure the VNC.",
 			"publisheddate": "01-Feb-2022",
-            "filename": "./../../common/mg-library/procedures/access-vm-config-vnc/access-vm-config-vnc.md"
+            "filename": "./../../common/lib-cellar/procedures/access-vm-config-vnc/access-vm-config-vnc.md"
         }
     ]
 }

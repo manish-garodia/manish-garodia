@@ -4,8 +4,8 @@
         {
             "title": "Lab #: Compute Instance and Custom Image",
             "description": "How to create and manage compute instances and custom images in the OCI tenancy.",
-			"publisheddate": "06-Feb-2022",
-            "filename": "./../../common/mg-library/procedures/compute-instance-custom-image/compute-instance-custom-image.md"
+			"publisheddate": "26-Mar-2022",
+            "filename": "./../../common/lib-cellar/procedures/compute-instance-custom-image/compute-instance-custom-image.md"
         }
     ]
 }
