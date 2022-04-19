@@ -481,7 +481,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 			- To unstage a single file:
 
 				```
-				$ <copy>git restore --staged [file-name]</copy>
+				$ <copy>git restore --staged [file-name full-path]</copy>
 				``` 
 
 				Note the flag **--staged** used in this command. If you do not use this flag, then all local changes will be lost ***permanently***. 
@@ -1165,5 +1165,5 @@ After committing your changes to master, go to your fork repo and *create a pull
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - March 27, (Sun) 2022
+ - **Last Updated on** - April 11, (Mon) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
