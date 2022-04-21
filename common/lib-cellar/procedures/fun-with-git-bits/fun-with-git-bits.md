@@ -868,7 +868,10 @@ After committing your changes to master, go to your fork repo and *create a pull
 		----
 		## Okay, show me the screenshot >>
 
-		![Git Bash start in](./images/gitbash-startin.jpg)
+		![Git Bash start in](./images/gitbash-startin.jpg " ")
+
+	</if>
+	<if type="gitdesktop">
 
 	----
 	## The fork is ahead of OLL master?
@@ -880,14 +883,66 @@ After committing your changes to master, go to your fork repo and *create a pull
 	Your branch is X commits ahead 
 	```
 
+	![tbd](./images/rebase-01-fork-ahead.png " ")
+
 	You do a `fetch origin`, `merge upstream/master`, and `push origin` to update both clone and fork repo with OLL master. Even after updating both clone and fork, you get a *commits mismatch* message on your fork. 
 
 	This means that your fork is not fully synced with OLL master. If you get this message on your fork, how to clean this without submitting a pull request to OLL master? 
 
 	**What to do**  
-	Bring your fork repo in sync with OLL master (fully up-to-date) as follows.
+	Bring your fork repo in sync with OLL master (fully up-to-date). 
 
-	1. Open Git Bash and go to the clone directory.
+	In GitHub Desktop - 
+
+	1. Go to **Branch** > **Rebase current branch**.
+
+		![tbd](./images/rebase-02-rebase-menu.png " ")
+
+	1. In the Rebase master window, select the branch *upstream/master* and click **Rebase**.
+
+		![tbd](./images/rebase-03-select-branch.png " ")
+
+		GitHub Desktop starts the rebase and displays the commits.
+
+		![tbd](./images/rebase-04-rebase-progress.png " ")
+
+		GitHub Desktop gives an option to force push with all ahead and behind commits.
+
+	1. Click on **Force push origin** to rewrite history on `origin/master`.   
+		The window displays a pop-up to confirm this action. Click on **I'm sure** to proceed.
+
+		![tbd](./images/rebase-05-force-push.png " ")
+
+	Refresh the browser page for the fork. You will see that the fork is now up to date with the master. 
+
+	![tbd](./images/rebase-06-fork-uptodate.png " ")
+
+	</if>
+
+	<if type="gitbash">
+
+	----
+	## The fork is ahead of OLL master?
+
+	**Problem statement**  
+	Your fork says -
+
+	```
+	Your branch is X commits ahead 
+	```
+
+	![tbd](./images/rebase-01-fork-ahead.png " ")
+
+	You do a `fetch origin`, `merge upstream/master`, and `push origin` to update both clone and fork repo with OLL master. Even after updating both clone and fork, you get a *commits mismatch* message on your fork. 
+
+	This means that your fork is not fully synced with OLL master. If you get this message on your fork, how to clean this without submitting a pull request to OLL master? 
+
+	**What to do**  
+	Bring your fork repo in sync with OLL master (fully up-to-date).  
+
+	From Git Bash - 
+
+	1. Go to the clone directory.
 
 	1.	```
 		$ <copy>git fetch upstream</copy>
@@ -967,6 +1022,10 @@ After committing your changes to master, go to your fork repo and *create a pull
 		But since some commits where previously done on master and pushed on the fork (`origin/master`), you would need to replace that history with the new master state. Hence, the `git push --force`.
 
 		Now, rebasing `mybranch` allows those current patches to be based on the most up-to-date commit in the remote repo.
+
+	Refresh the browser page for the fork. You will see that the fork is now up to date with the master. 
+
+	![tbd](./images/rebase-06-fork-uptodate.png " ")
 
 	</if>
 
@@ -1165,5 +1224,5 @@ After committing your changes to master, go to your fork repo and *create a pull
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - April 11, (Mon) 2022
+ - **Last Updated on** - April 21, (Thu) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
