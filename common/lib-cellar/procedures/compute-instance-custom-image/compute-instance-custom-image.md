@@ -127,6 +127,18 @@ The OCI has **26 regions** that are associated with specific teams.
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/wQ-t802jacSqeclmlefOKENYpTniIi59C6FACdUF2iBhMClAy8-XdbNHy98ys7Ap/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-emcc_v2
 			```
+
+		 - PAR URL for WS4 image - created on 19 Apr 2022, valid till 20 May. 
+
+			```
+			https://objectstorage.us-ashburn-1.oraclecloud.com/p/StcksXQChoqJfQ4q46oUVoWChVmGH-2rDDTJIMfpJ6NUS31Fvjnp79SQbcOgLgdo/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-emcc_v3
+			```
+
+		 - PAR URL for WS4 image - created on 21 Apr 2022, valid till 20 May. 
+
+			```
+			https://objectstorage.us-ashburn-1.oraclecloud.com/p/_mwMLRZ6vFDWD_PZ2IF1Ih6RuJKYLTLWJ7dl8Cq534vOmxf40D3sn6YKlgZoFQJV/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-emcc_v4
+			```
 </if>
 
 ## Task 1: Options for custom image
@@ -807,5 +819,5 @@ chmod g+s /oracle
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - March 26, (Sat) 2022
+ - **Last Updated on** - April 21, (Thu) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

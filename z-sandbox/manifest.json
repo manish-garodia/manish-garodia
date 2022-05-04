@@ -4,13 +4,13 @@
         {
             "title": "Welcome to MG space..!",
             "description": "This is the landing page for my personal space MG.",
-			"publisheddate": "12-Feb-2022",
+			"publisheddate": "11-Apr-2022",
             "filename": "./../common/intro/readme.md",
 			"type": "hidden"
         },
         {
             "title": "Lab 1: MG Library",
-            "description": "Contains a list of topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures.",
+            "description": "Contains topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures.",
 			"publisheddate": "27-Mar-2022",
             "filename": "./../common/lib-cellar/mg-library.md",
 			"type": "hidden"
@@ -39,7 +39,7 @@
         {
             "title": "Lab #: Compute Instance and Custom Images",
             "description": "How to create and manage compute instances and custom images in the OCI tenancy.",
-			"publisheddate": "26-Mar-2022",
+			"publisheddate": "21-Apr-2022",
             "filename": "./../common/lib-cellar/procedures/compute-instance-custom-image/compute-instance-custom-image.md",
 			"type": "hidden"
         },
@@ -47,22 +47,22 @@
             "title": "Lab #: Fun with Git-Bits",
             "description": "The information in this lab revolves around github, git desktop, git bash.",
             "filename": "./../common/lib-cellar/procedures/fun-with-git-bits/fun-with-git-bits.md",
-			"publisheddate": "11-Apr-2022",
+			"publisheddate": "21-Apr-2022",
 			"type": "hidden",
 			"type":{"gitconcepts":"General concepts","gitdesktop":"GitHub Desktop","gitbash":"Git Bash"}
 		},
         {
             "title": "Lab #: Hands down in Markdown",
-            "description": "description",
+            "description": "Using the markdown format and tags",
             "filename": "./../common/lib-cellar/procedures/hands-down-in-md/hands-down-in-md.md",
-			"publisheddate": "06-Feb-2022",
+			"publisheddate": "24-Apr-2022",
 			"type": "hidden"
         },
         {
             "title": "Lab #: GitHub PRs",
             "description": "History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github.",
             "filename": "./../common/lib-cellar/misc-concepts/github-pr.md",
-			"publisheddate": "16-Mar-2022",
+			"publisheddate": "02-May-2022",
 			"type": "hidden"
         },
         {

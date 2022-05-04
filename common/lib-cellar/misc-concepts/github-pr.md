@@ -93,7 +93,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	----
 	## Merge request #*4473* - Feb 9, 2022
 
-	Submitted PR for WS8 (draft copy) from Suresh M's fork on Github on *Tue Feb 8*. Waiting for approval. Approved on ...
+	Submitted PR for WS8 (draft copy) from Suresh M's fork on Github on *Tue Feb 8*. Waiting for approval. Approved on **Mar 1**.
 
 	**Sub**: *ID#9281* - New livelabs workshop
 
@@ -104,6 +104,53 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	For now, we need an approval of the PR so that the workshop gets placed on the master.
 
 	Thanks, Manish
+
+## WS6 (*11060*)
+
+- WS6 pull requests
+
+	----
+	## Merge request #*4970* - May 01, 2022
+
+	Submitted PR for WS6 (final copy) from my fork on Github on *Sun May 01*. Waiting for approval. Approved on **May 02**.
+
+	**Sub**: <ins>(*#11060*) Updates from QA</ins>
+
+	Hi,
+
+	Fixed the comments from QA verification and as per recent changes.
+
+	 -'Note' removed from the Prerequisites in the intro lab
+	 - Updated the prerequisites in all labs and removed references to Always Free and Free Tier accounts
+	 - The Get started lab in the freetier manifest now points to cloud-login.md
+	 - Updated the published date in all manifests
+	 - Updated initialize-environment as per the latest steps
+	 - Updated the ORM stack for terraform scripts in prepare-setup
+	 - Other minor changes
+
+	Please approve the PR. Thank you  
+	~MG
+
+	----
+	## Merge request #*4887* - Apr 21, 2022
+
+	Fixed issues and submitted a merge request on *Thu Apr 21, 2022*. Waiting for approval. Approved on **Apr 26**.
+
+	Additionally, fixed the tasks headings and removed the bold tags as per the latest QA document.
+
+	----
+	## Merge request #*4887* - Apr 19, 2022
+
+	Submitted PR for WS6 (draft copy) from my fork on Github on *Tue Apr 19*. Not approved.
+
+	**Sub**: <ins>(*#11060*) Created New Workshop Manage user accounts and security</ins>
+
+	Hello,
+
+	Developed a new workshop on *Manage user accounts and sceurity for Oracle Database 21c*, WMS ID is #11060. 
+
+	Please approve the PR. Thank you  
+	~MG
 
 ## WS3 (*8321*)
 
@@ -449,7 +496,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - March 16, (Wed) 2022
+ - **Last Updated on** - May 2, (Mon) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../intro/files/email.md)
 
 

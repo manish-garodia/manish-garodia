@@ -2,9 +2,9 @@
     "workshoptitle": "Labs in MG Library",
     "tutorials": [
         {
-            "title": "Lab #: Fun with Git and Markdown",
-            "description": "description",
-			"publisheddate": "06-Feb-2022",
+            "title": "Lab #: Hands down in Markdown",
+            "description": "Using the markdown format and tags",
+			"publisheddate": "24-Apr-2022",
             "filename": "./../common/lib-cellar/procedures/hands-down-in-md/hands-down-in-md.md"
         }
     ]

@@ -1,80 +1,78 @@
-# Prepare Setup
+# Prepare setup
 
 ## Introduction
-This lab will show you how to download the Oracle Resource Manager (ORM) stack zip file needed to setup the resource needed to run this workshop. This workshop requires a compute instance running the Oracle Enterprise Manager 13c Marketplace image with monitored database targets and a Virtual Cloud Network (VCN).
 
-Estimated Time: 15 minutes
+This lab will show you how to download the Oracle Resource Manager (ORM) stack zip file needed to setup the resource needed to run this workshop. This workshop requires a compute instance running the *Oracle Enterprise Manager 13c* Marketplace image with monitored database targets and a Virtual Cloud Network (VCN).
+
+Estimated time: 10 minutes
 
 ### Objectives
--   Download ORM stack
--   Configure an existing Virtual Cloud Network (VCN)
+
+ -   Download ORM stack
+ -   Configure an existing Virtual Cloud Network (VCN)
 
 ### Prerequisites
-This lab assumes you have:
-- An Oracle Free Tier or Paid Cloud account
-- SSH Keys
+
+This lab assumes you have -
+ - A Free Tier, Paid or LiveLabs Oracle Cloud account
 
 ## Task 1: Download Oracle Resource Manager (ORM) stack zip file
-1.  Click on the link below to download the Resource Manager zip file you need to build your environment: [instdb21c-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/mZMIb1j-Ne-DYQ4wH1ZjkfIDjX3deu5NSvlDsQjFZ4sInFIBSFpFJtpEUP2gCSRe/n/natdsecurity/b/stack/o/instdb21c-mkplc-freetier.zip)
 
-<!-- [emcc-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/CaJ4NdhHpEknQAWzpTf94WshzRVfl_yel0AIfU382AWrSGzOm7j9LUxz8ByAmKxD/n/natdsecurity/b/stack/o/emcc-mkplc-freetier.zip)
+1.  Click on the link below to download the Resource Manager zip file you need to build your environment:
 
-<if type="config-compliance">
-    - [emcc-mkplc-config-compliance.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/bitQwycuNAjsM8n7C1ugjbrsRUuceS2TWkfARO3xf-sUX11EsaEg2ug_iLBPCeKF/n/natdsecurity/b/stack/o/emcc-mkplc-config-compliance.zip)
-</if>
-<if type="find-fix-validate">
-    - [emcc-mkplc-find-fix-validate.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/e8Kxwmy0-2vSr9xL5je98lkZ-D4AbwsUl28tMDM-rSVex5FqJ1wAkx3Z4uFUv6Zv/n/natdsecurity/b/stack/o/emcc-mkplc-find-fix-validate.zip)
-</if>
-<if type="fleet-patching">
-    - [emcc-mkplc-fleet-patching.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/xyTG8q5fsPm229Z_U79K_B0LBVsvkoDzbhTtCsBz81En5Cywa_oKfqdldaBM7w4s/n/natdsecurity/b/stack/o/emcc-mkplc-fleet-patching.zip)
-</if>
-<if type="fleet-upgrade">
-    - [emcc-mkplc-fleet-upgrade.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/kCQ0PJKMtZV-GWdi_iUbZ17CFbna4BGlIW5Q2ge5hzSJOyi6FkuqKXoN0NA2BQnf/n/natdsecurity/b/stack/o/emcc-mkplc-fleet-upgrade.zip)
-</if>
-<if type="fundamentals">
-    - [emcc-mkplc-fundamentals.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/QoRUvKiBlbpcynvexte9UE76FQOVd42HzF8ec2T70wNFjFkdlEwMMp4kDUIKxVxF/n/natdsecurity/b/stack/o/emcc-mkplc-fundamentals.zip)
-</if>
-<if type="job-system-automation">
-    - [emcc-mkplc-job-system-automation.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/kJkOSpPDsfVDdbfMYOYZC3vAfjkZz1OKkaThBZcL4Myzxz6tbvVLGSF88nODa-nZ/n/natdsecurity/b/stack/o/emcc-mkplc-job-system-automation.zip)
-</if>
-<if type="lifecycle">
-    - [emcc-mkplc-lifecycle.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/2Yl1NWUCGCOuI4zbDcg7VF46DJXaGo_ZNUd3C0cE8TNRuJe3-lkYe4Ll806eIzbd/n/natdsecurity/b/stack/o/emcc-mkplc-lifecycle.zip)
-</if>
-<if type="rat-overview">
-    - [emcc-mkplc-rat-overview.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/SKVYcQm9QiL9ifHuVDbgdJ51s57zUy9VnF3YwXUPRaellpLxuU-IbtHmAZIEYtL8/n/natdsecurity/b/stack/o/emcc-mkplc-rat-overview.zip)
-</if>
+	 - [emcc-dbae-2-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/45QlbADtilX7TE3zpYeOrVyF5StsG3AOfdFU4BAiwWesx-spDYOrIbF3xqDS2lDV/n/natdsecurity/b/stack/o/emcc-dbae-2-mkplc-freetier.zip)
 
--->
+	<!--
+    *Note 1:* If providing a single Stack download for the workshop, use this simple expression.
 
-2.  Save in your downloads folder.
+    - [sample-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/clKCvIhItftqqFoXdipFq5oukh0jVuwcKEMHVdqOPXN7oUqaoGwPZsimi5pgpfpR/n/natdsecurity/b/stack/o/sample-mkplc-freetier.zip)
+
+    *Note 2:* If providing multiple Stacks download for the same workshop, use a conditional expression similar to the below. Keep in mind that the condition or *type* must be paired with a valid entry in the *manifest.json* file. Refer to *freetier-advanced* and *freetier-basics* 
+
+<if type="advanced">
+    - [sample-mkplc-advanced.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/_EIwsXv5v6KkKcQldUQixExqAgJCbY826XovJec4I25rc4dHEZW4whrF-nb2QUye/n/natdsecurity/b/stack/o/sample-mkplc-advanced.zip)
+</if>
+<if type="basics">
+    - [sample-mkplc-basics.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/m4wcgeN1hw9D1zV3pgOkbRjwanAt5dIW7QsZS7znZNnHU63vh495UHhkiRtaDJHE/n/natdsecurity/b/stack/o/sample-mkplc-basics.zip)
+</if>
+	-->
+
+1.  Save in your downloads folder.
 
 We recommend using this stack to create a self-contained/dedicated VCN with your instance(s). Skip to *Task 3* to follow our recommendations. If you would rather use an exiting VCN then proceed to the next task as indicated below to update your existing VCN with the required Egress rules.
 
-## Task 2: Adding Security Rules to an Existing VCN   
+## Task 2: Add Security Rules to an existing VCN   
+
 This workshop requires a certain number of ports to be available, a requirement that can be met by using the default ORM stack execution that creates a dedicated VCN. In order to use an existing VCN, the following ports should be added to Egress rules.
 
-| Port           |Description                            |
+| Port           | Description                           |
 | :------------- | :------------------------------------ |
 | 22             | SSH                                   |
+| 80             | noVNC Remote Desktop (NGINX Proxy)    |
 | 7803           | Enterprise Manager 13c Server         |
 | 6080           | noVNC Remote Desktop                  |
 
-1.  Go to **Networking >> Virtual Cloud Networks**
-2.  Choose your network
-3.  Under Resources, select Security Lists
-4.  Click on Default Security Lists under the Create Security List button
-5.  Click Add Ingress Rule button
-6.  Enter the following:  
+1.  Go to **Networking** > **Virtual Cloud Networks**
+1.  Choose your network
+1.  Under **Resources**, select **Security Lists**
+1.  Click on **Default Security Lists** under the **Create Security List** button
+1.  Click the **Add Ingress Rule** button
+1.  Enter the following:  
     - Source CIDR: 0.0.0.0/0
     - Destination Port Range: *Refer to above table*
-7.  Click the Add Ingress Rules button
+1.  Click the **Add Ingress Rules** button
 
-## Task 3: Setup Compute   
-Using the details from the two tasks above, proceed to the lab **Setup Compute Instance** to setup your workshop environment using Oracle Resource Manager (ORM) and one of the following options:
--  Create Stack:  **Compute + Networking**
--  Create Stack:  **Compute only** with an existing VCN where security lists have been updated as per *Task 2* above
+## Task 3: Setup compute   
+
+Using the details from the two tasks above, proceed to the lab **Setup compute instance** to setup your workshop environment using Oracle Resource Manager (ORM) and one of the following options:
+
+ -  Create Stack:  **Compute + Networking**
+ -  Create Stack:  **Compute only** with an existing VCN where security lists have been updated as per *Task 2* above
+
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
-  - **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology
-  - **Contributors** -  
-  - **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, October 2021
+
+- **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology
+- **Contributors** - Meghana Banka
+- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, April 2022
