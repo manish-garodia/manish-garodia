@@ -1,12 +1,16 @@
-# Use Data Recovery Advisor to Repair Failures  
+# Use Data Recovery Advisor to repair failures
 
 ## Introduction
+This lab shows you how to repair failures using Data Recovery Advisor.
 
-The Data Recovery Advisor is an Oracle database feature that automatically diagnoses data failures, determines and presents appropriate repair options, and performs repairs if requested by the user. By providing a centralized tool for automated data repair, Data Recovery Advisor improves the manageability and reliability of an Oracle database.
+Estimated Time: 20 minutes
 
-**Note:** Data Recovery Advisor can only be used to diagnose and repair failures in multitenant container databases (CDBs). It is not supported for pluggable databases (PDBs).
+### About Data Recovery Advisor
+The Data Recovery Advisor is an Oracle Database feature that automatically diagnoses data failures, determines and presents appropriate repair options, and performs repairs if requested by the user. By providing a centralized tool for automated data repair, Data Recovery Advisor improves the manageability and reliability of an Oracle Database.
 
-RMAN provides a command-line interface to the Data Recovery Advisor. You can use the following RMAN commands to diagnose and repair data failures for the Oracle database, including for Oracle RAC databases:
+>**Note:** Data Recovery Advisor can only be used to diagnose and repair failures in multitenant container databases (CDBs). It is not supported for pluggable databases (PDBs).
+
+The Recovery Manager (RMAN) provides a command-line interface to the Data Recovery Advisor. You can use the following RMAN commands to diagnose and repair data failures for the Oracle Database, including for Oracle Real Application Clusters (RAC) Databases:
 
 - `LIST FAILURE`: Use this command to view problem statements for failures and the effect of these failures on database operations. A failure number identifies each failure.
 
@@ -14,137 +18,31 @@ RMAN provides a command-line interface to the Data Recovery Advisor. You can use
 
 - `REPAIR FAILURE`: Use this command to automatically repair failures listed by the most recent `ADVISE FAILURE` command.
 
-Estimated Time: 20 minutes
-
-
-### **Objectives**
-In this lab, you will:
+### Objectives
 - Perform Oracle advised recovery
 
-### **Prerequisites**
-This lab assumes:
-- The Oracle database 21c software is installed, and a starter database is already created.
-- In the terminal window, you set the environment variables for the `orcl` database.
-    ```
-    $ . oraenv
-    ORACLE_SID = [oracle] ? orcl
-    The Oracle base has been set to /u01/app/oracle
-    ```
-- In the terminal window, you changed the current working directory to `$ORACLE_HOME/bin` where Oracle DBCA is located.
+### Prerequisites
+- A Free Tier, Paid or LiveLabs Oracle Cloud account.
+- You have completed:
+    - Lab: Prepare setup (_Free-Tier_ and _Paid Tenants_ only)
+    - Lab: Initialize environment
+    - Lab: Configure recovery settings
+    - Lab: Configure backup settings
+    - Lab: Perform and schedule backups
 
 
-## Task 1: Perform Oracle Advised Recovery
-
+## Task 1: Perform Oracle advised recovery
 The recovery process begins when you either suspect or discover a failure. You can discover failures in many ways, including error messages, alerts, trace files, and health checks. You can then use Data Recovery Advisor to gain information and advice about failures and repair them automatically.
 
-1. Invoke `SQL*Plus` prompt and connect as the `sysdba` user.
+In this task, you perform failure recovery using the following steps.
 
-    ```
-    $ <copy>sqlplus / as sysdba</copy>
-    ```
-
-    ## Output
-
-    ```
-    SQL*Plus: Release 21.0.0.0.0 - Production on Mon Jul 26 07:50:23 2021
-    Version 21.3.0.0.0
-
-    Copyright (c) 1982, 2021, Oracle.  All rights reserved.
-
-    Connected to:
-    Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
-    Version 21.3.0.0.0
-
-    SQL>
-    ```
-
-2. Create the following `regions` table in the database.
-
-    ```
-    <copy>CREATE TABLESPACE hr DATAFILE 'hrts.dbf';
-    CREATE TABLE regions (id number(2), name varchar2(20)) TABLESPACE hr;
-    INSERT INTO regions VALUES (1,'Europe');
-    INSERT INTO regions VALUES (2,'America');
-    INSERT INTO regions VALUES (3,'Asia');
-    INSERT INTO regions VALUES (4,'Middle East');
-    commit;</copy>
-    ```
-
-3. Query the `regions` table.
-
-    ```
-    SQL> <copy>SELECT * FROM regions;</copy>
-    ```
-
-    ## Output
-
-    ```
-
-ID NAME
----------- --------------------
-         1 Europe
-         2 America
-         3 Asia
-         4 Middle East
-
-SQL>
-
-    ```
-
-4. Query the `v$datafile` view to determine the file name of the file that belongs to the `hr` tablespace.
-
-    ```
-    SQL> <copy>SELECT name FROM v$datafile;</copy>
-    ```
-
-    ## Output
-
-    ```
-    NAME
-    --------------------------------------------------------------------------------
-    /u01/app/orauser/oradata/ORCL/system01.dbf
-    /u01/app/orauser/oradata/ORCL/sysaux01.dbf
-    /u01/app/orauser/oradata/ORCL/undotbs01.dbf
-    /u01/app/orauser/oradata/ORCL/pdbseed/system01.dbf
-    /u01/app/orauser/oradata/ORCL/pdbseed/sysaux01.dbf
-    /u01/app/orauser/oradata/ORCL/users01.dbf
-    /u01/app/orauser/oradata/ORCL/pdbseed/undotbs01.dbf
-    /u01/app/orauser/oradata/ORCL/orclpdb/system01.dbf
-    /u01/app/orauser/oradata/ORCL/orclpdb/sysaux01.dbf
-    /u01/app/orauser/oradata/ORCL/orclpdb/undotbs01.dbf
-    /u01/app/orauser/oradata/ORCL/orclpdb/users01.dbf
-
-    NAME
-    --------------------------------------------------------------------------------
-    /u01/app/orauser/oradata/ORCL/orclpdb/mgmt_ecm_depot1.dbf
-    /u01/app/orauser/oradata/ORCL/orclpdb/mgmt.dbf
-    /u01/app/orauser/homes/OraDB21Home1/dbs/hrts.dbf
-
-    14 rows selected.
-
-    SQL>
-    ```
-
-5. Use the `host` command to obtain an operating system prompt.
-
-6. Use the Linux `mv` command to move the data file belonging to the `hr` tablespace to `$HOME/hrts.dbf`.
-
-    ```
-    $ <copy>mv /u01/app/orauser/homes/OraDB21Home1/dbs/hrts.dbf $HOME/hrts.dbf</copy>
-    ```
-
-7. Use the `exit` command to return to `SQL*Plus` prompt and then exit the `SQL*Plus` prompt`.`
-
-8. Invoke `SQL*Plus` prompt and connect as the `sysdba` user.
-
+1. Start the SQL\*Plus prompt and connect as `sysdba` user;  
     ```
     $ <copy>./sqlplus / as sysdba</copy>
     ```
-
-    ## Output
-
+    Output:
     ```
-    SQL*Plus: Release 21.0.0.0.0 - Production on Mon Jul 26 08:00:35 2021
+    SQL*Plus: Release 21.0.0.0.0 - Production on Thu Dec 16 08:02:07 2021
     Version 21.3.0.0.0
 
     Copyright (c) 1982, 2021, Oracle.  All rights reserved.
@@ -152,62 +50,125 @@ SQL>
     Connected to:
     Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
     Version 21.3.0.0.0
+    ```
+
+2. Use the following command to open the pluggable database. In this lab, `pdb1` is the pluggable database.
+    ```
+    SQL> <copy>alter pluggable database pdb1 open;</copy>
+    ```
+    Output:
+    ```
+    Pluggable database altered.
+    ```
+
+3. Use the following command to switch to the pluggable database container.
+    ```
+    SQL> <copy>alter session set container = pdb1;</copy>
+    ```
+    Output:
+    ```
+    Session altered.
+    ```
+
+4. Query the `appuser.regions` table.
+    ```
+    SQL> <copy>select * from appuser.regions;</copy>
+    ```
+    Output:
+    ```
+            ID NAME
+    ---------- --------------------
+             1 America
+             2 Europe
+             3 Asia
+    ```
+
+5. Query `v$datafile` view to determine the file name of the datafile that belongs to `appuser`. The `appuser.regions` table belonging to `appuser` user is stored in the `octs` tablespace.
+    ```
+    SQL> <copy>select name from v$datafile;</copy>
+    ```
+    Output:
+    ```
+    NAME
+    --------------------------------------------------------------------------------
+    /opt/oracle/oradata/CDB1/pdb1/system01.dbf
+    /opt/oracle/oradata/CDB1/pdb1/sysaux01.dbf
+    /opt/oracle/oradata/CDB1/pdb1/undotbs01.dbf
+    /opt/oracle/oradata/CDB1/pdb1/users01.dbf
+    /opt/oracle/homes/OraDB21Home/dbs/octs.dbf
+    ```
+
+6. Use the following command to close the pluggable database.
+    ```
+    SQL> <copy>alter pluggable database pdb1 close;</copy>
+    ```
+    Output:
+    ```
+    Pluggable database altered.
+    ```
+
+7. Use the following command to obtain an operating system prompt.
+    ```
+    SQL> <copy>host;</copy>
+    ```
+
+8. Use the following Linux command to delete the data file belonging to `appuser``.`
+    ```
+    $ <copy>rm /opt/oracle/homes/OraDB21Home/dbs/octs.dbf</copy>
+    ```
+
+9. Use the exit command to return to SQL\*Plus prompt.
+    ```
+    $ <copy>exit</copy>
 
     SQL>
     ```
 
-9. Query the `regions` table. You will get an error message that the table is not available.
-
+10. Use the following command to open the pluggable database. You can see that the pluggable database cannot open because of a missing file. Perform the following steps to fix this failure and open the pluggable database.
     ```
-    SQL> <copy>SELECT * FROM regions;</copy>
+    SQL> <copy>alter pluggable database pdb1 open;</copy>
     ```
-
-    ## Output
-
+    Output:
     ```
-    SELECT * FROM regions
-                  *
+    alter pluggable database pdb1 open
+    *
     ERROR at line 1:
-    ORA-01116: error in opening database file 18
-    ORA-01110: data file 18:
-    '/u01/app/orauser/homes/OraDB21Home1/dbs/hrts.dbf'
-    ORA-27041: unable to open file
-    Linux-x86_64 Error: 2: No such file or directory
-    Additional information: 3
-
-    SQL>
+    ORA-01157: cannot identify/lock data file 13 - see DBWR trace file
+    ORA-01110: data file 13:
+    '/opt/oracle/homes/OraDB21Home/dbs/octs.dbf'
     ```
 
-10. Exit the `SQL*Plus` prompt`.`
-
-11. Invoke RMAN and connect to the target database as the `SYSBACKUP` user.
-
+11. Exit the SQL\*Plus prompt.
     ```
-    $ <copy>./rman target sysbackup</copy>
+    SQL> <copy>exit;</copy>
     ```
 
-    ## Output
-
+12. Start the RMAN prompt.
     ```
-    Recovery Manager: Release 21.0.0.0.0 - Production on Mon Jul 26 08:01:38 2021
+    $ <copy>./rman</copy>
+    ```
+    Output:
+    ```
+    Recovery Manager: Release 21.0.0.0.0 - Production on Thu Dec 16 08:05:11 2021
     Version 21.3.0.0.0
 
     Copyright (c) 1982, 2021, Oracle and/or its affiliates.  All rights reserved.
-
-    target database Password:
-    connected to target database: ORCL (DBID=1604279435)
-
-    RMAN>
     ```
 
-12. Use the following command to list all the failures known to the Data Recovery Advisor. In the following output, you can see that one failure with failure id 18302 is listed.
+13. Use the following command to connect to the target Oracle Database.
+    ```
+    RMAN> <copy>connect target;</copy>
+    ```
+    Output:
+    ```
+    connected to target database: CDB1 (DBID=1016703368)
+    ```
 
+14. Use the following command to list all the failures known to the Data Recovery Advisor. In the following output, you can see that one failure with failure id 342 is listed.
     ```
     RMAN> <copy>list failure;</copy>
     ```
-
-    ## Output
-
+    Output:
     ```
     using target database control file instead of recovery catalog
     Database Role: PRIMARY
@@ -217,19 +178,14 @@ SQL>
 
     Failure ID Priority Status    Time Detected Summary
     ---------- -------- --------- ------------- -------
-    18302      HIGH     OPEN      26-JUL-21     One or more non-system datafiles are missing
-
-    RMAN>
+    342        HIGH     OPEN      16-DEC-21     One or more non-system datafiles are missing
     ```
 
-13. Use the following command to determine repair options, both automatic and manual. In the following output, you can see that one failure with failure id `18302` is listed with summary and restore options.
-
+15. Use the following command to determine repair options, both automatic and manual. In the following output, you can see that one failure with failure id 342 is listed with summary and restore options.
     ```
     RMAN> <copy>advise failure;</copy>
     ```
-
-    ## Output
-
+    Output:
     ```
     Database Role: PRIMARY
 
@@ -238,11 +194,11 @@ SQL>
 
     Failure ID Priority Status    Time Detected Summary
     ---------- -------- --------- ------------- -------
-    18302      HIGH     OPEN      26-JUL-21     One or more non-system datafiles are missing
+    342        HIGH     OPEN      16-DEC-21     One or more non-system datafiles are missing
 
     analyzing automatic repair options; this may take some time
     allocated channel: ORA_DISK_1
-    channel ORA_DISK_1: SID=305 device type=DISK
+    channel ORA_DISK_1: SID=278 device type=DISK
     analyzing automatic repair options complete
 
     Mandatory Manual Actions
@@ -251,120 +207,134 @@ SQL>
 
     Optional Manual Actions
     =======================
-    1. If file /u01/app/orauser/homes/OraDB21Home1/dbs/hrts.dbf was unintentionally renamed or moved, restore it
+    1. If file /opt/oracle/homes/OraDB21Home/dbs/octs.dbf was unintentionally renamed or moved, restore it
 
     Automated Repair Options
     ========================
     Option Repair Description
     ------ ------------------
-    1      Restore and recover datafile 18  
+    1      Restore and recover datafile 13  
       Strategy: The repair includes complete media recovery with no data loss
-      Repair script: /u01/app/orauser/diag/rdbms/orcl/orcl/hm/reco_1733332984.hm
-
-    RMAN>
+      Repair script: /opt/oracle/diag/rdbms/orcl/orcl/hm/reco_4206624240.hm
     ```
 
-
-
-14. Use the following command to correct the problems. In the following output, you can see that the failure is repaired and the datafile is recovered.
-
+16. Use the following command to correct the problems. In the following output, you can see that the failure is repaired and the datafile is recovered.
     ```
     RMAN> <copy>repair failure;</copy>
     ```
-
-    ## Output
-
+    Output:
     ```
     Strategy: The repair includes complete media recovery with no data loss
-    Repair script: /u01/app/orauser/diag/rdbms/orcl/orcl/hm/reco_1733332984.hm
+    Repair script: /opt/oracle/diag/rdbms/orcl/orcl/hm/reco_4206624240.hm
 
     contents of repair script:
        # restore and recover datafile
-       sql 'alter database datafile 18 offline';
-       restore ( datafile 18 );
-       recover datafile 18;
-       sql 'alter database datafile 18 online';
+       sql 'pdb1' 'alter database datafile 13 offline';
+       restore ( datafile 13 );
+       recover datafile 13;
+       sql 'pdb1' 'alter database datafile 13 online';
 
     Do you really want to execute the above repair (enter YES or NO)? YES
     executing repair script
 
-    sql statement: alter database datafile 18 offline
+    sql statement: alter database datafile 13 offline
 
-    Starting restore at 26-JUL-21
+    Starting restore at 16-DEC-21
     using channel ORA_DISK_1
 
-    creating datafile file number=18 name=/u01/app/orauser/homes/OraDB21Home1/dbs/hrts.dbf
-    restore not done; all files read only, offline, excluded, or already restored
-    Finished restore at 26-JUL-21
+    channel ORA_DISK_1: starting datafile backup set restore
+    channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+    channel ORA_DISK_1: restoring datafile 00013 to /opt/oracle/homes/OraDB21Home/dbs/octs.dbf
+    channel ORA_DISK_1: reading from backup piece /opt/oracle/recovery_area/CDB1/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T075421_jvow6k4f_.bkp
+    channel ORA_DISK_1: piece handle=/opt/oracle/recovery_area/CDB1/D33E529B0AE432F7E053F5586864ED09/backupset/2021_12_16/o1_mf_nnndf_TAG20211216T075421_jvow6k4f_.bkp tag=TAG20211216T075421
+    channel ORA_DISK_1: restored backup piece 1
+    channel ORA_DISK_1: restore complete, elapsed time: 00:00:07
+    Finished restore at 16-DEC-21
 
-    Starting recover at 26-JUL-21
+    Starting recover at 16-DEC-21
     using channel ORA_DISK_1
 
     starting media recovery
     media recovery complete, elapsed time: 00:00:00
 
-    Finished recover at 26-JUL-21
+    Finished recover at 16-DEC-21
 
-    sql statement: alter database datafile 18 online
+    sql statement: alter database datafile 13 online
     repair failure complete
-
-    RMAN>
     ```
 
-15. Exit from RMAN.
+17. Use the following command to list all the failures known to the Data Recovery Advisor. In the following output, you can see no failures listed.
+    ```
+    RMAN> <copy>list failure;</copy>
+    ```
+    Output:
+    ```
+    Database Role: PRIMARY
 
-16. Invoke `SQL*Plus` prompt and connect as the `sysdba` user.
+    no failures found that match specification
+    ```
 
+18. Exit the RMAN prompt.
+    ```
+    RMAN> <copy>exit;</copy>
+    ```
+
+19. Start the SQL\*Plus prompt and connect as `sysdba` user;
     ```
     $ <copy>./sqlplus / as sysdba</copy>
     ```
-
-    ## Output
-
+    Output:
     ```
-    SQL*Plus: Release 21.0.0.0.0 - Production on Mon Jul 26 08:02:41 2021
+    SQL*Plus: Release 21.0.0.0.0 - Production on Thu Dec 16 08:06:14 2021
     Version 21.3.0.0.0
 
     Copyright (c) 1982, 2021, Oracle.  All rights reserved.
 
-
     Connected to:
     Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
     Version 21.3.0.0.0
-
-    SQL>
     ```
 
-17. Query the `regions` table.
-
+20. Use the following command to open the pluggable database. You can see that the pluggable database can open now as the failure is fixed.
     ```
-    SQL> <copy>SELECT * FROM regions;</copy>
+    SQL> <copy>alter pluggable database pdb1 open;</copy>
     ```
-
-    ## Output
-
+    Output:
     ```
-
-ID NAME
----------- --------------------
-         1 Europe
-         2 America
-         3 Asia
-         4 Middle East
-
-SQL>
-
+    Pluggable database altered.
     ```
 
-18. Exit from `SQL*Plus` prompt.
+21. Use the following command to switch to the pluggable database container.
+    ```
+    SQL> <copy>alter session set container = pdb1;</copy>
+    ```
+    Output:
+    ```
+    Session altered.
+    ```
+
+22. Query the `appuser.regions` table.
+    ```
+    SQL> <copy>select * from appuser.regions;</copy>
+    ```
+    Output:
+    ```
+            ID NAME
+    ---------- --------------------
+             1 America
+             2 Europe
+             3 Asia
+    ```
+
+23. Exit the SQL\*Plus prompt.
+    ```
+    SQL> <copy>exit;</copy>
+    ```
 
 You may now **proceed to the next lab**.
 
 
 ## Acknowledgements
-
 - **Author**: Suresh Mohan, Database User Assistance Development Team
-
 - **Contributors**: Suresh Rajan, Manish Garodia, Subhash Chandra, Ramya P
-
-- **Last Updated By & Date**: Suresh Mohan, October 2021
+- **Last Updated By & Date**: Suresh Mohan, May 2022
