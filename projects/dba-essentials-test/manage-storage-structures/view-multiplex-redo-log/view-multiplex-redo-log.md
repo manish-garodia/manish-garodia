@@ -70,6 +70,14 @@ View online redo log file of your Oracle Database as follows.
     - the **Sequence** attribute of the online redo log group.
     - the **First Change** attribute of the online redo log group.
 
+5.  Click *Group 1* in the Select column and select **View** to view the online redo log files present in the Group 1.
+
+	![Redo Log File](./images/view-redo-log-file.png " ")	
+	
+	The View Redo Log Group page displays the number of redo log files present in that group. For this lab, it has one Redo Log file present in Group 1. It also displays the location of the Redo log file.
+
+6. Select **Return** to go back to the Redo Log Groups page.	
+	
 ## Task 2: Multiplex Online Redo Log information
 
 When you multiplex the online redo log information, you maintaining multiple copies of the online redo log files. 
@@ -118,5 +126,5 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 - **Author** - Manisha Mati, Database User Assistance team
-- **Contributors** - Suresh Rajan, Manish Garodia, Ashwini R
+- **Contributors** - Suresh Rajan, Manish Garodia, Ashwini R, Jayaprakash Subramanian
 - **Last Updated By/Date** - Manisha Mati, May 2022

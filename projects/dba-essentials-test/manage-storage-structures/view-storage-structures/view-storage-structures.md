@@ -108,5 +108,5 @@ From Oracle EMCC, you can view the archive log information of your Oracle Databa
 ## Acknowledgements
 
 - **Author** - Manisha Mati, Database User Assistance team
-- **Contributors** - Suresh Rajan, Manish Garodia, Ashwini R
+- **Contributors** - Suresh Rajan, Manish Garodia, Ashwini R, Jayaprakash Subramanian
 - **Last Updated By/Date** - Manisha Mati, May 2022

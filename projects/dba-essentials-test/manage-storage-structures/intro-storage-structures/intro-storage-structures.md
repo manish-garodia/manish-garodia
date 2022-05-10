@@ -17,7 +17,7 @@ In this workshop, you will learn to perform the following tasks in your database
 -   View Archived Logs
 -   View and multiplex Online Redo Log information
 -   View and create tablespaces
--   View and manage undo data
+-   View undo information and compute minimum undo tablespace size
 
 ### Prerequisites
 
@@ -27,7 +27,7 @@ This lab assumes you have -
 
 ## Appendix 1: Insights into database storage structures
 
-The following gives an overview of the database storage structures. 
+The following image shows the relationships between logical and physical structures of Oracle Database. This image also shows recovery-related structures that are optionally kept in the fast recovery area.
 
 ![Database Storage Structures](./images/database-storage-structures.png " ")
 
@@ -50,7 +50,7 @@ The Archived Redo Log File option enables Oracle Database to copy the online red
 
 ### What is a control file?
 
-A control file is a small binary file which records the physical structure of the database. This file tracks the physical components of the Container Database (CDB). 
+A control file is a small binary file which records the physical structure of the database. This file tracks the physical components of the Container Database (CDB). 
 
 The control file includes:
 -   Database name
@@ -75,7 +75,7 @@ The online redo log for a database consists of groups of online redo log files. 
 
 ### Tablespaces: Definition and purpose
 
-A database contains logical storage units called *tablespaces* which groups related logical structures, such as tables, views, and other database objects. For example, you can group all application objects into a single tablespace to simplify maintenance operations.
+A database contains logical storage units called *tablespaces* which groups related logical structures, such as tables, views, and other database objects. For example, you can group all application objects into a single tablespace to simplify maintenance operations.
 
 A tablespace consists of one or more physical data files. It helps the database to physically locate data on storage. When you define the data files that comprise a tablespace, you specify a storage location for these files.
 
@@ -87,16 +87,16 @@ You need tablespaces to:
 
 -   Allocate and control the disk space in the database
 -   Perform backup and recovery of individual tablespaces
--   Create a *transportable tablespace* that you can copy or move from one database to another
+-   Create a *transportable tablespace* that you can copy or move from one database to another
 
 **Tablespace modes**
 
-The modes determine the accessibility of the tablespace. TBD ***Every tablespace is in a write mode that specifies whether it can be written to.*** The various tablespace modes are:
+The modes determine the accessibility of the tablespace. TBD ***Every tablespace is in a write mode that specifies whether it can be written to.*** The various tablespace modes are:
 
 -   **Read or write mode**  
 	When you create a tablespace, initially it is the read or write mode.  
 
-     >**Note:** The `SYSTEM` and `SYSAUX` tablespaces and temporary tablespaces are always in read/write mode. You cannot change these tablespaces to read-only.
+     >**Note:** The `SYSTEM` and `SYSAUX` tablespaces and temporary tablespaces are always in read/write mode. You cannot change these tablespaces to read-only.
 
 -   **Read-only mode**   
     This mode does not allow write operations on the tablespaces. The read-only tablespaces do not change, hence they do not require multiple backups. If you recover a database after a media failure, then you need not recover the read-only tablespaces.
@@ -114,9 +114,9 @@ Saving this information is necessary since it enables certain Oracle Flashback f
 
 Oracle Database automatically manages undo data and the undo tablespace. If your database installation uses Oracle Flashback features, then ensure that sufficient undo data is retained to support these operations, else it returns an error. 
 
-The database has a group of features, known as *flashback features*, which provide options to view the older states of database objects or return the database objects to a previous state. These features use the Automatic Undo Management capability to obtain metadata and historical data for transactions. They are based on undo information that allows you to access database information from a previous point in time. With automatic undo management, the database stores the undo data in an undo tablespace.
+The database has a group of features, known as *flashback features*, which provide options to view the older states of database objects or return the database objects to a previous state. These features use the Automatic Undo Management capability to obtain metadata and historical data for transactions. They are based on undo information that allows you to access database information from a previous point in time. With automatic undo management, the database stores the undo data in an undo tablespace.
 
-Even after committing a transaction, it is useful to retain (and not overwrite) its undo data. This ensures proper functioning of the Oracle Flashback features and consistency of long-running queries. The database maintains and automatically tunes an undo retention period using Undo Advisor.
+Even after committing a transaction, it is useful to retain (and not overwrite) its undo data. This ensures proper functioning of the Oracle Flashback features and consistency of long-running queries. The database maintains and automatically tunes an undo retention period using Undo Advisor.
 The undo retention period plays an important role in Oracle Flashback features. You must select an undo retention period that is slightly longer than the longest running active query.
 
 The following methods help improving the Oracle Flashback operations:
@@ -138,5 +138,5 @@ Click on the next lab to **Get started**.
 ## Acknowledgements
 
 - **Author** - Manisha Mati, Database User Assistance team
-- **Contributors** - Suresh Rajan, Manish Garodia, Ashwini R
+- **Contributors** - Suresh Rajan, Manish Garodia, Ashwini R, Jayaprakash Subramanian
 - **Last Updated By/Date** - Manisha Mati, May 2022
