@@ -4,6 +4,17 @@
 
 This lab covers the pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.
 
+## Database concepts
+
+The error `ORA-12505` means that the listener was up and you could connect to it, but it couldn't connect you to the database because it doesn't know that that database is up. 
+
+There are two reasons for this:
+
+ - the database has not been started up,
+ - the database has not registered with the listener, e.g. because the database was started before the listener. (When the database starts, it registers itself with a listener if it is already running. If the listener isn't running, the database doesn't register itself, and if the listener starts, it doesn't go looking for databases that might register with it.)
+
+`ORA-12505` means that the listener knows about that database, but the listener hasn't received a notification from the database that the database is up. (If you were trying to connect to the wrong database, using the wrong SID, you would get an `ORA-12154 error "TNS: could not resolve the connect identifier specified"`.)
+
 ## Task 1: Pre-installation setup
 
 Oracle Database installers are available internally as gold images.
@@ -27,80 +38,184 @@ Oracle Database installers are available internally as gold images.
 	| <mark>ade_autofs</mark> - **new**<br><i>from Prakash J </i> | [/ade\_autofs/dd223\_db/RDBMS/21.3.0.0.0/LINUX.X64/210727.XE/install/shiphome/goldimage](/ade_autofs/dd223_db/RDBMS/21.3.0.0.0/LINUX.X64/210727.XE/install/shiphome/goldimage) <br>File - `db_home.zip`                                            |
 	| ade_autofs - old              | [/ade\_autofs/dd77\_db/RDBMS/21.3.0.0.0/LINUX.X64/210727/install/shiphome/goldimage](/ade_autofs/dd77_db/RDBMS/21.3.0.0.0/LINUX.X64/210727/install/shiphome/goldimage) |
 
-1. Open a terminal window and create the folder structure for `$ORACLE_HOME`.
+	## Get Database 19c production
+
+	1. Go to this location.
+
+		```
+		$ <copy>/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/19.3.0.0.0/190417.PRODUCTION</copy>
+		```
+
+	1. Unzip the file to the local system.
+
+		```
+		$ <copy>unzip -q LINUX.X64_193000_db_home.zip -d /scratch/u01/app/oracle/product/19.0.0/dbhome_unzip03</copy>
+		```
+
+	1. Rename the Oracle home folder.
+
+		```
+		$ <copy>mv dbhome_unzip03 dbhome_02</copy>
+		```
+
+	## Start 21c installer
+
+	1. Open a terminal window and create the folder structure for `$ORACLE_HOME`.
+
+		```
+		$ <copy>mkdir -p /scratch/u01/app/oracle/product/21.0.0/dbhome_1</copy>
+		```
+
+		> **Caution:** Do all installations only under */scratch*, never in `ade` or any other directory. 
+
+	1. Go to the location where the *gold image* exists.   
+		This example uses <ins>the ADC server</ins>.
+
+		```
+		$ <copy>cd /net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/LATEST/goldimage</copy>
+		```
+
+	1. Unzip the installer into the Oracle home folder.   
+
+		**Syntax**
+
+		```
+		$ unzip -q <file_name> -d <full_path>
+		```
+		> where,   
+		`-q` for quiet operation (run in background)   
+		`-d` to create the directory stucture
+
+
+		**Example 1** - for ADC server
+		
+		```
+		$ <copy>unzip -q db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_1</copy>
+		```
+
+		**Example 2** - for prod
+
+		```
+		$ <copy>unzip -q LINUX.X64_213000_db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_1</copy>
+		```
+
+		Get an *extra copy of the installer quickly* on your local system.
+
+		```
+		$ <copy>unzip -q /ade_autofs/dd223_db/RDBMS/21.3.0.0.0/LINUX.X64/210727.XE/install/shiphome/goldimage/db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_unzip02</copy>
+		```
+
+	1. Go to Oracle home.
+		```
+		$ <copy>cd /scratch/u01/app/oracle/product/21.0.0/dbhome_1</copy>
+		```
+
+	1. Run the Oracle Database Setup Wizard (Installer).
+
+		```
+		$ <copy>./runInstaller</copy>
+		```
+
+		<if type="hidden">
+		`Oracle Database sys password` - *We!come1*
+		<if>
+
+	### Log in to EM Express
+
+	EM Exp for DB 19c
+	 - [CDB$ROOT port 5501](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5501/em)   
+	 - [ORCL19CCDB port 5502](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5502/em)   
+
+	EM Exp for DB 21c
+	 - [CDB$ROOT port 5500](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5500/em)
+	 - [ORCLPDB port 5504](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5504/em)
+
+	**Credentials**
+	 - User name - *system*
+	 - Password - Enter the password <if type="hidden">*Welcome_1*</if>
+	 - Container name - (leave empty)
+
+	> **Note:** If you forget the database password, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
+
+## Task 2: Install Oracle Database
+
+Steps to install Oracle Database 19c.
+
+1. ./runInstaller
+
+1. Create and configure a single instance database. 
+
+1. Server Class
+
+1. Enterprise Edition
+
+1. Oracle Base location.
 
 	```
-	$ <copy>mkdir -p /scratch/u01/app/oracle/product/21.0.0/dbhome_1</copy>
+	<copy>/scratch/u01/app/mgarodia19c</copy>
 	```
 
-	> **Caution:** Do all installations only under */scratch*, never in `ade` or any other directory. 
+1. General Purpose / Transaction Processing
 
-1. Go to the location where the *gold image* exists.   
-	This example uses <ins>the ADC server</ins>.
+1. Set database identifiers
 
-	```
-	$ <copy>cd /net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/LATEST/goldimage</copy>
-	```
+	 - Global database name
 
-1. Unzip the installer into the Oracle home folder.   
+		```
+		<copy>orcl19c.dev1sub1phx.databasede1phx.oraclevcn.com</copy>
+		```
 
-	**Syntax**
+	 - Oracle System Identifier (SID) - *orcl19c*
 
-	```
-	$ unzip -q <file_name> -d <full_path>
-	```
-	> where,   
-	`-q` for quiet operation (run in background)   
-	`-d` to create the directory stucture
+	 - *Create as Container Database* selected by default
+
+	 - Pluggable database name
+
+		```
+		<copy>orcl19cpdb</copy>
+		```
+
+1. <i>Do not enable</i> **Automatic Memory Management**. Leave defaults for character set and sample schemas. 
+
+1. **Storage** - *File system*
+
+	Database file location - `/scratch/u01/app/mgarodia19c/oradata`
+
+1. Do not register with EMCC
+
+1. Enable Reovery > File System. 
+
+	**Recovery area location** - Leave the default */scratch/u01/app/mgarodia19c/recovery_area*
+
+1. Use the same password for all accounts. Set the password<if type="hidden"> *Welcome_1*</if>. 
+
+1. OS groups - select *dba* for all
+
+1. You may Automatically run configuration scripts. Leave this and run the scripts manually later.
+
+1. **Install**.
+
+1. When prompted to run the script: 
+
+	- Open a terminal and go to root.
+
+		```
+		$ <copy>sudo -i</copy>
+		```
+	 Enter the LDAP/Kerberos password.
+	 
+	- Run the script. 
+
+		```
+		$ <copy>/scratch/u01/app/oracle/product/19.0.0/dbhome_02/root.sh</copy>
+		```
+
+	- Press **Enter** twice to complete the script. 
+
+	- Go back to the installer and click **OK**.
 
 
-	**Example 1** - for ADC server
-	
-	```
-	$ <copy>unzip -q db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_1</copy>
-	```
-
-	**Example 2** - for prod
-
-	```
-	$ <copy>unzip -q LINUX.X64_213000_db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_1</copy>
-	```
-
-	Get an *extra copy of the installer quickly* on your local system.
-
-	```
-	$ <copy>unzip -q /ade_autofs/dd223_db/RDBMS/21.3.0.0.0/LINUX.X64/210727.XE/install/shiphome/goldimage/db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_unzip02</copy>
-	```
-
-1. Go to Oracle home.
-	```
-	$ <copy>cd /scratch/u01/app/oracle/product/21.0.0/dbhome_1</copy>
-	```
-
-1. Run the Oracle Database Setup Wizard (Installer).
-
-	```
-	$ <copy>./runInstaller</copy>
-	```
-
-### Log in to EM Express
-
-EM Exp for DB 19c
- - [CDB$ROOT port 5501](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5501/em)   
- - [ORCL19CCDB port 5502](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5502/em)   
-
-EM Exp for DB 21c
- - [CDB$ROOT port 5500](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5500/em)
- - [ORCLPDB port 5504](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5504/em)
-
-**Credentials**
- - User name - *system*
- - Password - Enter the password <if type="hidden">*Welcome_1*</if>
- - Container name - (leave empty)
-
-> **Note:** If you forget the database password, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
-
-## Task 2: Post Installation steps
+## Task 3: Post Installation steps
 
 #### Listeners
 - DB 21c - port *1522*
@@ -322,7 +437,7 @@ EM Exp for DB 21c
 		```
 		De-install removes all these folders under the base location.
 
-## Task 3: Deinstall Oracle Database
+## Task 4: Deinstall Oracle Database
 
 1. Go to the `deinstall` folder.
 
@@ -337,7 +452,7 @@ EM Exp for DB 21c
 	```
 
 
-## Task 4: Troubleshooting
+## Task 5: Troubleshooting
 
 - Troubleshooting tips and scenarios
 
@@ -448,7 +563,31 @@ EM Exp for DB 21c
 
 	Refer [Installation Guide - xdpyinfo Errors](https://docs.oracle.com/cd/E89497_01/html/rpm_80_installation/GUID-842C3883-9BC1-4D37-82C1-9E7F24628AA7.htm).
 
+	## Listener does not know about the Oracle SID
+
+	Try LSNRCTL status if you find the service missing try this.
+
+	```
+	sqlplus /nolog
+	conn  system
+	alter system register;  
+	exit  
+	lsnrctl status 
+	```
+
+	Now you can see the service. Even if don't see try this one out.
+
+	```
+	sqlplus /nolog  
+	conn system  
+	alter system set local_listener = '(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))' scope = both;  
+	alter system register;  
+	exit  
+	lsnrctl status
+	```
+
+
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 1, (Tue) 2022
+ - **Last Updated on** - May 21, (Sat) 2022

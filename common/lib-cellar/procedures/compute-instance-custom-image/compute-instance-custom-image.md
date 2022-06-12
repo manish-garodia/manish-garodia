@@ -93,51 +93,73 @@ The OCI has **26 regions** that are associated with specific teams.
 
 		## PAR URLs
 		
-		 - PAR URL for Image 2 - expired on Aug 20, 2021
+		 - PAR URL for *Image 2* - expired on Aug 20, 2021
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/iz-YYHBb7OyEJmUQ0fDK2IUdqwhqyfRlTcWfEoCwGbWMm9B4M3S8WK3hFmxXqO2M/n/idrudhdwamji/b/db-installer/o/dbaessentials_21c_installer
 			```
-		 - PAR URL for Image 2 - created on Aug 26, 2021
+		 - PAR URL for *Image 2* - created on Aug 26, 2021
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/Q-gwaJOKQVOkjOJ9mK4mF4tjCPi0irqiHXI0C2aBiYDy6QDcujdXH5oN2uqGXUB4/n/idrudhdwamji/b/db-installer/o/dbaessentials_21c_installer
 			```
 
-		 - PAR URL for WS1 - created on 7 Jan 2022, valid till 14 Jan.
+		 - PAR URL for *WS1* - created on 7 Jan 2022, valid till 14 Jan.
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/B873TzZRYXSbSzz_Un_rgXxGcOgZmDiSaMJWDwC2-gyJzPiPcndyQ0PmBB3uWW3i/n/idrudhdwamji/b/db-installer/o/dbaessentials_21c_installer.oci
 			```
 
-		 - PAR URL for WS2 image from Rene.
+		 - PAR URL for *WS2 image* from Rene.
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/-aidsyb5OOwAE-8q6Tdxq_rr2V-v5PLADtckYgtzZ-xichKWSv7RK4WNMUWuQdzt/n/natdsecurity/b/stage/o/emcc-livelabs-v3-int-02-10.20.2021
 			```
 
-		 - PAR URL for WS3, WS8, WS11 image - created on 4 Feb 2022, valid till 18 Feb. 
+		 - PAR URL for *WS3*, *WS8*, *WS11 image* - created on 4 Feb 2022, valid till 18 Feb. 
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/8Priv4KCP6ttV0Rqc9Zy0bis2ui_rPu1xWKMSZWSv941Fyl6QV2lg9uANgdlNPaJ/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-installed-appuser_v1
 			```
 
-		 - PAR URL for WS4 image - created on 25 Mar 2022, valid till 15 Apr. 
+		 - PAR URL for *WS4 image* - created on 25 Mar 2022, valid till 15 Apr. 
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/wQ-t802jacSqeclmlefOKENYpTniIi59C6FACdUF2iBhMClAy8-XdbNHy98ys7Ap/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-emcc_v2
 			```
 
-		 - PAR URL for WS4 image - created on 19 Apr 2022, valid till 20 May. 
+		 - PAR URL for *WS4 image* - created on 19 Apr 2022, valid till 20 May. 
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/StcksXQChoqJfQ4q46oUVoWChVmGH-2rDDTJIMfpJ6NUS31Fvjnp79SQbcOgLgdo/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-emcc_v3
 			```
 
-		 - PAR URL for WS4 image - created on 21 Apr 2022, valid till 20 May. 
+		 - PAR URL for *WS4 image* - created on 21 Apr 2022, valid till 20 May. 
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/_mwMLRZ6vFDWD_PZ2IF1Ih6RuJKYLTLWJ7dl8Cq534vOmxf40D3sn6YKlgZoFQJV/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-emcc_v4
+			```
+
+		 - PAR URL for *WS11-8341-live* name par-object-20220408-1257 - created on 8 Apr 2022, valid till 31 Dec, 2033. 
+
+			Old
+
+			```	https://objectstorage.ap-seoul-1.oraclecloud.com/p/Db0-IwNRpeapsxh3TsMf7aHP41Rb1-zMluhCOn0O4MVAFuGTLTbEOdTx6_yzUe-B/n/cnmyhyct1k43/b/dba-essentials/o/ws11-8341-live.png
+			```
+
+			New
+
+			```	https://objectstorage.us-ashburn-1.oraclecloud.com/p/_HuemwlaO6RZQNLOljUCsgs6tvUX2E8DsDi66GvYxbBdf1T2J9SZp-eu6Qd8VXQR/n/idrudhdwamji/b/dba-e-ws-live/o/ws11-8341-live.png
+			```
+
+		 - PAR URL for *dba-e-filter* - created on 6 June 2022, valid till 31 Dec, 2033. 
+
+			```		https://objectstorage.us-ashburn-1.oraclecloud.com/p/CKeQN8E9rvQw-tdCj4OudcCzO0rs6x0ZYmms46ttwBQH1VUV1X9g3CxUC-Kt3RvJ/n/idrudhdwamji/b/dba-e-ws-live/o/dba-e-filter.png
+			```
+
+		 - PAR URL for *WS6-11060-live* - created on 6 June 2022, valid till 31 Dec, 2033. 
+
+			```		https://objectstorage.us-ashburn-1.oraclecloud.com/p/ORzD8dbvOACgLnjG8uchLoRgOqd3wun3sB-RewT0jM5dsQTtVkmXq4YG0_fU0r7D/n/idrudhdwamji/b/dba-e-ws-live/o/ws6-11060-live.png
 			```
 </if>
 
@@ -819,5 +841,5 @@ chmod g+s /oracle
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - April 21, (Thu) 2022
+ - **Last Updated on** - June 6, (Mon) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

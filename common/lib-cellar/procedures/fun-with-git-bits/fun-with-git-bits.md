@@ -320,15 +320,25 @@ After committing your changes to master, go to your fork repo and *create a pull
 	----
 	## Submit pull request (PR)
 
-	To submit a PR:
-	
-	1. From your fork repo, go to **Pull requests** > click **New pull request**.
+	Once you commit (push) your changes from the clone, using either git desktop or git bash, the fork displays the message.
 
-		> **Note:** The page must display that you are **<i><font style="color:rgb(63,185,61);">Able to merge</font></i>** (in green). 
+	```
+	This branch is 1 commit ahead of [head:repo]
+	```
 
-	1. Review your comment for the PR.
+	![1 commit ahead](./images/1-commit-ahead.png " ")
+
+	Submit a PR to merge your changes with the main repository.
 	
-		> **Note:** Do not forget to mention the workshop ID in the subject line of the comment. 
+	1. From your fork repo, go to **Pull requests** > **New pull request**.
+
+		> **Note:** The page must display that you are **<i><font style="color:rgb(63,185,61);">Able to merge</font></i>** (in green). The arrow is from your fork (head repo) and points to OLL (base repo). 
+
+	1. Click **Create pull request**.
+
+	1. Review the message for the PR.
+	
+		> **Note:** Do not forget to mention the workshop ID in the subject line of the message. 
 
 	1. Click **Create pull request**.   
 		It creates a merge request with a four-digit code and displays a message. 
@@ -665,6 +675,10 @@ After committing your changes to master, go to your fork repo and *create a pull
 			```
 
 		1. 	```
+			$ <copy>git fetch upstream master</copy>
+			```
+
+		1. 	```
 			$ <copy>git merge upstream/master</copy>
 			```
 
@@ -743,7 +757,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 		$ <copy>echo "# musical-lamp" >> README.md</copy>
 		```
 
-	1. 	Initialize the repo.
+	1. 	Initialize the (new) local repo.
 		```
 		$ <copy>git init</copy>
 		```
@@ -797,6 +811,56 @@ After committing your changes to master, go to your fork repo and *create a pull
 		```
 
 	----
+	## Create a clone from fork
+
+	To clone a repository: 
+
+	1. Go to the GitHub directory on your local system.
+
+	1. Create a new folder for the clone. 
+	
+		```
+		$ <copy>mkdir <dir-name></copy>
+		```
+	1. Change directory for the new folder.
+
+		```
+		$ <copy>cd <dir-name></copy>
+		```
+
+	1. Run the commands to clone into the fork repo. 
+	
+		**Syntax**
+
+		```
+		$ git clone url
+
+		$ git clone https://github.com/<your-username>/<your-repository>
+		```
+
+		**Example**
+
+		```
+		$ <copy>git clone https://github.com/bg-manish/northern-lights</copy>
+		```
+
+	Alternatively, you can specify a *folder-name* and clone the repo together in a single step. 
+
+	**Syntax**
+
+	```
+	$ git clone url <folder-name>
+	```
+
+	**Example**
+
+	```
+	$ <copy>git clone https://github.com/bg-manish/northern-lights northern-lights</copy>
+	```
+
+	> **Note:** This command will create a folder *`northern-lights`* and clone the repo from the given URL. 
+
+	----
 	## Common `git` commands
 
 	| Command                                                | Usage                                     |
@@ -819,10 +883,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 	| `git branch branch-name`                               | create a new branch                       | 
 	| `git branch -d branch-name`                            | remove a branch - <i>**safe** delete</i>  |
 	|`git branch -D branch-name`                             | remove a branch - <i>**force** delete</i> |
-	| **Clone**                                              |
-	| `git init`                                             | initialize a local (new) repo             | 
-	| `git clone url` <br>`git clone url custom-name`        | clone a repository                        | 
-	| Syntax - <br>`git clone https://github.com/<your-username>/<your-repository>`<br>Example - <br>`git clone https://github.com/bg-manish/northern-lights`            | create a new clone                        | 
+	| 														 | 											 |
 	| `git rm` | If you just use only `rm`, you will need to follow it up with `git add <fileRemoved>`. Whereas `git rm` does this in one step (both file removal and staging for deletion on the next commit). It keeps a copy in the local file system until commit. |
 	| `git --version`                                        | current version of git                    |
 
@@ -1224,5 +1285,5 @@ After committing your changes to master, go to your fork repo and *create a pull
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - April 21, (Thu) 2022
+ - **Last Updated on** - June 8, (Wed) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)

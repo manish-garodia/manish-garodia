@@ -73,12 +73,6 @@ Go to [MyDesktop applications](https://mydesktop.oraclecorp.com/myd_sso/apps.mai
 	You will require a password to access your desktops.
 	```
 	
-	To stop vncserver - 
-	```
-	vncserver -kill :x
-	```
-	where, `x` is the server session (port) number. Refer the [vncserver options](https://linux.die.net/man/1/vncserver) page.
-	
 1. Enter password to VNC. 
 
 	```
@@ -115,6 +109,143 @@ Go to [MyDesktop applications](https://mydesktop.oraclecorp.com/myd_sso/apps.mai
 	```
 	</if>
 
+## Troubleshooting VNC
+
+If you face trouble connecting to the VNC server, then *stop* and *restart* the vnc server instead of running it again. Running the VNC server again creates a new (instance) port number and another log file *`hostname:x.log`*. 
+
+- Scenarios, solutions, troubleshooting options
+
+	## Stop VNC Server
+
+	Kill the process id of the vnc server.
+
+		```
+		$ <copy>vncserver -kill :x</copy>
+		```
+		where, `x` is the server session (port) number. Cite: [vncserver options](https://linux.die.net/man/1/vncserver) page.
+
+	## Xvnc seems to be deadlocked
+
+	**Problem statement**
+
+	 - Killing the process for VNC server returns an error. 
+
+		![Xvnc deadlock](./images/xvnc-deadlock.png)
+
+	 - Connecting to TigerVnc returns a timeout error. 
+
+		![Unable to connect VNC](./images/vnc-unable-connect-socket-10060.png)
+
+		```
+		Unable to connect to socket. Connection timed out (10060)
+		```
+
+	**How to resolve**
+
+	1. Find the process id of the vnc server. 
+
+		- Option 1
+
+			```
+			$ <copy>pidof</copy> <program_name>
+			```
+
+		- Option 2
+
+			```
+			$ <copy>ps aux | grep -i</copy> <program_name>
+			```
+
+		- **Option 3** (recommended)
+
+			```
+			$ <copy>ps -ef | grep vnc</copy>
+			```
+
+			Output:
+
+			```
+			mgarodia   465 31047  0 03:57 pts/5    00:00:00 grep --color=auto vnc
+			mgarodia  2415     1  0  2021 ?        00:15:13 /usr/bin/Xvnc :1 -auth /home/mgarodia/.Xauthority -desktop phoenix62464:1 (mgarodia) -fp catalogue:/etc/X11/fontpath.d -geometry 1024x768 -pn -rfbauth /home/mgarodia/.vnc/passwd -rfbport 5901 -rfbwait 30000
+			mgarodia  2431     1  0  2021 ?        00:00:00 /bin/sh /home/mgarodia/.vnc/xstartup
+			```
+
+	1. Ignore the line with `-color=auto`. Kill the process (in this example, *2415*) with the name *Xvnc*. 
+
+		```
+		$ <copy>kill 2415</copy>
+		```
+
+		> **Note:** `Kill` terminates the process gracefully. This is the default and safest way to terminate a process. 
+	 
+	     - The command `kill -9` sends a signal to terminate the process attached with the PID or the process name. It is a hard way to terminate a single or a set of processes *forcefully* and *immediately* and can create zombies process.
+
+		## Other kill options
+
+		- You can also kill multiple processes together.
+
+			**Syntax**
+
+			```
+			$ <copy>sudo kill -9</copy> process_id_1  process_id_2 process_id_3
+			```
+
+		- To kill all process of a program, combine the commands. 
+
+			```
+			$ <copy>sudo kill -9</copy> `pidof programe_name`
+			``` 
+
+		- Or use this quick command.
+
+			```
+			$ <copy>killall program_name</copy>
+			``` 
+	1. Verify the vnc server process.
+
+		```
+		$ <copy>ps -ef | grep vnc</copy>
+		```
+
+		Output:
+
+		```
+		mgarodia   603 31047  0 03:58 pts/5    00:00:00 grep --color=auto vnc
+		mgarodia  2431     1  0  2021 ?        00:00:00 /bin/sh /home/mgarodia/.vnc/xstartup
+		```
+
+	1. Kill the process of the vnc server once again.
+
+		```
+		$ <copy>vncserver -kill :x</copy>
+		```
+
+		Output:
+
+		```
+		Killing Xvnc process ID 2415
+		Xvnc process ID 2415 already killed
+		Xvnc did not appear to shut down cleanly. Removing /tmp/.X11-unix/X1
+
+		```
+
+	1. Start up the vncserver. It will use the existing port number `:1`. 
+
+		```
+		$ <copy>vncserver</copy>
+		```
+
+		Output:
+
+		```
+		New 'phoenix62464:1 (mgarodia)' desktop is phoenix62464:1
+
+		Starting applications specified in /home/mgarodia/.vnc/xstartup
+		Log file is /home/mgarodia/.vnc/phoenix62464:1.log
+		```
+
+		The VNC server is back. You can connect with TigerVNC again.
+
 ## Internal Test Environments
 
 - Host user name: *sso* or global UID *mgarodia*
@@ -133,5 +264,5 @@ Go to [MyDesktop applications](https://mydesktop.oraclecorp.com/myd_sso/apps.mai
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 1, (Tue) 2022
+ - **Last Updated on** - May 21, (Sat) 2022
 

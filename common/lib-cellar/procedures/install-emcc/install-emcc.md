@@ -76,8 +76,7 @@ Check and fix the prerequisites with the [EM Prerequisite Kit](https://docs.orac
 
 | VM                                                        | Path                                    | Remarks        |
 |-----------------------------------------------------------|-----------------------------------------|----------------|
-| `phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:1` | `/home/mgarodia/Downloads/emcc135_copy` | Executable     |
-| `phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:1` | `/scratch/u01/installers/emcc135`       | Not executable |
+| `phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:1` | `/scratch/u01/installers/emcc135`       | Executable |
 | `slc10wsw.us.oracle.com:2`                                | `/scratch/em_software13.5`              |                |
 
 ## Task 2: Install Oracle EMCC 13.5
@@ -87,6 +86,21 @@ Check and fix the prerequisites with the [EM Prerequisite Kit](https://docs.orac
 	```
 	<copy>./em13500_linux64.bin</copy>
 	```
+
+	Sample output:
+
+	```
+	Launcher log file is /tmp/OraInstall2022-05-20_01-45-57PM/launcher2022-05-20_01-45-57PM.log.
+	Extracting the installer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Done
+	Checking monitor: must be configured to display at least 256 colors.   Actual 16777216    Passed
+	Checking swap space: must be greater than 512 MB.   Actual 18191 MB    Passed
+	Checking if this platform requires a 64-bit JVM.   Actual 64    Passed (64-bit not required)
+	Preparing to launch the Oracle Universal Installer from /tmp/OraInstall2022-05-20_01-45-57PM
+	ScratchPathValue :/tmp/OraInstall2022-05-20_01-45-57PM
+	May 20, 2022 1:48:40 PM org.apache.sshd.common.io.DefaultIoServiceFactoryFactory getIoServiceProvider
+	INFO: No detected/configured IoServiceFactoryFactory using Nio2ServiceFactoryFactory
+	```
+
 1. Installation Type - **Create a new Enterprise Manager system** > *Advanced Install*.
 
 	![EMCC Advance Install](./images/emcc-001-advance-install.png " ")**Figure:** EMCC Advance Install
@@ -106,9 +120,23 @@ Check and fix the prerequisites with the [EM Prerequisite Kit](https://docs.orac
 
 	![EM Home and Base Locations](./images/emcc-004-base-home-dir.png " ")**Figure:** EM Home and Base Locations
 
-	- **Middleware Home Location** - */scratch/u01/software/em/middleware*
-	- **Agent Base directory** - */scratch/u01/software/em/agent*
-	- **Host Name** - *phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com*
+	- **Middleware Home Location** 
+
+		```
+		<copy>/scratch/u01/software/em/middleware</copy>
+		```
+
+	- **Agent Base directory** 
+
+		```
+		<copy>/scratch/u01/software/em/agent</copy>
+		```
+
+	- **Host Name** (auto-filled)
+
+		```
+		<copy>phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com</copy>
+		```
 
 1. Select Plug-ins - Leave the defaults.
 
@@ -137,7 +165,12 @@ These credentials are required for the maintenance of EM.
 
 	![Database Connection Details](./images/emcc-007-db-connection.png " ")**Figure:** Database Connection Details
 
-	- **Database Host Name** - *phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com*
+	- **Database Host Name**
+
+		```
+		<copy>phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com</copy>
+		```
+
 	- **Port** - *1522*   
 	Check listener status in the ORACLE_HOME/bin)
 	- **Service/SID** - *orcl19cpdb.host-domain*   
@@ -157,7 +190,13 @@ These credentials are required for the maintenance of EM.
 
 	![Check Database Parameters](./images/emcc-008a-db-check.png " ")**Figure:** Check Database Parameters
 
-	See Troubleshooting. Auto-fix if applicable. 
+	For `allow insert with update`, connect to 19c as sysdba and run this in the CDB.
+
+	```
+	SQL> <copy>alter system set "_allow_insert_with_update_check"=true scope=both;</copy>
+	```
+
+	Auto-fix if applicable. For more help, see [Troubleshooting](?lab=install-emcc#Task4:Troubleshooting). 
 
 1. Click **OK** to use the AL32UTF8 character set. 
 
@@ -228,7 +267,9 @@ These credentials are required for the maintenance of EM.
 	Finished execution of  /scratch/u01/software/em/agent/agent_13.5.0.0.0/root.sh ......
 	```
 
-1. Note the EMCC URLs for 19c and **Close** the installer. 
+1. Return to the installer and click **OK** to continue the installation. 
+
+1. On completion, note the EMCC URLs for 19c and **Close** the installer. 
 
 	![EMCC Installation Complete - top](./images/emcc-014-finish1.png " ")**Figure:** EMCC Installation Complete - top
 
@@ -241,142 +282,10 @@ These credentials are required for the maintenance of EM.
 
 ### EM folder locations
 
-- Middleware folder - `cd /scratch/u01/software/em/middleware/bin`
-- Agent folder - `cd /scratch/u01/software/em/agent/agent_13.5.0.0.0/bin`
+- Middleware folder - `/scratch/u01/software/em/middleware/bin`
+- Agent folder - `/scratch/u01/software/em/agent/agent_13.5.0.0.0/bin`
 
-## Task 3: Troubleshooting
-
-Check the log file under `/tmp/OraInstalldate_time/Installdate_time.log`
-
-- Log in to the SQL command line as sysdba and run this.
-
-	```
-	$ ./sqlplus / as sysdba
-
-	SQL> <copy>alter system set "_allow_insert_with_update_check"=true scope=both;</copy>
-	```
-
-- Unset the `CLASSPATH` environment variable.
-
-	Option 1
-	```
-	$ <copy>export CLASSPATH=""</copy>
-	```
-	Option 2
-	```
-	$ <copy>unset CLASSPATH</copy>
-	```
-
-- **Database Optimizer Adaptive Features Requirements**
-
-	```
-	SQL> <copy>alter system set optimizer_adaptive_features=false scope=both;</copy>
-	```
-
-- **Connect to Oracle Database as SYSDBA and run the following commands**
-
-	```	
-	$ ./sqlplus / as sysdba
-
-	SQL>
-	<copy>
-	alter system reset "_optimizer_nlj_hj_adaptive_join" scope=both sid='*';
-	alter system reset "_optimizer_strans_adaptive_pruning" scope=both sid='*';
-	alter system reset "_px_adaptive_dist_method" scope=both sid='*';
-	alter system reset "_sql_plan_directive_mgmt_control" scope=both sid='*';
-	alter system reset "_optimizer_dsdir_usage_control" scope=both sid='*';
-	alter system reset "_optimizer_use_feedback" scope=both sid='*';
-	alter system reset "_optimizer_gather_feedback" scope=both sid='*';
-	alter system reset "_optimizer_performance_feedback" scope=both sid='*';
-	</copy>
-	```
-
-- **Disable password verify function**  
-	To find out what users are using `PASSWORD_VERIFY_FUNCTION`, you need to find out which profiles are using the function and then see which users are assigned that profile.
-
-	```
-	SQL> <copy>alter profile default limit password_verify_function null;</copy>
-	```
-
-- EMCC unreachable
-
-	```
-	Checking the connection   
-	Checking the proxy and the firewall   
-	ERR_CONNECTION_REFUSED
-	```
-
-### OMS/Agent Errors
-
-**Problem: OMS and/or Agent down**
-
-- Check OMS status.
-
-	```
-	$ <copy>./emctl status oms</copy>
-
-	WebTier is Down
-	Oracle Management Server is Down
-	JVMD Engine is Down
-	```
-
-- Check Agent status.
-
-	```
-	$ <copy>./emctl status agent</copy>
-
-	Agent heartbeat status: OMS is unreachable
-	```
-
-**Solution**:
-
-- Start OMS.
-
-	```
-	$ <copy>./emctl start oms</copy>
-	```
-
-- Start agent.
-
-	```
-	$ <copy>./emctl start agent</copy>
-	```
-
-- Force stop OMS.
-
-	**Syntax**   
-	`$ <OMS_HOME>/bin>./emctl stop oms -all -force`
-
-	**Example**
-	```
-	$ <copy>/scratch/u01/software/em/middleware/bin/emctl stop oms -all -force</copy>
-	```
-
-	```
-	$ <copy>ps -ef | grep EMGC_ADMINSERVER</copy>
-	5005  7072
-	```
-	```
-	$ <copy>ps -ef | grep EMGC_OMS1</copy>
-	5024  7072
-	```
-	```
-	$ <copy>ps -ef | grep java</copy>
-	5039  7072
-	```
-
-	This is only for 11g and 12c environments. For 13c, checking for OPMN is not required.
-
-	```
-	$ <copy>ps -ef | grep opmn</copy>
-	5052  7072
-	```
-
-	```
-	$ <copy>XX:+UnlockCommercialFeatures -XX:+ResourceManagement</copy>
-	```
-
-## Task 4: Deinstall EMCC
+## Task 3: Deinstall EMCC
 
 **Option 1**
 
@@ -414,7 +323,447 @@ Run the `deinstall_emcc.sh` script from the `/scratch/u01/ManishDoc` location.
 $ <copy>sh /scratch/u01/ManishDoc/deinstall_emcc.sh</copy>
 ```
 
+## Task 4: Troubleshooting
+
+ - For installation related issues, check the log file under `/tmp/OraInstalldate_time/Installdate_time.log`
+
+	----
+	## EMCC Install: Database prerequisites check
+
+	 - `allow insert with update`
+
+		Log in to the SQL command line as sysdba and run this.
+
+		```
+		$ ./sqlplus / as sysdba
+
+		SQL> <copy>alter system set "_allow_insert_with_update_check"=true scope=both;</copy>
+		```
+
+	 - `Database Optimizer Adaptive Features Requirements`
+
+		```
+		SQL> <copy>alter system set optimizer_adaptive_features=false scope=both;</copy>
+		```
+
+	 - Connect to Oracle Database as SYSDBA and run the following commands:
+
+		```	
+		$ ./sqlplus / as sysdba
+
+		SQL>
+		<copy>
+		alter system reset "_optimizer_nlj_hj_adaptive_join" scope=both sid='*';
+		alter system reset "_optimizer_strans_adaptive_pruning" scope=both sid='*';
+		alter system reset "_px_adaptive_dist_method" scope=both sid='*';
+		alter system reset "_sql_plan_directive_mgmt_control" scope=both sid='*';
+		alter system reset "_optimizer_dsdir_usage_control" scope=both sid='*';
+		alter system reset "_optimizer_use_feedback" scope=both sid='*';
+		alter system reset "_optimizer_gather_feedback" scope=both sid='*';
+		alter system reset "_optimizer_performance_feedback" scope=both sid='*';
+		</copy>
+		```
+
+	 - Disable `password verify function`
+		To find out what users are using `PASSWORD_VERIFY_FUNCTION`, you need to find out which profiles are using the function and then see which users are assigned that profile.
+
+		```
+		SQL> <copy>alter profile default limit password_verify_function null;</copy>
+		```
+
+
+	----
+	## Unset classpath
+
+	Unset the `CLASSPATH` environment variable.
+
+	Bash
+	```
+	$ <copy>export CLASSPATH=""</copy>
+	```
+	csh
+	```
+	$ <copy>unset CLASSPATH</copy>
+	```
+
+	----
+	## Invalid repository
+
+	The referenced database doesn't contain a valid management Repository
+
+	**Problem statement**   
+	You are installing a new copy of Enterprise Manager (EM) and it returns this error. 
+
+	![Invalid repo](./images/emcc-old-repo.png " ")
+
+	**Cause**   
+	You deleted the earlier copy of EM from your system manually but the repository database (Oracle Database 19c) still contains residue objects from the old installation. 
+
+	**Solution**   
+	Clean the database of old objects before using it again as an OMS repository database.
+
+	 1. Drop sysman related schemas.
+
+		```
+		<copy>
+		DROP USER SYSMAN CASCADE; 
+		DROP USER SYSMAN_OPSS CASCADE;
+		DROP USER SYSMAN_MDS CASCADE;
+		DROP USER SYSMAN_APM CASCADE;
+		DROP USER SYSMAN_RO CASCADE;
+		DROP USER SYSMAN_BIPLATFORM CASCADE;
+		DROP USER SYSMAN_STB CASCADE;
+		</copy>
+		```
+
+	 1. Remove Synonyms related to sysman accounts.
+
+		```
+		<copy>
+		DECLARE
+		  CURSOR l_syn_csr IS
+			SELECT 'DROP ' ||
+			  CASE owner
+				WHEN 'PUBLIC'
+				  THEN 'PUBLIC SYNONYM '
+				ELSE 'SYNONYM ' || owner || '.'
+			  END ||
+			  synonym_name AS cmd
+			FROM
+			  dba_synonyms
+			WHERE
+			  table_owner IN (
+				'SYSMAN',
+				'SYSMAN_MDS',
+				'MGMT_VIEW',
+				'SYSMAN_BIP',
+				'SYSMAN_APM',
+				'BIP',
+				'SYSMAN_OPSS',
+				'SYSMAN_RO'
+			  );
+		BEGIN
+		  FOR l_syn_rec IN l_syn_csr LOOP
+			BEGIN
+			  EXECUTE IMMEDIATE l_syn_rec.cmd;
+			EXCEPTION
+			  WHEN OTHERS THEN
+				dbms_output.put_line( '===> ' || l_syn_rec.cmd );
+				dbms_output.put_line( sqlerrm );
+			END;
+		  END LOOP;
+		END;
+		/
+		</copy>
+		```
+
+	 1. Remove remaining Objects and tablespaces.
+
+		```
+		<copy>
+		DROP USER mgmt_view CASCADE;
+		DROP TABLESPACE mgmt_ecm_depot_ts INCLUDING CONTENTS AND DATAFILES CASCADE CONSTRAINTS;
+		DROP TABLESPACE mgmt_tablespace   INCLUDING CONTENTS AND DATAFILES CASCADE CONSTRAINTS;
+		DROP TABLESPACE mgmt_ad4j_ts      INCLUDING CONTENTS AND DATAFILES CASCADE CONSTRAINTS;
+		</copy>
+		```
+
+	1.  As proper database cleaning using RepManager dropall didn't happen, so clean up the registry details.
+
+		```
+		<copy>
+		DELETE
+		  FROM
+			schema_version_registry
+		  WHERE
+			(comp_name,owner) IN (
+			  ('Authorization Policy Manager','SYSMAN_APM'),
+			  ('Metadata Services','SYSMAN_MDS'),
+			  ('Oracle Platform Security Services','SYSMAN_OPSS')
+			);
+		commit;
+		</copy>
+		```
+
+		```
+		SQL> <copy>ALTER SYSTEM SET optimizer_dynamic_sampling = 0 SCOPE=both;</copy>
+		```
+
+	Now try the installation again. It should complete successfully.
+
+	Alternatively, (a longer but working solution is) deinstall both EM and the repository database (Oracle Database 19c) and reinstall them again. 
+
+	**Cite**: 
+	 - [funoracleapps](https://www.funoracleapps.com/2019/05/oem-13c-installation-failed-with.html)
+	 - [sujeetdba](https://sujeetdba.blogspot.com/2016/09/the-referenced-database-doesnt-contain.html)
+
+	Unsuccessful. Issue did not resolve with this solution. 
+
+	----
+	## EMCC unreachable
+
+		```
+		Checking the connection   
+		Checking the proxy and the firewall   
+		ERR_CONNECTION_REFUSED
+		```
+
+	### OMS/Agent Errors
+
+	**Problem: OMS and/or Agent down**
+
+	- Check OMS status.
+
+		```
+		$ <copy>./emctl status oms</copy>
+
+		WebTier is Down
+		Oracle Management Server is Down
+		JVMD Engine is Down
+		```
+
+	- Check Agent status.
+
+		```
+		$ <copy>./emctl status agent</copy>
+
+		Agent heartbeat status: OMS is unreachable
+		```
+
+	**Solution**:
+
+	- Start OMS.
+
+		```
+		$ <copy>./emctl start oms</copy>
+		```
+
+	- Start agent.
+
+		```
+		$ <copy>./emctl start agent</copy>
+		```
+
+	- Force stop OMS.
+
+		**Syntax**   
+		`$ <OMS_HOME>/bin>./emctl stop oms -all -force`
+
+		**Example**
+		```
+		$ <copy>/scratch/u01/software/em/middleware/bin/emctl stop oms -all -force</copy>
+		```
+
+		```
+		$ <copy>ps -ef | grep EMGC_ADMINSERVER</copy>
+		5005  7072
+		```
+		```
+		$ <copy>ps -ef | grep EMGC_OMS1</copy>
+		5024  7072
+		```
+		```
+		$ <copy>ps -ef | grep java</copy>
+		5039  7072
+		```
+
+		This is only for 11g and 12c environments. For 13c, checking for OPMN is not required.
+
+		```
+		$ <copy>ps -ef | grep opmn</copy>
+		5052  7072
+		```
+
+		```
+		$ <copy>XX:+UnlockCommercialFeatures -XX:+ResourceManagement</copy>
+		```
+
+	----
+	## Start OMS failed 
+
+	**Problem statement**   
+	You issue the command to start oms `./emctl start oms` but it failed. 
+
+	```
+	$ <OMS_HOME>/bin>./emctl start oms
+
+	Starting Oracle Management Server...
+	Starting WebTier...
+	WebTier Successfully Started
+	Oracle Management Server Could Not Be Started
+	Oracle Management Server is Down
+	JVMD Engine is down
+	```
+
+	```
+	$ OMS_HOME = <copy>/scratch/u01/software/em/middleware</copy>
+	```
+
+	------
+
+	**Solution 1**
+
+	1. Download [oms_start.zip](https://support.oracle.com/epmos/main/downloadattachmentprocessor?parent=DOCUMENT&sourceId=1495519.1&attachid=1495519.1:OMSSTARTZIP&clickstream=yes) file
+
+	1. Copy `oms_start.zip` file to `<OMS_ORACLE_HOME>` directory and unzip contents in the same directory
+
+		```
+		$ <copy>unzip /scratch/u01/software/em/middleware/oms_start.zip</copy>
+		```
+
+	1. Execute `<OMS_HOME>/oms_start.sh` as per the `readme.txt` file present at `<OMS_HOME>`.
+
+		This script cleans up the leftover processes and may restart OMS successfully.
+
+	------
+
+	**Solution 2**
+
+	Clean-up leftover OMS processes manually 
+
+	> **Note:** Ensure that the listener and the repository database (19c) are up before proceeding with these steps.
+
+	1. Go to the `<OMS_HOME>/bin` directory.
+
+		```
+		$ <copy>cd /scratch/u01/software/em/middleware/bin</copy>
+		```
+
+	1. Stop OMS
+
+		```
+		$ <copy>./emctl stop oms -all -force</copy>
+		```
+
+	1. Get the process id of leftover processes
+
+		```
+		$ <copy>ps -ef | grep EMGC_ADMINSERVER</copy>
+		```
+
+		```
+		$ <copy>ps -ef | grep EMGC_OMS1</copy>
+		```
+
+		```
+		$ <copy>ps -ef | grep java</copy>
+		```
+
+	1. Kill the left over OMS java processes.
+
+		Graceful 
+		```
+		$ <copy>kill <PID></copy>
+		```
+
+		Force
+		```
+		$ <copy>kill -9<PID></copy>
+		```
+
+	1. Delete the following files (if they exist).
+
+		```
+		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_OMS1/data/store/diagnostics</copy> 
+		$ rm -f WLS_DIAGNOSTICS000000.DAT
+		```
+		```
+		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_OMS1/data/store/default</copy>
+		rm -f _WLS_EMGC_OMS1000000.DAT
+		```
+		```
+		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_ADMINSERVER/data/store/diagnostics</copy>
+		$ rm -f WLS_DIAGNOSTICS000000.DAT
+		```
+		```
+		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_ADMINSERVER/data/store/default</copy>
+		$ rm -f _WLS_EMGC_ADMINSERVER000000.DAT
+		```
+		```
+		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/config</copy>
+		$ rm -f config.lok
+		```
+		```
+		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_OMS1/tmp</copy>
+		$ rm -f EMGC_OMS1.lok 
+		```
+		```
+		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_ADMINSERVER/tmp</copy>
+		$ rm -f EMGC_ADMINSERVER.lok
+		```
+
+		If the OEM is configured with BIP, remove the following files as well.
+
+		```
+		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/BIP/data/store/diagnostics</copy>
+		$ rm -f WLS_DIAGNOSTICS000000.DAT
+		```
+		```
+		$ <copy>/scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/BIP/data/store/default</copy>
+		$ rm -f _WLS_BIP000000.DAT
+		```
+		```
+		$ <copy>/scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/BIP/tmp</copy>
+		$ rm -f BIP.lok
+		```
+
+	1. Delete ONLY *`.lck`*, *`.pid`*, and *`.state`* files in these locations.
+
+		> **Note:** *DO NOT delete* any other files. *DO NOT delete* the directories themselves.
+
+		```
+		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_OMS1/data/nodemanager</copy>
+		$ rm -f *.lck, *.pid, *.state
+		```
+		```
+		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_ADMINSERVER/data/nodemanager</copy>
+		$ rm -f *.lck, *.pid, *.state
+		```
+		```
+		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/BIP/data/nodemanager</copy>
+		$ rm -f *.lck, *.pid, *.state
+		```
+
+	Verify that - 
+
+	1. `emctl` is executed from the correct `OMS home`.
+	1. `emctl` file size is not zero bytes.
+
+		 If it is zero bytes refer [Note 1404623.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=1495519.1&id=1404623.1): How to Recreate the emctl Script for the Enterprise Manager OMS
+
+	1. Repository database and listener are up
+	1. SYSMAN connectivity to repository db is successful.
+
+		```
+		$ OMS_HOME/bin/sqlplus sysman@<Connect Descriptor>
+		```
+
+	1. SYSMAN related users acccount status in the repository database is *open*.
+
+		```
+		SQL><copy>select username,account_status from dba_users where username like 'SYSMAN%' order by username;</copy>
+
+		USERNAME                           ACCOUNT_STATUS
+		------------------------------ --------------------------------
+		SYSMAN                                     OPEN
+		SYSMAN_APM                                 OPEN
+		SYSMAN_MDS                                 OPEN
+		SYSMAN_OPSS                                OPEN
+		```
+
+	1. No invalid objects exist for sysman related users. 
+
+		(Refer Use Case 2 in  [Note 1683050.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=1495519.1&id=1683050.1): OMS Failed to Start With Error 'Oracle Management Server is Down. Console may not be up')
+
+	1. Repository database  table space is not full (alert log file does not have table space full errors).
+
+	1. Enough space is available for the repository database archive logs.
+
+	1. Restart the repository database and the listener. 
+
+	Cite: [Oracle Support (Doc ID 1495519.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=542346969019436&parent=EXTERNAL_SEARCH&sourceId=PROBLEM&id=1495519.1&_afrWindowMode=0&_adf.ctrl-state=dfc7k3t0h_53)
+
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - February 1, (Tue) 2022
+ - **Last Updated on** - May 21, (Sat) 2022
