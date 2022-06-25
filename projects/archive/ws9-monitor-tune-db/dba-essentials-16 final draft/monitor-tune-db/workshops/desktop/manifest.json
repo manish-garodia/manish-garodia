@@ -1,0 +1,37 @@
+{
+  "workshoptitle": "DBA Essentials - Monitoring and tuning the Database",
+  "help": "livelabs-help-em_us_grp@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Introduction.",
+      "filename": "./../../intro-database-monitoring-tuning/intro-database-monitoring-tuning.md"
+    },
+    {
+      "title": "Using noVNC remote desktop",
+      "description": "Using noVNC Remote Desktop",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/remote-desktop/using-novnc-remote-desktop.md"
+    },
+    {
+      "title": "Lab 1: Initialize environment",
+      "description": "How to initialize and start all the workshop components.",
+      "publisheddate": "04/29/2022",
+      "filename": "./../../initialize-environment/initialize-environment.md"
+    },
+    {
+      "title": "Lab 2: Monitor the general state of your database",
+      "description": "How to monitor the state of the database from Oracle Enterprise Manager Cloud Control (Oracle EMCC).",
+      "filename": "./../../monitor-general-state-database/monitor-general-state-database.md"
+    },
+    {
+      "title": "Lab 3: Configure Automatic SQL Tuning Advisor",
+      "description": "How to improve the performance of the database using Automatic SQL Tuning Advisor from Oracle Enterprise Manager Cloud Control (Oracle EMCC).",
+      "filename": "./../../configure-automatic-SQL-tuning-advisor/configure-automatic-SQL-tuning-advisor.md"
+    },
+    {
+      "title": "Need help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
+    }
+  ]
+}

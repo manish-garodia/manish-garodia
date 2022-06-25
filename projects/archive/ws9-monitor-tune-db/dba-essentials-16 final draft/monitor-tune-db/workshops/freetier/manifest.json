@@ -1,0 +1,49 @@
+{
+  "workshoptitle": "DBA Essentials - Monitoring and tuning Oracle Database 21c",
+  "help": "livelabs-help-em_us_grp@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Introduction.",
+      "filename": "./../../intro-database-monitoring-tuning/intro-database-monitoring-tuning.md"
+    },
+    {
+      "title": "Get started",
+      "description": "Get a Free Trial",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
+    },
+    {
+      "title": "Lab 1: Prepare setup",
+      "description": "How to download your ORM stack and update security rules for an existing VCN.",
+      "publisheddate": "04/29/2022",
+      "filename": "./../../prepare-setup/prepare-setup.md"
+    },
+    {
+      "title": "Lab 2: Setup compute instance",
+      "description": "How to provision the workshop environment and connect to it",
+      "publisheddate": "08/31/2021",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc-ssh.md"
+    },
+    {
+      "title": "Lab 3: Initialize environment",
+      "description": "How to initialize and start all the workshop components.",
+      "publisheddate": "04/29/2022",
+      "filename": "./../../initialize-environment/initialize-environment.md"
+    },
+    {
+      "title": "Lab 4: Monitor the general state of your database",
+      "description": "How to monitor the state of the database from Oracle Enterprise Manager Cloud Control (Oracle EMCC).",
+      "filename": "./../../monitor-general-state-database/monitor-general-state-database.md"
+    },
+    {
+      "title": "Lab 5: Configure Automatic SQL Tuning Advisor",
+      "description": "How to improve the performance of the database using Automatic SQL Tuning Advisor from Oracle Enterprise Manager Cloud Control (Oracle EMCC).",
+      "filename": "./../../configure-automatic-SQL-tuning-advisor/configure-automatic-SQL-tuning-advisor.md"
+    },
+    {
+      "title": "Need help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+    }
+  ]
+}
