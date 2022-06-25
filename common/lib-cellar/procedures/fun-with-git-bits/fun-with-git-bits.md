@@ -1,19 +1,16 @@
 # ![GitHub](./images/git-black-small.png) &nbsp;Fun with Git-Bits
 
 ## The fork, the clone, the OLL master
-<if type="gitconcepts">
+
 The information in this lab revolves around - 
 
-### ![GitHub](./images/git-black-small.png) &nbsp;&nbsp;&nbsp;&nbsp;GitHub 
+### ![GitHub](./images/git-black-small.png) &nbsp;&nbsp;&nbsp;&nbsp;[GitHub](?lab=fun-with-git-bits&type=gitconcepts)
 
-### ![GitHub Desktop](./images/github-desktop-small.png) &nbsp;&nbsp;&nbsp;&nbsp;GitHub Desktop
+### ![GitHub Desktop](./images/github-desktop-small.png) &nbsp;&nbsp;&nbsp;&nbsp;[GitHub Desktop](?lab=fun-with-git-bits&type=gitdesktop)
 
-### ![Git Bash](./images/git-bash-small.png) &nbsp;&nbsp;&nbsp;&nbsp;Git Bash 
-</if>
-
+### ![Git Bash](./images/git-bash-small.png) &nbsp;&nbsp;&nbsp;&nbsp;[Git Bash](?lab=fun-with-git-bits&type=gitbash)
 
 ## Learn about git<if type="gitconcepts"> concepts</if><if type="gitdesktop"> desktop</if><if type="gitbash"> bash</if>
-
 
 <if type="gitconcepts">
 - Basic concepts
@@ -603,37 +600,6 @@ After committing your changes to master, go to your fork repo and *create a pull
 					It opens an editor and displays the log message from your previous commit. You may edit or add more to the message and commit again. 
 
 				----
-				## Change the last commit
-
-				If you entered a wrong message in the log, or forgot to add some files to staging, you can amend your last commit (just before push origin). 
-
-				Thus, instead of doing a new commit, you combine the staged changes with your previous commit. 
-
-				To modify the commit message:
-
-				```
-				$ <copy>git commit --amend</copy>
-				```
-
-				> **Note:** Do this just after the `commit` command, before issuing a `push origin`.
-
-				To add more files for staging to the previous commit:
-
-				1. Add the missed file or files.
-				
-					```
-					$ <copy>git add common/mg-library/procedures/fun-with-git-bits/fun-with-git-bits.md</copy>
-					```
-
-				1. Amend the last commit. 
-
-					```
-					$ <copy>git commit --amend --no-edit
-					```
-
-				With the `--no-edit` flag, you amend your commit without changing the commit message.
-				
-				----
 				## What is the full syntax for commit?
 
 				```
@@ -1099,32 +1065,256 @@ After committing your changes to master, go to your fork repo and *create a pull
 	**What to do**  
 	Applicable to both - <i>files</i> and <i>folders</i>. 
 
-	- **Option 1**: Open *Git Bash*
+	<if type="gitbash">
+
+	- **Using Git Bash**
+		1. Open *Git Bash*.
 		1. Go to the file in the clone. 
 		1. Use the Linux command for moving/renaming files and folders. 
 
 			```
 			$ <copy>mv <old name> <new name></copy>
 			```
+	</if>
 
-	- **Option 2**: Directly on *GitHub*
-		1. Open the repo in a browser.
+	- **Modify directly on GitHub** 
+		1. Login to *GitHub* in a browser and go to the repo.
 		1. Go to the file and > select **Edit file**. 
 		1. Place the cursor at the first character of the file name and hit backspace.
 
-	- **Option 3**: Open the Windows Explorer and
+	- **Using Windows Explorer**
 		1. Move the file to another location, outside the Clone.
 		1. Right-click (F2) and rename.
 		1. Copy the file back to the original location with the new name. 
 
 		> **Note:** Renaming a file or a folder at the same location in Windows Explorer does not help because the names are not case-sensitive. 
 
-	- **Final Option 3**: if all the above failed, take the long route - 
+	- **Final option**: if all the above failed, take the long route - 
 		1. Delete the file (or move it out to another location) 
 		1. Create a folder with the new name (or rename at another location and copy it back). 
 		1. Commit to master with the new name.
 
-	Use Option #3 as the last resort. 
+		Use this option as the last resort. 
+
+	<if type="gitbash">
+
+	----
+	## Change the last commit
+
+	**Problem statement**
+
+	You entered a wrong message in the log, or forgot to add some files to staging. 
+	
+	**What to do**
+
+	You can amend your last commit (just before `push origin`). Thus, instead of doing a new commit, you combine the staged changes with your previous commit. 
+
+	To modify the commit message:
+
+	```
+	$ <copy>git commit --amend</copy>
+	```
+
+	> **Note:** Do this just after the `commit` command, before issuing a `push origin`.
+
+	To add more files for staging to the previous commit:
+
+	1. Add the missed file or files.
+	
+		```
+		$ <copy>git add common/mg-library/procedures/fun-with-git-bits/fun-with-git-bits.md</copy>
+		```
+
+	1. Amend the last commit. 
+
+		```
+		$ <copy>git commit --amend --no-edit</copy>
+		```
+
+	With the `--no-edit` flag, you amend your commit without changing the commit message.
+
+	----
+	## Change a previous commit (cherry pick)
+
+	**Problem statement**
+
+	You do *multiple commits* from your clone (local repo). Now, you want to find an older commit, before the last commit, and modify it.
+	 - Scenario 1 - before `push origin`
+	 - Scenario 2 - after `push origin` 
+
+	**Scenario 1** - *Before `push origin`*
+
+	You did `commit to master` but did not `push origin` yet.
+
+	**What to do**
+
+	Do these steps just before `push origin`.
+	
+	1. Perform an interactive rebase and squash your commits.
+
+		Syntax
+
+		```
+		$ git rebase --interactive HEAD~n
+
+		or short-form as below
+
+		git rebase -i @~n
+		```
+
+		 > Where, 
+		 >> *`n`* indicates the number of commits up to the first commit you want to edit   
+		 >> *`@`* is a shorthand for `HEAD`   
+		 >> *`~`* is the commit before the specified commit
+
+		Example, you want to modify up to last 7 commits.
+
+		```
+		$ <copy>git rebase -i @~7</copy>
+		```
+
+		Output 
+
+		```
+		[detached HEAD bae62a1] WS5 (11056) Released to prod
+		 Date: Sun Jun 12 13:18:30 2022 +0530
+		 84 files changed, 1441 insertions(+)
+		 create mode 100644 live/dba-essentials/manage-storage-structures/initialize-environment/images/db-service-status.png
+		 create mode 100644 live/dba-essentials/manage-storage-structures/initialize-environment/images/db-service-status2.png
+		 create mode 100644 live/dba-essentials/manage-storage-structures/initialize-environment/images/em-landing.png
+		 ...
+		 ...
+		 create mode 100644 live/dba-essentials/manage-storage-structures/workshops/livelabs/manifest.json
+Successfully rebased and updated refs/heads/main.
+		```
+
+		This opens the previous commits in the default editor. 
+		
+	1. Go to the **Edit** mode and replace *`pick`* with *`e`* or *`r`* (*`edit`*).
+
+	 ![git rebase options](./images/git-commit-rebase.png " ")
+
+		 > **Note:** Press **i** to enter the **Edit** mode.
+
+		Use either of the following: 
+
+		 - **e** (edit) - use commit but stop for amending
+		 - **r** (reword) - use commit but edit only the commit message; you can directly modify the commit message
+		 - any other option shown in the editor
+
+		With *`e`*, you can use *`git commit --amend`* to modify the message or *`git reset @~`* to discard the last commit without losing the local changes. 
+
+	1. Modify *`pick`* to *`r`* and save the commit history file.
+
+		 > **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+	 It opens the particular commit that you selected to modify.
+
+	1. Edit the commit message and save the file.
+
+		 > **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+	 Optionally, you may try to continue rebase if in progress. But it may give an error if no rebase is in progress.
+
+		 ```
+		 $ <copy>git rebase --continue</copy>
+		 
+		 fatal: No rebase in progress?
+		 ```
+	
+	1. You can now push your commit with the modified message to the main repo. 
+
+		 ```
+		 $ <copy>git push origin main</copy>
+		 ```
+
+	> **Note:** Git returns an error if you have unstaged changed in your clone. Stage them first (`git add`) before issuing `git rebase -i`.
+
+	![Git rebase unstaged files](./images/rebase-error.png " ")
+
+	**Scenario 2** - *After `push origin`* 
+
+	You did not only `commit to master` but also `push origin`. Can such commits be modified?
+
+	**What to do**
+
+	Let's find out.
+
+	1. Perform an interactive rebase and squash your commits.
+
+		Example, you want to modify up to last 18 commits.
+
+		```
+		$ <copy>git rebase -i @~18</copy>
+		```
+
+		 > Where, 
+		 >> *`n`* indicates the number of commits up to the first commit you want to edit   
+		 >> *`@`* is a shorthand for `HEAD`   
+		 >> *`~`* is the commit before the specified commit
+
+		Output 
+
+		```
+		[detached HEAD 236ec52] WS2 (7141) Released to prod
+		 Author: manish-garodia <manish.garodia@oracle.com>
+		 Date: Thu Jan 13 21:26:55 2022 +0530
+		 83 files changed, 1460 insertions(+)
+		 create mode 100644 Live/dba-essentials/em-dba/access-homepage/access-homepage.md
+		 create mode 100644 Live/dba-essentials/em-dba/access-homepage/images/emcc-dbhome-001-expandall.png
+		 create mode 100644 Live/dba-essentials/em-dba/access-homepage/images/emcc-dbhome-002-dblist.png
+		 create mode 100644 Live/dba-essentials/em-dba/access-homepage/images/emcc-dbhome-003-instancehome.png
+		...
+		...
+		 create mode 100644 Live/dba-essentials/em-dba/workshops/livelabs/manifest.json
+		Successfully rebased and updated refs/heads/main.
+		```
+
+		This opens the previous commits in the default editor. 
+
+	1. Go to the **Edit** mode and replace *`pick`* with *`e`* or *`r`* (*`edit`*).
+
+		 > **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+	 It opens the particular commit that you selected to modify.
+
+	1. Edit the commit message and save the file.
+
+		 > **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+	1. Pull origin to update the clone and merge made by the 'recursive' strategy.
+
+		```
+		$ <copy>git pull origin main</copy>
+		```
+
+		Output
+
+		```
+		From https://github.com/bg-manish/mg-library
+		 * branch            main       -> FETCH_HEAD
+		Auto-merging live/dba-essentials/install-db/workshops/livelabs/manifest.json
+		Auto-merging live/dba-essentials/install-db/workshops/freetier/manifest.json
+		Auto-merging live/dba-essentials/install-db/workshops/desktop/manifest.json
+		Auto-merging live/dba-essentials/install-db/prepare-setup/prepare-setup.md
+		Auto-merging live/dba-essentials/install-db/intro-install/intro-install.md
+		Auto-merging live/dba-essentials/install-db/install-desktop-server/install-desktop-server.md
+		Auto-merging live/dba-essentials/install-db/dbca/dbca-typical-advanced.md
+		Auto-merging live/dba-essentials/configure-network-env/workshops/desktop/index.html
+		Auto-merging live/dba-essentials/backup-recovery/workshops/livelabs/index.html
+		Auto-merging live/dba-essentials/backup-recovery/workshops/desktop/index.html
+		Merge made by the 'recursive' strategy.
+		```
+
+	1. Now push origin with the modified message from the clone to the main repo. 
+
+		 ```
+		 $ <copy>git push origin main</copy>
+		 ```
+
+	It will create additional sets of commits on your main repo. 
+
+	</if>
 
 	----
 	## Recv failure: Connection was reset
@@ -1251,6 +1441,33 @@ After committing your changes to master, go to your fork repo and *create a pull
 
 	Now, `upstream/master` will be displayed again in the merge window. 
 
+	----
+	## Change the default External Editor from Notepad++ to Atom
+
+	**Problem statement**  
+	In GitHub Desktop, the default **External Editor** shows *Notepad++*.   
+	You want to set the default editor to *Atom*. 
+	
+	![Default External Editor Notepad++](./images/desktop-editor-01-default-notepad.png " ")
+
+	**What to do**  
+	1. Download the new [Atom app](https://atom.io/) (`v1.60.0`) and install afresh. 
+
+		 > **Note:** You may remove the older version of Atom manually using Window Explorer or CLI (git bash). 
+
+	1. Open GitHub Desktop and go to **File** > **Options**. 
+
+	 ![Modify GitHub preferences](./images/desktop-editor-02-modify-options.png " ")
+
+	1. In the **Integrations** tab, under **External Editor** select *Atom*.
+
+	 ![External Editor Atom](./images/desktop-editor-03-select-external-editor.png " ")
+
+	1. Click **Save** to set the new external editor.   
+		The new default editor in GitHub Desktop is Atom.
+
+	 ![New Default Editor Atom](./images/desktop-editor-04-new-default-editor-atom.png " ")
+
 	</if>
 
 	## Notepad++ tips
@@ -1285,5 +1502,5 @@ After committing your changes to master, go to your fork repo and *create a pull
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - June 8, (Wed) 2022
+ - **Last Updated on** - June 25, (Sat) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)

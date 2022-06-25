@@ -152,6 +152,28 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	Please approve the PR. Thank you  
 	~MG
 
+## WS5 (*11056*)
+
+- WS5 (*11056*) pull requests
+
+	----
+	## Merge request #*5014* - May 10, 2022
+
+	Submitted PR for WS5 (draft copy) from MM fork on Github on *Tue May 10*. Approved on **May 00**.
+
+	**Sub**: <ins>ID#11056 - New workshop created</ins>
+
+	Hello team,
+
+	I have developed a LiveLabs workshop "DBA Essentials - Manage storage structures for Oracle Database 21c" having ID #11056.
+
+	Could you please approve it?
+
+	Thank you!
+
+	Regards,
+	Manisha Mati
+
 ## WS3 (*8321*)
 
 - WS3 pull requests
@@ -330,6 +352,22 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 - WS1 pull requests
 
 	----
+	## Merge request #*5116* - June 06, 2022
+
+	Submitted PR for WS1 from my fork on Github on *Mon June 6, 2022*. Waiting for approval. Approved on **Jun 7**.
+
+	**Sub**: <ins>(*ID# 7041*) Fixed customer issue regarding root access</ins>
+
+	Hello,
+
+	We had a customer issue reported on this workshop. Minor modifications to the lab 'install-desktop-server' to fix the issue.
+
+	Removed the instructions to login as root in the terminal and updated the associated steps. 
+
+	Please approve the PR. Thank you
+	~MG
+
+	----
 	## Merge request #*3707* - Sep 09, 2021
 
 	Submitted PR for WS1 from my fork on Github on *Sat Sep 9, 2021*. Waiting for approval. Approved on **Sep 09**.
@@ -493,10 +531,50 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	~Thanks, MG
 
+## General PRs
+
+- Other general PRs not specific to workshops
+
+	----
+	## Move workshops in database #*2* - June 21, 2022
+
+	Submitted PR on *Tue June 21*. Waiting for approval. Approved on **June 23**.
+
+	**Sub**: <ins>(7041, 8321, 8341) Move workshops location</ins>
+
+	Hi,
+
+	As discussed with Michelle, created a folder dba-essentials under version-specific folder odb-21c, which indicates Oracle Database 21c.
+	Moved the workshops under odb-21c/dba-essentials:
+	- configure-network-env
+	- install-db
+	- remove-db
+
+	<ins>*No change*</ins> to lab contents.
+
+	Please approve the PR. Thank you  
+	~MG
+
+	----
+	## Move workshops in em-omc #*2* - June 11, 2022
+
+	Submitted PR on *Sat June 11*. Waiting for approval. Approved on **June 14**.
+
+	**Sub**: <ins>Move workshops location</ins>
+
+	Hi,
+
+	As discussed with Michelle, moving the folder dba-essentials under version-specific folder odb-21c, which indicates Oracle Database 21c.
+
+	<ins>*No change*</ins> to lab contents.
+
+	Please approve the PR. Thank you  
+	~MG
+
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - May 2, (Mon) 2022
+ - **Last Updated on** - June 23, (Thu) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../intro/files/email.md)
 
 

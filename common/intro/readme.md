@@ -71,6 +71,7 @@ Index of mg space (scope: clone)
 
 | Markdown-manifest (clone)             | Path                                                   |
 |---------------------------------------|--------------------------------------------------------|
+| [clone-dir](http://127.0.0.1:3001)    | `common\intro`                                         |
 | readme [start-here](http://127.0.0.1:3001/mg-playground/start-here/) <if type="hidden">[z-sandbox](http://127.0.0.1:3001/mg-playground/z-sandbox/)</if>  | `common\intro`  |
 | [mg-library](http://127.0.0.1:3001/mg-playground/mg-library/)   | `common\lib-cellar`          |
 | [access-vm-config-vnc](http://127.0.0.1:3001/mg-playground/topic-title/access-vm-config-vnc/)  | `common\lib-cellar\procedures`          |
@@ -81,8 +82,9 @@ Index of mg space (scope: clone)
 | gistfile1             |  `common\lib-cellar\misc-concepts\github-md-emojis`                    |
 | [install-db-goldimage](http://127.0.0.1:3001/mg-playground/topic-title/install-db-goldimage/)  |  `common\lib-cellar\procedures`          |
 | [install-emcc](http://127.0.0.1:3001/mg-playground/topic-title/install-emcc/)                  | `common\lib-cellar\procedures`          |
-| slack-block-kit-builder.json          | `common\lib-cellar\misc-concepts`          |
+| slack-block-kit-builder.json          | `common\lib-cellar\misc-concepts`                      |
 | [zoom-barabar-zoom](http://127.0.0.1:3001/mg-playground/topic-title/zoom-barabar-zoom/)        | `common\lib-cellar\procedures`          |
+| [test-labs](http://127.0.0.1:3001/mg-playground/common/test-labs/)        | `common\test-labs`          |
 
 
 ## Tables - Test Env
@@ -129,7 +131,7 @@ coming soon... stay tuned
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - June 11, (Sat) 2022
+ - **Last Updated on** - June 12, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./files/email.md)
 
 <if type="hidden"> </if>
