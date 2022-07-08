@@ -17,8 +17,8 @@
 | [learning-library](./../../../learning-library) | [MG Library (topics)](./../../../mg-playground/mg-library) |
 | **New** 		                                  | [start-here](./../../../mg-playground/start-here) |
 | [common](./../../../oracle-livelabs/common)     | [sandbox](./../../../mg-playground/z-sandbox)     | 
-| [em-omc](./../../../oracle-livelabs/em-omc)     | [mg-playground](./../../../mg-playground)         | 
-| 												  | [mg-library (repo)](./../../../mg-library) 		  |
+| [database](./../../../oracle-livelabs/database) | [mg-playground](./../../../mg-playground)  		  |
+| [em-omc](./../../../oracle-livelabs/em-omc)     | [mg-library (repo)](./../../../mg-library)        | 
 | 												  | [musical-lamp](./../../../musical-lamp) 		  |
 
 
@@ -42,5 +42,5 @@
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - April 11, (Mon) 2022
+ - **Last Updated on** - June 25, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./files/email.md)

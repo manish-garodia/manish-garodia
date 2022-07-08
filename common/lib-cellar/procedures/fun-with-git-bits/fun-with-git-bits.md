@@ -1,6 +1,6 @@
 # ![GitHub](./images/git-black-small.png) &nbsp;Fun with Git-Bits
 
-## The fork, the clone, the OLL master
+## The fork, the clone, the main repo
 
 The information in this lab revolves around - 
 
@@ -66,7 +66,7 @@ The information in this lab revolves around -
 	#### Prerequisites
 
 	1. From the fork repo, go to **Settings** > **GitHub pages**. 
-	2. Under **Source**, select **Branch master** > */root*.
+	2. Under **Source**, select **Branch: main** > */root*.
 
 		It may take ~30-60 mins to publish the site/repo and show-up the preview.
 
@@ -117,9 +117,9 @@ The information in this lab revolves around -
 
 	1. If more than one person is working on the same lab, they must keep their fork updated to avoid conflicts.
 
-	1. If your fork repo is <ins>old</ins> (not updated), and the clone is <ins>in sync</ins> (up-to-date) with the fork, then `merge upstream/master` will not show any changes. If you try to merge with `upstream/master`, it will show that - <i>your branch is up-to-date</i>. In reality, both clone and fork are <ins>behind</ins> OLL master. 
+	1. If your fork repo is <ins>old</ins> (not updated), and the clone is <ins>in sync</ins> (up-to-date) with the fork, then `merge upstream/main` will not show any changes. If you try to merge with `upstream/main`, it will show that - <i>your branch is up-to-date</i>. In reality, both clone and fork are <ins>behind</ins> OLL master. 
 
-		> **Note:** Always fetch origin (or fetch upstream) to update the fork from `upstream/master` and then try to `merge upstream`. 
+		> **Note:** Always fetch origin (or fetch upstream) to update the fork from `upstream/main` and then try to `merge upstream`. 
 
 	1. If you modify an older version of a file, GH returns a conflict error on pull request. In such case, update the fork and clone, make changes your file, and submit the pull request again.
 
@@ -135,7 +135,7 @@ The information in this lab revolves around -
 
 	<if type="gitdesktop">
 
-	## Sync between clone, fork, and OLL master
+	## Sync between clone, fork, and main repo
 
 	1. Go to **File** > **Options**.
 	1. The **Accounts** tab shows that you are logged in to your GitHub account. 
@@ -175,11 +175,11 @@ The information in this lab revolves around -
 
 	In this method, you update your fork repo first and then pull origin to the clone.
 
-	1. Update the fork repo from upstream master using a **browser** - *fetch and merge*
+	1. Update the fork repo from upstream main using a **browser** - *fetch and merge*
 	1. Update the clone from fork using **Github Desktop** - *pull origin*
 
 		----
-		## 1. To update the fork from upstream master (browser)
+		## 1. To update fork from upstream main (browser)
 
 		1. Log in to your Github account in a browser. 
 		
@@ -187,20 +187,20 @@ The information in this lab revolves around -
 		   The **Code** tab displays a message. 
 		   
 			```
-			This branch is xx commits behind oracle:master.
+			This branch is xx commits behind oracle:main.
 			```
 
 		1. Click **Fetch upstream** > **Fetch and merge**.  
-		   Verify that you have <i>Successfully fetched and fast-forwarded from upstream oracle:master</i>.
+		   Verify that you have <i>Successfully fetched and fast-forwarded from upstream oracle:main</i>.
 
 			```
-			This branch is even with oracle:master.
+			This branch is even with oracle:main.
 			```
 
 		The fork repo is now updated.
 
 		----
-		## 2. To update the clone from fork (GitHub Desktop)
+		## 2. To update clone from fork (GitHub Desktop)
 
 		1. Open **GitHub Desktop**. It displays a message.
 
@@ -231,17 +231,17 @@ The information in this lab revolves around -
 
 	1. From **Branch** > select **Merge into current branch**. 
 
-	1. The default branch selected is *master*.   
-	   Under Other branches, select *upstream/master*. It displays a message.
+	1. The default branch selected is *main*.   
+	   Under Other branches, select *upstream/main*. It displays a message.
 
 		```
-		This will merge xx commits from upstream/master into master
+		This will merge xx commits from upstream/main into main
 		```
 
 	1. Click **Create a merge commit**. It displays the message. 
 
 	    ```
-	    Successfully merged upstream/master into master
+	    Successfully merged upstream/main into main
 	    ```
 
 	   This step updates the clone. 
@@ -252,7 +252,7 @@ The information in this lab revolves around -
 		From **Repository** > select **View on GitHub** to open OLL master. Go to your fork repo and verify this message.
 
 		 ```
-		 This branch is not behind the upstream oracle:master.
+		 This branch is not behind the upstream oracle:main.
 
 		 No new commits to fetch. Enjoy your day!
 		 ```
@@ -265,7 +265,7 @@ The information in this lab revolves around -
 		- Make a pull request
 
 	----
-	## Commit to master - from clone to fork
+	## Commit to main - from clone to fork
 
 	To send the changes from the clone to the fork repo:
 
@@ -287,10 +287,10 @@ The information in this lab revolves around -
 
 <if type="gitconcepts">
 
-## Merge the fork with OLL master (PRs)
+## Merge fork with main repo (PRs)
 
-Want to merge your updated fork repo with OLL master? *Submit a pull request*.   
-After committing your changes to master, go to your fork repo and *create a pull request*. 
+Want to merge your updated fork repo with main repo? *Submit a pull request*.   
+After committing your changes to `main`, go to your fork repo and *create a pull request*. 
  
 - Options to open your fork repo
 
@@ -308,7 +308,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 		1. Open GitHub Desktop.
 
 		1. From **Branch** > select **Create pull request**.  
-			It opens OLL master in a browser.
+			It opens main repo in a browser.
 
 		1. Go to your fork repo `<your-account>/learning-library`.
 
@@ -341,7 +341,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 		It creates a merge request with a four-digit code and displays a message. 
 
 		```
-		[user] wants to merge 1 commit into oracle:master from [user]:master
+		[user] wants to merge 1 commit into oracle:main from [user]:main
 		```
 
 	Done. Your pull request is submitted for review. Wait for the approval.
@@ -360,7 +360,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 
 	1. Display local changes
 	1. Stage files for committing
-	1. Commit to master
+	1. Commit to main
 	1. Push from clone to fork
 
 		----
@@ -479,7 +479,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 			----
 			## Undo (Rollback) staging
 
-			**Use case:** You have staged your modified files in the clone but not yet committed to master. And you want to bring them back and make more changes to the staged files, before committing. 
+			**Use case:** You have staged your modified files in the clone but not yet committed to main repo. And you want to bring them back and make more changes to the staged files, before committing. 
 
 			You can undo staging without hurting the files or losing your local changes. This will bring the staged files back into their previous unstaged condition but will not affect the content changes. 
 			
@@ -504,9 +504,9 @@ After committing your changes to master, go to your fork repo and *create a pull
 			----
 			## Discard local changes
 
-			**Use case**: The local changes in the clone are incorrect and you want the files back from the master. 
+			**Use case**: The local changes in the clone are incorrect and you want the files back from the main repo. 
 
-			<i>DO NOT</i> use these, unless you want to discard all changes made in the clone and update from master. 
+			<i>DO NOT</i> use these, unless you want to discard all changes made in the clone and update from main repo. 
 
 			```
 			$ git restore [file-name]...
@@ -523,7 +523,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 			**See also** *un-stage a file*
 
 		----
-		## 3. Commit to master
+		## 3. Commit to main
 
 		1. Initiate the commit (without any flags).  
 
@@ -620,7 +620,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 		----
 		## 4. Push from clone to fork
 
-		After the files are committe to master, `push origin` from clone to fork.
+		After the files are committed to main repo, `push origin` from clone to fork.
 
 		```
 		$ <copy>git push origin main</copy>
@@ -637,21 +637,21 @@ After committing your changes to master, go to your fork repo and *create a pull
 		Update the clone from OLL master and then push the changes from clone to fork. 
 
 		1.  ```
-			$ <copy>git checkout master</copy>
+			$ <copy>git checkout main</copy>
 			```
 
 		1. 	```
-			$ <copy>git fetch upstream master</copy>
+			$ <copy>git fetch upstream main</copy>
 			```
 
 		1. 	```
-			$ <copy>git merge upstream/master</copy>
+			$ <copy>git merge upstream/main</copy>
 			```
 
 			The changes in OLL master are merged with the clone. The clone is up-to-date with OLL master.
 
 		1. 	```
-			$ <copy>git push origin master</copy>
+			$ <copy>git push origin main</copy>
 			```
 
 			The updates in the clone are pushed to the fork repo. Both clone and fork are in sync with OLL master.
@@ -734,7 +734,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 		$ <copy>git add README.md</copy>
 		```
 
-	1. 	Commit the file to master with a message, <i>first commit</i>.
+	1. 	Commit the file to main repo with a message, <i>first commit</i>.
 
 		```
 		$ <copy>git commit -m "first commit"</copy>
@@ -901,7 +901,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 	<if type="gitdesktop">
 
 	----
-	## The fork is ahead of OLL master?
+	## The fork is ahead of main repo?
 
 	**Problem statement**  
 	Your fork says -
@@ -912,12 +912,12 @@ After committing your changes to master, go to your fork repo and *create a pull
 
 	![tbd](./images/rebase-01-fork-ahead.png " ")
 
-	You do a `fetch origin`, `merge upstream/master`, and `push origin` to update both clone and fork repo with OLL master. Even after updating both clone and fork, you get a *commits mismatch* message on your fork. 
+	You do a `fetch origin`, `merge upstream/main`, and `push origin` to update both clone and fork repo with main repo. Even after updating both clone and fork, you get a *commits mismatch* message on your fork. 
 
-	This means that your fork is not fully synced with OLL master. If you get this message on your fork, how to clean this without submitting a pull request to OLL master? 
+	This means that your fork is not fully synced with main repo. If you get this message on your fork, how to clean this without submitting a pull request to main repo? 
 
 	**What to do**  
-	Bring your fork repo in sync with OLL master (fully up-to-date). 
+	Bring your fork repo in sync with main repo (fully up-to-date). 
 
 	In GitHub Desktop - 
 
@@ -925,7 +925,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 
 		![tbd](./images/rebase-02-rebase-menu.png " ")
 
-	1. In the Rebase master window, select the branch *upstream/master* and click **Rebase**.
+	1. In the Rebase main window, select the branch *upstream/main* and click **Rebase**.
 
 		![tbd](./images/rebase-03-select-branch.png " ")
 
@@ -935,12 +935,12 @@ After committing your changes to master, go to your fork repo and *create a pull
 
 		GitHub Desktop gives an option to force push with all ahead and behind commits.
 
-	1. Click on **Force push origin** to rewrite history on `origin/master`.   
+	1. Click on **Force push origin** to rewrite history on `origin/main`.   
 		The window displays a pop-up to confirm this action. Click on **I'm sure** to proceed.
 
 		![tbd](./images/rebase-05-force-push.png " ")
 
-	Refresh the browser page for the fork. You will see that the fork is now up to date with the master. 
+	Refresh the browser page for the fork. You will see that the fork is now up to date with main repo. 
 
 	![tbd](./images/rebase-06-fork-uptodate.png " ")
 
@@ -949,7 +949,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 	<if type="gitbash">
 
 	----
-	## The fork is ahead of OLL master?
+	## The fork is ahead of main repo?
 
 	**Problem statement**  
 	Your fork says -
@@ -960,12 +960,12 @@ After committing your changes to master, go to your fork repo and *create a pull
 
 	![tbd](./images/rebase-01-fork-ahead.png " ")
 
-	You do a `fetch origin`, `merge upstream/master`, and `push origin` to update both clone and fork repo with OLL master. Even after updating both clone and fork, you get a *commits mismatch* message on your fork. 
+	You do a `fetch origin`, `merge upstream/main`, and `push origin` to update both clone and fork repo with main repo. Even after updating both clone and fork, you get a *commits mismatch* message on your fork. 
 
-	This means that your fork is not fully synced with OLL master. If you get this message on your fork, how to clean this without submitting a pull request to OLL master? 
+	This means that your fork is not fully synced with main repo. If you get this message on your fork, how to clean this without submitting a pull request to main repo? 
 
 	**What to do**  
-	Bring your fork repo in sync with OLL master (fully up-to-date).  
+	Bring your fork repo in sync with main repo (fully up-to-date).  
 
 	From Git Bash - 
 
@@ -976,18 +976,18 @@ After committing your changes to master, go to your fork repo and *create a pull
 		```
 
 	1.	```
-		$ <copy>git checkout master</copy>
+		$ <copy>git checkout main</copy>
 		```
 
 		## Result
 
 		```
-		Already on 'master'
-		Your branch is up to date with 'origin/master'.
+		Already on 'main'
+		Your branch is up to date with 'origin/main'.
 		```
 
 	1.	```
-		$ <copy>git reset --hard upstream/master</copy>
+		$ <copy>git reset --hard upstream/main</copy>
 		```
 
 		## Result
@@ -1006,51 +1006,51 @@ After committing your changes to master, go to your fork repo and *create a pull
 		```
 		Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
 		To https://github.com/manish-garodia/learning-library.git
-		 + bf93e2e310...e7edee3254 master -> master (forced update)
+		 + bf93e2e310...e7edee3254 main -> main (forced update)
 		```
 
 	1.	```
-		$ <copy>git checkout master</copy>
+		$ <copy>git checkout main</copy>
 		```
 
 		## Result
 
 		```
-		Already on 'master'
-		Your branch is up to date with 'origin/master'.
+		Already on 'main'
+		Your branch is up to date with 'origin/main'.
 		```
 
 	1. 	```
-		$ <copy>git rebase master</copy>
+		$ <copy>git rebase main</copy>
 		```
 
 		## Result
 
 		```
-		Current branch master is up to date.
+		Current branch main is up to date.
 		```
 
 	1. 	```
-		$ <copy>git push -u origin master</copy>
+		$ <copy>git push -u origin main</copy>
 		```
 
 		## Result
 
 		```
 		Everything up-to-date
-		Branch 'master' set up to track remote branch 'master' from 'origin'.
+		Branch 'main' set up to track remote branch 'main' from 'origin'.
 		```
 
 		----
 		## Need an explanation?
 
-		Here, `git reset --hard upstream/master` will *reset master HEAD* on the updated `upstream/master`, in order for `master` to reflect the exact same history as the one in the remote repo.
+		Here, `git reset --hard upstream/main` will *reset main HEAD* on the updated `upstream/main`, in order for `main` to reflect the exact same history as the one in the remote repo.
 
-		But since some commits where previously done on master and pushed on the fork (`origin/master`), you would need to replace that history with the new master state. Hence, the `git push --force`.
+		But since some commits where previously done on main repo and pushed on the fork (`origin/main`), you would need to replace that history with the new main state. Hence, the `git push --force`.
 
 		Now, rebasing `mybranch` allows those current patches to be based on the most up-to-date commit in the remote repo.
 
-	Refresh the browser page for the fork. You will see that the fork is now up to date with the master. 
+	Refresh the browser page for the fork. You will see that the fork is now up to date with main repo. 
 
 	![tbd](./images/rebase-06-fork-uptodate.png " ")
 
@@ -1092,7 +1092,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 	- **Final option**: if all the above failed, take the long route - 
 		1. Delete the file (or move it out to another location) 
 		1. Create a folder with the new name (or rename at another location and copy it back). 
-		1. Commit to master with the new name.
+		1. Commit to main repo with the new name.
 
 		Use this option as the last resort. 
 
@@ -1144,7 +1144,7 @@ After committing your changes to master, go to your fork repo and *create a pull
 
 	**Scenario 1** - *Before `push origin`*
 
-	You did `commit to master` but did not `push origin` yet.
+	You did `commit to main` but did not `push origin` yet.
 
 	**What to do**
 
@@ -1234,7 +1234,7 @@ Successfully rebased and updated refs/heads/main.
 
 	**Scenario 2** - *After `push origin`* 
 
-	You did not only `commit to master` but also `push origin`. Can such commits be modified?
+	You did not only `commit to main` but also `push origin`. Can such commits be modified?
 
 	**What to do**
 
@@ -1416,7 +1416,7 @@ Successfully rebased and updated refs/heads/main.
 	<if type="gitdesktop">
 
 	----
-	## Upstream master does not show up in GitHub Desktop?
+	## Upstream main does not show up in GitHub Desktop?
 
 	**Problem statement**  
 	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/msater` under `Other branches`. 
@@ -1435,11 +1435,11 @@ Successfully rebased and updated refs/heads/main.
 		D:\GitHub\learning-library\.git\refs\remotes\upstream
 		```
 
-	1. Delete the master file in the clone.
+	1. Delete the `main` file in the clone.
 
-	1. Fetch again to get a new copy of the master file from the fork.
+	1. Fetch again to get a new copy of the `main` file from the fork.
 
-	Now, `upstream/master` will be displayed again in the merge window. 
+	Now, `upstream/main` will be displayed again in the merge window. 
 
 	----
 	## Change the default External Editor from Notepad++ to Atom
@@ -1485,7 +1485,7 @@ Successfully rebased and updated refs/heads/main.
 	choco-bites  
 	beautiful-chaos
 	fluffy-cat  
-	johhny-bravo  
+	johnny-bravo  
 	keep-the-change  
 	mickey-mouse  
 	mount-everest  
@@ -1502,5 +1502,5 @@ Successfully rebased and updated refs/heads/main.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - June 25, (Sat) 2022
+ - **Last Updated on** - July 8, (Fri) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)

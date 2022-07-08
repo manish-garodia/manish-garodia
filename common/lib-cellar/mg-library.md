@@ -35,9 +35,10 @@ Pick a topic and open it in a separate tab.
 | 6    | Hands down in markdown | wip |
 | <if type="hidden">6-a    | [GitHub pull requests](https://manish-garodia.github.io/mg-playground/topic-title/github-pr/) | History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github. </if> |
 | <if type="hidden">6-b    | [Zoom Barabar Zoom](https://manish-garodia.github.io/mg-playground/topic-title/zoom-barabar-zoom/) | How to integrate Zoom with Outlook, add plug-in for Outlook </if> |
-| <if type="hidden">7    | Linux | desc </if> |
+| <if type="hidden">7    | Linux | desc |
 | 8    | Vi Editor | desc |
-| 9    | working on it ... | suggest me some |
+| 9    | Terraforms explained | desc </if> |
+| 7    | working on it ... | suggest me some |
 
 ## Acknowledgements
 

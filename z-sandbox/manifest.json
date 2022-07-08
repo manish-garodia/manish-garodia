@@ -4,7 +4,7 @@
         {
             "title": "Welcome to MG space..!",
             "description": "This is the landing page for my personal space MG.",
-			"publisheddate": "11-Jun-2022",
+			"publisheddate": "08-Jul-2022",
             "filename": "./../common/intro/readme.md",
 			"type": "hidden"
         },
@@ -47,7 +47,7 @@
             "title": "Lab #: Fun with Git-Bits",
             "description": "The information in this lab revolves around github, git desktop, git bash.",
             "filename": "./../common/lib-cellar/procedures/fun-with-git-bits/fun-with-git-bits.md",
-			"publisheddate": "08-Jun-2022",
+			"publisheddate": "08-Jul-2022",
 			"type": "hidden",
 			"type":{"gitconcepts":"General concepts","gitdesktop":"GitHub Desktop","gitbash":"Git Bash"}
 		},
