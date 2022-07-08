@@ -6,6 +6,8 @@
 
 This lab contains topics developed from notes on specific areas. These notes converge from various sources, for example *discussions*, *trainings*, *experiments*, *mistakes*, and *failures*. 
 
+It also lists down the videos and channels on oTube.
+
 <!--
 - [Access VM and Configure VNC](https://manish-garodia.github.io/mg-playground/topic-title/access-vm-config-vnc/)
 - [Compute Instance and Custom Image](https://manish-garodia.github.io/mg-playground/topic-title/compute-instance-custom-image/)
@@ -40,10 +42,41 @@ Pick a topic and open it in a separate tab.
 | 9    | Terraforms explained | desc </if> |
 | 7    | working on it ... | suggest me some |
 
+## oTube : : My *channels* and *videos* : :
+
+Videos from meetings, presentations, demos, etc. posted on oTube. 
+
+**Channels**
+
+ - [mg library](https://otube.oracle.com/channel/t/257943902)
+ - [Tools and environment](https://otube.oracle.com/channel/t/257957572)
+<if type="hidden"> - [Project - Performance Hub OCI](https://otube.oracle.com/channel/t/261319662)
+ - [Project - DBA Essentials Livelabs workshops](https://otube.oracle.com/channel/t/257943952)</if>
+
+**Videos - general**
+
+| sl # | Name (hyperlinked)           | Description                          | Channel             | <if type="hidden">Last updated |</if>
+|------|------------------------------|--------------------------------------|---------------------|
+| 1    | [Masking screenshots in Web UIs, <br>Convert from Confluence to Markdown (VIM session)](https://otube.oracle.com/media/t/1_c9khlspm) | Presentation: Masking sensitive information in Web UI screenshots, Convert from Confluence to Markdown by Manish Garodia on April 6, 2022  | [mg library](https://otube.oracle.com/channel/t/257943902) | July 7, 2022 (Thu)|
+| 2    | [Using variables in Oxygen](https://otube.oracle.com/media/t/1_41cw944f)  | How to use variables in Oxygen XML Author 17.1 by Suresh Mohan on July 07, 2022 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 7, 2022 (Thu) |
+| 3    | [Using conrefs in Oxygen](https://otube.oracle.com/media/t/1_5dplbjir)  | How to use conrefs in Oxygen XML Author 17.1 by Suresh Mohan on July 07, 2022 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 7, 2022 (Thu) |
+| 4    | [Install Oracle Enterprise Manager (Oracle EM)](https://otube.oracle.com/media/t/1_rfywyxmo)  | How to install Oracle Enterprise Manager Cloud Control (Oracle EMCC) 13.5 by Kurt Engeleiter on 28 June 2021 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 5, 2022 (Tue) |
+| 5 | | | | |
+
+<if type="hidden">
+**Videos - project**
+
+| sl # | Name (hyperlinked)           | Description                          | Channel             | Last updated |
+|------|------------------------------|--------------------------------------|---------------------|--------------|
+| 1    | [Performance Hub in OCI docs](https://otube.oracle.com/media/t/1_h0l5pyuf) | Meeting with Diane Gaskill on 1 Feb 22 regarding Performance Hub documentation in OCI | [Performance Hub OCI](https://otube.oracle.com/channel/t/261319662) | July 5, 2022 (Tue) |
+| 2    | [UA-PM meet 29 Jun 22](https://otube.oracle.com/media/t/1_495mt4py) | UA/PM Meeting on 29 June 2022 regarding the migration of performance hub documentation from OCI to OHC | [Performance Hub OCI](https://otube.oracle.com/channel/t/261319662) | July 5, 2022 (Tue) |
+| 3 | | | | |
+</if>
+
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - May 21, (Sat) 2022
+ - **Last Updated on** - July 8, (Fri) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)
  
  
