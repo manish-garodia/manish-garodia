@@ -9,7 +9,7 @@
 			"type": "hidden"
         },
         {
-            "title": "Lab 1: MG Library",
+            "title": "Lab 1: MG Library : tell-me-how",
             "description": "Contains topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures. It also lists down the videos and channels on oTube.",
 			"publisheddate": "08-Jul-2022",
             "filename": "./../common/lib-cellar/mg-library.md",
@@ -47,7 +47,7 @@
             "title": "Lab #: Fun with Git-Bits",
             "description": "The information in this lab revolves around github, git desktop, git bash.",
             "filename": "./../common/lib-cellar/procedures/fun-with-git-bits/fun-with-git-bits.md",
-			"publisheddate": "08-Jul-2022",
+			"publisheddate": "10-Jul-2022",
 			"type": "hidden",
 			"type":{"gitconcepts":"General concepts","gitdesktop":"GitHub Desktop","gitbash":"Git Bash"}
 		},

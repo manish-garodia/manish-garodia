@@ -2,7 +2,7 @@
     "workshoptitle": "Labs in MG Library",
     "tutorials": [
         {
-            "title": "Lab #: MG Library",
+            "title": "Lab #: MG Library : tell-me-how",
             "description": "Contains a list of topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures. It also lists down the videos and channels on oTube.",
 			"publisheddate": "08-Jul-2022",
             "filename": "./../common/lib-cellar/mg-library.md"

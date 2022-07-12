@@ -1,4 +1,4 @@
-# MG Library
+# MG Library : tell-me-how
 
 ![mg library](./../images/mg-library.png " ") 
 
@@ -6,7 +6,7 @@
 
 This lab contains topics developed from notes on specific areas. These notes converge from various sources, for example *discussions*, *trainings*, *experiments*, *mistakes*, and *failures*. 
 
-It also lists down the videos and channels on oTube.
+It also lists down videos and channels published on oTube.
 
 <!--
 - [Access VM and Configure VNC](https://manish-garodia.github.io/mg-playground/topic-title/access-vm-config-vnc/)
@@ -44,7 +44,7 @@ Pick a topic and open it in a separate tab.
 
 ## oTube : : My *channels* and *videos* : :
 
-Videos from meetings, presentations, demos, etc. posted on oTube. 
+Videos from meetings, presentations, demos, etc. posted on [oTube](https://otube.oracle.com/). 
 
 **Channels**
 
@@ -57,11 +57,13 @@ Videos from meetings, presentations, demos, etc. posted on oTube.
 
 | sl # | Name (hyperlinked)           | Description                          | Channel             | <if type="hidden">Last updated |</if>
 |------|------------------------------|--------------------------------------|---------------------|
-| 1    | [Masking screenshots in Web UIs, <br>Convert from Confluence to Markdown (VIM session)](https://otube.oracle.com/media/t/1_c9khlspm) | Presentation: Masking sensitive information in Web UI screenshots, Convert from Confluence to Markdown by Manish Garodia on April 6, 2022  | [mg library](https://otube.oracle.com/channel/t/257943902) | July 7, 2022 (Thu)|
-| 2    | [Using variables in Oxygen](https://otube.oracle.com/media/t/1_41cw944f)  | How to use variables in Oxygen XML Author 17.1 by Suresh Mohan on July 07, 2022 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 7, 2022 (Thu) |
-| 3    | [Using conrefs in Oxygen](https://otube.oracle.com/media/t/1_5dplbjir)  | How to use conrefs in Oxygen XML Author 17.1 by Suresh Mohan on July 07, 2022 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 7, 2022 (Thu) |
-| 4    | [Install Oracle Enterprise Manager (Oracle EM)](https://otube.oracle.com/media/t/1_rfywyxmo)  | How to install Oracle Enterprise Manager Cloud Control (Oracle EMCC) 13.5 by Kurt Engeleiter on 28 June 2021 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 5, 2022 (Tue) |
-| 5 | | | | |
+| <if type="hidden">0-a | [Masking screenshots, Convert from Confluence to Markdown](https://otube.oracle.com/media/t/1_c9khlspm) | Vim session by Manish Garodia on April 6, 2022 | unlisted | July 7, 2022 (Thu)</if> | 
+| 1    | [Masking sensitive information in Web UI screenshots](https://otube.oracle.com/media/t/1_0d43dk99) | Presentation by Manish Garodia on April 6, 2022  | [mg library](https://otube.oracle.com/channel/t/257943902) | July 9, 2022 (Sat) |
+| 2    | [Convert content from Confluence to Markdown](https://otube.oracle.com/media/t/1_q1wt1tmj) | Presentation by Manish Garodia on April 6, 2022  | [mg library](https://otube.oracle.com/channel/t/257943902) | July 9, 2022 (Sat) |
+| 3    | [Using variables in Oxygen](https://otube.oracle.com/media/t/1_41cw944f)  | How to use variables in Oxygen XML Author 17.1 by Suresh Mohan on July 07, 2022 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 7, 2022 (Thu) |
+| 4    | [Using conrefs in Oxygen](https://otube.oracle.com/media/t/1_5dplbjir)  | How to use conrefs in Oxygen XML Author 17.1 by Suresh Mohan on July 07, 2022 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 7, 2022 (Thu) |
+| 5    | [Install Oracle Enterprise Manager (Oracle EM)](https://otube.oracle.com/media/t/1_rfywyxmo)  | How to install Oracle Enterprise Manager Cloud Control (Oracle EMCC) 13.5 by Kurt Engeleiter on 28 June 2021 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 5, 2022 (Tue) |
+| 6 | | | | |
 
 <if type="hidden">
 **Videos - project**
@@ -76,7 +78,7 @@ Videos from meetings, presentations, demos, etc. posted on oTube.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - July 8, (Fri) 2022
+ - **Last Updated on** - July 9, (Sat) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)
  
  

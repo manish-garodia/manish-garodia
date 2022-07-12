@@ -2,7 +2,7 @@
 
 ## The fork, the clone, the main repo
 
-The information in this lab revolves around - 
+The information in this lab revolves around -
 
 ### ![GitHub](./images/git-black-small.png) &nbsp;&nbsp;&nbsp;&nbsp;[GitHub](?lab=fun-with-git-bits&type=gitconcepts)
 
@@ -10,7 +10,7 @@ The information in this lab revolves around -
 
 ### ![Git Bash](./images/git-bash-small.png) &nbsp;&nbsp;&nbsp;&nbsp;[Git Bash](?lab=fun-with-git-bits&type=gitbash)
 
-## Learn about git<if type="gitconcepts"> concepts</if><if type="gitdesktop"> desktop</if><if type="gitbash"> bash</if>
+## Learn about git<if type="gitconcepts"> concepts</if><if type="gitdesktop">hub desktop</if><if type="gitbash"> bash</if>
 
 <if type="gitconcepts">
 - Basic concepts
@@ -18,7 +18,7 @@ The information in this lab revolves around -
 - A few good practices
 </if>
 <if type="gitdesktop">
-- 
+- GitHub Desktop basic setup
 </if>
 <if type="gitbash">
 - *Fetch* vs *Pull*
@@ -29,9 +29,9 @@ The information in this lab revolves around -
 	----
 	## Basic concepts
 
-	The fork creates a copy of the entire Oracle learning-library (OLL) master repository into our GitHub (GH) account. 
+	The fork creates a copy of the entire Oracle learning-library (OLL) master repository into our GitHub (GH) account.
 	 - Cannot fork a single (or a specific) folder from OLL. In GH, it works as a repository.
-	 - Cannot create multiple forks from OLL. 
+	 - Cannot create multiple forks from OLL.
 
 	Creating a new fork opens the existing repository from our GH account, which is already forked.
 
@@ -40,13 +40,13 @@ The information in this lab revolves around -
 
 	Merge pull request to update the fork from the latest changes in OLL. Fetch origin from Git Desktop and bring the clone up-to-date.
 
-	If we use a file from another location outside the workshop and the file gets modified, for example a lab from the common library, GH automatically updates that file in our workshop. No action required from our side. The turnaround time to approve pull requests may vary, from 2 days to a week or more. 
+	If we use a file from another location outside the workshop and the file gets modified, for example a lab from the common library, GH automatically updates that file in our workshop. No action required from our side. The turnaround time to approve pull requests may vary, from 2 days to a week or more.
 
 	If you submit a pull request from the fork to OLL, the labs will not show up on LiveLabs immediately. The admin (Livelabs reviewers) will review the submissions on OLL, creates the required pages, and finally makes them available on the LiveLabs application.
 
 	- All interactions between the clone and the fork can take place using either one of these.
 		- *GitHub Desktop*
-		- *Git GUI* 
+		- *Git GUI*
 		- *Git Bash*
 
 	 For example, create a clone from the fork, update the clone from the fork, push the clone to fork, and so on.
@@ -65,7 +65,7 @@ The information in this lab revolves around -
 
 	#### Prerequisites
 
-	1. From the fork repo, go to **Settings** > **GitHub pages**. 
+	1. From the fork repo, go to **Settings** > **GitHub pages**.
 	2. Under **Source**, select **Branch: main** > */root*.
 
 		It may take ~30-60 mins to publish the site/repo and show-up the preview.
@@ -76,8 +76,10 @@ The information in this lab revolves around -
 	oracle.github.io/<path to index.html>
 	```
 
+	----
 	### Recommendations for working on LiveLabs
 
+	----
 	#### Option A: New repo
 
 	1.  Create a new repo: 2-day DBA.
@@ -87,6 +89,7 @@ The information in this lab revolves around -
 
 	Ensure to pull from this repo every time someone modifies any file to avoid conflicts.
 
+	----
 	#### Option B: Clone from a common fork
 
 	1.  One person to create a fork repo of OLL and add others as contributors to that fork.
@@ -106,9 +109,9 @@ The information in this lab revolves around -
 	----
 	## A few good practices
 
-	1. You must keep your fork and clone updated with Oracle learning-library, even though you are not actively working on your workshop or your workshop has no modifications. 
+	1. You must keep your fork and clone updated with Oracle learning-library, even though you are not actively working on your workshop or your workshop has no modifications.
 
-	1. If you do not update your clone and fork for a long time and the number of commit changes with OLL master is significantly high, you may find conflicts while merging or submitting a pull request. Then you may need to delete your fork and your clone, and then redo like afresh. 
+	1. If you do not update your clone and fork for a long time and the number of commit changes with OLL master is significantly high, you may find conflicts while merging or submitting a pull request. Then you may need to delete your fork and your clone, and then redo like afresh.
 
 		> Update the fork first before pushing the changes from clone to fork and then pull request from fork to OLL. This step ensures other person's changes are also merged.   
 	*GH does not allow such pull requests, which creates conflicts*.
@@ -117,28 +120,116 @@ The information in this lab revolves around -
 
 	1. If more than one person is working on the same lab, they must keep their fork updated to avoid conflicts.
 
-	1. If your fork repo is <ins>old</ins> (not updated), and the clone is <ins>in sync</ins> (up-to-date) with the fork, then `merge upstream/main` will not show any changes. If you try to merge with `upstream/main`, it will show that - <i>your branch is up-to-date</i>. In reality, both clone and fork are <ins>behind</ins> OLL master. 
+	1. If your fork repo is <ins>old</ins> (not updated), and the clone is <ins>in sync</ins> (up-to-date) with the fork, then `merge upstream/main` will not show any changes. If you try to merge with `upstream/main`, it will show that - <i>your branch is up-to-date</i>. In reality, both clone and fork are <ins>behind</ins> OLL master.
 
-		> **Note:** Always fetch origin (or fetch upstream) to update the fork from `upstream/main` and then try to `merge upstream`. 
+		> **Note:** Always fetch origin (or fetch upstream) to update the fork from `upstream/main` and then try to `merge upstream`.
 
 	1. If you modify an older version of a file, GH returns a conflict error on pull request. In such case, update the fork and clone, make changes your file, and submit the pull request again.
 
 	1. When you submit a PR to OLL master, any further merging from your Github account is blocked. Until a code owner reviews and approves the PR, you cannot submit another PR in parallel.  
 
-		> **Note:** After submitting the PR if you make changes to any files, you can still commit to master and submit a *merge request* instead. 
+		> **Note:** After submitting the PR if you make changes to any files, you can still commit to master and submit a *merge request* instead.
 
 	1. Create a fork from the GH page and create a clone of fork from Git Desktop. If it takes longer, disconnect VPN and try creating the clone again.
 
 	1. If a lab is in development and a writer wants to initiate a review, do it from the fork, not from OLL. 
 
+	----
+	## A few good practices
+
+	Atoms live server plugins to install
+
+	![Atom live server plugins](./images/atom-live-server-plugins.png " ")
+
 	</if>
 
 	<if type="gitdesktop">
 
+	----
+	## Create a new clone on your local system
+
+	After you fork the main repo, you can create a clone of the fork on your local system.
+
+	1. Go to **File** > **Clone repository** (keyboard shortcut **Ctrl**+**Shift**+**O**).
+
+		![Clone menu option 1](./images/clone-01-clone-menu-option1.png " ")
+
+		Alternatively, click the arrow next to **Current repository** > **Add** > **Clone repository**.
+
+		![Clone menu option 2](./images/clone-02-clone-menu-option2.png " ")
+
+		If you are logged in to Github, the desktop app displays all repos associated with your account under **Your repositories**.
+
+	1. Select the repo that you want to clone, for example, *common*.
+
+		![Select local path and create clone repo](./images/clone-03-select-repo-local-path.png " ")
+
+		> **Note:** Check if the **Local path** is correct, or **Choose** a different path for the clone repo directory.
+
+	----
+	## Add existing clone to GitHub Desktop
+
+	If you create a new clone using GitHub Desktop, then the window displays the repo under the account name. But if you have a clone already created using Git Bash or other sources, it will be not listed in GitHub Desktop automatically.
+
+	However, you can add such existing clone repos to your GithHub Desktop application.
+
+	1. From the **File** menu, select **Add local repository** (keyboard shortcut **Ctrl**+**O**).
+
+		![Add local repo menu option 1](./images/clone-04-add-local-repo-menu-option1.png " ")
+
+		Alternatively, click the arrow next to **Current repository** > **Add** > **Add existing repository**.
+
+		![Add local repo menu option 2](./images/clone-05-add-local-repo-option2.png " ")
+
+	1. **Choose** the **Local path** of the clone repo folder.
+
+		![Choose local path](./images/clone-06-local-path.png " ")
+
+	1. Select the clone repo folder in the browser window.
+
+		![Select folder](./images/clone-07-select-folder.png " ")
+
+		The add local repository window displays the folder you selected.
+
+	1. Click on **Add repository** to add the clone repository to GitHub Desktop.
+
+		![Add clone repo](./images/clone-08-add-clone-repo.png " ")
+
+		GitHub Desktop displays the repos under the associated account name.
+
+		![All repos](./images/clone-09-all-repos.png " ")
+
+		Similarly, you can remove clone repos from GitHub Desktop.
+
+	----
+	## Remove clone repo from GitHub Desktop
+
+	If you do not want to manage a repo, you can remove it from GitHub Desktop. While removing a repo, you may choose to keep the files and folders on your system or delete them along. 
+
+	1. Right-click the repo, which you want to remove, and select **Remove**.
+
+		![Remove option](./images/clone-10-remove-option.png " ")
+
+		It displays a confirmation pop-up.
+
+	1. Click **Remove** again to remove the clone repo from GitHub Desktop.
+
+		![Remove repo](./images/clone-11-remove-repo.png " ")
+
+		 > **Note:** To physically remove files and folders of the repo from your system, select the option **Also move this repository to Recycle Bin** in the above pop-up window. Optionally, this step may display a window for folder access permissions.   
+		 Click **Continue** to delete the files and folders of the repo.
+
+		 > ![Folder permission](./images/clone-12-folder-permission.png " ")
+
+		If GitHub Desktop is unable to remove the clone repo, then it displays an error message.
+
+		![Error removing repo](./images/clone-13-remove-repo-error.png " ")
+
+	----
 	## Sync between clone, fork, and main repo
 
-	1. Go to **File** > **Options**.
-	1. The **Accounts** tab shows that you are logged in to your GitHub account. 
+	1. Go to **File** > **Options** (keyboard shortcut **Ctrl**+**,**).
+	1. The **Accounts** tab shows that you are logged in to your GitHub account.
 
 	<br>
 	Now, to update your fork repo and the clone you have:
@@ -154,13 +245,13 @@ The information in this lab revolves around -
 	----
 	## **Fetch** vs **Pull**
 
-	The `fetch` command and the `pull` command looks similar but they perform different functions and serve different purposes. 
+	The `fetch` command and the `pull` command looks similar but they perform different functions and serve different purposes.
 
 	| git fetch | git pull |
 	|-----------|----------|
 	| Tells your clone to get the meta-data information from OLL master. It checks if any updates are available but does not do any file transfer. |  Not only does a check for updates but also brings down all changes from OLL master to the clone. |
 
-	In short, the *git pull* command does a *git fetch* followed by a *git merge*. 
+	In short, the *git pull* command does a *git fetch* followed by a *git merge*.
 
 	</if>
 
@@ -168,7 +259,7 @@ The information in this lab revolves around -
 
 ## Get along with GitHub Desktop
 
-- 
+- Regular activities using GitHub Desktop
 
 	----
 	## Option 1: Update fork > pull to clone (browser)
@@ -181,11 +272,11 @@ The information in this lab revolves around -
 		----
 		## 1. To update fork from upstream main (browser)
 
-		1. Log in to your Github account in a browser. 
-		
+		1. Log in to your Github account in a browser.
+
 		1. Go to your fork repo `<your-account>/learning-library`.   
-		   The **Code** tab displays a message. 
-		   
+		   The **Code** tab displays a message.
+
 			```
 			This branch is xx commits behind oracle:main.
 			```
@@ -211,25 +302,25 @@ The information in this lab revolves around -
 		1. Click **Fetch origin**. It displays the message.
 
 		    ```
-		    Pull xx commits from the origin remote. 
+		    Pull xx commits from the origin remote.
 		    ```
 
-		1. Click **Pull origin** (either one). It displays the message. 
+		1. Click **Pull origin** (either one). It displays the message.
 
 		    ```
 		    Last fetch just now.
 		    ```
 
-		The clone is now updated. 
+		The clone is now updated.
 
 	----
 	## Option 2: Update clone > push to fork (GitHub Desktop)
-	
+
 	Update both clone and fork together using GitHub Desktop.
 
 	1. Open **GitHub Desktop**.
 
-	1. From **Branch** > select **Merge into current branch**. 
+	1. From **Branch** > select **Merge into current branch**.
 
 	1. The default branch selected is *main*.   
 	   Under Other branches, select *upstream/main*. It displays a message.
@@ -238,16 +329,16 @@ The information in this lab revolves around -
 		This will merge xx commits from upstream/main into main
 		```
 
-	1. Click **Create a merge commit**. It displays the message. 
+	1. Click **Create a merge commit**. It displays the message.
 
 	    ```
 	    Successfully merged upstream/main into main
 	    ```
 
-	   This step updates the clone. 
+	   This step updates the clone.
 
 	5. Click **Push origin**.  	
-		This step updates the fork repo. 
+		This step updates the fork repo.
 
 		From **Repository** > select **View on GitHub** to open OLL master. Go to your fork repo and verify this message.
 
@@ -257,7 +348,8 @@ The information in this lab revolves around -
 		 No new commits to fetch. Enjoy your day!
 		 ```
 
-		## Cite source 
+		----
+		## Cite source
 		[Video by Tom McGinn](https://otube.oracle.com/media/t/1_bxj0cfqf) on 30 July, 2020   
 		In this video, I'll show you how to:  
 		- Merge the production repo files with your fork and local clone, to ensure you have the latest/greatest files  
@@ -273,15 +365,15 @@ The information in this lab revolves around -
 
 	1. Add a *Summary* and a brief *Description*.
 
-	1. Under **Changes**, verify that the impacted files are selected. 
+	1. Under **Changes**, verify that the impacted files are selected.
 
-	1. Click **Commit to master**. 
-	
+	1. Click **Commit to master**.
+
 	1. Click **Push origin**.
 
-	The changes from the local clone are pushed to the fork repo. 
-	
-	> **Note:** It may take a few minutes for your fork to build the Github pages. 
+	The changes from the local clone are pushed to the fork repo.
+
+	> **Note:** It may take a few minutes for your fork to build the Github pages.
 
 </if>
 
@@ -290,8 +382,8 @@ The information in this lab revolves around -
 ## Merge fork with main repo (PRs)
 
 Want to merge your updated fork repo with main repo? *Submit a pull request*.   
-After committing your changes to `main`, go to your fork repo and *create a pull request*. 
- 
+After committing your changes to `main`, go to your fork repo and *create a pull request*.
+
 - Options to open your fork repo
 
 	----
@@ -312,7 +404,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		1. Go to your fork repo `<your-account>/learning-library`.
 
-		> **Note:** If you have submitted a pull request already and it is under review (waiting for approval), then you cannot create another pull request in parallel. The **Branch** menu will have an option to **Show pull request** instead. 
+		> **Note:** If you have submitted a pull request already and it is under review (waiting for approval), then you cannot create another pull request in parallel. The **Branch** menu will have an option to **Show pull request** instead.
 
 	----
 	## Submit pull request (PR)
@@ -326,19 +418,19 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	![1 commit ahead](./images/1-commit-ahead.png " ")
 
 	Submit a PR to merge your changes with the main repository.
-	
+
 	1. From your fork repo, go to **Pull requests** > **New pull request**.
 
-		> **Note:** The page must display that you are **<i><font style="color:rgb(63,185,61);">Able to merge</font></i>** (in green). The arrow is from your fork (head repo) and points to OLL (base repo). 
+		> **Note:** The page must display that you are **<i><font style="color:rgb(63,185,61);">Able to merge</font></i>** (in green). The arrow is from your fork (head repo) and points to OLL (base repo).
 
 	1. Click **Create pull request**.
 
 	1. Review the message for the PR.
-	
-		> **Note:** Do not forget to mention the workshop ID in the subject line of the message. 
+
+		> **Note:** Do not forget to mention the workshop ID in the subject line of the message.
 
 	1. Click **Create pull request**.   
-		It creates a merge request with a four-digit code and displays a message. 
+		It creates a merge request with a four-digit code and displays a message.
 
 		```
 		[user] wants to merge 1 commit into oracle:main from [user]:main
@@ -354,6 +446,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
  - Learn about stage, commit, push, pull, fetch, git configurations, and other commonly used commands
 
+	----
 	## All about commit
 
 	The main steps for pushing the local changes from the clone to the fork repo -
@@ -366,18 +459,18 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		----
 		## 1. Display local changes
 
-		 - View the staged/unstaged files in the clone. 
+		 - View the staged/unstaged files in the clone.
 
 			----
 			## Display modified files in the clone
 
-			View the files that are modified, moved, added, or deleted in the clone. It displays only the files and not the content changes within the files. 
+			View the files that are modified, moved, added, or deleted in the clone. It displays only the files and not the content changes within the files.
 
 			```
 			$ <copy>git status</copy>
 			```
 
-			> **Tip:** It is a good practice to view git status at the beginning and also in between or at the end before commit, to verify the correct files are included in the commit. 
+			> **Tip:** It is a good practice to view git status at the beginning and also in between or at the end before commit, to verify the correct files are included in the commit.
 
 			----
 			## Display compact status
@@ -395,7 +488,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 			----
 			## Display content changes in the clone
 
-			Compare the clone with the fork. View the content changes line-by-line within the modified files in the clone. 
+			Compare the clone with the fork. View the content changes line-by-line within the modified files in the clone.
 
 			- **for detailed view**
 
@@ -457,10 +550,10 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 				```
 				$ <copy>git add .</copy>
-				 
+
 				```
 
-			1. These commands work from anywhere in the local repo (clone). 
+			1. These commands work from anywhere in the local repo (clone).
 
 			- 	```
 				$ <copy>git add -A</copy>
@@ -479,34 +572,34 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 			----
 			## Undo (Rollback) staging
 
-			**Use case:** You have staged your modified files in the clone but not yet committed to main repo. And you want to bring them back and make more changes to the staged files, before committing. 
+			**Use case:** You have staged your modified files in the clone but not yet committed to main repo. You want to bring them back and make more changes to the staged files, before committing.
 
-			You can undo staging without hurting the files or losing your local changes. This will bring the staged files back into their previous unstaged condition but will not affect the content changes. 
-			
-			**Note:** This command is *safe* to use.
+			You can undo staging without hurting the files or losing your local changes. This will bring the staged files back into their previous unstaged condition but will not affect the content changes.
 
-			- To unstage a single file:
+			 > **Note:** This command is *safe* to use.
+
+			 - To unstage a single file:
 
 				```
 				$ <copy>git restore --staged [file-name full-path]</copy>
-				``` 
+				```
 
-				Note the flag **--staged** used in this command. If you do not use this flag, then all local changes will be lost ***permanently***. 
+				Note the flag **--staged** used in this command. If you do not use this flag, then all local changes will be lost ***permanently***.
 
-			- To unstage everything but keep you local changes intact:
+			 - To unstage everything but keep your local changes intact:
 
 				```
 				$ <copy>git reset</copy>
-				``` 
+				```
 
 			**See also** *Discard local changes*
 
 			----
 			## Discard local changes
 
-			**Use case**: The local changes in the clone are incorrect and you want the files back from the main repo. 
+			**Use case**: The local changes in the clone are incorrect and you want the files back from the main repo.
 
-			<i>DO NOT</i> use these, unless you want to discard all changes made in the clone and update from main repo. 
+			<i>DO NOT</i> use these, unless you want to discard all changes made in the clone and update from main repo.
 
 			```
 			$ git restore [file-name]...
@@ -516,9 +609,9 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 			**Warning:** All local changes will be **lost forever**.
 
-			The `git restore` command without the *--staged* flag will forget all local changes. This command is irreversible, you cannot retrieve the discarded changes ever again. 
+			The `git restore` command without the *--staged* flag will forget all local changes. This command is irreversible, you cannot retrieve the discarded changes ever again.
 
-			> **Note:** If you stage some files followed by `git restore`, then all unstaged files (local changes) will be lost but the files that are already staged will remain intact, ready for committing. 
+			> **Note:** If you stage some files followed by `git restore`, then all unstaged files (local changes) will be lost but the files that are already staged will remain intact, ready for committing.
 
 			**See also** *un-stage a file*
 
@@ -540,14 +633,14 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 			Another option is, quit without saving, *:q!*. This will cancel the commit and go back to staging.
 
 			**Scenario**  
-			Suppose, you forgot to stage some files, or want to un-stage a wrong file, you can quit without saving and cancel the commit. 
-				
-			> **Note:** Git Bash does not commit with an empty file. 
+			Suppose, you forgot to stage some files, or want to un-stage a wrong file, you can quit without saving and cancel the commit.
+
+			> **Note:** Git Bash does not commit with an empty file.
 
 			----
 			## Still hungry for more?
 
-			 - Sometimes, you may want to stage and commit together in a single command. 
+			 - Sometimes, you may want to stage and commit together in a single command.
 
 				----
 				## Stage and commit along
@@ -560,28 +653,28 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 				**Flags**
 				 - *-a* stages every changed, tracked file automatically. Use this flag if no new files are added. However, if you have new additions or deletions, do a `git add` and then `git commit -m` separately.			 
-				 - *-am* adds all changed files with the commit message. 
+				 - *-am* adds all changed files with the commit message.
 
 				----
 				## Undo (rollback) commit and redo
 
-				**Use case**: Your commit message is wrong or you want to bring back for more editing, before issuing a `push origin`. You can undo the last commit without hurting any files or local changes. 
-				
+				**Use case**: Your commit message is wrong or you want to bring back for more editing, before issuing a `push origin`. You can undo the last commit without hurting any files or local changes.
+
 				It is safe to use.
 
-				1. You have committed your files already. 
-				
+				1. You have committed your files already.
+
 					```
 					$ <copy>git commit -m "something terribly misguided"</copy>
 					```
 
-				1. Undo the last commit and bring back prior to the staging state. The changes are still visible, and not lost. 
+				1. Undo the last commit and bring back prior to the staging state. The changes are still visible, and not lost.
 
 					```
 					$ <copy>git reset HEAD~</copy>
 					```
 
-					This step erases your git history instead of making a new commit. 
+					This step erases your git history instead of making a new commit.
 
 				1. Make changes as necessary.
 
@@ -591,13 +684,13 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 					$ <copy>git add .</copy>
 					```
 
-				1. Redo commit along with the new changes. 
+				1. Redo commit along with the new changes.
 
 					```
 					$ <copy>git commit -c ORIG_HEAD</copy>
 					```
 
-					It opens an editor and displays the log message from your previous commit. You may edit or add more to the message and commit again. 
+					It opens an editor and displays the log message from your previous commit. You may edit or add more to the message and commit again.
 
 				----
 				## What is the full syntax for commit?
@@ -629,12 +722,12 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	----
 	## Update fork and clone :: fetch and merge ::
 
-	- You have multiple ways to update the clone and the fork repo. 
+	- You have multiple ways to update the clone and the fork repo.
 
 		----
 		## Option 1: Update clone > push to fork
 
-		Update the clone from OLL master and then push the changes from clone to fork. 
+		Update the clone from OLL master and then push the changes from clone to fork.
 
 		1.  ```
 			$ <copy>git checkout main</copy>
@@ -659,7 +752,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		----
 		## Option 2: Update fork > pull to clone
 
-		Update the fork and pull the changes from fork to clone. 
+		Update the fork and pull the changes from fork to clone.
 
 		Use these commands to find the difference between the clone and your fork repo.  
 
@@ -679,7 +772,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 			$ <copy>git pull --all</copy>
 			```
 
-			Brings the clone up-to-date with the changes in the fork. 
+			Brings the clone up-to-date with the changes in the fork.
 
 	----
 	## Set up proxy config
@@ -743,7 +836,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	----
 	Push the repo from the command line.
 
-	1. 	Add a new remote repo. 
+	1. 	Add a new remote repo.
 
 		```
 		$ <copy>git remote add origin https://github.com/bg-manish/musical-lamp.git</copy>
@@ -755,19 +848,19 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		$ <copy>git remote set-url origin git@github.com:User/musical-lamp.git</copy>
 		```
 
-	1. 	Set up a branch, *main*, for the repo. 
+	1. 	Set up a branch, *main*, for the repo.
 
 		```
 		$ <copy>git branch -M main</copy>
 		```
 
-	1. 	Push the changes from clone to remote repo. 
+	1. 	Push the changes from clone to remote repo.
 
 		```
 		$ <copy>git push -u origin main</copy>
 		```
 
-		- Once you use `git push -u origin main`, from next time onwards you can use only `git push` without any flags. 
+		- Once you use `git push -u origin main`, from next time onwards you can use only `git push` without any flags.
 		- If you do only `git push` (without -u), then next time you use `git pull`, you have to enter the remote repository url when git pulling.
 
 		To check existing remotes:
@@ -779,12 +872,12 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	----
 	## Create a clone from fork
 
-	To clone a repository: 
+	To clone a repository:
 
 	1. Go to the GitHub directory on your local system.
 
-	1. Create a new folder for the clone. 
-	
+	1. Create a new folder for the clone.
+
 		```
 		$ <copy>mkdir <dir-name></copy>
 		```
@@ -794,8 +887,8 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		$ <copy>cd <dir-name></copy>
 		```
 
-	1. Run the commands to clone into the fork repo. 
-	
+	1. Run the commands to clone into the fork repo.
+
 		**Syntax**
 
 		```
@@ -810,7 +903,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		$ <copy>git clone https://github.com/bg-manish/northern-lights</copy>
 		```
 
-	Alternatively, you can specify a *folder-name* and clone the repo together in a single step. 
+	Alternatively, you can specify a *folder-name* and clone the repo together in a single step.
 
 	**Syntax**
 
@@ -824,7 +917,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	$ <copy>git clone https://github.com/bg-manish/northern-lights northern-lights</copy>
 	```
 
-	> **Note:** This command will create a folder *`northern-lights`* and clone the repo from the given URL. 
+	> **Note:** This command will create a folder *`northern-lights`* and clone the repo from the given URL.
 
 	----
 	## Common `git` commands
@@ -832,27 +925,28 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	| Command                                                | Usage                                     |
 	|--------------------------------------------------------|-------------------------------------------|
 	| `cd /d/GitHub`                                         | change drives                             |
-	| `cd <folder-name>`                                     | navigate between folders                  | 
-	| `git log`                                              | display log                               | 
+	| `cd <folder-name>`                                     | navigate between folders                  |
+	| `git log`                                              | display log                               |
 	| **Configuration**                                      |
-	| `~/.gitconfig`                                         | git config location                       | 
-	| `cat ~/.gitconfig`<br>`more ~/.gitconfig`              | display contents of config file           | 
-	| `vi ~/.gitconfig`                                      | modify config file                        | 
+	| `~/.gitconfig`                                         | git config location                       |
+	| `cat ~/.gitconfig`<br>`more ~/.gitconfig`              | display contents of config file           |
+	| `vi ~/.gitconfig`                                      | modify config file                        |
 	| `git config --list`                                    | display configuration settings            |
 	| `git config --list --show-origin`                      | view all variables in the config file     |
 	| `git config user.name`                                 | display git user name                     |
-	| `git config --global user.name "FIRST-NAME LAST-NAME"` | set git user name                         | 
-	| `git config --global user.email "MY-NAME@example.com"` | set git email address                     | 
-	| `git remote add origin repository-URL`                 | add repository URL                        | 
+	| `git config --global user.name "FIRST-NAME LAST-NAME"` | set git user name                         |
+	| `git config --global user.email "MY-NAME@example.com"` | set git email address                     |
+	| `git remote add origin repository-URL`                 | add repository URL                        |
 	| **Branch**                                             |
-	| `git branch`                                           | display branches in repo                  | 
-	| `git branch branch-name`                               | create a new branch                       | 
+	| `git branch`                                           | display branches in repo                  |
+	| `git branch branch-name`                               | create a new branch                       |
 	| `git branch -d branch-name`                            | remove a branch - <i>**safe** delete</i>  |
 	|`git branch -D branch-name`                             | remove a branch - <i>**force** delete</i> |
 	| 														 | 											 |
 	| `git rm` | If you just use only `rm`, you will need to follow it up with `git add <fileRemoved>`. Whereas `git rm` does this in one step (both file removal and staging for deletion on the next commit). It keeps a copy in the local file system until commit. |
 	| `git --version`                                        | current version of git                    |
 
+	----
 	### Yet to be tested (not verified)
 
 	- `git revert`   
@@ -870,10 +964,10 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	## Git Bash :: default start location ::
 
 	**Problem statement**  
-	You want to change the default directory to start in when you open Git Bash. 
+	You want to change the default directory to start in when you open Git Bash.
 
 	**What to do**  
-	A quick way to set the default start location (without installing `msysgit`) - 
+	A quick way to set the default start location (without installing `msysgit`) -
 
 	1. Right-click Git Bash (shortcut icon) > select **Properties**.
 
@@ -882,11 +976,11 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		- **Target** - *"C:\Program Files\Git\git-bash.exe" --cd-to-home*
 		- **Start in** - *%HOMEDRIVE%%HOMEPATH%*
 
-	1. Modify **Start in** and point to the desired location, preferrably the directory where your Clone resides.   
+	1. Modify **Start in** and point to the desired location, preferably the directory where your Clone resides.   
 	   Remove --cd-to-home.
 
 		Change to -
-		
+
 		- **Target** - *"C:\Program Files\Git\git-bash.exe"*   
 		- **Start in** - `[desired-location]` for example *D:\GitHub*
 
@@ -898,7 +992,6 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		![Git Bash start in](./images/gitbash-startin.jpg " ")
 
 	</if>
-	<if type="gitdesktop">
 
 	----
 	## The fork is ahead of main repo?
@@ -907,67 +1000,46 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	Your fork says -
 
 	```
-	Your branch is X commits ahead 
+	Your branch is X commits ahead
 	```
 
-	![tbd](./images/rebase-01-fork-ahead.png " ")
+	![Fork ahead of main](./images/rebase-01-fork-ahead.png " ")
 
-	You do a `fetch origin`, `merge upstream/main`, and `push origin` to update both clone and fork repo with main repo. Even after updating both clone and fork, you get a *commits mismatch* message on your fork. 
+	You do a `fetch origin`, `merge upstream/main`, and `push origin`. This updates both clone and fork repo with main repo. However, you get a *commits mismatch* message on your fork.
 
-	This means that your fork is not fully synced with main repo. If you get this message on your fork, how to clean this without submitting a pull request to main repo? 
+	This means that your fork is not fully synced with main repo. If you get this message on your fork, how to clean this up without submitting a pull request to main repo?
 
 	**What to do**  
-	Bring your fork repo in sync with main repo (fully up-to-date). 
+	Bring your fork repo in sync with main repo (fully up-to-date).
 
-	In GitHub Desktop - 
+	<if type="gitdesktop">
+
+	In GitHub Desktop -
 
 	1. Go to **Branch** > **Rebase current branch**.
 
-		![tbd](./images/rebase-02-rebase-menu.png " ")
+		![Rebase branch menu](./images/rebase-02-rebase-menu.png " ")
 
 	1. In the Rebase main window, select the branch *upstream/main* and click **Rebase**.
 
-		![tbd](./images/rebase-03-select-branch.png " ")
+		![Select branch](./images/rebase-03-select-branch.png " ")
 
 		GitHub Desktop starts the rebase and displays the commits.
 
-		![tbd](./images/rebase-04-rebase-progress.png " ")
+		![Rebase in progress](./images/rebase-04-rebase-progress.png " ")
 
 		GitHub Desktop gives an option to force push with all ahead and behind commits.
 
 	1. Click on **Force push origin** to rewrite history on `origin/main`.   
 		The window displays a pop-up to confirm this action. Click on **I'm sure** to proceed.
 
-		![tbd](./images/rebase-05-force-push.png " ")
-
-	Refresh the browser page for the fork. You will see that the fork is now up to date with main repo. 
-
-	![tbd](./images/rebase-06-fork-uptodate.png " ")
+		![Rebase force push](./images/rebase-05-force-push.png " ")
 
 	</if>
 
 	<if type="gitbash">
 
-	----
-	## The fork is ahead of main repo?
-
-	**Problem statement**  
-	Your fork says -
-
-	```
-	Your branch is X commits ahead 
-	```
-
-	![tbd](./images/rebase-01-fork-ahead.png " ")
-
-	You do a `fetch origin`, `merge upstream/main`, and `push origin` to update both clone and fork repo with main repo. Even after updating both clone and fork, you get a *commits mismatch* message on your fork. 
-
-	This means that your fork is not fully synced with main repo. If you get this message on your fork, how to clean this without submitting a pull request to main repo? 
-
-	**What to do**  
-	Bring your fork repo in sync with main repo (fully up-to-date).  
-
-	From Git Bash - 
+	From Git Bash -
 
 	1. Go to the clone directory.
 
@@ -979,6 +1051,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		$ <copy>git checkout main</copy>
 		```
 
+		----
 		## Result
 
 		```
@@ -990,6 +1063,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		$ <copy>git reset --hard upstream/main</copy>
 		```
 
+		----
 		## Result
 
 		```
@@ -1001,6 +1075,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		$ <copy>git push --force</copy>
 		```
 
+		----
 		## Result
 
 		```
@@ -1013,6 +1088,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		$ <copy>git checkout main</copy>
 		```
 
+		----
 		## Result
 
 		```
@@ -1024,6 +1100,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		$ <copy>git rebase main</copy>
 		```
 
+		----
 		## Result
 
 		```
@@ -1034,6 +1111,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		$ <copy>git push -u origin main</copy>
 		```
 
+		----
 		## Result
 
 		```
@@ -1041,20 +1119,20 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		Branch 'main' set up to track remote branch 'main' from 'origin'.
 		```
 
+	</if>
+
 		----
 		## Need an explanation?
 
-		Here, `git reset --hard upstream/main` will *reset main HEAD* on the updated `upstream/main`, in order for `main` to reflect the exact same history as the one in the remote repo.
+		Here, <if type="gitbash">*`git reset --hard upstream/main`*</if> <if type="gitdesktop">*Rebase current branch*</if> will `reset main HEAD` on the updated `upstream/main`, in order for `main` to reflect the exact same history as the one in the remote repo.
 
-		But since some commits where previously done on main repo and pushed on the fork (`origin/main`), you would need to replace that history with the new main state. Hence, the `git push --force`.
+		But since some commits where previously done on main repo and pushed on the fork (`origin/main`), you would need to replace that history with the new main state. Hence, <if type="gitbash">*`git push --force`*</if> <if type="gitdesktop">*`force push origin`*</if>.
 
 		Now, rebasing `mybranch` allows those current patches to be based on the most up-to-date commit in the remote repo.
 
-	Refresh the browser page for the fork. You will see that the fork is now up to date with main repo. 
+	Refresh the browser page for the fork. You will see that the fork is now up to date with main repo.
 
-	![tbd](./images/rebase-06-fork-uptodate.png " ")
-
-	</if>
+	![Rebase successful, fork up-to-date](./images/rebase-06-fork-uptodate.png " ")
 
 	----
 	## Rename objects in GitHub
@@ -1063,38 +1141,38 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	You want to rename files or folders in your repo, but GitHub does not reflect your changes.
 
 	**What to do**  
-	Applicable to both - <i>files</i> and <i>folders</i>. 
+	Applicable to both - <i>files</i> and <i>folders</i>.
 
 	<if type="gitbash">
 
 	- **Using Git Bash**
 		1. Open *Git Bash*.
-		1. Go to the file in the clone. 
-		1. Use the Linux command for moving/renaming files and folders. 
+		1. Go to the file in the clone.
+		1. Use the Linux command for moving/renaming files and folders.
 
 			```
 			$ <copy>mv <old name> <new name></copy>
 			```
 	</if>
 
-	- **Modify directly on GitHub** 
+	- **Modify directly on GitHub**
 		1. Login to *GitHub* in a browser and go to the repo.
-		1. Go to the file and > select **Edit file**. 
+		1. Go to the file and > select **Edit file**.
 		1. Place the cursor at the first character of the file name and hit backspace.
 
 	- **Using Windows Explorer**
 		1. Move the file to another location, outside the Clone.
 		1. Right-click (F2) and rename.
-		1. Copy the file back to the original location with the new name. 
+		1. Copy the file back to the original location with the new name.
 
-		> **Note:** Renaming a file or a folder at the same location in Windows Explorer does not help because the names are not case-sensitive. 
+		> **Note:** Renaming a file or a folder at the same location in Windows Explorer does not help because the names are not case-sensitive.
 
-	- **Final option**: if all the above failed, take the long route - 
-		1. Delete the file (or move it out to another location) 
-		1. Create a folder with the new name (or rename at another location and copy it back). 
+	- **Final option**: if all the above failed, take the long route -
+		1. Delete the file (or move it out to another location)
+		1. Create a folder with the new name (or rename at another location and copy it back).
 		1. Commit to main repo with the new name.
 
-		Use this option as the last resort. 
+		Use this option as the last resort.
 
 	<if type="gitbash">
 
@@ -1103,11 +1181,11 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	**Problem statement**
 
-	You entered a wrong message in the log, or forgot to add some files to staging. 
-	
+	You entered a wrong message in the log, or forgot to add some files to staging.
+
 	**What to do**
 
-	You can amend your last commit (just before `push origin`). Thus, instead of doing a new commit, you combine the staged changes with your previous commit. 
+	You can amend your last commit (just before `push origin`). Thus, instead of doing a new commit, you combine the staged changes with your previous commit.
 
 	To modify the commit message:
 
@@ -1120,12 +1198,12 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	To add more files for staging to the previous commit:
 
 	1. Add the missed file or files.
-	
+
 		```
 		$ <copy>git add common/mg-library/procedures/fun-with-git-bits/fun-with-git-bits.md</copy>
 		```
 
-	1. Amend the last commit. 
+	1. Amend the last commit.
 
 		```
 		$ <copy>git commit --amend --no-edit</copy>
@@ -1140,7 +1218,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	You do *multiple commits* from your clone (local repo). Now, you want to find an older commit, before the last commit, and modify it.
 	 - Scenario 1 - before `push origin`
-	 - Scenario 2 - after `push origin` 
+	 - Scenario 2 - after `push origin`
 
 	**Scenario 1** - *Before `push origin`*
 
@@ -1149,7 +1227,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	**What to do**
 
 	Do these steps just before `push origin`.
-	
+
 	1. Perform an interactive rebase and squash your commits.
 
 		Syntax
@@ -1162,7 +1240,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		git rebase -i @~n
 		```
 
-		 > Where, 
+		 > Where,
 		 >> *`n`* indicates the number of commits up to the first commit you want to edit   
 		 >> *`@`* is a shorthand for `HEAD`   
 		 >> *`~`* is the commit before the specified commit
@@ -1173,7 +1251,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		$ <copy>git rebase -i @~7</copy>
 		```
 
-		Output 
+		Output
 
 		```
 		[detached HEAD bae62a1] WS5 (11056) Released to prod
@@ -1188,21 +1266,21 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 Successfully rebased and updated refs/heads/main.
 		```
 
-		This opens the previous commits in the default editor. 
-		
+		This opens the previous commits in the default editor.
+
 	1. Go to the **Edit** mode and replace *`pick`* with *`e`* or *`r`* (*`edit`*).
 
 	 ![git rebase options](./images/git-commit-rebase.png " ")
 
 		 > **Note:** Press **i** to enter the **Edit** mode.
 
-		Use either of the following: 
+		Use either of the following:
 
 		 - **e** (edit) - use commit but stop for amending
 		 - **r** (reword) - use commit but edit only the commit message; you can directly modify the commit message
 		 - any other option shown in the editor
 
-		With *`e`*, you can use *`git commit --amend`* to modify the message or *`git reset @~`* to discard the last commit without losing the local changes. 
+		With *`e`*, you can use *`git commit --amend`* to modify the message or *`git reset @~`* to discard the last commit without losing the local changes.
 
 	1. Modify *`pick`* to *`r`* and save the commit history file.
 
@@ -1218,11 +1296,11 @@ Successfully rebased and updated refs/heads/main.
 
 		 ```
 		 $ <copy>git rebase --continue</copy>
-		 
+
 		 fatal: No rebase in progress?
 		 ```
-	
-	1. You can now push your commit with the modified message to the main repo. 
+
+	1. You can now push your commit with the modified message to the main repo.
 
 		 ```
 		 $ <copy>git push origin main</copy>
@@ -1232,7 +1310,7 @@ Successfully rebased and updated refs/heads/main.
 
 	![Git rebase unstaged files](./images/rebase-error.png " ")
 
-	**Scenario 2** - *After `push origin`* 
+	**Scenario 2** - *After `push origin`*
 
 	You did not only `commit to main` but also `push origin`. Can such commits be modified?
 
@@ -1248,12 +1326,12 @@ Successfully rebased and updated refs/heads/main.
 		$ <copy>git rebase -i @~18</copy>
 		```
 
-		 > Where, 
+		 > Where,
 		 >> *`n`* indicates the number of commits up to the first commit you want to edit   
 		 >> *`@`* is a shorthand for `HEAD`   
 		 >> *`~`* is the commit before the specified commit
 
-		Output 
+		Output
 
 		```
 		[detached HEAD 236ec52] WS2 (7141) Released to prod
@@ -1270,7 +1348,7 @@ Successfully rebased and updated refs/heads/main.
 		Successfully rebased and updated refs/heads/main.
 		```
 
-		This opens the previous commits in the default editor. 
+		This opens the previous commits in the default editor.
 
 	1. Go to the **Edit** mode and replace *`pick`* with *`e`* or *`r`* (*`edit`*).
 
@@ -1306,13 +1384,13 @@ Successfully rebased and updated refs/heads/main.
 		Merge made by the 'recursive' strategy.
 		```
 
-	1. Now push origin with the modified message from the clone to the main repo. 
+	1. Now push origin with the modified message from the clone to the main repo.
 
 		 ```
 		 $ <copy>git push origin main</copy>
 		 ```
 
-	It will create additional sets of commits on your main repo. 
+	It will create additional sets of commits on your main repo.
 
 	</if>
 
@@ -1330,15 +1408,15 @@ Successfully rebased and updated refs/heads/main.
 
 	**What happened**  
 
-	The clone could not talk to the fork or the remote repo. 
-	- Port 80 might be blocked, or 
+	The clone could not talk to the fork or the remote repo.
+	- Port 80 might be blocked, or
 	- you have not set the proxy configurations
 	- your internet is down
 
 	**What to do**  
 
-	1. Check your internet connection. 
-	1. VPN must be connected for the clone to talk to the fork repo. Disconnect the VPN and reconnect. 
+	1. Check your internet connection.
+	1. VPN must be connected for the clone to talk to the fork repo. Disconnect the VPN and reconnect.
 	1. Check the proxy configurations for git. See [Set up proxy config](https://manish-garodia.github.io/mg-playground/z-sandbox/?lab=fun-with-git-bits&type=gitbash#TakeaplungeintoGitBash)
 
 	----
@@ -1347,23 +1425,23 @@ Successfully rebased and updated refs/heads/main.
 	**Problem statement**  
 	You run a git command and get the following message.
 
-	Error in Git Bash - 
+	Error in Git Bash -
 	```
-	fatal: unable to access 'https://github.com/[your-account]/[your-repo].git/': 
+	fatal: unable to access 'https://github.com/[your-account]/[your-repo].git/':
 	Could not resolve proxy: [proxy-url]
 	```
 
-	Error in Git Desktop - 
+	Error in Git Desktop -
 	![Proxy issue-VPN error](./images/proxy-error-mask.png " ")
 
 	**What happened**   
-	VPN is disconnected. 
+	VPN is disconnected.
 
 	**What to do**  
-	1. Connect VPN and try again. 
-	1. If VPN is already connected, disconnect VPN and reconnect. 
+	1. Connect VPN and try again.
+	1. If VPN is already connected, disconnect VPN and reconnect.
 
-	VPN must be connected for the clone to talk to the fork repo. 
+	VPN must be connected for the clone to talk to the fork repo.
 
 	<if type="gitbash">
 
@@ -1379,8 +1457,8 @@ Successfully rebased and updated refs/heads/main.
 	```
 
 	**What it means**  
-	In Unix systems, the end of a line is represented with a line feed (LF). In Windows, a line is represented with a carriage return (CR) and a line feed (LF), thus (CRLF). 
-	
+	In Unix systems, the end of a line is represented with a line feed (LF). In Windows, a line is represented with a carriage return (CR) and a line feed (LF), thus (CRLF).
+
 	When you get code from git that was uploaded from a Unix system, they will only have an LF.
 
 	**What to do**
@@ -1391,7 +1469,7 @@ Successfully rebased and updated refs/heads/main.
 		$ <copy>git config core.autocrlf true</copy>
 		```
 
-	- You can also deactivate this feature in your git core config. 
+	- You can also deactivate this feature in your git core config.
 
 		```
 		$ <copy>git config core.autocrlf false</copy>
@@ -1407,7 +1485,8 @@ Successfully rebased and updated refs/heads/main.
 		$ <copy>git config --global core.autocrlf true</copy>
 		```
 
-		## Cite source 
+		----
+		## Cite source
 
 		[Virtual geek on vcloud-lab](http://vcloud-lab.com/entries/devops/resolved-git-warning-lf-will-be-replaced-by-crlf-in-file)
 
@@ -1419,8 +1498,8 @@ Successfully rebased and updated refs/heads/main.
 	## Upstream main does not show up in GitHub Desktop?
 
 	**Problem statement**  
-	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/msater` under `Other branches`. 
-	
+	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/msater` under `Other branches`.
+
 	**What to do**
 
 	1. Open the remote upstream folder in this location.
@@ -1439,23 +1518,23 @@ Successfully rebased and updated refs/heads/main.
 
 	1. Fetch again to get a new copy of the `main` file from the fork.
 
-	Now, `upstream/main` will be displayed again in the merge window. 
+	Now, `upstream/main` will be displayed again in the merge window.
 
 	----
 	## Change the default External Editor from Notepad++ to Atom
 
 	**Problem statement**  
 	In GitHub Desktop, the default **External Editor** shows *Notepad++*.   
-	You want to set the default editor to *Atom*. 
-	
+	You want to set the default editor to *Atom*.
+
 	![Default External Editor Notepad++](./images/desktop-editor-01-default-notepad.png " ")
 
 	**What to do**  
-	1. Download the new [Atom app](https://atom.io/) (`v1.60.0`) and install afresh. 
+	1. Download the new [Atom app](https://atom.io/) (`v1.60.0`) and install afresh.
 
-		 > **Note:** You may remove the older version of Atom manually using Window Explorer or CLI (git bash). 
+		 > **Note:** You may remove the older version of Atom manually using Window Explorer or CLI (git bash).
 
-	1. Open GitHub Desktop and go to **File** > **Options**. 
+	1. Open GitHub Desktop and go to **File** > **Options**.
 
 	 ![Modify GitHub preferences](./images/desktop-editor-02-modify-options.png " ")
 
@@ -1470,6 +1549,7 @@ Successfully rebased and updated refs/heads/main.
 
 	</if>
 
+	----
 	## Notepad++ tips
 
 	**Problem statement**  
@@ -1480,6 +1560,7 @@ Successfully rebased and updated refs/heads/main.
 
 	<if type="hidden">
 
+	----
 	## Crazy repo-names
 
 	choco-bites  
@@ -1502,5 +1583,5 @@ Successfully rebased and updated refs/heads/main.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - July 8, (Fri) 2022
+ - **Last Updated on** - July 10, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
