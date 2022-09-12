@@ -1558,6 +1558,35 @@ Successfully rebased and updated refs/heads/main.
 	**What to do**  
 	Keeping **Shift** and **Alt** pressed, use the cursor keys to select text in column mode.
 
+	----
+	## Unable to install plugin: `atom-live-server-####`
+
+	**Problem statement**  
+	You are trying to install atom-live-server-(any-version) but it returns the following error.
+
+	```
+	Installing “atom-live-server-plus@3.0.1” failed.Hide output…
+	Request for package information failed: [object Object]
+
+	npm ERR! code UNABLE_TO_VERIFY_LEAF_SIGNATURE
+	npm ERR! errno UNABLE_TO_VERIFY_LEAF_SIGNATURE
+	npm ERR! request to https://registry.npmjs.org/live-server failed, reason: unable to verify the first certificate
+
+	npm ERR! A complete log of this run can be found in:
+	npm ERR!     C:\Users\<user-profile>\.atom\.apm\_logs\2022-09-12T14_42_42_006Z-debug.log
+	```
+
+	**What to do**  
+	 Add this line to the file `~/.atom./apm/.apmrc`.
+
+	 ```
+	 strict-ssl = false
+	 ```
+
+	 It will bypass the SSL certificate validation and install the live-server plugins. 
+
+	 > **Note:** Though the instructions in the `.apmrc` file says *... should not be edited ...*, ignore that and continue adding the above line.
+
 	<if type="hidden">
 
 	----
@@ -1583,5 +1612,5 @@ Successfully rebased and updated refs/heads/main.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - July 10, (Sun) 2022
+ - **Last Updated on** - Sep 12, (Mon) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
