@@ -1395,6 +1395,39 @@ Successfully rebased and updated refs/heads/main.
 	</if>
 
 	----
+	## Push from clone to fork rejected with error 
+
+	**Problem statement**
+
+	You do a `push origin` to update your fork from your clone. But you receive an error that the command is *rejected*.
+
+	```
+	$ <copy>git push origin main</copy>
+	To https://github.com/[your-account]/[your-repo]
+	 ! [rejected]        main -> main (fetch first)
+	error: failed to push some refs to 'https://github.com/[your-account]/[your-repo]'
+	hint: Updates were rejected because the remote contains work that you do
+	hint: not have locally. This is usually caused by another repository pushing
+	hint: to the same ref. You may want to first integrate the remote changes
+	hint: (e.g., 'git pull ...') before pushing again.
+	hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+	```
+
+	![Update fork from clone rejected](./images/update-fork-from-clone-rejected.png " ")
+
+	**What happened**
+
+	You are trying to push your changes from the local clone to your fork but the fork is already  up-to-date with more recent changes than the clone.
+
+	**What to do**
+
+	Update your clone from the fork. This means, instead of `push origin`, run a *`pull origin`*.
+
+	```
+	$ <copy>git pull origin main</copy>
+	```
+
+	----
 	## Recv failure: Connection was reset
 
 	**Problem statement**  
