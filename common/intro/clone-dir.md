@@ -13,13 +13,13 @@
 
 | Oracle Livelabs     | Test Env :: Personal space                                                    |
 |---------------------|-------------------------------------------------------------------------------|
-| **Old** 		      | [dba-essentials test](./../../../mg-playground/projects/dba-essentials-test)  |
-| [learning-library](./../../../learning-library) | [MG Library (topics)](./../../../mg-playground/mg-library) |
-| **New** 		                                  | [start-here](./../../../mg-playground/start-here) |
-| [common](./../../../oracle-livelabs/common)     | [sandbox](./../../../mg-playground/z-sandbox)     | 
-| [database](./../../../oracle-livelabs/database) | [mg-playground](./../../../mg-playground)  		  |
-| [em-omc](./../../../oracle-livelabs/em-omc)     | [mg-library (repo)](./../../../mg-library)        | 
-| 												  | [musical-lamp](./../../../musical-lamp) 		  |
+| **new** 		      | [dba-essentials test](./../../../mg-playground/projects/dba-essentials-test)  |
+| [common](./../../../oracle-livelabs/common) | [MG Library (topics)](./../../../mg-playground/mg-library) |
+| [database](./../../../oracle-livelabs/database) | [start-here](./../../start-here) |
+| [em-omc](./../../../oracle-livelabs/em-omc) | [sandbox](./../../z-sandbox)         | 
+|  					| [mg-playground](./../../../mg-playground)  		  |
+| **old**     		  | [mg-library (repo)](./../../../mg-library)        | 
+| [learning-library](./../../../learning-library)  | [musical-lamp](./../../../musical-lamp) 		  |
 
 
 <if type="hidden">

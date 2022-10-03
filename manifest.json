@@ -1,0 +1,11 @@
+{
+    "workshoptitle": "Clones in local system",
+    "tutorials": [
+        {
+            "title": "Clone repos",
+            "description": "This is the landing page for the clones in my personal space MG.",
+			"publisheddate": "26-Sep-2022",
+            "filename": "./common/intro/clone-dir.md"
+        }
+    ]
+}

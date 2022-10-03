@@ -13,15 +13,16 @@ The information in this lab revolves around -
 ## Learn about git<if type="gitconcepts"> concepts</if><if type="gitdesktop">hub desktop</if><if type="gitbash"> bash</if>
 
 <if type="gitconcepts">
-- Basic concepts
-- Do's and Don'ts
-- A few good practices
+ - Basic concepts
+ - Do's and Don'ts
+ - A few good practices
 </if>
 <if type="gitdesktop">
-- GitHub Desktop basic setup
+ - GitHub Desktop basic setup
 </if>
 <if type="gitbash">
-- *Fetch* vs *Pull*
+ - *Upstream* and *Origin*: what are these?
+ - *Fetch* vs *Pull*
 </if>
 
 	<if type="gitconcepts">
@@ -241,6 +242,16 @@ The information in this lab revolves around -
 	</if>
 
 	<if type="gitbash">
+
+	----
+	## **Upstream** and **Origin**: what are these?
+
+	 You would come across these terms *upstream* and *origin* while working with git. Though both are repos but indicate different locations. 
+
+	 - *upstream* - is the main repo (Eg: oracle-livelabs/learning-library, em-omc, database)
+	 - *origin* - is the fork repo (manish-garodia/repo, etc) in your account
+
+	 If you run a `fetch` or `merge` on `upstream`, you are talking to the `main` repo. But if you point to `origin`, then your communication is with your fork. 
 
 	----
 	## **Fetch** vs **Pull**
@@ -1645,5 +1656,5 @@ Successfully rebased and updated refs/heads/main.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - Sep 12, (Mon) 2022
+ - **Last Updated on** - Oct 02, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)

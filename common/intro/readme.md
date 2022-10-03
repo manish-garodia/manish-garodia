@@ -131,7 +131,7 @@ coming soon... stay tuned
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - July 8, (Fri) 2022
+ - **Last Updated on** - September 24, (Sat) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./files/email.md)
 
 <if type="hidden"> </if>
