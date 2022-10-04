@@ -1,0 +1,4 @@
+
+    - Lab: Prepare setup (*Free-tier* and *Paid Tenants* only)
+    - Lab: Setup compute instance
+    - Lab: Initialize environment
