@@ -9,7 +9,7 @@ This lab covers the steps on how to install Oracle EM on VM. It also discusses t
 1. Set the `DISPLAY` environment variable.
 1. Run the EM Prereq Kit.
 
-> **Note:** This lab walks through the steps to install *Oracle EM 13.5*.
+> **Note:** This lab walks you through the steps to install *Oracle EM 13.5*.
 
 ----
 **1. Download the EM package and validate**
@@ -112,13 +112,13 @@ $ <copy>./em13500_linux64.bin EMPREREQ_KIT=true</copy>
 
 ## Task 2: Install Oracle EM 13.5
 
-1. Launch the installer. 
+- Launch the installer
 
 	```
 	$ <copy>./em13500_linux64.bin</copy>
 	```
 
-	Sample output:
+	## Sample output
 
 	```
 	Launcher log file is /tmp/OraInstall2022-05-20_01-45-57PM/launcher2022-05-20_01-45-57PM.log.
@@ -140,12 +140,19 @@ $ <copy>./em13500_linux64.bin EMPREREQ_KIT=true</copy>
 
 	![Skip Software Updates](./images/em-002-software-updates.png " ")**Figure:** Skip Software Updates
 
-1. Prerequisites checks - fix manually for failed item or **Ignore** the warnings.   
-   Sometimes, it displays a script to run. 
+1. Prerequisites checks. Sometimes, it displays a script to run. 
 
 	![Prerequisites Checks - Verify Environment](./images/em-003a-prereq-check.png " ")**Figure:** Prerequisites Checks - Verify Environment
 
+	Fix the failed items manually or click **Ignore** to skip the warnings.
+
 	![Ignore Issues in Environment](./images/em-003b-prereq-ignore.png " ")**Figure:** Ignore Issues in Environment
+
+	If the environment meets all requirements, the status displays *Succeeded*.
+
+	![Prerequisites checks - Success](./images/em-003c-prereq-success.png " ")**Figure:** Prerequisites checks - Success
+
+	Click **Next** to conitue.
 
 1. Installation details.
 
@@ -229,7 +236,7 @@ These credentials are required for the maintenance of EM.
 
 	Auto-fix if applicable. For more help, see [Troubleshooting](?lab=install-emcc#Task4:Troubleshooting). 
 
-1. Click **OK** to use the AL32UTF8 character set. 
+	Click **OK** to use the AL32UTF8 character set. 
 
 	![Character Set](./images/em-008b-char-set.png " ")**Figure:** Character Set
 
@@ -258,53 +265,55 @@ These credentials are required for the maintenance of EM.
 
 	![Port Configuration Details](./images/em-011-port-config.png " ")**Figure:** Port Configuration Details
 
-1. Review the summary of installation and click **Next**.
+	Review the summary of installation and click **Next**.
 
-1. On the Review page, review the details and click **Install** to start EM installation.
+1. On the Review page, review the details.
 
 	![Review - top](./images/em-012a-review1.png " ")**Figure:** Review - top
 
 	![Review - bottom](./images/em-012b-review2.png " ")**Figure:** Review - bottom
 
-   The installation progress starts. 
+1. Click **Install** to start EM installation. The installation progress starts. 
 
 	![EM Installation progress](./images/em-013a-install-progress.png " ")**Figure:** EM Installation progress
 
-1. Run the scripts automatically (or manually as `root` from the terminal).
+	 - Run the scripts automatically (or manually as `root` from the terminal).
 
-	![All Root script](./images/em-013b-all-root-script.png " ")**Figure:** All Root script
+		![All Root script](./images/em-013b-all-root-script.png " ")**Figure:** All Root script
 
-	```
-	$ <copy>/scratch/u01/software/em/middleware/allroot.sh</copy>
-	```
+		```
+		$ <copy>/scratch/u01/software/em/middleware/allroot.sh</copy>
+		```
 
-	## Result
+		## Result
 
-	```
-	Starting to execute allroot.sh ......... 
+		```
+		Starting to execute allroot.sh ......... 
 
-	Starting to execute /scratch/u01/software/em/middleware/root.sh ......
-	Check /scratch/u01/software/em/middleware/install/root_phoenix62464_2021-08-11_05-28-03.log for the output of root script
+		Starting to execute /scratch/u01/software/em/middleware/root.sh ......
+		Check /scratch/u01/software/em/middleware/install/root_phoenix62464_2021-08-11_05-28-03.log for the output of root script
 
-	Finished product-specific root actions.
-	/etc exist
-	Finished execution of  /scratch/u01/software/em/middleware/root.sh ......
+		Finished product-specific root actions.
+		/etc exist
+		Finished execution of  /scratch/u01/software/em/middleware/root.sh ......
 
 
-	Starting to execute /scratch/u01/software/em/agent/agent_13.5.0.0.0/root.sh ......
+		Starting to execute /scratch/u01/software/em/agent/agent_13.5.0.0.0/root.sh ......
 
-	Finished product-specific root actions.
-	/etc exist
-	Finished execution of  /scratch/u01/software/em/agent/agent_13.5.0.0.0/root.sh ......
-	```
+		Finished product-specific root actions.
+		/etc exist
+		Finished execution of  /scratch/u01/software/em/agent/agent_13.5.0.0.0/root.sh ......
+		```
 
-1. Return to the installer and click **OK** to continue the installation. 
+	 - Return to the installer and click **OK** to continue the installation. 
 
-1. On completion, note the EM URLs for 19c and **Close** the installer. 
+1. On successful completion, the installer displays the Finish window. 
 
 	![EM Installation Complete - top](./images/em-014-finish1.png " ")**Figure:** EM Installation Complete - top
 
 	![EM Installation Complete - bottom](./images/em-014-finish2.png " ")**Figure:** EM Installation Complete - bottom
+
+	> **Note:** Before you **Close** the installer, do not forget to note the EM URLs for 19c. 
 
 | Interface                    | Link                                         |
 |------------------------------|----------------------------------------------|
@@ -322,7 +331,7 @@ Cite: Another EM installation procedure explained here - [Manual EM Shiphome ins
 
 ## Task 3: Deinstall EM
 
-**Note:** Do not deinstall the repository database (Oracle Database 19c) before deinstalling EM. Else, it will return an error `The OMS delete of EMGC_OMS1 has failed.`
+> **Note:** Do not deinstall the repository database (Oracle Database 19c) before deinstalling EM. Else, it will return an error `The OMS delete of EMGC_OMS1 has failed.`
 
 - Run `deinstall` manually
 - Deinstall using script
@@ -1052,5 +1061,5 @@ A log file is generated to capture the deinstallation process.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - November 11, (Fri) 2022
+ - **Last Updated on** - November 28, (Mon) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

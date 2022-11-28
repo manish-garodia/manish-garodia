@@ -32,7 +32,7 @@
         {
             "title": "Lab #: Install Oracle EM",
             "description": "How to install Oracle EM on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EM.",
-			"publisheddate": "10-Nov-2022",
+			"publisheddate": "28-Nov-2022",
             "filename": "./../common/lib-cellar/procedures/install-em/install-em.md",
 			"type": "hidden"
         },
