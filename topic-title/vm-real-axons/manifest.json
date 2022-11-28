@@ -1,0 +1,11 @@
+{
+    "workshoptitle": "Labs in MG Library",
+    "tutorials": [
+        {
+            "title": "Lab #: Virtual Machines - Real Actions",
+            "description": "How to access VM and configure VNC.",
+			"publisheddate": "21-May-2022",
+            "filename": "./../../common/lib-cellar/procedures/vm-real-axons/vm-real-axons.md"
+        }
+    ]
+}

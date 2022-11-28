@@ -1,4 +1,4 @@
-# Access VM and Configure VNC
+# Virtual Machines - Real Actions
 
 ## Introduction
 This lab shows how to access the VM and configure the VNC. 
@@ -87,11 +87,11 @@ Go to [MyDesktop applications](https://mydesktop.oraclecorp.com/myd_sso/apps.mai
 	Would you like to enter a view-only password (y/n)? n
 	A view-only password is not used
 
-	New 'phoenix62464:1 (mgarodia)' desktop is phoenix62464:1 <-- your port number
+	New 'phoenix123546:1 (mgarodia)' desktop is phoenix123546:1 <-- your port number
 	Creating default startup script /home/mgarodia/.vnc/xstartup
 	Creating default config /home/mgarodia/.vnc/config
 	Starting applications specified in /home/mgarodia/.vnc/xstartup
-	Log file is /home/mgarodia/.vnc/phoenix62464:1.log
+	Log file is /home/mgarodia/.vnc/phoenix123546:1.log
 	```
 
 	Note the (instance) port number assigned; the default is *1*. 
@@ -100,7 +100,7 @@ Go to [MyDesktop applications](https://mydesktop.oraclecorp.com/myd_sso/apps.mai
 
 	**Example 1**
 	```
-	<copy>phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:1</copy>
+	<copy>phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:1</copy>
 	```
 	<if type="hidden">
 	**Example 2**
@@ -108,6 +108,11 @@ Go to [MyDesktop applications](https://mydesktop.oraclecorp.com/myd_sso/apps.mai
 	<copy>slc10wsw.us.oracle.com:2</copy>
 	```
 	</if>
+
+	Cite: Alternate ways to enable VNC viewer on latest operating system (OL8+) - 
+	 - [Install VNC on RHEL 8](https://www.tecmint.com/install-vnc-server-on-rhel-8/)
+	 - [Create VNC on OCI VMs](https://confluence.oraclecorp.com/confluence/display/EMQ/Create+VNC+on+OCI+VM+Instances)
+	 - []()
 
 ## Troubleshooting VNC
 
@@ -166,7 +171,7 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 
 			```
 			mgarodia   465 31047  0 03:57 pts/5    00:00:00 grep --color=auto vnc
-			mgarodia  2415     1  0  2021 ?        00:15:13 /usr/bin/Xvnc :1 -auth /home/mgarodia/.Xauthority -desktop phoenix62464:1 (mgarodia) -fp catalogue:/etc/X11/fontpath.d -geometry 1024x768 -pn -rfbauth /home/mgarodia/.vnc/passwd -rfbport 5901 -rfbwait 30000
+			mgarodia  2415     1  0  2021 ?        00:15:13 /usr/bin/Xvnc :1 -auth /home/mgarodia/.Xauthority -desktop phoenix123546:1 (mgarodia) -fp catalogue:/etc/X11/fontpath.d -geometry 1024x768 -pn -rfbauth /home/mgarodia/.vnc/passwd -rfbport 5901 -rfbwait 30000
 			mgarodia  2431     1  0  2021 ?        00:00:00 /bin/sh /home/mgarodia/.vnc/xstartup
 			```
 
@@ -238,10 +243,10 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 		Output:
 
 		```
-		New 'phoenix62464:1 (mgarodia)' desktop is phoenix62464:1
+		New 'phoenix123546:1 (mgarodia)' desktop is phoenix123546:1
 
 		Starting applications specified in /home/mgarodia/.vnc/xstartup
-		Log file is /home/mgarodia/.vnc/phoenix62464:1.log
+		Log file is /home/mgarodia/.vnc/phoenix123546:1.log
 		```
 
 		The VNC server is back. You can connect with TigerVNC again.
@@ -256,6 +261,7 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 
 | VM hostname                                             | Description                           |
 |---------------------------------------------------------|-------------------------------------  |
+| phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com  | OCI machine <br>IP:    |
 | phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com   | OCI machine <br>IP: `100.104.88.84`   |
 | slc10wsw.us.oracle.com:2                                | Uno machine <br>User ID: `1477205`    |
 |<if type="hidden">phoenix62465.dev1sub1phx.databasede1phx.oraclevcn.com:1 | Suresh Mohan's VM <br>pwd: *welcome1* </if>|
@@ -264,5 +270,5 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - May 21, (Sat) 2022
+ - **Last Updated on** - Nov 6, (Sun) 2022
 
