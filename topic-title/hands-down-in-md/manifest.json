@@ -3,9 +3,9 @@
     "tutorials": [
         {
             "title": "Lab #: Hands down in Markdown",
-            "description": "Using the markdown format and tags",
-			"publisheddate": "24-Apr-2022",
-            "filename": "./../common/lib-cellar/procedures/hands-down-in-md/hands-down-in-md.md"
+            "description": "Using markdown basic formatting and tags.",
+			"publisheddate": "26-Nov-2022",
+            "filename": "./../../common/lib-cellar/procedures/hands-down-in-md/hands-down-in-md.md"
         }
     ]
 }
