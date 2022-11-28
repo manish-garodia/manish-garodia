@@ -4,7 +4,7 @@
         {
             "title": "Lab #: Oracle Database 21c Gold Image",
             "description": "Pre-installation setup and post installation tasks for Oracle Database 21c gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.",
-			"publisheddate": "21-May-2022",
+			"publisheddate": "06-Nov-2022",
             "filename": "./../../common/lib-cellar/procedures/install-db-goldimage/install-db-goldimage.md"
         }
     ]
