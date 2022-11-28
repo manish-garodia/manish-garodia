@@ -3,8 +3,8 @@
     "tutorials": [
         {
             "title": "Lab #: Fun with Git-Bits",
-            "description": "The information in this lab revolves around github, git desktop, git bash.",
-			"publisheddate": "02-Oct-2022",
+            "description": "The information in this lab revolves around github, git desktop, git bash, code editors.",
+			"publisheddate": "28-Nov-2022",
             "filename": "./../../common/lib-cellar/procedures/fun-with-git-bits/fun-with-git-bits.md",
 			"type":{"gitconcepts":"General concepts","gitdesktop":"GitHub Desktop","gitbash":"Git Bash"}
         }

@@ -4,22 +4,22 @@
         {
             "title": "Welcome to MG space..!",
             "description": "This is the landing page for my personal space MG.",
-			"publisheddate": "24-Sep-2022",
+			"publisheddate": "05-Nov-2022",
             "filename": "./../common/intro/readme.md",
 			"type": "hidden"
         },
         {
             "title": "Lab 1: MG Library : tell-me-how",
             "description": "Contains topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures. It also lists down the videos and channels on oTube.",
-			"publisheddate": "08-Jul-2022",
+			"publisheddate": "11-Nov-2022",
             "filename": "./../common/lib-cellar/mg-library.md",
 			"type": "hidden"
         },
         {
-            "title": "Lab #: Access VM and Configure VNC",
-            "description": "How to access the VM and configure the VNC.",
+            "title": "Lab #: Virtual Machines - Real Actions",
+            "description": "How to access VM and configure VNC.",
 			"publisheddate": "21-May-2022",
-            "filename": "./../common/lib-cellar/procedures/access-vm-config-vnc/access-vm-config-vnc.md",
+            "filename": "./../common/lib-cellar/procedures/vm-real-axons/vm-real-axons.md",
 			"type": "hidden"
         },
         {
@@ -30,10 +30,10 @@
 			"type": "hidden"
         },
         {
-            "title": "Lab #: Install Oracle EMCC",
-            "description": "How to install Oracle EMCC on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EMCC.",
-			"publisheddate": "21-May-2022",
-            "filename": "./../common/lib-cellar/procedures/install-emcc/install-emcc.md",
+            "title": "Lab #: Install Oracle EM",
+            "description": "How to install Oracle EM on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EM.",
+			"publisheddate": "10-Nov-2022",
+            "filename": "./../common/lib-cellar/procedures/install-em/install-em.md",
 			"type": "hidden"
         },
         {
@@ -45,17 +45,24 @@
         },
         {
             "title": "Lab #: Fun with Git-Bits",
-            "description": "The information in this lab revolves around github, git desktop, git bash.",
+            "description": "The information in this lab revolves around github, git desktop, git bash, code editors.",
             "filename": "./../common/lib-cellar/procedures/fun-with-git-bits/fun-with-git-bits.md",
-			"publisheddate": "02-Oct-2022",
+			"publisheddate": "28-Nov-2022",
 			"type": "hidden",
 			"type":{"gitconcepts":"General concepts","gitdesktop":"GitHub Desktop","gitbash":"Git Bash"}
 		},
         {
             "title": "Lab #: Hands down in Markdown",
-            "description": "Using the markdown format and tags",
+            "description": "Using markdown basic formatting and tags.",
             "filename": "./../common/lib-cellar/procedures/hands-down-in-md/hands-down-in-md.md",
-			"publisheddate": "24-Apr-2022",
+			"publisheddate": "26-Nov-2022",
+			"type": "hidden"
+        },
+        {
+            "title": "Lab #: Linux -:- feed the penguin",
+            "description": "Get hands dirty with Linux commands, tips, and tricks.",
+            "filename": "./../common/lib-cellar/procedures/linux-feed-penguin/linux-feed-penguin.md",
+			"publisheddate": "03-Nov-2022",
 			"type": "hidden"
         },
         {

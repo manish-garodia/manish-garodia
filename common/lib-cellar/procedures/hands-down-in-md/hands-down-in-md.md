@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This lab helps explaining the usage of markdown format and tags. 
+This lab is about markdown basic formatting and tags. 
 
 ### Common code editors
  - **Notepad ++** &emsp;: &emsp;[Read about it](https://notepad-plus-plus.org/) &nbsp;- &nbsp;[want to download](https://notepad-plus-plus.org/downloads/)
@@ -171,7 +171,6 @@ You can create up to `######` six levels of heading styles.
 
 ## code
 
-
  - Inline code blocks
 
 	<ins>Format</ins>   
@@ -202,6 +201,12 @@ You can create up to `######` six levels of heading styles.
 	}
 	```
 
+	```java
+	System.out.println("Hello World");
+	```
+
+ - To stop syntax highlighting in code, use `text':
+
 	```text
 	if (isAwesome){
 	  return true
@@ -211,6 +216,6 @@ You can create up to `######` six levels of heading styles.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - April 24, (Sun) 2022
+ - **Last Updated on** - November 26, (Sat) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
 

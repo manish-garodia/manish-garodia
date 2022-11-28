@@ -965,6 +965,116 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 </if>
 
+## Visual Studio Code - *Live Server* plugin
+
+Live Server is an extension of the coding editor, **Visual Studio Code**. First install VS Code followed by Live Server.
+
+For this lab, the (latest) versions used are - 
+ - Visual Studio Code *1.72*   
+   for Windows 8, 10, 11 (`VSCodeUserSetup-x64-1.72.2.exe`)
+ - Live Server plugin *5.7.9*
+
+### Prerequisite
+
+ - Visual Studio Code is available for free download from its official site, [here](https://code.visualstudio.com/download).
+
+	Select the installer type based on the operating system - 
+	 - Windows
+	 - Linux (Debian, Ubuntu, RH, etc.)
+	 - Mac
+
+ -  Run the installer and install VS Code on your system. It hardly takes a few seconds. 
+
+ > **Note:** If you have already installed VS Code, skip the prerequisite and jump straight into the steps below. 
+
+### *Install Live Server*
+
+1. Open the VS Code editor and click the **Extensions** icon in the left menu. 
+
+	(image)
+
+1. Search for *Live Server*.
+
+	(image)
+
+1. Under Live Server, click **Install**. 
+
+	(image)
+
+	On completion, you can click on the extension to verify.
+
+	(image)
+
+	You can now run the Live Server plugin from VS Code. 
+
+### *Run Live Server*
+
+To run Live Server, you must have a folder in your VS Code workspace.
+
+1. Click **File** > **Open Folder**.
+
+	(image)
+
+1. Browse for the project folder (clone directory) and add it to your workshop.
+
+	(image)
+
+	Alternatively, you can right-click the explorer and **Add Folder to Workspace**.
+
+	(image)
+
+1. Click on **Go Live** at the bottom-right corner. 
+
+	(image)
+
+	It opens the Live Server page (clone directory) in your default browser with the URL  `http://127.0.0.1:5500/`.
+
+	> **Tip:** Unlike Atom, keep the VS Code window open (or minimized) while working on your clone. If you close the VS Code window, Live Server stops and you cannot view the pages anymore.
+
+	If you have more than one folder in your VS Code workspace, while you run the live server it may ask which folder to select for the live server. 
+
+### *Close Live Server*
+
+ - Click *Port : 5500* at the bottom-right corner of VS Code window to stop Live Server.
+
+	## Cite reference
+
+	 - [Visual Studio Code for Markdown Development](https://confluence.oraclecorp.com/confluence/display/DBIDDP/Visual+Studio+Code+for+Markdown+Development)
+
+----
+
+### *Other plugins for VS Code*
+
+Additionally, install:
+
+ - **Trailing Spaces**   
+	Highlight trailing spaces and remove them
+
+	(image)
+
+	 - <i>Shardul Mahadik</i>
+
+ - **Path Intellisense**   
+	Browse through files and folders in `manifest.json`
+
+	(image)
+
+	 - <i>Christian Kohler</i>
+
+ - **Code Spell Checker**   
+	Check spellings in the markdown files
+
+	(image)
+
+	 - <i>Street Code Software</i>
+
+ - **markdownlint**   
+	Styling and lint checker for labs
+
+	(image)
+
+	 - <i>David Anson</i>
+
 ## Tricks up-the-sleeves
 
 - Scenarios, solutions, troubleshooting options
@@ -1274,7 +1384,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		 ...
 		 ...
 		 create mode 100644 live/dba-essentials/manage-storage-structures/workshops/livelabs/manifest.json
-Successfully rebased and updated refs/heads/main.
+		Successfully rebased and updated refs/heads/main.
 		```
 
 		This opens the previous commits in the default editor.
@@ -1596,11 +1706,14 @@ Successfully rebased and updated refs/heads/main.
 	----
 	## Notepad++ tips
 
-	**Problem statement**  
+	**Use case**  
 	You want to select the text in column mode.
 
 	**What to do**  
-	Keeping **Shift** and **Alt** pressed, use the cursor keys to select text in column mode.
+	 - Keeping **Shift** and **Alt** pressed, use the cursor keys to select the text in column mode.
+	 - Use **Alt** + drag the Mouse
+
+	> **Note:** I prefer the second option, <i>Shift+Alt</i> and cursor keys. 
 
 	----
 	## Unable to install plugin: `atom-live-server-####`
@@ -1656,5 +1769,5 @@ Successfully rebased and updated refs/heads/main.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - Oct 02, (Sun) 2022
+ - **Last Updated on** - Nov 28, (Mon) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
