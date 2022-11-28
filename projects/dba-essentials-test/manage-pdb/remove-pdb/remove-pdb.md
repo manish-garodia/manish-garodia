@@ -21,10 +21,8 @@ Perform these tasks from Oracle EM:
 
 This lab assumes you have -
 
- -   A Free Tier, Paid or LiveLabs Oracle Cloud account
- -   Completed -
-	 [](include:labs-prereq)
-     -   Lab: Provision a Pluggable Database (PDB)
+ -   An Oracle Cloud account
+ -   Completed all previous labs successfully
  -   Logged in to Oracle EM in a web browser as *sysman*
 
 ## Task 1: Delete a PDB from the root container
@@ -33,7 +31,7 @@ Oracle EM provides an option to delete PDBs from the database instance home page
 
 In this task, you will delete the PDB, namely *PDB1*, from the root container using Oracle EM. You can open the Databases page from the menu **Targets** &gt; **Databases**. 
 
-1.  On the Database pages, click on the Database Instance name, for example *orcl.us.oracle.com*.  
+1.  On the Database pages, click on the Database Instance name, for example *orcl.us.oracle.com*, to open the instance home page.  
     The values may differ depending on the system you are using.  
 
 	 ![Databases home page](./../intro-pdb-mgmt-db/images/manage-pdb-17-view-pdbs-db-list-02.png " ")
@@ -77,7 +75,7 @@ In this task, you will delete the PDB, namely *PDB1*, from the root container us
 
     For this lab, select *PDB1* from the target PDB list and click **Select** to add the PDB to the delete list. The window goes back to the Select PDBs page.  
 
-1.  Verify that the table displays the PDB you selected.  
+1.  Verify that **Target Name** and **PDB Name** displays the PDB you selected.  
     The snap clone information may show blank or n/a because it is not applicable for this lab.   
     The values may differ depending on the system you are using.  
 
@@ -267,4 +265,4 @@ You may now **proceed to the next lab**.
 
  -   **Author**: Manish Garodia, Database User Assistance Development team
  -   **Contributors**: Suresh Rajan, Ashwini R, Jayaprakash Subramanian
- -   **Last Updated By/Date**: Manish Garodia, October 2022
+ -   **Last Updated By/Date**: Manish Garodia, November 2022

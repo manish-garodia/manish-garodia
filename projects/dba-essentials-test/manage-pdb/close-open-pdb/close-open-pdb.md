@@ -16,12 +16,8 @@ Perform these tasks in the CDB from Oracle EM:
 
 This lab assumes you have -
 
- -   A Free Tier, Paid or LiveLabs Oracle Cloud account
- -   Completed -
-	 [](include:labs-prereq)
-     -   Lab: Provision a Pluggable Database (PDB)
-     -   Lab: Remove PDBs from the CDB
-     -   Lab: Plug PDBs into the CDB
+ -   An Oracle Cloud account
+ -   Completed all previous labs successfully
  -   Logged in to Oracle EM in a web browser as *sysman*
 
 ## Task 1: Close the PDBs in the CDB
@@ -32,7 +28,7 @@ You can close one PDB in your database or close all the PDBs together in a singl
 
 In this task, you will close the PDBs, namely *ORCLPDB* and *PDB3*, in the CDB. Before closing a PDB, check its current status. You can open the Databases page from the menu **Targets** &gt; **Databases**. 
 
-1.  On the Database pages, click on the Database Instance name, for example *orcl.us.oracle.com*.  
+1.  On the Database pages, click on the Database Instance name, for example *orcl.us.oracle.com*, to open the instance home page.  
     The values may differ depending on the system you are using.  
 
 	 ![Databases home page](./../intro-pdb-mgmt-db/images/manage-pdb-19-view-pdbs-db-list-04.png " ")
@@ -169,4 +165,4 @@ In this workshop, you not only learned different ways of creating new PDBs in th
 
  -   **Author**: Manish Garodia, Database User Assistance Development team
  -   **Contributors**: Suresh Rajan, Ashwini R, Jayaprakash Subramanian
- -   **Last Updated By/Date**: Manish Garodia, October 2022
+ -   **Last Updated By/Date**: Manish Garodia, November 2022

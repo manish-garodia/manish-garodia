@@ -7,7 +7,7 @@ The labs in this workshop will help you learn about the sequence of actions you 
 
 **What are PDBs?**
 
-An Oracle Database can contain a portable collection of schemas, schema objects, and non-schema objects that appear to an Oracle Net client as a separate database. This self-contained collection is a *PDB*. A CDB can include zero or more PDBs.
+An Oracle Database can contain a portable collection of schemas, schema objects, and non-schema objects that appear to an Oracle Net client as a separate database. This self-contained collection is a *PDB*. A CDB can include many or no PDBs.
 
 Watch this video to learn about the core concepts of a multitenant CDB.
 
@@ -31,7 +31,7 @@ In this workshop, you will learn how to:
 ### Prerequisites
 
 This lab assumes you have -
- -   A Free Tier, Paid or LiveLabs Oracle Cloud account
+ -   An Oracle Cloud account
 
 ## Appendix 1: Activities for PDB management
 
@@ -228,4 +228,4 @@ Click on the next lab to **Get started**. 
 
  -   **Author** - Manish Garodia, Database User Assistance Development team
  -   **Contributors** - Suresh Rajan
- -   **Last Updated By/Date** - Manish Garodia, October 2022
+ -   **Last Updated By/Date** - Manish Garodia, November 2022
