@@ -1,0 +1,11 @@
+{
+    "workshoptitle": "Labs in MG Library",
+    "tutorials": [
+        {
+            "title": "Lab #: Linux -:- feed the penguin",
+            "description": "Get hands dirty with Linux commands, tips, and tricks.",
+			"publisheddate": "05-Nov-2022",
+            "filename": "./../../common/lib-cellar/procedures/linux-feed-penguin/linux-feed-penguin.md"
+        }
+    ]
+}
