@@ -13,10 +13,8 @@ Estimated time: 10 Minutes
 ### Prerequisites
 
 This lab assumes you have -
-- A Free Tier, Paid or LiveLabs Oracle Cloud account
-- Completed -
-    - Lab: Prepare setup (*Free-tier* and *Paid Tenants* only)
-    - Lab: Setup compute instance
+ -   An Oracle Cloud account
+ -   Completed all previous labs successfully
 
 ## Task 1: Validate that required processes are up and running
 
@@ -53,53 +51,53 @@ This lab assumes you have -
 
     - Database services (All databases and Standard Listener)
 
-    ```
-    <copy>
-    systemctl status oracle-database
-    </copy>
-    ```
+		```
+		<copy>
+		systemctl status oracle-database
+		</copy>
+		```
 
-    ![Database Services Status 1](images/db-service-status.png " ")
-    ![Database Services Status 2](images/db-service-status2.png " ")
+		![Database Services Status 1](images/db-service-status.png " ")
+		![Database Services Status 2](images/db-service-status2.png " ")
 
     - Listener Service (Non-Standard)
 
-    ```
-    <copy>
-    systemctl status oracle-db-listener
-    </copy>
-    ```
+		```
+		<copy>
+		systemctl status oracle-db-listener
+		</copy>
+		```
 
-    ![Listener Service Status](images/listener-service-status.png " ")
+		![Listener Service Status](images/listener-service-status.png " ")
 
     - Enterprise Manager Services (OMS and emagent)
 
-    ```
-    <copy>
-    systemctl status oracle-emcc
-    </copy>
-    ```
+		```
+		<copy>
+		systemctl status oracle-emcc
+		</copy>
+		```
 
-    ![Enterprise Manager Service Status](images/em-service-status.png " ")
+		![Enterprise Manager Service Status](images/em-service-status.png " ")
 
 1. If you see questionable output(s), failure or down component(s), restart the corresponding service(s) accordingly
 
     - Database and Listener
 
-    ```
-    <copy>
-    sudo systemctl restart oracle-database
-    sudo systemctl restart oracle-db-listener
-    </copy>
-    ```
+		```
+		<copy>
+		sudo systemctl restart oracle-database
+		sudo systemctl restart oracle-db-listener
+		</copy>
+		```
 
     - Enterprise Manager Services (OMS and emagent)
 
-    ```
-    <copy>
-    sudo systemctl restart oracle-emcc
-    </copy>
-    ```
+		```
+		<copy>
+		sudo systemctl restart oracle-emcc
+		</copy>
+		```
 
 1. Validate *emcli* connectivity. From the terminal session on your remote desktop, run as user *oracle*
 
@@ -141,7 +139,7 @@ This lab assumes you have -
 
  ### **Update the Named Credentials with the new SSH Key**
 
-1. From the EM Console as *SYSMAN*, navigate to **Setup menu** > **Security** > **Named Credentials**. Select the *ROOT* credential and click **Edit**.
+1. From the EM Console as *SYSMAN*, navigate to **Setup menu** &gt; **Security** &gt; **Named Credentials**. Select the *ROOT* credential and click **Edit**.
 
     ![Update Named Credentials](images/update-ssh-creds-1.png " ")
 
@@ -153,7 +151,7 @@ This lab assumes you have -
 
     ![Edit Credentials Properties](images/update-ssh-creds-2.png " ")
 
-1. For **SSH Private Key**, on the file browser navigate to **+Other Locations** > **tmp** and select the file *rsa_priv*.
+1. For **SSH Private Key**, on the file browser navigate to **+Other Locations** &gt; **tmp** and select the file *rsa_priv*.
 
     ![Save Credentials](images/update-ssh-creds-3.png " ")
 
@@ -162,7 +160,7 @@ This lab assumes you have -
     ![Credential Operation Successful](images/update-ssh-creds-4.png " ")
 
 1. Setup Oracle Named Credentials using Job System. This will set up the user oracle password on the host and update the Named Credentials used in this workshop.   
-	Navigate to **Enterprise** > **Job** > **Library**, select *SETUP ORACLE CREDENTIALS*, and click **Submit**.
+	Navigate to **Enterprise** &gt; **Job** &gt; **Library**, select *SETUP ORACLE CREDENTIALS*, and click **Submit**.
 
     ![Job Library](images/named-creds-job.jpg " ")
 
@@ -178,87 +176,85 @@ This lab assumes you have -
 
     ![Job Status](images/named-creds-job-succeeded.jpg " ")
 
-You may now **proceed to the next lab**.
-
 ## Appendix 1: Managing Startup Services
 
 1. Database services (All databases and Standard Listener)
 
     - Start
 
-    ```
-    <copy>sudo systemctl start oracle-database</copy>
-    ```
+		```
+		<copy>sudo systemctl start oracle-database</copy>
+		```
 
     - Stop
 
-    ```
-    <copy>sudo systemctl stop oracle-database</copy>
-    ```
+		```
+		<copy>sudo systemctl stop oracle-database</copy>
+		```
 
     - Status
 
-    ```
-    <copy>systemctl status oracle-database</copy>
-    ```
+		```
+		<copy>systemctl status oracle-database</copy>
+		```
 
     - Restart
 
-    ```
-    <copy>sudo systemctl restart oracle-database</copy>
-    ```
+		```
+		<copy>sudo systemctl restart oracle-database</copy>
+		```
 
 1. Listener Service (Non-Standard)
 
     - Start
 
-    ```
-    <copy>sudo systemctl start oracle-db-listener</copy>
-    ```
+		```
+		<copy>sudo systemctl start oracle-db-listener</copy>
+		```
 
     - Stop
 
-    ```
-    <copy>sudo systemctl stop oracle-db-listener</copy>
-    ```
+		```
+		<copy>sudo systemctl stop oracle-db-listener</copy>
+		```
 
     - Status
 
-    ```
-    <copy>systemctl status oracle-db-listener</copy>
-    ```
+		```
+		<copy>systemctl status oracle-db-listener</copy>
+		```
 
     - Restart
 
-    ```
-    <copy>sudo systemctl restart oracle-db-listener</copy>
-    ```
+		```
+		<copy>sudo systemctl restart oracle-db-listener</copy>
+		```
 
 1. Enterprise Manager Service (OMS and emagent)
 
     - Start
 
-    ```
-    <copy>sudo systemctl start oracle-emcc</copy>
-    ```
+		```
+		<copy>sudo systemctl start oracle-emcc</copy>
+		```
 
     - Stop
 
-    ```
-    <copy>sudo systemctl stop oracle-emcc</copy>
-    ```
+		```
+		<copy>sudo systemctl stop oracle-emcc</copy>
+		```
 
     - Status
 
-    ```
-    <copy>systemctl status oracle-emcc</copy>
-    ```
+		```
+		<copy>systemctl status oracle-emcc</copy>
+		```
 
     - Restart
 
-    ```
-    <copy>sudo systemctl restart oracle-emcc</copy>
-    ```
+		```
+		<copy>sudo systemctl restart oracle-emcc</copy>
+		```
 
 ## Appendix 2: External Web Access
 
@@ -301,6 +297,8 @@ While you will only need the browser to perform all tasks included in this works
     ```
     <copy>sudo su - oracle</copy>
     ``` -->
+
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 

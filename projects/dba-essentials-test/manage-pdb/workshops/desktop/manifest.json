@@ -4,7 +4,6 @@
   "include": {
         "n-db-page": "./../../intro-pdb-mgmt-db/files/n-db-page.txt", 
         "db-login": "./../../intro-pdb-mgmt-db/files/db-login.txt", 
-        "labs-prereq": "./../../intro-pdb-mgmt-db/files/labs-prereq.txt", 
         "n-host-creds": "./../../intro-pdb-mgmt-db/files/n-host-creds.txt", 
         "n-pdb-name": "./../../intro-pdb-mgmt-db/files/n-pdb-name.txt", 
         "n-pdb-admin": "./../../intro-pdb-mgmt-db/files/n-pdb-admin.txt", 
@@ -19,48 +18,50 @@
     {
       "title": "Introduction",
       "description": "The workshop on PDB management in Oracle Database 21c.",
-      "publisheddate": "10/04/2022",
+      "publisheddate": "11/24/2022",
       "filename": "../../intro-pdb-mgmt-db/intro-pdb-mgmt-db.md"
     },
     {
       "title": "Use noVNC remote desktop",
       "description": "Use noVNC Remote Desktop",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/remote-desktop/using-novnc-remote-desktop.md"
+      "publisheddate": "06/30/2022",
+      "filename": "https://oracle-livelabs.github.io/common/labs/remote-desktop/using-novnc-remote-desktop.md"
     },
     {
       "title": "Lab 1: Initialize environment",
       "description": "How to initialize and start all the workshop components.",
-      "publisheddate": "04/29/2022",
+      "publisheddate": "11/24/2022",
       "filename": "./../../initialize-environment/initialize-environment.md"
     },
     {
       "title": "Lab 2: Provision a Pluggable Database (PDB)",
       "description": "How to provision PDBs in a multitenant CDB from Oracle EM.",
-      "publisheddate": "10/04/2022",
+      "publisheddate": "11/24/2022",
       "filename": "../../provision-pdb/provision-pdb.md"
     },
     {
       "title": "Lab 3: Remove PDBs from CDB",
       "description": "How to remove PDBs from CDB using Oracle EM.",
-      "publisheddate": "10/04/2022",
+      "publisheddate": "11/24/2022",
       "filename": "../../remove-pdb/remove-pdb.md"
     },
     {
-      "title": "Lab 4: Plug unplugged PDBs into CDB",
+      "title": "Lab 4: Plug PDBs into CDB",
       "description": "How to plug in an unplugged PDB into the CDB from Oracle EM.",
-      "publisheddate": "10/04/2022",
+      "publisheddate": "11/24/2022",
       "filename": "../../plug-pdb/plug-pdb.md"
     },
     {
       "title": "Lab 5: Close and open PDBs",
       "description": "How to administer PDBs in a multitenant CDB from Oracle EM.",
-      "publisheddate": "10/04/2022",
+      "publisheddate": "11/24/2022",
       "filename": "../../close-open-pdb/close-open-pdb.md"
     },
     {
       "title": "Need help?",
       "description": "Solutions to Common Problems and Directions for Receiving Live Help",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
+      "publisheddate": "08/20/2022",
+      "filename": "https://oracle-livelabs.github.io/common/labs/need-help/need-help-livelabs.md"
     }
   ]
 }

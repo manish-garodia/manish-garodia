@@ -1,4 +1,4 @@
-# Plug unplugged PDBs into CDB
+# Plug PDBs into CDB
 
 ## Introduction
 
@@ -16,11 +16,8 @@ Perform these tasks from Oracle EM:
 
 This lab assumes you have -
 
- -   A Free Tier, Paid or LiveLabs Oracle Cloud account
- -   Completed -
-	 [](include:labs-prereq)
-     -   Lab: Provision a Pluggable Database (PDB)
-     -   Lab: Remove PDBs from the CDB
+ -   An Oracle Cloud account
+ -   Completed all previous labs successfully
  -   Logged in to Oracle EM in a web browser as *sysman* 
 
 ## Task 1: Plug an unplugged PDB into the root container
@@ -29,7 +26,7 @@ Oracle EM provides options to provision PDBs from the database instance home pag
 
 In this task, you will plug the unplugged PDB, namely *PDB2*, into the same root container and create a new PDB, namely *PDB3*, in your Oracle Database. You can open the Databases page from the menu **Targets** &gt; **Databases**. 
 
-1.  On the Database pages, click on the Database Instance name, for example *orcl.us.oracle.com*.  
+1.  On the Database pages, click on the Database Instance name, for example *orcl.us.oracle.com*, to open the instance home page.  
     The values may differ depending on the system you are using.  
 
 	 ![Databases home page](./../intro-pdb-mgmt-db/images/manage-pdb-18-view-pdbs-db-list-03.png " ")
@@ -235,4 +232,4 @@ You may now **proceed to the next lab**.
 
  -   **Author**: Manish Garodia, Database User Assistance Development team
  -   **Contributors**: Suresh Rajan, Ashwini R, Jayaprakash Subramanian
- -   **Last Updated By/Date**: Manish Garodia, October 2022
+ -   **Last Updated By/Date**: Manish Garodia, November 2022

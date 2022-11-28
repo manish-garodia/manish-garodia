@@ -23,9 +23,8 @@ Perform these tasks from Oracle EM:
 
 This lab assumes you have -
 
- -   A Free Tier, Paid or LiveLabs Oracle Cloud account
- -   Completed -
-	 [](include:labs-prereq)
+ -   An Oracle Cloud account
+ -   Completed all previous labs successfully
  -   Logged in to Oracle EM in a web browser as *sysman*
 
 ## Task 1: Create a new PDB in the CDB from the Seed
@@ -67,9 +66,8 @@ In this task, you will create a new PDB, namely *PDB1*, in the CDB from the Seed
 
 	 ![Database Login](./../intro-pdb-mgmt-db/images/manage-pdb-13-dblogin.png " ")
 
-1.  Verify that the PDB Creation page displays the default option, *Create a New PDB*, selected.   
-    This option creates a new PDB from the Seed.   
-    The values may differ depending on the system you are using.  
+1.  Verify that the PDB Creation page displays the default option, *Create a New PDB*, selected. This option creates a new PDB from the Seed.   
+The values may differ depending on the system you are using.  
 
 	 ![Create a New PDB](./images/create-pdb-03-create-pdb.png " ")
 
@@ -111,7 +109,7 @@ In this task, you will create a new PDB, namely *PDB1*, in the CDB from the Seed
 
     Click **Next** to proceed.  
 
-1.  Select the storage options for the PDB, such as the storage type, the location to store data files and temporary files, and so on.  
+1.  You can select the storage options for the PDB, such as the storage type, the location to store data files and temporary files, and so on.  
 
 	 ![PDB1 Storage - File System](./images/create-pdb-07-storage-fs.png " ")
 
@@ -331,4 +329,4 @@ You may now **proceed to the next lab**.
 
  -   **Author**: Manish Garodia, Database User Assistance Development team
  -   **Contributors**: Suresh Rajan, Ashwini R, Jayaprakash Subramanian
- -   **Last Updated By/Date**: Manish Garodia, October 2022
+ -   **Last Updated By/Date**: Manish Garodia, November 2022
