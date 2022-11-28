@@ -17,18 +17,57 @@ There are two reasons for this:
 
 ## Task 1: Pre-installation setup
 
+Production versions are available to download from [OTN](https://www.oracle.com/database/technologies/oracle-database-software-downloads.html).   
 Oracle Database installers are available internally as gold images.
 
-1. Visit [DB shiphome gold image annoucements](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?spaceKey=DBTEST&title=Database+Shiphome+Announcement+Home) and look for [21c Linux64](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=2248170665).
+1. Visit [DB shiphome gold image annoucements](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?spaceKey=DBTEST&title=Database+Shiphome+Announcement+Home) and look for the required version. 
+
+	For example,
+	 - [23c Linux64](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=1755087062)
+	 - [21c Linux64](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=2248170665)
+	 - [19.3 Linux64](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=4129469989)
 
 1. Under **Shiphome Location**, check <ins>Database Goldimage</ins>. 
 
-	## Database 21c gold image
+	## Database 23c gold image
 
 	| Select <i>any</i> server      | Link      |
 	|:------------------------------|-----------|
-	| SLC - prod                    | [/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION](/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION) <br>File - `LINUX.X64_213000_db_home.zip`       |
-	| ADC - prod                    | [/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION](/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION) <br>File - `LINUX.X64_213000_db_home.zip`       |
+	| ADC - 221025              	| [/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage](/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage) <br>File - `db_home.zip`       	|
+	| SaltLake - 221025           	| [/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage](/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage) <br>File - `db_home.zip`       	|
+	| HQ - 221025 					| [/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage](/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage) <br>File - `db_home.zip`         |
+	| ADE - 221025        			|[/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage](/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage) <br>File - `db_home.zip`   |
+
+	Get the 23c gold image - 
+
+	1. 	Create a local folder for Oracle home. 
+
+		```
+		$ <copy>mkdir -p /scratch/u01/app/oracle/product/23.0.0/dbhome_unzip01</copy>
+		```
+
+	1.  Go to the image location.
+
+		```
+		$ <copy>/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage</copy>
+		```
+
+	1.  Unzip the installer file to the local folder. 
+
+		```
+		$ <copy>unzip -q db_home.zip -d /scratch/u01/app/oracle/product/23.0.0/dbhome_unzip01</copy>
+		```
+
+	## Database 21c producrion
+
+	| Production servers      		| Link      |
+	|:------------------------------|-----------|
+	| ADC                    		| [/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION](/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION) <br>File - `LINUX.X64_213000_db_home.zip`       |
+	| SLC                    		| [/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION](/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION) <br>File - `LINUX.X64_213000_db_home.zip`       |
+	| HQ                     		| [/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION](/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION) <br>File - `LINUX.X64_213000_db_home.zip`       |
+
+	| Select <i>any</i> server      | Link      |
+	|:------------------------------|-----------|
 	| <mark>ADC</mark> - **latest** |[/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/LATEST/goldimage](/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/LATEST/goldimage) <br>File - `db_home.zip`                        |
 	| ADC - 210608                  |[/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/RC1-210608/goldimage](/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/RC1-210608/goldimage) <br>File - `db_home.zip`                     |
 	| SaltLake - **latest**         | [/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/LATEST/goldimage](/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/LATEST/goldimage) <br>File - `db_home.zip`                        |
@@ -43,7 +82,7 @@ Oracle Database installers are available internally as gold images.
 	1. Go to this location.
 
 		```
-		$ <copy>/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/19.3.0.0.0/190417.PRODUCTION</copy>
+		$ <copy> cd /net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/19.3.0.0.0/190417.PRODUCTION</copy>
 		```
 
 	1. Unzip the file to the local system.
@@ -52,18 +91,36 @@ Oracle Database installers are available internally as gold images.
 		$ <copy>unzip -q LINUX.X64_193000_db_home.zip -d /scratch/u01/app/oracle/product/19.0.0/dbhome_unzip03</copy>
 		```
 
-	1. Rename the Oracle home folder.
+		If you get the an error while creating directory:
+		
+		```
+		checkdir:  cannot create extraction directory: /scratch/u01/app/oracle/product/19.0.0/dbhome_unzip03
+           No such file or directory
+		```
+		
+		Then, create the directory and then try unzip again.
+		
+		```
+		$ <copy>mkdir -p /scratch/u01/app/oracle/product/19.0.0/dbhome_unzip03</copy>
+		```
+
+	1. Go to the Oracle home folder. 
+
+		```
+		$ <copy>cd /scratch/u01/app/oracle/product/19.0.0</copy>
+		```
+	1. Rename the folder.
 
 		```
 		$ <copy>mv dbhome_unzip03 dbhome_02</copy>
 		```
 
-	## Start 21c installer
+	## Start database installer
 
 	1. Open a terminal window and create the folder structure for `$ORACLE_HOME`.
 
 		```
-		$ <copy>mkdir -p /scratch/u01/app/oracle/product/21.0.0/dbhome_1</copy>
+		$ <copy>mkdir -p /scratch/u01/app/oracle/product/23.0.0/dbhome_1</copy>
 		```
 
 		> **Caution:** Do all installations only under */scratch*, never in `ade` or any other directory. 
@@ -72,7 +129,7 @@ Oracle Database installers are available internally as gold images.
 		This example uses <ins>the ADC server</ins>.
 
 		```
-		$ <copy>cd /net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/LATEST/goldimage</copy>
+		$ <copy>cd /net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage</copy>
 		```
 
 	1. Unzip the installer into the Oracle home folder.   
@@ -87,16 +144,16 @@ Oracle Database installers are available internally as gold images.
 		`-d` to create the directory stucture
 
 
-		**Example 1** - for ADC server
+		**Example 1** - for 23c ADC server gold image
 		
 		```
-		$ <copy>unzip -q db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_1</copy>
+		$ <copy>unzip -q db_home.zip -d /scratch/u01/app/oracle/product/23.0.0/dbhome_1</copy>
 		```
 
-		**Example 2** - for prod
+		**Example 2** - for 21c prod
 
 		```
-		$ <copy>unzip -q LINUX.X64_213000_db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_1</copy>
+		$ <copy>unzip -q LINUX.X64_213000_db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_2</copy>
 		```
 
 		Get an *extra copy of the installer quickly* on your local system.
@@ -107,7 +164,7 @@ Oracle Database installers are available internally as gold images.
 
 	1. Go to Oracle home.
 		```
-		$ <copy>cd /scratch/u01/app/oracle/product/21.0.0/dbhome_1</copy>
+		$ <copy>cd /scratch/u01/app/oracle/product/23.0.0/dbhome_1</copy>
 		```
 
 	1. Run the Oracle Database Setup Wizard (Installer).
@@ -139,9 +196,9 @@ Oracle Database installers are available internally as gold images.
 
 ## Task 2: Install Oracle Database
 
-Steps to install Oracle Database 19c.
+Steps to install Oracle Database 21c.
 
-1. ./runInstaller
+1. From the Oracle home location, start `./runInstaller`
 
 1. Create and configure a single instance database. 
 
@@ -152,7 +209,7 @@ Steps to install Oracle Database 19c.
 1. Oracle Base location.
 
 	```
-	<copy>/scratch/u01/app/mgarodia19c</copy>
+	$ <copy>/scratch/u01/app/mgarodia21c</copy>
 	```
 
 1. General Purpose / Transaction Processing
@@ -162,34 +219,34 @@ Steps to install Oracle Database 19c.
 	 - Global database name
 
 		```
-		<copy>orcl19c.dev1sub1phx.databasede1phx.oraclevcn.com</copy>
+		<copy>orcl21c.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
 		```
 
-	 - Oracle System Identifier (SID) - *orcl19c*
+	 - Oracle System Identifier (SID) - *orcl21c*
 
 	 - *Create as Container Database* selected by default
 
 	 - Pluggable database name
 
 		```
-		<copy>orcl19cpdb</copy>
+		<copy>orcl21cpdb</copy>
 		```
 
 1. <i>Do not enable</i> **Automatic Memory Management**. Leave defaults for character set and sample schemas. 
 
 1. **Storage** - *File system*
 
-	Database file location - `/scratch/u01/app/mgarodia19c/oradata`
+	Database file location - `/scratch/u01/app/mgarodia21c/oradata`
 
 1. Do not register with EMCC
 
 1. Enable Reovery > File System. 
 
-	**Recovery area location** - Leave the default */scratch/u01/app/mgarodia19c/recovery_area*
+	**Recovery area location** - Leave the default */scratch/u01/app/mgarodia21c/recovery_area*
 
 1. Use the same password for all accounts. Set the password<if type="hidden"> *Welcome_1*</if>. 
 
-1. OS groups - select *dba* for all
+1. OS groups - select group (*dba* or wheel) for all
 
 1. You may Automatically run configuration scripts. Leave this and run the scripts manually later.
 
@@ -207,7 +264,7 @@ Steps to install Oracle Database 19c.
 	- Run the script. 
 
 		```
-		$ <copy>/scratch/u01/app/oracle/product/19.0.0/dbhome_02/root.sh</copy>
+		$ <copy>/scratch/u01/app/oracle/product/21.0.0/dbhome_2/root.sh</copy>
 		```
 
 	- Press **Enter** twice to complete the script. 
@@ -236,20 +293,20 @@ Steps to install Oracle Database 19c.
 	```
 	<copy>
 	setenv ORACLE_SID orcl
-	setenv ORACLE_HOME /scratch/u01/app/oracle/product/21.0.0/dbhome_1
+	setenv ORACLE_HOME /scratch/u01/app/oracle/product/23.0.0/dbhome_1
 	</copy>
 	```
 
 	----------- ------- --------------- -------------------------
 		setenv ORACLE_SID orcl
-		setenv ORACLE_HOME /scratch/u01/app/oracle/product/21.0.0/dbhome_1
+		setenv ORACLE_HOME /scratch/u01/app/oracle/product/23.0.0/dbhome_1
 	----------- ------- --------------- -------------------------
 
 	**Shell - bash**
 	```
 	<copy>
 	export ORACLE_SID=orcl
-	export ORACLE_HOME=/scratch/u01/app/oracle/product/21.0.0/dbhome_1
+	export ORACLE_HOME=/scratch/u01/app/oracle/product/23.0.0/dbhome_1
 	</copy>
 	```
 	**Option 1**   
@@ -412,7 +469,7 @@ Steps to install Oracle Database 19c.
 
 	1. Go to the `install` directory. 
 		```
-		$ <copy>cd /scratch/u01/app/oracle/product/21.0.0/dbhome_1/install</copy>
+		$ <copy>cd /scratch/u01/app/oracle/product/23.0.0/dbhome_1/install</copy>
 		```
 	1. View the contents of the `orabasetab` file.
 
@@ -421,7 +478,7 @@ Steps to install Oracle Database 19c.
 		```
 		```
 		#orabasetab file is used to track Oracle Home associated with Oracle Base
-		/scratch/u01/app/oracle/product/21.0.0/dbhome_1:/scratch/u01/app/mgarodia:OraDB21Home1:Y:
+		/scratch/u01/app/oracle/product/23.0.0/dbhome_1:/scratch/u01/app/mgarodia:OraDB23Home1:Y:
 		```
 
 		Base location for Oracle Database 
@@ -442,7 +499,7 @@ Steps to install Oracle Database 19c.
 1. Go to the `deinstall` folder.
 
 	```
-	$ <copy>cd /u01/app/oracle/product/21.0.0/dbhome_1/deinstall</copy>
+	$ <copy>cd /u01/app/oracle/product/23.0.0/dbhome_1/deinstall</copy>
 	```
 
 1. Run the `deinstall` command.
@@ -475,7 +532,7 @@ Steps to install Oracle Database 19c.
 	1. Create the folder under root.
 
 		```
-		$ <copy>mkdir -p /u01/app/oracle/product/21.0.0/dbhome_1</copy>
+		$ <copy>mkdir -p /u01/app/oracle/product/23.0.0/dbhome_1</copy>
 		```
 	1. Change the ownership to *oracle* (user) for the folder `/u01`.
 
@@ -590,4 +647,5 @@ Steps to install Oracle Database 19c.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - May 21, (Sat) 2022
+ - **Last Updated on** - November 6, (Sun) 2022
+ - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
