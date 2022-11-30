@@ -440,6 +440,77 @@ Get hands dirty with Linux commands, tips, and tricks.
 		goldimage21c_unzip01.sh  prod19c_unzip.sh
 		```
 
+	 - go to a directory and view its tree structure
+
+		Syntax
+
+		```
+		$ <copy>tree -La 5 -F</copy>
+		```
+
+		Sample
+
+		```
+		.
+		|-- folder-a/
+			|-- folder-a1/
+			|   |-- folder-aa1/
+			|   |   |-- file-aa1
+			|   |   |-- file-aa2
+			|   |-- file-a1
+			|   |-- file-a2
+			|-- folder-b1/
+			|   |-- folder-bb1/
+			|   |-- folder-bb2
+			|   |   |-- file-bb1
+					|-- file-bb2
+					|-- file-bb3
+		```
+
+		Example 
+
+		```
+		$ cd ~/Downloads/
+		$ <copy>tree -La 5 -F</copy>
+		```
+		```
+		.
+		|-- db_templates/
+		|   |-- 19.5.0.0_Database_Template_for_EM13_4_0_0_0_Linux_x64.zip
+		|   `-- 19_5_0_0_Database_Template_with_cdbpdb_for_EM13_4_0_0_0_Linux_x64.zip
+		|-- firefox-bms-linux.html
+		|-- ManishDoc_copy/
+		|   |-- bkup/
+		|   |   |-- deinstall_emcc.sh
+		|   |   `-- goldimage_unzip01.sh
+		|   |-- emcc_params_fix.txt
+		|   |-- emcli_manage_listener.txt
+		|   |-- hostname.txt
+		|   |-- misc/
+		|   |   |-- DBAdminWorkshop.tigervnc
+		|   |   |-- MGcommands.txt
+		|   |   |-- phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com.tigervnc
+		|   |   |-- Proxy.txt
+		|   |   |-- slc10wsw.us.oracle.com-2.tigervnc
+		|   |   |-- temp.txt
+		|   |   `-- VM\ proxy.png
+		|   |-- spool.txt
+		|   |-- sql_commands.txt
+		|   |-- testing\ commands/
+		|   |   |-- deinstall_emcc.sh
+		|   |   `-- sql19c.sh
+		|   |-- working\ commands/
+		|   |   |-- goldimage21c_unzip01.sh
+		|   |   `-- prod19c_unzip.sh
+		|-- ords-21.2.0.174.1826.zip
+
+		6 directories, 22 files
+		```
+
+		## Screenshot
+
+		![tree command](./images/tree-command.png " ")
+
 	 - go back to previous directory
 
 		```
@@ -626,7 +697,9 @@ Get hands dirty with Linux commands, tips, and tricks.
 	----
 	## move or rename
 
-	Use the `mv` command for both *moving* and also for *renaming* files and folders. 
+	### <ins>**move**</ins>
+
+	Use the `mv` command for both *moving* and for *renaming* files and folders. 
 
 	 - Move files and folders (recursive)
 
@@ -651,6 +724,23 @@ Get hands dirty with Linux commands, tips, and tricks.
 		```
 		$ <copy>mv -t /destination/location <source-file1> <source-file2> .... <source-fileN></copy>
 		```
+
+	 - move files and directories as another user, requires password 
+
+		Syntax
+
+		```
+		$ sudo mv source-folder/* target-folder/
+		```
+
+		Example
+
+		```
+		$ <copy>sudo mv launcher2022-11-09_06-21-46PM.log tmp1/OraInstall2022-11-09_06-21-46PM/</copy>
+		Password: 
+		```
+
+	### <ins>**rename**</ins>
 
 	 - Rename a file
 
@@ -1223,69 +1313,6 @@ $ <copy></copy>
 verify
 ----------------------------
 
-move files/directories as another user, required password
-sudo mv source_folder/* target_folder/
-sudo mv /root/folder1 /home/folder2/
-
-[mgarodia@phoenix62464 u01]$ sudo mv launcher2022-11-09_06-21-46PM.log tmp1/OraInstall2022-11-09_06-21-46PM/
-Password: 
-[mgarodia@phoenix62464 u01]$ 
-
-go to the directory and run this command:
-tree -La 5 -F
-
-.
-|-- folder-a/
-    |-- folder-a1/
-    |   |-- folder-aa1/
-    |   |   |-- file-aa1
-    |   |   |-- file-aa2
-    |   |-- file-a1
-    |   |-- file-a2
-    |-- folder-b1/
-    |   |-- folder-bb1/
-    |   |-- folder-bb2
-    |   |   |-- file-bb1
-            |-- file-bb2
-            |-- file-bb3
-
-
-[mgarodia@phoenix62464 app]$ cd ~/Downloads/
-[mgarodia@phoenix62464 ~/Downloads]$ tree -La 5 -F
-
-.
-|-- db_templates/
-|   |-- 19.5.0.0_Database_Template_for_EM13_4_0_0_0_Linux_x64.zip
-|   `-- 19_5_0_0_Database_Template_with_cdbpdb_for_EM13_4_0_0_0_Linux_x64.zip
-|-- firefox-bms-linux.html
-|-- ManishDoc_copy/
-|   |-- bkup/
-|   |   |-- deinstall_emcc.sh
-|   |   `-- goldimage_unzip01.sh
-|   |-- emcc_params_fix.txt
-|   |-- emcli_manage_listener.txt
-|   |-- hostname.txt
-|   |-- misc/
-|   |   |-- DBAdminWorkshop.tigervnc
-|   |   |-- MGcommands.txt
-|   |   |-- phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com.tigervnc
-|   |   |-- Proxy.txt
-|   |   |-- slc10wsw.us.oracle.com-2.tigervnc
-|   |   |-- temp.txt
-|   |   `-- VM\ proxy.png
-|   |-- spool.txt
-|   |-- sql_commands.txt
-|   |-- testing\ commands/
-|   |   |-- deinstall_emcc.sh
-|   |   `-- sql19c.sh
-|   |-- working\ commands/
-|   |   |-- goldimage21c_unzip01.sh
-|   |   `-- prod19c_unzip.sh
-|-- ords-21.2.0.174.1826.zip
-
-6 directories, 22 files
-
-
 
 
 
@@ -1488,6 +1515,6 @@ Open a file in vi
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - November 23, (Wed) 2022
+ - **Last Updated on** - November 27, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
 
