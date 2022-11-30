@@ -29,18 +29,18 @@ Pick a topic and open it in a separate tab.
 
 | sl # | Title                         | Description                |
 |------|-------------------------------|----------------------------|
-| 1    | [Virtual Machines - Real Acions](https://manish-garodia.github.io/mg-playground/topic-title/vm-real-axons/) | How to access the VM and configure the VNC. |
+| 1    | [Virtual Machines - Real Acions](https://manish-garodia.github.io/mg-playground/topic-title/vm-real-axons/) | How to access VM and configure VNC. |
 | 2    | [Oracle Database 21c Gold Image](https://manish-garodia.github.io/mg-playground/topic-title/install-db-goldimage/) | Pre-installation setup and post installation tasks for Oracle Database 21c gold image. It also discusses some troubleshooting scenarios and tips. |
 | 3    | [Install Oracle EM 13.5](https://manish-garodia.github.io/mg-playground/topic-title/install-em/) | How to install Oracle EM on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EM. |
-| 4    | [Compute Instance and Custom Image](https://manish-garodia.github.io/mg-playground/topic-title/compute-instance-custom-image/) | How to create and manage compute instances and custom images in the OCI tenancy. |
+| 4    | [Compute Instance and Custom Image](https://manish-garodia.github.io/mg-playground/topic-title/compute-instance-custom-image/) | How to create and manage compute instances and custom images in OCI tenancy. |
 | 5    | [Fun with git-bits](https://manish-garodia.github.io/mg-playground/topic-title/fun-with-git-bits/) | All you need to know about git ![git](./procedures/fun-with-git-bits/images/git-black-small.png) to get going. |
 | 6    | [Hands down in markdown](https://manish-garodia.github.io/mg-playground/topic-title/hands-down-in-md/) | About markdown basic formatting and tags |
 | <if type="hidden">6-a    | [GitHub pull requests](https://manish-garodia.github.io/mg-playground/topic-title/github-pr/) | History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github. </if> |
-| <if type="hidden">6-b    | [Zoom Barabar Zoom](https://manish-garodia.github.io/mg-playground/topic-title/zoom-barabar-zoom/) | How to integrate Zoom with Outlook, add plug-in for Outlook </if> |
-| <if type="hidden">7    | Linux -:- feed the penguin | Get hands dirty with Linux commands, tips, and tricks. |
+| 7    | [Zoom Barabar Zoom](https://manish-garodia.github.io/mg-playground/topic-title/zoom-barabar-zoom/) | How to integrate Zoom with Outlook, add plug-in for Outlook |
+| <if type="hidden">7    | [Linux -:- feed the penguin](https://manish-garodia.github.io/mg-playground/topic-title/linux-feed-penguin/) | Get hands dirty with Linux commands, tips, and tricks. |
 | 8    | Vi Editor | desc |
 | 9    | Terraforms explained | desc </if> |
-| 7    | working on it ... | suggest me some |
+| 8    | working on it ... | suggest me some |
 
 ## oTube : : My *channels* and *videos* : :
 
@@ -86,14 +86,21 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 | 2    | [Add Atom to github desktop 1](https://ibb.co/31dcPCh)           | `ibb.co/31dcPCh`           | [What an image](https://ibb.co/album/LvW0JB)      |
 | 3    | [Add Atom to github desktop 2](https://ibb.co/N6yzT62)  	      | `ibb.co/N6yzT62`	       | [What an image](https://ibb.co/album/LvW0JB)      |
 | 4    | [Perf-Hub toc placement](https://ibb.co/Dr8JwB2) 			      | `ibb.co/Dr8JwB2`		   | [What an image](https://ibb.co/album/LvW0JB)      |
-| 5    |  |  |  |
-| 6    |  |  |  |
-| 7    |  |  |  |
-| 8    | [MyLearning home - Badges, Achievements](https://ibb.co/02gNzth) | `ibb.co/02gNzth` 		   | [badges](https://ibb.co/album/tqNnc2) |
-| 9    | [Oracle MySQL](https://ibb.co/KN0cxNH)   |  `ibb.co/KN0cxNH`     |  [badges](https://ibb.co/album/tqNnc2) 					   |
-| 10   | [OCI Support Accreditation score](https://ibb.co/fkJMwM4)        | `ibb.co/fkJMwM4` 		   | [badges](https://ibb.co/album/tqNnc2) |
-| 11   | [OCI Support Accreditation badge](https://ibb.co/mT46ZT0)        | `ibb.co/mT46ZT0` 		   | [badges](https://ibb.co/album/tqNnc2) |
+| 5    | [passport-mayagarodia-color](https://ibb.co/12zp5xJ) 			  | `ibb.co/12zp5xJ`		   | [my-docs](https://ibb.co/album/CbDrM3)            |
+| 6    | [passport-mayagarodia](https://ibb.co/D9JP8fC) 			      | `ibb.co/D9JP8fC`		   | [my-docs](https://ibb.co/album/CbDrM3)            |
+| 7    | [mom-passport](https://ibb.co/h9PF2DD) 			              | `ibb.co/h9PF2DD`		   | [my-docs](https://ibb.co/album/CbDrM3)            |
+| 8    |  |  |  |
+| 9    |  |  |  |
+| 10   |  |  |  |
+| 11   |  |  |  |
 | 12   |  |  |  |
+| 13   |  |  |  |
+| 14   |  |  |  |
+| 15   | [MyLearning home - Badges, Achievements](https://ibb.co/02gNzth) | `ibb.co/02gNzth` 		   | [badges](https://ibb.co/album/tqNnc2) |
+| 16   | [Oracle MySQL](https://ibb.co/KN0cxNH)   |  `ibb.co/KN0cxNH`     |  [badges](https://ibb.co/album/tqNnc2) 					   |
+| 17   | [OCI Support Accreditation score](https://ibb.co/fkJMwM4)        | `ibb.co/fkJMwM4` 		   | [badges](https://ibb.co/album/tqNnc2) |
+| 18   | [OCI Support Accreditation badge](https://ibb.co/mT46ZT0)        | `ibb.co/mT46ZT0` 		   | [badges](https://ibb.co/album/tqNnc2) |
+| 19   |  |  |  |
 
 </if>
 
@@ -101,7 +108,7 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - November 11, (Fri) 2022
+ - **Last Updated on** - November 27, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)
  
  

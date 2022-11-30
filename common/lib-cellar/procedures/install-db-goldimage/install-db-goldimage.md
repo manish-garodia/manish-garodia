@@ -33,10 +33,10 @@ Oracle Database installers are available internally as gold images.
 
 	| Select <i>any</i> server      | Link      |
 	|:------------------------------|-----------|
-	| ADC - 221025              	| [/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage](/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage) <br>File - `db_home.zip`       	|
-	| SaltLake - 221025           	| [/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage](/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage) <br>File - `db_home.zip`       	|
-	| HQ - 221025 					| [/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage](/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage) <br>File - `db_home.zip`         |
-	| ADE - 221025        			|[/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage](/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage) <br>File - `db_home.zip`   |
+	| ADC - LATEST              	| [/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage](/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage) <br>File - `db_home.zip`       	|
+	| SaltLake - 221104           	| [/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage](/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage) <br>File - `db_home.zip`       	|
+	| HQ - 221104 					| [/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage](/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage) <br>File - `db_home.zip`         |
+	| ADE - 221104        			|[/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage](/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage) <br>File - `db_home.zip`   |
 
 	Get the 23c gold image - 
 
@@ -647,5 +647,5 @@ Steps to install Oracle Database 21c.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - November 6, (Sun) 2022
+ - **Last Updated on** - November 27, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

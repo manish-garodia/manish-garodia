@@ -86,6 +86,41 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	Please approve the PR. Thank you  
 	~MG
 
+## WS10 (*11300*)
+
+- WS10 pull requests
+
+	----
+	## Merge request #*117* - Dec 01, 2022
+
+	Replaced with new index.html and submitted a merge request on *Wed Nov 30, 2022*. Waiting for approval. Approved on **Dec 01**.
+
+	Replaced index.html with the new file from the sample templates for all 3 - tenancy, sandbox, and desktop. 
+	Thanks
+	~MG
+
+	----
+	## Merge request #*117* - Nov 30, 2022
+
+	Added estimated time to intro lab and submitted a merge request on *Wed Nov 30, 2022*. Waiting for approval. Approved on **Dec 01**.
+
+	Added estimated time 2 hours 30 mins to the introduction lab. This was missed out earlier. 
+	~MG
+
+	----
+	## Merge request #*117* - Nov 30, 2022
+
+	Submitted PR for WS10 (draft copy) from my fork on Github on *Wed Nov 30*. Waiting for approval. Approved on **Dec 01**. 
+
+	**Sub**: <ins>(*#11060*) Created New Workshop Manage user accounts and security</ins>
+
+	Hello,
+
+	Developed a new workshop on *Manage user accounts and sceurity for Oracle Database 21c*, WMS ID is #11060. 
+
+	Please approve the PR. Thank you  
+	~MG
+
 ## WS8 (*9281*)
 
 - WS8 pull requests
@@ -574,7 +609,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - June 23, (Thu) 2022
+ - **Last Updated on** - November 30, (Wed) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../intro/files/email.md)
 
 

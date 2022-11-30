@@ -841,5 +841,5 @@ chmod g+s /oracle
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - June 6, (Mon) 2022
+ - **Last Updated on** - June 5, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

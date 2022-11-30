@@ -1061,5 +1061,5 @@ A log file is generated to capture the deinstallation process.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - November 28, (Mon) 2022
+ - **Last Updated on** - November 27, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

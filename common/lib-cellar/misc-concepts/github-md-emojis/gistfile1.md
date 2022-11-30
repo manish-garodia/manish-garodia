@@ -319,6 +319,6 @@ Complete list of github markdown emoji markup
 ## Acknowledgements
 
  - **Author** - github user Rafael Xavier de Souza ()
- - **Last Updated on** - April 11, (Mon) 2022
+ - **Last Updated on** - April 10, (Sun) 2022
  - **Source** - [gist:7360908](https://gist.github.com/rxaviers/7360908)
  

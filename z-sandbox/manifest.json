@@ -4,14 +4,14 @@
         {
             "title": "Welcome to MG space..!",
             "description": "This is the landing page for my personal space MG.",
-			"publisheddate": "05-Nov-2022",
+			"publisheddate": "27-Nov-2022",
             "filename": "./../common/intro/readme.md",
 			"type": "hidden"
         },
         {
             "title": "Lab 1: MG Library : tell-me-how",
             "description": "Contains topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures. It also lists down the videos and channels on oTube.",
-			"publisheddate": "11-Nov-2022",
+			"publisheddate": "27-Nov-2022",
             "filename": "./../common/lib-cellar/mg-library.md",
 			"type": "hidden"
         },
@@ -25,21 +25,21 @@
         {
             "title": "Lab #: Oracle Database Gold Image",
             "description": "Pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.",
-			"publisheddate": "06-Nov-2022",
+			"publisheddate": "27-Nov-2022",
             "filename": "./../common/lib-cellar/procedures/install-db-goldimage/install-db-goldimage.md",
 			"type": "hidden"
         },
         {
             "title": "Lab #: Install Oracle EM",
             "description": "How to install Oracle EM on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EM.",
-			"publisheddate": "28-Nov-2022",
+			"publisheddate": "27-Nov-2022",
             "filename": "./../common/lib-cellar/procedures/install-em/install-em.md",
 			"type": "hidden"
         },
         {
             "title": "Lab #: Compute Instance and Custom Images",
             "description": "How to create and manage compute instances and custom images in the OCI tenancy.",
-			"publisheddate": "06-Jun-2022",
+			"publisheddate": "05-Jun-2022",
             "filename": "./../common/lib-cellar/procedures/compute-instance-custom-image/compute-instance-custom-image.md",
 			"type": "hidden"
         },
@@ -47,7 +47,7 @@
             "title": "Lab #: Fun with Git-Bits",
             "description": "The information in this lab revolves around github, git desktop, git bash, code editors.",
             "filename": "./../common/lib-cellar/procedures/fun-with-git-bits/fun-with-git-bits.md",
-			"publisheddate": "28-Nov-2022",
+			"publisheddate": "27-Nov-2022",
 			"type": "hidden",
 			"type":{"gitconcepts":"General concepts","gitdesktop":"GitHub Desktop","gitbash":"Git Bash"}
 		},
@@ -62,14 +62,14 @@
             "title": "Lab #: Linux -:- feed the penguin",
             "description": "Get hands dirty with Linux commands, tips, and tricks.",
             "filename": "./../common/lib-cellar/procedures/linux-feed-penguin/linux-feed-penguin.md",
-			"publisheddate": "03-Nov-2022",
+			"publisheddate": "27-Nov-2022",
 			"type": "hidden"
         },
         {
             "title": "Lab #: GitHub PRs",
             "description": "History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github.",
             "filename": "./../common/lib-cellar/misc-concepts/github-pr.md",
-			"publisheddate": "11-Jun-2022",
+			"publisheddate": "30-Nov-2022",
 			"type": "hidden"
         },
         {
@@ -83,7 +83,7 @@
             "title": "Lab #: GitHub Markdown emojis",
             "description": "List of emojis supported by markdown.",
             "filename": "./../common/lib-cellar/misc-concepts/github-md-emojis/gistfile1.md",
-			"publisheddate": "11-Apr-2022",
+			"publisheddate": "10-Apr-2022",
 			"type": "hidden"
         },
         {
