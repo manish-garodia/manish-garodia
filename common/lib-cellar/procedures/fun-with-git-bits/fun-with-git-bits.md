@@ -135,13 +135,6 @@ The information in this lab revolves around -
 
 	1. If a lab is in development and a writer wants to initiate a review, do it from the fork, not from OLL. 
 
-	----
-	## A few good practices
-
-	Atoms live server plugins to install
-
-	![Atom live server plugins](./images/atom-live-server-plugins.png " ")
-
 	</if>
 
 	<if type="gitdesktop">
@@ -172,7 +165,7 @@ The information in this lab revolves around -
 
 	If you create a new clone using GitHub Desktop, then the window displays the repo under the account name. But if you have a clone already created using Git Bash or other sources, it will be not listed in GitHub Desktop automatically.
 
-	However, you can add such existing clone repos to your GithHub Desktop application.
+	However, you can add such existing clone repos to your GitHub Desktop application.
 
 	1. From the **File** menu, select **Add local repository** (keyboard shortcut **Ctrl**+**O**).
 
@@ -190,7 +183,7 @@ The information in this lab revolves around -
 
 		![Select folder](./images/clone-07-select-folder.png " ")
 
-		The add local repository window displays the folder you selected.
+		The Add local repository window displays the folder you selected.
 
 	1. Click on **Add repository** to add the clone repository to GitHub Desktop.
 
@@ -539,7 +532,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 				Example
 				```
-				$ <copy>git add *install-emcc*</copy>
+				$ <copy>git add *install-em*</copy>
 				```
 
 			1. 	```
@@ -965,115 +958,153 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 </if>
 
-## Visual Studio Code - *Live Server* plugin
+## Code editors and plugins
 
-Live Server is an extension of the coding editor, **Visual Studio Code**. First install VS Code followed by Live Server.
+ - Install plugins for code editors
 
-For this lab, the (latest) versions used are - 
- - Visual Studio Code *1.72*   
-   for Windows 8, 10, 11 (`VSCodeUserSetup-x64-1.72.2.exe`)
- - Live Server plugin *5.7.9*
+	----
+	## Know your plugins
 
-### Prerequisite
+	***Live Server plugin***    
+	Plugins are extensions of a code editor. For a workshop to run locally from the clone, it requires a <i>Live Server plugin</i> for the code editor.  
+	
+	Depending on the code editor, **Atom** or **Visual Studio Code**, install the corresponding live server plugin. 
+	
+	| Code Editor        | Live Server Plugin      | Version       | Credits            |
+	|--------------------|-------------------------|:-------------:|--------------------|
+	| Atom               | `atom-live-server`      | 2.3.0         | <i>jas-chen</i>    |
+	| Atom               | `atom-live-server-plus` | 3.0.1         | <i>richiksc</i>    |
+	| Visual Studio Code | `Live Server`           | 5.7.9         | <i>Ritwick Dey</i> |
 
- - Visual Studio Code is available for free download from its official site, [here](https://code.visualstudio.com/download).
+	Other VS Code plugins - 
+
+	 - `Trailing Spaces` v0.4.1 - <i>Shardul Mahadik</i>
+	 - `Path IntelliSense` v2.8.3 - <i>Christian Kohler</i>
+	 - `Code Spell Checker` v2.11.1 - <i>Street Code Software</i>
+	 - `markdownlint` v0.48.1 - <i>David Anson</i>
+
+	<!--
+
+	### **Other VS Code plugins**
+
+	| VS Code Plugin              | Version       | Credits                      |
+	|-----------------------------|:-------------:|------------------------------|
+	| `Trailing Spaces`           | 0.4.1         | <i>Shardul Mahadik</i>       |
+	| `Path Intellisense`         | 2.8.3         | <i>Christian Kohler</i>      |
+	| `Code Spell Checker`        | 2.11.1        | <i>Street Code Software</i>  |
+	| `markdownlint`              | 0.48.1        | <i>David Anson</i>           |
+
+	-->
+
+	![VS Code Plugins](./images/vscode-plugins-all.png " ")
+
+	> **Note:** Install the editor first, followed by the plugin.
+
+	----
+	## Visual Studio Code editor
+
+	Visual Studio Code is available for free download from its official site, [here](https://code.visualstudio.com/download).
 
 	Select the installer type based on the operating system - 
 	 - Windows
 	 - Linux (Debian, Ubuntu, RH, etc.)
 	 - Mac
 
- -  Run the installer and install VS Code on your system. It hardly takes a few seconds. 
+	Run the installer and install VS Code on your system. It hardly takes a few blinks of eye, if one of your lucky days. 
 
- > **Note:** If you have already installed VS Code, skip the prerequisite and jump straight into the steps below. 
+	For this lab, the (latest) versions used are - 
+	 - Visual Studio Code *1.72*   
+	   for Windows 8, 10, 11 (`VSCodeUserSetup-x64-1.72.2.exe`)
+	 - Live Server plugin *5.7.9*
 
-### *Install Live Server*
+	> **Note:** If you already have VS Code, skip this and jump straight into the steps below. 
 
-1. Open the VS Code editor and click the **Extensions** icon in the left menu. 
+	----
+	## Live Server plugin for VS Code
 
-	(image)
+	### *Install Live Server*
 
-1. Search for *Live Server*.
+	1. Open the VS Code editor and click the **Extensions** icon in the left menu to open the plugins manager. 
 
-	(image)
+		![VS Code - Extensions](./images/vscode-plugin-live-server-install1.png " ")
 
-1. Under Live Server, click **Install**. 
+	1. Search for *Live Server*. Under Live Server, click **Install** to start installing live server.
 
-	(image)
+		![Install Live Server plugin](./images/vscode-plugin-live-server-install2.png " ")
 
-	On completion, you can click on the extension to verify.
+	1.	On completion, click on **Live Server** to verify that the plugin is installed.
 
-	(image)
+		![Live Server installed](./images/vscode-plugin-live-server-install3.png " ")
 
-	You can now run the Live Server plugin from VS Code. 
+		You can now run the Live Server plugin from VS Code. 
 
-### *Run Live Server*
+	### *Run Live Server*
 
-To run Live Server, you must have a folder in your VS Code workspace.
+	To run Live Server, you must have a folder in your VS Code workspace.
 
-1. Click **File** > **Open Folder**.
+	1. Click **File** > **Open Folder**.
 
-	(image)
+		![Open folder in workspace](./images/vscode-workspace-open-folder.png " ")
 
-1. Browse for the project folder (clone directory) and add it to your workshop.
+		Browse for the project folder (clone directory) and add it to your workshop.   
+		Alternatively, you can right-click the explorer and **Add Folder to Workspace**.
 
-	(image)
+		![Add folder to workspace](./images/vscode-workspace-add-folder.png " ")
 
-	Alternatively, you can right-click the explorer and **Add Folder to Workspace**.
+		> **Tip:** Adding folders to workspace is a one-time activity. If you have added one or more folders to your workspace already, next time onwards you can directly run the live server. 
 
-	(image)
+	1. Click on **Go Live** at the bottom-right corner to run the live server. 
 
-1. Click on **Go Live** at the bottom-right corner. 
+		![Run Live Server](./images/vscode-run-live-server.png " ")
 
-	(image)
+		It opens the Live Server page (clone directory) in your default browser with the URL  `http://127.0.0.1:5500/`.
 
-	It opens the Live Server page (clone directory) in your default browser with the URL  `http://127.0.0.1:5500/`.
+		> **Tip:** Unlike Atom, keep the VS Code window open (or minimized) while working on your clone. If you close the VS Code window, Live Server stops and you cannot view the pages anymore.
 
-	> **Tip:** Unlike Atom, keep the VS Code window open (or minimized) while working on your clone. If you close the VS Code window, Live Server stops and you cannot view the pages anymore.
+		If you have more than one folder in your VS Code workspace, while you run the live server it may ask which folder to select for the live server. 
 
-	If you have more than one folder in your VS Code workspace, while you run the live server it may ask which folder to select for the live server. 
+	### *Close Live Server*
 
-### *Close Live Server*
+	 - Click *Port : 5500* at the bottom-right corner of VS Code window to stop Live Server.
 
- - Click *Port : 5500* at the bottom-right corner of VS Code window to stop Live Server.
+		![Close Live Server](./images/vscode-close-live-server.png " ")
 
-	## Cite reference
+		----
+		## Cite reference
 
-	 - [Visual Studio Code for Markdown Development](https://confluence.oraclecorp.com/confluence/display/DBIDDP/Visual+Studio+Code+for+Markdown+Development)
+		 - [Visual Studio Code for Markdown Development](https://confluence.oraclecorp.com/confluence/display/DBIDDP/Visual+Studio+Code+for+Markdown+Development)
 
-----
+		----
+		## Other plugins for VS Code
 
-### *Other plugins for VS Code*
+		Additional plugins to install for VS Code - 
 
-Additionally, install:
+		 - **Trailing Spaces**   
+			Highlight trailing spaces and remove them
 
- - **Trailing Spaces**   
-	Highlight trailing spaces and remove them
+			![VS Code - Trailing Spaces plugin](./images/vscode-plugin-trailing-spaces.png " ")
 
-	(image)
+		 - **Path Intellisense**   
+			Browse and select files and folders in `manifest.json`
 
-	 - <i>Shardul Mahadik</i>
+			![VS Code - Path Intellisense plugin](./images/vscode-plugin-path-intellisense.png " ")
 
- - **Path Intellisense**   
-	Browse through files and folders in `manifest.json`
+		 - **Code Spell Checker**   
+			Check spellings in the files
 
-	(image)
+			![VS Code - Code Spell Checker plugin](./images/vscode-plugin-code-spell-checker.png " ")
 
-	 - <i>Christian Kohler</i>
+		 - **markdownlint**   
+			Styling and lint checker for labs
 
- - **Code Spell Checker**   
-	Check spellings in the markdown files
+			![VS Code - markdownlint plugin](./images/vscode-plugin-md-lint.png " ")
 
-	(image)
+	----
+	## Live Server plugins for Atom
 
-	 - <i>Street Code Software</i>
+	 Install as required
 
- - **markdownlint**   
-	Styling and lint checker for labs
-
-	(image)
-
-	 - <i>David Anson</i>
+	![Atom live server plugins](./images/atom-live-server-plugins.png " ")
 
 ## Tricks up-the-sleeves
 
@@ -1460,9 +1491,9 @@ Additionally, install:
 		 Date: Thu Jan 13 21:26:55 2022 +0530
 		 83 files changed, 1460 insertions(+)
 		 create mode 100644 Live/dba-essentials/em-dba/access-homepage/access-homepage.md
-		 create mode 100644 Live/dba-essentials/em-dba/access-homepage/images/emcc-dbhome-001-expandall.png
-		 create mode 100644 Live/dba-essentials/em-dba/access-homepage/images/emcc-dbhome-002-dblist.png
-		 create mode 100644 Live/dba-essentials/em-dba/access-homepage/images/emcc-dbhome-003-instancehome.png
+		 create mode 100644 Live/dba-essentials/em-dba/access-homepage/images/em-dbhome-001-expandall.png
+		 create mode 100644 Live/dba-essentials/em-dba/access-homepage/images/em-dbhome-002-dblist.png
+		 create mode 100644 Live/dba-essentials/em-dba/access-homepage/images/em-dbhome-003-instancehome.png
 		...
 		...
 		 create mode 100644 Live/dba-essentials/em-dba/workshops/livelabs/manifest.json
@@ -1652,7 +1683,7 @@ Additionally, install:
 	## Upstream main does not show up in GitHub Desktop?
 
 	**Problem statement**  
-	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/msater` under `Other branches`.
+	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/master` under `Other branches`.
 
 	**What to do**
 
@@ -1769,5 +1800,5 @@ Additionally, install:
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - Nov 28, (Mon) 2022
+ - **Last Updated on** - Nov 27, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
