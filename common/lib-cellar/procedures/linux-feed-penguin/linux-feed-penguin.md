@@ -1,7 +1,7 @@
 #  Linux -:- feed the penguin ![Linux](./images/linux-small.png)
 
 ## Introduction
-Get hands dirty with Linux commands, tips, and tricks. 
+Get hands dirty with Linux commands, tips, and tricks.
 
 ## Linux Terminal
  - Common
@@ -39,31 +39,63 @@ Get hands dirty with Linux commands, tips, and tricks.
 		/bin/csh
 		```
 
+	 - Default bash prompt
+
+		```
+		bash-4.4$
+		```
+
+	 - Add date to bash prompt
+
+		```
+		$ <copy>export PS1="$(date +%k:%M:%S) $ "</copy>
+		```
+		```
+		11:17:24 $
+		```
+
+	 - Add user/host information to bash prompt
+
+		```
+		$ <copy>PS1="[\mgarodia@\phoenix123546 \D{%Y%m%d-%H:%M:%S}]\$ "</copy>
+		```
+		```
+		[\mgarodia@\phoenix123546 20221123-11:15:17]$
+		```
+
+		> **Note:** This is a temporary variable.   
+		New terminal opens with the default bash prompt, *`bash-4.4$`*.
+
+	 To return to the previous mode or go back to the previous shell -
+		 - type *`exit`*   
+		   or 
+		 - Press **Ctrl** + **D**
+
 	----
 	## Switch shell
 
 	```
 	$ <copy>exec /bin/sh</copy>
 
-	sh-4.2$ 
+	sh-4.2$
 	```
 
-	- **Temporary**
+	- **Temporary** - Applicable to the current terminal session only. 
 
 		From *bash* to *c*
 
 		```
 		$ <copy>exec csh</copy>
-		or 	
+		or
 		$ csh
 		```
 
 		From *c* to *bash*
 
 		```
-		$ <copy>exec bash</copy> 
-		or 
-		$ bash 
+		$ <copy>exec bash</copy>
+		or
+		$ bash
 		```
 
 	- **Permanent**
@@ -83,10 +115,23 @@ Get hands dirty with Linux commands, tips, and tricks.
 	```
 
 	Example
-	
+
 	```
 	$ <copy>su -c /scratch/u01/app/oracle/product/21.0.0/dbhome_01/root.sh mgarodia</copy>
 	```
+
+	----
+	## Keyboard shortcuts
+
+	Shortcuts for Linux terminal shell prompt.
+
+	 | shortcut       | action                                                          | 
+	 |----------------|-----------------------------------------------------------------|
+	 | **Ctrl** + *L* | clear screen                                                    |
+	 | **Ctrl** + *D* | logout from sudo user back to the original user                 |
+	 | **Ctrl** + *U* | erases from the current cursor position to the begining of line |
+	 | **Ctrl** + *A* | moves cursor position to the beginning of line                  |
+	 | **Ctrl** + *E* | moves cursor position to the end of line                        |
 
 ## Users & Groups
 
@@ -135,7 +180,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		```
 		 14:40:07 up 1 day, 40 min,  6 users,  load average: 0.00, 0.00, 0.00
 		USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
-		mgarodia pts/0    :1               Wed18   20:26m  0.00s 13.60s kdeinit4: kded4 [kdeinit]                      
+		mgarodia pts/0    :1               Wed18   20:26m  0.00s 13.60s kdeinit4: kded4 [kdeinit]
 		mgarodia pts/1    :1               Wed18   30:53   0.11s  0.11s -bin/csh
 		mgarodia pts/2    :1               04:45    9:53m  0.38s  0.06s -bin/csh
 		mgarodia pts/3    :1               Wed18   19:41m  1.28s  1.22s ./sqlplus   as sysdba
@@ -146,18 +191,19 @@ Get hands dirty with Linux commands, tips, and tricks.
 	1. **Switch to a different user**
 
 		Syntax
-		
+
 		```
 		$ sudo su - <username> -s <shell>
 		```
 
-		Example, switch to *oracle* with `c` shell. 
+		Example, switch to *oracle* with `c` shell.
 
 		```
 		$ sudo su - oracle /usr/bin/csh
 		```
 
-		> **Note:** The user *oracle* needs no password. Use this user to install the database.
+		> **Did you know..?**   
+		The user *oracle* requires no password. Use this user to install the database and perform project-related activities.
 
 	1. **Switch to root**
 
@@ -182,11 +228,15 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 	1. **Exit from root**
 
-		To go back to the previous user or previous shell, or to exit from the current shell.
+		To logout from root (or any current user) and to go back to the previous user: 
+		
+		 - type *`exit`* 
 
-		```
-		$ <copy>exit</copy>
-		```
+			```
+			$ <copy>exit</copy>
+			```
+			or 
+		 - Press **Ctrl** + **D**
 
 	1. **Check sudo password**
 
@@ -198,13 +248,13 @@ Get hands dirty with Linux commands, tips, and tricks.
 	----
 	## Group commands
 
-	 *`g`* - Primary group    
+	 *`g`* - Primary group
 	 *`G`* - Secondary group
 
 	 1. Show all groups the user belongs to
 	 1. Complete user/group details
 	 1. Get entries from database
-	 
+
 	----
 
 	1. **Show all groups the user belongs to**
@@ -346,7 +396,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ <copy>sudo usermod -a -G dba,oinstall mgarodia</copy>
 		```
 
-		> **Note:** Ensure to use the option *-a* to append while modifying the user groups. If you do not use *-a*, the command removes the user from the groups not mentioned after *-G*.
+		> **Caution:** Ensure to use the option *-a* to append while modifying the user groups. If you do not use *-a*, the command removes the user from the groups not mentioned after *-G*.
 
 	1. **Remove user from group**
 
@@ -362,7 +412,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ sudo deluser <username< <group>
 		```
 
-		Example 
+		Example
 
 		```
 		$ sudo gpasswd -d mgarodia oinstall
@@ -407,8 +457,8 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ <copy>ls -F</copy>
 		```
 		```
-		[mgarodia@phoenix62464 ~/Downloads]$ ls -F
-		db_templates/  firefox-bms-linux.html  ManishDoc_copy/  ords-21.2.0.174.1826.zip 
+		[mgarodia@phoenix123546 ~/Downloads]$ ls -F
+		db_templates/  firefox-bms-linux.html  ManishDoc_copy/  ords-21.2.0.174.1826.zip
 		```
 
 	 - List directories recursive *-R*
@@ -430,7 +480,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		deinstall_emcc.sh  goldimage_unzip01.sh
 
 		./ManishDoc_copy/misc:
-		DBAdminWorkshop.tigervnc  phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com.tigervnc  slc10wsw.us.oracle.com-2.tigervnc  VM proxy.png
+		DBAdminWorkshop.tigervnc  phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com.tigervnc  slc10wsw.us.oracle.com-2.tigervnc  VM proxy.png
 		MGcommands.txt            Proxy.txt                                                       temp.txt
 
 		./ManishDoc_copy/testing commands:
@@ -467,7 +517,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 					|-- file-bb3
 		```
 
-		Example 
+		Example
 
 		```
 		$ cd ~/Downloads/
@@ -489,7 +539,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		|   |-- misc/
 		|   |   |-- DBAdminWorkshop.tigervnc
 		|   |   |-- MGcommands.txt
-		|   |   |-- phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com.tigervnc
+		|   |   |-- phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com.tigervnc
 		|   |   |-- Proxy.txt
 		|   |   |-- slc10wsw.us.oracle.com-2.tigervnc
 		|   |   |-- temp.txt
@@ -507,36 +557,39 @@ Get hands dirty with Linux commands, tips, and tricks.
 		6 directories, 22 files
 		```
 
+		----
 		## Screenshot
 
 		![tree command](./images/tree-command.png " ")
 
-	 - go back to previous directory
+	 - go back to the previous directory
 
 		```
 		$ <copy>cd -</copy>
 		```
 
-	 - go to home directory
+	- Check variables
 
-		```
-		$ <copy>cd /home/mgarodia</copy>
-		```
-		```
-		$ <copy>cd ~</copy>
-		```
-
-	- Check variables, for example *$home*, *$DISPLAY*, *$ORACLE_SID*, *$ORACLE_HOME*
+		*`$home`*
 
 		```
 		 $ <copy>echo $home</copy>
 		```
+
+		*`$DISPLAY`*
+
 		```
 		 $ <copy>echo $DISPLAY</copy>
 		```
+
+		*`$ORACLE_SID`*
+
 		```
 		 $ <copy>echo $ORACLE_SID</copy>
 		```
+
+		*`$ORACLE_HOME`*
+
 		```
 		 $ <copy>echo $ORACLE_HOME</copy>
 		```
@@ -556,7 +609,8 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ <copy>mkdir -p /home/linuxize/music/rock/gothic</copy>
 		```
 
-		> **Note:** The *-p* flag creates a parent-child directories structure, if the directories does not exist. If you do not specify *-p*, then `mkdir` returns an error:   
+		> **Did you know..?**   
+		The *-p* flag creates a parent-child directories structure, if the directories does not exist. If you do not specify *-p*, then `mkdir` returns an error:
 		`No such file or directory`.
 
 	 - Create directories as a <i>tree structure</i>
@@ -616,8 +670,78 @@ Get hands dirty with Linux commands, tips, and tricks.
 			`-- punk
 		```
 		</if>
+
 	----
-	## copy 
+	## home folder
+
+	 - go to home directory
+
+		```
+		$ <copy>cd /home/<username></copy>
+		```
+		```
+		$ <copy>cd ~</copy>
+		```
+
+	 - change the default home folder
+
+		**Option 1** - using *CLI*
+
+		```
+		$ <copy>usermod -d /new-home/directory-location username</copy>
+		```
+
+		**Option 2** - edit *bash profile*
+
+		1. Open the config file for bash profile.
+
+			```
+			$ <copy>vi ~/.bashrc</copy>
+			```
+
+		1. Enter the path to the new home location.
+
+			```
+			<copy>cd /home/mgarodia/Downloads</copy>
+			```
+
+		1. Save the file.
+		
+			 > **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+	----
+	## symbolic links
+
+	Syntax
+
+	```
+	$ ln -s target linkname
+	$ ln -s </path/to/file-folder to be linked> </path/of/link/to-be/created>
+	```
+
+	----
+	## command alias
+
+	Create and run short *aliases* for commands
+
+	Syntax
+
+	```
+	$ alias short-name="your-custom-command"
+	```
+
+	Example
+
+	```
+	$ alias wr=”cd /var/www/html”
+	```
+
+	Henceforth, run *`wr`* instead of the complete command.
+
+	> It is worth mentioning that these alias are temporary. THey are applicable to the current terminal session only. If you close the terminal or open a new terminal, it is not valid anymore. 
+
+	----
+	## copy
 
 	 - Copy files locally
 
@@ -626,14 +750,14 @@ Get hands dirty with Linux commands, tips, and tricks.
 		```
 
 	 - Secure copy across remote systems
-	
+
 		```
 		$ scp <option> <user@source-host:>filepath1 [user@destination-host:]filename2
 		```
 
-		Enter the password when prompted.   
+		Enter the password when prompted.
 		You can copy files and folders with *SCP* in two scenarios, **push** or **pull**.
-	
+
 		----
 		## Push file or folder
 
@@ -644,7 +768,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 			```
 
 		1. Push the file or folder to the destination.
-	
+
 			```
 			$ scp source-file-name username@destination-host:destination-folder
 			```
@@ -654,7 +778,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 		----
 		## Pull file or folder
-	
+
 		1. Go to the file or folder destination location.
 
 			```
@@ -662,7 +786,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 			```
 
 		1. Pull files or folders from the source location.
-	
+
 			```
 			$ scp remote-username@host:/remote/file.txt /local/directory
 			```
@@ -680,7 +804,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		 - Pull file
 
 			```
-			$ <copy>scp -rp mgarodia@phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:/scratch/u01/installers/emcc135/ /scratch/u01/software/emcc_new/</copy>
+			$ <copy>scp -rp mgarodia@phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:/scratch/u01/mgarodia/installers/emcc135/ /scratch/u01/software/emcc_new/</copy>
 			Password:
 			```
 			```
@@ -689,7 +813,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 			```
 			<if type="hidden">
 			```
-			$ <copy>scp -rp mgarodia@phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:/scratch/u01/installers/LINUX.X64_193000_db_home.zip mgarodia@den02asa.us.oracle.com:/scratch/preeshuk/</copy>
+			$ <copy>scp -rp mgarodia@phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:/scratch/u01/mgarodia/installers/LINUX.X64_193000_db_home.zip mgarodia@den02asa.us.oracle.com:/scratch/preeshuk/</copy>
 			Password:
 			```
 			</if>
@@ -699,7 +823,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 	### <ins>**move**</ins>
 
-	Use the `mv` command for both *moving* and for *renaming* files and folders. 
+	Use the `mv` command for both *moving* and for *renaming* files and folders.
 
 	 - Move files and folders (recursive)
 
@@ -719,13 +843,13 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ <copy>mv file1 file2 file3 -t /destination/location</copy>
 		```
 
-		or 
+		or
 
 		```
 		$ <copy>mv -t /destination/location <source-file1> <source-file2> .... <source-fileN></copy>
 		```
 
-	 - move files and directories as another user, requires password 
+	 - move files and directories as another user, requires password
 
 		Syntax
 
@@ -737,7 +861,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 		```
 		$ <copy>sudo mv launcher2022-11-09_06-21-46PM.log tmp1/OraInstall2022-11-09_06-21-46PM/</copy>
-		Password: 
+		Password:
 		```
 
 	### <ins>**rename**</ins>
@@ -827,7 +951,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 		where,
 		- ***r*** &nbsp;&nbsp;&nbsp; - recursive
-		- ***i*** &nbsp;&nbsp;&nbsp; - ignore case 
+		- ***i*** &nbsp;&nbsp;&nbsp; - ignore case
 		- ***n*** &nbsp;&nbsp;&nbsp; - line number
 		- ***w*** &nbsp;&nbsp; - match whole word
 		- ***l*** &nbsp;&nbsp;&nbsp; - show filename
@@ -876,15 +1000,86 @@ Get hands dirty with Linux commands, tips, and tricks.
 		```
 
 	----
-	## Others 
+	## The Triplets of Linuxville
 
-	 - Create a blank file
+	Every file has an **owner user** and an **owner group**. A file is associated with three classes of users - 
+	 - user or file owner
+	 - group members
+	 - others (everyone else)
+
+	Each of these users have specific file permissions. You can control which user can - 
+	 - <i>**r**ead</i> access to your file
+	 - <i>**w**rite</i> to your file
+	 - <i>e**x**ecute</i> your file as a program
+
+		----
+		## file permissions
+
+		To view the file permissions, use the *`ls`* command.
+
+		```
+		$ <copy>ls -l file-name</copy>
+		```
+		```
+		-rw-r--r-- 12 mgarodia wheel 12.0K Nov  27 10:10 file-name
+		|[-][-][-]-   [------] [---]
+		| |  |  | |      |       |
+		| |  |  | |      |       +-----------> Group
+		| |  |  | |      +-------------------> Owner
+		| |  |  | +--------------------------> Alternate Access Method
+		| |  |  +----------------------------> Others Permissions
+		| |  +-------------------------------> Group Permissions
+		| +----------------------------------> Owner Permissions
+		+------------------------------------> File Type
+		```
+
+		Each of these permissions are associated with a number. 
+
+		----
+		## the number game
+
+		Let us consider a use case where you want to modify a file's permissions (*r=4*, *w=2*, *x=1*). 
+
+		You want to grant - 
+		 - full permission (read, write, execute) to the file owner
+		 - read and execute permissions to the file’s group
+		 - only read permissions to all other users
+
+		<ins>Triplets</ins>
+
+		 - for u   
+		 *rwx* &gt; **4** + **2** + **1** = **7**
+
+		 - for g    
+		 *r-x* &gt; **4** + **0** + **1** = **5**
+
+		 - for o   
+		 *r--* &gt; **4** + **0** + **0** = **4**
+
+		 Which comes up to *754*. 
+		 
+			 > A *777* means <i>everyone has full access to the file</i>.
+
+		You administer the ownership of your files and folders with 
+		 - *`chown`* 
+		 - *`chgrp`*
+
+			----
+			## cite source
+
+			 - [Linuxize - File Permissions](https://linuxize.com/post/understanding-linux-file-permissions/)
+			 - [UNIX Permissions](https://www.ccn.ucla.edu/wiki/index.php/UNIX_Permissions)
+
+	----
+	## Others
+
+	 - Create an empty file
 
 		```
 		$ <copy>touch text.txt</copy>
 		```
 
-	 - Open a new file in the editor. 
+	 - Open a new file in the editor.
 
 		```
 		$ <copy>vi file1.txt</copy>
@@ -893,17 +1088,31 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ <copy>view file2.txt</copy>
 		```
 
-	 - Extract file and folders from a `*.zip` file. 
+	 - Extract file and folders from a `*.zip` file.
 
 		```
-		$ unzip filename -d /folder/location 
+		$ unzip filename -d /folder/location
 		```
 
-		> **Note:** If the destination folder does not exit, you may create the folder first. 
+		> **Tip:** If the destination folder does not exit, you may create the folder first.
+
+	 - While extracting files and folders, use `-d` to specify the target directory
+
+		Syntax
+
+		```
+		$ unzip -d
+		```
+
+		Sample
+
+		```
+		$ unzip -o archive.zip -d /Users/current/Dev/tools/
+		```
 
 ## Scripting
 
-A script begins with - 
+A script begins with -
 
 ```
 #!/bin/sh
@@ -917,7 +1126,7 @@ A script begins with -
 	$ sh <script-file>.sh
 	```
 
- - If the script contains *setenv* commands - 
+ - If the script contains *setenv* commands -
 
 	```
 	$ source <script-file>.sh
@@ -937,10 +1146,11 @@ A script begins with -
 
  - File system and OS related
 
+	----
 	## Disk space
-	
-	Check the file system types with the complete hard disk information, *used* and *available*.  
-	
+
+	Check the file system types with the complete hard disk information, *used* and *available*.
+
 	```
 	$ <copy>df -Th</copy>
 	```
@@ -957,11 +1167,11 @@ A script begins with -
 	tmpfs                tmpfs     1.5G     0  1.5G   0% /run/user/0
 	```
 
-	> **Note:** To exclude *Type*, use *`df -h`*. 
+	 > **Tip:** To exclude *Type*, use *`df -h`*.
 
-	- Check directory size
+	 - Check directory size
 
-		Syntax 
+		Syntax
 
 		```
 		$ du -sh /directory/full/path
@@ -976,7 +1186,7 @@ A script begins with -
 		1.7G    /home/mgarodia
 		```
 
-	- Check the complete disk usage of a directory
+	 - Check the complete disk usage of a directory
 
 		```
 		$ <copy>df -h /scratch</copy>
@@ -986,7 +1196,7 @@ A script begins with -
 		/dev/sdb        296G   28G  253G  10% /scratch
 		```
 
-	- Check size folder-wise
+	 - Check size folder-wise
 
 		Syntax
 
@@ -994,12 +1204,13 @@ A script begins with -
 		$ du -shx <directory> | sort -h
 		```
 
-		Example 
+		Example
 
 		```
 		$ <copy>du -shx ~/* | sort -h</copy>
 		```
 
+		----
 		## Output
 
 		```
@@ -1043,7 +1254,7 @@ A script begins with -
 		985M    /home/mgarodia/Downloads
 		```
 
-	- Check RAM on the system
+	 - Check RAM on the system
 
 		```
 		$ <copy>cat /proc/meminfo</copy>
@@ -1099,10 +1310,170 @@ A script begins with -
 		DirectMap1G:    10485760 kB
 		```
 
+	----
+	## Operating system
+
+	 Check OS version
+
+	 -	*`lsb_release`*  - view compact information
+
+		```
+		$ <copy>lsb_release -d</copy>
+		```
+
+		Output
+
+		```
+		Description:    Oracle Linux Server release 7.6
+		```
+
+	 -	*`lsb_release`* - view detailed information. Use any one of the following -
+
+		```
+		$ <copy>lsb_release -a</copy>
+		```
+		```
+		$ <copy>lsb_release --all</copy>
+		```
+
+		Output
+
+		```
+		[mgarodia@phoenix123546 ~/Downloads]$ lsb_release -a
+		LSB Version:    :core-4.1-amd64:core-4.1-ia32:core-4.1-noarch:cxx-4.1-amd64:cxx-4.1-ia32:cxx-4.1-noarch:desktop-4.1-amd64:desktop-4.1-ia32:desktop-4.1-noarch:languages-4.1-amd64:languages-4.1-noarch:printing-4.1-amd64:printing-4.1-noarch
+		Distributor ID: OracleServer
+		Description:    Oracle Linux Server release 7.6
+		Release:        7.6
+		Codename:       n/a
+		Description:    Oracle Linux Server release 7.6
+		```
+
+	 -	*`uname --all`*
+
+		```
+		$ <copy>uname --all</copy>
+		```
+
+		Output
+
+		```
+		Linux phoenix123546 4.14.35-2047.514.5.1.1.el7uek.x86_64 #2 SMP Wed Jul 13 11:52:18 PDT 2022 x86_64 x86_64 x86_64 GNU/Linux
+		```
+
+	 -	*`os-release`*
+
+		```
+		$ <copy>cat /etc/os-release</copy>
+		```
+
+		Output
+
+		```
+		NAME="Oracle Linux Server"
+		VERSION="7.6"
+		ID="ol"
+		VARIANT="Server"
+		VARIANT_ID="server"
+		VERSION_ID="7.6"
+		PRETTY_NAME="Oracle Linux Server 7.6"
+		ANSI_COLOR="0;31"
+		CPE_NAME="cpe:/o:oracle:linux:7:6:server"
+		HOME_URL="https://linux.oracle.com/"
+		BUG_REPORT_URL="https://bugzilla.oracle.com/"
+
+		ORACLE_BUGZILLA_PRODUCT="Oracle Linux 7"
+		ORACLE_BUGZILLA_PRODUCT_VERSION=7.6
+		ORACLE_SUPPORT_PRODUCT="Oracle Linux"
+		ORACLE_SUPPORT_PRODUCT_VERSION=7.6
+		```
+
+	 -	*`hostname`*
+
+		```
+		$ <copy>hostname</copy>
+		```
+
+		Output
+
+		```
+		phoenix123546
+		```
+
+	 -	*`lsb-release`* - Linux Standard Base
+
+		```
+		$ <copy>cat /etc/lsb-release</copy>
+		```
+
+		> **Note:** Some Linux distributions, but not all, use this file for older programs. 
+
+		----
+		## Cite source
+
+		[stack overflow](https://stackoverflow.com/questions/47838800/etc-lsb-release-vs-etc-os-release#:~:text=The%20%2Fetc%2Flsb%2Drelease,including%20things%20like%20filesystem%20layout.)
+
+	 - The following commands may also give OS-related information. 
+
+		Both *`issue`* and *`issue.net`* are used to display a banner (e.g. welcome line/ warning..) to SSH users before the login prompt.
+
+		<ins>For local users</ins> - 
+
+		```
+		$ <copy>cat /etc/issue</copy>
+		```
+
+		<ins>For network users</ins> - 
+
+		```
+		$ <copy>cat /etc/issue.net</copy>
+		```
+
+		Though primarily for local users, the *`/etc/issue`* information is shown to both local and network users unless *`/etc/issue.net`* is present and configured. The *`/etc/issue.net`* information is shown only to users who connect from a network. 
+
+		To configure them to be displayed when you login via SSH, uncomment *`#Banner`* and specify the desired filename at `/etc/ssh/sshd_config`, like:
+
+		```
+		...
+		Banner /etc/issue.net
+		...
+		```
+
+		----
+		## Cite source
+
+		[difference between issue and issue.net](https://serverfault.com/questions/922235/what-is-the-difference-between-etc-issue-net-and-etc-issue)
+
+	 - view processor type, cpu architecture information with *`lscpu`*
+
+		**Option 1**
+
+		```
+		$ <copy>lscpu | grep Architecture</copy>
+		```
+
+		Output
+
+		```
+		Architecture:          x86_64
+		```
+
+		**Option 2**
+
+		```
+		$ <copy>lscpu | awk '/Architecture:/{print $2}'</copy>
+		```
+
+		Output
+
+		```
+		x86_64
+		```
+
+	----
 	## java
-	
-	- print java version to <i>error stream</i>
-	
+
+	 - print java version to <i>error stream</i>
+
 		```
 		$ <copy>java -version</copy>
 		```
@@ -1112,8 +1483,8 @@ A script begins with -
 		Java HotSpot(TM) 64-Bit Server VM (build 16.0.1+9-24, mixed mode, sharing)
 		```
 
-	- print java version to <i>output stream</i>
-	
+	 - print java version to <i>output stream</i>
+
 		```
 		$ <copy>java --version</copy>
 		```
@@ -1123,8 +1494,8 @@ A script begins with -
 		Java HotSpot(TM) 64-Bit Server VM (build 16.0.1+9-24, mixed mode, sharing)
 		```
 
-	- Check whether java is installed on the system
-	
+	 - Check whether java is installed on the system
+
 		```
 		$ <copy>where is java</copy>
 		```
@@ -1138,8 +1509,8 @@ A script begins with -
 		/usr/bin/java
 		```
 
-	- Java installer puts several files into different directories. Check the java SDK location.  
-	
+	 - Java installer puts several files into different directories. Check the java SDK location.
+
 		```
 		$ <copy>which java</copy>
 		```
@@ -1147,8 +1518,8 @@ A script begins with -
 		/usr/bin/java
 		```
 
-	- Check version  
-	
+	 - Check version
+
 		```
 		$ <copy>rpm -q --whatprovides java</copy>
 		```
@@ -1156,19 +1527,19 @@ A script begins with -
 		java-1.8.0-openjdk-1.8.0.332.b09-1.el7_9.x86_64
 		```
 
-	- Install a new version
+	 - Install a new version
 
 		```
 		$ <copy>rpm -ivh jdk-16.interim.update.patch_linux-x64_bin.rpm</copy>
 		```
 
-	- Upgrade the existing version
+	 - Upgrade the existing version
 
 		```
 		$ <copy>rpm -Uvh jdk-16.interim.update.patch_linux-x64_bin.rpm</copy>
 		```
 
-	- Set the environment variable *$JAVA_HOME* for all users
+	 - Set the environment variable *$JAVA_HOME* for all users
 
 		1. Open `.base_profile` in vi editor.
 
@@ -1176,7 +1547,7 @@ A script begins with -
 			$ <copy>vi ~/.bash_profile</copy>
 			```
 
-		1. Insert these into `.bash_profile`. 
+		1. Insert these into `.bash_profile`.
 
 			```
 			<copy>
@@ -1191,8 +1562,9 @@ A script begins with -
 			$ <copy>source ~/.bash_profile</copy>
 			```
 
+	----
 	## Public IP address
-	
+
 	```
 	$ <copy>host myip.opendns.com resolver1.opendns.com</copy>
 	```
@@ -1216,10 +1588,11 @@ A script begins with -
 
  - Fix errors on Linux
 
+	----
 	## Pop-up loop: Authentication required for network proxy
 
 	**Problem statement**   
-	You are connected through the VNC viewer and this pop-up keeps appearing every few minutes. 
+	You are connected through the VNC viewer and this pop-up keeps appearing every few minutes.
 
 	![Error: Authentication for network proxy config](./images/auth-required.png " ")
 
@@ -1235,286 +1608,105 @@ A script begins with -
 	[Cancel] [Authenticate]
 	```
 
-	**How to fix**   
+	**How to fix**
 
-	Three possible solutions to this problem. 
-	- Option 1 as normal user
-	- Option 2 and 3 requires root
-	
+	Three possible solutions to this problem.
+	 - Option 1 as normal user
+	 - Option 2 and 3 requires root
+
 	<u>Option 1 - as normal user</u>
 
-	1. Open a terminal console and type the following to open **Startup Programs**.
+	 1. Open a terminal console and type the following to open **Startup Programs**.
 
 		```
 		$ <copy>gnome-session-properties</copy>
 		```
 
-	1. Uncheck the option *PackageKit Update Applet*.
+	 1. Uncheck the option *PackageKit Update Applet*.
 
 
-	<u>Option 2 - requires *root*</u>
+	 <u>Option 2 - requires *root*</u>
 
-	1. In the terminal, change to root.
+	 1. In the terminal, change to root.
 
 		```
 		$ sudo -i
 		Password:
 		```
 
-	1. Disable `/etc/yum/pluginconf.d`.
+	 1. Disable `/etc/yum/pluginconf.d`.
 
 		```
 		$ <copy>vi /etc/yum/pluginconf.d/refresh-packagekit.conf</copy>
 		```
 
-	1. Modify the value.
+	 1. Modify the value.
 
 		```
 		[main]
 		enabled=0
 		```
 
-	1. 	Save the file, **Esc** + **:wq**.
+	 1. Save the file, **Esc** + **:wq**.
 
-	<u>Option 3 - requires *root*</u>
+	 <u>Option 3 - requires *root*</u>
 
-	1. Edit the file `/etc/xdg/autostart/gpk-update-icon.desktop`.
+	 1. Edit the file `/etc/xdg/autostart/gpk-update-icon.desktop`.
 
 		```
 		$ <copy>vi /etc/xdg/autostart/gpk-update-icon.desktop</copy>
 		```
 
-	1. Add the following line at the end. 
+	 1. Add the following line at the end.
 
 		```
 		<copy>X-GNOME-Autostart-enabled=false</copy>
 		```
 
-	1. Restart the VNC server.
+	 1. Restart the VNC server.
 
-## TBD
+	----
+	## Error while extracting files
 
-<if type="hidden"> </if>
+	**Problem statement**   
+	You try extracting all contents of a zip file into a folder using the asterisk (`*`) character.
+
+	```
+	unzip: caution: filename not matched:
+	```
+
+	**How to fix**
+
+	To prevent this behavior -
+
+	- **Option 1**
+
+		Escape the asterisk (`*`) character
+
+		```
+		$ unzip -o somearchive.zip somedir/\*
+		```
+
+	- **Option 2**
+
+		Put the files to extract in double quotes.
+
+		```
+		$ unzip -o somearchive.zip "somedir/*"
+		```
 
 <!--
 
-```
-$ <copy></copy>
-```
-
 ## basic
 
-## advanced 
+## advanced
 
 ## bash profile
 
-
-
-verify
-----------------------------
-
-
-
-
-mc
-sudo mc
-
-
-default bash prompt: 
-bash-4.2$
-
-bash: add date to prompt
-
-$ export PS1="$(date +%k:%M:%S) $ "
-
-11:17:24 $ 
-
-bash: add user/host info to prompt
-PS1="[\mgarodia@\phoenix62464 \D{%Y%m%d-%H:%M:%S}]\$ "
-
-[\mgarodia@\phoenix62464 20221123-11:15:17]$ 
-
-
-Return to default mode, type "exit" 
-
-Note: this is a temp variable. New terminal does not have this. 
-
-
-OS version
-lsb_release -a
-
-output
-[mgarodia@phoenix62464 ~/Downloads]$ lsb_release -a
-LSB Version:    :core-4.1-amd64:core-4.1-ia32:core-4.1-noarch:cxx-4.1-amd64:cxx-4.1-ia32:cxx-4.1-noarch:desktop-4.1-amd64:desktop-4.1-ia32:desktop-4.1-noarch:languages-4.1-amd64:languages-4.1-noarch:printing-4.1-amd64:printing-4.1-noarch
-Distributor ID: OracleServer
-Description:    Oracle Linux Server release 7.6
-Release:        7.6
-Codename:       n/a
-Description:    Oracle Linux Server release 7.6
-
-
-lsb_release -d
-
-Output
-Description:    Oracle Linux Server release 7.6
-
-
-lsb_release --all
-
-Output
-[mgarodia@phoenix62464 ~/Downloads]$ lsb_release --all
-LSB Version:    :core-4.1-amd64:core-4.1-ia32:core-4.1-noarch:cxx-4.1-amd64:cxx-4.1-ia32:cxx-4.1-noarch:desktop-4.1-amd64:desktop-4.1-ia32:desktop-4.1-noarch:languages-4.1-amd64:languages-4.1-noarch:printing-4.1-amd64:printing-4.1-noarch
-Distributor ID: OracleServer
-Description:    Oracle Linux Server release 7.6
-Release:        7.6
-Codename:       n/a
-
-
-uname --all
-
-Linux phoenix62464 4.14.35-2047.514.5.1.1.el7uek.x86_64 #2 SMP Wed Jul 13 11:52:18 PDT 2022 x86_64 x86_64 x86_64 GNU/Linux
-
-
-
-----
-for local users - may give OS info. But if banner is commented in 
-cat /etc/issue
-or 
-for network users:
-cat /etc/issue.net
-
-
-Both /etc/issue.net and /etc/issue are used to display a banner (e.g. welcome line/ warning..) to SSH users before the login prompt:
-
-/etc/issue.net is shown to the users who connect from the network.
-/etc/issue is shown to both local users and network users unless /etc/issue.net is present and configured.
-Also, to configure them to be displayed when you login via SSH, you need to uncomment #Banner and specify the desired filename at /etc/ssh/sshd_config, like:
-
-Banner /etc/issue.net
-
-https://serverfault.com/questions/922235/what-is-the-difference-between-etc-issue-net-and-etc-issue
-
-
-
-cat /etc/os-release
-
-
-NAME="Oracle Linux Server"
-VERSION="7.6"
-ID="ol"
-VARIANT="Server"
-VARIANT_ID="server"
-VERSION_ID="7.6"
-PRETTY_NAME="Oracle Linux Server 7.6"
-ANSI_COLOR="0;31"
-CPE_NAME="cpe:/o:oracle:linux:7:6:server"
-HOME_URL="https://linux.oracle.com/"
-BUG_REPORT_URL="https://bugzilla.oracle.com/"
-
-ORACLE_BUGZILLA_PRODUCT="Oracle Linux 7"
-ORACLE_BUGZILLA_PRODUCT_VERSION=7.6
-ORACLE_SUPPORT_PRODUCT="Oracle Linux"
-ORACLE_SUPPORT_PRODUCT_VERSION=7.6
-
-
-
-hostname
-
-output
-phoenix62464
-
-
-cat /etc/lsb-release
-
-some linux distributions use this file but not all. Linux Standard Base
-https://stackoverflow.com/questions/47838800/etc-lsb-release-vs-etc-os-release#:~:text=The%20%2Fetc%2Flsb%2Drelease,including%20things%20like%20filesystem%20layout.
-The /etc/lsb-release file is a file that some, but not all, Linux distributions put there for older programs to use. The "lsb" refers to the Linux Standard Base, a project working to define a common set of standards for any Linux distribution to follow, including things like filesystem layout.
-
-
-
-# grep processor type, cpu architecture info in bash from lscpu
-
-lscpu | grep Architecture
-output
-Architecture:          x86_64
-
-lscpu | awk '/Architecture:/{print $2}'
-x86_64
-
-
-
-
-
-change default home
-----------------------
-usermod -d /new-home/directory-location username
-
-vi ~/.bashrc
-
-cd /home/mgarodia/Downloads
-
-symbolic link
---------------
-ln -s target linkname
-ln -s <path to the file/folder to be linked> <the path of the link to be created>
-
-
-Ctrl L = clear
-Ctrl D = logout from sudo user back to original user
-Ctrl U = erases from current cursor position to begining of line
-Ctrl A = begin of line
-Ctrl E = end of line
-
-command alias - only current session of terminal
-$ alias shortName="your custom command here"
-$ alias wr=”cd /var/www/html”
-
----------------------------------------------------------------------------------
-
-unzip: caution: filename not matched:
-
-To prevent this behavior just escape the * like this:
-unzip -o somearchive.zip somedir/\*
-
-Or, put the files to extract in double quotes:
-unzip -o somearchive.zip "somedir/*"
-
-Use -d to specify the target directory:
-unzip -d 
-unzip -o archive.zip -d /Users/current/Dev/tools/
-
-
-
-Triplet for u: rwx => 4 + 2 + 1 = 7
-Triplet for g: r-x => 4 + 0 + 1 = 5
-Triplet for o: r-x => 4 + 0 + 1 = 5
-
-Which makes : 755
-
-So, 755 is a terse way to say 'I don't mind if other people read or run this file, but only I should be able to modify it' and 777 means 'everyone has full access to this file'
-
-
-bulk rename files in windows command prompt
--------------------------------------------
-ren *.png pdb-users-0??.*
-
-
-
-VI editor
-------------
-
-Open a file in vi
-
-1) Press **Shift** + *g* to go to the end of the file
-
-2) Press *g* twice to go to the beginning of the file
-
-> **Note:** *g* is case-sensitive
 -->
 
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - November 27, (Sun) 2022
+ - **Last Updated on** - December 3, (Sat) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
-
