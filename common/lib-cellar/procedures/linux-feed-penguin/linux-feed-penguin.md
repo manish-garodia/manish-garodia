@@ -48,7 +48,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 - Add date to bash prompt
 
 		```
-		$ <copy>export PS1="$(date +%k:%M:%S) $ "</copy>
+		$ <copy>export PS1="$(date +\%k:\%M:\%S) $ "</copy>
 		```
 		```
 		11:17:24 $
@@ -57,11 +57,13 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 - Add user/host information to bash prompt
 
 		```
-		$ <copy>PS1="[\mgarodia@\phoenix123546 \D{%Y%m%d-%H:%M:%S}]\$ "</copy>
+		$ <copy>PS1="[\mgarodia@\phoenix123546 \D{\%Y\%m\%d-\%H:\%M:\%S}]\$ "</copy>
 		```
 		```
 		[\mgarodia@\phoenix123546 20221123-11:15:17]$
 		```
+
+		Remove the slashes before every percentage symbol. 
 
 		> **Note:** This is a temporary variable.   
 		New terminal opens with the default bash prompt, *`bash-4.4$`*.
