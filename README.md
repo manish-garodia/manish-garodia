@@ -3,7 +3,7 @@
 ![mg space](./common/images/mg-space.jpg " ") 
 ----
 
-Explore the possibilities with learn, unlearn, and re-learn
+Explore the possibilities with learn, unlearn, re-learn
 
 ## MG Library : tell-me-how
 
@@ -11,60 +11,55 @@ Explore the possibilities with learn, unlearn, and re-learn
 
 ## Learn from errors
 
-This lab contains topics developed from notes on specific areas. These notes converge from various sources, for example *discussions*, *trainings*, *experiments*, *mistakes*, and *failures*.
+This page contains topics developed from notes on specific areas. These notes converge from various sources, for example *discussions*, *trainings*, *experiments*, *mistakes*, and *failures*.
 
-It also lists down videos and channels published on oTube.
+Check out the section below on videos and channels available on oTube.
 
 <!--
-- [Access VM and Configure VNC](https://manish-garodia.github.io/mg-playground/topic-title/access-vm-config-vnc/)
-- [Compute Instance and Custom Image](https://manish-garodia.github.io/mg-playground/topic-title/compute-instance-custom-image/)
-- [Oracle Database 21c Gold Image](https://manish-garodia.github.io/mg-playground/topic-title/install-db-goldimage/)
-- [Install Oracle EMCC 13.5](https://manish-garodia.github.io/mg-playground/topic-title/install-emcc/)
--->
-
-<if type="hidden">
 [Open MG Library on Github](https://manish-garodia.github.io/mg-playground/mg-library/)
 
 [Open mg-playground in clone](http://127.0.0.1:5500/mg-playground/z-sandbox/)
 
 [Open topic title list in clone](http://127.0.0.1:5500/mg-playground/topic-title/)
-</if>
+
+| 6-a    | [GitHub pull requests](https://manish-garodia.github.io/mg-playground/topic-title/github-pr/) | History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github. |
+| <if type="hidden">9    | Vi Editor | desc |
+| 10    | Terraforms explained | desc </if> |
+
+-->
 
 ## Topics
 
-Pick a topic and open it in a separate tab.
+Pick a title from the table to read more about it.
 
-| sl # | Title                         | Description                |
+| sl#  | Title                         | Description                |
 |------|-------------------------------|----------------------------|
 | 1    | [Virtual Machines - Real Acions](https://manish-garodia.github.io/mg-playground/topic-title/vm-real-axons/) | How to access VM and configure VNC. |
 | 2    | [Oracle Database 21c Gold Image](https://manish-garodia.github.io/mg-playground/topic-title/install-db-goldimage/) | Pre-installation setup and post installation tasks for Oracle Database 21c gold image. It also discusses some troubleshooting scenarios and tips. |
 | 3    | [Install Oracle EM 13.5](https://manish-garodia.github.io/mg-playground/topic-title/install-em/) | How to install Oracle EM on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EM. |
 | 4    | [Compute Instance and Custom Image](https://manish-garodia.github.io/mg-playground/topic-title/compute-instance-custom-image/) | How to create and manage compute instances and custom images in OCI tenancy. |
-| 5    | [Fun with git-bits](https://manish-garodia.github.io/mg-playground/topic-title/fun-with-git-bits/) | All you need to know about git ![git](./procedures/fun-with-git-bits/images/git-black-small.png) to get going. |
+| 5    | [Fun with git-bits](https://manish-garodia.github.io/mg-playground/topic-title/fun-with-git-bits/) | All you need to know about git ![git](./common/lib-cellar/procedures/fun-with-git-bits/images/git-black-small.png) to get going. |
 | 6    | [Hands down in markdown](https://manish-garodia.github.io/mg-playground/topic-title/hands-down-in-md/) | About markdown basic formatting and tags |
-| <if type="hidden">6-a    | [GitHub pull requests](https://manish-garodia.github.io/mg-playground/topic-title/github-pr/) | History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github. </if> |
 | 7    | [Zoom Barabar Zoom](https://manish-garodia.github.io/mg-playground/topic-title/zoom-barabar-zoom/) | How to integrate Zoom with Outlook, add plug-in for Outlook |
 | 8    | [Linux -:- feed the penguin](https://manish-garodia.github.io/mg-playground/topic-title/linux-feed-penguin/) | Get hands dirty with Linux commands, tips, and tricks. |
-| <if type="hidden">9    | Vi Editor | desc |
-| 10    | Terraforms explained | desc </if> |
 | 9    | working on it ... | suggest me some |
 
 ## oTube : : My *channels* and *videos* : :
 
-Videos from meetings, presentations, demos, etc. posted on [oTube](https://otube.oracle.com/).
+Videos from meetings, presentations, demos, and more available in [oTube](https://otube.oracle.com/).
 
 **Channels**
 
  - [mg library](https://otube.oracle.com/channel/t/257943902)
  - [Tools and environment](https://otube.oracle.com/channel/t/257957572)
-<if type="hidden"> - [Project - Performance Hub OCI](https://otube.oracle.com/channel/t/261319662)
- - [Project - DBA Essentials Livelabs workshops](https://otube.oracle.com/channel/t/257943952)</if>
+ - [Project - Performance Hub OCI](https://otube.oracle.com/channel/t/261319662)
+ - [Project - DBA Essentials Livelabs workshops](https://otube.oracle.com/channel/t/257943952)
 
 **Videos - general**
 
-| sl # | Name (hyperlinked)           | Description                          | Channel             | <if type="hidden">Last updated |</if>
+| sl # | Name (hyperlinked)           | Description                          | Channel             | Last updated |
 |------|------------------------------|--------------------------------------|---------------------|
-| <if type="hidden">0-a | [Masking screenshots, Convert from Confluence to Markdown](https://otube.oracle.com/media/t/1_c9khlspm) | Vim session <br>by Manish Garodia on April 6, 22 | unlisted | July 7, 2022 (Thu)</if> |
+| 0 | [Masking screenshots, Convert from Confluence to Markdown](https://otube.oracle.com/media/t/1_c9khlspm) | Vim session <br>by Manish Garodia on April 6, 22 | unlisted | July 7, 2022 (Thu) |
 | 1    | [Masking sensitive information in Web UI screenshots](https://otube.oracle.com/media/t/1_0d43dk99) | Presentation <br>by Manish Garodia on April 6, 22  | [mg library](https://otube.oracle.com/channel/t/257943902) | July 9, 22 (Sat) |
 | 2    | [Convert content from Confluence to Markdown](https://otube.oracle.com/media/t/1_q1wt1tmj) | Presentation <br>by Manish Garodia on April 6, 2022  | [mg library](https://otube.oracle.com/channel/t/257943902) | July 9, 22 (Sat) |
 | 3    | [Using variables in Oxygen](https://otube.oracle.com/media/t/1_41cw944f)  | How to use variables in Oxygen XML Author 17.1 <br>by Suresh Mohan on July 07, 22 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 7, 22 (Thu) |
@@ -74,7 +69,6 @@ Videos from meetings, presentations, demos, etc. posted on [oTube](https://otube
 | 7 | [Preview and publish content on OCI with CPP](https://otube.oracle.com/media/t/1_dlf7sdav) | How to use Content Publishing Pipeline (CPP) for building previews and publishing content on the OCI portal <br>by Neil Hebert on Oct 04, 22 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Oct 4, 22 (Tue) |
 | 8 | | | | |
 
-<if type="hidden">
 **Videos - project**
 
 | sl # | Name (hyperlinked)           | Description                          | Channel             | Last updated |
@@ -109,12 +103,10 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 | 18   | [OCI Support Accreditation badge](https://ibb.co/mT46ZT0)        | `ibb.co/mT46ZT0` 		   | [badges](https://ibb.co/album/tqNnc2) |
 | 19   |  |  |  |
 
-</if>
+----
 
-
-## Acknowledgements
-
- - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - December 3, (Sun) 2022
+<div style="text-align: right">
+ - **Author** - ♏🅰️♑❗💲♓, Team Database UAD   
+ - **Last Updated on** - December 11, (Sun) 2022   
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)
-
+</div>
