@@ -144,22 +144,36 @@ The OCI has **26 regions** that are associated with specific teams.
 
 			Old
 
-			```	https://objectstorage.ap-seoul-1.oraclecloud.com/p/Db0-IwNRpeapsxh3TsMf7aHP41Rb1-zMluhCOn0O4MVAFuGTLTbEOdTx6_yzUe-B/n/cnmyhyct1k43/b/dba-essentials/o/ws11-8341-live.png
+			```
+			https://objectstorage.ap-seoul-1.oraclecloud.com/p/Db0-IwNRpeapsxh3TsMf7aHP41Rb1-zMluhCOn0O4MVAFuGTLTbEOdTx6_yzUe-B/n/cnmyhyct1k43/b/dba-essentials/o/ws11-8341-live.png
 			```
 
 			New
 
-			```	https://objectstorage.us-ashburn-1.oraclecloud.com/p/_HuemwlaO6RZQNLOljUCsgs6tvUX2E8DsDi66GvYxbBdf1T2J9SZp-eu6Qd8VXQR/n/idrudhdwamji/b/dba-e-ws-live/o/ws11-8341-live.png
+			```
+			https://objectstorage.us-ashburn-1.oraclecloud.com/p/_HuemwlaO6RZQNLOljUCsgs6tvUX2E8DsDi66GvYxbBdf1T2J9SZp-eu6Qd8VXQR/n/idrudhdwamji/b/dba-e-ws-live/o/ws11-8341-live.png
 			```
 
 		 - PAR URL for *dba-e-filter* - created on 6 June 2022, valid till 31 Dec, 2033. 
 
-			```		https://objectstorage.us-ashburn-1.oraclecloud.com/p/CKeQN8E9rvQw-tdCj4OudcCzO0rs6x0ZYmms46ttwBQH1VUV1X9g3CxUC-Kt3RvJ/n/idrudhdwamji/b/dba-e-ws-live/o/dba-e-filter.png
+			```
+			https://objectstorage.us-ashburn-1.oraclecloud.com/p/CKeQN8E9rvQw-tdCj4OudcCzO0rs6x0ZYmms46ttwBQH1VUV1X9g3CxUC-Kt3RvJ/n/idrudhdwamji/b/dba-e-ws-live/o/dba-e-filter.png
 			```
 
 		 - PAR URL for *WS6-11060-live* - created on 6 June 2022, valid till 31 Dec, 2033. 
 
-			```		https://objectstorage.us-ashburn-1.oraclecloud.com/p/ORzD8dbvOACgLnjG8uchLoRgOqd3wun3sB-RewT0jM5dsQTtVkmXq4YG0_fU0r7D/n/idrudhdwamji/b/dba-e-ws-live/o/ws6-11060-live.png
+			```
+			https://objectstorage.us-ashburn-1.oraclecloud.com/p/ORzD8dbvOACgLnjG8uchLoRgOqd3wun3sB-RewT0jM5dsQTtVkmXq4YG0_fU0r7D/n/idrudhdwamji/b/dba-e-ws-live/o/ws6-11060-live.png
+			```
+
+		 - PAR URL for *manishgarodia-objectstore-20221206-time.html* - created on 6 Dec 2022, valid till 31 Dec, 2051. 
+
+			```
+			https://objectstorage.ap-seoul-1.oraclecloud.com/p/dUEnGWixmpsK1TcgbbfEVuTZtQ8h1wiK7rf-rjeg53pI9VstofxSCe4sChHeoCuh/n/cnmyhyct1k43/b/bucket-20210824-2326/o/time.html
+			```
+			
+			```
+			https://objectstorage.ap-seoul-1.oraclecloud.com/p/Wnmwviac2Iw9jR7WuDdTJWDXifI23CHNmZqSXCQPXdXJqNDogWagV9WPKyoEANr3/n/cnmyhyct1k43/b/bucket-20210824-2326/o/time.html
 			```
 </if>
 
@@ -841,5 +855,5 @@ chmod g+s /oracle
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - June 5, (Sun) 2022
+ - **Last Updated on** - December 6, (Tue) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

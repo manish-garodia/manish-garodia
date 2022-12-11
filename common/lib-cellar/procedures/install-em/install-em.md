@@ -327,7 +327,8 @@ These credentials are required for the maintenance of EM.
 - Middleware folder - `/scratch/u01/software/em/middleware/bin`
 - Agent folder - `/scratch/u01/software/em/agent/agent_13.5.0.0.0/bin`
 
-Cite: Another EM installation procedure explained here - [Manual EM Shiphome installation on OCI](https://confluence.oraclecorp.com/confluence/display/EMQ/Manual+EM+Shiphome+installation+on+OCI)
+> **Cite**:    
+> Another EM installation procedure explained here - [Manual EM Shiphome installation on OCI](https://confluence.oraclecorp.com/confluence/display/EMQ/Manual+EM+Shiphome+installation+on+OCI)
 
 ## Task 3: Deinstall EM
 

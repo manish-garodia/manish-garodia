@@ -7,7 +7,7 @@
 <i>
 
 ----
-- 👀 &nbsp;&nbsp;I’m exploring &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ins>the probabilities of learn, unlearn, and re-learn</ins>.  
+- 👀 &nbsp;&nbsp;I’m exploring &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ins>possibilities with learn, unlearn, and re-learn</ins>.  
 - 🌱 &nbsp;&nbsp;I’m from &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #FCF3CF">the User Asssistance Development</span> team.
 - 💞️ &nbsp;&nbsp;I’m looking &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at the ways to expand the universe of knowledge.
 </i>

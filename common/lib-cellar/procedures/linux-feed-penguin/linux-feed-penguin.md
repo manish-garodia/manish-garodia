@@ -1705,6 +1705,8 @@ A script begins with -
 
 ## bash profile
 
+add details about chown, chmod, chgrp
+
 -->
 
 ## Acknowledgements
