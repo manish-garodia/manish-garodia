@@ -5,7 +5,7 @@
             "title": "Welcome to MG space..!",
             "description": "The landing page for my personal space MG.",
 			"publisheddate": "27-Nov-2022",
-            "filename": "./../common/intro/readme.md"
+            "filename": "./../README.md"
         },
         {
             "title": "Lab 1: MG Library",

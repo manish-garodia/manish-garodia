@@ -15,7 +15,6 @@
 # mg-playground 🌐 
 💠Lookk beyyond horizonn 🚩
 
-
 ----
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📫 Reach me at [manish.garodia@oracle.com](./files/email.md)
 
