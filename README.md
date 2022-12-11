@@ -3,7 +3,7 @@
 ![mg space](./common/images/mg-space.jpg " ") 
 ----
 
-Explore the possibilities with learn, unlearn, re-learn
+> Explore the possibilities with learn, unlearn, re-learn
 
 ## MG Library : tell-me-how
 
@@ -73,7 +73,7 @@ Captured from meetings, presentations, demos, and more available in oTube.
 | 7 | [Preview and publish content on OCI with CPP](https://otube.oracle.com/media/t/1_dlf7sdav) | How to use Content Publishing Pipeline (CPP) for building previews and publishing content on the OCI portal | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Neil Hebert on Oct 04, 22 |
 | 8 | | | | |
 
-**Project Videos**
+**Videos - project**
 
 | sl # | Name (hyperlinked)           | Description                          | Channel             |
 |------|------------------------------|--------------------------------------|---------------------|
@@ -105,10 +105,8 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 ----
 
 <div style="text-align: right">
- **Author** - ♏🅰️♑❗💲♓, Team Database UAD   
-
- **Last Updated on** - December 11, (Sun) 2022   
-
- **Questions/Feedback?** - Blame manish.garodia@oracle.com
+ ♏🅰️♑❗💲♓, Team Database UAD<br>
+ <b>Last Updated on</b> - December 11, (Sun) 2022<br>
+ <b>Questions/Feedback?</b> - Blame <a href="mailto:manish.garodia@oracle.com">@manish.garodia</a>
 </div>
 
