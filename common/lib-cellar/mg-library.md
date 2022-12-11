@@ -1,10 +1,10 @@
 # MG Library : tell-me-how
 
-![mg library](./../images/mg-library.png " ") 
+![mg library](./../images/mg-library.png " ")
 
 ## Learn from errors
 
-This lab contains topics developed from notes on specific areas. These notes converge from various sources, for example *discussions*, *trainings*, *experiments*, *mistakes*, and *failures*. 
+This lab contains topics developed from notes on specific areas. These notes converge from various sources, for example *discussions*, *trainings*, *experiments*, *mistakes*, and *failures*.
 
 It also lists down videos and channels published on oTube.
 
@@ -44,7 +44,7 @@ Pick a topic and open it in a separate tab.
 
 ## oTube : : My *channels* and *videos* : :
 
-Videos from meetings, presentations, demos, etc. posted on [oTube](https://otube.oracle.com/). 
+Videos from meetings, presentations, demos, etc. posted on [oTube](https://otube.oracle.com/).
 
 **Channels**
 
@@ -57,7 +57,7 @@ Videos from meetings, presentations, demos, etc. posted on [oTube](https://otube
 
 | sl # | Name (hyperlinked)           | Description                          | Channel             | <if type="hidden">Last updated |</if>
 |------|------------------------------|--------------------------------------|---------------------|
-| <if type="hidden">0-a | [Masking screenshots, Convert from Confluence to Markdown](https://otube.oracle.com/media/t/1_c9khlspm) | Vim session <br>by Manish Garodia on April 6, 22 | unlisted | July 7, 2022 (Thu)</if> | 
+| <if type="hidden">0-a | [Masking screenshots, Convert from Confluence to Markdown](https://otube.oracle.com/media/t/1_c9khlspm) | Vim session <br>by Manish Garodia on April 6, 22 | unlisted | July 7, 2022 (Thu)</if> |
 | 1    | [Masking sensitive information in Web UI screenshots](https://otube.oracle.com/media/t/1_0d43dk99) | Presentation <br>by Manish Garodia on April 6, 22  | [mg library](https://otube.oracle.com/channel/t/257943902) | July 9, 22 (Sat) |
 | 2    | [Convert content from Confluence to Markdown](https://otube.oracle.com/media/t/1_q1wt1tmj) | Presentation <br>by Manish Garodia on April 6, 2022  | [mg library](https://otube.oracle.com/channel/t/257943902) | July 9, 22 (Sat) |
 | 3    | [Using variables in Oxygen](https://otube.oracle.com/media/t/1_41cw944f)  | How to use variables in Oxygen XML Author 17.1 <br>by Suresh Mohan on July 07, 22 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 7, 22 (Thu) |
@@ -78,7 +78,7 @@ Videos from meetings, presentations, demos, etc. posted on [oTube](https://otube
 
 ## Links imgbb
 
-Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account. 
+Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 
 | sl # | Title (hyperlinked)                      | Link                  | Album                      |
 |------|------------------------------------------|-----------------------|----------------------------|
@@ -110,5 +110,3 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
  - **Author** - Manish Garodia, Team Database UAD
  - **Last Updated on** - December 3, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)
- 
- 

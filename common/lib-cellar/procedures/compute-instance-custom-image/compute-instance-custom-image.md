@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab discusses about creating and managing compute instances and custom images in the OCI tenancy. 
+This lab discusses about creating and managing compute instances and custom images in the OCI tenancy.
 
 ## About noVNC environment
 
@@ -18,25 +18,25 @@ The basic steps for setting up a noVNC environment include -
 
 1. Create a custom image and export to the Object Storage.
 
-	The custom image creates a package of the instance that you have configured. It acts as a backup, and you can recreate another instance from it. When you create a new instance from this custom image, it generates a copy of the original instance server with preconfigured settings, for example, libraries, user accounts, applications, and so on. After creating the custom image, you can terminate the instance. 
+	The custom image creates a package of the instance that you have configured. It acts as a backup, and you can recreate another instance from it. When you create a new instance from this custom image, it generates a copy of the original instance server with preconfigured settings, for example, libraries, user accounts, applications, and so on. After creating the custom image, you can terminate the instance.
 
 	> **Note:** Do not delete the custom image from the tenancy before publishing it to the OCI marketplace.  
-	After the Livelabs goes to production, it has no dependency on the custom image. Now, if you delete the custom image, connect with the OCI team (Rene or Ashish) to get the image back. 
+	After the Livelabs goes to production, it has no dependency on the custom image. Now, if you delete the custom image, connect with the OCI team (Rene or Ashish) to get the image back.
 
 ### Points to consider
 
 If the host name of the instance changes, Enterprise Manager fails to run. Therefore, keep the *host name static*. To run noVNC, it requires a user account on the host. Create the user and then install Vnc.
 
-You cannot transfer files and folders from the local host or a laptop to the noVNC server. 
- - Upload objects or packages, for example Oracle Database 21c installer, to the Object store. 
+You cannot transfer files and folders from the local host or a laptop to the noVNC server.
+ - Upload objects or packages, for example Oracle Database 21c installer, to the Object store.
  - Give public access and directly download it in the instance using the command `wget URL`.   
-   If the bucket visibility is public, anyone can access it from anywhere. 
+   If the bucket visibility is public, anyone can access it from anywhere.
 
-The users need not go through these detailed steps to set up their VM. Nor do they have access to the internal systems. The *terraform scripts* automate these steps and create an instance for the users from the custom image. The OCI team (Rene or Ashish) deploys the custom image to the marketplace as *private* because it is not available for public view. 
+The users need not go through these detailed steps to set up their VM. Nor do they have access to the internal systems. The *terraform scripts* automate these steps and create an instance for the users from the custom image. The OCI team (Rene or Ashish) deploys the custom image to the marketplace as *private* because it is not available for public view.
 
-The OCI has **26 regions** that are associated with specific teams. 
- - An image existing in a tenancy is available only to that team. The teams from other regions in the OCI do not have access to that image. 
- - But if an image is published to the OCI marketplace, then it is available to all (26) regions in the OCI. 
+The OCI has **26 regions** that are associated with specific teams.
+ - An image existing in a tenancy is available only to that team. The teams from other regions in the OCI do not have access to that image.
+ - But if an image is published to the OCI marketplace, then it is available to all (26) regions in the OCI.
 
 <if type="hidden">
 
@@ -66,12 +66,12 @@ The OCI has **26 regions** that are associated with specific teams.
 		```
 
 		| User name or email | Password          |
-		| -------------------|-------------------| 
+		| -------------------|-------------------|
 		| ManishGarodia      | Enter the password <!-- *Sujangarh,21*--> |
 		| <!--SureshRRajan        *Merleauponty@67* -->|
 
 		<!--  - **User name** or **email** - *SureshRRajan*
-			- **Password** - *Merleauponty@67* 
+			- **Password** - *Merleauponty@67*
 		-->
 
 	## Tenancy specifications
@@ -84,7 +84,7 @@ The OCI has **26 regions** that are associated with specific teams.
 	| `DBAEssentials_21c_installer` | `129.213.163.15`  | `dbaessentials_21c_installer_v1` | [Image 2](http://129.213.163.15:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true) |
 	| `dbaessentials-21c-emcc_v1`   | `150.230.160.80`  | `emcc-image-imported-from Rene-20211021` | [Image 3](http://150.230.160.80:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true) |
 	| | | `dbaessentials_emcc_v0`   | Image 4 |
-	| `dbaessentials-21c-emcc_v2-test-labs` | `150.230.185.102` | `dbaessentials-21c-emcc_v1` | [Image 5](https://150.230.185.102:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true) <br>for emcc labs testing | 
+	| `dbaessentials-21c-emcc_v2-test-labs` | `150.230.185.102` | `dbaessentials-21c-emcc_v1` | [Image 5](https://150.230.185.102:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true) <br>for emcc labs testing |
 
 	 - **Root Compartment** - *dba-essentials*
 	 - **Child Compartment** - *mg-testing-comp*
@@ -92,7 +92,7 @@ The OCI has **26 regions** that are associated with specific teams.
 	 - **Object name** - `dbaessentials_21c_installer`
 
 		## PAR URLs
-		
+
 		 - PAR URL for *Image 2* - expired on Aug 20, 2021
 
 			```
@@ -116,31 +116,31 @@ The OCI has **26 regions** that are associated with specific teams.
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/-aidsyb5OOwAE-8q6Tdxq_rr2V-v5PLADtckYgtzZ-xichKWSv7RK4WNMUWuQdzt/n/natdsecurity/b/stage/o/emcc-livelabs-v3-int-02-10.20.2021
 			```
 
-		 - PAR URL for *WS3*, *WS8*, *WS11 image* - created on 4 Feb 2022, valid till 18 Feb. 
+		 - PAR URL for *WS3*, *WS8*, *WS11 image* - created on 4 Feb 2022, valid till 18 Feb.
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/8Priv4KCP6ttV0Rqc9Zy0bis2ui_rPu1xWKMSZWSv941Fyl6QV2lg9uANgdlNPaJ/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-installed-appuser_v1
 			```
 
-		 - PAR URL for *WS4 image* - created on 25 Mar 2022, valid till 15 Apr. 
+		 - PAR URL for *WS4 image* - created on 25 Mar 2022, valid till 15 Apr.
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/wQ-t802jacSqeclmlefOKENYpTniIi59C6FACdUF2iBhMClAy8-XdbNHy98ys7Ap/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-emcc_v2
 			```
 
-		 - PAR URL for *WS4 image* - created on 19 Apr 2022, valid till 20 May. 
+		 - PAR URL for *WS4 image* - created on 19 Apr 2022, valid till 20 May.
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/StcksXQChoqJfQ4q46oUVoWChVmGH-2rDDTJIMfpJ6NUS31Fvjnp79SQbcOgLgdo/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-emcc_v3
 			```
 
-		 - PAR URL for *WS4 image* - created on 21 Apr 2022, valid till 20 May. 
+		 - PAR URL for *WS4 image* - created on 21 Apr 2022, valid till 20 May.
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/_mwMLRZ6vFDWD_PZ2IF1Ih6RuJKYLTLWJ7dl8Cq534vOmxf40D3sn6YKlgZoFQJV/n/idrudhdwamji/b/images-for-livelabs-workshops/o/dbaessentials-21c-emcc_v4
 			```
 
-		 - PAR URL for *WS11-8341-live* name par-object-20220408-1257 - created on 8 Apr 2022, valid till 31 Dec, 2033. 
+		 - PAR URL for *WS11-8341-live* name par-object-20220408-1257 - created on 8 Apr 2022, valid till 31 Dec, 2033.
 
 			Old
 
@@ -154,24 +154,24 @@ The OCI has **26 regions** that are associated with specific teams.
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/_HuemwlaO6RZQNLOljUCsgs6tvUX2E8DsDi66GvYxbBdf1T2J9SZp-eu6Qd8VXQR/n/idrudhdwamji/b/dba-e-ws-live/o/ws11-8341-live.png
 			```
 
-		 - PAR URL for *dba-e-filter* - created on 6 June 2022, valid till 31 Dec, 2033. 
+		 - PAR URL for *dba-e-filter* - created on 6 June 2022, valid till 31 Dec, 2033.
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/CKeQN8E9rvQw-tdCj4OudcCzO0rs6x0ZYmms46ttwBQH1VUV1X9g3CxUC-Kt3RvJ/n/idrudhdwamji/b/dba-e-ws-live/o/dba-e-filter.png
 			```
 
-		 - PAR URL for *WS6-11060-live* - created on 6 June 2022, valid till 31 Dec, 2033. 
+		 - PAR URL for *WS6-11060-live* - created on 6 June 2022, valid till 31 Dec, 2033.
 
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/ORzD8dbvOACgLnjG8uchLoRgOqd3wun3sB-RewT0jM5dsQTtVkmXq4YG0_fU0r7D/n/idrudhdwamji/b/dba-e-ws-live/o/ws6-11060-live.png
 			```
 
-		 - PAR URL for *manishgarodia-objectstore-20221206-time.html* - created on 6 Dec 2022, valid till 31 Dec, 2051. 
+		 - PAR URL for *manishgarodia-objectstore-20221206-time.html* - created on 6 Dec 2022, valid till 31 Dec, 2051.
 
 			```
 			https://objectstorage.ap-seoul-1.oraclecloud.com/p/dUEnGWixmpsK1TcgbbfEVuTZtQ8h1wiK7rf-rjeg53pI9VstofxSCe4sChHeoCuh/n/cnmyhyct1k43/b/bucket-20210824-2326/o/time.html
 			```
-			
+
 			```
 			https://objectstorage.ap-seoul-1.oraclecloud.com/p/Wnmwviac2Iw9jR7WuDdTJWDXifI23CHNmZqSXCQPXdXJqNDogWagV9WPKyoEANr3/n/cnmyhyct1k43/b/bucket-20210824-2326/o/time.html
 			```
@@ -180,7 +180,7 @@ The OCI has **26 regions** that are associated with specific teams.
 ## Task 1: Options for custom image
 
 Either of the following will get you a custom image.
- - **Option 1** - *Create* a custom image from an instance. 
+ - **Option 1** - *Create* a custom image from an instance.
  - **Option 2** - *Import* an existing image into your tenancy using a URL.
 
 	## 1. How to create a custom image from an instance?
@@ -199,8 +199,8 @@ Either of the following will get you a custom image.
 		$ <copy>cat /etc/hosts</copy>
 		```
 
-		If the instance is clean, it displays only the following two. 
-		
+		If the instance is clean, it displays only the following two.
+
 		```
 		127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 		::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
@@ -208,15 +208,15 @@ Either of the following will get you a custom image.
 
 		But, if instance needs to be cleaned, it displays a third line.
 
-		Example - 
+		Example -
 
 		```
 		10.0.0.225   dbaessentials.livelabs.oraclevcn.com  dbaessentials
 		```
 
-		Clean up the instance first before proceeding with the custom image. 
+		Clean up the instance first before proceeding with the custom image.
 
-	1. Follow this task to clean the instance. 
+	1. Follow this task to clean the instance.
 
 		[Task 1: Cleanup Instance for Image Capture](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/?lab=7-labs-create-custom-image-for-marketplace#Task1:CleanupInstanceforImageCapture)
 
@@ -228,16 +228,16 @@ Either of the following will get you a custom image.
 		$ <copy>cat /etc/hosts</copy>
 		```
 
-	1. Follow this task to create a custom image. 
+	1. Follow this task to create a custom image.
 
 		[Task 2: Create Custom Image](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/?lab=7-labs-create-custom-image-for-marketplace#Task2:CreateCustomImage)
 
-	> **Note:** Ensure to select the correct *compartment* while creating the custom image. If you create the image in a wrong compartment by mistake, you can *Move Resource* and bring the image back to the relevant compartment. 
+	> **Note:** Ensure to select the correct *compartment* while creating the custom image. If you create the image in a wrong compartment by mistake, you can *Move Resource* and bring the image back to the relevant compartment.
 
-	After creating the custom image - 
-	 - Export the image to the object store 
+	After creating the custom image -
+	 - Export the image to the object store
 	 - Share the PAR URL with the OCI team
-	 - The OCI team downloads the image and publishes it to the OCI marketplace. 
+	 - The OCI team downloads the image and publishes it to the OCI marketplace.
 
 		## Instance cleanup commands (handy)
 
@@ -254,7 +254,7 @@ Either of the following will get you a custom image.
 			</copy>
 			```
 
-		1. Stop the VNC service. 
+		1. Stop the VNC service.
 
 			```
 			<copy>
@@ -271,7 +271,7 @@ Either of the following will get you a custom image.
 			</copy>
 			```
 
-		1. Run the script. 
+		1. Run the script.
 
 			```
 			<copy>
@@ -300,12 +300,12 @@ Either of the following will get you a custom image.
 
 	## 2. How to import an existing image using a URL?
 
-	Import an existing image from another Object Storage into your tenancy using a PAR URL. 
+	Import an existing image from another Object Storage into your tenancy using a PAR URL.
 
 	1. Log in to the tenancy.
 
 	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.  
-	   Check if the compartment is correct. 
+	   Check if the compartment is correct.
 
 	1. On the Images page, click **Import image** and specify the following.
 		- Select the *compartment*
@@ -320,7 +320,7 @@ Either of the following will get you a custom image.
 
 ## Task 2: Options for creating instance
 
-After logging in to the tenancy: 
+After logging in to the tenancy:
 
  - **Case #1** - Create a new instance from scratch altogether.
 
@@ -331,28 +331,28 @@ After logging in to the tenancy:
    ## 1. To create an instance from scratch
 
 	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
-		Check if the compartment is correct. 
+		Check if the compartment is correct.
 
-	1. On the Instances page, click **Create instance**. 
-	
+	1. On the Instances page, click **Create instance**.
+
 	1. Follow [Task 3: How to create a compute instance?](?lab=compute-instance-custom-image#Task3:Howtocreateacomputeinstance?).
 
    ## 2. To create an instance from an existing image
 
 	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.   
-	   Check if the compartment is correct. 
+	   Check if the compartment is correct.
 
 	1. Click the *image name* from which you want to create the instance.
 
 	1. On the Custom image details page, click **Create instance**.
-	
+
 		Alternatively, click on the three dots on the right of the image name and select **Create instance**.
 
 	1. Follow [Task 3: How to create a compute instance?](?lab=compute-instance-custom-image#Task3:Howtocreateacomputeinstance?).
 
 ## Task 3: How to create a compute instance?
 
-> **Note:** Whether from an image or from scratch, the steps for creating an instance is the same. 
+> **Note:** Whether from an image or from scratch, the steps for creating an instance is the same.
 
 Following the **Create instance** button, do these steps.
 
@@ -381,9 +381,9 @@ Following the **Create instance** button, do these steps.
 		 - Memory - *1 GB*
 		 - Network Bandwidth - *0.48 gbps*
 
-	  Leave the default placement and image, and change the shape as explained below. 
+	  Leave the default placement and image, and change the shape as explained below.
 
-1. Under Image and shape, click **Edit** > **Change shape**. 
+1. Under Image and shape, click **Edit** > **Change shape**.
 	- **Instance type** - *Virtual machine* (default selected)
 	- **Shape series** - *AMD*
 	- **Shape name** - *VM.Standard.E3.Flex*
@@ -396,32 +396,32 @@ Following the **Create instance** button, do these steps.
 1. For networking, leave the defaults *vcnyyyymmdd-xxxx*. For example, `vcn-20220131-2306`.
 
 1. Under Add SSH keys, the page displays the default **Generate a key pair for me** selected.  
-   Save both the keys to your local system, **Save Private key** (`*.key`) and **Save Public key** (`*.pub`). 
-   
-	> **Note:** Ensure to save both, the private key and the public key. If you skip downloading the keys now, you do not get a second chance to download them ever again. 
+   Save both the keys to your local system, **Save Private key** (`*.key`) and **Save Public key** (`*.pub`).
+
+	> **Note:** Ensure to save both, the private key and the public key. If you skip downloading the keys now, you do not get a second chance to download them ever again.
 
 	## Other options
 	For SSH keys:
-	 - **Upload public key files** - If you already have a public key. 
-	 - **Paste public keys** - If you want to paste the contents of the public key. 
+	 - **Upload public key files** - If you already have a public key.
+	 - **Paste public keys** - If you want to paste the contents of the public key.
 
-	The next time when you create a new instance, you can use the same public key that you already have. 
+	The next time when you create a new instance, you can use the same public key that you already have.
 
-	While creating an instance, enter the Public Key. The Private key is required to access the server and to configure a static host name. 
+	While creating an instance, enter the Public Key. The Private key is required to access the server and to configure a static host name.
 
 1. Determine the boot volume for the instance.
 	- For a new instance, the default size is *46 GB*.
-	- For an instance from an image, the boot volume takes the size of the image. 
+	- For an instance from an image, the boot volume takes the size of the image.
 
-	Optionally, you can click **Specify a custom boot volume size** to increase the size. Skip this for now and use the default boot volume. 
+	Optionally, you can click **Specify a custom boot volume size** to increase the size. Skip this for now and use the default boot volume.
 
 	> **Note:** After creating the instance, you can increase the boot volume later. But you cannot decrease the size of an existing instance.   
 	The boot volume size starts at *50 GB* with a maximum is up to *32 TB*.
 
 1. Click **Create** to create the instance.   
-   You can **Save stack** if you want to create stacks from the instance. Skip this for now. 
+   You can **Save stack** if you want to create stacks from the instance. Skip this for now.
 
-	> **Note:** The lifetime of an instance is <i>forever</i>, until you stop the instance and delete it. 
+	> **Note:** The lifetime of an instance is <i>forever</i>, until you stop the instance and delete it.
 
 The instance status displays *Provisioning*. After some time, the status changes to *Running*. Note the **Public IP Address** of the instance (because it is publicly accessible). You cannot connect to the server using the Private IP.
 
@@ -434,15 +434,15 @@ To access the remote desktop for noVNC environment, enable port *6080*.
 1. Log in to the tenancy.
 
 1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
-	Check if the compartment is correct. 
+	Check if the compartment is correct.
 
-1. On the Instances page, click the *instance name* for which you want to enable the port. 
+1. On the Instances page, click the *instance name* for which you want to enable the port.
 
 1. Under Instance details, click the **Virtual cloud network** name, for example *vcn-20200616-1735*.
 
 1. Under **Resources** on the left, open **Security List**. Click the *Default Security List for vcn-20200616-1735*.
 
-   **Note:** By default, the Destination Port Range has only port *22* enabled. Since port 22 is for SSH, it means you can do only SSH. 
+   **Note:** By default, the Destination Port Range has only port *22* enabled. Since port 22 is for SSH, it means you can do only SSH.
 
 1. Click **Add Ingress Rules** and specify the following.
 
@@ -451,7 +451,7 @@ To access the remote desktop for noVNC environment, enable port *6080*.
 	- **IP Protocol** - *TCP* (default selected)
 	- **Source Port Range** - *All*
 	- **Destination Port Range** - *6080*
-	- **Description** - Optionally, add a brief description. 
+	- **Description** - Optionally, add a brief description.
 
 1. Click **Add Ingress Rules** to enable port 6080.
 
@@ -459,7 +459,7 @@ You can now connect to the noVNC remote desktop and provision a green button res
 
 ### Modify a Port
 
-1. Click the **three dots** on the right of an ingress rule and select **Edit**. 
+1. Click the **three dots** on the right of an ingress rule and select **Edit**.
 
 1. Modify the rule and click **Save changes**.
 
@@ -479,23 +479,23 @@ After logging into your tenancy, you can do various administrative activities, s
 	## 1. To access the Object Storage
 
 	1. Click on the hamburger (sandwich bars) and go to **Storage** > **Buckets**.   
-		Check if the compartment is correct. 
+		Check if the compartment is correct.
 
 		The Object Storage & Archive Storage page displays the buckets.
 
-	1. Click the *bucket name* to view its contents. 
+	1. Click the *bucket name* to view its contents.
 
 	----
 	## 2. To export a custom image
 
 	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.   
-		Check if the compartment is correct. 
+		Check if the compartment is correct.
 
-	1. On the Images page, click the *custom image name* that you want to export. 
-	
+	1. On the Images page, click the *custom image name* that you want to export.
+
 		Alternatively, click on the three dots on the right of the image name and select **Export**.
 
-	1. On the Custom image details page, click **Export** to export the image to the object store. 
+	1. On the Custom image details page, click **Export** to export the image to the object store.
 
 	After some time, go to the object storage and verify that the custom image is exported successfully.
 
@@ -503,13 +503,13 @@ After logging into your tenancy, you can do various administrative activities, s
 	## 3. To delete an image
 
 	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.   
-		Check if the compartment is correct. 
+		Check if the compartment is correct.
 
-	1. On the Images page, click the *custom image name* that you want to delete. 
+	1. On the Images page, click the *custom image name* that you want to delete.
 
 		Alternatively, click on the three dots on the right of the image name and select **Delete**.
 
-	1. On the Custom image details page, click **More Actions** > **Delete**. 
+	1. On the Custom image details page, click **More Actions** > **Delete**.
 
 	1. On the confirmation screen, click **Delete** to remove the custom image permanently.
 
@@ -519,9 +519,9 @@ After logging into your tenancy, you can do various administrative activities, s
 	## 4. To move resources between compartments
 
 	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
-		Check if the compartment is correct. 
+		Check if the compartment is correct.
 
-	1. On the Instances page, click the *instance name* that you want to move. 
+	1. On the Instances page, click the *instance name* that you want to move.
 
 	1. On the Instance details page, click **More Actions** > **Move Resource**.
 
@@ -531,9 +531,9 @@ After logging into your tenancy, you can do various administrative activities, s
 
 		The instance is moved to the new compartment immediately. It is not displayed in the compartment anymore. Change to the new compartment and verify that it dispays the instance.
 
-	Similarly, you can move images, buckets in the object store, etc. between compartments. Moving a bucket to another compartment also moves all the underlying objects stored within the bucket. 
+	Similarly, you can move images, buckets in the object store, etc. between compartments. Moving a bucket to another compartment also moves all the underlying objects stored within the bucket.
 
-	You can move resources from one compartment to another within your tenancy. In this example, we moved an instance to another compartment. 
+	You can move resources from one compartment to another within your tenancy. In this example, we moved an instance to another compartment.
 
 	> **Note:** Moving a resource does not export it to the Object Store. Nor can you move a resource from your tenancy to another tenancy or region.
 
@@ -541,9 +541,9 @@ After logging into your tenancy, you can do various administrative activities, s
 	## 5. To edit an instance name
 
 	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
-		Check if the compartment is correct. 
+		Check if the compartment is correct.
 
-	1. On the Instance details page, click **Edit** and specify a new name. 
+	1. On the Instance details page, click **Edit** and specify a new name.
 
 	1. Click **Save changes**.
 
@@ -551,15 +551,15 @@ After logging into your tenancy, you can do various administrative activities, s
 	## 6. To terminate an instance
 
 	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
-		Check if the compartment is correct. 
+		Check if the compartment is correct.
 
-	1. On the Instances page, click the *instance name* that you want to delete. 
+	1. On the Instances page, click the *instance name* that you want to delete.
 
 		Alternatively, click on the three dots on the right of the instance name and select **Terminate**.
 
-	1. On the Instance details page, click **More Actions** > **Terminate**. 
+	1. On the Instance details page, click **More Actions** > **Terminate**.
 
-	1. On the confirmation screen, select *Permanently delete the attached boot volume*. 
+	1. On the confirmation screen, select *Permanently delete the attached boot volume*.
 
 	1. Click **Terminate instance** to remove the instance permanently.
 
@@ -568,11 +568,11 @@ After logging into your tenancy, you can do various administrative activities, s
 	## 7. To increase the boot volume of an instance
 
 	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
-	   Check if the compartment is correct. 
+	   Check if the compartment is correct.
 
-	1. On the Instances page, click the *instance name* for which you want to increase the boot volume. 
+	1. On the Instances page, click the *instance name* for which you want to increase the boot volume.
 
-	1. Under **Resources** on the left, open **Boot volume**. 
+	1. Under **Resources** on the left, open **Boot volume**.
 
 	1. Click the **Boot volume name** > **Edit**.
 
@@ -582,8 +582,8 @@ After logging into your tenancy, you can do various administrative activities, s
 
 	After the volume is provisioned, for the volume resize to take effect, log in to puTTY as *opc* and do the following -
 
-	 - Run the rescan commands. 
-	 - Extend the partition manually. 
+	 - Run the rescan commands.
+	 - Extend the partition manually.
 
 	**Steps**
 
@@ -602,7 +602,7 @@ After logging into your tenancy, you can do various administrative activities, s
 		<copy>sudo /usr/libexec/oci-growfs</copy>
 		```
 
-	> **Note:** Increasing the boot volume of an instance does not affect the volume size of the existing custom image. For the custom image to have the new (increased) boot volume, create the image again. 
+	> **Note:** Increasing the boot volume of an instance does not affect the volume size of the existing custom image. For the custom image to have the new (increased) boot volume, create the image again.
 
 <if type="hidden">
 
@@ -620,15 +620,15 @@ After creating the instance from scratch, set up the instance as follows.
 	## 1. Convert Private Key to PPK
 
 	To authenticate and connect to the instance server  -
-	- from a **Windows** system - use the *.ppk* file in PuTTY. 
-	- from a **Mac** machine - use the *.key* file. 
+	- from a **Windows** system - use the *.ppk* file in PuTTY.
+	- from a **Mac** machine - use the *.key* file.
 
 	You can convert the private key (`*.key`) to `*.ppk` using PuTTYgen (or Mobaxterm).
 
 	1. Open PuTTYgen and **Load** the private key.  
 	   It displays a notice - `Successfully imported foreign key...`   
 
-	   Click **OK**. 
+	   Click **OK**.
 
 	1. Click **Save private key**.   
 	   The key passphrase is optional.
@@ -636,7 +636,7 @@ After creating the instance from scratch, set up the instance as follows.
 	   Click **Yes**.
 
 	1. Enter a *file name* and click **Save**.   
-	   It converts the private into the `*.ppk` format. 
+	   It converts the private into the `*.ppk` format.
 
 	Close PuTTYgen.
 
@@ -648,20 +648,20 @@ After creating the instance from scratch, set up the instance as follows.
 	1. Open PuTTY.
 
 	1. Under Host Name, enter the **Public IP** of the instance.   
-	   Leave the default port *22* and connection type *ssh*. 
+	   Leave the default port *22* and connection type *ssh*.
 
-	1. In the **Category** pane on the left, go to **Connection** > **SSH** > **Auth**. 
+	1. In the **Category** pane on the left, go to **Connection** > **SSH** > **Auth**.
 
-	1. **Browse** for the ppk file generated above and click **Open**. 
+	1. **Browse** for the ppk file generated above and click **Open**.
 
 		> **Note:** Disconnect VPN to connect to the instance server.   
 		Right-click on the title bar which reads PuTTY (inactive) and **Restart Session** > **Yes**, if required.
 
 	   You can **Save the session** for future logins.
 
-	Log in to the instance server as *opc*. It does not require any password. 
-	
-	The terminal window displays the user name and the host name of the instance. 
+	Log in to the instance server as *opc*. It does not require any password.
+
+	The terminal window displays the user name and the host name of the instance.
 
 	 - **Format**
 
@@ -674,17 +674,17 @@ After creating the instance from scratch, set up the instance as follows.
 		 ```
 		 oracle@dbaessentials
 		 ```
-	
+
 	----
 	## 3. Create users and groups
 
 	Ensure to disconnect VPN before proceeding.
 
-	1. Open PuTTY. 
+	1. Open PuTTY.
 
-	1. Log in to the instance server and run the following commands. 
+	1. Log in to the instance server and run the following commands.
 
-	1. Change the user to `root`. 
+	1. Change the user to `root`.
 
 		```
 		$ <copy>sudo su -</copy>
@@ -696,7 +696,7 @@ After creating the instance from scratch, set up the instance as follows.
 		[root@hostname ~]# <copy>useradd oracle</copy>
 		```
 
-	1. Set the password for the `oracle` user. 
+	1. Set the password for the `oracle` user.
 
 		```
 		[root@hostname ~]# <copy>passwd oracle W@lcome12</copy>
@@ -726,7 +726,7 @@ After creating the instance from scratch, set up the instance as follows.
 
 		## Verification
 
-		Verify that the user `oracle` can create a file. 
+		Verify that the user `oracle` can create a file.
 
 		1. Change the user from `root` to `oracle`.
 
@@ -756,7 +756,7 @@ After creating the instance from scratch, set up the instance as follows.
 			$ <copy>rm text1.txt</copy>
 			```
 
-		To change user from oracle to opc, exit two times or run this command. 
+		To change user from oracle to opc, exit two times or run this command.
 
 		```
 		$ <copy>sudo su - opc</copy>
@@ -764,7 +764,7 @@ After creating the instance from scratch, set up the instance as follows.
 
 ## Task 7: LiveLabs Instance terminal
 
-Change the default home directory in the instance terminal for the `oracle` user. 
+Change the default home directory in the instance terminal for the `oracle` user.
 
 1. Connect to the instance using the noVNC URL.   
    A standard noVNC URL looks like this
@@ -785,7 +785,7 @@ Change the default home directory in the instance terminal for the `oracle` user
 	$ <copy>vi ~/.bashrc</copy>
 	```
 
-1. Insert the path to the Oracle home location in the bash profile. 
+1. Insert the path to the Oracle home location in the bash profile.
 
 	```
 	<copy>cd /u01/app/oracle/product/21.0.0/dbhome_1</copy>
@@ -794,7 +794,7 @@ Change the default home directory in the instance terminal for the `oracle` user
 1. Save the file `bashrc`.
 
 	### Restart noVNC
-	
+
 	To restart the noVNC environment from the instance terminal:
 
 	```
@@ -808,11 +808,11 @@ Completed till 1:04:43
 
 Ensure to disconnect VPN before proceeding.
 
-1. Log in to the instance server using putty. 
+1. Log in to the instance server using putty.
 
 2. Run these commands.
 
-First time change user to root: 
+First time change user to root:
 
 sudo su - || (sudo sed -i -e 's|root:x:0:0:root:/root:.*$|root:x:0:0:root:/root:/bin/bash|g' /etc/passwd && sudo su -)
 

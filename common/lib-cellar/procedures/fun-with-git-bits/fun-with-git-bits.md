@@ -1765,7 +1765,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	Open Notepad++ in admin mode - *Run as administrator*.
 
-	### Option 2 
+	### Option 2
 
 	**Plugins Manual Installation**
 

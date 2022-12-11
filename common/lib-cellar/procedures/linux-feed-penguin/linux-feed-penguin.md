@@ -63,14 +63,14 @@ Get hands dirty with Linux commands, tips, and tricks.
 		[\mgarodia@\phoenix123546 20221123-11:15:17]$
 		```
 
-		Remove the slashes before every percentage symbol. 
+		Remove the slashes before every percentage symbol.
 
 		> **Note:** This is a temporary variable.   
 		New terminal opens with the default bash prompt, *`bash-4.4$`*.
 
 	 To return to the previous mode or go back to the previous shell -
 		 - type *`exit`*   
-		   or 
+		   or
 		 - Press **Ctrl** + **D**
 
 	----
@@ -82,7 +82,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	sh-4.2$
 	```
 
-	- **Temporary** - Applicable to the current terminal session only. 
+	- **Temporary** - Applicable to the current terminal session only.
 
 		From *bash* to *c*
 
@@ -127,7 +127,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 	Shortcuts for Linux terminal shell prompt.
 
-	 | shortcut       | action                                                          | 
+	 | shortcut       | action                                                          |
 	 |----------------|-----------------------------------------------------------------|
 	 | **Ctrl** + *L* | clear screen                                                    |
 	 | **Ctrl** + *D* | logout from sudo user back to the original user                 |
@@ -230,14 +230,14 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 	1. **Exit from root**
 
-		To logout from root (or any current user) and to go back to the previous user: 
-		
-		 - type *`exit`* 
+		To logout from root (or any current user) and to go back to the previous user:
+
+		 - type *`exit`*
 
 			```
 			$ <copy>exit</copy>
 			```
-			or 
+			or
 		 - Press **Ctrl** + **D**
 
 	1. **Check sudo password**
@@ -708,7 +708,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 			```
 
 		1. Save the file.
-		
+
 			 > **Esc** + **:wq** or **Esc** + **Shift** + **zz**
 
 	----
@@ -740,7 +740,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 	Henceforth, run *`wr`* instead of the complete command.
 
-	> It is worth mentioning that these alias are temporary. THey are applicable to the current terminal session only. If you close the terminal or open a new terminal, it is not valid anymore. 
+	> It is worth mentioning that these alias are temporary. THey are applicable to the current terminal session only. If you close the terminal or open a new terminal, it is not valid anymore.
 
 	----
 	## copy
@@ -1004,12 +1004,12 @@ Get hands dirty with Linux commands, tips, and tricks.
 	----
 	## The Triplets of Linuxville
 
-	Every file has an **owner user** and an **owner group**. A file is associated with three classes of users - 
+	Every file has an **owner user** and an **owner group**. A file is associated with three classes of users -
 	 - user or file owner
 	 - group members
 	 - others (everyone else)
 
-	Each of these users have specific file permissions. You can control which user can - 
+	Each of these users have specific file permissions. You can control which user can -
 	 - <i>**r**ead</i> access to your file
 	 - <i>**w**rite</i> to your file
 	 - <i>e**x**ecute</i> your file as a program
@@ -1035,14 +1035,14 @@ Get hands dirty with Linux commands, tips, and tricks.
 		+------------------------------------> File Type
 		```
 
-		Each of these permissions are associated with a number. 
+		Each of these permissions are associated with a number.
 
 		----
 		## the number game
 
-		Let us consider a use case where you want to modify a file's permissions (*r=4*, *w=2*, *x=1*). 
+		Let us consider a use case where you want to modify a file's permissions (*r=4*, *w=2*, *x=1*).
 
-		You want to grant - 
+		You want to grant -
 		 - full permission (read, write, execute) to the file owner
 		 - read and execute permissions to the file’s group
 		 - only read permissions to all other users
@@ -1058,12 +1058,12 @@ Get hands dirty with Linux commands, tips, and tricks.
 		 - for o   
 		 *r--* &gt; **4** + **0** + **0** = **4**
 
-		 Which comes up to *754*. 
-		 
+		 Which comes up to *754*.
+
 			 > A *777* means <i>everyone has full access to the file</i>.
 
-		You administer the ownership of your files and folders with 
-		 - *`chown`* 
+		You administer the ownership of your files and folders with
+		 - *`chown`*
 		 - *`chgrp`*
 
 			----
@@ -1407,30 +1407,30 @@ A script begins with -
 		$ <copy>cat /etc/lsb-release</copy>
 		```
 
-		> **Note:** Some Linux distributions, but not all, use this file for older programs. 
+		> **Note:** Some Linux distributions, but not all, use this file for older programs.
 
 		----
 		## Cite source
 
 		[stack overflow](https://stackoverflow.com/questions/47838800/etc-lsb-release-vs-etc-os-release#:~:text=The202Fetc2Flsb2Drelease,including20things20like20filesystem20layout.)
 
-	 - The following commands may also give OS-related information. 
+	 - The following commands may also give OS-related information.
 
 		Both *`issue`* and *`issue.net`* are used to display a banner (e.g. welcome line/ warning..) to SSH users before the login prompt.
 
-		<ins>For local users</ins> - 
+		<ins>For local users</ins> -
 
 		```
 		$ <copy>cat /etc/issue</copy>
 		```
 
-		<ins>For network users</ins> - 
+		<ins>For network users</ins> -
 
 		```
 		$ <copy>cat /etc/issue.net</copy>
 		```
 
-		Though primarily for local users, the *`/etc/issue`* information is shown to both local and network users unless *`/etc/issue.net`* is present and configured. The *`/etc/issue.net`* information is shown only to users who connect from a network. 
+		Though primarily for local users, the *`/etc/issue`* information is shown to both local and network users unless *`/etc/issue.net`* is present and configured. The *`/etc/issue.net`* information is shown only to users who connect from a network.
 
 		To configure them to be displayed when you login via SSH, uncomment *`#Banner`* and specify the desired filename at `/etc/ssh/sshd_config`, like:
 

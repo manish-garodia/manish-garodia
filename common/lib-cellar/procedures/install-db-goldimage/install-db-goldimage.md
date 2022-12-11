@@ -234,7 +234,7 @@ Most fields are auto-filled.
 Leave defaults for character set (and sample schemas).
 
 1. Database storage options - *File system*  
-	Database file location - 
+	Database file location -
 
 	```
 	<copy>/scratch/u01/app/mgarodia/oradata</copy>
@@ -243,7 +243,7 @@ Leave defaults for character set (and sample schemas).
 1. <i>Do not register</i> with EMCC
 
 1. Select **Enable Recovery** &gt; **File system**   
-	Recovery area location - 
+	Recovery area location -
 
 	```
 	<copy>/scratch/u01/app/mgarodia/recovery_area</copy>
@@ -835,4 +835,3 @@ On completion, the installer displays the finish window.
  - **Author** - Manish Garodia, Team Database UAD
  - **Last Updated on** - December 10, (Sat) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
-	
