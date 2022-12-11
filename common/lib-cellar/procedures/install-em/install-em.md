@@ -1,7 +1,7 @@
 # Install Oracle EM
 
 ## Introduction
-This lab covers the steps on how to install Oracle EM on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EM. 
+This lab covers the steps on how to install Oracle EM on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EM.
 
 ## Task 1: Pre-installation setup
 1. Download the EM package and validate.
@@ -13,9 +13,9 @@ This lab covers the steps on how to install Oracle EM on VM. It also discusses t
 
 ----
 **1. Download the EM package and validate**
-1. Download the complete EM package from the Oracle website [Downloads](https://www.oracle.com/enterprise-manager/downloads/cloud-control-downloads.html) or copy from other sources. 
+1. Download the complete EM package from the Oracle website [Downloads](https://www.oracle.com/enterprise-manager/downloads/cloud-control-downloads.html) or copy from other sources.
 
-1. Validate the bin file and all zip files. 
+1. Validate the bin file and all zip files.
 
 	## checksum files
 
@@ -37,7 +37,7 @@ $ <copy>chmod +x em13500_linux64.bin</copy>
 ```
 
 Verify whether the bin file is executable.    
-`ls -l` returns *rwxr-xr-x* 
+`ls -l` returns *rwxr-xr-x*
 
 ```
 $ <copy>ls -l</copy>
@@ -140,7 +140,7 @@ $ <copy>./em13500_linux64.bin EMPREREQ_KIT=true</copy>
 
 	![Skip Software Updates](./images/em-002-software-updates.png " ")**Figure:** Skip Software Updates
 
-1. Prerequisites checks. Sometimes, it displays a script to run. 
+1. Prerequisites checks. Sometimes, it displays a script to run.
 
 	![Prerequisites Checks - Verify Environment](./images/em-003a-prereq-check.png " ")**Figure:** Prerequisites Checks - Verify Environment
 
@@ -158,13 +158,13 @@ $ <copy>./em13500_linux64.bin EMPREREQ_KIT=true</copy>
 
 	![EM Home and Base Locations](./images/em-004-base-home-dir.png " ")**Figure:** EM Home and Base Locations
 
-	- **Middleware Home Location** 
+	- **Middleware Home Location**
 
 		```
 		<copy>/scratch/u01/software/em/middleware</copy>
 		```
 
-	- **Agent Base directory** 
+	- **Agent Base directory**
 
 		```
 		<copy>/scratch/u01/software/em/agent</copy>
@@ -190,7 +190,7 @@ These credentials are required for the maintenance of EM.
 	- **WebLogic Password** - Enter the password <if type="hidden">*Welcome_1*</if>   
 	(re-enter to confirm password)
 	- **Node Manager User Name** - `nodemanager`   
-	This is filled in automatically (non-editable). 
+	This is filled in automatically (non-editable).
 	- **Node Manager Password** - Enter the password <if type="hidden">*Welcome_1*</if>  
 	(re-enter to confirm password)
 
@@ -218,10 +218,10 @@ These credentials are required for the maintenance of EM.
 		<copy>orcl19pdb.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
 		```
 	- **SYS Password** - Enter the password for Oracle Database 19c <if type="hidden">*Welcome_1*</if>   
-	 
+
 	- **Deployment Size** - *Small*/Large (select any)
 
-	> **Note:** The password must contain at least 8 characters, begin with a letter, and include at least one numeric value. 
+	> **Note:** The password must contain at least 8 characters, begin with a letter, and include at least one numeric value.
 
 1. Database Prerequisite Checks.   
 	For failed items, pause the installation, go to the database, and modify the parameters to fix these errors.   
@@ -234,9 +234,9 @@ These credentials are required for the maintenance of EM.
 	SQL> <copy>alter system set "_allow_insert_with_update_check"=true scope=both;</copy>
 	```
 
-	Auto-fix if applicable. For more help, see [Troubleshooting](?lab=install-emcc#Task4:Troubleshooting). 
+	Auto-fix if applicable. For more help, see [Troubleshooting](?lab=install-emcc#Task4:Troubleshooting).
 
-	Click **OK** to use the AL32UTF8 character set. 
+	Click **OK** to use the AL32UTF8 character set.
 
 	![Character Set](./images/em-008b-char-set.png " ")**Figure:** Character Set
 
@@ -273,7 +273,7 @@ These credentials are required for the maintenance of EM.
 
 	![Review - bottom](./images/em-012b-review2.png " ")**Figure:** Review - bottom
 
-1. Click **Install** to start EM installation. The installation progress starts. 
+1. Click **Install** to start EM installation. The installation progress starts.
 
 	![EM Installation progress](./images/em-013a-install-progress.png " ")**Figure:** EM Installation progress
 
@@ -288,7 +288,7 @@ These credentials are required for the maintenance of EM.
 		## Result
 
 		```
-		Starting to execute allroot.sh ......... 
+		Starting to execute allroot.sh .........
 
 		Starting to execute /scratch/u01/software/em/middleware/root.sh ......
 		Check /scratch/u01/software/em/middleware/install/root_phoenix62464_2021-08-11_05-28-03.log for the output of root script
@@ -305,15 +305,15 @@ These credentials are required for the maintenance of EM.
 		Finished execution of  /scratch/u01/software/em/agent/agent_13.5.0.0.0/root.sh ......
 		```
 
-	 - Return to the installer and click **OK** to continue the installation. 
+	 - Return to the installer and click **OK** to continue the installation.
 
-1. On successful completion, the installer displays the Finish window. 
+1. On successful completion, the installer displays the Finish window.
 
 	![EM Installation Complete - top](./images/em-014-finish1.png " ")**Figure:** EM Installation Complete - top
 
 	![EM Installation Complete - bottom](./images/em-014-finish2.png " ")**Figure:** EM Installation Complete - bottom
 
-	> **Note:** Before you **Close** the installer, do not forget to note the EM URLs for 19c. 
+	> **Note:** Before you **Close** the installer, do not forget to note the EM URLs for 19c.
 
 | Interface                    | Link                                         |
 |------------------------------|----------------------------------------------|
@@ -327,7 +327,8 @@ These credentials are required for the maintenance of EM.
 - Middleware folder - `/scratch/u01/software/em/middleware/bin`
 - Agent folder - `/scratch/u01/software/em/agent/agent_13.5.0.0.0/bin`
 
-Cite: Another EM installation procedure explained here - [Manual EM Shiphome installation on OCI](https://confluence.oraclecorp.com/confluence/display/EMQ/Manual+EM+Shiphome+installation+on+OCI)
+> **Cite**:    
+> Another EM installation procedure explained here - [Manual EM Shiphome installation on OCI](https://confluence.oraclecorp.com/confluence/display/EMQ/Manual+EM+Shiphome+installation+on+OCI)
 
 ## Task 3: Deinstall EM
 
@@ -374,7 +375,7 @@ Cite: Another EM installation procedure explained here - [Manual EM Shiphome ins
 
 A log file is generated to capture the deinstallation process.
 
-1. Enter ***y*** to confirm deinstalling OMS, Repository, and Agent. 
+1. Enter ***y*** to confirm deinstalling OMS, Repository, and Agent.
 
 	```
 	Refer to /scratch/u01/tmp_emccdeinstall/deinstall_2022-11-09_11-16-55.log for deinstall log
@@ -385,9 +386,9 @@ A log file is generated to capture the deinstallation process.
 1. Enter the passwords provided at the time of EM installation<if type="hidden">, *Welcome_1*</if>.
 
 	```
-	Enter the SYS Password : 
+	Enter the SYS Password :
 	Enter the sysman Password :
-	Enter the Admin Server password : 
+	Enter the Admin Server password :
 	```
 
 	The system proceeds with the deinstallation.
@@ -520,17 +521,17 @@ A log file is generated to capture the deinstallation process.
 			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getEMSchemaManager(EMSchemaManager.java:1028)
 			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getEMSchemaManager(EMSchemaManager.java:997)
 			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.main(EMSchemaManager.java:1647)
-	processing arguments 
+	processing arguments
 	compiling arguments for validation
-	 Enter sys user password   : 
-	Verify : 
+	 Enter sys user password   :
+	Verify :
 	Performing PreDropAll action...
 	Enter password for: sys
-	connection properties were 
+	connection properties were
 	{user=sys, password=Welcome_1, internal_logon=SYSDBA}
-	connection properties were 
+	connection properties were
 	{user=sys, password=Welcome_1, internal_logon=SYSDBA}
-	Error found: SQL exception - error has occured during the execution. The error trace message is 
+	Error found: SQL exception - error has occured during the execution. The error trace message is
 	 java.sql.SQLException: ORA-01017: invalid username/password; logon denied
 
 	The Connect Descriptor was (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=orcl19cpdb.dev1sub1phx.databasede1phx.oraclevcn.com)))
@@ -544,9 +545,9 @@ A log file is generated to capture the deinstallation process.
 	Logs successfully copied to /scratch/u01/app/oraInventory/logs.
 	 return value is : 0
 
-	Deleting the instance home 
+	Deleting the instance home
 	Deleting the em home
-	The deinstallation of OMS is successful. 
+	The deinstallation of OMS is successful.
 
 	The location of the file is : /etc/oragchomelist
 	```
@@ -576,7 +577,7 @@ A log file is generated to capture the deinstallation process.
 
 	 - Connect to Oracle Database as SYSDBA and run these:
 
-		```	
+		```
 		$ ./sqlplus / as sysdba
 
 		SQL>
@@ -600,8 +601,8 @@ A log file is generated to capture the deinstallation process.
 		SQL> <copy>alter profile default limit password_verify_function null;</copy>
 		```
 
-		Ensure that you have all the PDBs open. 
-		
+		Ensure that you have all the PDBs open.
+
 		```
 		SQL> <copy>alter pluggable database all open;</copy>
 		```
@@ -610,7 +611,7 @@ A log file is generated to capture the deinstallation process.
 	## EM Install: Installer wizard does not launch?
 
 	**Problem statement**   
-	You try installing EM from the terminal with `./em13500_linux64.bin`. The installation initiates but does not launch the installer window/wizard. The installer either exits with an error or does not display the wizard at all. 
+	You try installing EM from the terminal with `./em13500_linux64.bin`. The installation initiates but does not launch the installer window/wizard. The installer either exits with an error or does not display the wizard at all.
 
 	```
 	...
@@ -641,7 +642,7 @@ A log file is generated to capture the deinstallation process.
 	## EM Install: Insufficient free space in *`/tmp`*
 
 	**Problem statement**   
-	You try installing EM from the terminal with `./em13500_linux64.bin`. The installation does not start and returns an error for insufficient free space. 
+	You try installing EM from the terminal with `./em13500_linux64.bin`. The installation does not start and returns an error for insufficient free space.
 
 	```
 	ERROR: Temporary directory /tmp does not have enough free space. At least 12289 MB of free space are required.
@@ -649,8 +650,8 @@ A log file is generated to capture the deinstallation process.
 	ERROR: Cannot setup the extract directory /tmp/sfx_HYdGXn (-1).
 	```
 
-	> **Note:** The installer requires *~14 GB* of hard disk space in the temporary directory. 
-	
+	> **Note:** The installer requires *~14 GB* of hard disk space in the temporary directory.
+
 	**Solution**   
 	If the default temporary directory does not have the required amount of space, then provide an alternative location for the temporary directory.
 
@@ -683,12 +684,12 @@ A log file is generated to capture the deinstallation process.
 	The referenced database doesn't contain a valid management Repository
 
 	**Problem statement**   
-	You are installing a new copy of Enterprise Manager (EM) and it returns this error. 
+	You are installing a new copy of Enterprise Manager (EM) and it returns this error.
 
 	![Invalid repo](./images/em-old-repo.png " ")
 
 	**Cause**   
-	You deleted the earlier copy of EM from your system manually but the repository database (Oracle Database 19c) still contains residue objects from the old installation. 
+	You deleted the earlier copy of EM from your system manually but the repository database (Oracle Database 19c) still contains residue objects from the old installation.
 
 	**Solution**   
 	Clean the database of old objects before using it again as an OMS repository database.
@@ -696,9 +697,9 @@ A log file is generated to capture the deinstallation process.
 	 1. Drop sysman related schemas.
 
 		```
-		SQL> 
+		SQL>
 		<copy>
-		DROP USER SYSMAN CASCADE; 
+		DROP USER SYSMAN CASCADE;
 		DROP USER SYSMAN_OPSS CASCADE;
 		DROP USER SYSMAN_MDS CASCADE;
 		DROP USER SYSMAN_APM CASCADE;
@@ -711,7 +712,7 @@ A log file is generated to capture the deinstallation process.
 	 1. Remove Synonyms related to sysman accounts.
 
 		```
-		SQL> 
+		SQL>
 		<copy>
 		DECLARE
 		  CURSOR l_syn_csr IS
@@ -753,7 +754,7 @@ A log file is generated to capture the deinstallation process.
 	 1. Remove remaining Objects and tablespaces.
 
 		```
-		SQL> 
+		SQL>
 		<copy>
 		DROP USER mgmt_view CASCADE;
 		DROP TABLESPACE mgmt_ecm_depot_ts INCLUDING CONTENTS AND DATAFILES CASCADE CONSTRAINTS;
@@ -765,7 +766,7 @@ A log file is generated to capture the deinstallation process.
 	1.  As proper database cleaning using RepManager dropall didn't happen, so clean up the registry details.
 
 		```
-		SQL> 
+		SQL>
 		<copy>
 		DELETE
 		  FROM
@@ -786,13 +787,13 @@ A log file is generated to capture the deinstallation process.
 
 	Now try the installation again. It should complete successfully.
 
-	Alternatively, (a longer but working solution is) deinstall both EM and the repository database (Oracle Database 19c) and reinstall them again. 
+	Alternatively, (a longer but working solution is) deinstall both EM and the repository database (Oracle Database 19c) and reinstall them again.
 
-	**Cite**: 
+	**Cite**:
 	 - [funoracleapps](https://www.funoracleapps.com/2019/05/oem-13c-installation-failed-with.html)
 	 - [sujeetdba](https://sujeetdba.blogspot.com/2016/09/the-referenced-database-doesnt-contain.html)
 
-	Unsuccessful. Issue did not resolve with this solution. 
+	Unsuccessful. Issue did not resolve with this solution.
 
 	----
 	## EM unreachable
@@ -874,10 +875,10 @@ A log file is generated to capture the deinstallation process.
 		```
 
 	----
-	## Start OMS failed 
+	## Start OMS failed
 
 	**Problem statement**   
-	You issue the command to start oms `./emctl start oms` but it failed. 
+	You issue the command to start oms `./emctl start oms` but it failed.
 
 	```
 	$ <OMS_HOME>/bin>./emctl start oms
@@ -914,7 +915,7 @@ A log file is generated to capture the deinstallation process.
 
 	**Solution 2**
 
-	Clean-up leftover OMS processes manually 
+	Clean-up leftover OMS processes manually
 
 	> **Note:** Ensure that the listener and the repository database (19c) are up before proceeding with these steps.
 
@@ -946,7 +947,7 @@ A log file is generated to capture the deinstallation process.
 
 	1. Kill the left over OMS java processes.
 
-		Graceful 
+		Graceful
 		```
 		$ <copy>kill <PID></copy>
 		```
@@ -959,7 +960,7 @@ A log file is generated to capture the deinstallation process.
 	1. Delete the following files (if they exist).
 
 		```
-		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_OMS1/data/store/diagnostics</copy> 
+		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_OMS1/data/store/diagnostics</copy>
 		$ rm -f WLS_DIAGNOSTICS000000.DAT
 		```
 		```
@@ -980,7 +981,7 @@ A log file is generated to capture the deinstallation process.
 		```
 		```
 		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_OMS1/tmp</copy>
-		$ rm -f EMGC_OMS1.lok 
+		$ rm -f EMGC_OMS1.lok
 		```
 		```
 		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_ADMINSERVER/tmp</copy>
@@ -1019,7 +1020,7 @@ A log file is generated to capture the deinstallation process.
 		$ rm -f *.lck, *.pid, *.state
 		```
 
-	Verify that - 
+	Verify that -
 
 	1. `emctl` is executed from the correct `OMS home`.
 	1. `emctl` file size is not zero bytes.
@@ -1046,7 +1047,7 @@ A log file is generated to capture the deinstallation process.
 		SYSMAN_OPSS                                OPEN
 		```
 
-	1. No invalid objects exist for sysman related users. 
+	1. No invalid objects exist for sysman related users.
 
 		(Refer Use Case 2 in  [Note 1683050.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=1495519.1&id=1683050.1): OMS Failed to Start With Error 'Oracle Management Server is Down. Console may not be up')
 
@@ -1054,7 +1055,7 @@ A log file is generated to capture the deinstallation process.
 
 	1. Enough space is available for the repository database archive logs.
 
-	1. Restart the repository database and the listener. 
+	1. Restart the repository database and the listener.
 
 	Cite: [Oracle Support (Doc ID 1495519.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=542346969019436&parent=EXTERNAL_SEARCH&sourceId=PROBLEM&id=1495519.1&_afrWindowMode=0&_adf.ctrl-state=dfc7k3t0h_53)
 

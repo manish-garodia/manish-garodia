@@ -1,10 +1,10 @@
 # MG Library : tell-me-how
 
-![mg library](./../images/mg-library.png " ") 
+![mg library](./../images/mg-library.png " ")
 
 ## Learn from errors
 
-This lab contains topics developed from notes on specific areas. These notes converge from various sources, for example *discussions*, *trainings*, *experiments*, *mistakes*, and *failures*. 
+This lab contains topics developed from notes on specific areas. These notes converge from various sources, for example *discussions*, *trainings*, *experiments*, *mistakes*, and *failures*.
 
 It also lists down videos and channels published on oTube.
 
@@ -37,14 +37,14 @@ Pick a topic and open it in a separate tab.
 | 6    | [Hands down in markdown](https://manish-garodia.github.io/mg-playground/topic-title/hands-down-in-md/) | About markdown basic formatting and tags |
 | <if type="hidden">6-a    | [GitHub pull requests](https://manish-garodia.github.io/mg-playground/topic-title/github-pr/) | History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github. </if> |
 | 7    | [Zoom Barabar Zoom](https://manish-garodia.github.io/mg-playground/topic-title/zoom-barabar-zoom/) | How to integrate Zoom with Outlook, add plug-in for Outlook |
-| <if type="hidden">7    | [Linux -:- feed the penguin](https://manish-garodia.github.io/mg-playground/topic-title/linux-feed-penguin/) | Get hands dirty with Linux commands, tips, and tricks. |
-| 8    | Vi Editor | desc |
-| 9    | Terraforms explained | desc </if> |
-| 8    | working on it ... | suggest me some |
+| 8    | [Linux -:- feed the penguin](https://manish-garodia.github.io/mg-playground/topic-title/linux-feed-penguin/) | Get hands dirty with Linux commands, tips, and tricks. |
+| <if type="hidden">9    | Vi Editor | desc |
+| 10    | Terraforms explained | desc </if> |
+| 9    | working on it ... | suggest me some |
 
 ## oTube : : My *channels* and *videos* : :
 
-Videos from meetings, presentations, demos, etc. posted on [oTube](https://otube.oracle.com/). 
+Videos from meetings, presentations, demos, etc. posted on [oTube](https://otube.oracle.com/).
 
 **Channels**
 
@@ -57,7 +57,7 @@ Videos from meetings, presentations, demos, etc. posted on [oTube](https://otube
 
 | sl # | Name (hyperlinked)           | Description                          | Channel             | <if type="hidden">Last updated |</if>
 |------|------------------------------|--------------------------------------|---------------------|
-| <if type="hidden">0-a | [Masking screenshots, Convert from Confluence to Markdown](https://otube.oracle.com/media/t/1_c9khlspm) | Vim session <br>by Manish Garodia on April 6, 22 | unlisted | July 7, 2022 (Thu)</if> | 
+| <if type="hidden">0-a | [Masking screenshots, Convert from Confluence to Markdown](https://otube.oracle.com/media/t/1_c9khlspm) | Vim session <br>by Manish Garodia on April 6, 22 | unlisted | July 7, 2022 (Thu)</if> |
 | 1    | [Masking sensitive information in Web UI screenshots](https://otube.oracle.com/media/t/1_0d43dk99) | Presentation <br>by Manish Garodia on April 6, 22  | [mg library](https://otube.oracle.com/channel/t/257943902) | July 9, 22 (Sat) |
 | 2    | [Convert content from Confluence to Markdown](https://otube.oracle.com/media/t/1_q1wt1tmj) | Presentation <br>by Manish Garodia on April 6, 2022  | [mg library](https://otube.oracle.com/channel/t/257943902) | July 9, 22 (Sat) |
 | 3    | [Using variables in Oxygen](https://otube.oracle.com/media/t/1_41cw944f)  | How to use variables in Oxygen XML Author 17.1 <br>by Suresh Mohan on July 07, 22 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 7, 22 (Thu) |
@@ -78,7 +78,7 @@ Videos from meetings, presentations, demos, etc. posted on [oTube](https://otube
 
 ## Links imgbb
 
-Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account. 
+Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 
 | sl # | Title (hyperlinked)                      | Link                  | Album                      |
 |------|------------------------------------------|-----------------------|----------------------------|
@@ -108,7 +108,5 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - November 27, (Sun) 2022
+ - **Last Updated on** - December 3, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)
- 
- 

@@ -5,12 +5,12 @@
             "title": "Welcome to MG space..!",
             "description": "The landing page for my personal space MG.",
 			"publisheddate": "27-Nov-2022",
-            "filename": "./../common/intro/readme.md"
+            "filename": "./../README.md"
         },
         {
             "title": "Lab 1: MG Library",
             "description": "Contains a list of topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures.",
-			"publisheddate": "27-Nov-2022",
+			"publisheddate": "03-Dec-2022",
             "filename": "./../common/lib-cellar/mg-library.md"
         }
     ]

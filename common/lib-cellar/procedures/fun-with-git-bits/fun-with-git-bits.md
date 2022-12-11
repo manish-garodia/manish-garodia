@@ -54,7 +54,7 @@ The information in this lab revolves around -
 
 	- All interactions between the fork and OLL takes places on the GH page (through a web browser).
 
-		> **Note**: To view the details of a file, such as date/timestamp or last modified by, use the GH page.
+		> **Note:** To view the details of a file, such as date/timestamp or last modified by, use the GH page.
 
 	### Preview a lab
 
@@ -198,7 +198,7 @@ The information in this lab revolves around -
 	----
 	## Remove clone repo from GitHub Desktop
 
-	If you do not want to manage a repo, you can remove it from GitHub Desktop. While removing a repo, you may choose to keep the files and folders on your system or delete them along. 
+	If you do not want to manage a repo, you can remove it from GitHub Desktop. While removing a repo, you may choose to keep the files and folders on your system or delete them along.
 
 	1. Right-click the repo, which you want to remove, and select **Remove**.
 
@@ -239,12 +239,12 @@ The information in this lab revolves around -
 	----
 	## **Upstream** and **Origin**: what are these?
 
-	 You would come across these terms *upstream* and *origin* while working with git. Though both are repos but indicate different locations. 
+	 You would come across these terms *upstream* and *origin* while working with git. Though both are repos but indicate different locations.
 
 	 - *upstream* - is the main repo (Eg: oracle-livelabs/learning-library, em-omc, database)
 	 - *origin* - is the fork repo (manish-garodia/repo, etc) in your account
 
-	 If you run a `fetch` or `merge` on `upstream`, you are talking to the `main` repo. But if you point to `origin`, then your communication is with your fork. 
+	 If you run a `fetch` or `merge` on `upstream`, you are talking to the `main` repo. But if you point to `origin`, then your communication is with your fork.
 
 	----
 	## **Fetch** vs **Pull**
@@ -601,7 +601,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 			----
 			## Discard local changes
 
-			**Use case**: The local changes in the clone are incorrect and you want the files back from the main repo.
+			**Use case:** The local changes in the clone are incorrect and you want the files back from the main repo.
 
 			<i>DO NOT</i> use these, unless you want to discard all changes made in the clone and update from main repo.
 
@@ -662,7 +662,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 				----
 				## Undo (rollback) commit and redo
 
-				**Use case**: Your commit message is wrong or you want to bring back for more editing, before issuing a `push origin`. You can undo the last commit without hurting any files or local changes.
+				**Use case:** Your commit message is wrong or you want to bring back for more editing, before issuing a `push origin`. You can undo the last commit without hurting any files or local changes.
 
 				It is safe to use.
 
@@ -967,16 +967,16 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	***Live Server plugin***    
 	Plugins are extensions of a code editor. For a workshop to run locally from the clone, it requires a <i>Live Server plugin</i> for the code editor.  
-	
-	Depending on the code editor, **Atom** or **Visual Studio Code**, install the corresponding live server plugin. 
-	
+
+	Depending on the code editor, **Atom** or **Visual Studio Code**, install the corresponding live server plugin.
+
 	| Code Editor        | Live Server Plugin      | Version       | Credits            |
 	|--------------------|-------------------------|:-------------:|--------------------|
 	| Atom               | `atom-live-server`      | 2.3.0         | <i>jas-chen</i>    |
 	| Atom               | `atom-live-server-plus` | 3.0.1         | <i>richiksc</i>    |
 	| Visual Studio Code | `Live Server`           | 5.7.9         | <i>Ritwick Dey</i> |
 
-	Other VS Code plugins - 
+	Other VS Code plugins -
 
 	 - `Trailing Spaces` v0.4.1 - <i>Shardul Mahadik</i>
 	 - `Path IntelliSense` v2.8.3 - <i>Christian Kohler</i>
@@ -1005,26 +1005,26 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	Visual Studio Code is available for free download from its official site, [here](https://code.visualstudio.com/download).
 
-	Select the installer type based on the operating system - 
+	Select the installer type based on the operating system -
 	 - Windows
 	 - Linux (Debian, Ubuntu, RH, etc.)
 	 - Mac
 
-	Run the installer and install VS Code on your system. It hardly takes a few blinks of eye, if one of your lucky days. 
+	Run the installer and install VS Code on your system. It hardly takes a few blinks of eye, if one of your lucky days.
 
-	For this lab, the (latest) versions used are - 
+	For this lab, the (latest) versions used are -
 	 - Visual Studio Code *1.72*   
 	   for Windows 8, 10, 11 (`VSCodeUserSetup-x64-1.72.2.exe`)
 	 - Live Server plugin *5.7.9*
 
-	> **Note:** If you already have VS Code, skip this and jump straight into the steps below. 
+	> **Note:** If you already have VS Code, skip this and jump straight into the steps below.
 
 	----
 	## Live Server plugin for VS Code
 
 	### *Install Live Server*
 
-	1. Open the VS Code editor and click the **Extensions** icon in the left menu to open the plugins manager. 
+	1. Open the VS Code editor and click the **Extensions** icon in the left menu to open the plugins manager.
 
 		![VS Code - Extensions](./images/vscode-plugin-live-server-install1.png " ")
 
@@ -1036,7 +1036,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		![Live Server installed](./images/vscode-plugin-live-server-install3.png " ")
 
-		You can now run the Live Server plugin from VS Code. 
+		You can now run the Live Server plugin from VS Code.
 
 	### *Run Live Server*
 
@@ -1051,9 +1051,9 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		![Add folder to workspace](./images/vscode-workspace-add-folder.png " ")
 
-		> **Tip:** Adding folders to workspace is a one-time activity. If you have added one or more folders to your workspace already, next time onwards you can directly run the live server. 
+		> **Tip:** Adding folders to workspace is a one-time activity. If you have added one or more folders to your workspace already, next time onwards you can directly run the live server.
 
-	1. Click on **Go Live** at the bottom-right corner to run the live server. 
+	1. Click on **Go Live** at the bottom-right corner to run the live server.
 
 		![Run Live Server](./images/vscode-run-live-server.png " ")
 
@@ -1061,7 +1061,10 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		> **Tip:** Unlike Atom, keep the VS Code window open (or minimized) while working on your clone. If you close the VS Code window, Live Server stops and you cannot view the pages anymore.
 
-		If you have more than one folder in your VS Code workspace, while you run the live server it may ask which folder to select for the live server. 
+		If you have more than one folder in your VS Code workspace, while you run the live server it may ask which folder to select for the live server.
+
+		> **Did you know..?**   
+		For the Live Server to render output, your system must be connected to the internet.
 
 	### *Close Live Server*
 
@@ -1077,7 +1080,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		----
 		## Other plugins for VS Code
 
-		Additional plugins to install for VS Code - 
+		Additional plugins to install for VS Code -
 
 		 - **Trailing Spaces**   
 			Highlight trailing spaces and remove them
@@ -1105,6 +1108,18 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	 Install as required
 
 	![Atom live server plugins](./images/atom-live-server-plugins.png " ")
+
+	----
+	## Notepad++: column mode
+
+	**Use case**  
+	You want to select the text in column mode.
+
+	**What to do**  
+	 - Keeping **Shift** and **Alt** pressed, use the cursor keys to select the text in column mode.
+	 - Use **Alt** + drag the Mouse
+
+	> **Note:** I prefer the second option, <i>Shift+Alt</i> and cursor keys.
 
 ## Tricks up-the-sleeves
 
@@ -1319,7 +1334,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		> **Note:** Renaming a file or a folder at the same location in Windows Explorer does not help because the names are not case-sensitive.
 
-	- **Final option**: if all the above failed, take the long route -
+	- **Final option:** if all the above failed, take the long route -
 		1. Delete the file (or move it out to another location)
 		1. Create a folder with the new name (or rename at another location and copy it back).
 		1. Commit to main repo with the new name.
@@ -1547,7 +1562,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	</if>
 
 	----
-	## Push from clone to fork rejected with error 
+	## Push from clone to fork rejected with error
 
 	**Problem statement**
 
@@ -1671,7 +1686,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		```
 
 		----
-		## Cite source
+		## Cite reference
 
 		[Virtual geek on vcloud-lab](http://vcloud-lab.com/entries/devops/resolved-git-warning-lf-will-be-replaced-by-crlf-in-file)
 
@@ -1735,16 +1750,72 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	</if>
 
 	----
-	## Notepad++ tips
+	## Notepad++: unable to install plugin
 
-	**Use case**  
-	You want to select the text in column mode.
+	**Problem statement**  
+	You are installing a plugin, for example *`ComparePlugin`*, and Notepad++ restarts but the plugin does not install.
 
 	**What to do**  
-	 - Keeping **Shift** and **Alt** pressed, use the cursor keys to select the text in column mode.
-	 - Use **Alt** + drag the Mouse
 
-	> **Note:** I prefer the second option, <i>Shift+Alt</i> and cursor keys. 
+	<ins>Option 1</ins> - Run Notepad++ in Admin mode and then install the plugin.   
+	<ins>Option 2</ins> - Install the plugin manually.
+
+	----
+	### Option 1
+
+	Open Notepad++ in admin mode - *Run as administrator*.
+
+	### Option 2
+
+	**Plugins Manual Installation**
+
+	1. Exit Notepad++, if it is already running.
+
+	1. Download the [ComparePlugin](https://github.com/pnedev/compare-plugin/releases/download/v2.0.1/ComparePlugin_v2.0.1_X64.zip) zip file.
+
+	1. Extract it to a folder named **ComparePlugin**.
+
+	1. Place *ComparePlugin.dll* in the Notepad++ Plugins folder.
+
+		> **Tip:** To find the Notepad++ Plugins folder, go to **Plugins** menu and select Open Plugins Folder, the last entry right below Plugins Admin.
+
+	1. Start Notepad++ and check the **Plugins** menu.
+
+		## Need further explanation ??
+
+		By default, a windows installation places the plugins in this location -
+		 - `C:\Program Files\Notepad++\plugins`
+
+		If the zip file has associated files, then install them to appropriate locations. For `ComparePlugin`, place the git and sqlite DLL files into -
+		 - `C:\Program Files\Notepad++\plugins\ComparePlugin\ComparePlugin\`
+
+		For example,   
+		 `C:\Programs\Notepad++ 8.4.4\plugins\ComparePlugin\ComparePlugin`. Right, that’s two levels with the same name.
+
+		Do you have other files inside `ComparePlugin\` other than `ComparePlugin.dll` ?
+		 - If yes, move them to `ComparePlugin\ComparePlugin\` and leave only `ComparePlugin.dll` in the first (main) `ComparePlugin\` folder.
+
+		----
+		### **Versions - Notepad++ and ComparePlugins**
+
+		Depending on the Notepad++ version, install the corresponding `ComparePlugin`.
+
+		| Notepad++                                      | ComparePlugin   |
+		|------------------------------------------------|-----------------|
+		| **v8.2.2** and newer (**v8.3**, **v8.4**, ...) | *v2.0.2*        |
+		| **v7.7** thru **v8.2.1**                       | *v2.0.1*        |
+		| **v7.7** or older                              | *v2.0.0*        |
+
+		 - But update Notepad++ at the first possible opportunity
+
+			## Cite reference
+
+			 - [unable-to-install-compare-plugin 7](https://community.notepad-plus-plus.org/topic/18520/unable-to-install-compare-plugin/7)
+			 - [unable-to-install-compare-plugin 6](https://community.notepad-plus-plus.org/topic/18520/unable-to-install-compare-plugin/6)
+			 - [compare-plugin-not-working 3](https://community.notepad-plus-plus.org/topic/20123/compare-plugin-not-working/3)
+			 - [compare-plugin-not-working 4](https://community.notepad-plus-plus.org/topic/20123/compare-plugin-not-working/4)
+			 - [npp-compare bugs](https://sourceforge.net/p/npp-compare/bugs/39/)
+			 - [cannot-install-notepad-plugins](https://www.winhelponline.com/blog/cannot-install-notepad-plugins-fix/)
 
 	----
 	## Unable to install plugin: `atom-live-server-####`
@@ -1771,7 +1842,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	 strict-ssl = false
 	 ```
 
-	 It will bypass the SSL certificate validation and install the live-server plugins. 
+	 It will bypass the SSL certificate validation and install the live-server plugins.
 
 	 > **Note:** Though the instructions in the `.apmrc` file says *... should not be edited ...*, ignore that and continue adding the above line.
 
@@ -1800,5 +1871,5 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - Nov 27, (Sun) 2022
+ - **Last Updated on** - Dec 10, (Sat) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
