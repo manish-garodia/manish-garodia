@@ -1,2 +1,2 @@
-# mg-playground
-Config files for my GitHub profile.
+# mg-playground 🌐 
+💠Lookk beyyond horizonn 🚩
