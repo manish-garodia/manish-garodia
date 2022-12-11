@@ -48,7 +48,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 - Add date to bash prompt
 
 		```
-		$ <copy>export PS1="$(date +\%k:\%M:\%S) $ "</copy>
+		$ <copy>export PS1="$(date +\k:\M:\S) $ "</copy>
 		```
 		```
 		11:17:24 $
@@ -57,7 +57,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 - Add user/host information to bash prompt
 
 		```
-		$ <copy>PS1="[\mgarodia@\phoenix123546 \D{\%Y\%m\%d-\%H:\%M:\%S}]\$ "</copy>
+		$ <copy>PS1="[\mgarodia@\phoenix123546 \D{\Y\m\d-\H:\M:\S}]\$ "</copy>
 		```
 		```
 		[\mgarodia@\phoenix123546 20221123-11:15:17]$
@@ -1157,16 +1157,16 @@ A script begins with -
 	$ <copy>df -Th</copy>
 	```
 	```
-	Filesystem           Type      Size  Used Avail Use% Mounted on
-	devtmpfs             devtmpfs  7.2G     0  7.2G   0% /dev
-	tmpfs                tmpfs      15G     0   15G   0% /dev/shm
-	tmpfs                tmpfs     7.3G   26M  7.2G   1% /run
-	tmpfs                tmpfs     7.3G     0  7.3G   0% /sys/fs/cgroup
-	/dev/sda2            ext4       42G   29G   11G  74% /
-	/dev/sdb             ext4      296G   28G  253G  10% /scratch
-	/dev/loop0           btrfs     2.0G   17M  1.8G   1% /var/lib/docker
-	tmpfs                tmpfs     1.5G   44K  1.5G   1% /run/user/1477205
-	tmpfs                tmpfs     1.5G     0  1.5G   0% /run/user/0
+	Filesystem           Type      Size  Used Avail Use Mounted on
+	devtmpfs             devtmpfs  7.2G     0  7.2G   0 /dev
+	tmpfs                tmpfs      15G     0   15G   0 /dev/shm
+	tmpfs                tmpfs     7.3G   26M  7.2G   1 /run
+	tmpfs                tmpfs     7.3G     0  7.3G   0 /sys/fs/cgroup
+	/dev/sda2            ext4       42G   29G   11G  74 /
+	/dev/sdb             ext4      296G   28G  253G  10 /scratch
+	/dev/loop0           btrfs     2.0G   17M  1.8G   1 /var/lib/docker
+	tmpfs                tmpfs     1.5G   44K  1.5G   1 /run/user/1477205
+	tmpfs                tmpfs     1.5G     0  1.5G   0 /run/user/0
 	```
 
 	 > **Tip:** To exclude *Type*, use *`df -h`*.
@@ -1194,8 +1194,8 @@ A script begins with -
 		$ <copy>df -h /scratch</copy>
 		```
 		```
-		Filesystem      Size  Used Avail Use% Mounted on
-		/dev/sdb        296G   28G  253G  10% /scratch
+		Filesystem      Size  Used Avail Use Mounted on
+		/dev/sdb        296G   28G  253G  10 /scratch
 		```
 
 	 - Check size folder-wise
@@ -1412,7 +1412,7 @@ A script begins with -
 		----
 		## Cite source
 
-		[stack overflow](https://stackoverflow.com/questions/47838800/etc-lsb-release-vs-etc-os-release#:~:text=The%20%2Fetc%2Flsb%2Drelease,including%20things%20like%20filesystem%20layout.)
+		[stack overflow](https://stackoverflow.com/questions/47838800/etc-lsb-release-vs-etc-os-release#:~:text=The202Fetc2Flsb2Drelease,including20things20like20filesystem20layout.)
 
 	 - The following commands may also give OS-related information. 
 
