@@ -13,8 +13,6 @@ Explore the possibilities with learn, unlearn, re-learn
 
 This page contains topics developed from notes on specific areas. These notes converge from various sources, for example *discussions*, *trainings*, *experiments*, *mistakes*, and *failures*.
 
-Check out the section below on videos and channels available on oTube.
-
 <!--
 [Open MG Library on Github](https://manish-garodia.github.io/mg-playground/mg-library/)
 
@@ -26,11 +24,15 @@ Check out the section below on videos and channels available on oTube.
 | <if type="hidden">9    | Vi Editor | desc |
 | 10    | Terraforms explained | desc </if> |
 
+| 5    | [passport-mayagarodia-color](https://ibb.co/12zp5xJ) 			  | `ibb.co/12zp5xJ`		   | [my-docs](https://ibb.co/album/CbDrM3)            |
+| 6    | [passport-mayagarodia](https://ibb.co/D9JP8fC) 			      | `ibb.co/D9JP8fC`		   | [my-docs](https://ibb.co/album/CbDrM3)            |
+| 7    | [mom-passport](https://ibb.co/h9PF2DD) 			              | `ibb.co/h9PF2DD`		   | [my-docs](https://ibb.co/album/CbDrM3)            |
+
 -->
 
 ## Topics
 
-Pick a title from the table to read more about it.
+Pick a topic from the table to read more about it.
 
 | sl#  | Title                         | Description                |
 |------|-------------------------------|----------------------------|
@@ -44,9 +46,11 @@ Pick a title from the table to read more about it.
 | 8    | [Linux -:- feed the penguin](https://manish-garodia.github.io/mg-playground/topic-title/linux-feed-penguin/) | Get hands dirty with Linux commands, tips, and tricks. |
 | 9    | working on it ... | suggest me some |
 
+> Check out the section below on videos and channels available on [oTube](https://otube.oracle.com/).
+
 ## oTube : : My *channels* and *videos* : :
 
-Videos from meetings, presentations, demos, and more available in [oTube](https://otube.oracle.com/).
+Captured from meetings, presentations, demos, and more available in oTube.
 
 **Channels**
 
@@ -57,24 +61,24 @@ Videos from meetings, presentations, demos, and more available in [oTube](https:
 
 **Videos - general**
 
-| sl # | Name (hyperlinked)           | Description                          | Channel             | Last updated |
-|------|------------------------------|--------------------------------------|---------------------|
-| 0 | [Masking screenshots, Convert from Confluence to Markdown](https://otube.oracle.com/media/t/1_c9khlspm) | Vim session <br>by Manish Garodia on April 6, 22 | unlisted | July 7, 2022 (Thu) |
-| 1    | [Masking sensitive information in Web UI screenshots](https://otube.oracle.com/media/t/1_0d43dk99) | Presentation <br>by Manish Garodia on April 6, 22  | [mg library](https://otube.oracle.com/channel/t/257943902) | July 9, 22 (Sat) |
-| 2    | [Convert content from Confluence to Markdown](https://otube.oracle.com/media/t/1_q1wt1tmj) | Presentation <br>by Manish Garodia on April 6, 2022  | [mg library](https://otube.oracle.com/channel/t/257943902) | July 9, 22 (Sat) |
-| 3    | [Using variables in Oxygen](https://otube.oracle.com/media/t/1_41cw944f)  | How to use variables in Oxygen XML Author 17.1 <br>by Suresh Mohan on July 07, 22 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 7, 22 (Thu) |
-| 4    | [Using conrefs in Oxygen](https://otube.oracle.com/media/t/1_5dplbjir)  | How to use conrefs in Oxygen XML Author 17.1 <br>by Suresh Mohan on July 07, 22 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 7, 22 (Thu) |
-| 5    | [Install Oracle Enterprise Manager (Oracle EM)](https://otube.oracle.com/media/t/1_rfywyxmo)  | How to install Oracle Enterprise Manager (Oracle EM) 13.5 <br>by Kurt Engeleiter on 28 June 21 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | July 5, 22 (Tue) |
-| 6 | [Using Oracle Review](https://otube.oracle.com/media/t/1_zqfln2bg) | How to use Oracle Review for previewing UAT builds and providing comments <br>by Sarika Surampudi on Nov 09, 21 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Oct 9, 22 (Sun) |
-| 7 | [Preview and publish content on OCI with CPP](https://otube.oracle.com/media/t/1_dlf7sdav) | How to use Content Publishing Pipeline (CPP) for building previews and publishing content on the OCI portal <br>by Neil Hebert on Oct 04, 22 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Oct 4, 22 (Tue) |
+| sl#  | Name (hyperlinked)           | Description                          | Channel             | By |
+|------|------------------------------|--------------------------------------|---------------------|----|
+| 0    | [Masking screenshots, Convert from Confluence to Markdown](https://otube.oracle.com/media/t/1_c9khlspm) | Vim session  | unlisted | Manish Garodia on April 6, 22 |
+| 1    | [Masking sensitive information in Web UI screenshots](https://otube.oracle.com/media/t/1_0d43dk99) | Presentation  | [mg library](https://otube.oracle.com/channel/t/257943902) | Manish Garodia on April 6, 22 |
+| 2    | [Convert content from Confluence to Markdown](https://otube.oracle.com/media/t/1_q1wt1tmj) | Presentation  | [mg library](https://otube.oracle.com/channel/t/257943902) | Manish Garodia on April 6, 2022 |
+| 3    | [Using variables in Oxygen](https://otube.oracle.com/media/t/1_41cw944f)  | How to use variables in Oxygen XML Author 17.1 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Suresh Mohan on July 07, 22 |
+| 4    | [Using conrefs in Oxygen](https://otube.oracle.com/media/t/1_5dplbjir)  | How to use conrefs in Oxygen XML Author 17.1 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Suresh Mohan on July 07, 22 |
+| 5    | [Install Oracle Enterprise Manager (Oracle EM)](https://otube.oracle.com/media/t/1_rfywyxmo)  | How to install Oracle Enterprise Manager (Oracle EM) 13.5 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Kurt Engeleiter on 28 June 21  |
+| 6 | [Using Oracle Review](https://otube.oracle.com/media/t/1_zqfln2bg) | How to use Oracle Review for previewing UAT builds and providing comments | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Sarika Surampudi on Nov 09, 21 |
+| 7 | [Preview and publish content on OCI with CPP](https://otube.oracle.com/media/t/1_dlf7sdav) | How to use Content Publishing Pipeline (CPP) for building previews and publishing content on the OCI portal | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Neil Hebert on Oct 04, 22 |
 | 8 | | | | |
 
-**Videos - project**
+**Project Videos**
 
-| sl # | Name (hyperlinked)           | Description                          | Channel             | Last updated |
-|------|------------------------------|--------------------------------------|---------------------|--------------|
-| 1    | [Performance Hub in OCI docs](https://otube.oracle.com/media/t/1_h0l5pyuf) | Meeting with Diane Gaskill on 1 Feb 22 regarding Performance Hub documentation in OCI | [Performance Hub OCI](https://otube.oracle.com/channel/t/261319662) | July 5, 2022 (Tue) |
-| 2    | [UA-PM meet 29 Jun 22](https://otube.oracle.com/media/t/1_495mt4py) | UA/PM Meeting on 29 June 2022 regarding the migration of performance hub documentation from OCI to OHC | [Performance Hub OCI](https://otube.oracle.com/channel/t/261319662) | July 5, 2022 (Tue) |
+| sl # | Name (hyperlinked)           | Description                          | Channel             |
+|------|------------------------------|--------------------------------------|---------------------|
+| 1    | [Performance Hub in OCI docs](https://otube.oracle.com/media/t/1_h0l5pyuf) | Meeting with Diane Gaskill on 1 Feb 22 regarding Performance Hub documentation in OCI | [Performance Hub OCI](https://otube.oracle.com/channel/t/261319662) |
+| 2    | [UA-PM meet 29 Jun 22](https://otube.oracle.com/media/t/1_495mt4py) | UA/PM Meeting on 29 June 2022 regarding the migration of performance hub documentation from OCI to OHC | [Performance Hub OCI](https://otube.oracle.com/channel/t/261319662) | 
 | 3 | | | | |
 
 ## Links imgbb
@@ -87,26 +91,24 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 | 2    | [Add Atom to github desktop 1](https://ibb.co/31dcPCh)           | `ibb.co/31dcPCh`           | [What an image](https://ibb.co/album/LvW0JB)      |
 | 3    | [Add Atom to github desktop 2](https://ibb.co/N6yzT62)  	      | `ibb.co/N6yzT62`	       | [What an image](https://ibb.co/album/LvW0JB)      |
 | 4    | [Perf-Hub toc placement](https://ibb.co/Dr8JwB2) 			      | `ibb.co/Dr8JwB2`		   | [What an image](https://ibb.co/album/LvW0JB)      |
-| 5    | [passport-mayagarodia-color](https://ibb.co/12zp5xJ) 			  | `ibb.co/12zp5xJ`		   | [my-docs](https://ibb.co/album/CbDrM3)            |
-| 6    | [passport-mayagarodia](https://ibb.co/D9JP8fC) 			      | `ibb.co/D9JP8fC`		   | [my-docs](https://ibb.co/album/CbDrM3)            |
-| 7    | [mom-passport](https://ibb.co/h9PF2DD) 			              | `ibb.co/h9PF2DD`		   | [my-docs](https://ibb.co/album/CbDrM3)            |
+| 5    |  |  |  |
+| 6    |  |  |  |
+| 7    |  |  |  |
 | 8    |  |  |  |
 | 9    |  |  |  |
-| 10   |  |  |  |
-| 11   |  |  |  |
-| 12   |  |  |  |
-| 13   |  |  |  |
+| 10   | [MyLearning home - Badges, Achievements](https://ibb.co/02gNzth) | `ibb.co/02gNzth` 		   | [badges](https://ibb.co/album/tqNnc2) |
+| 11   | [Oracle MySQL](https://ibb.co/KN0cxNH)   |  `ibb.co/KN0cxNH`     |  [badges](https://ibb.co/album/tqNnc2) 					   |
+| 12   | [OCI Support Accreditation score](https://ibb.co/fkJMwM4)        | `ibb.co/fkJMwM4` 		   | [badges](https://ibb.co/album/tqNnc2) |
+| 13   | [OCI Support Accreditation badge](https://ibb.co/mT46ZT0)        | `ibb.co/mT46ZT0` 		   | [badges](https://ibb.co/album/tqNnc2) |
 | 14   |  |  |  |
-| 15   | [MyLearning home - Badges, Achievements](https://ibb.co/02gNzth) | `ibb.co/02gNzth` 		   | [badges](https://ibb.co/album/tqNnc2) |
-| 16   | [Oracle MySQL](https://ibb.co/KN0cxNH)   |  `ibb.co/KN0cxNH`     |  [badges](https://ibb.co/album/tqNnc2) 					   |
-| 17   | [OCI Support Accreditation score](https://ibb.co/fkJMwM4)        | `ibb.co/fkJMwM4` 		   | [badges](https://ibb.co/album/tqNnc2) |
-| 18   | [OCI Support Accreditation badge](https://ibb.co/mT46ZT0)        | `ibb.co/mT46ZT0` 		   | [badges](https://ibb.co/album/tqNnc2) |
-| 19   |  |  |  |
 
 ----
 
 <div style="text-align: right">
- - **Author** - ♏🅰️♑❗💲♓, Team Database UAD   
- - **Last Updated on** - December 11, (Sun) 2022   
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)
+ **Author** - ♏🅰️♑❗💲♓, Team Database UAD   
+
+ **Last Updated on** - December 11, (Sun) 2022   
+
+ **Questions/Feedback?** - Blame manish.garodia@oracle.com
 </div>
+
