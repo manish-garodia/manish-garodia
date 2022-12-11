@@ -6,7 +6,7 @@ This lab covers the pre-installation setup and post installation tasks for Oracl
 
 ## Database concepts
 
-The error `ORA-12505` means that the listener was up and you could connect to it, but it couldn't connect you to the database because it doesn't know that that database is up. 
+The error `ORA-12505` means that the listener was up and you could connect to it, but it couldn't connect you to the database because it doesn't know that that database is up.
 
 There are two reasons for this:
 
@@ -20,15 +20,16 @@ There are two reasons for this:
 Production versions are available to download from [OTN](https://www.oracle.com/database/technologies/oracle-database-software-downloads.html).   
 Oracle Database installers are available internally as gold images.
 
-1. Visit [DB shiphome gold image annoucements](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?spaceKey=DBTEST&title=Database+Shiphome+Announcement+Home) and look for the required version. 
+1. Visit [DB shiphome gold image annoucements](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?spaceKey=DBTEST&title=Database+Shiphome+Announcement+Home) and look for the required version.
 
 	For example,
 	 - [23c Linux64](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=1755087062)
 	 - [21c Linux64](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=2248170665)
 	 - [19.3 Linux64](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=4129469989)
 
-1. Under **Shiphome Location**, check <ins>Database Goldimage</ins>. 
+1. Under **Shiphome Location**, check <ins>Database Goldimage</ins>.
 
+	----
 	## Database 23c gold image
 
 	| Select <i>any</i> server      | Link      |
@@ -38,9 +39,9 @@ Oracle Database installers are available internally as gold images.
 	| HQ - 221104 					| [/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage](/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage) <br>File - `db_home.zip`         |
 	| ADE - 221104        			|[/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage](/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage) <br>File - `db_home.zip`   |
 
-	Get the 23c gold image - 
+	Get the 23c gold image -
 
-	1. 	Create a local folder for Oracle home. 
+	1. 	Create a local folder for Oracle home.
 
 		```
 		$ <copy>mkdir -p /scratch/u01/app/oracle/product/23.0.0/dbhome_unzip01</copy>
@@ -52,13 +53,14 @@ Oracle Database installers are available internally as gold images.
 		$ <copy>/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage</copy>
 		```
 
-	1.  Unzip the installer file to the local folder. 
+	1.  Unzip the installer file to the local folder.
 
 		```
 		$ <copy>unzip -q db_home.zip -d /scratch/u01/app/oracle/product/23.0.0/dbhome_unzip01</copy>
 		```
 
-	## Database 21c producrion
+	----
+	## Database 21c production
 
 	| Production servers      		| Link      |
 	|:------------------------------|-----------|
@@ -77,6 +79,7 @@ Oracle Database installers are available internally as gold images.
 	| <mark>ade_autofs</mark> - **new**<br><i>from Prakash J </i> | [/ade\_autofs/dd223\_db/RDBMS/21.3.0.0.0/LINUX.X64/210727.XE/install/shiphome/goldimage](/ade_autofs/dd223_db/RDBMS/21.3.0.0.0/LINUX.X64/210727.XE/install/shiphome/goldimage) <br>File - `db_home.zip`                                            |
 	| ade_autofs - old              | [/ade\_autofs/dd77\_db/RDBMS/21.3.0.0.0/LINUX.X64/210727/install/shiphome/goldimage](/ade_autofs/dd77_db/RDBMS/21.3.0.0.0/LINUX.X64/210727/install/shiphome/goldimage) |
 
+	----
 	## Get Database 19c production
 
 	1. Go to this location.
@@ -91,20 +94,20 @@ Oracle Database installers are available internally as gold images.
 		$ <copy>unzip -q LINUX.X64_193000_db_home.zip -d /scratch/u01/app/oracle/product/19.0.0/dbhome_unzip03</copy>
 		```
 
-		If you get the an error while creating directory:
-		
+		If you get an error while creating directory
+
 		```
 		checkdir:  cannot create extraction directory: /scratch/u01/app/oracle/product/19.0.0/dbhome_unzip03
            No such file or directory
 		```
-		
-		Then, create the directory and then try unzip again.
-		
+
+		Then, create the directory first and try unzip again.
+
 		```
 		$ <copy>mkdir -p /scratch/u01/app/oracle/product/19.0.0/dbhome_unzip03</copy>
 		```
 
-	1. Go to the Oracle home folder. 
+	1. Go to the Oracle home folder.
 
 		```
 		$ <copy>cd /scratch/u01/app/oracle/product/19.0.0</copy>
@@ -115,6 +118,7 @@ Oracle Database installers are available internally as gold images.
 		$ <copy>mv dbhome_unzip03 dbhome_02</copy>
 		```
 
+	----
 	## Start database installer
 
 	1. Open a terminal window and create the folder structure for `$ORACLE_HOME`.
@@ -123,9 +127,9 @@ Oracle Database installers are available internally as gold images.
 		$ <copy>mkdir -p /scratch/u01/app/oracle/product/23.0.0/dbhome_1</copy>
 		```
 
-		> **Caution:** Do all installations only under */scratch*, never in `ade` or any other directory. 
+		> **Caution:** Do all installations only under */scratch*, never in `ade` or any other directory.
 
-	1. Go to the location where the *gold image* exists.   
+	1. Go to a location where the *gold image* exists.   
 		This example uses <ins>the ADC server</ins>.
 
 		```
@@ -140,12 +144,11 @@ Oracle Database installers are available internally as gold images.
 		$ unzip -q <file_name> -d <full_path>
 		```
 		> where,   
-		`-q` for quiet operation (run in background)   
-		`-d` to create the directory stucture
-
+		*`-q`* for quiet operation (to run in the background)   
+		*`-d`* to create the directory structure
 
 		**Example 1** - for 23c ADC server gold image
-		
+
 		```
 		$ <copy>unzip -q db_home.zip -d /scratch/u01/app/oracle/product/23.0.0/dbhome_1</copy>
 		```
@@ -156,7 +159,7 @@ Oracle Database installers are available internally as gold images.
 		$ <copy>unzip -q LINUX.X64_213000_db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_2</copy>
 		```
 
-		Get an *extra copy of the installer quickly* on your local system.
+		> **Tip**: Get an *extra copy of the installer* on your local system.
 
 		```
 		$ <copy>unzip -q /ade_autofs/dd223_db/RDBMS/21.3.0.0.0/LINUX.X64/210727.XE/install/shiphome/goldimage/db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_unzip02</copy>
@@ -177,82 +180,87 @@ Oracle Database installers are available internally as gold images.
 		`Oracle Database sys password` - *We!come1*
 		<if>
 
-	### Log in to EM Express
-
-	EM Exp for DB 19c
-	 - [CDB$ROOT port 5501](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5501/em)   
-	 - [ORCL19CCDB port 5502](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5502/em)   
-
-	EM Exp for DB 21c
-	 - [CDB$ROOT port 5500](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5500/em)
-	 - [ORCLPDB port 5504](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:5504/em)
-
-	**Credentials**
-	 - User name - *system*
-	 - Password - Enter the password <if type="hidden">*Welcome_1*</if>
-	 - Container name - (leave empty)
-
-	> **Note:** If you forget the database password, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
-
 ## Task 2: Install Oracle Database
 
-Steps to install Oracle Database 21c.
+From the Oracle home location, start `./runInstaller` and select the following.    
+Most fields are auto-filled.
 
-1. From the Oracle home location, start `./runInstaller`
-
-1. Create and configure a single instance database. 
+1. Create and configure a single instance database.
 
 1. Server Class
 
 1. Enterprise Edition
 
-1. Oracle Base location.
+1. Oracle Base location
+
+	Example -
 
 	```
-	$ <copy>/scratch/u01/app/mgarodia21c</copy>
+	$ <copy>/scratch/u01/app/mgarodia</copy>
 	```
+
+1. Central inventory location
+
+	Example -
+
+	```
+	$ <copy>/scratch/u01/app/oraInventory</copy>
+	```
+
+	**oraInventory group name**: *dba* (or `wheel`, your system primary group)
+
+	> **Note:** This screen does not appear if you have another version of Oracle Database already installed.
 
 1. General Purpose / Transaction Processing
 
 1. Set database identifiers
 
-	 - Global database name
+	 - Global database name -
 
 		```
-		<copy>orcl21c.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
+		<copy>orcl.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
 		```
 
-	 - Oracle System Identifier (SID) - *orcl21c*
+	 - Oracle System Identifier (SID) - *orcl*   
+	 For typical installation, the option *Create as Container Database* is selected by default
 
-	 - *Create as Container Database* selected by default
-
-	 - Pluggable database name
+	 - Pluggable database name -
 
 		```
-		<copy>orcl21cpdb</copy>
+		<copy>orclpdb</copy>
 		```
 
-1. <i>Do not enable</i> **Automatic Memory Management**. Leave defaults for character set and sample schemas. 
+1. <i>Do not enable</i> **Automatic Memory Management**.   
+Leave defaults for character set (and sample schemas).
 
-1. **Storage** - *File system*
+1. Database storage options - *File system*  
+	Database file location - 
 
-	Database file location - `/scratch/u01/app/mgarodia21c/oradata`
+	```
+	<copy>/scratch/u01/app/mgarodia/oradata</copy>
+	```
 
-1. Do not register with EMCC
+1. <i>Do not register</i> with EMCC
 
-1. Enable Reovery > File System. 
+1. Select **Enable Recovery** &gt; **File system**   
+	Recovery area location - 
 
-	**Recovery area location** - Leave the default */scratch/u01/app/mgarodia21c/recovery_area*
+	```
+	<copy>/scratch/u01/app/mgarodia/recovery_area</copy>
+	```
 
-1. Use the same password for all accounts. Set the password<if type="hidden"> *Welcome_1*</if>. 
+1. Use the same password for all accounts &gt; set the password<if type="hidden"> *Welcome_1*</if>.
 
-1. OS groups - select group (*dba* or wheel) for all
+1. For all OS groups - *dba* (or `wheel`, your system primary group)
 
-1. You may Automatically run configuration scripts. Leave this and run the scripts manually later.
+1. You may `Automatically run configuration scripts`.   
+Do not select this check box and run the scripts manually in the later steps.
 
-1. **Install**.
+1. Prerequisites check - *Ignore All*
 
-1. When prompted to run the script: 
+1. Review the summary and **Install**
+
+1. When prompted to run the script:
 
 	- Open a terminal and go to root.
 
@@ -260,36 +268,38 @@ Steps to install Oracle Database 21c.
 		$ <copy>sudo -i</copy>
 		```
 	 Enter the LDAP/Kerberos password.
-	 
-	- Run the script. 
+
+	- Run the script.
 
 		```
 		$ <copy>/scratch/u01/app/oracle/product/21.0.0/dbhome_2/root.sh</copy>
 		```
 
-	- Press **Enter** twice to complete the script. 
+	- Press **Enter** twice to complete the script.
 
-	- Go back to the installer and click **OK**.
+1. Go back to the installer and click **OK**.
 
+On completion, the installer displays the finish window.
 
 ## Task 3: Post Installation steps
 
 #### Listeners
-- DB 21c - port *1522*
-- DB 19c - port *1523*
+ - DB 21c - port *1522*
+ - DB 19c - port *1523*
 
-1. Set the environment variables
+1. Set environment variables
 1. Connect to SQL command line
-1. View the inventory location
-1. View Oracle SIDs and Oracle homes in the system
+1. View inventory location
+1. View Oracle SIDs and Oracle homes
 1. View Oracle base locations
 
 	----
-	## 1. Set the environment variables
+	## 1. Set environment variables
 
 	Use any one of the following.
 
 	**Shell - csh**
+
 	```
 	<copy>
 	setenv ORACLE_SID orcl
@@ -303,71 +313,92 @@ Steps to install Oracle Database 21c.
 	----------- ------- --------------- -------------------------
 
 	**Shell - bash**
+
 	```
 	<copy>
 	export ORACLE_SID=orcl
 	export ORACLE_HOME=/scratch/u01/app/oracle/product/23.0.0/dbhome_1
 	</copy>
 	```
+
 	**Option 1**   
 	Works from any directory
+
 	```
 	$ <copy>. oraenv</copy>
 	```
+
 	**Option 2**   
 	Works only from `$ORACLE_HOME/bin`
+
 	```
 	$ <copy>./oraenv</copy>
 	```
 
 	----
 	## 2. Connect to SQL command line
+
 	Using -
-	- SQL Plus
-	- SQL cl
+	 - SQL Plus
+	 - SQL cl
 
 	**For SQL Plus**   
 	<ins>Option 1</ins> - Connect as `system` and enter the user name and password.
+
 	```
 	$ <copy>./sqlplus</copy>
 	```
-	- Enter user-name: *system*
-	- Enter password: *Welcome_1*
 
-	<ins>Option 2</ins> - Connect as `sysdba` (no password required).
+	 - Enter user-name: *system*
+	 - Enter password: *Welcome_1*
+
+	<ins>Option 2</ins> - Connect as `sysdba` (requires no password).
+
 	```
 	$ <copy>./sqlplus / as sysdba</copy>
 	```
 	```
-	SQL*Plus: Release 21.0.0.0.0 - Production on Mon Jan 3 10:21:08 2022
-	Version 21.3.0.0.0
+	SQL*Plus: Release 23.0.0.0.0 - Development on Sat Dec 10 11:25:45 2022
+	Version 23.1.0.0.0
 
-	Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+	Copyright (c) 1982, 2022, Oracle.  All rights reserved.
 
 
 	Connected to:
-	Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
-	Version 21.3.0.0.0
+	Oracle Database 23c Standard Edition 2 Release 23.0.0.0.0 - Development
+	Version 23.1.0.0.0
 	```
+
 	**For SQL cl**   
-	Connect as `sysdba` (no password required).
+	Connect as `sysdba` (requires no password).
+
 	```
 	$ <copy>./sql / as sysdba</copy>
 	```
 	```
-	SQLcl: Release 21.2 Production on Mon Jan 03 10:19:21 2022
+	SQLcl: Release 21.4 Production on Sat Dec 10 11:31:55 2022
 
 	Copyright (c) 1982, 2022, Oracle.  All rights reserved.
 
 	Connected to:
-	Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
-	Version 21.3.0.0.0
+	Oracle Database 23c Standard Edition 2 Release 23.0.0.0.0 - Development
+	Version 23.1.0.0.0
+	```
+
+	### Exit from SQL prompt
+
+	```
+	$ &lt;SQL&gt;<copy>exit</copy>
+	```
+	```
+	Disconnected from Oracle Database 23c Standard Edition 2 Release 23.0.0.0.0 - Development
+	Version 23.1.0.0.0
 	```
 
 	----
-	## 3. View the inventory location
+	## 3. View inventory location
 
-	Using `oraInst.loc`
+	Using *`oraInst.loc`*
 
 	```
 	$ <copy>cat /etc/oraInst.loc</copy>
@@ -376,13 +407,16 @@ Steps to install Oracle Database 21c.
 	```
 
 	----
-	## 4. View Oracle SIDs and Oracle homes in the system
+	## 4. View Oracle SIDs and Oracle homes
 
-	Using `/etc/oratab`
+	Using *`/etc/oratab`*
 
 	```
 	$ <copy>cat /etc/oratab</copy>
 	```
+
+	Example -
+
 	```
 	# This file is used by ORACLE utilities.  It is created by root.sh
 	# and updated by either Database Configuration Assistant while creating
@@ -402,13 +436,14 @@ Steps to install Oracle Database 21c.
 	# Multiple entries with the same $ORACLE_SID are not allowed.
 	#
 	#
-	orcl:/scratch/u01/app/oracle/product/21.0.0/dbhome_1:N
+	orcl:/scratch/u01/app/mgarodia/product/23.0.0/dbhome_1:N
+	orcl21c:/scratch/u01/app/oracle/product/21.0.0/dbhome_01:N
 	orcl19c:/scratch/u01/app/oracle/product/19.0.0/dbhome_02:N
 	orclmm:/scratch/u01/app/oracle/product/21.0.0/dbhome_manisha01:N
 
 	```
 
-	Using `oraInventory`
+	Using *`oraInventory`*
 
 	1. Go to this location.
 
@@ -422,7 +457,7 @@ Steps to install Oracle Database 21c.
 		$ <copy>cat inventory.xml</copy>
 		```
 
-	Using `/opt`
+	Using *`/opt`*
 
 	1. Go to this location.
 
@@ -457,20 +492,22 @@ Steps to install Oracle Database 21c.
 		###############################################################################
 
 		## The next row needs to be commented out only for Solaris on EMC storage
-		#lib=Oracle: /scratch/u01/app/oracle/product/21.0.0/dbhome_1/lib/%s_mapsym%
+		#lib=Oracle: /scratch/u01/app/oracle/product/23.0.0/dbhome_1/lib/%s_mapsym%
 
 		## The next row can be comented out on ALL UNIX PLATFORMS if no other
 		## libraries exist
-		#lib=Oracle: /scratch/u01/app/oracle/product/21.0.0/dbhome_1/lib/%s_mapdummy%
+		#lib=Oracle: /scratch/u01/app/oracle/product/23.0.0/dbhome_1/lib/%s_mapdummy%
 		```
 
 	----
 	## 5. View Oracle base locations
 
-	1. Go to the `install` directory. 
+	1. Go to the `install` directory.
+
 		```
 		$ <copy>cd /scratch/u01/app/oracle/product/23.0.0/dbhome_1/install</copy>
 		```
+
 	1. View the contents of the `orabasetab` file.
 
 		```
@@ -481,18 +518,45 @@ Steps to install Oracle Database 21c.
 		/scratch/u01/app/oracle/product/23.0.0/dbhome_1:/scratch/u01/app/mgarodia:OraDB23Home1:Y:
 		```
 
-		Base location for Oracle Database 
+		Base location for Oracle Database
 		```
 		$ /scratch/u01/app/mgarodia
 		```
-		Contents of Oracle base 
+		Contents of Oracle base
 
 		```
-		$ ls 
+		$ ls
 
 		$ admin  audit  cfgtoollogs  dbs  diag  fast_recovery_area  homes  oradata  recovery_area
 		```
 		De-install removes all these folders under the base location.
+
+	----
+	## Log in to EM
+
+	Open this page in a web browser - [EM login](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em).
+
+	**Credentials**
+	 - User name - *sysman*
+	 - Password - Enter the password <if type="hidden">*Welcome_1*</if>
+
+	----
+	### Log in to EM Express - Decommissioned
+
+	EM Exp for DB 19c
+	 - [CDB$ROOT port 5501](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:5501/em)   
+	 - [ORCL19CCDB port 5502](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:5502/em)   
+
+	EM Exp for DB 21c
+	 - [CDB$ROOT port 5500](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:5500/em)
+	 - [ORCLPDB port 5504](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:5504/em)
+
+	**Credentials**
+	 - User name - *system*
+	 - Password - Enter the password <if type="hidden">*Welcome_1*</if>
+	 - Container name - (leave empty)
+
+	> **Note:** If you forget the database password, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
 
 ## Task 4: Deinstall Oracle Database
 
@@ -508,11 +572,11 @@ Steps to install Oracle Database 21c.
 	$ <copy>./deinstall</copy>
 	```
 
-
 ## Task 5: Troubleshooting
 
 - Troubleshooting tips and scenarios
 
+	----
 	## Create directory under root
 
 	**Problem:** In the VM, you can create the folder `/u01` under `/scratch` but not root `/`.   
@@ -524,7 +588,7 @@ Steps to install Oracle Database 21c.
 		```
 		$ <copy>/usr/local/packages/aime/install/run_as_root "bash"</copy>
 		```
-		Or, use these: 
+		Or, use these:
 		- `sudo su -`
 		- `sudo -i`   
 			<if type="hidden">Password: Enter the LDAP/Kerberos password - *Livelabs\*1*</if>
@@ -540,14 +604,13 @@ Steps to install Oracle Database 21c.
 		$ <copy>chown -R oracle:dba /u01</copy>
 		```
 
-	1. Change the mod to `777` for `/u01`.
+	1. Allow full control for `/u01`.
 
 		```
 		$ <copy>chmod 777 /u01</copy>
 		```
 
 	----
-
 	## Graphical display error
 
 	**ERROR:** Unable to verify the graphical display setup. This application requires X display. Make sure that xdpyinfo exist under PATH variable.
@@ -584,7 +647,6 @@ Steps to install Oracle Database 21c.
 	1. Install xdpyinfo.
 
 	----
-
 	## xdpyinfo Errors
 
 	The xdpyinfo program must be installed.
@@ -613,14 +675,87 @@ Steps to install Oracle Database 21c.
 		```
 		$ <copy>xhost +SI:localuser:oracle</copy>
 		```
-		Result: 
+		Result:
 		```
 		localuser:oracle being added to access control list
 		```
 
 	Refer [Installation Guide - xdpyinfo Errors](https://docs.oracle.com/cd/E89497_01/html/rpm_80_installation/GUID-842C3883-9BC1-4D37-82C1-9E7F24628AA7.htm).
 
-	## Listener does not know about the Oracle SID
+	----
+	## DB 19c installation - [INS-08101] Unexpected error: 'supportedOSCheck'
+
+	**Problem statement**  
+	You run the database installer on your VM but the wizard does not start. The installer returns the following error.
+
+	```
+	[INS-08101] Unexpected error while executing the action at state: 'supportedOSCheck'. Are you sure you want to continue?
+	```
+
+	![DB 19c installation - supportedOSCheck error](./images/install-db19c-err-supportedoscheck.png " ")
+
+	**What happened**   
+	Oracle 19c supports up to Oracle Enterprise Linux (OEL) v8.1. Apparently, the operating system on your VM is OEL v8.2 or higher.
+
+	The code `[INS-08101]` indicates that `CV_ASSUME_DISTID`, an environmental variable set by the verification program, is not set.
+
+	**What to do**  
+
+	To fix this error, choose from two workarounds - <i>temporary fix</i> or <i>permanent fix</i>.
+
+	 - Temporary fix
+
+		Export the variable or `setenv` at runtime.
+
+		 - **bash**
+
+			```
+			$ <copy>export CV_ASSUME_DISTID=OEL8.1</copy>
+			```
+
+		 - **csh**
+
+			```
+			$ <copy>setenv CV_ASSUME_DISTID OEL8.1</copy>
+			```
+
+		Interestingly, any distribution id is acceptable as long as it's valid.
+
+	 - Permanent fix
+
+		1. Open the CVU configuration file, `$ORACLE_HOME/cv/admin/cvu_config`, in an editor.
+
+			```
+			$ <copy>vi $ORACLE_HOME/cv/admin/cvu_config</copy>
+			```
+
+		1. Uncomment the line (around line `#20`) containing the variable. That is, remove the leading pound sign (`#`). Else, add a new line if the variable is missing.
+
+			```
+			CV_ASSUME_DISTID=OEL5
+			```
+
+			The fallback value can also work.
+
+		1. Save the file.
+
+			> **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+		1. Run the installer again.
+
+			```
+			$ <copy>./runInstaller</copy>
+			```
+
+		----
+		## Cite reference
+
+		 - [Ed Chen Logic](https://logic.edchen.org/how-to-resolve-ins-08101-unexpected-error/)
+		 - [dbsguru](https://dbsguru.com/solution-for-ins-08101-unexpected-error-supportedoscheck-while-oracle-19c-installation/)
+		 - [martinberger.com](https://www.martinberger.com/2020/05/install-oracle-19c-rdbms-on-oracle-linux-8-avoid-warning-ins-08101-unexpected-error-while-executing-the-action-at-state-supportedoscheck/)
+
+	----
+	## Listener does not know about Oracle SID
 
 	Try LSNRCTL status if you find the service missing try this.
 
@@ -629,7 +764,7 @@ Steps to install Oracle Database 21c.
 	conn  system
 	alter system register;  
 	exit  
-	lsnrctl status 
+	lsnrctl status
 	```
 
 	Now you can see the service. Even if don't see try this one out.
@@ -643,9 +778,61 @@ Steps to install Oracle Database 21c.
 	lsnrctl status
 	```
 
+	## Check dependent libraries/packages for database installation
+
+	Verify that the shared libraries and the packages required for the installer are available on the system.
+
+	```
+	$ <copy>ldd /scratch/u01/app/oracle/product/23.0.0/dbhome_1/perl/bin/perl</copy>
+	```
+
+	Output
+
+	```
+	linux-vdso.so.1 (0x00007ffc8c7fe000)
+	libpthread.so.0 => /lib64/libpthread.so.0 (0x00007f8f7fc54000)
+	libnsl.so.2 => /lib64/libnsl.so.2 (0x00007f8f7fa3a000)
+	libdl.so.2 => /lib64/libdl.so.2 (0x00007f8f7f836000)
+	libm.so.6 => /lib64/libm.so.6 (0x00007f8f7f4b4000)
+	libcrypt.so.1 => /lib64/libcrypt.so.1 (0x00007f8f7f28b000)
+	libutil.so.1 => /lib64/libutil.so.1 (0x00007f8f7f087000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007f8f7ecc2000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f8f7fe74000)
+	libtirpc.so.3 => /lib64/libtirpc.so.3 (0x00007f8f7ea8f000)
+	libgssapi_krb5.so.2 => /lib64/libgssapi_krb5.so.2 (0x00007f8f7e83a000)
+	libkrb5.so.3 => /lib64/libkrb5.so.3 (0x00007f8f7e551000)
+	libk5crypto.so.3 => /lib64/libk5crypto.so.3 (0x00007f8f7e33a000)
+	libcom_err.so.2 => /lib64/libcom_err.so.2 (0x00007f8f7e136000)
+	libkrb5support.so.0 => /lib64/libkrb5support.so.0 (0x00007f8f7df25000)
+	libkeyutils.so.1 => /lib64/libkeyutils.so.1 (0x00007f8f7dd21000)
+	libcrypto.so.1.1 => /lib64/libcrypto.so.1.1 (0x00007f8f7d83b000)
+	libresolv.so.2 => /lib64/libresolv.so.2 (0x00007f8f7d624000)
+	libselinux.so.1 => /lib64/libselinux.so.1 (0x00007f8f7d3fa000)
+	libz.so.1 => /lib64/libz.so.1 (0x00007f8f7d1e3000)
+	libpcre2-8.so.0 => /lib64/libpcre2-8.so.0 (0x00007f8f7cf5f000)
+	```
+
+	If any required libraries are missing, the installer refuses to run.   
+	Example -
+
+	```
+	/scratch/u01/app/oracle/product/23.0.0/dbhome_3/perl/bin/perl: /lib64/libcrypt.so.1: version `XCRYPT_2.0' not found (required by /scratch/u01/app/oracle/product/23.0.0/dbhome_3/perl/bin/perl)
+	/scratch/u01/app/oracle/product/23.0.0/dbhome_3/perl/bin/perl: /lib64/libc.so.6: version `GLIBC_2.28' not found (required by /scratch/u01/app/oracle/product/23.0.0/dbhome_3/perl/bin/perl)
+        linux-vdso.so.1 =>  (0x00007ffc023aa000)
+        libpthread.so.0 => /lib64/libpthread.so.0 (0x00007f4e483d8000)
+		libnsl.so.2 => not found
+        libdl.so.2 => /lib64/libdl.so.2 (0x00007f4e47fba000)
+        libm.so.6 => /lib64/libm.so.6 (0x00007f4e47cb8000)
+        libcrypt.so.1 => /lib64/libcrypt.so.1 (0x00007f4e47a81000)
+        libutil.so.1 => /lib64/libutil.so.1 (0x00007f4e4787e000)
+        libc.so.6 => /lib64/libc.so.6 (0x00007f4e474b0000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f4e485f4000)
+        libfreebl3.so => /lib64/libfreebl3.so (0x00007f4e472ad000)
+	```
 
 ## Acknowledgements
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - November 27, (Sun) 2022
+ - **Last Updated on** - December 10, (Sat) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
+	
