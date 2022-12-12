@@ -3,7 +3,7 @@
 ![mg space](./common/images/mg-space.jpg " ") 
 ----
 
-> Explore the possibilities with learn, unlearn, re-learn
+> Explore the possibilities of learn, unlearn, re-learn
 
 ## MG Library : tell-me-how
 
@@ -105,8 +105,7 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 ----
 
 <div style="text-align: right">
-<p style="font-size:8.5px">
- ♏🅰️♑❗💲♓, Team Database UAD<br>
+♏🅰️♑❗💲♓, <p style="font-size:10.5px">Team Database UAD<br>
  <b>Last updated on</b> — December 11, (Sun) 2022<br>
  <b>Questions/Feedback?</b> — Blame <a href="mailto:manish.garodia@oracle.com">@manish.garodia</a>
 </p>
