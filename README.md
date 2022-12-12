@@ -105,9 +105,9 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 ----
 
 <div style="text-align: right">
-♏🅰️♑❗💲♓ <p style="font-size:10.5px">Team Database UAD<br>
- <b>Last updated on</b> — December 11, (Sun) 2022<br>
+♏🅰️♑❗💲♓ <p><small>Team Database UAD<br>
+ <strong>Last updated on</strong> — December 11, (Sun) 2022<br>
  <b>Questions/Feedback?</b> — Blame <a href="mailto:manish.garodia@oracle.com">@manish.garodia</a>
-</p>
+</small></p>
 </div>
 
