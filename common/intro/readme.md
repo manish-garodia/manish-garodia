@@ -1,4 +1,6 @@
-# Welcome to MG space..!
+# Welcome to MG space..!🌐
+
+💠 Lookk beyyond horizonn 🚩
 
 ![mg space](./../images/mg-space.jpg " ") 
 ----
@@ -11,11 +13,6 @@
 - 🌱 &nbsp;&nbsp;I’m from &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #FCF3CF">the User Asssistance Development</span> team.
 - 💞️ &nbsp;&nbsp;I’m looking &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at the ways to expand the universe of knowledge.
 </i>
-
-# mg-playground 🌐 
-💠Lookk beyyond horizonn 🚩
-
-♏🅰️♑❗💲♓
 
 ----
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📫 Reach me at [manish.garodia@oracle.com](./files/email.md)
@@ -136,7 +133,7 @@ coming soon... stay tuned
 
 ## Acknowledgements
 
- - **Author** - Manish Garodia, Team Database UAD
+ - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
  - **Last Updated on** - November 27, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./files/email.md)
 
