@@ -1775,9 +1775,13 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	1. Extract it to a folder named **ComparePlugin**.
 
-	1. Place *ComparePlugin.dll* in the Notepad++ Plugins folder.
+	1. Place *ComparePlugin.dll* in the `Notepad++\plugins` folder.
 
-		> **Tip:** To find the Notepad++ Plugins folder, go to **Plugins** menu and select Open Plugins Folder, the last entry right below Plugins Admin.
+		![Plugin structure](./images/notepad-plugins-structure.png " ")
+
+		> **Tip:** Ensure to match the folder name with the DLL name (excluding file extension).
+		
+		To find the `Notepad++\Plugins` folder, go to **Plugins** and select <i>Open Plugins Folder</i>, the last entry right below <i>Plugins Admin</i>.
 
 	1. Start Notepad++ and check the **Plugins** menu.
 
@@ -1786,13 +1790,15 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		By default, a windows installation places the plugins in this location -
 		 - `C:\Program Files\Notepad++\plugins`
 
-		If the zip file has associated files, then install them to appropriate locations. For `ComparePlugin`, place the git and sqlite DLL files into -
+		If the zip file has associated files, then install them to appropriate locations. For `ComparePlugin`, place the *`sqlite3.dll`* and *`git2.dll`* files into the sub folder not the parent `ComparePlugin` folder -
 		 - `C:\Program Files\Notepad++\plugins\ComparePlugin\ComparePlugin\`
 
 		For example,   
 		 `C:\Programs\Notepad++ 8.4.4\plugins\ComparePlugin\ComparePlugin`. Right, that’s two levels with the same name.
 
-		Do you have other files inside `ComparePlugin\` other than `ComparePlugin.dll` ?
+		![Plugins folder](./images/notepad-plugins-folder.png " ")
+
+		Have you got other files inside `ComparePlugin\` other than `ComparePlugin.dll` ?
 		 - If yes, move them to `ComparePlugin\ComparePlugin\` and leave only `ComparePlugin.dll` in the first (main) `ComparePlugin\` folder.
 
 		----
