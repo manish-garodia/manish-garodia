@@ -1,8 +1,13 @@
-# Compute Instance and Custom Image
+# Into the Clouds
 
-## Introduction
+## OCI Tenancy
 
-This lab discusses about creating and managing compute instances and custom images in the OCI tenancy.
+This lab discusses about a few features and services in the OCI Tenancy.
+
+For example,
+ - concepts of noVNC environment
+ - how to create and manage compute instances and custom images
+ - about administrative tasks, such as object storage, compartments, etc.
 
 ## About noVNC environment
 
@@ -174,6 +179,12 @@ The OCI has **26 regions** that are associated with specific teams.
 
 			```
 			https://objectstorage.ap-seoul-1.oraclecloud.com/p/Wnmwviac2Iw9jR7WuDdTJWDXifI23CHNmZqSXCQPXdXJqNDogWagV9WPKyoEANr3/n/cnmyhyct1k43/b/bucket-20210824-2326/o/time.html
+			```
+
+		 - PAR URL for *ws10-11300-live* - created on 19 Dec 2022, valid till 31 Dec, 2051.
+
+			```
+			https://objectstorage.us-ashburn-1.oraclecloud.com/p/CW0vc3DEfkuuQc4OQVOED1K8toeqzR9KD7O9fYRNgqkKMIljArKQKi4dsFyxpAWe/n/idrudhdwamji/b/dba-e-ws-live/o/ws10-11300-live.png
 			```
 </if>
 
@@ -854,6 +865,6 @@ chmod g+s /oracle
 
 ## Acknowledgements
 
- - **Author** - Manish Garodia, Team Database UAD
+ - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
  - **Last Updated on** - December 6, (Tue) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

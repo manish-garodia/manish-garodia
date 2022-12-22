@@ -10,7 +10,7 @@
         },
         {
             "title": "Lab 1: MG Library : tell-me-how",
-            "description": "Contains topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures. It also lists down the videos and channels on oTube.",
+            "description": "A collection of topics developed from notes on specific areas. These converge from various sources, for example discussions, trainings, experiments, mistakes, and failures. It also lists down the videos and channels on oTube.",
 			"publisheddate": "03-Dec-2022",
             "filename": "./../common/lib-cellar/mg-library.md",
 			"type": "hidden"
@@ -37,10 +37,10 @@
 			"type": "hidden"
         },
         {
-            "title": "Lab #: Compute Instance and Custom Images",
-            "description": "How to create and manage compute instances and custom images in the OCI tenancy.",
+            "title": "Lab #: Into The Clouds",
+            "description": "About the features and services in the OCI Tenancy, for example, noVNC, compute instance, custom images, object storage, compartments, to name a few.",
 			"publisheddate": "05-Jun-2022",
-            "filename": "./../common/lib-cellar/procedures/compute-instance-custom-image/compute-instance-custom-image.md",
+            "filename": "./../common/lib-cellar/procedures/into-the-clouds/into-the-clouds.md",
 			"type": "hidden"
         },
         {

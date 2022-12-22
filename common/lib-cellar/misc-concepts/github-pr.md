@@ -16,8 +16,8 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	**Sub**: <ins>(8341) Updated ORM stack as discussed in Office hours</ins>
 
 	Hello,
-	As discussed in the office hours, updated the lab prepare-setup and modified the ORM stack for freetier. Also, modified the manifests accordingly. 
-	Removed the common get-started from livelabs manifest. 
+	As discussed in the office hours, updated the lab prepare-setup and modified the ORM stack for freetier. Also, modified the manifests accordingly.
+	Removed the common get-started from livelabs manifest.
 
 	Request for approval please  
 	Thanks, MG
@@ -39,7 +39,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	- Updated the date in acknowledgements
 	- Other minor changes
 
-	Please approve the PR so that the workshop can be released soon. 
+	Please approve the PR so that the workshop can be released soon.
 	Thank you  
 	~MG
 
@@ -52,7 +52,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	Modified the following as per self-QA. 
+	Modified the following as per self-QA.
 
 	Introduction lab:
 	- Modified the title
@@ -81,7 +81,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	Developed a new workshop on *Remove Oracle Database 21c From Your Host System*. The workshop (#8341) is approved in LWMS. 
+	Developed a new workshop on *Remove Oracle Database 21c From Your Host System*. The workshop (#8341) is approved in LWMS.
 
 	Please approve the PR. Thank you  
 	~MG
@@ -91,12 +91,25 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 - WS10 pull requests
 
 	----
+	## Merge request #*118* - Dec 16, 2022
+
+	Submitted PR for WS10 (minor fix to the lab provision a pdb) from my fork on Github on *Fri Dec 16, 2022*. Waiting for approval. Approved on **Dec 16**.
+
+	**Sub**: <ins>(#11300) Minor fix to a lab</ins>
+
+	Hi,
+
+	We have this workshop *manage-pdb* in Oracle Database 21c, `WMS ID #11060`. The workshop is published to production recently.
+	Now, while testing the green button environment, we came across a minor issue in one of the steps and updated the lab - `provision pdb`.
+	Would be great if you please approve the PR, so we can enable the green button. Thank you   
+	~MG
+
+	----
 	## Merge request #*117* - Dec 01, 2022
 
 	Replaced with new index.html and submitted a merge request on *Wed Nov 30, 2022*. Waiting for approval. Approved on **Dec 01**.
 
-	Replaced index.html with the new file from the sample templates for all 3 - tenancy, sandbox, and desktop. 
-	Thanks
+	Replaced index.html with the new file from the sample templates for all 3 - tenancy, sandbox, and desktop. Thanks   
 	~MG
 
 	----
@@ -104,21 +117,20 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Added estimated time to intro lab and submitted a merge request on *Wed Nov 30, 2022*. Waiting for approval. Approved on **Dec 01**.
 
-	Added estimated time 2 hours 30 mins to the introduction lab. This was missed out earlier. 
+	Added estimated time 2 hours 30 mins to the introduction lab. This was missed out earlier.    
 	~MG
 
 	----
 	## Merge request #*117* - Nov 30, 2022
 
-	Submitted PR for WS10 (draft copy) from my fork on Github on *Wed Nov 30*. Waiting for approval. Approved on **Dec 01**. 
+	Submitted PR for WS10 (draft copy) from my fork on Github on *Wed Nov 30*. Waiting for approval. Approved on **Dec 01**.
 
-	**Sub**: <ins>(*#11060*) Created New Workshop Manage user accounts and security</ins>
+	**Sub**: <ins>(*#11300*) Created workshop - manage pdb</ins>
 
 	Hello,
 
-	Developed a new workshop on *Manage user accounts and sceurity for Oracle Database 21c*, WMS ID is #11060. 
-
-	Please approve the PR. Thank you  
+	Developed a new workshop on *manage-pdb in Oracle Database 21c*, WMS ID is #11300.
+	Please approve the PR. Thank you   
 	~MG
 
 ## WS8 (*9281*)
@@ -182,7 +194,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	Developed a new workshop on *Manage user accounts and sceurity for Oracle Database 21c*, WMS ID is #11060. 
+	Developed a new workshop on *Manage user accounts and sceurity for Oracle Database 21c*, WMS ID is #11060.
 
 	Please approve the PR. Thank you  
 	~MG
@@ -224,7 +236,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	The workshop is production-ready. Final changes as agreed in the Office hours.    
 
-	Changes: 
+	Changes:
 	- Updated the note tag
 	- All occurrences of the database name throughout the workshop changed from *orcl.us.oracle.com* to *CDB1*
 	- Updated the code blocks as per the custom image to reflect the new database name
@@ -273,7 +285,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	Updated the labs for the final round of review before publishing. 
+	Updated the labs for the final round of review before publishing.
 
 	Modified the title for *access-homepage* in the lab and the manifests.   
 	Added image alt text to *initialize-environment*.  
@@ -286,7 +298,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	~MG
 
 	----
-	## Merge request #*4265* - Dec 2, 2021 
+	## Merge request #*4265* - Dec 2, 2021
 
 	Submitted PR for WS2 from my fork on Github on *Thu Dec 2, 2021*. Waiting for approval. Approved on **Dec 3**.
 
@@ -294,7 +306,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	Modified the labs as per feedback from QA review. 
+	Modified the labs as per feedback from QA review.
 
 	Updated as per Oracle Style Guide  
 	Updated the tasks and added more steps to the labs  
@@ -310,7 +322,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	~MG
 
 	----
-	## Merge request #*4121* - Nov 2, 2021 
+	## Merge request #*4121* - Nov 2, 2021
 
 	Submitted PR for WS2 from my fork on Github on *Tue Nov 2, 2021*. Waiting for approval. Approved on **Nov 3**.
 
@@ -318,7 +330,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	Modified the following as per self-review. 
+	Modified the following as per self-review.
 
 	In the manage-targets lab:
 	- Modified the objectives
@@ -349,7 +361,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	Modified the labs as per review comments from the SMEs. 
+	Modified the labs as per review comments from the SMEs.
 
 	Modified the manifests and changed the workshop title to *DBA Essentials - Oracle EM Database Administation (DBA)*  
 	Modified the lab title *Managed targets - Oracle Database and Listener*  
@@ -377,7 +389,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	Developed a new workshop on *EM - Oracle Database Administration (DBA)*. The workshop (#7141) is approved in LWMS. 
+	Developed a new workshop on *EM - Oracle Database Administration (DBA)*. The workshop (#7141) is approved in LWMS.
 
 	Please approve the PR. Thank you  
 	~MG
@@ -397,9 +409,9 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	We had a customer issue reported on this workshop. Minor modifications to the lab 'install-desktop-server' to fix the issue.
 
-	Removed the instructions to login as root in the terminal and updated the associated steps. 
+	Removed the instructions to login as root in the terminal and updated the associated steps.
 
-	Please approve the PR. Thank you
+	Please approve the PR. Thank you   
 	~MG
 
 	----
@@ -411,7 +423,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	Fixed the comment from Anoosha on Self QA for the workshop. 
+	Fixed the comment from Anoosha on Self QA for the workshop.
 
 	Modified the `manifest.json` file for freetier, livelabs, and desktop versions.  
 	Added Lab #Number : title for all labs from the lab *Prepare Setup* onwards in the `manifest.json` files.
@@ -428,7 +440,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	Modified the labs as per review comments from the Livelabs team on Self QA. 
+	Modified the labs as per review comments from the Livelabs team on Self QA.
 
 	Moved the workshop one folder up. New location: `/data-management-library/database/21c/dba-essentials/`   
 	Changed the folder names from `freetier-install-db`, `livelabs-install-db`, `desktop-install-db` back to `freetier`, `livelabs`, `desktop`  
@@ -462,7 +474,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	Modified the lab as suggested. 
+	Modified the lab as suggested.
 
 	Fixed the conflicts in these files: `freetier-install-db`/`manifest.json` and `prepare-setup.md`  
 	Removed the common files  
@@ -475,7 +487,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	~MG
 
 	----
-	## Merge request #*3662* - Aug 30, 2021 
+	## Merge request #*3662* - Aug 30, 2021
 
 	Submitted PR for WS1 from my fork on Github on *Mon Aug 30, 2021*. Not Approved.
 
@@ -483,9 +495,9 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	I have modified the lab as discussed in the Office Hours. 
+	I have modified the lab as discussed in the Office Hours.
 
-	Following are the modifications - 
+	Following are the modifications -
 
 	Moved *prepare-setup* inside the install-db folder  
 	Removed the common file and inserted the note inside Introduction  
@@ -498,7 +510,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Besides, I performed Self QA for the workshop and ran through the lint checker on all labs again.
 
-	Request for approval please.  Thank you  
+	Request for approval please. Thank you   
 	~MG
 
 	----
@@ -512,7 +524,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	I performed Self QA and ran through the lint checker on the workshop.
 
-	Following are the modifications - 
+	Following are the modifications -
 
 	Removed the gerund and modified the title to *Install Oracle Database 21c on OCI Compute*.  
 	Added these to the Introduction:
@@ -525,7 +537,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	Removed the redundant file on *See an issue*.  
 	Minor changes to the lab *Create Container Database (Advanced Mode)*
 
-	Request for approval please.  Thank you  
+	Request for approval please. Thank you   
 	~MG
 
 	----
@@ -537,7 +549,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	Hello,
 
-	I have done the following changes to my workshop. 
+	I have done the following changes to my workshop.
 
 	Used the include option for single-sourcing of content common across the labs.   
 	Fixed broken images in *Install Database (Server Class)*. Renamed the filename for the images.  
@@ -549,12 +561,12 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	Used the *if* and *type* options to conditionalize the content.  
 	Updated the manifest files to reflect the new merged markdown files and the *include* files.  
 
-	Request for approval please. Thank you
+	Request for approval please. Thank you   
 
 	~MG
 
 	----
-	## Merge request #*3575* - Aug 16, 2021 
+	## Merge request #*3575* - Aug 16, 2021
 
 	Submitted PR for WS1 (draft copy) from my fork on Github on *Mon Aug 16, 2021*. Approved on **Aug 17**.
 
@@ -587,7 +599,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	<ins>*No change*</ins> to lab contents.
 
-	Please approve the PR. Thank you  
+	Please approve the PR. Thank you   
 	~MG
 
 	----
@@ -603,15 +615,11 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	<ins>*No change*</ins> to lab contents.
 
-	Please approve the PR. Thank you  
+	Please approve the PR. Thank you   
 	~MG
 
 ## Acknowledgements
 
- - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - November 30, (Wed) 2022
+ - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
+ - **Last Updated on** - December 16, (Fri) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../intro/files/email.md)
-
-
-
-

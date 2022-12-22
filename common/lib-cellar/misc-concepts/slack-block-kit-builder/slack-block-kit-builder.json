@@ -1,3 +1,165 @@
+16 December 2022
+------------------
+
+- released workshop 10
+
+{
+	"blocks": [
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": ":drum_with_drumsticks:  Published new workshop  :checkered_flag:"
+			}
+		},
+		{
+			"type": "context",
+			"elements": [
+				{
+					"text": ":spiral_calendar_pad:    `December 2022`",
+					"type": "mrkdwn"
+				}
+			]
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":fast_forward:  _*DBA Essentials - Manage PDBs in Oracle Database 21c*_ \n         _*using Oracle Enterprise Manager*_"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "View Workshop   :eyes:",
+					"emoji": true
+				},
+				"style": "primary",
+				"value": "dba_essentials",
+				"url": "https://bit.ly/ws10-managepdb",
+				"action_id": "button-action"
+			}
+		},
+		{
+			"type": "context",
+			"elements": [
+				{
+					"type": "mrkdwn",
+					"text": "This workshop helps you discover and learn how to manage and administer many Oracle Database 21c Multitenant PDBs using Enterprise Manager."
+				}
+			]
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "We have this workshop released to production with the green button. :large_green_circle: \nThanks to all contributors and teams."
+			}
+		},
+		{
+			"type": "image",
+			"image_url": "https://bit.ly/ws10-launch-img",
+			"alt_text": "Workshop Manage PDBs"
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":redbull_oracle:  |  *Previously released workshops*  |  :redbull_oracle:"
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": ":goldstar:  Install Oracle Database 21c",
+						"emoji": true
+					},
+					"value": "install_db",
+					"url": "https://bit.ly/ws1-installdb"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": ":goldstar:  DB Admin with Enterprise Manager",
+						"emoji": true
+					},
+					"value": "em_dba",
+					"url": "https://bit.ly/ws2-startemcc"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": ":goldstar:  Configure Network Environment",
+						"emoji": true
+					},
+					"value": "config_nw",
+					"url": "https://bit.ly/ws3-confignw"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": ":goldstar:  Manage user accounts and security",
+						"emoji": true
+					},
+					"value": "manage_users",
+					"url": "https://bit.ly/ws6-rolesusers"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": ":goldstar:  Backup and recovery operations",
+						"emoji": true
+					},
+					"value": "back_recovery",
+					"url": "https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=3005"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": ":goldstar:  Remove Oracle Database 21c",
+						"emoji": true
+					},
+					"value": "remove_db",
+					"url": "https://bit.ly/ws11-removedb"
+				}
+			]
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":bulb: *Tip:*\n        See all workshops from this series using the filter _`DBA Essentials`_ \n        on the Livelabs site\n\n        Or click this link: \n        <https://apexapps.oracle.com/pls/apex/f?p=133:100:16896809551842::::SEARCH:dba+essentials|DBA Essentials workshops series>"
+			},
+			"accessory": {
+				"type": "image",
+				"image_url": "https://bit.ly/dbae-filter",
+				"alt_text": "dbae-filter"
+			}
+		}
+	]
+}
+
 
 6 June 2022
 ------------------
@@ -146,9 +308,9 @@
 
 12 April 2022
 ------------------
-- Use context markdown for description about something with lighter color fonts. 
+- Use context markdown for description about something with lighter color fonts.
 
-- Link to access the DBA essentials workshops on Livelabs page. Tip at the bottom to be modified. 
+- Link to access the DBA essentials workshops on Livelabs page. Tip at the bottom to be modified.
 
 https://apexapps.oracle.com/pls/apex/f?p=133:100:101446073578595::::SEARCH:dba
 

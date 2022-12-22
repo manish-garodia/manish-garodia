@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This lab is about markdown basic formatting and tags. 
+This lab is about markdown basic formatting and tags.
 
 ### Common code editors
  - **Notepad ++** &emsp;: &emsp;[Read about it](https://notepad-plus-plus.org/) &nbsp;- &nbsp;[want to download](https://notepad-plus-plus.org/downloads/)
@@ -29,8 +29,8 @@ This lab is about markdown basic formatting and tags.
 	<ins>Example</ins>   
 	You _can_ **combine them** also
 
- - *Strikethrough* with two tildes like ~~this~~  
-	Maybe, not showing for this repo but works ok on GIthub. 
+ - *Strikethrough* with two tildes like ~~this~~   
+	Maybe, not showing correctly in this lab but works fine on Github.
 
  - *Line breaks* or *soft enter*   
 	Add 2 spaces or a backslash (`\`) at the end of the first line.
@@ -45,7 +45,7 @@ This lab is about markdown basic formatting and tags.
 
 		```
 		&emsp;
-		``` 
+		```
 
 	HTML equivalent tag is `<br>`
 
@@ -65,7 +65,7 @@ This lab is about markdown basic formatting and tags.
 
 Create heading styles in two ways:
 
- - **setext** - Use equal sign ====== below the title for heading 1, single line ------ below the title for the next level, etc. 
+ - **setext** - Use equal sign ====== below the title for heading 1, single line ------ below the title for the next level, etc.
  - **atx** - Use hashes `#` to create headings. Multiple hashes `##` in a row for subsequent heading levels.
 
 	<ins>Example</ins>    
@@ -91,7 +91,7 @@ You can create up to `######` six levels of heading styles.
 
 	Enter 3 blank spaces to indent a nested list (to create sub items).
 
-	Use Arabic number system (1, 2, 3, ...) or simply use (1, 1, 1,) for simplicity. Both will render the correct sequence. 
+	Use Arabic number system (1, 2, 3, ...) or simply use (1, 1, 1,) for simplicity. Both will render the correct sequence.
 
 
 	<ins>Format</ins>    
@@ -112,7 +112,7 @@ You can create up to `######` six levels of heading styles.
 		1. Sub item one
 		1. Sub item two
 
-	 > **Best practice**: Using 1, 1, 1, prevents manual renumbering, in case of modifications in the list order. 
+	 > **Best practice**: Using 1, 1, 1, prevents manual renumbering, in case of modifications in the list order.
 
 	## Bulleted list
 
@@ -154,9 +154,9 @@ You can create up to `######` six levels of heading styles.
 
 	 -- Not fully tested --
 
-	1. Add an image using the above format. 
+	1. Add an image using the above format.
 
-	1. Add `image-filename.txt` under the **files** folder. 
+	1. Add `image-filename.txt` under the **files** folder.
 
 	1. Describe the image in the text file.
 
@@ -174,12 +174,12 @@ You can create up to `######` six levels of heading styles.
  - Inline code blocks
 
 	<ins>Format</ins>   
-	Use backticks \`var example = true`. 
+	Use backticks \`var example = true`.
 
 	<ins>Output</ins>   
-	Use backticks `var example = true`. 
+	Use backticks `var example = true`.
 
- - Longer block of code, indent with four spaces: 
+ - Longer block of code, indent with four spaces:
 
 		if (isAwesome){
 		  return true
@@ -215,7 +215,6 @@ You can create up to `######` six levels of heading styles.
 
 ## Acknowledgements
 
- - **Author** - Manish Garodia, Team Database UAD
+ - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
  - **Last Updated on** - November 26, (Sat) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
-

@@ -3,8 +3,8 @@
     "tutorials": [
         {
             "title": "Lab #: MG Library : tell-me-how",
-            "description": "Contains a list of topics developed from notes on specific areas. These notes converge from various sources, for example discussions, trainings, experiments, mistakes, and failures. It also lists down the videos and channels on oTube.",
-			"publisheddate": "11-Nov-2022",
+            "description": "A collection of topics developed from notes on specific areas. These converge from various sources, for example discussions, trainings, experiments, mistakes, and failures. It also lists down the videos and channels on oTube.",
+			"publisheddate": "03-Dec-2022",
             "filename": "./../common/lib-cellar/mg-library.md"
         }
     ]
