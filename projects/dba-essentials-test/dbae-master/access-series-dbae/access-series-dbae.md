@@ -1,25 +1,23 @@
-# List of DBA Essentials workshops
+# Access the series of DBA Essentials workshops
 
 ## Introduction
 
-This lab displays a list of Livelabs workshops from the *DBA Essentials series for Oracle Database 21c*. Explore these workshops in the given sequence and learn how to manage your database with simple steps. 
+This lab consolidates all workshops from the *DBA Essentials series* for Oracle Database 21c. It helps you access the workshops on Livelabs and also suggests the sequence to run them. 
 
-The link below each workshop opens the landing page for that workshop on the Livelabs website, where you can run the workshop. 
+Estimated time: Check specific time under each workshop
 
-<!--
 ### Objectives
 
  - Explore these workshops in the given sequence.
- - Learn how to manage your database with simple steps.
+ - Click the link below each workshop to open the workshop page and try it out.
 
-The link below each workshop opens the landing page for that workshop on the Livelabs website, where you can run the workshop. 
+> **Note:** The link to workshop opens the landing page for that workshop on the Livelabs website, where you can run the workshop. 
 
+<!--
 ### Prerequisites
 
 This lab assumes you have -
-
- -   An Oracle Cloud account
-
+ -   An Oracle Cloud accountx
 -->
 
 ## <if type="hidden">DBA Essentials - </if>Workshop 1: Install Oracle Database 21c on OCI Compute
@@ -28,7 +26,11 @@ Explore how to install the Oracle Database software on a Linux system provided w
 
 Estimated workshop time: 2 hours
 
+<!--
 <a href="https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=871" class="tryit-button">Try it!</a>
+-->
+
+**[Click this link](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=871)** to try the workshop!
 
 ## <if type="hidden">DBA Essentials - </if>Workshop 2: DB Admin with Oracle Enterprise Manager Cloud Control
 
@@ -36,7 +38,11 @@ This workshop gets you started with Oracle Database Administration using Oracle 
 
 Estimated workshop time: 1 hour, 45 minutes
 
+<!--
 <a href="https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=918" class="tryit-button">Try it!</a>
+-->
+
+**[Click this link](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=918)** to try the workshop!
 
 ## <if type="hidden">DBA Essentials - </if>Workshop 3: Configure network environment for Oracle Database 21c
 
@@ -44,7 +50,11 @@ This workshop explains how to view listener configuration and perform listener o
 
 Estimated workshop time: 1 hour, 15 minutes
 
+<!--
 <a href="https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=933" class="tryit-button">Try it!</a>
+-->
+
+**[Click this link](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=933)** to try the workshop!
 
 ## <if type="hidden">DBA Essentials - </if>Workshop 4: Manage database instance and memory for Oracle Database 21c
 
@@ -52,7 +62,11 @@ By following this workshop, you will learn how to start up and shut down your Or
 
 Estimated workshop time: 1 hour, 36 minutes
 
+<!--
 <a href="https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=3003" class="tryit-button">Try it!</a>
+-->
+
+**[Click this link](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=3003)** to try the workshop!
 
 ## <if type="hidden">DBA Essentials - </if>Workshop 5: Manage storage structures for Oracle Database 21c
 
@@ -60,7 +74,11 @@ This workshop shows how to view Archived Redo Log information, view control file
 
 Estimated workshop time: 2 hours
 
+<!--
 <a href="https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=3236" class="tryit-button">Try it!</a>
+-->
+
+**[Click this link](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=3236)** to try the workshop!
 
 ## <if type="hidden">DBA Essentials - </if>Workshop 6: Manage user accounts and security for Oracle Database 21c
 
@@ -68,7 +86,11 @@ This workshop helps you manage roles and database user accounts, named groups of
 
 Estimated workshop time: 1 hour, 30 minutes
 
+<!--
 <a href="https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=3201" class="tryit-button">Try it!</a>
+-->
+
+**[Click this link](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=3201)** to try the workshop!
 
 ## <if type="hidden">DBA Essentials - </if>Workshop 7: Backup and recovery operations for Oracle Database 21c
 
@@ -76,7 +98,11 @@ This workshop introduces you to Oracle Database backup and recovery with the Rec
 
 Estimated workshop time: 2 hours
 
+<!--
 <a href="https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=3005" class="tryit-button">Try it!</a>
+-->
+
+**[Click this link](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=3005)** to try the workshop!
 
 ## <if type="hidden">DBA Essentials - </if>Workshop 8: Monitor and Tune Oracle Database 21c
 
@@ -84,7 +110,11 @@ This workshop enables you to monitor the workshop and identify performance-relat
 
 Estimated workshop time: 1 hour, 36 minutes
 
+<!--
 <a href="https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=3322" class="tryit-button">Try it!</a>
+-->
+
+**[Click this link](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=3322)** to try the workshop!
 
 ## <if type="hidden">DBA Essentials - </if>Workshop 9: Manage PDBs in Oracle Database 21c using Oracle Enterprise Manager
 
@@ -92,7 +122,11 @@ Understand how to scale and automate management of many multitenant databases ac
 
 Estimated workshop time: 2 hours, 30 minutes
 
+<!--
 <a href="https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=3523" class="tryit-button">Try it!</a>
+-->
+
+**[Click this link](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=3523)** to try the workshop!
 
 ## <if type="hidden">DBA Essentials - </if>Workshop 10: Remove Oracle Database 21c from your host system
 
@@ -100,10 +134,14 @@ There are situations when you may need to remove the Oracle Database software an
 
 Estimated workshop time: 45 minutes
 
+<!--
 <a href="https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=994" class="tryit-button">Try it!</a>
+-->
+
+**[Click this link](https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=994)** to try the workshop!
 
 ## Acknowledgements
 
  -   **Author** - Manish Garodia, Team Database User Assistance Development
  -   **Contributors** - Suresh Rajan
- -   **Last Updated By/Date** - Manish Garodia, December 2022
+ -   **Last Updated By/Date** - Manish Garodia, January 2023
