@@ -17,7 +17,7 @@ Estimated time: Check specific time under each workshop
 ### Prerequisites
 
 This lab assumes you have -
- -   An Oracle Cloud accountx
+ -   An Oracle Cloud account
 -->
 
 ## <if type="hidden">DBA Essentials - </if>Workshop 1: Install Oracle Database 21c on OCI Compute
