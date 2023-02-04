@@ -106,6 +106,7 @@ $ <copy>./em13500_linux64.bin EMPREREQ_KIT=true</copy>
 
 | VM                                   | Path                | Remarks                                 |
 |--------------------------------------|---------------------|-----------------------------------------|
+| `phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:1` | `/scratch/mgarodia/installers/emcc135`  | Executable |
 | `phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:1` | `/scratch/mgarodia/installers/emcc135`  | Executable |
 | `phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:1`  | `/scratch/u01/installers/emcc135`       | Executable |
 | `slc10wsw.us.oracle.com:2`                                 | `/scratch/em_software13.5`              |           |
@@ -173,7 +174,7 @@ $ <copy>./em13500_linux64.bin EMPREREQ_KIT=true</copy>
 	- **Host Name** (auto-filled)
 
 		```
-		<copy>phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
+		<copy>phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
 		```
 
 1. Select Plug-ins - Leave the defaults.
@@ -206,10 +207,10 @@ These credentials are required for the maintenance of EM.
 	- **Database Host Name**
 
 		```
-		<copy>phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
+		<copy>phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
 		```
 
-	- **Port** - *1522*   
+	- **Port** - *1519*   
 	Check listener status in the ORACLE_HOME/bin)
 	- **Service/SID** - *orcl19pdb.host-domain*   
 	Enter the PDB name followed by the full domain name of the host.
@@ -249,7 +250,15 @@ These credentials are required for the maintenance of EM.
 	- **Agent Registration Password** - Enter Agent login password <if type="hidden">*Welcome_1*</if>   
 	(re-enter to confirm password)
 
-	For tablespaces, leave the defaults.
+	Oracle Database 19c has some default tablespaces under this location - 
+
+	```
+	$ <copy>/scratch/u01/app/mgarodia19/oradata/ORCL19/orcl19pdb</copy>
+	```
+
+	The default tablespaces are *`sysaux01.dbf`*, *`system01.dbf`*, *`temp01.dbf`*, *`undotbs01.dbf`*, and *`users01.dbf`*. The EM installer adds further tablespaces to this location. 
+
+	Leave the defaults and continue.
 
 	| Tablespace           | File full path                                                       |
 	|----------------------|----------------------------------------------------------------------|
@@ -282,16 +291,49 @@ These credentials are required for the maintenance of EM.
 		![All Root script](./images/em-013b-all-root-script.png " ")**Figure:** All Root script
 
 		```
-		$ <copy>/scratch/u01/software/em/middleware/allroot.sh</copy>
+		$ <copy>source /scratch/u01/software/em/middleware/allroot.sh</copy>
+		```
+
+		### Output
+
+		```
+		Starting to execute allroot.sh ......... 
+
+		Starting to execute /scratch/u01/software/em/middleware/root.sh ......
+		Performing root user operation.
+
+		The following environment variables are set as:
+			ORACLE_OWNER= mgarodia
+			ORACLE_HOME=  /scratch/u01/software/em/middleware
+		```
+
+		Press Enter
+
+		```
+		Enter the full pathname of the local bin directory: 
+		[/usr/local/bin]: 
+		```
+
+		Press Enter again.
+
+		```
+		/usr/local/bin is read only.  Continue without copy (y/n) or retry (r)? 
+		[y]: 
 		```
 
 		## Result
 
 		```
-		Starting to execute allroot.sh .........
+		Warning: /usr/local/bin is read only. No files will be copied.
 
-		Starting to execute /scratch/u01/software/em/middleware/root.sh ......
-		Check /scratch/u01/software/em/middleware/install/root_phoenix62464_2021-08-11_05-28-03.log for the output of root script
+		Entries will be added to the /etc/oratab file as needed by
+		Database Configuration Assistant when a database is created
+		Finished running generic part of root script.
+		Now product-specific root actions will be performed.
+		/etc exist
+
+		Creating /etc/oragchomelist file...
+		/scratch/u01/software/em/middleware
 
 		Finished product-specific root actions.
 		/etc exist
@@ -303,24 +345,25 @@ These credentials are required for the maintenance of EM.
 		Finished product-specific root actions.
 		/etc exist
 		Finished execution of  /scratch/u01/software/em/agent/agent_13.5.0.0.0/root.sh ......
+		You have mail in /var/spool/mail/root
 		```
 
 	 - Return to the installer and click **OK** to continue the installation.
 
 1. On successful completion, the installer displays the Finish window.
 
-	![EM Installation Complete - top](./images/em-014-finish1.png " ")**Figure:** EM Installation Complete - top
+	![EM Installation Complete - top](./images/em-014-finish.png " ")**Figure:** EM Installation Complete
 
-	![EM Installation Complete - bottom](./images/em-014-finish2.png " ")**Figure:** EM Installation Complete - bottom
+	> **Note:** Before you **Close** the installer, do not forget to note the URLs to access EM.
 
-	> **Note:** Before you **Close** the installer, do not forget to note the EM URLs for 19c.
-
-| Interface                    | Link                                         |
-|------------------------------|----------------------------------------------|
-| EM console new             | [https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em)      |
-| Admin server <br>console new | [https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7102/console](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7102/console) |
-| EM console old             | [https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:7803/em](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:7803/em)       |
-| Admin server <br>console old | [https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:7102/console](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:7102/console)  |
+| Interface                     | Link                                         |
+|-------------------------------|----------------------------------------------|
+| EM console new                | [https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em)       |
+| Admin server <br>console new  | [https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7102/console](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7102/console)  |
+| EM console old2               | [https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em)       |
+| Admin server <br>console old2 | [https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7102/console](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7102/console)  |
+| EM console old1               | [https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:7803/em](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:7803/em)        |
+| Admin server <br>console old1 | [https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:7102/console](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:7102/console)   |
 
 ### EM folder locations
 
@@ -330,9 +373,147 @@ These credentials are required for the maintenance of EM.
 > **Cite**:    
 > Another EM installation procedure explained here - [Manual EM Shiphome installation on OCI](https://confluence.oraclecorp.com/confluence/display/EMQ/Manual+EM+Shiphome+installation+on+OCI)
 
-## Task 3: Deinstall EM
+## Task 3: EM post installation checks
 
-> **Note:** Do not deinstall the repository database (Oracle Database 19c) before deinstalling EM. Else, it will return an error `The OMS delete of EMGC_OMS1 has failed.`
+- After installing EM, you can log into the EM console using a web browser.
+
+	> **Note**: You can access the EM console only if OMS and agent are up and running.
+
+	----
+	## Log in to EM
+
+	Open this page in a web browser - [EM login](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em).
+
+	**Credentials**
+	 - User name - *sysman*
+	 - Password - Enter the password <if type="hidden">*Welcome_1*</if>
+
+	----
+	### Log in to EM Express - Decommissioned
+
+	EM Exp for DB 19c
+	 - [CDB$ROOT port 5501](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:5501/em)   
+	 - [ORCL19CCDB port 5502](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:5502/em)   
+
+	EM Exp for DB 21c
+	 - [CDB$ROOT port 5500](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:5500/em)
+	 - [ORCLPDB port 5504](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:5504/em)
+
+	**Credentials**
+	 - User name - *system*
+	 - Password - Enter the password <if type="hidden">*Welcome_1*</if>
+	 - Container name - (leave empty)
+
+	> **Note:** If you forget the database password, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
+
+
+	----
+	## Check OMS status
+
+	1. In a terminal, go to the middleware home location.
+	
+		```
+		$ <copy>cd /scratch/u01/software/em/middleware/bin</copy>
+		```
+
+	1. Check the OMS status.
+	
+		```
+		$ <copy>./emctl status oms</copy>
+		```
+
+		Success
+
+		```
+		Oracle Enterprise Manager Cloud Control 13c Release 5  
+		Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
+		WebTier is Up
+		Oracle Management Server is Up
+		JVMD Engine is Up
+		```
+
+		Error
+
+		```
+		Oracle Enterprise Manager Cloud Control 13c Release 5  
+		Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
+		WebTier is Up
+		Oracle Management Server is Down
+		JVMD Engine is Down
+		```
+
+		If OMS is down, start the OMS server. 
+
+		```
+		$ <copy>./emctl start oms</copy>
+		```
+
+	----
+	## Check Agent status
+
+	1. In a terminal, go to the agent location.
+	
+		```
+		$ <copy>cd /scratch/u01/software/em/agent/agent_13.5.0.0.0/bin</copy>
+		```
+
+	1. Check the agent status.
+	
+		```
+		$ <copy>./emctl status agent</copy>
+		```
+	
+		```
+		Oracle Enterprise Manager Cloud Control 13c Release 5  
+		Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
+		---------------------------------------------------------------
+		Agent Version          : 13.5.0.0.0
+		OMS Version            : 13.5.0.0.0
+		Protocol Version       : 12.1.0.1.0
+		Agent Home             : /scratch/u01/software/em/agent/agent_inst
+		Agent Log Directory    : /scratch/u01/software/em/agent/agent_inst/sysman/log
+		Agent Binaries         : /scratch/u01/software/em/agent/agent_13.5.0.0.0
+		Core JAR Location      : /scratch/u01/software/em/agent/agent_13.5.0.0.0/jlib
+		Agent Process ID       : 3037157
+		Parent Process ID      : 145906
+		Agent URL              : https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:3872/emd/main/
+		Local Agent URL in NAT : https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:3872/emd/main/
+		Repository URL         : https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:4903/empbs/upload
+		Started at             : 2023-02-01 17:21:18
+		Started by user        : mgarodia
+		Operating System       : Linux version 5.4.17-2136.312.3.4.el8uek.x86_64 (amd64)
+		Number of Targets      : 46
+		Last Reload            : (none)
+		Last successful upload                       : 2023-02-04 13:51:21
+		Last attempted upload                        : 2023-02-04 13:51:21
+		Total Megabytes of XML files uploaded so far : 7.78
+		Number of XML files pending upload           : 0
+		Size of XML files pending upload(MB)         : 0
+		Available disk space on upload filesystem    : 69.88%
+		Collection Status                            : Collections enabled
+		Heartbeat Status                             : Ok
+		Last attempted heartbeat to OMS              : 2023-02-04 13:51:27
+		Last successful heartbeat to OMS             : 2023-02-04 13:51:27
+		Next scheduled heartbeat to OMS              : 2023-02-04 13:52:27
+
+		---------------------------------------------------------------
+		Agent is Running and Ready
+		```
+
+		If Agent is down, start the agent. 
+
+		```
+		$ <copy>./emctl start agent</copy>
+		```
+
+## Task 4: Add targets manually
+
+TBD
+
+
+## Task 5: Deinstall EM
+
+> **Caution:** Do not deinstall the repository database (Oracle Database 19c) before deinstalling EM. Else, it will return an error `The OMS delete of EMGC_OMS1 has failed.`
 
 - Run `deinstall` manually
 - Deinstall using script
@@ -552,7 +733,7 @@ A log file is generated to capture the deinstallation process.
 	The location of the file is : /etc/oragchomelist
 	```
 
-## Task 4: Troubleshooting
+## Troubleshooting
 
  - For installation related issues, check the log file under `/tmp/OraInstalldate_time/Installdate_time.log`
 
@@ -1059,8 +1240,45 @@ A log file is generated to capture the deinstallation process.
 
 	Cite: [Oracle Support (Doc ID 1495519.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=542346969019436&parent=EXTERNAL_SEARCH&sourceId=PROBLEM&id=1495519.1&_afrWindowMode=0&_adf.ctrl-state=dfc7k3t0h_53)
 
+
+	----
+	## EM Deinstall: OMS delete of EMGC_OMS1 has failed
+
+	**Problem statement**   
+	You run the deinstall command to remove EM from your system. The deinstallation failes with the following error.
+
+	```
+	...
+	The oms delete will take sometime. Wait for the completion of the execution. Don't abort the execution.
+
+	log4j:WARN No appenders could be found for logger (emctl.secure.oms.SecureOMSCmds).
+	log4j:WARN Please initialize the log4j system properly.
+	log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+	Oracle Enterprise Manager Cloud Control 13c Release 13.5.0.0.0
+	Copyright (c) 1996, 2021, Oracle. All rights reserved.
+
+	OMSCA-ERR:Following Pre requisite check failed:     
+	OMSCA-ERR:Failed to connect to repository database with error: IO Error: The Network Adapter could not establish the connection 
+
+	 return value is : 256
+
+	The OMS delete of EMGC_OMS1 has failed. Rectify the error and try again
+	```
+
+	**What went wrong**   
+	OMS wants to communicate with the repository database (for example, 19c) and say good-bye. But either the repository database is deinstalled already from the host or is unreachable.
+
+	 > **Note:** EM refuse to deinstall if the repository database is unavailable. 
+
+	**Workaround**   
+	In such case, you cannot deinstall EM the usual way anymore. You may hard-remove EM from your system. Delete the EM files/folders manually from the middleware home location. 
+
+	```
+	$ <copy>/scratch/u01/software/em/middleware</copy>
+	```
+
 ## Acknowledgements
 
- - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - November 27, (Sun) 2022
+ - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
+ - **Last Updated on** - February 4, (Sat) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
