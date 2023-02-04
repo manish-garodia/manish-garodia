@@ -6,14 +6,29 @@ This lab covers the pre-installation setup and post installation tasks for Oracl
 
 ## Database concepts
 
-The error `ORA-12505` means that the listener was up and you could connect to it, but it couldn't connect you to the database because it doesn't know that that database is up.
+The error *`ORA-12505`* indicates that the listener is up and you could connect to it, but the listener could not connect with the database. The listener is aware of the database, but does not know whether the database is up because the listener has not received any notification from the database that the database is up.
 
-There are two reasons for this:
+It may be due to the following reasons:
+ - the database is not started, that is, the instance is idle
+ - the database is not registered with the listener because it started before the listener
 
- - the database has not been started up,
- - the database has not registered with the listener, e.g. because the database was started before the listener. (When the database starts, it registers itself with a listener if it is already running. If the listener isn't running, the database doesn't register itself, and if the listener starts, it doesn't go looking for databases that might register with it.)
+When a database starts, it registers itself with the listener if it is already running. If the listener is not running, the database does not register itself.    
+When a listener starts, it does not go looking for databases that might register with it.
 
-`ORA-12505` means that the listener knows about that database, but the listener hasn't received a notification from the database that the database is up. (If you were trying to connect to the wrong database, using the wrong SID, you would get an `ORA-12154 error "TNS: could not resolve the connect identifier specified"`.)
+ > **Note:** If you try to connect to a wrong database using a wrong SID, then you get   
+ `ORA-12154 error "TNS: could not resolve the connect identifier specified"`.
+
+### Listener concepts
+
+The default listener configuration is:
+
+ - **name** - *LISTENER*
+ - **port** - *1521*
+
+**Scenario**   
+You have multiple database versions (18c, 19c, 21c, 23c,...) on the same host. Each database has a listener associated with it. When you start a listener from any `$ORACLE_HOME/bin`, unless you specify the listener name Oracle Net Manager generally starts the default listener mentioned above. All databases may use the same (default) listener.
+
+But if you want to use specific listener for each database version, then edit the listener configuration as explained in this lab. 
 
 ## Task 1: Pre-installation setup
 
@@ -34,10 +49,11 @@ Oracle Database installers are available internally as gold images.
 
 	| Select <i>any</i> server      | Link      |
 	|:------------------------------|-----------|
-	| ADC - LATEST              	| [/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage](/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage) <br>File - `db_home.zip`       	|
-	| SaltLake - 221104           	| [/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage](/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage) <br>File - `db_home.zip`       	|
-	| HQ - 221104 					| [/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage](/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage) <br>File - `db_home.zip`         |
-	| ADE - 221104        			|[/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/221104/goldimage](/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage) <br>File - `db_home.zip`   |
+	| OCI - 230120              	| [/net/phxnas204.strgsvcdaiphx.peocorpphxappv1.oraclevcn.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage](/net/phxnas204.strgsvcdaiphx.peocorpphxappv1.oraclevcn.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage) <br>File - `db_home.zip`       	|
+	| ADC - 230120              	| [/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage](/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage) <br>File - `db_home.zip`       	|
+	| SaltLake - 230120           	| [/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage](/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage) <br>File - `db_home.zip`       	|
+	| HQ - 230120 					| [/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage](/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage) <br>File - `db_home.zip`         |
+	| *ADE - LATEST*      			| [/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage](/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage) <br>File - `db_home.zip`   |
 
 	Get the 23c gold image -
 
@@ -49,8 +65,16 @@ Oracle Database installers are available internally as gold images.
 
 	1.  Go to the image location.
 
+		Option 1 - much faster
+
 		```
-		$ <copy>/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage</copy>
+		$ <copy> cd /ade_autofs/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage/</copy>
+		```
+
+		Option 2 - takes time
+
+		```
+		$ <copy>cd /net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage/</copy>
 		```
 
 	1.  Unzip the installer file to the local folder.
@@ -91,7 +115,7 @@ Oracle Database installers are available internally as gold images.
 	1. Unzip the file to the local system.
 
 		```
-		$ <copy>unzip -q LINUX.X64_193000_db_home.zip -d /scratch/u01/app/oracle/product/19.0.0/dbhome_unzip03</copy>
+		$ <copy>unzip -q LINUX.X64_193000_db_home.zip -d /scratch/u01/app/oracle/product/19.0.0/dbhome_02</copy>
 		```
 
 		If you get an error while creating directory
@@ -156,7 +180,7 @@ Oracle Database installers are available internally as gold images.
 		**Example 2** - for 21c prod
 
 		```
-		$ <copy>unzip -q LINUX.X64_213000_db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_2</copy>
+		$ <copy>unzip -q LINUX.X64_213000_db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_002</copy>
 		```
 
 		> **Tip**: Get an *extra copy of the installer* on your local system.
@@ -269,145 +293,83 @@ Do not select this check box and run the scripts manually in the later steps.
 		```
 	 Enter the LDAP/Kerberos password.
 
-	- Run the script.
+	- Run the `inventory` script.
 
 		```
-		$ <copy>/scratch/u01/app/oracle/product/21.0.0/dbhome_2/root.sh</copy>
+		$ <copy>source /scratch/u01/app/oraInventory/orainstRoot.sh</copy>
 		```
 
-	- Press **Enter** twice to complete the script.
+		```
+		Changing permissions of /scratch/u01/app/oraInventory.
+		Adding read,write permissions for group.
+		Removing read,write,execute permissions for world.
+
+		Changing groupname of /scratch/u01/app/oraInventory to wheel.
+		The execution of the script is complete.
+		```
+
+	- Run the `root` script.
+
+		**For 23c**
+
+		```
+		$ <copy>source /scratch/u01/app/oracle/product/23.0.0/dbhome_1/root.sh</copy>
+		```
+
+		```
+		Performing root user operation.
+
+		The following environment variables are set as:
+			ORACLE_OWNER= mgarodia
+			ORACLE_HOME=  /scratch/u01/app/oracle/product/23.0.0/dbhome_1
+
+		```
+
+		Press **Enter** twice to complete the script.
+
+		```
+		Enter the full pathname of the local bin directory: [/usr/local/bin]: 
+
+		/usr/local/bin is read only.  Continue without copy (y/n) or retry (r)? [y]: 
+
+		Warning: /usr/local/bin is read only. No files will be copied.
+
+
+		Creating /etc/oratab file...
+		Entries will be added to the /etc/oratab file as needed by
+		Database Configuration Assistant when a database is created
+		Finished running generic part of root script.
+		Now product-specific root actions will be performed.
+		```
+
+		## root scripts - other db versions
+
+		**For 21c**
+
+		```
+		$ <copy>source /scratch/u01/app/oracle/product/21.0.0/dbhome_002/root.sh</copy>
+		```
+
+		**For 19c**
+
+		```
+		$ <copy>source /scratch/u01/app/oracle/product/19.0.0/dbhome_02/root.sh</copy>
+		```
 
 1. Go back to the installer and click **OK**.
 
 On completion, the installer displays the finish window.
 
-## Task 3: Post Installation steps
+## Task 3: Database post installation checks
 
-#### Listeners
- - DB 21c - port *1522*
- - DB 19c - port *1523*
-
-1. Set environment variables
-1. Connect to SQL command line
-1. View inventory location
 1. View Oracle SIDs and Oracle homes
 1. View Oracle base locations
+1. View system/config files
+1. Set environment variables
+1. Connect to SQL command line
 
 	----
-	## 1. Set environment variables
-
-	Use any one of the following.
-
-	**Shell - csh**
-
-	```
-	<copy>
-	setenv ORACLE_SID orcl
-	setenv ORACLE_HOME /scratch/u01/app/oracle/product/23.0.0/dbhome_1
-	</copy>
-	```
-
-	----------- ------- --------------- -------------------------
-		setenv ORACLE_SID orcl
-		setenv ORACLE_HOME /scratch/u01/app/oracle/product/23.0.0/dbhome_1
-	----------- ------- --------------- -------------------------
-
-	**Shell - bash**
-
-	```
-	<copy>
-	export ORACLE_SID=orcl
-	export ORACLE_HOME=/scratch/u01/app/oracle/product/23.0.0/dbhome_1
-	</copy>
-	```
-
-	**Option 1**   
-	Works from any directory
-
-	```
-	$ <copy>. oraenv</copy>
-	```
-
-	**Option 2**   
-	Works only from `$ORACLE_HOME/bin`
-
-	```
-	$ <copy>./oraenv</copy>
-	```
-
-	----
-	## 2. Connect to SQL command line
-
-	Using -
-	 - SQL Plus
-	 - SQL cl
-
-	**For SQL Plus**   
-	<ins>Option 1</ins> - Connect as `system` and enter the user name and password.
-
-	```
-	$ <copy>./sqlplus</copy>
-	```
-
-	 - Enter user-name: *system*
-	 - Enter password: *Welcome_1*
-
-	<ins>Option 2</ins> - Connect as `sysdba` (requires no password).
-
-	```
-	$ <copy>./sqlplus / as sysdba</copy>
-	```
-	```
-	SQL*Plus: Release 23.0.0.0.0 - Development on Sat Dec 10 11:25:45 2022
-	Version 23.1.0.0.0
-
-	Copyright (c) 1982, 2022, Oracle.  All rights reserved.
-
-
-	Connected to:
-	Oracle Database 23c Standard Edition 2 Release 23.0.0.0.0 - Development
-	Version 23.1.0.0.0
-	```
-
-	**For SQL cl**   
-	Connect as `sysdba` (requires no password).
-
-	```
-	$ <copy>./sql / as sysdba</copy>
-	```
-	```
-	SQLcl: Release 21.4 Production on Sat Dec 10 11:31:55 2022
-
-	Copyright (c) 1982, 2022, Oracle.  All rights reserved.
-
-	Connected to:
-	Oracle Database 23c Standard Edition 2 Release 23.0.0.0.0 - Development
-	Version 23.1.0.0.0
-	```
-
-	### Exit from SQL prompt
-
-	```
-	$ &lt;SQL&gt;<copy>exit</copy>
-	```
-	```
-	Disconnected from Oracle Database 23c Standard Edition 2 Release 23.0.0.0.0 - Development
-	Version 23.1.0.0.0
-	```
-
-	----
-	## 3. View inventory location
-
-	Using *`oraInst.loc`*
-
-	```
-	$ <copy>cat /etc/oraInst.loc</copy>
-
-	inventory_loc=/scratch/u01/app/oraInventory
-	```
-
-	----
-	## 4. View Oracle SIDs and Oracle homes
+	## 1. View Oracle SIDs and Oracle homes
 
 	Using *`/etc/oratab`*
 
@@ -437,11 +399,15 @@ On completion, the installer displays the finish window.
 	#
 	#
 	orcl:/scratch/u01/app/mgarodia/product/23.0.0/dbhome_1:N
-	orcl21c:/scratch/u01/app/oracle/product/21.0.0/dbhome_01:N
-	orcl19c:/scratch/u01/app/oracle/product/19.0.0/dbhome_02:N
+	orcl21:/scratch/u01/app/oracle/product/21.0.0/dbhome_002:N
+	orcl19:/scratch/u01/app/oracle/product/19.0.0/dbhome_02:N
 	orclmm:/scratch/u01/app/oracle/product/21.0.0/dbhome_manisha01:N
 
 	```
+
+	 > **Did you know..?**   
+	 The file *`oratab`* is informational only.   
+	 You can still connect to the sql prompt even if `/etc/oratab` is moved or deleted or does not contain entries of `ORACLE_SID` and `ORACLE_HOME`.
 
 	Using *`oraInventory`*
 
@@ -500,7 +466,7 @@ On completion, the installer displays the finish window.
 		```
 
 	----
-	## 5. View Oracle base locations
+	## 2. View Oracle base locations
 
 	1. Go to the `install` directory.
 
@@ -532,33 +498,1074 @@ On completion, the installer displays the finish window.
 		De-install removes all these folders under the base location.
 
 	----
-	## Log in to EM
+	## 3. View system/config files
 
-	Open this page in a web browser - [EM login](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em).
+	Depending on the database version, the location of critical files may vary. For example, the location of central inventory, system config, network config, etc.
 
-	**Credentials**
-	 - User name - *sysman*
-	 - Password - Enter the password <if type="hidden">*Welcome_1*</if>
+	 - To know the inventory location, check *`oraInst.loc`*
+
+		```
+		$ <copy>cat /etc/oraInst.loc</copy>
+
+		inventory_loc=/scratch/u01/app/oraInventory
+		```
+
+	 - *`listener.ora`*, *`tnsnames.ora`*, *`sqlnet.ora`*
+
+		| db <br>version | file location                 | full path        |
+		|----------------|-------------------------------|------------------|
+		| 23c | `$ORACLE_HOME/network/admin/`            |  `/scratch/u01/app/oracle/product/23.0.0/dbhome_1/network/admin/`    |
+		| 21c | `$ORACLE_BASE/homes/OraDB21Home1/network/admin/`            | `/scratch/u01/app/mgarodia21/homes/OraDB21Home1/network/admin/`     |
+		| 19c | `$ORACLE_HOME/network/admin/`            | `/scratch/u01/app/oracle/product/19.0.0/dbhome_02/network/admin/`   |
+
+	 - **pfile** - *`init.ora.xxxxxxxxxxxxx`* is under `$ORACLE_BASE/admin/<ORACLE_SID>/pfile/`
+
+		Full path
+
+		```
+		$ /scratch/u01/app/mgarodia/admin/orcl/pfile/
+		$ /scratch/u01/app/mgarodia21/admin/orcl21/pfile/
+		$ /scratch/u01/app/mgarodia19/admin/orcl19/pfile/
+		```
+
+	 - **spfile** - *`spfile<ORACLE_SID>.ora`*
+
+		| db <br>version | file location                 | full path                           |
+		|----------------|-------------------------------|-------------------------------------|
+		| 23c | `$ORACLE_HOME/dbs/`  | `/scratch/u01/app/oracle/product/23.0.0/dbhome_1/dbs/`  |
+		| 21c | `$ORACLE_BASE/dbs/`  | `/scratch/u01/app/mgarodia21/dbs/`                      |
+		| 19c | `$ORACLE_HOME/dbs/`  | `/scratch/u01/app/oracle/product/19.0.0/dbhome_02/dbs/` |
+
+	 - *`init.ora`* - `$ORACLE_HOME/dbs/`
+
+		Full path
+
+		```
+		$ /scratch/u01/app/oracle/product/23.0.0/dbhome_1/dbs/
+		$ /scratch/u01/app/oracle/product/21.0.0/dbhome_002/dbs/
+		$ /scratch/u01/app/oracle/product/19.0.0/dbhome_02/dbs/
+		```
+
+	 - **oradata** - control files, redo log files, pdbs, seed, tablespaces are under *`$ORACLE_BASE/oradata/`*
+
+		Full path
+
+		```
+		$ <copy>cd /scratch/u01/app/mgarodia/oradata/</copy>
+		```
 
 	----
-	### Log in to EM Express - Decommissioned
+	## 4. Set environment variables
 
-	EM Exp for DB 19c
-	 - [CDB$ROOT port 5501](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:5501/em)   
-	 - [ORCL19CCDB port 5502](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:5502/em)   
+	 - Set the environment variables to connect to the database and to run the listener.
 
-	EM Exp for DB 21c
-	 - [CDB$ROOT port 5500](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:5500/em)
-	 - [ORCLPDB port 5504](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:5504/em)
+		----
+		## For 23c 
 
-	**Credentials**
-	 - User name - *system*
-	 - Password - Enter the password <if type="hidden">*Welcome_1*</if>
-	 - Container name - (leave empty)
+		Use any one of the following.
 
-	> **Note:** If you forget the database password, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
+		**Shell - csh**
 
-## Task 4: Deinstall Oracle Database
+		```
+		<copy>
+		setenv ORACLE_SID orcl
+		setenv ORACLE_HOME /scratch/u01/app/oracle/product/23.0.0/dbhome_1
+		</copy>
+		```
+
+		----------- ------- --------------- -------------------------
+			setenv ORACLE_SID orcl
+			setenv ORACLE_HOME /scratch/u01/app/oracle/product/23.0.0/dbhome_1
+		----------- ------- --------------- -------------------------
+
+		**Shell - bash**
+
+		```
+		<copy>
+		export ORACLE_SID=orcl
+		export ORACLE_HOME=/scratch/u01/app/oracle/product/23.0.0/dbhome_1
+		</copy>
+		```
+
+		----
+		## For 21c 
+
+		Use any one of the following.
+
+		**Shell - csh**
+
+		```
+		<copy>
+		setenv ORACLE_SID orcl21
+		setenv ORACLE_HOME /scratch/u01/app/oracle/product/21.0.0/dbhome_002
+		</copy>
+		```
+
+		----------- ------- --------------- -------------------------
+			setenv ORACLE_SID orcl21
+			setenv ORACLE_HOME /scratch/u01/app/oracle/product/21.0.0/dbhome_002
+		----------- ------- --------------- -------------------------
+
+		**Shell - bash**
+
+		```
+		<copy>
+		export ORACLE_SID=orcl21
+		export ORACLE_HOME=/scratch/u01/app/oracle/product/21.0.0/dbhome_002
+		</copy>
+		```
+
+		----
+		## For 19c 
+
+		Use any one of the following.
+
+		**Shell - csh**
+
+		```
+		<copy>
+		setenv ORACLE_SID orcl19
+		setenv ORACLE_HOME /scratch/u01/app/oracle/product/19.0.0/dbhome_02
+		</copy>
+		```
+
+		----------- ------- --------------- -------------------------
+			setenv ORACLE_SID orcl19
+			setenv ORACLE_HOME /scratch/u01/app/oracle/product/19.0.0/dbhome_02
+		----------- ------- --------------- -------------------------
+
+		**Shell - bash**
+
+		```
+		<copy>
+		export ORACLE_SID=orcl19
+		export ORACLE_HOME=/scratch/u01/app/oracle/product/19.0.0/dbhome_02
+		</copy>
+		```
+
+	**Option 1**   
+	Works from any directory
+
+	```
+	$ <copy>. oraenv</copy>
+	```
+
+	**Option 2**   
+	Works only from `$ORACLE_HOME/bin`
+
+	```
+	$ <copy>./oraenv</copy>
+	```
+
+	----
+	## 5. Connect to SQL command line
+
+	 - Using <i>SQL Plus</i>
+	 - Using <i>SQL cl</i>
+
+	**SQL Plus**   
+	<ins>Option 1</ins> - Connect as `system` and enter the user name and password.
+
+	```
+	$ <copy>./sqlplus</copy>
+	```
+
+	 - Enter user-name: *system*
+	 - Enter password: *Welcome_1*
+
+	<ins>Option 2</ins> - Connect as `sysdba` (requires no password).
+
+	```
+	$ <copy>./sqlplus / as sysdba</copy>
+	```
+	```
+	SQL*Plus: Release 23.0.0.0.0 - Development on Sat Dec 10 11:25:45 2022
+	Version 23.1.0.0.0
+
+	Copyright (c) 1982, 2022, Oracle.  All rights reserved.
+
+
+	Connected to:
+	Oracle Database 23c Standard Edition 2 Release 23.0.0.0.0 - Development
+	Version 23.1.0.0.0
+	```
+
+	**SQL cl**   
+	Connect as `sysdba` (requires no password).
+
+	```
+	$ <copy>./sql / as sysdba</copy>
+	```
+	```
+	SQLcl: Release 21.4 Production on Sat Dec 10 11:31:55 2022
+
+	Copyright (c) 1982, 2022, Oracle.  All rights reserved.
+
+	Connected to:
+	Oracle Database 23c Standard Edition 2 Release 23.0.0.0.0 - Development
+	Version 23.1.0.0.0
+	```
+
+	### Exit from SQL prompt
+
+	```
+	$ &lt;SQL&gt;<copy>exit</copy>
+	```
+	```
+	Disconnected from Oracle Database 23c Standard Edition 2 Release 23.0.0.0.0 - Development
+	Version 23.1.0.0.0
+	```
+
+
+## Task 4: Edit listener config
+
+To modify listener configuration, the high-level sequence is - 
+
+![Edit listener configuration](./images/edit-listener-config.png " ") **Figure**: Edit Listener config
+
+After stopping the listener - 
+
+ 1. Edit the files - *`listener.ora`*, *`tnsnames.ora`*
+ 1. Start the listener with the new name - *`./lsnrctl start <new-name>`*
+
+### Register database with the modified listener
+
+![Register Database with Listener](./images/register-db-with-listener.png " ") **Figure**: Register Database with Listener
+
+- The sections below explain how to modify listener configuration.
+
+	## High-level steps to register database with listener
+
+	 1. Log into the database 
+		 - `./sqlplus / as sysdba`
+	 1. Check the existing listener 
+		 - `show parameter local_listener`
+	 1. Register the new listener -    
+		 - `alter system set local_listener='(ADDRESS=(PROTOCOL=tcp)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1519))';`   
+		 - `alter system register;`
+	 1. Restart the database instance 
+		 - `shutdown immediate` followed by `startup`
+	 1. Open the PDBs 
+		 - `alter pluggable database all open;`
+	 1. Verify the new listener 
+		 - `show parameter local_listener`
+
+	Thus, you can set the listener according to database versions on your host. 
+
+	For example, 
+	 - for **19c** - *LISTENER19C* port *1519*
+	 - for **21c** - *LISTENER21C* port *1521*
+	 - for **23c** - *LISTENER* port *1523*
+
+	> For detailed steps, check the corresponding database section below.
+
+	<!--
+
+	----
+	## Configure the listener - for 19c
+
+	Modify the listener for 19c as follows.
+
+	 1. Go the listener config location under `$ORACLE_HOME/network/admin`.
+
+		```
+		$ <copy>cd /scratch/u01/app/oracle/product/19.0.0/dbhome_02/network/admin</copy>
+		```
+
+	 1. Open the file *`listener.ora`*. 
+
+		```
+		$ <copy>vi listener.ora</copy>
+		```
+
+		> Press ***i*** to go to the edit (insert) mode.
+
+	 1. Edit listener details at all occurrences. 
+	 
+		 - name - *LISTENER19C* 
+		 - port - *1519*
+
+		```
+		...
+		LISTENER19C =
+		  (DESCRIPTION_LIST =
+			(DESCRIPTION =
+			  (ADDRESS = (PROTOCOL = TCP)(HOST = phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT = 1519))
+			  (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1519))
+			)
+		  )
+		...
+		```
+
+	 1. Save the file.
+
+		 > **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+	 1. In the same location, open the file *`tnsnames.ora`*.
+
+		```
+		$ <copy>vi tnsnames.ora</copy>
+		```
+
+	 1. Edit the listener port to *1519*.
+
+		```
+		...
+		ORCL19 =
+		  (DESCRIPTION =
+			(ADDRESS = (PROTOCOL = TCP)(HOST = phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT = 1519))
+			(CONNECT_DATA =
+			  (SERVER = DEDICATED)
+			  (SERVICE_NAME = orcl19.dev3sub1phx.databasede3phx.oraclevcn.com)
+			)
+		  )
+
+		LISTENER_ORCL19 =
+		  (ADDRESS = (PROTOCOL = TCP)(HOST = phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT = 1519))
+		...
+		```
+
+	 1. Save the file.
+
+		 > **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+
+	 1. Go to `$ORACLE_HOME/bin`.
+
+		```
+		$ <copy>/scratch/u01/app/oracle/product/19.0.0/dbhome_02/bin</copy>
+		```
+
+	 1. Start the new listener.
+
+		```
+		$ <copy>./lsnrctl start listener19c</copy>
+		```
+
+	 1. Log into the database as *sysdba*.
+
+		```
+		$ <copy>./sqlplus / as sysdba</copy>
+		```
+
+	 1. Check the local listener.
+
+		```
+		SQL> <copy>show parameter local_listener</copy>
+		```
+
+		```
+		NAME            TYPE        VALUE
+		-----           --------    ------
+		local_listener  string      LISTENER_ORCL
+		```
+
+	 1. Set the new listener and register the database with the listener.
+
+		```
+		SQL> <copy>alter system set local_listener='(ADDRESS=(PROTOCOL=tcp)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1519))';</copy>
+		```
+
+		```
+		SQL> <copy>alter system register;</copy>
+		```
+
+	 1. Restart the database and open all PDBs.
+
+		```
+		SQL> <copy>shutdown immediate</copy>
+		```
+
+		```
+		Database closed.
+		Database dismounted.
+		ORACLE instance shut down.
+		```
+
+		```
+		SQL> <copy>startup</copy>
+		```
+
+		```
+		ORACLE instance started.
+
+		Total System Global Area 9965664976 bytes
+		Fixed Size		    9145040 bytes
+		Variable Size		 1543503872 bytes
+		Database Buffers	 8388608000 bytes
+		Redo Buffers		   24408064 bytes
+		Database mounted.
+		Database opened.
+		```
+
+		```
+		SQL> <copy>alter pluggable database all open;</copy>
+		```
+
+		```
+		Pluggable database altered.
+		```
+
+	 1. Check the local listener again.
+
+		```
+		SQL> <copy>show parameter local_listener</copy>
+		```
+
+		```
+		NAME			     TYPE	 	VALUE
+		-------------------- ---------- ------------------------------
+		local_listener		 string	 	(ADDRESS=(PROTOCOL=tcp)(HOST=p
+										hoenix211284.dev3sub1phx.datab
+										asede3phx.oraclevcn.com)(PORT=
+										1519))
+		```
+
+	 1. Exit from SQL prompt.
+
+		```
+		SQL> <copy>exit</copy>
+		```
+
+		Your have configured the listener name and port for your database 19c. 
+
+	-->
+
+	----
+	## Configure listener for 19c
+
+	Modify listener name to *LISTENER19C* and port to *1519*. Register 19c with the new listener.
+
+	 1. Go the listener config location under `$ORACLE_HOME/network/admin`.
+
+		```
+		$ <copy>cd /scratch/u01/app/oracle/product/19.0.0/dbhome_02/network/admin</copy>
+		```
+
+	 1. Open the file *`listener.ora`* and edit listener details at all occurrences. For example,	 
+		 - name - *LISTENER19C* 
+		 - port - *1519*
+
+		```
+		$ <copy>vi listener.ora</copy>
+		```
+
+		> Press ***i*** to go to the edit (insert) mode.
+
+		```
+		...
+		LISTENER19C =
+		  (DESCRIPTION_LIST =
+			(DESCRIPTION =
+			  (ADDRESS = (PROTOCOL = TCP)(HOST = phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT = 1519))
+			  (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1519))
+			)
+		  )
+		...
+		```
+
+		Save the file. 
+		 - **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+	 1. In the same location, open the file *`tnsnames.ora`* and change the port to *1519* at all occurrences.
+
+		```
+		$ <copy>vi tnsnames.ora</copy>
+		```
+
+		> Press ***i*** to go to the edit (insert) mode.
+
+		```
+		...
+		ORCL19 =
+		  (DESCRIPTION =
+			(ADDRESS = (PROTOCOL = TCP)(HOST = phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT = 1519))
+			(CONNECT_DATA =
+			  (SERVER = DEDICATED)
+			  (SERVICE_NAME = orcl19.dev3sub1phx.databasede3phx.oraclevcn.com)
+			)
+		  )
+
+		LISTENER_ORCL19 =
+		  (ADDRESS = (PROTOCOL = TCP)(HOST = phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT = 1519))
+		...
+		```
+
+		Save the file. 
+		 - **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+	 1. Go to `$ORACLE_HOME/bin` and start the new listener.
+
+		```
+		$ <copy>cd /scratch/u01/app/oracle/product/19.0.0/dbhome_02/bin</copy>
+		```
+
+		```
+		$ <copy>./lsnrctl start listener19c</copy>
+		```
+
+	 1. Log into the database as *sysdba*.
+
+		```
+		$ <copy>./sqlplus / as sysdba</copy>
+		```
+
+	 1. Check the existing listener.
+
+		```
+		SQL> <copy>show parameter local_listener</copy>
+
+		NAME            TYPE        VALUE
+		-----           --------    ------
+		local_listener  string      LISTENER_ORCL
+		```
+
+	 1. Set the listener details and register database with the new listener.
+
+		```
+		SQL> <copy>alter system set local_listener='(ADDRESS=(PROTOCOL=tcp)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1519))';</copy>
+		```
+
+		```
+		SQL> <copy>alter system register;</copy>
+		```
+
+	 1. Restart the database and open all PDBs.
+
+		```
+		SQL> <copy>shutdown immediate</copy>
+
+		Database closed.
+		Database dismounted.
+		ORACLE instance shut down.
+		```
+
+		```
+		SQL> <copy>startup</copy>
+
+		ORACLE instance started.
+
+		Total System Global Area 9965664976 bytes
+		Fixed Size		    	9145040 bytes
+		Variable Size		 1543503872 bytes
+		Database Buffers	 8388608000 bytes
+		Redo Buffers		   24408064 bytes
+		Database mounted.
+		Database opened.
+		```
+
+		```
+		SQL> <copy>alter pluggable database all open;</copy>
+
+		Pluggable database altered.
+		```
+
+	 1. Verify the new listener.
+
+		```
+		SQL> <copy>show parameter local_listener</copy>
+
+		NAME			TYPE	 	VALUE
+		--------------- ---------- 	-----------------------------
+		local_listener	string	 	(ADDRESS=(PROTOCOL=tcp)(HOST=
+									phoenix211284.dev3sub1phx.dat
+									abasede3phx.oraclevcn.com)(PO
+									RT=1519))
+		```
+
+		You can now exit from SQL prompt.
+
+		```
+		SQL> <copy>exit</copy>
+		```
+
+		You have modified the listener name and port and registered 19c with the new listener.
+
+	----
+	## Configure listener for 21c
+
+	Modify listener name to *LISTENER21C* and port to *1521*. Register 21c with the new listener.
+
+	 1. Go the listener config location under `$ORACLE_BASE/homes/OraDB21Home1/network/admin/`.
+
+		```
+		$ <copy>cd /scratch/u01/app/mgarodia21/homes/OraDB21Home1/network/admin/</copy>
+		```
+
+	 1. Open the file *`listener.ora`* and edit listener details at all occurrences. For example,	 
+		 - name - *LISTENER21C* 
+		 - port - *1521*
+
+		```
+		$ <copy>vi listener.ora</copy>
+		```
+
+		> Press ***i*** to go to the edit (insert) mode.
+
+		```
+		...
+		LISTENER21C =
+		  (DESCRIPTION_LIST =
+			(DESCRIPTION =
+			  (ADDRESS = (PROTOCOL = TCP)(HOST = phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT = 1521))
+			  (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1521))
+			)
+		  )
+		...
+		```
+
+		Save the file. 
+		 - **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+	 1. In the same location, open the file *`tnsnames.ora`* and change the port to *1521* at all occurrences.
+
+		```
+		$ <copy>vi tnsnames.ora</copy>
+		```
+
+		> Press ***i*** to go to the edit (insert) mode.
+
+		```
+		...
+		ORCL21 =
+		  (DESCRIPTION =
+			(ADDRESS = (PROTOCOL = TCP)(HOST = phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT = 1521))
+			(CONNECT_DATA =
+			  (SERVER = DEDICATED)
+			  (SERVICE_NAME = orcl21.dev3sub1phx.databasede3phx.oraclevcn.com)
+			)
+		  )
+
+		LISTENER_ORCL21 =
+		  (ADDRESS = (PROTOCOL = TCP)(HOST = phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT = 1521))
+		...
+		```
+
+		Save the file. 
+		 - **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+	 1. Go to `$ORACLE_HOME/bin` and start the new listener.
+
+		```
+		$ <copy>cd /scratch/u01/app/oracle/product/21.0.0/dbhome_002/bin</copy>
+		```
+
+		```
+		$ <copy>./lsnrctl start listener21c</copy>
+		```
+
+	 1. Log into the database as *sysdba*.
+
+		```
+		$ <copy>./sqlplus / as sysdba</copy>
+		```
+
+	 1. Check the existing listener.
+
+		```
+		SQL> <copy>show parameter local_listener</copy>
+
+		NAME            TYPE        VALUE
+		-----           --------    ------
+		local_listener  string      LISTENER_ORCL21
+		```
+
+	 1. Set the listener details and register database with the new listener.
+
+		```
+		SQL> <copy>alter system set local_listener='(ADDRESS=(PROTOCOL=tcp)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1521))';</copy>
+		```
+
+		```
+		SQL> <copy>alter system register;</copy>
+		```
+
+	 1. Restart the database and open all PDBs.
+
+		```
+		SQL> <copy>shutdown immediate</copy>
+
+		Database closed.
+		Database dismounted.
+		ORACLE instance shut down.
+		```
+
+		```
+		SQL> <copy>startup</copy>
+
+		ORACLE instance started.
+
+		Total System Global Area 9965663072 bytes
+		Fixed Size		    	9696096 bytes
+		Variable Size		 1509949440 bytes
+		Database Buffers	 8422162432 bytes
+		Redo Buffers		   23855104 bytes
+		Database mounted.
+		Database opened.
+		```
+
+		```
+		SQL> <copy>alter pluggable database all open;</copy>
+
+		Pluggable database altered.
+		```
+
+	 1. Verify the new listener.
+
+		```
+		SQL> <copy>show parameter local_listener</copy>
+
+		NAME			TYPE	 	VALUE
+		--------------- ---------- 	-----------------------------
+		local_listener	string	 	(ADDRESS=(PROTOCOL=tcp)(HOST=
+									phoenix211284.dev3sub1phx.dat
+									abasede3phx.oraclevcn.com)(PO
+									RT=1521))
+		```
+
+		You can now exit from SQL prompt.
+
+		```
+		SQL> <copy>exit</copy>
+		```
+
+		You have modified the listener name and port and registered 21c with the new listener.
+
+	----
+	## Configure listener for 23c
+
+	Modify listener port to *1523*. Register 23c with the new listener.
+
+	 1. Go the listener config location under `$ORACLE_HOME/network/admin`.
+
+		```
+		$ <copy>cd /scratch/u01/app/oracle/product/23.0.0/dbhome_1/network/admin</copy>
+		```
+
+	 1. Open the file *`listener.ora`* and edit listener details at all occurrences. For example,	 
+		 - name - Leave the default, *LISTENER* 
+		 - port - *1523*
+
+		```
+		$ <copy>vi listener.ora</copy>
+		```
+
+		> Press ***i*** to go to the edit (insert) mode.
+
+		```
+		...
+		LISTENER =
+		  (DESCRIPTION_LIST =
+			(DESCRIPTION =
+			  (ADDRESS = (PROTOCOL = TCP)(HOST = phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT = 1523))
+			  (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1523))
+			)
+		  )
+		...
+		```
+
+		Save the file. 
+		 - **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+	 1. In the same location, open the file *`tnsnames.ora`* and change the port to *1523* at all occurrences.
+
+		```
+		$ <copy>vi tnsnames.ora</copy>
+		```
+
+		> Press ***i*** to go to the edit (insert) mode.
+
+		```
+		...
+		LISTENER_ORCL =
+		  (ADDRESS = (PROTOCOL = TCP)(HOST = phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT = 1523))
+
+
+		ORCL =
+		  (DESCRIPTION =
+			(ADDRESS = (PROTOCOL = TCP)(HOST = phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT = 1523))
+			(CONNECT_DATA =
+			  (SERVER = DEDICATED)
+			  (SERVICE_NAME = orcl.dev3sub1phx.databasede3phx.oraclevcn.com)
+			)
+		  )
+		...
+		```
+
+		Save the file. 
+		 - **Esc** + **:wq** or **Esc** + **Shift** + **zz**
+
+	 1. Go to `$ORACLE_HOME/bin` and start the new listener.
+
+		```
+		$ <copy>cd /scratch/u01/app/oracle/product/23.0.0/dbhome_1/bin</copy>
+		```
+
+		```
+		$ <copy>./lsnrctl start</copy>
+		```
+
+		> **Note:** The listener name is optional in this command because it is the default name, *LISTENER*.
+
+	 1. Log into the database as *sysdba*.
+
+		```
+		$ <copy>./sqlplus / as sysdba</copy>
+		```
+
+	 1. Check the existing listener.
+
+		```
+		SQL> <copy>show parameter local_listener</copy>
+
+		NAME            TYPE        VALUE
+		-----           --------    ------
+		local_listener  string      LISTENER_ORCL
+		```
+
+	 1. Set the listener details and register database with the new listener.
+
+		```
+		SQL> <copy>alter system set local_listener='(ADDRESS=(PROTOCOL=tcp)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1523))';</copy>
+		```
+
+		```
+		SQL> <copy>alter system register;</copy>
+		```
+
+	 1. Restart the database and open all PDBs.
+
+		```
+		SQL> <copy>shutdown immediate</copy>
+
+		Database closed.
+		Database dismounted.
+		ORACLE instance shut down.
+		```
+
+		```
+		SQL> <copy>startup</copy>
+
+		ORACLE instance started.
+
+		Total System Global Area 9950893832 bytes
+		Fixed Size		    	9926408 bytes
+		Variable Size		 1543503872 bytes
+		Database Buffers	 8388608000 bytes
+		Redo Buffers		    8855552 bytes
+		Database mounted.
+		Database opened.
+		```
+
+		```
+		SQL> <copy>alter pluggable database all open;</copy>
+
+		Pluggable database altered.
+		```
+
+	 1. Verify the new listener.
+
+		```
+		SQL> <copy>show parameter local_listener</copy>
+
+		NAME			TYPE	 	VALUE
+		--------------- ---------- 	-----------------------------
+		local_listener	string	 	(ADDRESS=(PROTOCOL=tcp)(HOST=
+									phoenix211284.dev3sub1phx.dat
+									abasede3phx.oraclevcn.com)(PO
+									RT=1523))
+		```
+
+		You can now exit from SQL prompt.
+
+		```
+		SQL> <copy>exit</copy>
+		```
+
+		You have modified the listener port and registered 23c with the new listener.
+
+	----
+	## Verify modified listeners
+
+	**Option 1** - Check Listener status from `ORACLE_HOME/bin`
+
+	-	For 19c
+
+		```
+		$ <copy>./lsnrctl stat listener19c</copy>
+		```
+
+		## Output
+
+		```
+		LSNRCTL for Linux: Version 19.0.0.0.0 - Production on 25-JAN-2023 20:57:03
+
+		Copyright (c) 1991, 2019, Oracle.  All rights reserved.
+
+		Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1519)))
+		STATUS of the LISTENER
+		------------------------
+		Alias                     listener19c
+		Version                   TNSLSNR for Linux: Version 19.0.0.0.0 - Production
+		Start Date                25-JAN-2023 05:20:40
+		Uptime                    0 days 15 hr. 36 min. 22 sec
+		Trace Level               off
+		Security                  ON: Local OS Authentication
+		SNMP                      OFF
+		Listener Parameter File   /scratch/u01/app/oracle/product/19.0.0/dbhome_02/network/admin/listener.ora
+		Listener Log File         /scratch/u01/app/mgarodia19/diag/tnslsnr/phoenix211284/listener19c/alert/log.xml
+		Listening Endpoints Summary...
+		  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1519)))
+		  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1519)))
+		Services Summary...
+		Service "86b637b62fdf7a65e053f706e80a27ca.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl19", status READY, has 1 handler(s) for this service...
+		Service "f30feb5c998c60ebe0538e0846641b62.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl19", status READY, has 1 handler(s) for this service...
+		Service "orcl19.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl19", status READY, has 1 handler(s) for this service...
+		Service "orcl19XDB.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl19", status READY, has 1 handler(s) for this service...
+		Service "orcl19pdb.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl19", status READY, has 1 handler(s) for this service...
+		The command completed successfully
+		```
+
+	-	For 21c
+
+		```
+		$ <copy>./lsnrctl stat listener21c</copy>
+		```
+
+		## Output
+
+		```
+		LSNRCTL for Linux: Version 21.0.0.0.0 - Production on 31-JAN-2023 11:38:28
+
+		Copyright (c) 1991, 2021, Oracle.  All rights reserved.
+
+		Connecting to (ADDRESS=(PROTOCOL=tcp)(HOST=)(PORT=1521))
+		STATUS of the LISTENER
+		------------------------
+		Alias                     listener21c
+		Version                   TNSLSNR for Linux: Version 21.0.0.0.0 - Production
+		Start Date                26-JAN-2023 20:16:49
+		Uptime                    4 days 15 hr. 21 min. 38 sec
+		Trace Level               off
+		Security                  ON: Local OS Authentication
+		SNMP                      OFF
+		Listener Parameter File   /scratch/u01/app/mgarodia21/homes/OraDB21Home1/network/admin/listener.ora
+		Listener Log File         /scratch/u01/app/mgarodia21/diag/tnslsnr/phoenix211284/listener21c/alert/log.xml
+		Listening Endpoints Summary...
+		  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1521)))
+		  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
+		  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcps)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=5500))(Security=(my_wallet_directory=/scratch/u01/app/mgarodia21/homes/OraDB21Home1/admin/orcl21/xdb_wallet))(Presentation=HTTP)(Session=RAW))
+		Services Summary...
+		Service "c8209f27c6b16005e053362ee80ae60e.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl21", status READY, has 1 handler(s) for this service...
+		Service "f31b33958c07d8f8e0538e0846649415.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl21", status READY, has 1 handler(s) for this service...
+		Service "orcl21.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl21", status READY, has 1 handler(s) for this service...
+		Service "orcl21XDB.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl21", status READY, has 1 handler(s) for this service...
+		Service "orcl21pdb.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl21", status READY, has 1 handler(s) for this service...
+		The command completed successfully
+		```
+
+	-	For 23c
+
+		```
+		$ <copy>./lsnrctl stat</copy>
+		```
+
+		## Output
+
+		```
+		LSNRCTL for Linux: Version 23.0.0.0.0 - Beta on 26-JAN-2023 20:48:18
+
+		Copyright (c) 1991, 2022, Oracle.  All rights reserved.
+
+		Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1523)))
+		STATUS of the LISTENER
+		------------------------
+		Alias                     LISTENER
+		Version                   TNSLSNR for Linux: Version 23.0.0.0.0 - Beta
+		Start Date                26-JAN-2023 20:44:54
+		Uptime                    0 days 0 hr. 3 min. 23 sec
+		Trace Level               off
+		Security                  ON: Local OS Authentication
+		SNMP                      OFF
+		Listener Parameter File   /scratch/u01/app/oracle/product/23.0.0/dbhome_1/network/admin/listener.ora
+		Listener Log File         /scratch/u01/app/mgarodia/diag/tnslsnr/phoenix211284/listener/alert/log.xml
+		Listening Endpoints Summary...
+		  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1523)))
+		  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1523)))
+		  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcps)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=5501))(Security=(my_wallet_directory=/scratch/u01/app/oracle/product/23.0.0/dbhome_1/admin/orcl/xdb_wallet))(Presentation=HTTP)(Session=RAW))
+		Services Summary...
+		Service "ea6e70c8150b6cb3e053a1a82c0aa06a.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl", status READY, has 1 handler(s) for this service...
+		Service "f331ca2ad7d69451e0538e084664f10c.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl", status READY, has 1 handler(s) for this service...
+		Service "orcl.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl", status READY, has 1 handler(s) for this service...
+		Service "orclXDB.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl", status READY, has 1 handler(s) for this service...
+		Service "orclpdb.dev3sub1phx.databasede3phx.oraclevcn.com" has 1 instance(s).
+		  Instance "orcl", status READY, has 1 handler(s) for this service...
+		The command completed successfully
+		```
+
+	**Option 2** - Check the listener service for each database
+
+	-	For 19c
+	 
+		```
+		$ <copy>ps -ef | grep listener19c</copy>
+		```
+		```
+		mgarodia   27785       1  0 05:20 ?        00:00:02 /scratch/u01/app/oracle/product/19.0.0/dbhome_02/bin/tnslsnr listener19c -inherit
+		mgarodia  302476   35076  0 20:56 pts/0    00:00:00 grep --color=auto listener19c
+		```
+
+	-	For 21c
+	 
+		```
+		$ <copy>ps -ef | grep listener21c</copy>
+		```
+		```
+		mgarodia  675596       1  0 Jan26 ?        00:00:06 /scratch/u01/app/oracle/product/21.0.0/dbhome_002/bin/tnslsnr listener21c -inherit
+		mgarodia 2538381  672005  0 11:58 pts/3    00:00:00 grep --color=auto listener21c
+		```
+
+	-	For 23c 
+	
+		> Note the listener name in upper case.
+	 
+		```
+		$ <copy>ps -ef | grep LISTENER</copy>
+		```
+		```
+		mgarodia  694002       1  0 Jan26 ?        00:00:09 /scratch/u01/app/oracle/product/23.0.0/dbhome_1/bin/tnslsnr LISTENER -inherit
+		mgarodia 2539150  680000  0 12:01 pts/4    00:00:00 grep --color=auto LISTENER
+		```
+
+	**Option 3** - Check all listener services
+
+	- For all databases
+
+		```
+		$ <copy>ps -ef|grep lsn</copy>
+		```
+		```
+		mgarodia   27785       1  0 Jan25 ?        00:00:07 /scratch/u01/app/oracle/product/19.0.0/dbhome_02/bin/tnslsnr listener19c -inherit
+		mgarodia  675596       1  0 20:16 ?        00:00:00 /scratch/u01/app/oracle/product/21.0.0/dbhome_002/bin/tnslsnr listener21c -inherit
+		mgarodia  694002       1  0 20:44 ?        00:00:00 /scratch/u01/app/oracle/product/23.0.0/dbhome_1/bin/tnslsnr LISTENER -inherit
+		mgarodia  696062  680000  0 20:51 pts/4    00:00:00 grep --color=auto lsn
+		```
+
+## Task 5: Deinstall Oracle Database
 
 1. Go to the `deinstall` folder.
 
@@ -572,7 +1579,7 @@ On completion, the installer displays the finish window.
 	$ <copy>./deinstall</copy>
 	```
 
-## Task 5: Troubleshooting
+## Troubleshooting
 
 - Troubleshooting tips and scenarios
 
@@ -580,7 +1587,7 @@ On completion, the installer displays the finish window.
 	## Create directory under root
 
 	**Problem:** In the VM, you can create the folder `/u01` under `/scratch` but not root `/`.   
-	**Workaround:** Create /u01 as root, change the ownership to oracle, and mode to executable.
+	**Workaround:** Create `/u01` as root, change ownership to oracle, and mode to executable.
 
 	1. Change the user to `root`.
 
@@ -598,13 +1605,13 @@ On completion, the installer displays the finish window.
 		```
 		$ <copy>mkdir -p /u01/app/oracle/product/23.0.0/dbhome_1</copy>
 		```
-	1. Change the ownership to *oracle* (user) for the folder `/u01`.
+	1. Change ownership to *oracle* (user) for the folder `/u01`.
 
 		```
 		$ <copy>chown -R oracle:dba /u01</copy>
 		```
 
-	1. Allow full control for `/u01`.
+	1. Allow full control to `/u01`.
 
 		```
 		$ <copy>chmod 777 /u01</copy>
@@ -649,7 +1656,7 @@ On completion, the installer displays the finish window.
 	----
 	## xdpyinfo Errors
 
-	The xdpyinfo program must be installed.
+	The `xdpyinfo` program must be installed.
 
 	1. Install `xdpyinfo`.
 
@@ -761,9 +1768,9 @@ On completion, the installer displays the finish window.
 
 	```
 	sqlplus /nolog
-	conn  system
+	conn system
 	alter system register;  
-	exit  
+	exit 
 	lsnrctl status
 	```
 
@@ -789,27 +1796,28 @@ On completion, the installer displays the finish window.
 	Output
 
 	```
-	linux-vdso.so.1 (0x00007ffc8c7fe000)
-	libpthread.so.0 => /lib64/libpthread.so.0 (0x00007f8f7fc54000)
-	libnsl.so.2 => /lib64/libnsl.so.2 (0x00007f8f7fa3a000)
-	libdl.so.2 => /lib64/libdl.so.2 (0x00007f8f7f836000)
-	libm.so.6 => /lib64/libm.so.6 (0x00007f8f7f4b4000)
-	libcrypt.so.1 => /lib64/libcrypt.so.1 (0x00007f8f7f28b000)
-	libutil.so.1 => /lib64/libutil.so.1 (0x00007f8f7f087000)
-	libc.so.6 => /lib64/libc.so.6 (0x00007f8f7ecc2000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007f8f7fe74000)
-	libtirpc.so.3 => /lib64/libtirpc.so.3 (0x00007f8f7ea8f000)
-	libgssapi_krb5.so.2 => /lib64/libgssapi_krb5.so.2 (0x00007f8f7e83a000)
-	libkrb5.so.3 => /lib64/libkrb5.so.3 (0x00007f8f7e551000)
-	libk5crypto.so.3 => /lib64/libk5crypto.so.3 (0x00007f8f7e33a000)
-	libcom_err.so.2 => /lib64/libcom_err.so.2 (0x00007f8f7e136000)
-	libkrb5support.so.0 => /lib64/libkrb5support.so.0 (0x00007f8f7df25000)
-	libkeyutils.so.1 => /lib64/libkeyutils.so.1 (0x00007f8f7dd21000)
-	libcrypto.so.1.1 => /lib64/libcrypto.so.1.1 (0x00007f8f7d83b000)
-	libresolv.so.2 => /lib64/libresolv.so.2 (0x00007f8f7d624000)
-	libselinux.so.1 => /lib64/libselinux.so.1 (0x00007f8f7d3fa000)
-	libz.so.1 => /lib64/libz.so.1 (0x00007f8f7d1e3000)
-	libpcre2-8.so.0 => /lib64/libpcre2-8.so.0 (0x00007f8f7cf5f000)
+	linux-vdso.so.1 (0x00007ffd99cd1000)
+	libpthread.so.0 => /lib64/libpthread.so.0 (0x00007ff236322000)
+	libnsl.so.2 => /lib64/libnsl.so.2 (0x00007ff236108000)
+	libdl.so.2 => /lib64/libdl.so.2 (0x00007ff235f04000)
+	libm.so.6 => /lib64/libm.so.6 (0x00007ff235b82000)
+	libcrypt.so.1 => /lib64/libcrypt.so.1 (0x00007ff235959000)
+	libutil.so.1 => /lib64/libutil.so.1 (0x00007ff235755000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007ff235390000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007ff236542000)
+	libtirpc.so.3 => /lib64/libtirpc.so.3 (0x00007ff23515d000)
+	libgssapi_krb5.so.2 => /lib64/libgssapi_krb5.so.2 (0x00007ff234f08000)
+	libkrb5.so.3 => /lib64/libkrb5.so.3 (0x00007ff234c1e000)
+	libk5crypto.so.3 => /lib64/libk5crypto.so.3 (0x00007ff234a07000)
+	libcom_err.so.2 => /lib64/libcom_err.so.2 (0x00007ff234803000)
+	libkrb5support.so.0 => /lib64/libkrb5support.so.0 (0x00007ff2345f2000)
+	libkeyutils.so.1 => /lib64/libkeyutils.so.1 (0x00007ff2343ee000)
+	libcrypto.so.1.1 => /lib64/libcrypto.so.1.1 (0x00007ff233f05000)
+	libresolv.so.2 => /lib64/libresolv.so.2 (0x00007ff233cee000)
+	libselinux.so.1 => /lib64/libselinux.so.1 (0x00007ff233ac4000)
+	libz.so.1 => /lib64/libz.so.1 (0x00007ff2338ac000)
+	libpcre2-8.so.0 => /lib64/libpcre2-8.so.0 (0x00007ff233628000)
+
 	```
 
 	If any required libraries are missing, the installer refuses to run.   
@@ -832,6 +1840,6 @@ On completion, the installer displays the finish window.
 
 ## Acknowledgements
 
- - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - December 10, (Sat) 2022
+ - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
+ - **Last Updated on** - February 4, (Sat) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
