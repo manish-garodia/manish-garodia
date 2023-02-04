@@ -3,6 +3,14 @@
 ## Introduction
 Get hands dirty with Linux commands, tips, and tricks.
 
+![Linux system layers](./images/linux-system-layers.png " ")
+**Figure:** Linux system layers
+
+
+<!--
+**Cite**: Source - [Guru99](https://www.guru99.com/introduction-to-shell-scripting.html)
+-->
+
 ## Linux Terminal
  - Common
 
@@ -129,7 +137,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 	 | shortcut       | action                                                          |
 	 |----------------|-----------------------------------------------------------------|
-	 | **Ctrl** + *L* | clear screen                                                    |
+	 | **Ctrl** + *L* | clear screen or type *`clear`*                                  |
 	 | **Ctrl** + *D* | logout from sudo user back to the original user                 |
 	 | **Ctrl** + *U* | erases from the current cursor position to the begining of line |
 	 | **Ctrl** + *A* | moves cursor position to the beginning of line                  |
@@ -438,10 +446,14 @@ Get hands dirty with Linux commands, tips, and tricks.
 
  - directories basic
  - make directories
+ - home folder
+ - symbolic links
+ - command alias
  - copy
  - move or rename
  - remove
  - find
+ - file/folder permissions
  - other general
 
 	----
@@ -491,6 +503,58 @@ Get hands dirty with Linux commands, tips, and tricks.
 		./ManishDoc_copy/working commands:
 		goldimage21c_unzip01.sh  prod19c_unzip.sh
 		```
+
+	 - Long listing of files and directories with complete details on date, time, size, permissions, etc.
+
+		```
+		$ <copy>ll</copy>
+		```
+		```
+		total 34892
+		-rw-r--r-- 1 mgarodia wheel      325 Jan 17 04:53 19cstart.sh
+		-rw-r--r-- 1 mgarodia wheel      353 Jan 20 15:55 21cstart.sh
+		-rw-r--r-- 1 mgarodia wheel      347 Jan 17 10:14 23cstart.sh
+		lrwxrwxrwx 1 mgarodia wheel       49 Aug 12  2021 dbhome19c -> /scratch/u01/app/oracle/product/19.0.0/dbhome_02/
+		lrwxrwxrwx 1 mgarodia wheel       49 Jan 20 16:36 dbhome21c -> /scratch/u01/app/oracle/product/21.0.0/dbhome_002
+		lrwxrwxrwx 1 mgarodia wheel       47 Jan 16 16:24 dbhome23c -> /scratch/u01/app/oracle/product/23.0.0/dbhome_1
+		drwxr-xr-x 3 mgarodia wheel        2 Jul 29 18:55 Desktop
+		drwxr-xr-x 4 mgarodia wheel        4 Oct  1  2021 Documents
+		drwxr-xr-x 4 mgarodia wheel        4 Oct 27 09:31 Downloads
+		drwxrwxrwt 3 mgarodia wheel        1 May 19  2022 emdiag
+		-rw-r--r-- 1 mgarodia wheel      131 May 21  2022 install_EM.sh
+		lrwxrwxrwx 1 mgarodia wheel       58 Feb 14  2022 listener21c -> /scratch/u01/app/mgarodia/homes/OraDB21Home1/network/admin
+		-rw-r--r-- 1 mgarodia wheel      362 Jun  3  2022 manisha.sh
+		lrwxrwxrwx 1 mgarodia wheel       56 Oct 29  2021 mm_21c -> /scratch/u01/app/oracle/product/21.0.0/dbhome_manisha01/
+		drwxr-xr-x 2 mgarodia wheel        0 Jun 10  2021 Music
+		-rw-rw---- 1 mgarodia wheel 33562624 Jan 18 10:47 octs.dbf
+		drwxr----- 3 mgarodia wheel        1 Jul  1  2021 oradiag_mgarodia
+		drwxr----- 3 mgarodia wheel        1 Dec 25 00:20 oradiag_UNKNOWN
+		drwxrwx--- 6 mgarodia wheel        6 Jun 12  2021 oraInventory
+		drwxr-xr-x 2 mgarodia wheel        0 May 30  2022 ORDS
+		drwxr-xr-x 3 mgarodia wheel        1 May 26  2022 ordsdata-old
+		drwxr-xr-x 2 mgarodia wheel        9 Jul 13  2021 ords_log
+		-rw-r--r-- 1 mgarodia wheel     6597 Jan 17 09:18 out.txt
+		lrwxrwxrwx 1 mgarodia wheel       42 Feb 14  2022 pfile21c -> /scratch/u01/app/mgarodia/admin/orcl/pfile
+		drwxr-xr-x 2 mgarodia wheel        0 Jun 10  2021 Pictures
+		drwxr-xr-x 2 mgarodia wheel        0 Jun 10  2021 Public
+		-rw-r--r-- 1 mgarodia wheel        0 Nov  7  2021 show
+		-rw-r--r-- 1 mgarodia wheel       63 Jun 13  2022 snsuffix.properties
+		drwxr-xr-x 2 mgarodia wheel        0 Aug 12  2021 symlinks
+		drwxr-xr-x 2 mgarodia wheel        0 Jun 10  2021 Templates
+		drwxr-xr-x 2 mgarodia wheel     3726 Jan 16 11:25 tmp-files
+		-rw-r----- 1 mgarodia wheel      542 Jun  3  2022 tnsnames.ora
+		drwxr-xr-x 2 mgarodia wheel        0 Jun 10  2021 Videos
+		```
+
+	 - View hidden files and folders
+	 
+		in terminal
+
+		```
+		$ <copy>lah</copy>
+		```
+
+		in File Manager, use **Ctrl + H**
 
 	 - go to a directory and view its tree structure
 
@@ -714,12 +778,43 @@ Get hands dirty with Linux commands, tips, and tricks.
 	----
 	## symbolic links
 
-	Syntax
+	 - create and update symlinks
 
-	```
-	$ ln -s target linkname
-	$ ln -s </path/to/file-folder to be linked> </path/of/link/to-be/created>
-	```
+		----
+		## Create a symlink
+
+		Syntax
+		
+		```
+		$ ln -s target linkname
+		$ ln -s </path/to/file-folder/to-be-linked> </path/of/link/to-be-created>
+		```
+
+		After creating a symlink, you can update it, for example, rename the link or modify it to point to a new location.
+		
+		To update a symlink, you can do either of these - 
+		 - Delete the link and re-create a new one as above
+		 - Update the existing link with force
+
+		----
+		## Update a symlink
+
+		To delete a symlink, use the command `rm <link-name>`.
+
+		To replace an existing symlink completely with a new name or point to a new target folder -  
+
+		```
+		$ ln -sfn new-target new-linkname
+		$ ln -sfn </path/to/new-file-folder> </fullpath-name/of/new-link>
+		```
+
+		Where,
+
+		 - ***s*** - creates the symlink
+		 - ***f*** - enforces changes to the link
+		 - ***n*** - (optional) use this for linking to a folder
+		 
+		The ***-n*** option is necessary to avoid creating a sub-folder inside that symbolic link, instead of replacing the symbolic link.			
 
 	----
 	## command alias
@@ -1090,13 +1185,30 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ <copy>view file2.txt</copy>
 		```
 
+	 - combine multiple files into a single file (not compress or zip)
+
+		```
+		$ <copy>cat source-file1.txt source-file2.txt > target-file3.txt</copy>
+		```
+
+		> **Note**: This command will copy contents from the source files and replace the contents of the target file *`target-file3.txt`*. 
+		
+		However, you can retain the contents of the target file and insert further.    
+		To merge files without removing the contents of the target file, use two greater than symbols. 
+		
+		```
+		$ <copy>cat source-file1.txt source-file2.txt >> target-file3.txt</copy>
+		```
+
+		This will append contents from the source files at the bottom of the target file. This command is not to create a compressed (`*.zip`) file. 
+
 	 - Extract file and folders from a `*.zip` file.
 
 		```
 		$ unzip filename -d /folder/location
 		```
 
-		> **Tip:** If the destination folder does not exit, you may create the folder first.
+		> **Tip**: If the destination folder does not exit, you may create the folder first.
 
 	 - While extracting files and folders, use `-d` to specify the target directory
 
@@ -1471,77 +1583,331 @@ A script begins with -
 		x86_64
 		```
 
+	 - view CPU information, such as processor type, number of CPUs, and so on.
+
+		 - CPU info in short
+
+			```
+			$ <copy>lscpu</copy>
+			```
+
+			----
+			## Output
+
+			```
+			Architecture:        x86_64
+			CPU op-mode(s):      32-bit, 64-bit
+			Byte Order:          Little Endian
+			CPU(s):              4
+			On-line CPU(s) list: 0-3
+			Thread(s) per core:  2
+			Core(s) per socket:  2
+			Socket(s):           1
+			NUMA node(s):        1
+			Vendor ID:           AuthenticAMD
+			CPU family:          23
+			Model:               49
+			Model name:          AMD EPYC 7742 64-Core Processor
+			Stepping:            0
+			CPU MHz:             2245.780
+			BogoMIPS:            4491.56
+			Hypervisor vendor:   KVM
+			Virtualization type: full
+			L1d cache:           64K
+			L1i cache:           64K
+			L2 cache:            512K
+			L3 cache:            16384K
+			NUMA node0 CPU(s):   0-3
+			Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm rep_good nopl cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd ibrs ibpb stibp vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 nt_good arat umip
+			```
+
+		 - CPU info in details
+
+			```
+			$ <copy>cat /proc/cpuinfo</copy>
+			```
+
+			----
+			## Output
+
+			```
+			processor	: 0
+			vendor_id	: AuthenticAMD
+			cpu family	: 23
+			model		: 49
+			model name	: AMD EPYC 7742 64-Core Processor
+			stepping	: 0
+			microcode	: 0x1000065
+			cpu MHz		: 2245.780
+			cache size	: 512 KB
+			physical id	: 0
+			siblings	: 4
+			core id		: 0
+			cpu cores	: 2
+			apicid		: 0
+			initial apicid	: 0
+			fpu		: yes
+			fpu_exception	: yes
+			cpuid level	: 13
+			wp		: yes
+			flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm rep_good nopl cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd ibrs ibpb stibp vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 nt_good arat umip
+			bugs		: fxsave_leak sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass retbleed
+			bogomips	: 4491.56
+			TLB size	: 1024 4K pages
+			clflush size	: 64
+			cache_alignment	: 64
+			address sizes	: 40 bits physical, 48 bits virtual
+			power management:
+
+			processor	: 1
+			vendor_id	: AuthenticAMD
+			cpu family	: 23
+			model		: 49
+			model name	: AMD EPYC 7742 64-Core Processor
+			stepping	: 0
+			microcode	: 0x1000065
+			cpu MHz		: 2245.780
+			cache size	: 512 KB
+			physical id	: 0
+			siblings	: 4
+			core id		: 0
+			cpu cores	: 2
+			apicid		: 1
+			initial apicid	: 1
+			fpu		: yes
+			fpu_exception	: yes
+			cpuid level	: 13
+			wp		: yes
+			flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm rep_good nopl cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd ibrs ibpb stibp vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 nt_good arat umip
+			bugs		: fxsave_leak sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass retbleed
+			bogomips	: 4491.56
+			TLB size	: 1024 4K pages
+			clflush size	: 64
+			cache_alignment	: 64
+			address sizes	: 40 bits physical, 48 bits virtual
+			power management:
+
+			processor	: 2
+			vendor_id	: AuthenticAMD
+			cpu family	: 23
+			model		: 49
+			model name	: AMD EPYC 7742 64-Core Processor
+			stepping	: 0
+			microcode	: 0x1000065
+			cpu MHz		: 2245.780
+			cache size	: 512 KB
+			physical id	: 0
+			siblings	: 4
+			core id		: 1
+			cpu cores	: 2
+			apicid		: 2
+			initial apicid	: 2
+			fpu		: yes
+			fpu_exception	: yes
+			cpuid level	: 13
+			wp		: yes
+			flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm rep_good nopl cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd ibrs ibpb stibp vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 nt_good arat umip
+			bugs		: fxsave_leak sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass retbleed
+			bogomips	: 4491.56
+			TLB size	: 1024 4K pages
+			clflush size	: 64
+			cache_alignment	: 64
+			address sizes	: 40 bits physical, 48 bits virtual
+			power management:
+
+			processor	: 3
+			vendor_id	: AuthenticAMD
+			cpu family	: 23
+			model		: 49
+			model name	: AMD EPYC 7742 64-Core Processor
+			stepping	: 0
+			microcode	: 0x1000065
+			cpu MHz		: 2245.780
+			cache size	: 512 KB
+			physical id	: 0
+			siblings	: 4
+			core id		: 1
+			cpu cores	: 2
+			apicid		: 3
+			initial apicid	: 3
+			fpu		: yes
+			fpu_exception	: yes
+			cpuid level	: 13
+			wp		: yes
+			flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm rep_good nopl cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd ibrs ibpb stibp vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 nt_good arat umip
+			bugs		: fxsave_leak sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass retbleed
+			bogomips	: 4491.56
+			TLB size	: 1024 4K pages
+			clflush size	: 64
+			cache_alignment	: 64
+			address sizes	: 40 bits physical, 48 bits virtual
+			power management:
+			```
+
+	----
+	## Linux processes
+
+	 - View the currently running processes and thread managed by Linux kernel. 
+
+		```
+		$ <copy>top</copy>
+		```
+
+		----
+		## Output
+
+		```
+		top - 14:34:25 up 10 days, 19:37,  0 users,  load average: 0.29, 0.24, 0.22
+		Tasks: 591 total,   1 running, 590 sleeping,   0 stopped,   0 zombie
+		%Cpu(s):  4.4 us,  0.8 sy,  0.0 ni, 94.3 id,  0.1 wa,  0.0 hi,  0.1 si,  0.3 st
+		MiB Mem :  31668.2 total,   1058.2 free,  13464.3 used,  17145.6 buff/cache
+		MiB Swap:  18096.0 total,  17726.2 free,    369.8 used.   4181.6 avail Mem 
+
+		   PID  USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND     
+		  14243 mgarodia  20   0 4963800 531048  71772 S  10.0   1.6  14:36.40 gnome-shell 
+		  14108 mgarodia  20   0 1259060  94668  37784 S   2.0   0.3   2:57.08 Xvnc        
+		  25941 mgarodia  -2   0 9962.8m  50736  47136 S   1.0   0.2 133:21.77 ora_vktm_o+ 
+		 138899 mgarodia  20   0 3861120 224280   9300 S   1.0   0.7  99:15.16 java        
+		 143364 mgarodia  20   0 6895244   3.2g  12644 S   1.0  10.3 346:32.17 java        
+		3031531 mgarodia  -2   0 6862940  76148  72052 S   1.0   0.2  38:01.30 ora_vktm_o+ 
+		3031726 mgarodia  20   0 6873908 807568 794296 S   1.0   2.5  27:15.36 ora_cjq0_o+ 
+		  15327 mgarodia  20   0  945072  41376  19896 S   0.7   0.1   0:54.28 gnome-term+ 
+		 674374 mgarodia  -2   0    9.8g  12612   8656 S   0.7   0.0 115:21.77 ora_vktm_o+ 
+		3977329 clamscan  39  19 2479648   1.3g   6592 S   0.7   4.1  29:16.40 clamd       
+		   4826 mgarodia  20   0 9975.2m 152936 141364 S   0.3   0.5   0:01.05 oracle_482+ 
+		   9284 mgarodia  20   0  277052   5224   3924 R   0.3   0.0   0:00.11 top         
+		  25969 mgarodia  20   0    9.8g   4.3g   4.3g S   0.3  13.9   2:14.83 ora_dbw0_o+ 
+		  26043 mgarodia  20   0 9984.0m 435736 425812 S   0.3   1.3  26:50.39 ora_cjq0_o+ 
+		 140687 mgarodia  20   0 6220024   1.4g   9240 S   0.3   4.7 165:37.62 java        
+		 674405 mgarodia  20   0    9.8g 287660 280584 S   0.3   0.9   8:15.49 ora_dbrm_o+ 
+		 674407 mgarodia  20   0    9.8g  17444  13388 S   0.3   0.1   8:55.13 ora_vkrm_o+ 
+		 674414 mgarodia  20   0    9.8g  14864  10896 S   0.3   0.0   2:02.43 ora_pman_o+ 
+		 674442 mgarodia  20   0    9.9g 370252 256452 S   0.3   1.1   3:02.64 ora_mmon_o+ 
+		3031527 mgarodia  20   0 6863072  79788  75524 S   0.3   0.2   0:39.57 ora_psp0_o+ 
+		3031554 mgarodia  20   0 6862428  76860  72780 S   0.3   0.2   0:10.92 ora_diag_o+
+ 		```
+
+	- Find the process id of, for example, java.
+
+		**Option 1**
+
+		```
+		$ <copy>pgrep java</copy>
+		```
+		```
+		138899
+		140687
+		143364
+		3037157
+		```
+
+		**Option 2**
+
+		```
+		$ <copy>pidof java</copy>
+		```
+
+		```
+		3037157 143364 140687 138899
+		```
+
 	----
 	## java
 
-	 - print java version to <i>error stream</i>
+	- check java, install or upgrade, set env variables
 
-		```
-		$ <copy>java -version</copy>
-		```
-		```
-		java version "16.0.1" 2021-04-20
-		Java(TM) SE Runtime Environment (build 16.0.1+9-24)
-		Java HotSpot(TM) 64-Bit Server VM (build 16.0.1+9-24, mixed mode, sharing)
-		```
+		----
+		## Check java version
 
-	 - print java version to <i>output stream</i>
+		 - print java version to <i>error stream</i>
 
-		```
-		$ <copy>java --version</copy>
-		```
-		```
-		java 16.0.1 2021-04-20
-		Java(TM) SE Runtime Environment (build 16.0.1+9-24)
-		Java HotSpot(TM) 64-Bit Server VM (build 16.0.1+9-24, mixed mode, sharing)
-		```
+			```
+			$ <copy>java -version</copy>
+			```
+			```
+			java version "16.0.1" 2021-04-20
+			Java(TM) SE Runtime Environment (build 16.0.1+9-24)
+			Java HotSpot(TM) 64-Bit Server VM (build 16.0.1+9-24, mixed mode, sharing)
+			```
 
-	 - Check whether java is installed on the system
+		 - print java version to <i>output stream</i>
 
-		```
-		$ <copy>where is java</copy>
-		```
-		```
-		/usr/bin/java
-		/usr/lib/jvm/java-1.8.0/bin/java
-		/usr/bin/java
-		/usr/dev_infra/platform/bin/java
-		/usr/bin/java
-		/bin/java
-		/usr/bin/java
-		```
+			```
+			$ <copy>java --version</copy>
+			```
+			```
+			java 16.0.1 2021-04-20
+			Java(TM) SE Runtime Environment (build 16.0.1+9-24)
+			Java HotSpot(TM) 64-Bit Server VM (build 16.0.1+9-24, mixed mode, sharing)
+			```
 
-	 - Java installer puts several files into different directories. Check the java SDK location.
+		 - Check whether java is installed on the system
 
-		```
-		$ <copy>which java</copy>
-		```
-		```
-		/usr/bin/java
-		```
+			```
+			$ <copy>where is java</copy>
+			```
+			```
+			/usr/lib/jvm/java-1.8.0/bin/java
+			/usr/dev_infra/platform/bin/java
+			/bin/java
+			/usr/bin/java
+			```
 
-	 - Check version
+		 - Java installer puts several files into different directories. Check the java SDK location.
 
-		```
-		$ <copy>rpm -q --whatprovides java</copy>
-		```
-		```
-		java-1.8.0-openjdk-1.8.0.332.b09-1.el7_9.x86_64
-		```
+			```
+			$ <copy>which java</copy>
+			```
+			```
+			/usr/lib/jvm/java-1.8.0/bin/java
+			```
 
-	 - Install a new version
+		 - Check version
+
+			```
+			$ <copy>rpm -q --whatprovides java</copy>
+			```
+			```
+			java-1.8.0-openjdk-1.8.0.332.b09-2.el8_6.x86_64
+			jdk-17-17.0.6-9.x86_64
+			```
+
+		----
+		## Java install/upgrade
+
+		To install a new version
 
 		```
 		$ <copy>rpm -ivh jdk-16.interim.update.patch_linux-x64_bin.rpm</copy>
 		```
 
-	 - Upgrade the existing version
 
-		```
-		$ <copy>rpm -Uvh jdk-16.interim.update.patch_linux-x64_bin.rpm</copy>
-		```
+		To upgrade the existing java version
 
-	 - Set the environment variable *$JAVA_HOME* for all users
+		1. Download java from web - [Link to Java 17](https://www.oracle.com/in/java/technologies/downloads/#java17)
+
+		1. Check the java copy.
+
+			```
+			$ <copy>find /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-2.el8_6.x86_64/</copy>
+			```
+
+		1. Run the upgrade command.
+
+			```
+			$ <copy>rpm -Uvh jdk-16.interim.update.patch_linux-x64_bin.rpm</copy>
+			```
+			```
+			warning: jdk-17_linux-x64_bin.rpm: Header V3 RSA/SHA256 Signature, key ID ec551f03: NOKEY
+			Verifying...                          ################################# [100%]
+			Preparing...                          ################################# [100%]
+			Updating / installing...
+			   1:jdk-17-2000:17.0.6-9             ################################# [100%]
+			```
+
+		## Set env variable $JAVA_HOME
+		
+		To set the environment variable *$JAVA_HOME* for all users - 
 
 		1. Open `.base_profile` in vi editor.
 
@@ -1553,7 +1919,7 @@ A script begins with -
 
 			```
 			<copy>
-			export JAVA_HOME=/opt/java/jdk-9
+			export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-2.el8_6.x86_64/"
 			export PATH=$JAVA_HOME/bin:$PATH
 			</copy>
 			```
@@ -1711,6 +2077,6 @@ add details about chown, chmod, chgrp
 
 ## Acknowledgements
 
- - **Author** - Manish Garodia, Team Database UAD
+ - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
  - **Last Updated on** - December 3, (Sat) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
