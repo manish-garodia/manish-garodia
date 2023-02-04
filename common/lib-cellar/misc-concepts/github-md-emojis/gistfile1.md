@@ -316,9 +316,43 @@ Complete list of github markdown emoji markup
 | :small_blue_diamond: `:small_blue_diamond:` | :small_orange_diamond: `:small_orange_diamond:` | :small_red_triangle: `:small_red_triangle:` |
 | :small_red_triangle_down: `:small_red_triangle_down:` | :shipit: `:shipit:` |
 
+## Slack emojis
+
+prod
+redbull_oracle
+mega
+postal_horn
+bell
+no_entry
+red_circle
+OOO
+batman-approves
+blob-help
+carlton
+closed
+completed
+done
+ds-stop
+ds-up
+ds-down
+ds-green-circle
+green-dot
+grm-q
+heart_fb
+jumping_pig
+lifering
+mtg_
+oh_heart
+oracle-o
+oracleo
+oracle-cares
+thinking-117
+
+
 ## Acknowledgements
 
  - **Author** - github user Rafael Xavier de Souza ()
- - **Last Updated on** - April 10, (Sun) 2022
+ - **Created on** - April 10, (Sun) 2022
+ - **Last Updated on** - January 20, (Fri) 2023
  - **Source** - [gist:7360908](https://gist.github.com/rxaviers/7360908)
  

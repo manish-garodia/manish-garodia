@@ -25,14 +25,14 @@
         {
             "title": "Lab #: Oracle Database Gold Image",
             "description": "Pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.",
-			"publisheddate": "27-Nov-2022",
+			"publisheddate": "04-Feb-2022",
             "filename": "./../common/lib-cellar/procedures/install-db-goldimage/install-db-goldimage.md",
 			"type": "hidden"
         },
         {
             "title": "Lab #: Install Oracle EM",
             "description": "How to install Oracle EM on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EM.",
-			"publisheddate": "27-Nov-2022",
+			"publisheddate": "04-Feb-2023",
             "filename": "./../common/lib-cellar/procedures/install-em/install-em.md",
 			"type": "hidden"
         },
@@ -62,14 +62,14 @@
             "title": "Lab #: Linux -:- feed the penguin",
             "description": "Get hands dirty with Linux commands, tips, and tricks.",
             "filename": "./../common/lib-cellar/procedures/linux-feed-penguin/linux-feed-penguin.md",
-			"publisheddate": "03-Dec-2022",
+			"publisheddate": "04-Feb-2023",
 			"type": "hidden"
         },
         {
             "title": "Lab #: GitHub PRs",
             "description": "History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github.",
             "filename": "./../common/lib-cellar/misc-concepts/github-pr.md",
-			"publisheddate": "30-Nov-2022",
+			"publisheddate": "16-Jan-2023",
 			"type": "hidden"
         },
         {
@@ -83,7 +83,7 @@
             "title": "Lab #: GitHub Markdown emojis",
             "description": "List of emojis supported by markdown.",
             "filename": "./../common/lib-cellar/misc-concepts/github-md-emojis/gistfile1.md",
-			"publisheddate": "10-Apr-2022",
+			"publisheddate": "20-Jan-2023",
 			"type": "hidden"
         },
         {

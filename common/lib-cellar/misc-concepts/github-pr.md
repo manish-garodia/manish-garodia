@@ -578,6 +578,39 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 	~Thanks, MG
 
+## WS0 (*11324*)
+
+- WS0 pull requests
+
+	----
+	## Merge request #*145* - Jan 11, 2023
+
+	Submitted PR for WS0 (minor fix to the manifest) from my fork on Github on *Wed Jan 11, 2023*. Waiting for approval. Approved on **Jan 12**.
+
+	**Sub**: <ins>(#11324) Minor fix to manifest</ins>
+
+	Hello,
+
+	Modified the manifest and moved the key from its global position to local for the second lab only, access the series of workshops. Because it is not applicable to the introduction lab.
+	Request for approval please. 
+	~Thanks, MG
+
+	----
+	## Merge request #*143* - Jan 10, 2023
+
+	Submitted PR for WS0 (draft copy) from my fork on Github on *Tue Jan 10*. Waiting for approval. Approved on **Jan 10**.
+
+	**Sub**: <ins>(*#11324*) Created workshop - DBA Essentials Workshops Series</ins>
+
+	Hello,
+
+	Developed a new workshop on DBA Essentials Workshops Series for Oracle Database 21c, WMS ID is #11324.
+
+	We got a series of DBA Essentials workshops published on Livelabs. This workshop acts as a master of all these workshops. It introduces the workshops from this series and helps the user run them in a specific sequence.
+
+	Please approve the PR. Thank you
+	~MG
+
 ## General PRs
 
 - Other general PRs not specific to workshops
@@ -621,5 +654,5 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 ## Acknowledgements
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - December 16, (Fri) 2022
+ - **Last Updated on** - January 16, (Mon) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../intro/files/email.md)
