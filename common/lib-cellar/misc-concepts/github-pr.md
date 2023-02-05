@@ -592,7 +592,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	Hello,
 
 	Modified the manifest and moved the key from its global position to local for the second lab only, access the series of workshops. Because it is not applicable to the introduction lab.
-	Request for approval please. 
+	Request for approval please.
 	~Thanks, MG
 
 	----

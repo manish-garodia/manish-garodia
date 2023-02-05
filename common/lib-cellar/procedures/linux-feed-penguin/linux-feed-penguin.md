@@ -547,7 +547,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		```
 
 	 - View hidden files and folders
-	 
+
 		in terminal
 
 		```
@@ -784,15 +784,15 @@ Get hands dirty with Linux commands, tips, and tricks.
 		## Create a symlink
 
 		Syntax
-		
+
 		```
 		$ ln -s target linkname
 		$ ln -s </path/to/file-folder/to-be-linked> </path/of/link/to-be-created>
 		```
 
 		After creating a symlink, you can update it, for example, rename the link or modify it to point to a new location.
-		
-		To update a symlink, you can do either of these - 
+
+		To update a symlink, you can do either of these -
 		 - Delete the link and re-create a new one as above
 		 - Update the existing link with force
 
@@ -813,7 +813,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		 - ***s*** - creates the symlink
 		 - ***f*** - enforces changes to the link
 		 - ***n*** - (optional) use this for linking to a folder
-		 
+
 		The ***-n*** option is necessary to avoid creating a sub-folder inside that symbolic link, instead of replacing the symbolic link.			
 
 	----
@@ -1191,16 +1191,16 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ <copy>cat source-file1.txt source-file2.txt > target-file3.txt</copy>
 		```
 
-		> **Note**: This command will copy contents from the source files and replace the contents of the target file *`target-file3.txt`*. 
-		
+		> **Note**: This command will copy contents from the source files and replace the contents of the target file *`target-file3.txt`*.
+
 		However, you can retain the contents of the target file and insert further.    
-		To merge files without removing the contents of the target file, use two greater than symbols. 
-		
+		To merge files without removing the contents of the target file, use two greater than symbols.
+
 		```
 		$ <copy>cat source-file1.txt source-file2.txt >> target-file3.txt</copy>
 		```
 
-		This will append contents from the source files at the bottom of the target file. This command is not to create a compressed (`*.zip`) file. 
+		This will append contents from the source files at the bottom of the target file. This command is not to create a compressed (`*.zip`) file.
 
 	 - Extract file and folders from a `*.zip` file.
 
@@ -1747,7 +1747,7 @@ A script begins with -
 	----
 	## Linux processes
 
-	 - View the currently running processes and thread managed by Linux kernel. 
+	 - View the currently running processes and thread managed by Linux kernel.
 
 		```
 		$ <copy>top</copy>
@@ -1761,29 +1761,29 @@ A script begins with -
 		Tasks: 591 total,   1 running, 590 sleeping,   0 stopped,   0 zombie
 		%Cpu(s):  4.4 us,  0.8 sy,  0.0 ni, 94.3 id,  0.1 wa,  0.0 hi,  0.1 si,  0.3 st
 		MiB Mem :  31668.2 total,   1058.2 free,  13464.3 used,  17145.6 buff/cache
-		MiB Swap:  18096.0 total,  17726.2 free,    369.8 used.   4181.6 avail Mem 
+		MiB Swap:  18096.0 total,  17726.2 free,    369.8 used.   4181.6 avail Mem
 
 		   PID  USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND     
-		  14243 mgarodia  20   0 4963800 531048  71772 S  10.0   1.6  14:36.40 gnome-shell 
+		  14243 mgarodia  20   0 4963800 531048  71772 S  10.0   1.6  14:36.40 gnome-shell
 		  14108 mgarodia  20   0 1259060  94668  37784 S   2.0   0.3   2:57.08 Xvnc        
-		  25941 mgarodia  -2   0 9962.8m  50736  47136 S   1.0   0.2 133:21.77 ora_vktm_o+ 
+		  25941 mgarodia  -2   0 9962.8m  50736  47136 S   1.0   0.2 133:21.77 ora_vktm_o+
 		 138899 mgarodia  20   0 3861120 224280   9300 S   1.0   0.7  99:15.16 java        
 		 143364 mgarodia  20   0 6895244   3.2g  12644 S   1.0  10.3 346:32.17 java        
-		3031531 mgarodia  -2   0 6862940  76148  72052 S   1.0   0.2  38:01.30 ora_vktm_o+ 
-		3031726 mgarodia  20   0 6873908 807568 794296 S   1.0   2.5  27:15.36 ora_cjq0_o+ 
-		  15327 mgarodia  20   0  945072  41376  19896 S   0.7   0.1   0:54.28 gnome-term+ 
-		 674374 mgarodia  -2   0    9.8g  12612   8656 S   0.7   0.0 115:21.77 ora_vktm_o+ 
+		3031531 mgarodia  -2   0 6862940  76148  72052 S   1.0   0.2  38:01.30 ora_vktm_o+
+		3031726 mgarodia  20   0 6873908 807568 794296 S   1.0   2.5  27:15.36 ora_cjq0_o+
+		  15327 mgarodia  20   0  945072  41376  19896 S   0.7   0.1   0:54.28 gnome-term+
+		 674374 mgarodia  -2   0    9.8g  12612   8656 S   0.7   0.0 115:21.77 ora_vktm_o+
 		3977329 clamscan  39  19 2479648   1.3g   6592 S   0.7   4.1  29:16.40 clamd       
-		   4826 mgarodia  20   0 9975.2m 152936 141364 S   0.3   0.5   0:01.05 oracle_482+ 
+		   4826 mgarodia  20   0 9975.2m 152936 141364 S   0.3   0.5   0:01.05 oracle_482+
 		   9284 mgarodia  20   0  277052   5224   3924 R   0.3   0.0   0:00.11 top         
-		  25969 mgarodia  20   0    9.8g   4.3g   4.3g S   0.3  13.9   2:14.83 ora_dbw0_o+ 
-		  26043 mgarodia  20   0 9984.0m 435736 425812 S   0.3   1.3  26:50.39 ora_cjq0_o+ 
+		  25969 mgarodia  20   0    9.8g   4.3g   4.3g S   0.3  13.9   2:14.83 ora_dbw0_o+
+		  26043 mgarodia  20   0 9984.0m 435736 425812 S   0.3   1.3  26:50.39 ora_cjq0_o+
 		 140687 mgarodia  20   0 6220024   1.4g   9240 S   0.3   4.7 165:37.62 java        
-		 674405 mgarodia  20   0    9.8g 287660 280584 S   0.3   0.9   8:15.49 ora_dbrm_o+ 
-		 674407 mgarodia  20   0    9.8g  17444  13388 S   0.3   0.1   8:55.13 ora_vkrm_o+ 
-		 674414 mgarodia  20   0    9.8g  14864  10896 S   0.3   0.0   2:02.43 ora_pman_o+ 
-		 674442 mgarodia  20   0    9.9g 370252 256452 S   0.3   1.1   3:02.64 ora_mmon_o+ 
-		3031527 mgarodia  20   0 6863072  79788  75524 S   0.3   0.2   0:39.57 ora_psp0_o+ 
+		 674405 mgarodia  20   0    9.8g 287660 280584 S   0.3   0.9   8:15.49 ora_dbrm_o+
+		 674407 mgarodia  20   0    9.8g  17444  13388 S   0.3   0.1   8:55.13 ora_vkrm_o+
+		 674414 mgarodia  20   0    9.8g  14864  10896 S   0.3   0.0   2:02.43 ora_pman_o+
+		 674442 mgarodia  20   0    9.9g 370252 256452 S   0.3   1.1   3:02.64 ora_mmon_o+
+		3031527 mgarodia  20   0 6863072  79788  75524 S   0.3   0.2   0:39.57 ora_psp0_o+
 		3031554 mgarodia  20   0 6862428  76860  72780 S   0.3   0.2   0:10.92 ora_diag_o+
  		```
 
@@ -1906,8 +1906,8 @@ A script begins with -
 			```
 
 		## Set env variable $JAVA_HOME
-		
-		To set the environment variable *$JAVA_HOME* for all users - 
+
+		To set the environment variable *$JAVA_HOME* for all users -
 
 		1. Open `.base_profile` in vi editor.
 

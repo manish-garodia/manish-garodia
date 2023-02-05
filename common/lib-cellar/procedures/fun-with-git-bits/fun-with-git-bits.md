@@ -66,8 +66,8 @@ The information in this lab revolves around -
 
 	#### Prerequisites
 
-	1. From the fork repo, go to **Settings** > **GitHub pages**.
-	2. Under **Source**, select **Branch: main** > */root*.
+	1. From the fork repo, go to **Settings** &gt; **GitHub pages**.
+	2. Under **Source**, select **Branch: main** &gt; */root*.
 
 		It may take ~30-60 mins to publish the site/repo and show-up the preview.
 
@@ -144,11 +144,11 @@ The information in this lab revolves around -
 
 	After you fork the main repo, you can create a clone of the fork on your local system.
 
-	1. Go to **File** > **Clone repository** (keyboard shortcut **Ctrl**+**Shift**+**O**).
+	1. Go to **File** &gt; **Clone repository** (keyboard shortcut **Ctrl**+**Shift**+**O**).
 
 		![Clone menu option 1](./images/clone-01-clone-menu-option1.png " ")
 
-		Alternatively, click the arrow next to **Current repository** > **Add** > **Clone repository**.
+		Alternatively, click the arrow next to **Current repository** &gt; **Add** &gt; **Clone repository**.
 
 		![Clone menu option 2](./images/clone-02-clone-menu-option2.png " ")
 
@@ -171,7 +171,7 @@ The information in this lab revolves around -
 
 		![Add local repo menu option 1](./images/clone-04-add-local-repo-menu-option1.png " ")
 
-		Alternatively, click the arrow next to **Current repository** > **Add** > **Add existing repository**.
+		Alternatively, click the arrow next to **Current repository** &gt; **Add** &gt; **Add existing repository**.
 
 		![Add local repo menu option 2](./images/clone-05-add-local-repo-option2.png " ")
 
@@ -222,7 +222,7 @@ The information in this lab revolves around -
 	----
 	## Sync between clone, fork, and main repo
 
-	1. Go to **File** > **Options** (keyboard shortcut **Ctrl**+**,**).
+	1. Go to **File** &gt; **Options** (keyboard shortcut **Ctrl**+**,**).
 	1. The **Accounts** tab shows that you are logged in to your GitHub account.
 
 	<br>
@@ -266,7 +266,7 @@ The information in this lab revolves around -
 - Regular activities using GitHub Desktop
 
 	----
-	## Option 1: Update fork > pull to clone (browser)
+	## Option 1: Update fork &gt; pull to clone (browser)
 
 	In this method, you update your fork repo first and then pull origin to the clone.
 
@@ -285,7 +285,7 @@ The information in this lab revolves around -
 			This branch is xx commits behind oracle:main.
 			```
 
-		1. Click **Fetch upstream** > **Fetch and merge**.  
+		1. Click **Fetch upstream** &gt; **Fetch and merge**.  
 		   Verify that you have <i>Successfully fetched and fast-forwarded from upstream oracle:main</i>.
 
 			```
@@ -318,13 +318,13 @@ The information in this lab revolves around -
 		The clone is now updated.
 
 	----
-	## Option 2: Update clone > push to fork (GitHub Desktop)
+	## Option 2: Update clone &gt; push to fork (GitHub Desktop)
 
 	Update both clone and fork together using GitHub Desktop.
 
 	1. Open **GitHub Desktop**.
 
-	1. From **Branch** > select **Merge into current branch**.
+	1. From **Branch** &gt; select **Merge into current branch**.
 
 	1. The default branch selected is *main*.   
 	   Under Other branches, select *upstream/main*. It displays a message.
@@ -344,7 +344,7 @@ The information in this lab revolves around -
 	5. Click **Push origin**.  	
 		This step updates the fork repo.
 
-		From **Repository** > select **View on GitHub** to open OLL master. Go to your fork repo and verify this message.
+		From **Repository** &gt; select **View on GitHub** to open OLL master. Go to your fork repo and verify this message.
 
 		 ```
 		 This branch is not behind the upstream oracle:main.
@@ -403,7 +403,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		1. Open GitHub Desktop.
 
-		1. From **Branch** > select **Create pull request**.  
+		1. From **Branch** &gt; select **Create pull request**.  
 			It opens main repo in a browser.
 
 		1. Go to your fork repo `<your-account>/learning-library`.
@@ -423,7 +423,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	Submit a PR to merge your changes with the main repository.
 
-	1. From your fork repo, go to **Pull requests** > **New pull request**.
+	1. From your fork repo, go to **Pull requests** &gt; **New pull request**.
 
 		> **Note:** The page must display that you are **<i><font style="color:rgb(63,185,61);">Able to merge</font></i>** (in green). The arrow is from your fork (head repo) and points to OLL (base repo).
 
@@ -729,7 +729,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	- You have multiple ways to update the clone and the fork repo.
 
 		----
-		## Option 1: Update clone > push to fork
+		## Option 1: Update clone &gt; push to fork
 
 		Update the clone from OLL master and then push the changes from clone to fork.
 
@@ -754,7 +754,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 			The updates in the clone are pushed to the fork repo. Both clone and fork are in sync with OLL master.
 
 		----
-		## Option 2: Update fork > pull to clone
+		## Option 2: Update fork &gt; pull to clone
 
 		Update the fork and pull the changes from fork to clone.
 
@@ -1042,7 +1042,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	To run Live Server, you must have a folder in your VS Code workspace.
 
-	1. Click **File** > **Open Folder**.
+	1. Click **File** &gt; **Open Folder**.
 
 		![Open folder in workspace](./images/vscode-workspace-open-folder.png " ")
 
@@ -1136,7 +1136,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	**What to do**  
 	A quick way to set the default start location (without installing `msysgit`) -
 
-	1. Right-click Git Bash (shortcut icon) > select **Properties**.
+	1. Right-click Git Bash (shortcut icon) &gt; select **Properties**.
 
 		Default -
 
@@ -1183,7 +1183,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	In GitHub Desktop -
 
-	1. Go to **Branch** > **Rebase current branch**.
+	1. Go to **Branch** &gt; **Rebase current branch**.
 
 		![Rebase branch menu](./images/rebase-02-rebase-menu.png " ")
 
@@ -1324,7 +1324,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	- **Modify directly on GitHub**
 		1. Login to *GitHub* in a browser and go to the repo.
-		1. Go to the file and > select **Edit file**.
+		1. Go to the file and &gt; select **Edit file**.
 		1. Place the cursor at the first character of the file name and hit backspace.
 
 	- **Using Windows Explorer**
@@ -1698,7 +1698,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	## Upstream main does not show up in GitHub Desktop?
 
 	**Problem statement**  
-	In GitHub Desktop, you click **Branch** then > **Merge into current branch**. The merge into remote repo window does not show `upstream/master` under `Other branches`.
+	In GitHub Desktop, you click **Branch** then &gt; **Merge into current branch**. The merge into remote repo window does not show `upstream/master` under `Other branches`.
 
 	**What to do**
 
@@ -1734,7 +1734,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		 > **Note:** You may remove the older version of Atom manually using Window Explorer or CLI (git bash).
 
-	1. Open GitHub Desktop and go to **File** > **Options**.
+	1. Open GitHub Desktop and go to **File** &gt; **Options**.
 
 	 ![Modify GitHub preferences](./images/desktop-editor-02-modify-options.png " ")
 
@@ -1780,7 +1780,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		![Plugin structure](./images/notepad-plugins-structure.png " ")
 
 		> **Tip:** Ensure to match the folder name with the DLL name (excluding file extension).
-		
+
 		To find the `Notepad++\Plugins` folder, go to **Plugins** and select <i>Open Plugins Folder</i>, the last entry right below <i>Plugins Admin</i>.
 
 	1. Start Notepad++ and check the **Plugins** menu.

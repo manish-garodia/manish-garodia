@@ -28,7 +28,7 @@ The default listener configuration is:
 **Scenario**   
 You have multiple database versions (18c, 19c, 21c, 23c,...) on the same host. Each database has a listener associated with it. When you start a listener from any `$ORACLE_HOME/bin`, unless you specify the listener name Oracle Net Manager generally starts the default listener mentioned above. All databases may use the same (default) listener.
 
-But if you want to use specific listener for each database version, then edit the listener configuration as explained in this lab. 
+But if you want to use specific listener for each database version, then edit the listener configuration as explained in this lab.
 
 ## Task 1: Pre-installation setup
 
@@ -183,7 +183,7 @@ Oracle Database installers are available internally as gold images.
 		$ <copy>unzip -q LINUX.X64_213000_db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_002</copy>
 		```
 
-		> **Tip**: Get an *extra copy of the installer* on your local system.
+		> **Tip:** Get an *extra copy of the installer* on your local system.
 
 		```
 		$ <copy>unzip -q /ade_autofs/dd223_db/RDBMS/21.3.0.0.0/LINUX.X64/210727.XE/install/shiphome/goldimage/db_home.zip -d /scratch/u01/app/oracle/product/21.0.0/dbhome_unzip02</copy>
@@ -202,7 +202,7 @@ Oracle Database installers are available internally as gold images.
 
 		<if type="hidden">
 		`Oracle Database sys password` - *We!come1*
-		<if>
+		</if>
 
 ## Task 2: Install Oracle Database
 
@@ -231,7 +231,7 @@ Most fields are auto-filled.
 	$ <copy>/scratch/u01/app/oraInventory</copy>
 	```
 
-	**oraInventory group name**: *dba* (or `wheel`, your system primary group)
+	**oraInventory group name:** *dba* (or `wheel`, your system primary group)
 
 	> **Note:** This screen does not appear if you have another version of Oracle Database already installed.
 
@@ -328,9 +328,9 @@ Do not select this check box and run the scripts manually in the later steps.
 		Press **Enter** twice to complete the script.
 
 		```
-		Enter the full pathname of the local bin directory: [/usr/local/bin]: 
+		Enter the full pathname of the local bin directory: [/usr/local/bin]:
 
-		/usr/local/bin is read only.  Continue without copy (y/n) or retry (r)? [y]: 
+		/usr/local/bin is read only.  Continue without copy (y/n) or retry (r)? [y]:
 
 		Warning: /usr/local/bin is read only. No files will be copied.
 
@@ -560,7 +560,7 @@ On completion, the installer displays the finish window.
 	 - Set the environment variables to connect to the database and to run the listener.
 
 		----
-		## For 23c 
+		## For 23c
 
 		Use any one of the following.
 
@@ -588,7 +588,7 @@ On completion, the installer displays the finish window.
 		```
 
 		----
-		## For 21c 
+		## For 21c
 
 		Use any one of the following.
 
@@ -616,7 +616,7 @@ On completion, the installer displays the finish window.
 		```
 
 		----
-		## For 19c 
+		## For 19c
 
 		Use any one of the following.
 
@@ -719,40 +719,40 @@ On completion, the installer displays the finish window.
 
 ## Task 4: Edit listener config
 
-To modify listener configuration, the high-level sequence is - 
+To modify listener configuration, the high-level sequence is -
 
-![Edit listener configuration](./images/edit-listener-config.png " ") **Figure**: Edit Listener config
+![Edit listener configuration](./images/edit-listener-config.png " ") **Figure:** Edit Listener config
 
-After stopping the listener - 
+After stopping the listener -
 
  1. Edit the files - *`listener.ora`*, *`tnsnames.ora`*
  1. Start the listener with the new name - *`./lsnrctl start <new-name>`*
 
 ### Register database with the modified listener
 
-![Register Database with Listener](./images/register-db-with-listener.png " ") **Figure**: Register Database with Listener
+![Register Database with Listener](./images/register-db-with-listener.png " ") **Figure:** Register Database with Listener
 
 - The sections below explain how to modify listener configuration.
 
 	## High-level steps to register database with listener
 
-	 1. Log into the database 
+	 1. Log into the database
 		 - `./sqlplus / as sysdba`
-	 1. Check the existing listener 
+	 1. Check the existing listener
 		 - `show parameter local_listener`
 	 1. Register the new listener -    
 		 - `alter system set local_listener='(ADDRESS=(PROTOCOL=tcp)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1519))';`   
 		 - `alter system register;`
-	 1. Restart the database instance 
+	 1. Restart the database instance
 		 - `shutdown immediate` followed by `startup`
-	 1. Open the PDBs 
+	 1. Open the PDBs
 		 - `alter pluggable database all open;`
-	 1. Verify the new listener 
+	 1. Verify the new listener
 		 - `show parameter local_listener`
 
-	Thus, you can set the listener according to database versions on your host. 
+	Thus, you can set the listener according to database versions on your host.
 
-	For example, 
+	For example,
 	 - for **19c** - *LISTENER19C* port *1519*
 	 - for **21c** - *LISTENER21C* port *1521*
 	 - for **23c** - *LISTENER* port *1523*
@@ -772,7 +772,7 @@ After stopping the listener -
 		$ <copy>cd /scratch/u01/app/oracle/product/19.0.0/dbhome_02/network/admin</copy>
 		```
 
-	 1. Open the file *`listener.ora`*. 
+	 1. Open the file *`listener.ora`*.
 
 		```
 		$ <copy>vi listener.ora</copy>
@@ -780,9 +780,9 @@ After stopping the listener -
 
 		> Press ***i*** to go to the edit (insert) mode.
 
-	 1. Edit listener details at all occurrences. 
-	 
-		 - name - *LISTENER19C* 
+	 1. Edit listener details at all occurrences.
+
+		 - name - *LISTENER19C*
 		 - port - *1519*
 
 		```
@@ -927,7 +927,7 @@ After stopping the listener -
 		SQL> <copy>exit</copy>
 		```
 
-		Your have configured the listener name and port for your database 19c. 
+		Your have configured the listener name and port for your database 19c.
 
 	-->
 
@@ -943,7 +943,7 @@ After stopping the listener -
 		```
 
 	 1. Open the file *`listener.ora`* and edit listener details at all occurrences. For example,	 
-		 - name - *LISTENER19C* 
+		 - name - *LISTENER19C*
 		 - port - *1519*
 
 		```
@@ -964,7 +964,7 @@ After stopping the listener -
 		...
 		```
 
-		Save the file. 
+		Save the file.
 		 - **Esc** + **:wq** or **Esc** + **Shift** + **zz**
 
 	 1. In the same location, open the file *`tnsnames.ora`* and change the port to *1519* at all occurrences.
@@ -991,7 +991,7 @@ After stopping the listener -
 		...
 		```
 
-		Save the file. 
+		Save the file.
 		 - **Esc** + **:wq** or **Esc** + **Shift** + **zz**
 
 	 1. Go to `$ORACLE_HOME/bin` and start the new listener.
@@ -1093,7 +1093,7 @@ After stopping the listener -
 		```
 
 	 1. Open the file *`listener.ora`* and edit listener details at all occurrences. For example,	 
-		 - name - *LISTENER21C* 
+		 - name - *LISTENER21C*
 		 - port - *1521*
 
 		```
@@ -1114,7 +1114,7 @@ After stopping the listener -
 		...
 		```
 
-		Save the file. 
+		Save the file.
 		 - **Esc** + **:wq** or **Esc** + **Shift** + **zz**
 
 	 1. In the same location, open the file *`tnsnames.ora`* and change the port to *1521* at all occurrences.
@@ -1141,7 +1141,7 @@ After stopping the listener -
 		...
 		```
 
-		Save the file. 
+		Save the file.
 		 - **Esc** + **:wq** or **Esc** + **Shift** + **zz**
 
 	 1. Go to `$ORACLE_HOME/bin` and start the new listener.
@@ -1243,7 +1243,7 @@ After stopping the listener -
 		```
 
 	 1. Open the file *`listener.ora`* and edit listener details at all occurrences. For example,	 
-		 - name - Leave the default, *LISTENER* 
+		 - name - Leave the default, *LISTENER*
 		 - port - *1523*
 
 		```
@@ -1264,7 +1264,7 @@ After stopping the listener -
 		...
 		```
 
-		Save the file. 
+		Save the file.
 		 - **Esc** + **:wq** or **Esc** + **Shift** + **zz**
 
 	 1. In the same location, open the file *`tnsnames.ora`* and change the port to *1523* at all occurrences.
@@ -1292,7 +1292,7 @@ After stopping the listener -
 		...
 		```
 
-		Save the file. 
+		Save the file.
 		 - **Esc** + **:wq** or **Esc** + **Shift** + **zz**
 
 	 1. Go to `$ORACLE_HOME/bin` and start the new listener.
@@ -1520,7 +1520,7 @@ After stopping the listener -
 	**Option 2** - Check the listener service for each database
 
 	-	For 19c
-	 
+
 		```
 		$ <copy>ps -ef | grep listener19c</copy>
 		```
@@ -1530,7 +1530,7 @@ After stopping the listener -
 		```
 
 	-	For 21c
-	 
+
 		```
 		$ <copy>ps -ef | grep listener21c</copy>
 		```
@@ -1539,10 +1539,10 @@ After stopping the listener -
 		mgarodia 2538381  672005  0 11:58 pts/3    00:00:00 grep --color=auto listener21c
 		```
 
-	-	For 23c 
-	
+	-	For 23c
+
 		> Note the listener name in upper case.
-	 
+
 		```
 		$ <copy>ps -ef | grep LISTENER</copy>
 		```
@@ -1770,7 +1770,7 @@ After stopping the listener -
 	sqlplus /nolog
 	conn system
 	alter system register;  
-	exit 
+	exit
 	lsnrctl status
 	```
 

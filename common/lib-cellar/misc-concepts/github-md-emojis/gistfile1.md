@@ -71,7 +71,7 @@ Complete list of github markdown emoji markup
 | :feelsgood: `:feelsgood:` | :finnadie: `:finnadie:` | :goberserk: `:goberserk:` |
 | :godmode: `:godmode:` | :hurtrealbad: `:hurtrealbad:` | :rage1: `:rage1:` |
 | :rage2: `:rage2:` | :rage3: `:rage3:` | :rage4: `:rage4:` |
-| :suspect: `:suspect:` | :trollface: `:trollface:` | 
+| :suspect: `:suspect:` | :trollface: `:trollface:` |
 
 ## Nature
 
@@ -355,4 +355,3 @@ thinking-117
  - **Created on** - April 10, (Sun) 2022
  - **Last Updated on** - January 20, (Fri) 2023
  - **Source** - [gist:7360908](https://gist.github.com/rxaviers/7360908)
- 

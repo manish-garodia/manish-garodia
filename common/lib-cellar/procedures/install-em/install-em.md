@@ -133,7 +133,7 @@ $ <copy>./em13500_linux64.bin EMPREREQ_KIT=true</copy>
 	INFO: No detected/configured IoServiceFactoryFactory using Nio2ServiceFactoryFactory
 	```
 
-1. Installation Type - **Create a new Enterprise Manager system** > *Advanced Install*.
+1. Installation Type - **Create a new Enterprise Manager system** &gt; *Advanced Install*.
 
 	![EM Advance Install](./images/em-001-advance-install.png " ")**Figure:** EM Advance Install
 
@@ -250,13 +250,13 @@ These credentials are required for the maintenance of EM.
 	- **Agent Registration Password** - Enter Agent login password <if type="hidden">*Welcome_1*</if>   
 	(re-enter to confirm password)
 
-	Oracle Database 19c has some default tablespaces under this location - 
+	Oracle Database 19c has some default tablespaces under this location -
 
 	```
 	$ <copy>/scratch/u01/app/mgarodia19/oradata/ORCL19/orcl19pdb</copy>
 	```
 
-	The default tablespaces are *`sysaux01.dbf`*, *`system01.dbf`*, *`temp01.dbf`*, *`undotbs01.dbf`*, and *`users01.dbf`*. The EM installer adds further tablespaces to this location. 
+	The default tablespaces are *`sysaux01.dbf`*, *`system01.dbf`*, *`temp01.dbf`*, *`undotbs01.dbf`*, and *`users01.dbf`*. The EM installer adds further tablespaces to this location.
 
 	Leave the defaults and continue.
 
@@ -297,7 +297,7 @@ These credentials are required for the maintenance of EM.
 		### Output
 
 		```
-		Starting to execute allroot.sh ......... 
+		Starting to execute allroot.sh .........
 
 		Starting to execute /scratch/u01/software/em/middleware/root.sh ......
 		Performing root user operation.
@@ -310,15 +310,15 @@ These credentials are required for the maintenance of EM.
 		Press Enter
 
 		```
-		Enter the full pathname of the local bin directory: 
-		[/usr/local/bin]: 
+		Enter the full pathname of the local bin directory:
+		[/usr/local/bin]:
 		```
 
 		Press Enter again.
 
 		```
-		/usr/local/bin is read only.  Continue without copy (y/n) or retry (r)? 
-		[y]: 
+		/usr/local/bin is read only.  Continue without copy (y/n) or retry (r)?
+		[y]:
 		```
 
 		## Result
@@ -370,19 +370,21 @@ These credentials are required for the maintenance of EM.
 - Middleware folder - `/scratch/u01/software/em/middleware/bin`
 - Agent folder - `/scratch/u01/software/em/agent/agent_13.5.0.0.0/bin`
 
-> **Cite**:    
+> **Cite:**    
 > Another EM installation procedure explained here - [Manual EM Shiphome installation on OCI](https://confluence.oraclecorp.com/confluence/display/EMQ/Manual+EM+Shiphome+installation+on+OCI)
 
 ## Task 3: EM post installation checks
 
 - After installing EM, you can log into the EM console using a web browser.
 
-	> **Note**: You can access the EM console only if OMS and agent are up and running.
+	> **Note:** You can access the EM console only if OMS and agent are up and running.
 
 	----
 	## Log in to EM
 
 	Open this page in a web browser - [EM login](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em).
+
+	![EM login](./images/em-002-login-page.png " ") **Figure:** EM login screen
 
 	**Credentials**
 	 - User name - *sysman*
@@ -411,13 +413,13 @@ These credentials are required for the maintenance of EM.
 	## Check OMS status
 
 	1. In a terminal, go to the middleware home location.
-	
+
 		```
 		$ <copy>cd /scratch/u01/software/em/middleware/bin</copy>
 		```
 
 	1. Check the OMS status.
-	
+
 		```
 		$ <copy>./emctl status oms</copy>
 		```
@@ -432,7 +434,7 @@ These credentials are required for the maintenance of EM.
 		JVMD Engine is Up
 		```
 
-		Error
+		Failure
 
 		```
 		Oracle Enterprise Manager Cloud Control 13c Release 5  
@@ -442,27 +444,31 @@ These credentials are required for the maintenance of EM.
 		JVMD Engine is Down
 		```
 
-		If OMS is down, start the OMS server. 
+		If OMS is down, start the OMS server.
 
 		```
 		$ <copy>./emctl start oms</copy>
 		```
 
+		> **Note:** Before starting OMS server, ensure that the repo database (*19c*) is up and running. If the repo is closed, OMS will not start. 
+
 	----
 	## Check Agent status
 
 	1. In a terminal, go to the agent location.
-	
+
 		```
 		$ <copy>cd /scratch/u01/software/em/agent/agent_13.5.0.0.0/bin</copy>
 		```
 
 	1. Check the agent status.
-	
+
 		```
 		$ <copy>./emctl status agent</copy>
 		```
-	
+
+		Success
+
 		```
 		Oracle Enterprise Manager Cloud Control 13c Release 5  
 		Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
@@ -500,11 +506,27 @@ These credentials are required for the maintenance of EM.
 		Agent is Running and Ready
 		```
 
-		If Agent is down, start the agent. 
+		Failure
+
+		```
+		Oracle Enterprise Manager Cloud Control 13c Release 5  
+		Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
+		---------------------------------------------------------------
+		Agent is Not Running
+		```
+
+		If Agent is down, start the agent.
 
 		```
 		$ <copy>./emctl start agent</copy>
 		```
+
+		```
+		Oracle Enterprise Manager Cloud Control 13c Release 5  
+		Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
+		Starting agent ................................................................................... started.
+		```
+
 
 ## Task 4: Add targets manually
 
@@ -970,7 +992,7 @@ A log file is generated to capture the deinstallation process.
 
 	Alternatively, (a longer but working solution is) deinstall both EM and the repository database (Oracle Database 19c) and reinstall them again.
 
-	**Cite**:
+	**Cite:**
 	 - [funoracleapps](https://www.funoracleapps.com/2019/05/oem-13c-installation-failed-with.html)
 	 - [sujeetdba](https://sujeetdba.blogspot.com/2016/09/the-referenced-database-doesnt-contain.html)
 
@@ -1007,7 +1029,7 @@ A log file is generated to capture the deinstallation process.
 		Agent heartbeat status: OMS is unreachable
 		```
 
-	**Solution**:
+	**Solution:**
 
 	- Start OMS.
 
@@ -1258,7 +1280,7 @@ A log file is generated to capture the deinstallation process.
 	Copyright (c) 1996, 2021, Oracle. All rights reserved.
 
 	OMSCA-ERR:Following Pre requisite check failed:     
-	OMSCA-ERR:Failed to connect to repository database with error: IO Error: The Network Adapter could not establish the connection 
+	OMSCA-ERR:Failed to connect to repository database with error: IO Error: The Network Adapter could not establish the connection
 
 	 return value is : 256
 
@@ -1268,10 +1290,10 @@ A log file is generated to capture the deinstallation process.
 	**What went wrong**   
 	OMS wants to communicate with the repository database (for example, 19c) and say good-bye. But either the repository database is deinstalled already from the host or is unreachable.
 
-	 > **Note:** EM refuse to deinstall if the repository database is unavailable. 
+	 > **Note:** EM refuse to deinstall if the repository database is unavailable.
 
 	**Workaround**   
-	In such case, you cannot deinstall EM the usual way anymore. You may hard-remove EM from your system. Delete the EM files/folders manually from the middleware home location. 
+	In such case, you cannot deinstall EM the usual way anymore. You may hard-remove EM from your system. Delete the EM files/folders manually from the middleware home location.
 
 	```
 	$ <copy>/scratch/u01/software/em/middleware</copy>
