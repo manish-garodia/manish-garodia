@@ -80,7 +80,7 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
 	1. In the terminal window, enter the following.
 
 		- login as: <i>GUID</i> [*mgarodia*]
-		- mgarodia@phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com's password: <br><i>Enter the password</i> <if type="hidden">[*Livelabs\*1*]</if>
+		- mgarodia@phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com's password: <br><i>Enter the password</i> <if type="hidden">[*Livelabs\*1*]</if>
 
 		```
 		Last login: Wed Jan 18 12:49:02 2023
@@ -125,7 +125,7 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
 		$ <copy>vncserver</copy>
 		```
 		```
-		WARNING: vncserver has been replaced by a systemd unit and is about to be removed in future releases.
+		WARNING: vncserver has been replaced by a systemd unit and is now considered deprecated and removed in upstream.
 		Please read /usr/share/doc/tigervnc/HOWTO.md for more information.
 
 		New 'phoenix211284:1 (mgarodia)' desktop is phoenix211284:1
@@ -236,12 +236,29 @@ The following steps help you get the VM back in its original running state.
 
 	1. Start VNC using either command.
 
+		Option 1
+
 		```
 		$ <copy>vncserver</copy>
 		```
 
+		Option 2
+
 		```
 		$ <copy>systemctl start vncserver@:1</copy>
+		```
+
+		Failure with Option 2 command
+
+		```
+		==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ====
+		Authentication is required to start 'vncserver@:1.service'.
+		Authenticating as: root
+		Password:
+		polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+		==== AUTHENTICATION FAILED ====
+		Failed to start vncserver@:1.service: Access denied
+		See system logs and 'systemctl status vncserver@:1.service' for details.
 		```
 
 	For details, check <i>Start VNC Server</i> under [Task 2: Configure VNC for VM](?lab=vm-real-axons#Task2:ConfigureVNCforVM) explained above.
@@ -417,7 +434,7 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 
 			```
 			mgarodia   465 31047  0 03:57 pts/5    00:00:00 grep --color=auto vnc
-			mgarodia  2415     1  0  2021 ?        00:15:13 /usr/bin/Xvnc :1 -auth /home/mgarodia/.Xauthority -desktop phoenix123546:1 (mgarodia) -fp catalogue:/etc/X11/fontpath.d -geometry 1024x768 -pn -rfbauth /home/mgarodia/.vnc/passwd -rfbport 5901 -rfbwait 30000
+			mgarodia  2415     1  0  2021 ?        00:15:13 /usr/bin/Xvnc :1 -auth /home/mgarodia/.Xauthority -desktop phoenix211284:1 (mgarodia) -fp catalogue:/etc/X11/fontpath.d -geometry 1024x768 -pn -rfbauth /home/mgarodia/.vnc/passwd -rfbport 5901 -rfbwait 30000
 			mgarodia  2431     1  0  2021 ?        00:00:00 /bin/sh /home/mgarodia/.vnc/xstartup
 			```
 
@@ -489,13 +506,13 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 		Output:
 
 		```
-		New 'phoenix123546:1 (mgarodia)' desktop is phoenix123546:1
+		New 'phoenix211284:1 (mgarodia)' desktop is phoenix211284:1
 
 		Starting applications specified in /home/mgarodia/.vnc/xstartup
-		Log file is /home/mgarodia/.vnc/phoenix123546:1.log
+		Log file is /home/mgarodia/.vnc/phoenix211284:1.log
 		```
 
-		The VNC server is back. You can connect with the VNC viewview, for example TigerVNC, again.
+		The VNC server is back. You can connect with the VNC viewer, for example TigerVNC, again.
 
 ## Acknowledgements
 

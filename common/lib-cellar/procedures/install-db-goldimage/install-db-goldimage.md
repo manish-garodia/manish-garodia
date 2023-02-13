@@ -554,6 +554,13 @@ On completion, the installer displays the finish window.
 		$ <copy>cd /scratch/u01/app/mgarodia/oradata/</copy>
 		```
 
+		Default tablespaces - 
+		 - `sysaux01.dbf`
+		 - `system01.dbf`
+		 - `temp01.dbf`
+		 - `undotbs01.dbf`
+		 - `users01.dbf`
+
 	----
 	## 4. Set environment variables
 

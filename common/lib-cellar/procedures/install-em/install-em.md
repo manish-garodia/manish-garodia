@@ -76,7 +76,7 @@ To fix this, set the `DISPLAY` environment variable from the shell you are using
 	Example
 
 	```
-	$ <copy>export DISPLAY=phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:1.0</copy>
+	$ <copy>export DISPLAY=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:1.0</copy>
 	```
 
  - **Shell - *csh***
@@ -90,7 +90,7 @@ To fix this, set the `DISPLAY` environment variable from the shell you are using
 	Example
 
 	```
-	$ <copy>setenv DISPLAY phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:1.0</copy>
+	$ <copy>setenv DISPLAY phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:1.0</copy>
 	```
 
 ----
