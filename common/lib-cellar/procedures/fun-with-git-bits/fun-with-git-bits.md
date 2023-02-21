@@ -54,7 +54,7 @@ The information in this lab revolves around -
 
 	- All interactions between the fork and OLL takes places on the GH page (through a web browser).
 
-		> **Note:** To view the details of a file, such as date/timestamp or last modified by, use the GH page.
+		> **Note**: To view the details of a file, such as date/timestamp or last modified by, use the GH page.
 
 	### Preview a lab
 
@@ -123,17 +123,21 @@ The information in this lab revolves around -
 
 	1. If your fork repo is <ins>old</ins> (not updated), and the clone is <ins>in sync</ins> (up-to-date) with the fork, then `merge upstream/main` will not show any changes. If you try to merge with `upstream/main`, it will show that - <i>your branch is up-to-date</i>. In reality, both clone and fork are <ins>behind</ins> OLL master.
 
-		> **Note:** Always fetch origin (or fetch upstream) to update the fork from `upstream/main` and then try to `merge upstream`.
+		> **Note**: Always fetch origin (or fetch upstream) to update the fork from `upstream/main` and then try to `merge upstream`.
 
 	1. If you modify an older version of a file, GH returns a conflict error on pull request. In such case, update the fork and clone, make changes your file, and submit the pull request again.
 
 	1. When you submit a PR to OLL master, any further merging from your Github account is blocked. Until a code owner reviews and approves the PR, you cannot submit another PR in parallel.  
 
-		> **Note:** After submitting the PR if you make changes to any files, you can still commit to master and submit a *merge request* instead.
+		> **Note**: After submitting the PR if you make changes to any files, you can still commit to master and submit a *merge request* instead.
 
 	1. Create a fork from the GH page and create a clone of fork from Git Desktop. If it takes longer, disconnect VPN and try creating the clone again.
 
 	1. If a lab is in development and a writer wants to initiate a review, do it from the fork, not from OLL. 
+
+	1. When you edit the contents of a markdown file or add/modify/remove files from the lab folders, the live-server plugin reloads the entire page immediately even for minor changes. It jumps to the top of the page and you have to scroll down again to the edited section. 
+
+		> **Tip**: To update the html output instantenously keeping the focus on the section being edited, click on the *Heading level 2* (task URLs) in the left navigation pane. The page will reload but will display the edited section instead of displaying the top of the page. 
 
 	</if>
 
@@ -158,7 +162,7 @@ The information in this lab revolves around -
 
 		![Select local path and create clone repo](./images/clone-03-select-repo-local-path.png " ")
 
-		> **Note:** Check if the **Local path** is correct, or **Choose** a different path for the clone repo directory.
+		> **Note**: Check if the **Local path** is correct, or **Choose** a different path for the clone repo directory.
 
 	----
 	## Add existing clone to GitHub Desktop
@@ -210,7 +214,7 @@ The information in this lab revolves around -
 
 		![Remove repo](./images/clone-11-remove-repo.png " ")
 
-		 > **Note:** To physically remove files and folders of the repo from your system, select the option **Also move this repository to Recycle Bin** in the above pop-up window. Optionally, this step may display a window for folder access permissions.   
+		 > **Note**: To physically remove files and folders of the repo from your system, select the option **Also move this repository to Recycle Bin** in the above pop-up window. Optionally, this step may display a window for folder access permissions.   
 		 Click **Continue** to delete the files and folders of the repo.
 
 		 > ![Folder permission](./images/clone-12-folder-permission.png " ")
@@ -377,7 +381,7 @@ The information in this lab revolves around -
 
 	The changes from the local clone are pushed to the fork repo.
 
-	> **Note:** It may take a few minutes for your fork to build the Github pages.
+	> **Note**: It may take a few minutes for your fork to build the Github pages.
 
 </if>
 
@@ -408,7 +412,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		1. Go to your fork repo `<your-account>/learning-library`.
 
-		> **Note:** If you have submitted a pull request already and it is under review (waiting for approval), then you cannot create another pull request in parallel. The **Branch** menu will have an option to **Show pull request** instead.
+		> **Note**: If you have submitted a pull request already and it is under review (waiting for approval), then you cannot create another pull request in parallel. The **Branch** menu will have an option to **Show pull request** instead.
 
 	----
 	## Submit pull request (PR)
@@ -425,13 +429,13 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	1. From your fork repo, go to **Pull requests** &gt; **New pull request**.
 
-		> **Note:** The page must display that you are **<i><font style="color:rgb(63,185,61);">Able to merge</font></i>** (in green). The arrow is from your fork (head repo) and points to OLL (base repo).
+		> **Note**: The page must display that you are **<i><font style="color:rgb(63,185,61);">Able to merge</font></i>** (in green). The arrow is from your fork (head repo) and points to OLL (base repo).
 
 	1. Click **Create pull request**.
 
 	1. Review the message for the PR.
 
-		> **Note:** Do not forget to mention the workshop ID in the subject line of the message.
+		> **Note**: Do not forget to mention the workshop ID in the subject line of the message.
 
 	1. Click **Create pull request**.   
 		It creates a merge request with a four-digit code and displays a message.
@@ -474,7 +478,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 			$ <copy>git status</copy>
 			```
 
-			> **Tip:** It is a good practice to view git status at the beginning and also in between or at the end before commit, to verify the correct files are included in the commit.
+			> **Tip**: It is a good practice to view git status at the beginning and also in between or at the end before commit, to verify the correct files are included in the commit.
 
 			----
 			## Display compact status
@@ -576,11 +580,11 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 			----
 			## Undo (Rollback) staging
 
-			**Use case:** You have staged your modified files in the clone but not yet committed to main repo. You want to bring them back and make more changes to the staged files, before committing.
+			**Use case**: You have staged your modified files in the clone but not yet committed to main repo. You want to bring them back and make more changes to the staged files, before committing.
 
 			You can undo staging without hurting the files or losing your local changes. This will bring the staged files back into their previous unstaged condition but will not affect the content changes.
 
-			 > **Note:** This command is *safe* to use.
+			 > **Note**: This command is *safe* to use.
 
 			 - To unstage a single file:
 
@@ -601,7 +605,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 			----
 			## Discard local changes
 
-			**Use case:** The local changes in the clone are incorrect and you want the files back from the main repo.
+			**Use case**: The local changes in the clone are incorrect and you want the files back from the main repo.
 
 			<i>DO NOT</i> use these, unless you want to discard all changes made in the clone and update from main repo.
 
@@ -611,11 +615,11 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 			$ git restore .
 			```
 
-			**Warning:** All local changes will be **lost forever**.
+			**Warning**: All local changes will be **lost forever**.
 
 			The `git restore` command without the *--staged* flag will forget all local changes. This command is irreversible, you cannot retrieve the discarded changes ever again.
 
-			> **Note:** If you stage some files followed by `git restore`, then all unstaged files (local changes) will be lost but the files that are already staged will remain intact, ready for committing.
+			> **Note**: If you stage some files followed by `git restore`, then all unstaged files (local changes) will be lost but the files that are already staged will remain intact, ready for committing.
 
 			**See also** *un-stage a file*
 
@@ -630,7 +634,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 			This command opens a file in an editor where you can enter the details, including the <i>summary</i> and <i>description</i>.
 
-			> **Note:** The first line is the <i>summary</i> and remaining portion is the <i>description</i>. Leave an empty line between the summary and description.
+			> **Note**: The first line is the <i>summary</i> and remaining portion is the <i>description</i>. Leave an empty line between the summary and description.
 
 		1. Save the file for commit, *:wq*.
 
@@ -639,7 +643,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 			**Scenario**  
 			Suppose, you forgot to stage some files, or want to un-stage a wrong file, you can quit without saving and cancel the commit.
 
-			> **Note:** Git Bash does not commit with an empty file.
+			> **Note**: Git Bash does not commit with an empty file.
 
 			----
 			## Still hungry for more?
@@ -662,7 +666,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 				----
 				## Undo (rollback) commit and redo
 
-				**Use case:** Your commit message is wrong or you want to bring back for more editing, before issuing a `push origin`. You can undo the last commit without hurting any files or local changes.
+				**Use case**: Your commit message is wrong or you want to bring back for more editing, before issuing a `push origin`. You can undo the last commit without hurting any files or local changes.
 
 				It is safe to use.
 
@@ -807,7 +811,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		$ <copy>git config --global http.proxy http://manish.garodia%40oracle.com:Oracle.com@www-proxy-idc.in.oracle.com:80</copy>
 		```
 
-		> **Note:** Encode `@` in username with `%40`.
+		> **Note**: Encode `@` in username with `%40`.
 
 	----
 	## Start a new repo
@@ -921,7 +925,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	$ <copy>git clone https://github.com/bg-manish/northern-lights northern-lights</copy>
 	```
 
-	> **Note:** This command will create a folder *`northern-lights`* and clone the repo from the given URL.
+	> **Note**: This command will create a folder *`northern-lights`* and clone the repo from the given URL.
 
 	----
 	## Common `git` commands
@@ -998,7 +1002,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	![VS Code Plugins](./images/vscode-plugins-all.png " ")
 
-	> **Note:** Install the editor first, followed by the plugin.
+	> **Note**: Install the editor first, followed by the plugin.
 
 	----
 	## Visual Studio Code editor
@@ -1017,7 +1021,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	   for Windows 8, 10, 11 (`VSCodeUserSetup-x64-1.72.2.exe`)
 	 - Live Server plugin *5.7.9*
 
-	> **Note:** If you already have VS Code, skip this and jump straight into the steps below.
+	> **Note**: If you already have VS Code, skip this and jump straight into the steps below.
 
 	----
 	## Live Server plugin for VS Code
@@ -1051,7 +1055,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		![Add folder to workspace](./images/vscode-workspace-add-folder.png " ")
 
-		> **Tip:** Adding folders to workspace is a one-time activity. If you have added one or more folders to your workspace already, next time onwards you can directly run the live server.
+		> **Tip**: Adding folders to workspace is a one-time activity. If you have added one or more folders to your workspace already, next time onwards you can directly run the live server.
 
 	1. Click on **Go Live** at the bottom-right corner to run the live server.
 
@@ -1059,7 +1063,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		It opens the Live Server page (clone directory) in your default browser with the URL  `http://127.0.0.1:5500/`.
 
-		> **Tip:** Unlike Atom, keep the VS Code window open (or minimized) while working on your clone. If you close the VS Code window, Live Server stops and you cannot view the pages anymore.
+		> **Tip**: Unlike Atom, keep the VS Code window open (or minimized) while working on your clone. If you close the VS Code window, Live Server stops and you cannot view the pages anymore.
 
 		If you have more than one folder in your VS Code workspace, while you run the live server it may ask which folder to select for the live server.
 
@@ -1119,7 +1123,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	 - Keeping **Shift** and **Alt** pressed, use the cursor keys to select the text in column mode.
 	 - Use **Alt** + drag the Mouse
 
-	> **Note:** I prefer the second option, <i>Shift+Alt</i> and cursor keys.
+	> **Note**: I prefer the second option, <i>Shift+Alt</i> and cursor keys.
 
 ## Tricks up-the-sleeves
 
@@ -1151,7 +1155,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		- **Target** - *"C:\Program Files\Git\git-bash.exe"*   
 		- **Start in** - `[desired-location]` for example *D:\GitHub*
 
-		> **Note:** Do not forget to delete `--cd to home` from **Target**, otherwise the **Start in** value gets overridden.
+		> **Note**: Do not forget to delete `--cd to home` from **Target**, otherwise the **Start in** value gets overridden.
 
 		----
 		## Okay, show me the screenshot >>
@@ -1332,9 +1336,9 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		1. Right-click (F2) and rename.
 		1. Copy the file back to the original location with the new name.
 
-		> **Note:** Renaming a file or a folder at the same location in Windows Explorer does not help because the names are not case-sensitive.
+		> **Note**: Renaming a file or a folder at the same location in Windows Explorer does not help because the names are not case-sensitive.
 
-	- **Final option:** if all the above failed, take the long route -
+	- **Final option**: if all the above failed, take the long route -
 		1. Delete the file (or move it out to another location)
 		1. Create a folder with the new name (or rename at another location and copy it back).
 		1. Commit to main repo with the new name.
@@ -1360,7 +1364,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	$ <copy>git commit --amend</copy>
 	```
 
-	> **Note:** Do this just after the `commit` command, before issuing a `push origin`.
+	> **Note**: Do this just after the `commit` command, before issuing a `push origin`.
 
 	To add more files for staging to the previous commit:
 
@@ -1439,7 +1443,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	 ![git rebase options](./images/git-commit-rebase.png " ")
 
-		 > **Note:** Press **i** to enter the **Edit** mode.
+		 > **Note**: Press **i** to enter the **Edit** mode.
 
 		Use either of the following:
 
@@ -1473,7 +1477,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		 $ <copy>git push origin main</copy>
 		 ```
 
-	> **Note:** Git returns an error if you have unstaged changed in your clone. Stage them first (`git add`) before issuing `git rebase -i`.
+	> **Note**: Git returns an error if you have unstaged changed in your clone. Stage them first (`git add`) before issuing `git rebase -i`.
 
 	![Git rebase unstaged files](./images/rebase-error.png " ")
 
@@ -1732,7 +1736,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	**What to do**  
 	1. Download the new [Atom app](https://atom.io/) (`v1.60.0`) and install afresh.
 
-		 > **Note:** You may remove the older version of Atom manually using Window Explorer or CLI (git bash).
+		 > **Note**: You may remove the older version of Atom manually using Window Explorer or CLI (git bash).
 
 	1. Open GitHub Desktop and go to **File** &gt; **Options**.
 
@@ -1779,7 +1783,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		![Plugin structure](./images/notepad-plugins-structure.png " ")
 
-		> **Tip:** Ensure to match the folder name with the DLL name (excluding file extension).
+		> **Tip**: Ensure to match the folder name with the DLL name (excluding file extension).
 
 		To find the `Notepad++\Plugins` folder, go to **Plugins** and select <i>Open Plugins Folder</i>, the last entry right below <i>Plugins Admin</i>.
 
@@ -1850,7 +1854,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	 It will bypass the SSL certificate validation and install the live-server plugins.
 
-	 > **Note:** Though the instructions in the `.apmrc` file says *... should not be edited ...*, ignore that and continue adding the above line.
+	 > **Note**: Though the instructions in the `.apmrc` file says *... should not be edited ...*, ignore that and continue adding the above line.
 
 	<if type="hidden">
 
