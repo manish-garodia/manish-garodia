@@ -56,6 +56,7 @@ The information in this lab revolves around -
 
 		> **Note**: To view the details of a file, such as date/timestamp or last modified by, use the GH page.
 
+	----
 	### Preview a lab
 
 	**A. View a lab or workshop from the fork**
@@ -64,6 +65,7 @@ The information in this lab revolves around -
 	<fork>.github.io/<filepath>/filename
 	```
 
+	----
 	#### Prerequisites
 
 	1. From the fork repo, go to **Settings** &gt; **GitHub pages**.
@@ -110,7 +112,9 @@ The information in this lab revolves around -
 	----
 	## A few good practices
 
-	1. You must keep your fork and clone updated with Oracle learning-library, even though you are not actively working on your workshop or your workshop has no modifications.
+	Remember to:
+
+	1. Keep your fork and clone updated with Oracle learning-library, even though you are not actively working on your workshop or your workshop has no modifications.
 
 	1. If you do not update your clone and fork for a long time and the number of commit changes with OLL master is significantly high, you may find conflicts while merging or submitting a pull request. Then you may need to delete your fork and your clone, and then redo like afresh.
 
@@ -135,93 +139,17 @@ The information in this lab revolves around -
 
 	1. If a lab is in development and a writer wants to initiate a review, do it from the fork, not from OLL. 
 
-	1. When you edit the contents of a markdown file or add/modify/remove files from the lab folders, the live-server plugin reloads the entire page immediately even for minor changes. It jumps to the top of the page and you have to scroll down again to the edited section. 
+	1. When you edit the contents of a markdown file or add/modify/remove files from the lab folders, the live-server plugin reloads the entire page immediately even for minor changes. It jumps to the top of the page and you have to scroll down again to the edited section.
 
-		> **Tip**: To update the html output instantenously keeping the focus on the section being edited, click on the *Heading level 2* (task URLs) in the left navigation pane. The page will reload but will display the edited section instead of displaying the top of the page. 
+		> **Tip**: To update the html output instantenously keeping the focus on the section being edited, click on the *Heading level 2* (task URLs) in the left navigation pane. The page will reload but will display the edited section instead of displaying the top of the page.
+
+	1. Keep your clone up-to-date before making any changes locally.
+
+	1. Resolve conflicts in clone first before issuing a merge or push
 
 	</if>
 
 	<if type="gitdesktop">
-
-	----
-	## Create a new clone on your local system
-
-	After you fork the main repo, you can create a clone of the fork on your local system.
-
-	1. Go to **File** &gt; **Clone repository** (keyboard shortcut **Ctrl**+**Shift**+**O**).
-
-		![Clone menu option 1](./images/clone-01-clone-menu-option1.png " ")
-
-		Alternatively, click the arrow next to **Current repository** &gt; **Add** &gt; **Clone repository**.
-
-		![Clone menu option 2](./images/clone-02-clone-menu-option2.png " ")
-
-		If you are logged in to Github, the desktop app displays all repos associated with your account under **Your repositories**.
-
-	1. Select the repo that you want to clone, for example, *common*.
-
-		![Select local path and create clone repo](./images/clone-03-select-repo-local-path.png " ")
-
-		> **Note**: Check if the **Local path** is correct, or **Choose** a different path for the clone repo directory.
-
-	----
-	## Add existing clone to GitHub Desktop
-
-	If you create a new clone using GitHub Desktop, then the window displays the repo under the account name. But if you have a clone already created using Git Bash or other sources, it will be not listed in GitHub Desktop automatically.
-
-	However, you can add such existing clone repos to your GitHub Desktop application.
-
-	1. From the **File** menu, select **Add local repository** (keyboard shortcut **Ctrl**+**O**).
-
-		![Add local repo menu option 1](./images/clone-04-add-local-repo-menu-option1.png " ")
-
-		Alternatively, click the arrow next to **Current repository** &gt; **Add** &gt; **Add existing repository**.
-
-		![Add local repo menu option 2](./images/clone-05-add-local-repo-option2.png " ")
-
-	1. **Choose** the **Local path** of the clone repo folder.
-
-		![Choose local path](./images/clone-06-local-path.png " ")
-
-	1. Select the clone repo folder in the browser window.
-
-		![Select folder](./images/clone-07-select-folder.png " ")
-
-		The Add local repository window displays the folder you selected.
-
-	1. Click on **Add repository** to add the clone repository to GitHub Desktop.
-
-		![Add clone repo](./images/clone-08-add-clone-repo.png " ")
-
-		GitHub Desktop displays the repos under the associated account name.
-
-		![All repos](./images/clone-09-all-repos.png " ")
-
-		Similarly, you can remove clone repos from GitHub Desktop.
-
-	----
-	## Remove clone repo from GitHub Desktop
-
-	If you do not want to manage a repo, you can remove it from GitHub Desktop. While removing a repo, you may choose to keep the files and folders on your system or delete them along.
-
-	1. Right-click the repo, which you want to remove, and select **Remove**.
-
-		![Remove option](./images/clone-10-remove-option.png " ")
-
-		It displays a confirmation pop-up.
-
-	1. Click **Remove** again to remove the clone repo from GitHub Desktop.
-
-		![Remove repo](./images/clone-11-remove-repo.png " ")
-
-		 > **Note**: To physically remove files and folders of the repo from your system, select the option **Also move this repository to Recycle Bin** in the above pop-up window. Optionally, this step may display a window for folder access permissions.   
-		 Click **Continue** to delete the files and folders of the repo.
-
-		 > ![Folder permission](./images/clone-12-folder-permission.png " ")
-
-		If GitHub Desktop is unable to remove the clone repo, then it displays an error message.
-
-		![Error removing repo](./images/clone-13-remove-repo-error.png " ")
 
 	----
 	## Sync between clone, fork, and main repo
@@ -234,7 +162,7 @@ The information in this lab revolves around -
 	- <font style="color:rgb(112,173,71);">**Option 1** - from **Fork**, *fetch* OLL master and then in Github Desktop *pull origin* to **Clone**</font>
 	- <font style="color:rgb(91,155,213);">**Option 2** - from **Clone**, *merge* with OLL master in GitHub Desktop and then *push origin* to **Fork**</font>
 
-		![Update fork and clone](./images/update-fork-clone-grey.png " ")
+		![Update fork and clone](./images/desktop/update-fork-clone-grey.png " ")
 
 	</if>
 
@@ -262,6 +190,87 @@ The information in this lab revolves around -
 	In short, the *git pull* command does a *git fetch* followed by a *git merge*.
 
 	</if>
+
+	----
+	## Want to *Approve a Pull Request*? Here it is
+
+	When a user submits a Pull Request (PR), Github assigns it with a unique (incremental) ID. As a moderator (admin), you can review the PR, add comments, approve the changes and merge them with the main repo or even request further changes.
+
+	**Procedure**
+
+	1. Log into Github in a web browser and open the repo that has the PR.
+
+	1. Go to the **Pull requests** tab.
+
+	1. work-in-progress
+
+
+	----
+	## Github pages
+
+	You can apply Jekyll themes to your Github pages.
+
+	1. Keep this configuration file under the root folder of your repo. 
+
+		- *`_config.yml`*
+
+	1. Edit the `yml` file and specify the theme.
+
+		```
+		# theme: jekyll-theme-architect
+		# theme: jekyll-theme-cayman
+		# theme: jekyll-theme-dinky
+		# theme: jekyll-theme-hacker
+		# theme: jekyll-theme-leap-day
+		# theme: jekyll-theme-merlot
+		# theme: jekyll-theme-midnight
+		# theme: jekyll-theme-minima
+		# theme: jekyll-theme-minimal
+		# theme: jekyll-theme-modernist
+		# theme: jekyll-theme-primer
+		# theme: jekyll-theme-slate
+		# theme: jekyll-theme-tactile
+		# theme: jekyll-theme-time-machine
+		```
+
+		> Do not forget to uncomment the line before saving.
+
+	 - See the GitHub Pages help documentation for instructions on how to add a theme to your GitHub Pages site, and follow The GitHub Blog for information on additional theme support.
+
+		**Cite**: [Getting Started with GitHub Pages](https://www.youtube.com/watch?v=QyFcl_Fba-k)
+
+		----
+		## Supported Jekyll themes
+
+		GitHub Pages supports the following themes.
+		 - Architect
+			![Architect theme](./images/jekyll-themes/jekyll-theme-architect.jpg " ")
+		 - Cayman
+			![Cayman theme](./images/jekyll-themes/jekyll-theme-cayman.jpg " ")
+		 - Dinky
+			![Dinky theme](./images/jekyll-themes/jekyll-theme-dinky.jpg " ")
+		 - Hacker
+			![Hacker theme](./images/jekyll-themes/jekyll-theme-hacker.jpg " ")
+		 - Leap day
+			![Leap day theme](./images/jekyll-themes/jekyll-theme-leap-day.jpg " ")
+		 - Merlot
+			![Merlot theme](./images/jekyll-themes/jekyll-theme-merlot.jpg " ")
+		 - Midnight
+			![Midnight theme](./images/jekyll-themes/jekyll-theme-midnight.jpg " ")
+		 - Minima
+		 - [Minimal](https://orderedlist.com/minimal/)
+
+			![Minimal theme](./images/jekyll-themes/jekyll-theme-minimal.jpg " ")
+
+			Used for Github pages theme - [database](https://oracle-livelabs.github.io/database/)
+
+		 - Modernist
+			![Modernist theme](./images/jekyll-themes/jekyll-theme-modernist.jpg " ")
+		 - Slate
+			![Slate theme](./images/jekyll-themes/jekyll-theme-slate.jpg " ")
+		 - Tactile
+			![Tactile theme](./images/jekyll-themes/jekyll-theme-tactile.jpg " ")
+		 - Time machine
 
 <if type="gitdesktop">
 
@@ -383,6 +392,123 @@ The information in this lab revolves around -
 
 	> **Note**: It may take a few minutes for your fork to build the Github pages.
 
+	----
+	## Create a new clone on your system
+
+	After you fork the main repo, you can create a clone of the fork on your local system.
+
+	1. Go to **File** &gt; **Clone repository** (keyboard shortcut **Ctrl**+**Shift**+**O**).
+
+		![Clone menu option 1](./images/desktop/clone-01-menu-option1.png " ")
+
+		Alternatively, click the arrow next to **Current repository** &gt; **Add** &gt; **Clone repository**.
+
+		![Clone menu option 2](./images/desktop/clone-02-menu-option2.png " ")
+
+		If you are logged in to Github, the desktop app displays all repos associated with your account under **Your repositories**.
+
+	1. Select the repo that you want to clone, for example, *common*.
+
+		![Select local path and create clone repo](./images/desktop/clone-03-select-repo-local-path.png " ")
+
+		> **Note**: Check if the **Local path** is correct, or **Choose** a different path for the clone repo directory.
+
+	If you add a new repo to GitHub Desktop, then you publish the branch for the first time.
+
+	![Publish branch](./images/desktop/new-repo-publish-branch.png " ")
+
+	----
+	## Add existing clone to GitHub Desktop
+
+	If you create a new clone using GitHub Desktop, then the window displays the repo under the account name. But if you have a clone already created using Git Bash or other sources, it will be not listed in GitHub Desktop automatically.
+
+	However, you can add such existing clone repos to your GitHub Desktop application.
+
+	1. From the **File** menu, select **Add local repository** (keyboard shortcut **Ctrl**+**O**).
+
+		![Add local repo menu option 1](./images/desktop/clone-04-add-local-repo-menu-option1.png " ")
+
+		Alternatively, click the arrow next to **Current repository** &gt; **Add** &gt; **Add existing repository**.
+
+		![Add local repo menu option 2](./images/desktop/clone-05-add-local-repo-option2.png " ")
+
+	1. **Choose** the **Local path** of the clone repo folder.
+
+		![Choose local path](./images/desktop/clone-06-local-path.png " ")
+
+	1. Select the clone repo folder in the browser window.
+
+		![Select folder](./images/desktop/clone-07-select-folder.png " ")
+
+		The Add local repository window displays the folder you selected.
+
+	1. Click on **Add repository** to add the clone repository to GitHub Desktop.
+
+		![Add clone repo](./images/desktop/clone-08-add-clone-repo.png " ")
+
+		GitHub Desktop displays the repos under the associated account name.
+
+		![All repos](./images/desktop/clone-09-all-repos.png " ")
+
+		Similarly, you can remove clone repos from GitHub Desktop.
+
+	----
+	## Remove clone repo from GitHub Desktop
+
+	If you do not want to manage a repo, you can remove it from GitHub Desktop. While removing a repo, you may choose to keep the files and folders on your system or delete them along.
+
+	1. Right-click the repo, which you want to remove, and select **Remove**.
+
+		![Remove option](./images/desktop/clone-10-remove-option.png " ")
+
+		It displays a confirmation pop-up.
+
+	1. Click **Remove** again to remove the clone repo from GitHub Desktop.
+
+		![Remove repo](./images/desktop/clone-11-remove-repo.png " ")
+
+		 > **Note**: To physically remove files and folders of the repo from your system, select the option **Also move this repository to Recycle Bin** in the above pop-up window. Optionally, this step may display a window for folder access permissions.   
+		 Click **Continue** to delete the files and folders of the repo.
+
+		 > ![Folder permission](./images/desktop/clone-12-folder-permission.png " ")
+
+		If GitHub Desktop is unable to remove the clone repo, then it displays an error message.
+
+		![Error removing repo](./images/desktop/clone-13-remove-repo-error.png " ")
+
+	Alternatively, you can delete the clone from Windows Explorer or command line and then remove it from GitHub Desktop.
+
+	1. Right-click the repo and select **Remove**.
+
+		> **Tip**: Notice the exclamation sign within a triangle indicating that something is not right with the repo.
+
+		![Remove option](./images/desktop/clone-14-remove-repo-option.png " ")
+
+		It displays that it could not find the selected repo because it is either moved or deleted. You can either locate the repo on your system or create a clone again. However, for this task, remove the repo altogether.
+
+	1. Click **Remove** again to remove the clone repo from GitHub Desktop.
+
+		![Remove repo](./images/desktop/clone-15-remove-repo-deleted.png " ")
+
+	----
+	## Pull error - **Stash changes**
+
+	You do a *pull origin* to update your clone but a message appears stating that some files would be overwritten.
+
+	![Pull origin error - stash changes](./images/desktop/pull-error-01-stash.jpg " ")
+
+	If you want to continue `pull origin` without losing the local changes, then click on **Stash changes and continue**. Your files remain unhurt, though they do not appear in the changes list anymore.
+
+	> It is like storing in a recycle bin temporarily.
+
+	If you do not want to keep the changes and throw them away, then click **Discard** to forget the changes permanently.
+
+	Else, you can click **Restore** to get the local changes back in the changes list after the pull is complete.
+
+	![Restore changes from stash](./images/desktop/pull-error-02-restore-stash.jpg " ")
+
+	You can then continue from the same point where you stashed.
+
 </if>
 
 <if type="gitconcepts">
@@ -423,7 +549,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	This branch is 1 commit ahead of [head:repo]
 	```
 
-	![1 commit ahead](./images/1-commit-ahead.png " ")
+	![1 commit ahead](./images/github/fork-ahead-of-main.png " ")
 
 	Submit a PR to merge your changes with the main repository.
 
@@ -871,10 +997,74 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		- Once you use `git push -u origin main`, from next time onwards you can use only `git push` without any flags.
 		- If you do only `git push` (without -u), then next time you use `git pull`, you have to enter the remote repository url when git pulling.
 
-		To check existing remotes:
+	----
+	## Check existing remotes
+
+	 - Option 1
 
 		```
 		$ <copy>git remote -v</copy>
+		```
+
+	 - Option 2
+
+		```
+		$  <copy>git remote show origin</copy>
+		```
+
+		```
+		* remote origin
+		  Fetch URL: https://github.com/<your-account>/<your-repo>.git
+		  Push  URL: https://github.com/<your-account>/<your-repo>.git
+		  HEAD branch: main
+		  Remote branches:
+			main    tracked
+			sub-dev tracked
+		  Local branch configured for 'git pull':
+			main merges with remote main
+		  Local ref configured for 'git push':
+			main pushes to main (up to date)
+		```
+
+	 - Option 3
+
+		```
+		$ <copy>git config -e</copy>
+		```
+
+		```
+		[core]
+				repositoryformatversion = 0
+				filemode = false
+				bare = false
+				logallrefupdates = true
+				symlinks = false
+				ignorecase = true
+		[submodule]
+				active = .
+		[remote "origin"]
+				url = https://github.com/<your-account>/<your-repo>.git
+				fetch = +refs/heads/*:refs/remotes/origin/*
+		[branch "main"]
+				remote = origin
+				merge = refs/heads/main
+
+		```
+
+		Press **Esc + :q** to quit without saving.
+
+	 - Check all branches
+
+		```
+		$ <copy>git branch -a</copy>
+		```
+
+		```
+		* main
+		  sub-dev
+		  remotes/origin/HEAD -> origin/main
+		  remotes/origin/main
+		  remotes/origin/sub-dev
 		```
 
 	----
@@ -902,7 +1092,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		```
 		$ git clone url
 
-		$ git clone https://github.com/<your-username>/<your-repository>
+		$ git clone https://github.com/[your-account]/[your-repo]
 		```
 
 		**Example**
@@ -960,6 +1150,182 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	- `git revert`   
 	create a new commit with the changes that are rolled back.
 
+## Check for disallowed words
+
+To check for disallowed words, download this script on your local system, if not already downloaded, and run it on your labs.
+
+- [wordlist](https://bit.ly/wordlist-mg)
+
+	This script contains a piece of code that checks for restricted words according to Oracle Documentation Style Guide (OSG).
+
+	----
+	## Run the script
+
+	1. Open git bash and go to the topmost (workshop) level where the content resides.
+
+		```
+		$ <copy>cd github/your-repo/your-workshop-folder</copy>
+		```
+
+	1. Specify the full path of the script *`wordlist`* and press **Enter** to run it.
+
+		```
+		$ <copy>~/Downloads/wordlist</copy>
+		```
+
+		In this example, the script is located in the `Downloads` folder.
+
+	1. The script prompts you to save the results to an `output.txt` file in the `Downloads` folder.
+
+		```
+		$ <copy>your-account/Downloads/output.txt</copy>
+		```
+
+		Press **y** to save the output file or press **n** or **Enter** to ignore.
+
+		> **Note**: As the `output.txt` file is created in bash (Linux-based), if you view it in Windows, then it may display some junk characters because of conversion between operating systems.
+
+		Viewing the same file in Git Bash does not display any junk characters.
+
+		```
+		$ <copy>cat ~/Downloads/output.txt</copy>
+		```
+
+	----
+	**Results**
+
+	![Disallowed words search results](./images/gitbash/disallowed-words-01-script-results.png " ")
+
+	The script checks whether the workshop contains any disallowed words. If it finds any such word, then it displays result with the following details -
+	- <font style="color:rgb(177,72,198);">**file name with full path**</font>
+	- <font style="color:rgb(28,168,0);">**line number**</font>
+	- <font style="color:rgb(255,118,118);">**disallowed word or incorrect usage**</font>
+
+	----
+	## Run script without full path
+
+	You can run this script as a command from any location without specifying the full path. To achieve this, set the environment variable *`$PATH`* depending on the operating system.  
+
+	> ***Warning***: Exercise *<ins>utmost caution</ins>* while doing these.
+
+	----
+	**For Windows**
+
+	1. Right-click **My Computer** or **This PC** &gt; select **Properties** and open **Advanced system settings**.
+
+		![This PC properties](./images/gitbash/disallowed-words-02-thispc-properties.png " ")
+
+	1. In the **Advanced** tab &gt; click **Environment Variables**.
+
+		![Advanced system properties](./images/gitbash/disallowed-words-03-advanced-sys-properties.png " ")
+
+		The window displays user variables for your acount and system variables.
+
+	1. Under **System variables**, select *Path* and click **Edit** to modify the variable.
+
+		![System variable Path - edit](./images/gitbash/disallowed-words-04-sys-var-path-edit.png " ")
+
+	1. Click **New** and then **Browse** to add the location where the script *wordlist* exists.
+
+		![Environment variable Path - new](./images/gitbash/disallowed-words-05-env-var-path-new.png " ")
+
+		> **Caution**: Ensure that you click **New** and browse to the location of the script.   
+		DO NOT edit anything in the Edit environment variable window. Clicking edit will overwrite an existing variable and your system may face serious consequences.
+
+	Click **OK** for all three windows to save your changes and close them.
+
+	You have successfully set the environment variable *$PATH* for Windows system. Similarly, you can set the variable for a Linux system.
+
+	----
+	**For Linux**
+
+	It is pretty much quick.
+
+	1. Edit the *`.bashrc`* file.   
+		Usually, the system files `.bashrc` and `.bash_profile` are located in the home folder under `your-account`.
+
+		 - Windows: `C:\Users\your-account`
+		 - Linux: `/home/your-account`
+
+	1. Add the following lines and include the full path of the script file to set the *`$PATH`* variable.
+
+		```
+		<copy>export PATH=~/Downloads/:$PATH
+		export PATH=/d/git/GitHub/:$PATH</copy>
+		```
+
+	The *$PATH* variable is now set.
+
+	Restart git Bash for the variable to take effect. When you open a new git Bash window, type *wordlist* without the full path to run the script.
+
+	> **Tip**: Git Bash automatically picks up environment variables defined in your system.
+
+	----
+	## Need more explanation?
+
+	**Background**   
+	OSG recommends a **[Word List](https://docs-uat.us.oracle.com/en/sptest/osgxx/word-list.html)** preferred by the National Standards Organization (NISO). For more information about the NISO sort order, see [Sorting Glossary Entries](https://docs-uat.us.oracle.com/en/sptest/osgxx/sorting-glossary-entries.html#GUID-3219677E-95D8-45FC-92EA-CA554D1E1162).
+
+	| What the script does                | What the script does not do |
+	|-------------------------------------|-----------------------------|
+	| Looks for disallowed words across all labs in each subfolder      | Does not perform english grammar checks   |
+	| Exclude files, such as images, `index.html`, and `manifest.json`  | Include files in markdown (or text) format |
+	| Checks for most, if not all, words mentioned in the style guide   |  Does not check the `*.docx` files   |
+	| Provides option to save the output to a file  |  Does not fix the issues automatically |
+
+	Glance the piece of code inside the script -
+
+	```
+	$ <copy>grep -wrEniTaH -B 0 --color=always 'abort|above|admin|afterwards|alive|allow|alphabetical|alphanumerical|all right|amongst|analogue|and/or|anti|as-of date|as per|associate to|auto|backend|backwards|be sure|behave|behavior|below|blacklist|blocksize|boot|bulletted|cancell|can not|case-insensitive|categorise|checkbox|checkmark|check list|choose|classpath|click on|client-server|clusterwide|clipboard|coexist|colour|comment out|comprise|consideration|controlfile|crash|datacenter|datadictionary|datafile|dataguide|dataset|datatype|datawarehouse|deactivate|dead|deconfigure|de-install|dependant|desireable|desire|dialogue box|done|dumb|easy|easier|else|execute|fat client|fatal|filename|fileserver|filesystem|forwards|grey|gray scale|hang|hard code|hard copy|high level|hit|homepage|hot fix|hot keys|hotspot|hyperlink|hyper text|illegal|info|initiate|initiating|input|inter-related|invoke|irrecoverable|issue|joy stick|judgement|keep in mind|kill|lower|left-hand|legal|leverage|licence|like|linearise|link|list box|live|log into|logoff|lower|lower--case|machine|machine-learning|mailstop|mail box|main frame|master|mathematic|menubar|menu option|meta data|mice|moveable|DOS prompt|need to|needs to|non-existent|nonrecoverable|non-volatile|normal|numerical|off.line|on-premise|once|on-line|on-site|onwards|open-source|output|outwards|outdent|over-estimate|over-ride|please|pop-up|possesses|postal code|post.installation|pre-configure|pre-define|pre-existing|prepend|preventative|pull-down|queueing|read-write|reboot|reoccur|removeable|right-hand|run-time|scroll bar|should|sign-in|slave|slider|soft copy|stylesheet|sub-menu|sub-system|tar|tick mark|time-zone|time-line|to-do|tool-bar|tool-tip|top-most|towards|untar|unzip|upper.case|up-time|upwards|username|utilize|via|victim|webpage|web-page|webserver|web-server|web.site|where|whitelist|wish|[cw]ould|zip' --exclude={\*prepare-setup\*,\*manifest\*,\*initialize-environment\*,\*index.html,\*.png,\*.jpg} </copy>
+	```
+
+	### Qualifiers
+
+	*grep* (Global Regular Expression Print)
+
+	- **`'text1|text2|textn'`** - separate different words with pipes to search for multiple patterns (or words) together
+	- **`r`**, *`--recursive`* - include subdirectories
+	- **`E`**, *`--extended-regexp`* - extended regular expression
+	- **`n`**, *`--line-number`* - prints line number
+	- **`i`**, *`--ignore-case`* - for case independent
+	- **`T`**, *`--initial-tab`* - shows tab spacing
+	- **`a`**, *`--text`* - equivalent to --binary-files=text
+	- **`H`**, *`--with-filename`* - prints file name
+	- **`B 0`**, *`--before-context=x`* - prints `x` lines before the context; keep `0` to exclude extra lines
+	- **`color=always`**, *`--colour[=WHEN]`* - use color markers to highlight
+	- **`--exclude=filename`** - skips this single file or directory
+	- **`--exclude={`\*.png,\*.jpg`}`** - skips multiple files and directories together; use backslash  `\` to escape characters
+
+	More qualifiers -
+
+	- `c`, `--count` - shows count of words
+	- `h`, `--no-filename` - hides the file names
+	- `l`, `--files-with-matches` - displays only file names containing matches
+	- `L`, `--files-without-matches` - displays only file names without matches
+	- `o`, `--only-matching` - shows only matching part
+	- `R`, `--dereference-recursive` - recursive and also follow symbolic links
+	- `v`, `--invert-match` - invert match; displays all but matched words
+	- `w`, `--word-regexp` - match only whole words
+	- `z`, `--null-data` - displays entire contents of matching files
+
+	Other search options -
+
+	```
+	$ grep -e pattern1 -e pattern2 filename-or-filepath
+	$ awk '/error|critical/failed/' /var/log/httpd/error_log
+	$ sed -e '/error/b' -e '/critcial/b' -e d /var/log/apache/nixcraft.com_error_log
+	```
+
+	**Cite**
+
+	- [linuxize - using grep](https://linuxize.com/post/how-to-use-grep-command-to-search-files-in-linux/)
+
+	- [cyberciti - search mutliple words](https://www.cyberciti.biz/faq/searching-multiple-words-string-using-grep/)
+
+	- [phoenixnap - mutliple patterns](https://phoenixnap.com/kb/grep-multiple-strings)
+
+	- [linuxhint - prompt for input](https://linuxhint.com/prompt-for-input-bash/)
+
 </if>
 
 ## Code editors and plugins
@@ -1000,7 +1366,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	-->
 
-	![VS Code Plugins](./images/vscode-plugins-all.png " ")
+	![VS Code Plugins](./images/editors/vscode-plugins-all.png " ")
 
 	> **Note**: Install the editor first, followed by the plugin.
 
@@ -1021,7 +1387,10 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	   for Windows 8, 10, 11 (`VSCodeUserSetup-x64-1.72.2.exe`)
 	 - Live Server plugin *5.7.9*
 
-	> **Note**: If you already have VS Code, skip this and jump straight into the steps below.
+	If you already have VS Code, then skip this and jump to the plugins section.
+
+	> **Did you know..?**   
+	You do not require VS Code editor installed on your system. Open a `markdown.md` file in *`github.dev`* and it opens the file in VS Code editor in a web browser (online). 
 
 	----
 	## Live Server plugin for VS Code
@@ -1030,15 +1399,15 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	1. Open the VS Code editor and click the **Extensions** icon in the left menu to open the plugins manager.
 
-		![VS Code - Extensions](./images/vscode-plugin-live-server-install1.png " ")
+		![VS Code - Extensions](./images/editors/vscode-plugin-live-server-install1.png " ")
 
 	1. Search for *Live Server*. Under Live Server, click **Install** to start installing live server.
 
-		![Install Live Server plugin](./images/vscode-plugin-live-server-install2.png " ")
+		![Install Live Server plugin](./images/editors/vscode-plugin-live-server-install2.png " ")
 
 	1.	On completion, click on **Live Server** to verify that the plugin is installed.
 
-		![Live Server installed](./images/vscode-plugin-live-server-install3.png " ")
+		![Live Server installed](./images/editors/vscode-plugin-live-server-install3.png " ")
 
 		You can now run the Live Server plugin from VS Code.
 
@@ -1048,18 +1417,18 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	1. Click **File** &gt; **Open Folder**.
 
-		![Open folder in workspace](./images/vscode-workspace-open-folder.png " ")
+		![Open folder in workspace](./images/editors/vscode-workspace-open-folder.png " ")
 
 		Browse for the project folder (clone directory) and add it to your workshop.   
 		Alternatively, you can right-click the explorer and **Add Folder to Workspace**.
 
-		![Add folder to workspace](./images/vscode-workspace-add-folder.png " ")
+		![Add folder to workspace](./images/editors/vscode-workspace-add-folder.png " ")
 
 		> **Tip**: Adding folders to workspace is a one-time activity. If you have added one or more folders to your workspace already, next time onwards you can directly run the live server.
 
 	1. Click on **Go Live** at the bottom-right corner to run the live server.
 
-		![Run Live Server](./images/vscode-run-live-server.png " ")
+		![Run Live Server](./images/editors/vscode-run-live-server.png " ")
 
 		It opens the Live Server page (clone directory) in your default browser with the URL  `http://127.0.0.1:5500/`.
 
@@ -1074,7 +1443,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	 - Click *Port : 5500* at the bottom-right corner of VS Code window to stop Live Server.
 
-		![Close Live Server](./images/vscode-close-live-server.png " ")
+		![Close Live Server](./images/editors/vscode-close-live-server.png " ")
 
 		----
 		## Cite reference
@@ -1089,29 +1458,29 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		 - **Trailing Spaces**   
 			Highlight trailing spaces and remove them
 
-			![VS Code - Trailing Spaces plugin](./images/vscode-plugin-trailing-spaces.png " ")
+			![VS Code - Trailing Spaces plugin](./images/editors/vscode-plugin-trailing-spaces.png " ")
 
 		 - **Path Intellisense**   
 			Browse and select files and folders in `manifest.json`
 
-			![VS Code - Path Intellisense plugin](./images/vscode-plugin-path-intellisense.png " ")
+			![VS Code - Path Intellisense plugin](./images/editors/vscode-plugin-path-intellisense.png " ")
 
 		 - **Code Spell Checker**   
 			Check spellings in the files
 
-			![VS Code - Code Spell Checker plugin](./images/vscode-plugin-code-spell-checker.png " ")
+			![VS Code - Code Spell Checker plugin](./images/editors/vscode-plugin-code-spell-checker.png " ")
 
 		 - **markdownlint**   
 			Styling and lint checker for labs
 
-			![VS Code - markdownlint plugin](./images/vscode-plugin-md-lint.png " ")
+			![VS Code - markdownlint plugin](./images/editors/vscode-plugin-md-lint.png " ")
 
 	----
 	## Live Server plugins for Atom
 
 	 Install as required
 
-	![Atom live server plugins](./images/atom-live-server-plugins.png " ")
+	![Atom live server plugins](./images/editors/atom-live-server-plugins.png " ")
 
 	----
 	## Notepad++: column mode
@@ -1127,7 +1496,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 ## Tricks up-the-sleeves
 
-- Scenarios, solutions, troubleshooting options
+- Scenarios, solutions, troubleshooting options, good practices
 
 	<if type="gitbash">
 
@@ -1158,9 +1527,9 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		> **Note**: Do not forget to delete `--cd to home` from **Target**, otherwise the **Start in** value gets overridden.
 
 		----
-		## Okay, show me the screenshot >>
+		## Okay, show the screenshot >>
 
-		![Git Bash start in](./images/gitbash-startin.jpg " ")
+		![Git Bash start in](./images/gitbash/gitbash-startin.jpg " ")
 
 	</if>
 
@@ -1174,7 +1543,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	Your branch is X commits ahead
 	```
 
-	![Fork ahead of main](./images/rebase-01-fork-ahead.png " ")
+	![Fork ahead of main](./images/desktop/rebase-01-fork-ahead.png " ")
 
 	You do a `fetch origin`, `merge upstream/main`, and `push origin`. This updates both clone and fork repo with main repo. However, you get a *commits mismatch* message on your fork.
 
@@ -1189,22 +1558,22 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	1. Go to **Branch** &gt; **Rebase current branch**.
 
-		![Rebase branch menu](./images/rebase-02-rebase-menu.png " ")
+		![Rebase branch menu](./images/desktop/rebase-02-rebase-menu.png " ")
 
 	1. In the Rebase main window, select the branch *upstream/main* and click **Rebase**.
 
-		![Select branch](./images/rebase-03-select-branch.png " ")
+		![Select branch](./images/desktop/rebase-03-select-branch.png " ")
 
 		GitHub Desktop starts the rebase and displays the commits.
 
-		![Rebase in progress](./images/rebase-04-rebase-progress.png " ")
+		![Rebase in progress](./images/desktop/rebase-04-rebase-progress.png " ")
 
 		GitHub Desktop gives an option to force push with all ahead and behind commits.
 
 	1. Click on **Force push origin** to rewrite history on `origin/main`.   
 		The window displays a pop-up to confirm this action. Click on **I'm sure** to proceed.
 
-		![Rebase force push](./images/rebase-05-force-push.png " ")
+		![Rebase force push](./images/desktop/rebase-05-force-push.png " ")
 
 	</if>
 
@@ -1303,7 +1672,63 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	Refresh the browser page for the fork. You will see that the fork is now up to date with main repo.
 
-	![Rebase successful, fork up-to-date](./images/rebase-06-fork-uptodate.png " ")
+	![Rebase successful, fork up-to-date](./images/desktop/rebase-06-fork-uptodate.png " ")
+
+	----
+	## GitHub pages: build i/o failure?
+
+	**Problem statement**  
+	You made changes to your clone and push them out to your fork. You wait for a while but github refuses to render the output. Github does not generate the IO pages and returns a `404`.
+
+	![Github pages build I/O failure - 404](./images/github/gh-pages-01-build-io-failure.png " ")
+
+	**What went wrong**  
+	To render the IO pages, all jobs related to build and deployment must complete successfully. In this case, one or more critical jobs failed to complete.
+
+	**What to do**  
+	Debug the build workflow to narrow down the root cause, fix the issue, and build again.
+
+	1. Log in to `github.com` in a web browser and go to the repo, which has the build problem.
+
+	1. Click the **Actions** tab to view all workflows.
+
+		![Action - All workflows](./images/github/gh-pages-02-action-all-workflows.jpg " ")
+
+		The workflows page displays github pages build and deployment with icons to indicate the status.
+
+		- A <font style="color:rgb(221,173,13);">**yellow circle**</font> indicates build in-progress
+		- A <font style="color:rgb(64,191,78);">**green tick**</font> indicates success
+		- A <font style="color:rgb(242,81,73);">**red cross**</font> indicates failure
+		- A **transparent exclamation (`!`)** implies that the build did not complete or was cancelled
+
+	1.	Identify the (latest) workflow that failed (with a red cross). Click *pages build and deployment* to view details of the build.
+
+		![Failed workflow - pages build and deployment](./images/github/gh-pages-03-pages-build-and-deployment.jpg " ")
+
+		A build workflow runs three primary jobs: *build* • *report-build-status* • *deploy*. Notice the icon next to each job. The job that failed shows a red cross.
+
+	1. Depending on the issue, you can re-run only *failed jobs* or re-run *all jobs* and try to build again.
+
+		<table class="table">			
+			<tr align = "center" style="font-weight:bold">
+				<td><img src="https://i.ibb.co/HCrGVzj/gh-pages-04-rerun-failed-jobs.jpg" alt="Re-run failed jobs"><p>Re-run failed jobs</p></td>
+				<td><img src="https://i.ibb.co/jgCjJhn/gh-pages-05-rerun-all-jobs.jpg" alt="Re-run all jobs"><p>Re-run all jobs</p></td>
+			</tr>
+		</table>
+
+	1. If the job fails again, then click the failed job (with the red cross) to find the root cause and debug the issue. In this example, the *`build`* job ran into issues.
+
+		![Build job failed - debug](./images/github/gh-pages-06-build-job-failure-debug.jpg " ")
+
+		Scroll down to parse through the job details. It highlights the issue and displays the file name with full path and line number.
+
+	1. Fix the issue as applicable and `push` from clone to fork.
+
+		You can wait for Github to build the I/O pages automatically or re-run the jobs manually as explained earlier.
+
+		![Build job success](./images/github/gh-pages-07-build-job-success.jpg " ")
+
+		On completion, all jobs in the build and deployment workflow displays green ticks indicating success.
 
 	----
 	## Rename objects in GitHub
@@ -1313,6 +1738,9 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	**What to do**  
 	Applicable to both - <i>files</i> and <i>folders</i>.
+
+	> **Tip**: When you create a new file or folder in your clone, before doing a *`push`*, you can rename it directly in Windows Explorer.   
+	Renaming an existing file or folder does not work in Windows Explorer. Either use Git Bash or try the workarounds explained here.
 
 	<if type="gitbash">
 
@@ -1344,6 +1772,112 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		1. Commit to main repo with the new name.
 
 		Use this option as the last resort.
+
+
+	----
+	## Clone and fork out-of-sync - [push origin failed]
+
+	**Problem statement**  
+	You made changes in your clone and want to merge them with the fork. You did `commit to main` and then *`push origin`* to update the fork from the clone but it returns an error.
+
+	<if type="gitdesktop">
+	![Update fork from clone rejected](./images/desktop/clone-out-of-sync-01-push-failed.jpg " ")
+	</if>
+
+	<if type="gitbash">
+
+	```
+	$ <copy>git push origin main</copy>
+
+	To https://github.com/[your-account]/[your-repo]
+	 ! [rejected]        main -> main (non-fast-forward)
+	error: failed to push some refs to 'https://github.com/[your-account]/[your-repo]'
+	hint: Updates were rejected because the tip of your current branch is behind
+	hint: its remote counterpart. Integrate the remote changes (e.g.
+	hint: 'git pull ...') before pushing again.
+	hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+	```
+
+	![Update fork from clone rejected](./images/desktop/update-fork-from-clone-rejected.png " ")
+
+	</if>
+
+	**What happened**   
+	You arrived at a conflict between the clone and the fork. The fork is already up-to-date with more recent commits that are not pulled to the clone. In short, you are modifying the clone while it is already behind the fork.
+
+	**What to do**
+
+	<ins>Option 1</ins> -
+
+	1. Fetch the commits from fork.
+
+	<if type="gitbash">
+
+		```
+		$ <copy>git fetch origin main</copy>
+		```
+	</if>
+
+	1. Instead of `push origin`, run *`pull origin`* to update the clone.
+
+	<if type="gitdesktop">
+
+		![Pull origin](./images/desktop/clone-out-of-sync-02-pull-origin.jpg " ")
+
+	</if>
+
+	<if type="gitbash">
+
+		```
+		$ <copy>git pull origin main</copy>
+		```
+
+		If you still get a conflict, then try Option 2.
+
+		```
+		CONFLICT (modify/delete): readme.md deleted in 921c3ada40b3848f5c2b36c5af6123224cfcc3ca and modified in HEAD.  Version HEAD of readme.md left in tree.
+		Automatic merge failed; fix conflicts and then commit the result.
+		```
+
+	</if>
+
+	<if type="gitdesktop">
+
+	1. Now *`push origin`* to merge the changes from clone (local) to fork (remote repo)
+
+		![Push origin](./images/desktop/clone-out-of-sync-03-push-origin.jpg " ")
+
+	</if>
+
+	<ins>Option 2</ins> -
+
+	Assuming the above fails, try these out.
+
+	1. Discard the local changes in the clone.
+
+	<if type="gitdesktop">
+		![Discard changes](./images/desktop/discard-local-changes.png " ")
+	</if>
+
+	1. Update the clone from the fork.
+
+	<if type="gitbash">
+
+		```
+		$ <copy>git fetch origin main</copy>
+		```
+
+		```
+		$ <copy>git pull --all</copy>
+		```
+
+	</if>
+
+	1. Redo the changes again locally and then try to merge/push to the fork.
+
+	> **Tip**: For double-safety, keep backups of the local changes made in the clone.
+
+	</if>
 
 	<if type="gitbash">
 
@@ -1441,7 +1975,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	1. Go to the **Edit** mode and replace *`pick`* with *`e`* or *`r`* (*`edit`*).
 
-	 ![git rebase options](./images/git-commit-rebase.png " ")
+	 ![git rebase options](./images/gitbash/git-commit-rebase.png " ")
 
 		 > **Note**: Press **i** to enter the **Edit** mode.
 
@@ -1479,7 +2013,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	> **Note**: Git returns an error if you have unstaged changed in your clone. Stage them first (`git add`) before issuing `git rebase -i`.
 
-	![Git rebase unstaged files](./images/rebase-error.png " ")
+	![Git rebase unstaged files](./images/gitbash/rebase-error.png " ")
 
 	**Scenario 2** - *After `push origin`*
 
@@ -1563,92 +2097,6 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	It will create additional sets of commits on your main repo.
 
-	</if>
-
-	----
-	## Push from clone to fork rejected with error
-
-	**Problem statement**
-
-	You do a `push origin` to update your fork from your clone. But you receive an error that the command is *rejected*.
-
-	```
-	$ <copy>git push origin main</copy>
-	To https://github.com/[your-account]/[your-repo]
-	 ! [rejected]        main -> main (fetch first)
-	error: failed to push some refs to 'https://github.com/[your-account]/[your-repo]'
-	hint: Updates were rejected because the remote contains work that you do
-	hint: not have locally. This is usually caused by another repository pushing
-	hint: to the same ref. You may want to first integrate the remote changes
-	hint: (e.g., 'git pull ...') before pushing again.
-	hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-	```
-
-	![Update fork from clone rejected](./images/update-fork-from-clone-rejected.png " ")
-
-	**What happened**
-
-	You are trying to push your changes from the local clone to your fork but the fork is already  up-to-date with more recent changes than the clone.
-
-	**What to do**
-
-	Update your clone from the fork. This means, instead of `push origin`, run a *`pull origin`*.
-
-	```
-	$ <copy>git pull origin main</copy>
-	```
-
-	----
-	## Recv failure: Connection was reset
-
-	**Problem statement**  
-	You do a `git push origin`, ` git pull origin`, or `git fetch` from Git Bash or Git Desktop and get the following message.
-
-	```
-	fatal: unable to access   
-	'https://github.com/[your-account]/[your-repo].git/':   
-	Recv failure: Connection was reset
-	```
-
-	**What happened**  
-
-	The clone could not talk to the fork or the remote repo.
-	- Port 80 might be blocked, or
-	- you have not set the proxy configurations
-	- your internet is down
-
-	**What to do**  
-
-	1. Check your internet connection.
-	1. VPN must be connected for the clone to talk to the fork repo. Disconnect the VPN and reconnect.
-	1. Check the proxy configurations for git. See [Set up proxy config](https://manish-garodia.github.io/mg-playground/z-sandbox/?lab=fun-with-git-bits&type=gitbash#TakeaplungeintoGitBash)
-
-	----
-	## Could not resolve proxy: [proxy-URL]
-
-	**Problem statement**  
-	You run a git command and get the following message.
-
-	Error in Git Bash -
-	```
-	fatal: unable to access 'https://github.com/[your-account]/[your-repo].git/':
-	Could not resolve proxy: [proxy-url]
-	```
-
-	Error in Git Desktop -
-	![Proxy issue-VPN error](./images/proxy-error-mask.png " ")
-
-	**What happened**   
-	VPN is disconnected.
-
-	**What to do**  
-	1. Connect VPN and try again.
-	1. If VPN is already connected, disconnect VPN and reconnect.
-
-	VPN must be connected for the clone to talk to the fork repo.
-
-	<if type="gitbash">
-
 	----
 	## warning: LF will be replaced by CRLF in [file]
 
@@ -1694,7 +2142,208 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		[Virtual geek on vcloud-lab](http://vcloud-lab.com/entries/devops/resolved-git-warning-lf-will-be-replaced-by-crlf-in-file)
 
+	----
+	## Move files/folders to another repo (with history)
+
+	**Problem statement**  
+	You got some files and folders in a repo, `source-repo`. You want to move them to another repo, `target-repo`, while preserving git history. That is, you not only transfer the files and folders to a different repo but also carry along the history of commits.
+
+	Is it possible? Let's find out!
+
+	**What to do**  
+
+	1. Go to the source repo where the files/folders are located.
+
+	1. Run this command to exclude all other commits in the source repo and keep only the folder that you want to move and its history.
+
+		```
+		$ <copy>git filter-branch --subdirectory-filter &lt;folder-to-move&gt; -- --all</copy>
+		```
+
+		Check the output (ignore the warnings)
+
+		```
+		WARNING: git-filter-branch has a glut of gotchas generating mangled history
+				 rewrites.  Hit Ctrl-C before proceeding to abort, then use an
+				 alternative filtering tool such as 'git filter-repo'
+				 (https://github.com/newren/git-filter-repo/) instead.  See the
+				 filter-branch manual page for more details; to squelch this warning,
+				 set FILTER_BRANCH_SQUELCH_WARNING=1.
+		Proceeding with filter-branch...
+
+		Rewrite 8b09f9a3832ae6794bbefeb0e90a77ae1859aa76 (3/3) (1 seconds passed, remaining 0 predicted)
+		Ref 'refs/heads/main' was rewritten
+		Ref 'refs/remotes/origin/main' was rewritten
+		WARNING: Ref 'refs/remotes/origin/main' is unchanged
+		```
+
+		It clears all the remaining folders and cleanses the clone. This is all about preparing your source repo.
+
+	1. Go to the target repo, where you want to move the folder.
+
+		```
+		$ <copy>cd ../target-repo</copy>
+		```
+
+	1. Add the source repo as a local remote.
+
+		```
+		$ <copy>git remote add source-repo ../source-repo</copy>
+		```
+
+	1. Fetch the local remote (source-repo).
+
+		```
+		$ <copy>git fetch source-repo</copy>
+		```
+
+		```
+		remote: Enumerating objects: 9, done.
+		remote: Counting objects: 100% (9/9), done.
+		remote: Compressing objects: 100% (3/3), done.
+		remote: Total 9 (delta 0), reused 6 (delta 0), pack-reused 0
+		Unpacking objects: 100% (9/9), 724 bytes | 2.00 KiB/s, done.
+		From ../source-repo
+		 * [new branch]      main       -> source-repo/main
+		```
+
+	1. Create a branch from the source's main.
+
+		```
+		$ <copy>git branch source-repo remotes/source-repo/main</copy>
+		```
+
+		```
+		Branch 'source-repo' set up to track remote branch 'main' from 'source-repo'.
+		```
+
+	1. Merge the files in the target repo.
+
+		```
+		$ <copy>git merge source-repo --allow-unrelated-histories</copy>
+		```
+
+		This moves all your files in the filtered directory from your source repo.
+
+		```
+		Merge made by the 'ort' strategy.
+		 test.txt | 3 +++
+		 1 file changed, 3 insertions(+)
+		 create mode 100644 test.txt
+		```
+
+	1. Clean up the target repo. Remove source repo from local remote.
+
+		```
+		$ <copy>git remote rm source-repo</copy>
+		```
+
+	1. Delete the branch of the source's main, created above.
+
+		```
+		$ <copy>git branch -d source-repo</copy>
+		```
+
+		```
+		Deleted branch source-repo (was d84b88c).
+		```
+
+	1. Push the changes from the target repo to its fork.
+
+		```
+		$ <copy>git push</copy>
+		```
+
+		```
+		Enumerating objects: 12, done.
+		Counting objects: 100% (12/12), done.
+		Delta compression using up to 8 threads
+		Compressing objects: 100% (5/5), done.
+		Writing objects: 100% (11/11), 1.01 KiB | 517.00 KiB/s, done.
+		Total 11 (delta 1), reused 0 (delta 0), pack-reused 0
+		remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+		To https://github.com/[your-account]/[target-repo]
+		   a1802a0..6f953e3  main -> main
+		```
+
+		As your source repo has forgotten all other commits and apparently deleted the remaining files and folders locally, you might want to recover them back.
+
+	1. Delete the entire clone of the source repo and clone it again with Git Desktop or Git Bash.
+
+		> **Tip**: You have performed all these on your local clone for the source repo but its fork is all intact. As you clone the source repo again, you retrieve all your earlier files and folders unhurt.
+
+		----
+		## Example screenshot
+
+		![Move folder across repos top](./images/gitbash/move-folder-across-repos-1.png " ")
+
+		![Move folder across repos bottom](./images/gitbash/move-folder-across-repos-2.png " ")
+
+		----
+		**Cite**:
+
+		- [johno - move-directory-between-repos](https://www.johno.com/move-directory-between-repos-with-git-history)
+		- [trongthanh - move a folder from one repo to another](https://gist.github.com/trongthanh/2779392)
+
+		----
+		## undo filter branch to refresh clone
+
+		You have run the `git filter-branch` command but want to undo it. Then, run the following command to refresh your clone to its previous state.
+
+		```
+		$ <copy>git fetch . +refs/original/*:*</copy>
+		```
+
 	</if>
+
+	----
+	## Recv failure: Connection was reset
+
+	**Problem statement**  
+	You do a `git push origin`, ` git pull origin`, or `git fetch` from Git Bash or Git Desktop and get the following message.
+
+	```
+	fatal: unable to access   
+	'https://github.com/[your-account]/[your-repo].git/':   
+	Recv failure: Connection was reset
+	```
+
+	**What happened**  
+
+	The clone could not talk to the fork or the remote repo.
+	- Port 80 might be blocked, or
+	- you have not set the proxy configurations
+	- your internet is down
+
+	**What to do**  
+
+	1. Check your internet connection.
+	1. VPN must be connected for the clone to talk to the fork repo. Disconnect the VPN and reconnect.
+	1. Check the proxy configurations for git. See [Set up proxy config](https://manish-garodia.github.io/mg-playground/z-sandbox/?lab=fun-with-git-bits&type=gitbash#TakeaplungeintoGitBash)
+
+	----
+	## Could not resolve proxy: [proxy-URL]
+
+	**Problem statement**  
+	You run a git command and get the following message.
+
+	Error in Git Bash -
+	```
+	fatal: unable to access 'https://github.com/[your-account]/[your-repo].git/':
+	Could not resolve proxy: [proxy-url]
+	```
+
+	Error in Git Desktop -
+	![Proxy issue-VPN error](./images/desktop/proxy-error-mask.png " ")
+
+	**What happened**   
+	VPN is disconnected.
+
+	**What to do**  
+	1. Connect VPN and try again.
+	1. If VPN is already connected, disconnect VPN and reconnect.
+
+	VPN must be connected for the clone to talk to the fork repo.
 
 	<if type="gitdesktop">
 
@@ -1731,7 +2380,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 	In GitHub Desktop, the default **External Editor** shows *Notepad++*.   
 	You want to set the default editor to *Atom*.
 
-	![Default External Editor Notepad++](./images/desktop-editor-01-default-notepad.png " ")
+	![Default External Editor Notepad++](./images/desktop/editor-01-default-notepad.png " ")
 
 	**What to do**  
 	1. Download the new [Atom app](https://atom.io/) (`v1.60.0`) and install afresh.
@@ -1740,16 +2389,16 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	1. Open GitHub Desktop and go to **File** &gt; **Options**.
 
-	 ![Modify GitHub preferences](./images/desktop-editor-02-modify-options.png " ")
+	 ![Modify GitHub preferences](./images/desktop/editor-02-modify-options.png " ")
 
 	1. In the **Integrations** tab, under **External Editor** select *Atom*.
 
-	 ![External Editor Atom](./images/desktop-editor-03-select-external-editor.png " ")
+	 ![External Editor Atom](./images/desktop/editor-03-select-external-editor.png " ")
 
 	1. Click **Save** to set the new external editor.   
 		The new default editor in GitHub Desktop is Atom.
 
-	 ![New Default Editor Atom](./images/desktop-editor-04-new-default-editor-atom.png " ")
+	 ![New Default Editor Atom](./images/desktop/editor-04-new-default-editor-atom.png " ")
 
 	</if>
 
@@ -1781,7 +2430,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	1. Place *ComparePlugin.dll* in the `Notepad++\plugins` folder.
 
-		![Plugin structure](./images/notepad-plugins-structure.png " ")
+		![Plugin structure](./images/editors/notepad-plugins-structure.png " ")
 
 		> **Tip**: Ensure to match the folder name with the DLL name (excluding file extension).
 
@@ -1800,7 +2449,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		For example,   
 		 `C:\Programs\Notepad++ 8.4.4\plugins\ComparePlugin\ComparePlugin`. Right, that’s two levels with the same name.
 
-		![Plugins folder](./images/notepad-plugins-folder.png " ")
+		![Plugins folder](./images/editors/notepad-plugins-folder.png " ")
 
 		Have you got other files inside `ComparePlugin\` other than `ComparePlugin.dll` ?
 		 - If yes, move them to `ComparePlugin\ComparePlugin\` and leave only `ComparePlugin.dll` in the first (main) `ComparePlugin\` folder.
@@ -1878,8 +2527,12 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	</if>
 
+## References
+
+ - [gitkraken - How to download file from GitHub](https://www.gitkraken.com/learn/git/github-download#how-to-downlaod-a-file-from-github)
+
 ## Acknowledgements
 
- - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - Dec 10, (Sat) 2022
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
+ - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
+ - **Last Updated on** - March 12, (Sun) 2023
+	- **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
