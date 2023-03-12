@@ -4,7 +4,7 @@
 
 This lab shows how to access a Virtual Machine (VM) and configure Virtual Network Computing (VNC).
 
-## Task 1: Request account access
+## Request account access
 
 <table>
     <thead>
@@ -54,7 +54,7 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
 	|<if type="hidden">phoenix62465.dev1sub1phx.databasede1phx.oraclevcn.com:1 | Suresh Mohan's VM <br>pwd: *welcome1* </if>|
 	| den03ckl.us.oracle.com:1                                | Temp machine from Subbu <br> cuser:welcome <br>root:Welcome123 |
 
-## Task 2: Configure VNC for VM
+## Configure VNC for VM
 
 1. Log into VM using PuTTY
 1. Start VNC server
@@ -201,7 +201,7 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
 
 		> **Note:** If the `Shared` option is not selected, when one user connects to the VM, then it immediately disconnects any other user who is already connected to the VM.
 
-## Task 3: Reboot VM
+## Reboot VM
 
 You might want to restart your VM for various reasons. After rebooting, the processes and apps do not start up automatically.
 
@@ -517,5 +517,5 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 ## Acknowledgements
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - February 5, (Sun) 2023
+ - **Last Updated on** - March 12, (Sun) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

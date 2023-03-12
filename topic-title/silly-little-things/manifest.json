@@ -1,0 +1,12 @@
+{
+    "workshoptitle": "Labs in MG Library",
+    "tutorials": [
+        {
+            "title": "Lab #: Silly little things",
+            "description": "General concepts, tips, and tricks on anyting and everything.",
+            "filename": "./../../common/lib-cellar/misc-concepts/silly-little-things/silly-little-things.md",
+			"publisheddate": "11-Mar-2023",
+			"task_type": "Sections"
+        }
+    ]
+}

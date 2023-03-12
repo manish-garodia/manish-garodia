@@ -5,7 +5,8 @@
             "title": "Lab #: Hands down in Markdown",
             "description": "Using markdown basic formatting and tags.",
 			"publisheddate": "26-Nov-2022",
-            "filename": "./../../common/lib-cellar/procedures/hands-down-in-md/hands-down-in-md.md"
+            "filename": "./../../common/lib-cellar/procedures/hands-down-in-md/hands-down-in-md.md",
+			"task_type": "Formatting"
         }
     ]
 }

@@ -504,6 +504,18 @@ Get hands dirty with Linux commands, tips, and tricks.
 		goldimage21c_unzip01.sh  prod19c_unzip.sh
 		```
 
+	 - See files size in a directory in MBs.
+
+		```
+		$ <copy>ls -l --block-size=M</copy>
+		```
+		```
+		total 4330M
+		-r--r--r-- 1 90002 g527  818M Feb  8 04:24 client_home.zip
+		-r--r--r-- 1 90002 g527 2382M Feb  8 04:24 db_home.zip
+		-r--r--r-- 1 90002 g527 1130M Feb  8 04:25 grid_home.zip
+		```
+
 	 - Long listing of files and directories with complete details on date, time, size, permissions, etc.
 
 		```
@@ -1040,10 +1052,16 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ <copy>find . -print | grep <file_name></copy>
 		```
 
+	 - find specific file type in all subdirectories
+
+		```
+		$ <copy>find . -name '*.json' -exec cat {} \;</copy>
+		```
+
 	 - find text within files
 
 		```
-		$ <copy>grep -rinw <path to file> -e 'pattern'</copy>
+		$ <copy>grep -rinw --color=always <path to file> -e 'pattern'</copy>
 		```
 
 		where,
@@ -1053,6 +1071,16 @@ Get hands dirty with Linux commands, tips, and tricks.
 		- ***w*** &nbsp;&nbsp; - match whole word
 		- ***l*** &nbsp;&nbsp;&nbsp; - show filename
 		- ***e*** &nbsp;&nbsp;&nbsp; - pattern to find
+
+		Example,
+
+		```
+		$ grep -rinw --color=always -e 'Last Updated'
+		```
+
+		Result
+
+		![grep labs last updated](./images/grep-labs-last-updated.png " ")
 
 		Alternatively, search in a file
 
@@ -1256,6 +1284,8 @@ A script begins with -
 	$ . <script-file>.sh
 	```
 
+**Cite**: [Run a script from anywhere](https://askubuntu.com/questions/153251/launch-shell-scripts-from-anywhere)
+
 ## File system, disk space, OS
 
  - File system and OS related
@@ -1438,7 +1468,7 @@ A script begins with -
 		Output
 
 		```
-		Description:    Oracle Linux Server release 7.6
+		Description:	Oracle Linux Server release 8.6
 		```
 
 	 -	*`lsb_release`* - view detailed information. Use any one of the following -
@@ -1453,13 +1483,11 @@ A script begins with -
 		Output
 
 		```
-		[mgarodia@phoenix123546 ~/Downloads]$ lsb_release -a
-		LSB Version:    :core-4.1-amd64:core-4.1-ia32:core-4.1-noarch:cxx-4.1-amd64:cxx-4.1-ia32:cxx-4.1-noarch:desktop-4.1-amd64:desktop-4.1-ia32:desktop-4.1-noarch:languages-4.1-amd64:languages-4.1-noarch:printing-4.1-amd64:printing-4.1-noarch
-		Distributor ID: OracleServer
-		Description:    Oracle Linux Server release 7.6
-		Release:        7.6
-		Codename:       n/a
-		Description:    Oracle Linux Server release 7.6
+		LSB Version:	:core-4.1-amd64:core-4.1-noarch:cxx-4.1-amd64:cxx-4.1-noarch:desktop-4.1-amd64:desktop-4.1-noarch:languages-4.1-amd64:languages-4.1-noarch:printing-4.1-amd64:printing-4.1-noarch
+		Distributor ID:	OracleServer
+		Description:	Oracle Linux Server release 8.6
+		Release:	8.6
+		Codename:	n/a
 		```
 
 	 -	*`uname --all`*
@@ -1471,7 +1499,7 @@ A script begins with -
 		Output
 
 		```
-		Linux phoenix123546 4.14.35-2047.514.5.1.1.el7uek.x86_64 #2 SMP Wed Jul 13 11:52:18 PDT 2022 x86_64 x86_64 x86_64 GNU/Linux
+		Linux phoenix211284 5.4.17-2136.312.3.4.el8uek.x86_64 #2 SMP Wed Oct 19 17:42:16 PDT 2022 x86_64 x86_64 x86_64 GNU/Linux
 		```
 
 	 -	*`os-release`*
@@ -1484,21 +1512,23 @@ A script begins with -
 
 		```
 		NAME="Oracle Linux Server"
-		VERSION="7.6"
+		VERSION="8.6"
 		ID="ol"
+		ID_LIKE="fedora"
 		VARIANT="Server"
 		VARIANT_ID="server"
-		VERSION_ID="7.6"
-		PRETTY_NAME="Oracle Linux Server 7.6"
+		VERSION_ID="8.6"
+		PLATFORM_ID="platform:el8"
+		PRETTY_NAME="Oracle Linux Server 8.6"
 		ANSI_COLOR="0;31"
-		CPE_NAME="cpe:/o:oracle:linux:7:6:server"
+		CPE_NAME="cpe:/o:oracle:linux:8:6:server"
 		HOME_URL="https://linux.oracle.com/"
 		BUG_REPORT_URL="https://bugzilla.oracle.com/"
 
-		ORACLE_BUGZILLA_PRODUCT="Oracle Linux 7"
-		ORACLE_BUGZILLA_PRODUCT_VERSION=7.6
+		ORACLE_BUGZILLA_PRODUCT="Oracle Linux 8"
+		ORACLE_BUGZILLA_PRODUCT_VERSION=8.6
 		ORACLE_SUPPORT_PRODUCT="Oracle Linux"
-		ORACLE_SUPPORT_PRODUCT_VERSION=7.6
+		ORACLE_SUPPORT_PRODUCT_VERSION=8.6
 		```
 
 	 -	*`hostname`*
@@ -1510,7 +1540,7 @@ A script begins with -
 		Output
 
 		```
-		phoenix123546
+		phoenix211284
 		```
 
 	 -	*`lsb-release`* - Linux Standard Base
@@ -2078,5 +2108,5 @@ add details about chown, chmod, chgrp
 ## Acknowledgements
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - December 3, (Sat) 2022
+ - **Last Updated on** - March 12, (Sun) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

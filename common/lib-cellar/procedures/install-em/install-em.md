@@ -450,7 +450,7 @@ These credentials are required for the maintenance of EM.
 		$ <copy>./emctl start oms</copy>
 		```
 
-		> **Note:** Before starting OMS server, ensure that the repo database (*19c*) is up and running. If the repo is closed, OMS will not start. 
+		> **Note:** Before starting OMS server, ensure that the repo database (*19c*) is up and running. If the repo is closed, OMS will not start.
 
 	----
 	## Check Agent status

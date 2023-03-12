@@ -30,17 +30,18 @@ Pick a topic and open it in a separate tab.
 | sl # | Title                         | Description                |
 |------|-------------------------------|----------------------------|
 | 1    | [Virtual Machines - Real Acions](https://manish-garodia.github.io/mg-playground/topic-title/vm-real-axons/) | How to access VM and configure VNC. |
-| 2    | [Oracle Database 21c Gold Image](https://manish-garodia.github.io/mg-playground/topic-title/install-db-goldimage/) | Pre-installation setup and post installation tasks for Oracle Database 21c gold image. It also discusses some troubleshooting scenarios and tips. |
-| 3    | [Install Oracle EM 13.5](https://manish-garodia.github.io/mg-playground/topic-title/install-em/) | How to install Oracle EM on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EM. |
-| 4    | [Into The Clouds](https://manish-garodia.github.io/mg-playground/topic-title/into-the-clouds/) | About the features and services in the OCI Tenancy, for example, noVNC, compute instance, custom images, object storage, compartments, to name a few. |
+| 2    | [Oracle Database Gold Image](https://manish-garodia.github.io/mg-playground/topic-title/install-db-goldimage/) | Pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses some troubleshooting scenarios and tips. |
+| 3    | [Install Oracle EM](https://manish-garodia.github.io/mg-playground/topic-title/install-em/) | How to install Oracle EM on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EM. |
+| 4    | [Into the Clouds](https://manish-garodia.github.io/mg-playground/topic-title/into-the-clouds/) | About the features and services in the OCI Tenancy, for example, noVNC, compute instance, custom images, object storage, compartments, to name a few. |
 | 5    | [Fun with git-bits](https://manish-garodia.github.io/mg-playground/topic-title/fun-with-git-bits/) | All you need to know about git ![git](./procedures/fun-with-git-bits/images/git-black-small.png) to get going. |
 | 6    | [Hands down in markdown](https://manish-garodia.github.io/mg-playground/topic-title/hands-down-in-md/) | About markdown basic formatting and tags |
 | <if type="hidden">6-a    | [GitHub pull requests](https://manish-garodia.github.io/mg-playground/topic-title/github-pr/) | History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github. </if> |
 | 7    | [Zoom Barabar Zoom](https://manish-garodia.github.io/mg-playground/topic-title/zoom-barabar-zoom/) | How to integrate Zoom with Outlook, add plug-in for Outlook |
 | 8    | [Linux -:- feed the penguin](https://manish-garodia.github.io/mg-playground/topic-title/linux-feed-penguin/) | Get hands dirty with Linux commands, tips, and tricks. |
+| 9     | [Silly little things](https://manish-garodia.github.io/mg-playground/topic-title/silly-little-things/) | General concepts, tips, and tricks on anyting and everything |
 | <if type="hidden">9    | Vi Editor | desc |
-| 10    | Terraforms explained | desc </if> |
-| 9    | working on it ... | suggest me some |
+| 11    | Terraforms explained | desc </if> |
+| 10    | working on it ... | suggest me some |
 
 ## oTube : : My *channels* and *videos* : :
 
@@ -107,6 +108,6 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 
 ## Acknowledgements
 
- - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - December 3, (Sun) 2022
+ - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
+ - **Last Updated on** - March 11, (Sat) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)

@@ -4,8 +4,9 @@
         {
             "title": "Lab #: Virtual Machines - Real Actions",
             "description": "How to access VM and configure VNC.",
-			"publisheddate": "05-Feb-2023",
-            "filename": "./../../common/lib-cellar/procedures/vm-real-axons/vm-real-axons.md"
+			"publisheddate": "12-Mar-2023",
+            "filename": "./../../common/lib-cellar/procedures/vm-real-axons/vm-real-axons.md",
+			"task_type": "Sections"
         }
     ]
 }

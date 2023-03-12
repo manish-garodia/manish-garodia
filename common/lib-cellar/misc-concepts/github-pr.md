@@ -2,657 +2,665 @@
 
 ## Commit to master
 
-This lab walks down the history lane of pull and merge requests for DBA Essentials workshops committed to OLL master on Github.
+This lab walks down the history lane of pull and merge requests for DBA Essentials workshop series committed to `oracle-livelabs main` on Github.
 
-## WS11 (*8341*)
+## DBA Essentials workshops - <b>23c</b>
 
-- WS11 pull requests
+- Workshop PRs
 
-	----
-	## Merge request #*4695* - Mar 16, 2022
+## DBA Essentials workshops - <b>21c</b>
 
-	Submitted PR for WS11 (final copy) from my fork on Github on *Tue Mar 16*. Approved on **Mar 16**.
+- Workshop PRs
 
-	**Sub**: <ins>(8341) Updated ORM stack as discussed in Office hours</ins>
+	## WS11 (*8341*)
 
-	Hello,
-	As discussed in the office hours, updated the lab prepare-setup and modified the ORM stack for freetier. Also, modified the manifests accordingly.
-	Removed the common get-started from livelabs manifest.
+	- WS11 pull requests
 
-	Request for approval please  
-	Thanks, MG
+		----
+		## Merge request #*4695* - Mar 16, 2022
 
-	----
-	## Merge request #*4645* - Mar 08, 2022
+		Submitted PR for WS11 (final copy) from my fork on Github on *Tue Mar 16*. Approved on **Mar 16**.
 
-	Submitted PR for WS11 from my fork on Github on *Tue Mar 8*. Approved on **Mar 8**.
+		**Sub**: <ins>(8341) Updated ORM stack as discussed in Office hours</ins>
 
-	**Sub**: <ins>(*8341*) Final changes for production as per Office hours</ins>
+		Hello,
+		As discussed in the office hours, updated the lab prepare-setup and modified the ORM stack for freetier. Also, modified the manifests accordingly.
+		Removed the common get-started from livelabs manifest.
 
-	Hello,
+		Request for approval please  
+		Thanks, MG
 
-	Final changes as discussed in the Office hours.
+		----
+		## Merge request #*4645* - Mar 08, 2022
 
-	- Modified the title of Introduction lab
-	- Modified the Oracle Database SID and Oracle home path in all labs throughout the workshop
-	- Updated the prerequisites in `deinstall-db` and added lab names
-	- Updated the date in acknowledgements
-	- Other minor changes
+		Submitted PR for WS11 from my fork on Github on *Tue Mar 8*. Approved on **Mar 8**.
 
-	Please approve the PR so that the workshop can be released soon.
-	Thank you  
-	~MG
+		**Sub**: <ins>(*8341*) Final changes for production as per Office hours</ins>
 
-	----
-	## Merge request #*4510* - Feb 15, 2022
+		Hello,
 
-	Submitted PR for WS11 (draft copy) from my fork on Github on *Tue Feb 15*. Approved on **Feb 16**.
+		Final changes as discussed in the Office hours.
 
-	**Sub**: <ins>(*8341*) Modified as per QA checklist</ins>
+		- Modified the title of Introduction lab
+		- Modified the Oracle Database SID and Oracle home path in all labs throughout the workshop
+		- Updated the prerequisites in `deinstall-db` and added lab names
+		- Updated the date in acknowledgements
+		- Other minor changes
 
-	Hello,
+		Please approve the PR so that the workshop can be released soon.
+		Thank you  
+		~MG
 
-	Modified the following as per self-QA.
+		----
+		## Merge request #*4510* - Feb 15, 2022
 
-	Introduction lab:
-	- Modified the title
-	- Updated the note in prerequisites
+		Submitted PR for WS11 (draft copy) from my fork on Github on *Tue Feb 15*. Approved on **Feb 16**.
 
-	deinstall-db:
-	- Added the copy tag
-	- Removed the expanable option for Output, changed to normal text
+		**Sub**: <ins>(*8341*) Modified as per QA checklist</ins>
 
-	- Updated the markdown tag in notes
-	- Updated the date in acknowledments
-	- Modified the workshop title in the manifests
-	- Added 'get started' to livelabs manifest
+		Hello,
 
-	Github pages from my repo is failing for many weeks.  
+		Modified the following as per self-QA.
 
-	Please approve the PR so that QA verification can be completed. Thank you  
-	~MG
+		Introduction lab:
+		- Modified the title
+		- Updated the note in prerequisites
 
-	----
-	## Merge request #*4404* - Jan 21, 2022
+		deinstall-db:
+		- Added the copy tag
+		- Removed the expanable option for Output, changed to normal text
 
-	Submitted PR for WS11 (draft copy) from my fork on Github on *Fri Jan 21*. Approved on **Jan 21**.
+		- Updated the markdown tag in notes
+		- Updated the date in acknowledments
+		- Modified the workshop title in the manifests
+		- Added 'get started' to livelabs manifest
 
-	**Sub**: <ins>(*#8341*) Created New Workshop Remove Oracle Database 21c</ins>
+		Github pages from my repo is failing for many weeks.  
 
-	Hello,
+		Please approve the PR so that QA verification can be completed. Thank you  
+		~MG
 
-	Developed a new workshop on *Remove Oracle Database 21c From Your Host System*. The workshop (#8341) is approved in LWMS.
+		----
+		## Merge request #*4404* - Jan 21, 2022
 
-	Please approve the PR. Thank you  
-	~MG
+		Submitted PR for WS11 (draft copy) from my fork on Github on *Fri Jan 21*. Approved on **Jan 21**.
 
-## WS10 (*11300*)
+		**Sub**: <ins>(*#8341*) Created New Workshop Remove Oracle Database 21c</ins>
 
-- WS10 pull requests
+		Hello,
 
-	----
-	## Merge request #*118* - Dec 16, 2022
+		Developed a new workshop on *Remove Oracle Database 21c From Your Host System*. The workshop (#8341) is approved in LWMS.
 
-	Submitted PR for WS10 (minor fix to the lab provision a pdb) from my fork on Github on *Fri Dec 16, 2022*. Waiting for approval. Approved on **Dec 16**.
+		Please approve the PR. Thank you  
+		~MG
 
-	**Sub**: <ins>(#11300) Minor fix to a lab</ins>
+	## WS10 (*11300*)
 
-	Hi,
+	- WS10 pull requests
 
-	We have this workshop *manage-pdb* in Oracle Database 21c, `WMS ID #11060`. The workshop is published to production recently.
-	Now, while testing the green button environment, we came across a minor issue in one of the steps and updated the lab - `provision pdb`.
-	Would be great if you please approve the PR, so we can enable the green button. Thank you   
-	~MG
+		----
+		## Merge request #*118* - Dec 16, 2022
 
-	----
-	## Merge request #*117* - Dec 01, 2022
+		Submitted PR for WS10 (minor fix to the lab provision a pdb) from my fork on Github on *Fri Dec 16, 2022*. Waiting for approval. Approved on **Dec 16**.
 
-	Replaced with new index.html and submitted a merge request on *Wed Nov 30, 2022*. Waiting for approval. Approved on **Dec 01**.
+		**Sub**: <ins>(#11300) Minor fix to a lab</ins>
 
-	Replaced index.html with the new file from the sample templates for all 3 - tenancy, sandbox, and desktop. Thanks   
-	~MG
+		Hi,
 
-	----
-	## Merge request #*117* - Nov 30, 2022
+		We have this workshop *manage-pdb* in Oracle Database 21c, `WMS ID #11060`. The workshop is published to production recently.
+		Now, while testing the green button environment, we came across a minor issue in one of the steps and updated the lab - `provision pdb`.
+		Would be great if you please approve the PR, so we can enable the green button. Thank you   
+		~MG
 
-	Added estimated time to intro lab and submitted a merge request on *Wed Nov 30, 2022*. Waiting for approval. Approved on **Dec 01**.
+		----
+		## Merge request #*117* - Dec 01, 2022
 
-	Added estimated time 2 hours 30 mins to the introduction lab. This was missed out earlier.    
-	~MG
+		Replaced with new index.html and submitted a merge request on *Wed Nov 30, 2022*. Waiting for approval. Approved on **Dec 01**.
 
-	----
-	## Merge request #*117* - Nov 30, 2022
+		Replaced index.html with the new file from the sample templates for all 3 - tenancy, sandbox, and desktop. Thanks   
+		~MG
 
-	Submitted PR for WS10 (draft copy) from my fork on Github on *Wed Nov 30*. Waiting for approval. Approved on **Dec 01**.
+		----
+		## Merge request #*117* - Nov 30, 2022
 
-	**Sub**: <ins>(*#11300*) Created workshop - manage pdb</ins>
+		Added estimated time to intro lab and submitted a merge request on *Wed Nov 30, 2022*. Waiting for approval. Approved on **Dec 01**.
 
-	Hello,
+		Added estimated time 2 hours 30 mins to the introduction lab. This was missed out earlier.    
+		~MG
 
-	Developed a new workshop on *manage-pdb in Oracle Database 21c*, WMS ID is #11300.
-	Please approve the PR. Thank you   
-	~MG
+		----
+		## Merge request #*117* - Nov 30, 2022
 
-## WS8 (*9281*)
+		Submitted PR for WS10 (draft copy) from my fork on Github on *Wed Nov 30*. Waiting for approval. Approved on **Dec 01**.
 
-- WS8 pull requests
+		**Sub**: <ins>(*#11300*) Created workshop - manage pdb</ins>
 
-	----
-	## Merge request #*4473* - Feb 9, 2022
+		Hello,
 
-	Submitted PR for WS8 (draft copy) from Suresh M's fork on Github on *Tue Feb 8*. Waiting for approval. Approved on **Mar 1**.
+		Developed a new workshop on *manage-pdb in Oracle Database 21c*, WMS ID is #11300.
+		Please approve the PR. Thank you   
+		~MG
 
-	**Sub**: *ID#9281* - New livelabs workshop
+	## WS8 (*9281*)
 
-	Hi @anooshapilli,
+	- WS8 pull requests
 
-	We are not production-ready yet. This is the first draft of the workshop being uploaded to the learning library. Self QA will be the next step.
+		----
+		## Merge request #*4473* - Feb 9, 2022
 
-	For now, we need an approval of the PR so that the workshop gets placed on the master.
+		Submitted PR for WS8 (draft copy) from Suresh M's fork on Github on *Tue Feb 8*. Waiting for approval. Approved on **Mar 1**.
 
-	Thanks, Manish
+		**Sub**: *ID#9281* - New livelabs workshop
 
-## WS6 (*11060*)
+		Hi @anooshapilli,
 
-- WS6 pull requests
+		We are not production-ready yet. This is the first draft of the workshop being uploaded to the learning library. Self QA will be the next step.
 
-	----
-	## Merge request #*4970* - May 01, 2022
+		For now, we need an approval of the PR so that the workshop gets placed on the master.
 
-	Submitted PR for WS6 (final copy) from my fork on Github on *Sun May 01*. Waiting for approval. Approved on **May 02**.
+		Thanks, Manish
 
-	**Sub**: <ins>(*#11060*) Updates from QA</ins>
+	## WS6 (*11060*)
 
-	Hi,
+	- WS6 pull requests
 
-	Fixed the comments from QA verification and as per recent changes.
+		----
+		## Merge request #*4970* - May 01, 2022
 
-	 -'Note' removed from the Prerequisites in the intro lab
-	 - Updated the prerequisites in all labs and removed references to Always Free and Free Tier accounts
-	 - The Get started lab in the freetier manifest now points to cloud-login.md
-	 - Updated the published date in all manifests
-	 - Updated initialize-environment as per the latest steps
-	 - Updated the ORM stack for terraform scripts in prepare-setup
-	 - Other minor changes
+		Submitted PR for WS6 (final copy) from my fork on Github on *Sun May 01*. Waiting for approval. Approved on **May 02**.
 
-	Please approve the PR. Thank you  
-	~MG
+		**Sub**: <ins>(*#11060*) Updates from QA</ins>
 
-	----
-	## Merge request #*4887* - Apr 21, 2022
+		Hi,
 
-	Fixed issues and submitted a merge request on *Thu Apr 21, 2022*. Waiting for approval. Approved on **Apr 26**.
+		Fixed the comments from QA verification and as per recent changes.
 
-	Additionally, fixed the tasks headings and removed the bold tags as per the latest QA document.
+		 -'Note' removed from the Prerequisites in the intro lab
+		 - Updated the prerequisites in all labs and removed references to Always Free and Free Tier accounts
+		 - The Get started lab in the freetier manifest now points to cloud-login.md
+		 - Updated the published date in all manifests
+		 - Updated initialize-environment as per the latest steps
+		 - Updated the ORM stack for terraform scripts in prepare-setup
+		 - Other minor changes
 
-	----
-	## Merge request #*4887* - Apr 19, 2022
+		Please approve the PR. Thank you  
+		~MG
 
-	Submitted PR for WS6 (draft copy) from my fork on Github on *Tue Apr 19*. Not approved.
+		----
+		## Merge request #*4887* - Apr 21, 2022
 
-	**Sub**: <ins>(*#11060*) Created New Workshop Manage user accounts and security</ins>
+		Fixed issues and submitted a merge request on *Thu Apr 21, 2022*. Waiting for approval. Approved on **Apr 26**.
 
-	Hello,
+		Additionally, fixed the tasks headings and removed the bold tags as per the latest QA document.
 
-	Developed a new workshop on *Manage user accounts and sceurity for Oracle Database 21c*, WMS ID is #11060.
+		----
+		## Merge request #*4887* - Apr 19, 2022
 
-	Please approve the PR. Thank you  
-	~MG
+		Submitted PR for WS6 (draft copy) from my fork on Github on *Tue Apr 19*. Not approved.
 
-## WS5 (*11056*)
+		**Sub**: <ins>(*#11060*) Created New Workshop Manage user accounts and security</ins>
 
-- WS5 (*11056*) pull requests
+		Hello,
 
-	----
-	## Merge request #*5014* - May 10, 2022
+		Developed a new workshop on *Manage user accounts and sceurity for Oracle Database 21c*, WMS ID is #11060.
 
-	Submitted PR for WS5 (draft copy) from MM fork on Github on *Tue May 10*. Approved on **May 00**.
+		Please approve the PR. Thank you  
+		~MG
 
-	**Sub**: <ins>ID#11056 - New workshop created</ins>
+	## WS5 (*11056*)
 
-	Hello team,
+	- WS5 (*11056*) pull requests
 
-	I have developed a LiveLabs workshop "DBA Essentials - Manage storage structures for Oracle Database 21c" having ID #11056.
+		----
+		## Merge request #*5014* - May 10, 2022
 
-	Could you please approve it?
+		Submitted PR for WS5 (draft copy) from MM fork on Github on *Tue May 10*. Approved on **May 00**.
 
-	Thank you!
+		**Sub**: <ins>ID#11056 - New workshop created</ins>
 
-	Regards,
-	Manisha Mati
+		Hello team,
 
-## WS3 (*8321*)
+		I have developed a LiveLabs workshop "DBA Essentials - Manage storage structures for Oracle Database 21c" having ID #11056.
 
-- WS3 pull requests
+		Could you please approve it?
 
-	----
-	## Merge request #*4558* - Feb 20, 2022
+		Thank you!
 
-	Submitted PR for WS3 from my fork on Github on *Sun Feb 20*. Approved on **Feb 21**.
+		Regards,
+		Manisha Mati
 
-	**Sub**: <ins>(*#8321*) Final changes for production as per Office hours</ins>
+	## WS3 (*8321*)
 
-	Hello,
+	- WS3 pull requests
 
-	The workshop is production-ready. Final changes as agreed in the Office hours.    
+		----
+		## Merge request #*4558* - Feb 20, 2022
 
-	Changes:
-	- Updated the note tag
-	- All occurrences of the database name throughout the workshop changed from *orcl.us.oracle.com* to *CDB1*
-	- Updated the code blocks as per the custom image to reflect the new database name
-	- Updated the Oracle home location as per the custom image
-	- Updated the acknowledgement date
+		Submitted PR for WS3 from my fork on Github on *Sun Feb 20*. Approved on **Feb 21**.
 
-	Please approve the PR. Thank you  
-	~MG
+		**Sub**: <ins>(*#8321*) Final changes for production as per Office hours</ins>
 
-	----
-	## Merge request #*4404* - Jan 21, 2022
+		Hello,
 
-	Submitted PR for WS3 (draft copy) from my fork on Github on *Fri Jan 21*. Approved on **Jan 22**.
+		The workshop is production-ready. Final changes as agreed in the Office hours.    
 
-	**Sub**: <ins>(*#8321*) Updated the task set the environment</ins>
+		Changes:
+		- Updated the note tag
+		- All occurrences of the database name throughout the workshop changed from *orcl.us.oracle.com* to *CDB1*
+		- Updated the code blocks as per the custom image to reflect the new database name
+		- Updated the Oracle home location as per the custom image
+		- Updated the acknowledgement date
 
-	Hello,
-	Updated the task set the environment in 2 labs and other minor changes.   
+		Please approve the PR. Thank you  
+		~MG
 
-	Please approve the PR. Thank you  
-	~MG
+		----
+		## Merge request #*4404* - Jan 21, 2022
 
-	----
-	## Merge request #*4331* - Dec 28, 2021
+		Submitted PR for WS3 (draft copy) from my fork on Github on *Fri Jan 21*. Approved on **Jan 22**.
 
-	Submitted PR for WS3 (draft copy) from my fork on Github on *Tue Dec 28*. Approved on **Jan 4**.
+		**Sub**: <ins>(*#8321*) Updated the task set the environment</ins>
 
-	**Sub**: <ins>(*ID #8321*) Created New Workshop Configure Network Environment</ins>
+		Hello,
+		Updated the task set the environment in 2 labs and other minor changes.   
 
-	Hello,  
-	Developed a new workshop on *Configure Network Environment for Oracle Database 21c*. The workshop (#8321) is approved in LWMS.   
+		Please approve the PR. Thank you  
+		~MG
 
-	Please approve the PR. Thank you  
-	~MG
+		----
+		## Merge request #*4331* - Dec 28, 2021
 
-## WS2 (*7141*)
+		Submitted PR for WS3 (draft copy) from my fork on Github on *Tue Dec 28*. Approved on **Jan 4**.
 
-- WS2 pull requests
+		**Sub**: <ins>(*ID #8321*) Created New Workshop Configure Network Environment</ins>
 
-	----
-	## Merge request #*4331* - Dec 22, 2021
+		Hello,  
+		Developed a new workshop on *Configure Network Environment for Oracle Database 21c*. The workshop (#8321) is approved in LWMS.   
 
-	Submitted PR for WS2 from my fork on Github on *Thu Dec 22, 2021*. Waiting for approval. Approved on **Jan 4**.
+		Please approve the PR. Thank you  
+		~MG
 
-	**Sub**: <ins>(*ID# 7141*) Final updates for publishing</ins>
+	## WS2 (*7141*)
 
-	Hello,
+	- WS2 pull requests
 
-	Updated the labs for the final round of review before publishing.
+		----
+		## Merge request #*4331* - Dec 22, 2021
 
-	Modified the title for *access-homepage* in the lab and the manifests.   
-	Added image alt text to *initialize-environment*.  
-	Updated the image tag in all labs with " ".  
-	Fixed broken image in *manage-targets*.  
-	Updated the steps to set the environment and fixed the indentation issue in *sqlplus-container-details*.  
-	Modified the workshop title in the manifests.  
+		Submitted PR for WS2 from my fork on Github on *Thu Dec 22, 2021*. Waiting for approval. Approved on **Jan 4**.
 
-	Please approve the PR. Thank you  
-	~MG
+		**Sub**: <ins>(*ID# 7141*) Final updates for publishing</ins>
 
-	----
-	## Merge request #*4265* - Dec 2, 2021
+		Hello,
 
-	Submitted PR for WS2 from my fork on Github on *Thu Dec 2, 2021*. Waiting for approval. Approved on **Dec 3**.
+		Updated the labs for the final round of review before publishing.
 
-	**Sub**: <ins>(*ID# 7141*) Updated the labs from QA review</ins>
+		Modified the title for *access-homepage* in the lab and the manifests.   
+		Added image alt text to *initialize-environment*.  
+		Updated the image tag in all labs with " ".  
+		Fixed broken image in *manage-targets*.  
+		Updated the steps to set the environment and fixed the indentation issue in *sqlplus-container-details*.  
+		Modified the workshop title in the manifests.  
 
-	Hello,
+		Please approve the PR. Thank you  
+		~MG
 
-	Modified the labs as per feedback from QA review.
+		----
+		## Merge request #*4265* - Dec 2, 2021
 
-	Updated as per Oracle Style Guide  
-	Updated the tasks and added more steps to the labs  
-	Added new images and removed unused images  
-	Modified few images to display more information  
-	Renamed the filenames of some images  
-	Updated the help email `livelabs-help-em_us_grp@oracle.com` in the `manifest.json` files  
-	Added new names to the contributors for the labs  
-	Added closing statement about *what you learned* in all the labs.   
-	Other minor changes and enhancements  
+		Submitted PR for WS2 from my fork on Github on *Thu Dec 2, 2021*. Waiting for approval. Approved on **Dec 3**.
 
-	Could I request to approve the PR please. Thank you  
-	~MG
+		**Sub**: <ins>(*ID# 7141*) Updated the labs from QA review</ins>
 
-	----
-	## Merge request #*4121* - Nov 2, 2021
+		Hello,
 
-	Submitted PR for WS2 from my fork on Github on *Tue Nov 2, 2021*. Waiting for approval. Approved on **Nov 3**.
+		Modified the labs as per feedback from QA review.
 
-	**Sub**: <ins>(*ID# 7141*) Updated the labs from self-review</ins>
+		Updated as per Oracle Style Guide  
+		Updated the tasks and added more steps to the labs  
+		Added new images and removed unused images  
+		Modified few images to display more information  
+		Renamed the filenames of some images  
+		Updated the help email `livelabs-help-em_us_grp@oracle.com` in the `manifest.json` files  
+		Added new names to the contributors for the labs  
+		Added closing statement about *what you learned* in all the labs.   
+		Other minor changes and enhancements  
 
-	Hello,
+		Could I request to approve the PR please. Thank you  
+		~MG
 
-	Modified the following as per self-review.
+		----
+		## Merge request #*4121* - Nov 2, 2021
 
-	In the manage-targets lab:
-	- Modified the objectives
-	- Added more details and steps to Task 2
-	- Modified the steps in Task 3
-	- Renamed a few images
+		Submitted PR for WS2 from my fork on Github on *Tue Nov 2, 2021*. Waiting for approval. Approved on **Nov 3**.
 
-	In the access-homepage lab:
-	- Moved the note to the prerequisites section
-	- Removed the step in Task 1 related to Database Load map
+		**Sub**: <ins>(*ID# 7141*) Updated the labs from self-review</ins>
 
-	Other general changes:
-	- Removed the if condition from the intro lab
-	- Updated *initialize-environment* and added the names of the database instance and the listener for Oracle Database 21c
-	- Replaced the screenshots and added new images to the *manage-targets* and *access-homepage* labs
-	- Removed the comments tags from *manage-targets* and *access-homepage*, and moved the content to rendered output
-	- Also, updated the month to Nov in the *acknowledgements* section across all labs
+		Hello,
 
-	Could I request to approve the PR please. Thank you  
-	~MG
+		Modified the following as per self-review.
 
-	----
-	## Merge request #*4090* - Oct 26, 2021
+		In the manage-targets lab:
+		- Modified the objectives
+		- Added more details and steps to Task 2
+		- Modified the steps in Task 3
+		- Renamed a few images
 
-	Submitted PR for WS2 from my fork on Github on *Tue Oct 26, 2021*. Waiting for approval. Approved on **Oct 26**.
+		In the access-homepage lab:
+		- Moved the note to the prerequisites section
+		- Removed the step in Task 1 related to Database Load map
 
-	**Sub**: <ins>(*ID# 7141*) Fixed comments from SME reviews</ins>
+		Other general changes:
+		- Removed the if condition from the intro lab
+		- Updated *initialize-environment* and added the names of the database instance and the listener for Oracle Database 21c
+		- Replaced the screenshots and added new images to the *manage-targets* and *access-homepage* labs
+		- Removed the comments tags from *manage-targets* and *access-homepage*, and moved the content to rendered output
+		- Also, updated the month to Nov in the *acknowledgements* section across all labs
 
-	Hello,
+		Could I request to approve the PR please. Thank you  
+		~MG
 
-	Modified the labs as per review comments from the SMEs.
+		----
+		## Merge request #*4090* - Oct 26, 2021
 
-	Modified the manifests and changed the workshop title to *DBA Essentials - Oracle EM Database Administation (DBA)*  
-	Modified the lab title *Managed targets - Oracle Database and Listener*  
-	Modified image filenames and replaced the underscore with dashes  
-	Replaced the screenshots in EMCC with the latest GUI  
-	Removed the screenshots no longer applicable  
-	Added new screenshots in *Managed targets* and *Access homepage*  
-	Modified the lab *initialize environment* and removed the sections not applicable  
-	Updated the prerequisites for all labs  
-	Updated the login details for EMCC, added the hostname and the login credentials  
-	Modified the content in the lab *Manage targets* and *access homepage*  
-	Fixed indentation issue in the lab *SQL plus container details*.  
-	Removed the if condition from the introduction  
-	Other minor changes and enhancements.  
+		Submitted PR for WS2 from my fork on Github on *Tue Oct 26, 2021*. Waiting for approval. Approved on **Oct 26**.
 
-	Could I request to approve the PR please. Thank you  
-	~MG
+		**Sub**: <ins>(*ID# 7141*) Fixed comments from SME reviews</ins>
 
-	----
-	## Merge request #*3948* - Oct 10, 2021
+		Hello,
 
-	Submitted PR for WS2 (draft copy) from my fork on Github on *Sun Oct 10*. Approved on **Oct 11**.
+		Modified the labs as per review comments from the SMEs.
 
-	**Sub**: <ins>(*ID# 7141*) Created New Workshop EM - Oracle DBA</ins>
+		Modified the manifests and changed the workshop title to *DBA Essentials - Oracle EM Database Administation (DBA)*  
+		Modified the lab title *Managed targets - Oracle Database and Listener*  
+		Modified image filenames and replaced the underscore with dashes  
+		Replaced the screenshots in EMCC with the latest GUI  
+		Removed the screenshots no longer applicable  
+		Added new screenshots in *Managed targets* and *Access homepage*  
+		Modified the lab *initialize environment* and removed the sections not applicable  
+		Updated the prerequisites for all labs  
+		Updated the login details for EMCC, added the hostname and the login credentials  
+		Modified the content in the lab *Manage targets* and *access homepage*  
+		Fixed indentation issue in the lab *SQL plus container details*.  
+		Removed the if condition from the introduction  
+		Other minor changes and enhancements.  
 
-	Hello,
+		Could I request to approve the PR please. Thank you  
+		~MG
 
-	Developed a new workshop on *EM - Oracle Database Administration (DBA)*. The workshop (#7141) is approved in LWMS.
+		----
+		## Merge request #*3948* - Oct 10, 2021
 
-	Please approve the PR. Thank you  
-	~MG
+		Submitted PR for WS2 (draft copy) from my fork on Github on *Sun Oct 10*. Approved on **Oct 11**.
 
-## WS1 (*7041*)
+		**Sub**: <ins>(*ID# 7141*) Created New Workshop EM - Oracle DBA</ins>
 
-- WS1 pull requests
+		Hello,
 
-	----
-	## Merge request #*5116* - June 06, 2022
+		Developed a new workshop on *EM - Oracle Database Administration (DBA)*. The workshop (#7141) is approved in LWMS.
 
-	Submitted PR for WS1 from my fork on Github on *Mon June 6, 2022*. Waiting for approval. Approved on **Jun 7**.
+		Please approve the PR. Thank you  
+		~MG
 
-	**Sub**: <ins>(*ID# 7041*) Fixed customer issue regarding root access</ins>
+	## WS1 (*7041*)
 
-	Hello,
+	- WS1 pull requests
 
-	We had a customer issue reported on this workshop. Minor modifications to the lab 'install-desktop-server' to fix the issue.
+		----
+		## Merge request #*5116* - June 06, 2022
 
-	Removed the instructions to login as root in the terminal and updated the associated steps.
+		Submitted PR for WS1 from my fork on Github on *Mon June 6, 2022*. Waiting for approval. Approved on **Jun 7**.
 
-	Please approve the PR. Thank you   
-	~MG
+		**Sub**: <ins>(*ID# 7041*) Fixed customer issue regarding root access</ins>
 
-	----
-	## Merge request #*3707* - Sep 09, 2021
+		Hello,
 
-	Submitted PR for WS1 from my fork on Github on *Sat Sep 9, 2021*. Waiting for approval. Approved on **Sep 09**.
+		We had a customer issue reported on this workshop. Minor modifications to the lab 'install-desktop-server' to fix the issue.
 
-	**Sub**: <ins>(*ID# 7041*) Added Lab #Number: title in the manifest.json</ins>
+		Removed the instructions to login as root in the terminal and updated the associated steps.
 
-	Hello,
+		Please approve the PR. Thank you   
+		~MG
 
-	Fixed the comment from Anoosha on Self QA for the workshop.
+		----
+		## Merge request #*3707* - Sep 09, 2021
 
-	Modified the `manifest.json` file for freetier, livelabs, and desktop versions.  
-	Added Lab #Number : title for all labs from the lab *Prepare Setup* onwards in the `manifest.json` files.
+		Submitted PR for WS1 from my fork on Github on *Sat Sep 9, 2021*. Waiting for approval. Approved on **Sep 09**.
 
-	Please approve the PR. Thank you  
-	~MG
+		**Sub**: <ins>(*ID# 7041*) Added Lab #Number: title in the manifest.json</ins>
 
-	----
-	## Merge request #*3688* - Sep 05, 2021
+		Hello,
 
-	Submitted PR for WS1 from my fork on Github on *Sat Sep 5, 2021*. Waiting for approval. Approved on **Sep 7**.
+		Fixed the comment from Anoosha on Self QA for the workshop.
 
-	**Sub**: <ins>(*ID# 7041*) Fixed comments from Livelabs team on Self QA</ins>
+		Modified the `manifest.json` file for freetier, livelabs, and desktop versions.  
+		Added Lab #Number : title for all labs from the lab *Prepare Setup* onwards in the `manifest.json` files.
 
-	Hello,
+		Please approve the PR. Thank you  
+		~MG
 
-	Modified the labs as per review comments from the Livelabs team on Self QA.
+		----
+		## Merge request #*3688* - Sep 05, 2021
 
-	Moved the workshop one folder up. New location: `/data-management-library/database/21c/dba-essentials/`   
-	Changed the folder names from `freetier-install-db`, `livelabs-install-db`, `desktop-install-db` back to `freetier`, `livelabs`, `desktop`  
-	Moved the workshops folder under the parent folder `install-db`  
-	Merged lab 4 and 5 into a single lab *Install Oracle Database*. Removed the if condition.  
-	Install Oracle Database desktop class and Server class are now options.  
-	Merged lab 6 and 7 into a single lab *Create Container Database*. Removed the if condition.  
-	Fixed the title issue in the manifests  
-	Removed the assumptions section and converted them into tasks under the fold  
-	Removed the link syntax for *proceed to the next lab*, changed to bold  
-	Changed the nested headings to regular texts  
-	Added a congrats line at the end of the workshop  
-	Added prerequisites for freetier and paid accounts to all content labs  
-	Moved the blog to Learn more in the Introduction  
-	Moved the Objectives before Prerequisites for all content labs  
-	Moved the headings in the Introduction under *Appendix*  
-	Modified the objectives in the Introduction  
-	Converted second level number A,B,C into steps  
-	Remove the designation of contributors from the content labs  
-	Other minor changes.  
+		Submitted PR for WS1 from my fork on Github on *Sat Sep 5, 2021*. Waiting for approval. Approved on **Sep 7**.
 
-	Please approve the PR. Thank you  
-	~MG
+		**Sub**: <ins>(*ID# 7041*) Fixed comments from Livelabs team on Self QA</ins>
 
-	----
-	## Merge request #*3662* - Sep 01, 2021
+		Hello,
 
-	Fixed conflicts and submitted a merge request on *Mon Sep 01, 2021*. Waiting for approval. Approved on **Sep 01**.
+		Modified the labs as per review comments from the Livelabs team on Self QA.
 
-	**Sub**: <ins>Workshop (*ID# 7041*) Fixed conflicts and removed the include files</ins>
+		Moved the workshop one folder up. New location: `/data-management-library/database/21c/dba-essentials/`   
+		Changed the folder names from `freetier-install-db`, `livelabs-install-db`, `desktop-install-db` back to `freetier`, `livelabs`, `desktop`  
+		Moved the workshops folder under the parent folder `install-db`  
+		Merged lab 4 and 5 into a single lab *Install Oracle Database*. Removed the if condition.  
+		Install Oracle Database desktop class and Server class are now options.  
+		Merged lab 6 and 7 into a single lab *Create Container Database*. Removed the if condition.  
+		Fixed the title issue in the manifests  
+		Removed the assumptions section and converted them into tasks under the fold  
+		Removed the link syntax for *proceed to the next lab*, changed to bold  
+		Changed the nested headings to regular texts  
+		Added a congrats line at the end of the workshop  
+		Added prerequisites for freetier and paid accounts to all content labs  
+		Moved the blog to Learn more in the Introduction  
+		Moved the Objectives before Prerequisites for all content labs  
+		Moved the headings in the Introduction under *Appendix*  
+		Modified the objectives in the Introduction  
+		Converted second level number A,B,C into steps  
+		Remove the designation of contributors from the content labs  
+		Other minor changes.  
 
-	Hello,
+		Please approve the PR. Thank you  
+		~MG
 
-	Modified the lab as suggested.
+		----
+		## Merge request #*3662* - Sep 01, 2021
 
-	Fixed the conflicts in these files: `freetier-install-db`/`manifest.json` and `prepare-setup.md`  
-	Removed the common files  
-	Removed the include function from all occurrences  
-	Other minor changes
+		Fixed conflicts and submitted a merge request on *Mon Sep 01, 2021*. Waiting for approval. Approved on **Sep 01**.
 
-	Besides, I performed Self QA for the workshop and ran through the lint checker on all labs again.
+		**Sub**: <ins>Workshop (*ID# 7041*) Fixed conflicts and removed the include files</ins>
 
-	Request for approval please. Thank you  
-	~MG
+		Hello,
 
-	----
-	## Merge request #*3662* - Aug 30, 2021
+		Modified the lab as suggested.
 
-	Submitted PR for WS1 from my fork on Github on *Mon Aug 30, 2021*. Not Approved.
+		Fixed the conflicts in these files: `freetier-install-db`/`manifest.json` and `prepare-setup.md`  
+		Removed the common files  
+		Removed the include function from all occurrences  
+		Other minor changes
 
-	**Sub**: <ins>Workshop (*ID# 7041*) Re-arranged folder structure and other changes as suggested in Office Hours</ins>
+		Besides, I performed Self QA for the workshop and ran through the lint checker on all labs again.
 
-	Hello,
+		Request for approval please. Thank you  
+		~MG
 
-	I have modified the lab as discussed in the Office Hours.
+		----
+		## Merge request #*3662* - Aug 30, 2021
 
-	Following are the modifications -
+		Submitted PR for WS1 from my fork on Github on *Mon Aug 30, 2021*. Not Approved.
 
-	Moved *prepare-setup* inside the install-db folder  
-	Removed the common file and inserted the note inside Introduction  
-	Changed the folder name from main to desktop  
-	Removed *initialize-environment* from desktop  
-	Moved the introduction lab first followed by *get started* in all manifests  
-	Changed the heading 1 of Introduction to *Oracle Database 21c Installation*  
-	Added if condition to Introduction to exclude sections from the parent workshop.  
-	Changed the folder names from `freetier`, `livelabs`, `desktop` to `freetier-install-db`, `livelabs-install-db`, `desktop-install-db`
+		**Sub**: <ins>Workshop (*ID# 7041*) Re-arranged folder structure and other changes as suggested in Office Hours</ins>
 
-	Besides, I performed Self QA for the workshop and ran through the lint checker on all labs again.
+		Hello,
 
-	Request for approval please. Thank you   
-	~MG
+		I have modified the lab as discussed in the Office Hours.
 
-	----
-	## Merge request #*3642* - Aug 26, 2021
+		Following are the modifications -
 
-	Submitted PR for WS1 from my fork on Github on *Mon Aug 26, 2021*. Waiting for approval. Approved on **Aug 26**.
+		Moved *prepare-setup* inside the install-db folder  
+		Removed the common file and inserted the note inside Introduction  
+		Changed the folder name from main to desktop  
+		Removed *initialize-environment* from desktop  
+		Moved the introduction lab first followed by *get started* in all manifests  
+		Changed the heading 1 of Introduction to *Oracle Database 21c Installation*  
+		Added if condition to Introduction to exclude sections from the parent workshop.  
+		Changed the folder names from `freetier`, `livelabs`, `desktop` to `freetier-install-db`, `livelabs-install-db`, `desktop-install-db`
 
-	**Sub**: <ins>Workshop (*ID# 7041*) Modified as per Self QA and lint checker along with other changes</ins>
+		Besides, I performed Self QA for the workshop and ran through the lint checker on all labs again.
 
-	Hello,
+		Request for approval please. Thank you   
+		~MG
 
-	I performed Self QA and ran through the lint checker on the workshop.
+		----
+		## Merge request #*3642* - Aug 26, 2021
 
-	Following are the modifications -
+		Submitted PR for WS1 from my fork on Github on *Mon Aug 26, 2021*. Waiting for approval. Approved on **Aug 26**.
 
-	Removed the gerund and modified the title to *Install Oracle Database 21c on OCI Compute*.  
-	Added these to the Introduction:
-	  - Estimated workshop time = 2 hours
-	  - Note on always free accounts. Used a new file to include this note.   
+		**Sub**: <ins>Workshop (*ID# 7041*) Modified as per Self QA and lint checker along with other changes</ins>
 
-	Changed the folder names from `common-files` to `files` and from `common-images` to `images`.  
-	Modified the manifest files as per the above changes.  
-	Added the correct version of *Need Help* in the manifests for `LiveLabs` and `Main`.  
-	Removed the redundant file on *See an issue*.  
-	Minor changes to the lab *Create Container Database (Advanced Mode)*
+		Hello,
 
-	Request for approval please. Thank you   
-	~MG
+		I performed Self QA and ran through the lint checker on the workshop.
 
-	----
-	## Merge request #*3604* - Aug 23, 2021
+		Following are the modifications -
 
-	Submitted PR for WS1 from my fork on Github on *Mon Aug 23, 2021*. Approved on **Aug 23**.
+		Removed the gerund and modified the title to *Install Oracle Database 21c on OCI Compute*.  
+		Added these to the Introduction:
+		  - Estimated workshop time = 2 hours
+		  - Note on always free accounts. Used a new file to include this note.   
 
-	**Sub**: <ins>Workshop ID: *7041* Fixed indentation issue and broken images, used the if condition</ins>
+		Changed the folder names from `common-files` to `files` and from `common-images` to `images`.  
+		Modified the manifest files as per the above changes.  
+		Added the correct version of *Need Help* in the manifests for `LiveLabs` and `Main`.  
+		Removed the redundant file on *See an issue*.  
+		Minor changes to the lab *Create Container Database (Advanced Mode)*
 
-	Hello,
+		Request for approval please. Thank you   
+		~MG
 
-	I have done the following changes to my workshop.
+		----
+		## Merge request #*3604* - Aug 23, 2021
 
-	Used the include option for single-sourcing of content common across the labs.   
-	Fixed broken images in *Install Database (Server Class)*. Renamed the filename for the images.  
-	Fixed indentation issue at multiple places across all labs.  
-	Replaced the correct image for running root scripts in *Install Desktop Class* and *Install Server Class*.  
-	Removed the Compatible Initialization parameter from *Install Server Class* and *DBCA Advanced Mode*.  
-	Merged the markdown files `installer-desktop` and `installer-server` into a single file *installer-desktop-server*  
-	Merged the markdown files `dbca-typical` and `dbca-advanced` into a single file *dbca-typical-advanced*.  
-	Used the *if* and *type* options to conditionalize the content.  
-	Updated the manifest files to reflect the new merged markdown files and the *include* files.  
+		Submitted PR for WS1 from my fork on Github on *Mon Aug 23, 2021*. Approved on **Aug 23**.
 
-	Request for approval please. Thank you   
+		**Sub**: <ins>Workshop ID: *7041* Fixed indentation issue and broken images, used the if condition</ins>
 
-	~MG
+		Hello,
 
-	----
-	## Merge request #*3575* - Aug 16, 2021
+		I have done the following changes to my workshop.
 
-	Submitted PR for WS1 (draft copy) from my fork on Github on *Mon Aug 16, 2021*. Approved on **Aug 17**.
+		Used the include option for single-sourcing of content common across the labs.   
+		Fixed broken images in *Install Database (Server Class)*. Renamed the filename for the images.  
+		Fixed indentation issue at multiple places across all labs.  
+		Replaced the correct image for running root scripts in *Install Desktop Class* and *Install Server Class*.  
+		Removed the Compatible Initialization parameter from *Install Server Class* and *DBCA Advanced Mode*.  
+		Merged the markdown files `installer-desktop` and `installer-server` into a single file *installer-desktop-server*  
+		Merged the markdown files `dbca-typical` and `dbca-advanced` into a single file *dbca-typical-advanced*.  
+		Used the *if* and *type* options to conditionalize the content.  
+		Updated the manifest files to reflect the new merged markdown files and the *include* files.  
 
-	**Sub**: <ins>Created Oracle Database 21c Installation Workshop (*ID# 7041*)</ins>
+		Request for approval please. Thank you   
 
-	Hello,
+		~MG
 
-	I have developed a new workshop on 'Installing Oracle Database 21c on OCI Compute'. The workshop (#7041) is approved in LWMS. Please approve the pull request.
+		----
+		## Merge request #*3575* - Aug 16, 2021
 
-	~Thanks, MG
+		Submitted PR for WS1 (draft copy) from my fork on Github on *Mon Aug 16, 2021*. Approved on **Aug 17**.
 
-## WS0 (*11324*)
+		**Sub**: <ins>Created Oracle Database 21c Installation Workshop (*ID# 7041*)</ins>
 
-- WS0 pull requests
+		Hello,
 
-	----
-	## Merge request #*145* - Jan 11, 2023
+		I have developed a new workshop on 'Installing Oracle Database 21c on OCI Compute'. The workshop (#7041) is approved in LWMS. Please approve the pull request.
 
-	Submitted PR for WS0 (minor fix to the manifest) from my fork on Github on *Wed Jan 11, 2023*. Waiting for approval. Approved on **Jan 12**.
+		~Thanks, MG
 
-	**Sub**: <ins>(#11324) Minor fix to manifest</ins>
+	## WS0 (*11324*)
 
-	Hello,
+	- WS0 pull requests
 
-	Modified the manifest and moved the key from its global position to local for the second lab only, access the series of workshops. Because it is not applicable to the introduction lab.
-	Request for approval please.
-	~Thanks, MG
+		----
+		## Merge request #*145* - Jan 11, 2023
 
-	----
-	## Merge request #*143* - Jan 10, 2023
+		Submitted PR for WS0 (minor fix to the manifest) from my fork on Github on *Wed Jan 11, 2023*. Waiting for approval. Approved on **Jan 12**.
 
-	Submitted PR for WS0 (draft copy) from my fork on Github on *Tue Jan 10*. Waiting for approval. Approved on **Jan 10**.
+		**Sub**: <ins>(#11324) Minor fix to manifest</ins>
 
-	**Sub**: <ins>(*#11324*) Created workshop - DBA Essentials Workshops Series</ins>
+		Hello,
 
-	Hello,
+		Modified the manifest and moved the key from its global position to local for the second lab only, access the series of workshops. Because it is not applicable to the introduction lab.
+		Request for approval please.
+		~Thanks, MG
 
-	Developed a new workshop on DBA Essentials Workshops Series for Oracle Database 21c, WMS ID is #11324.
+		----
+		## Merge request #*143* - Jan 10, 2023
 
-	We got a series of DBA Essentials workshops published on Livelabs. This workshop acts as a master of all these workshops. It introduces the workshops from this series and helps the user run them in a specific sequence.
+		Submitted PR for WS0 (draft copy) from my fork on Github on *Tue Jan 10*. Waiting for approval. Approved on **Jan 10**.
 
-	Please approve the PR. Thank you
-	~MG
+		**Sub**: <ins>(*#11324*) Created workshop - DBA Essentials Workshops Series</ins>
 
-## General PRs
+		Hello,
 
-- Other general PRs not specific to workshops
+		Developed a new workshop on DBA Essentials Workshops Series for Oracle Database 21c, WMS ID is #11324.
 
-	----
-	## Move workshops in database #*2* - June 21, 2022
+		We got a series of DBA Essentials workshops published on Livelabs. This workshop acts as a master of all these workshops. It introduces the workshops from this series and helps the user run them in a specific sequence.
 
-	Submitted PR on *Tue June 21*. Waiting for approval. Approved on **June 23**.
+		Please approve the PR. Thank you
+		~MG
 
-	**Sub**: <ins>(7041, 8321, 8341) Move workshops location</ins>
+	## General PRs
 
-	Hi,
+	- Other general PRs not specific to workshops
 
-	As discussed with Michelle, created a folder dba-essentials under version-specific folder odb-21c, which indicates Oracle Database 21c.
-	Moved the workshops under odb-21c/dba-essentials:
-	- configure-network-env
-	- install-db
-	- remove-db
+		----
+		## Move workshops in database #*2* - June 21, 2022
 
-	<ins>*No change*</ins> to lab contents.
+		Submitted PR on *Tue June 21*. Waiting for approval. Approved on **June 23**.
 
-	Please approve the PR. Thank you   
-	~MG
+		**Sub**: <ins>(7041, 8321, 8341) Move workshops location</ins>
 
-	----
-	## Move workshops in em-omc #*2* - June 11, 2022
+		Hi,
 
-	Submitted PR on *Sat June 11*. Waiting for approval. Approved on **June 14**.
+		As discussed with Michelle, created a folder dba-essentials under version-specific folder odb-21c, which indicates Oracle Database 21c.
+		Moved the workshops under odb-21c/dba-essentials:
+		- configure-network-env
+		- install-db
+		- remove-db
 
-	**Sub**: <ins>Move workshops location</ins>
+		<ins>*No change*</ins> to lab contents.
 
-	Hi,
+		Please approve the PR. Thank you   
+		~MG
 
-	As discussed with Michelle, moving the folder dba-essentials under version-specific folder odb-21c, which indicates Oracle Database 21c.
+		----
+		## Move workshops in em-omc #*2* - June 11, 2022
 
-	<ins>*No change*</ins> to lab contents.
+		Submitted PR on *Sat June 11*. Waiting for approval. Approved on **June 14**.
 
-	Please approve the PR. Thank you   
-	~MG
+		**Sub**: <ins>Move workshops location</ins>
+
+		Hi,
+
+		As discussed with Michelle, moving the folder dba-essentials under version-specific folder odb-21c, which indicates Oracle Database 21c.
+
+		<ins>*No change*</ins> to lab contents.
+
+		Please approve the PR. Thank you   
+		~MG
 
 ## Acknowledgements
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - January 16, (Mon) 2023
+ - **Last Updated on** - March 11, (Sat) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../intro/files/email.md)

@@ -186,9 +186,22 @@ The OCI has **26 regions** that are associated with specific teams.
 			```
 			https://objectstorage.us-ashburn-1.oraclecloud.com/p/CW0vc3DEfkuuQc4OQVOED1K8toeqzR9KD7O9fYRNgqkKMIljArKQKi4dsFyxpAWe/n/idrudhdwamji/b/dba-e-ws-live/o/ws10-11300-live.png
 			```
+
+		 - PAR URL for *wordlist* - created on 7 Mar 2023, valid till 31 Dec, 2051.
+
+			```
+			https://objectstorage.ap-seoul-1.oraclecloud.com/p/m7lcmI9dS-GcuDuDPtIngbxMtUVbeOHSYG4K871CK8GsEzwEaUr2kJPY22TVVYXj/n/cnmyhyct1k43/b/bucket-20210824-2326/o/wordlist
+			```
+
+			bitly - short url
+
+			```
+			https://bit.ly/wordlist-mg
+			```
+
 </if>
 
-## Task 1: Options for custom image
+## Options for custom image
 
 Either of the following will get you a custom image.
  - **Option 1** - *Create* a custom image from an instance.
@@ -329,7 +342,7 @@ Either of the following will get you a custom image.
 
 	You can create an instance from the imported image and modify the environment as required.
 
-## Task 2: Options for creating instance
+## Options for creating instance
 
 After logging in to the tenancy:
 
@@ -361,7 +374,7 @@ After logging in to the tenancy:
 
 	1. Follow [Task 3: How to create a compute instance?](?lab=compute-instance-custom-image#Task3:Howtocreateacomputeinstance?).
 
-## Task 3: How to create a compute instance?
+## How to create a compute instance?
 
 > **Note:** Whether from an image or from scratch, the steps for creating an instance is the same.
 
@@ -438,7 +451,7 @@ The instance status displays *Provisioning*. After some time, the status changes
 
 > **Note:** If you create a compute instance from scratch, enable port *6080* for noVNC.
 
-## Task 4: Enable port 6080 for noVNC
+## Enable port *6080* for noVNC
 
 To access the remote desktop for noVNC environment, enable port *6080*.
 
@@ -474,7 +487,7 @@ You can now connect to the noVNC remote desktop and provision a green button res
 
 1. Modify the rule and click **Save changes**.
 
-## Task 5: Manage your tenancy
+## Manage your tenancy
 
 After logging into your tenancy, you can do various administrative activities, such as:
 
@@ -866,5 +879,5 @@ chmod g+s /oracle
 ## Acknowledgements
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - December 6, (Tue) 2022
+ - **Last Updated on** - March 12, (Sun) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

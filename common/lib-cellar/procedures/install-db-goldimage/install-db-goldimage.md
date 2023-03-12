@@ -554,7 +554,7 @@ On completion, the installer displays the finish window.
 		$ <copy>cd /scratch/u01/app/mgarodia/oradata/</copy>
 		```
 
-		Default tablespaces - 
+		Default tablespaces -
 		 - `sysaux01.dbf`
 		 - `system01.dbf`
 		 - `temp01.dbf`
@@ -1586,6 +1586,17 @@ After stopping the listener -
 	$ <copy>./deinstall</copy>
 	```
 
+	> **Note**: Only the user, who installed the database on a host, can run `deinstall` to remove the database.
+
+	So, if you install the database as *oracle*, then you cannot deinstall as `mgarodia` or any other user. Else, it returns the following error.
+
+	```
+	ERROR: Oracle home not owned by user.
+	The user running the deinstall tool is not the same as owner of Oracle home
+	based on inventory ownership.
+	You must run this tool as the same user who installed the software.
+	```
+
 ## Troubleshooting
 
 - Troubleshooting tips and scenarios
@@ -1792,61 +1803,93 @@ After stopping the listener -
 	lsnrctl status
 	```
 
+	----
 	## Check dependent libraries/packages for database installation
 
-	Verify that the shared libraries and the packages required for the installer are available on the system.
+	**Problem statement**   
+	You run the database installer and it returns this error.
 
 	```
-	$ <copy>ldd /scratch/u01/app/oracle/product/23.0.0/dbhome_1/perl/bin/perl</copy>
+	/u01/app/oracle/product/23.0.0/dbhome_2/perl/bin/perl: error while loading shared libraries: libnsl.so.2: cannot open shared object file: No such file or directory
 	```
 
-	Output
+	**What happened**   
+	Some libraries or packages are missing or not installed on the host.
 
-	```
-	linux-vdso.so.1 (0x00007ffd99cd1000)
-	libpthread.so.0 => /lib64/libpthread.so.0 (0x00007ff236322000)
-	libnsl.so.2 => /lib64/libnsl.so.2 (0x00007ff236108000)
-	libdl.so.2 => /lib64/libdl.so.2 (0x00007ff235f04000)
-	libm.so.6 => /lib64/libm.so.6 (0x00007ff235b82000)
-	libcrypt.so.1 => /lib64/libcrypt.so.1 (0x00007ff235959000)
-	libutil.so.1 => /lib64/libutil.so.1 (0x00007ff235755000)
-	libc.so.6 => /lib64/libc.so.6 (0x00007ff235390000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007ff236542000)
-	libtirpc.so.3 => /lib64/libtirpc.so.3 (0x00007ff23515d000)
-	libgssapi_krb5.so.2 => /lib64/libgssapi_krb5.so.2 (0x00007ff234f08000)
-	libkrb5.so.3 => /lib64/libkrb5.so.3 (0x00007ff234c1e000)
-	libk5crypto.so.3 => /lib64/libk5crypto.so.3 (0x00007ff234a07000)
-	libcom_err.so.2 => /lib64/libcom_err.so.2 (0x00007ff234803000)
-	libkrb5support.so.0 => /lib64/libkrb5support.so.0 (0x00007ff2345f2000)
-	libkeyutils.so.1 => /lib64/libkeyutils.so.1 (0x00007ff2343ee000)
-	libcrypto.so.1.1 => /lib64/libcrypto.so.1.1 (0x00007ff233f05000)
-	libresolv.so.2 => /lib64/libresolv.so.2 (0x00007ff233cee000)
-	libselinux.so.1 => /lib64/libselinux.so.1 (0x00007ff233ac4000)
-	libz.so.1 => /lib64/libz.so.1 (0x00007ff2338ac000)
-	libpcre2-8.so.0 => /lib64/libpcre2-8.so.0 (0x00007ff233628000)
+	**What to do**
 
-	```
+	1. Run ldd (List Dynamic Dependencies)
 
-	If any required libraries are missing, the installer refuses to run.   
-	Example -
+		```
+		$ <copy>ldd /scratch/u01/app/oracle/product/23.0.0/dbhome_1/perl/bin/perl</copy>
+		```
 
-	```
-	/scratch/u01/app/oracle/product/23.0.0/dbhome_3/perl/bin/perl: /lib64/libcrypt.so.1: version `XCRYPT_2.0' not found (required by /scratch/u01/app/oracle/product/23.0.0/dbhome_3/perl/bin/perl)
-	/scratch/u01/app/oracle/product/23.0.0/dbhome_3/perl/bin/perl: /lib64/libc.so.6: version `GLIBC_2.28' not found (required by /scratch/u01/app/oracle/product/23.0.0/dbhome_3/perl/bin/perl)
-        linux-vdso.so.1 =>  (0x00007ffc023aa000)
-        libpthread.so.0 => /lib64/libpthread.so.0 (0x00007f4e483d8000)
-		libnsl.so.2 => not found
-        libdl.so.2 => /lib64/libdl.so.2 (0x00007f4e47fba000)
-        libm.so.6 => /lib64/libm.so.6 (0x00007f4e47cb8000)
-        libcrypt.so.1 => /lib64/libcrypt.so.1 (0x00007f4e47a81000)
-        libutil.so.1 => /lib64/libutil.so.1 (0x00007f4e4787e000)
-        libc.so.6 => /lib64/libc.so.6 (0x00007f4e474b0000)
-        /lib64/ld-linux-x86-64.so.2 (0x00007f4e485f4000)
-        libfreebl3.so => /lib64/libfreebl3.so (0x00007f4e472ad000)
-	```
+		Verify that the shared libraries and packages required for the installer are available on the host.
+
+		```
+		linux-vdso.so.1 (0x00007ffd99cd1000)
+		libpthread.so.0 => /lib64/libpthread.so.0 (0x00007ff236322000)
+		libnsl.so.2 => /lib64/libnsl.so.2 (0x00007ff236108000)
+		libdl.so.2 => /lib64/libdl.so.2 (0x00007ff235f04000)
+		libm.so.6 => /lib64/libm.so.6 (0x00007ff235b82000)
+		libcrypt.so.1 => /lib64/libcrypt.so.1 (0x00007ff235959000)
+		libutil.so.1 => /lib64/libutil.so.1 (0x00007ff235755000)
+		libc.so.6 => /lib64/libc.so.6 (0x00007ff235390000)
+		/lib64/ld-linux-x86-64.so.2 (0x00007ff236542000)
+		libtirpc.so.3 => /lib64/libtirpc.so.3 (0x00007ff23515d000)
+		libgssapi_krb5.so.2 => /lib64/libgssapi_krb5.so.2 (0x00007ff234f08000)
+		libkrb5.so.3 => /lib64/libkrb5.so.3 (0x00007ff234c1e000)
+		libk5crypto.so.3 => /lib64/libk5crypto.so.3 (0x00007ff234a07000)
+		libcom_err.so.2 => /lib64/libcom_err.so.2 (0x00007ff234803000)
+		libkrb5support.so.0 => /lib64/libkrb5support.so.0 (0x00007ff2345f2000)
+		libkeyutils.so.1 => /lib64/libkeyutils.so.1 (0x00007ff2343ee000)
+		libcrypto.so.1.1 => /lib64/libcrypto.so.1.1 (0x00007ff233f05000)
+		libresolv.so.2 => /lib64/libresolv.so.2 (0x00007ff233cee000)
+		libselinux.so.1 => /lib64/libselinux.so.1 (0x00007ff233ac4000)
+		libz.so.1 => /lib64/libz.so.1 (0x00007ff2338ac000)
+		libpcre2-8.so.0 => /lib64/libpcre2-8.so.0 (0x00007ff233628000)
+		```
+
+		If any required libraries are missing, then the installer refuses to run.   
+		In this example, the *`libnsl`* 32-bit package is missing.
+
+		```
+		/scratch/u01/app/oracle/product/23.0.0/dbhome_3/perl/bin/perl: /lib64/libcrypt.so.1: version `XCRYPT_2.0' not found (required by /scratch/u01/app/oracle/product/23.0.0/dbhome_3/perl/bin/perl)
+		/scratch/u01/app/oracle/product/23.0.0/dbhome_3/perl/bin/perl: /lib64/libc.so.6: version `GLIBC_2.28' not found (required by /scratch/u01/app/oracle/product/23.0.0/dbhome_3/perl/bin/perl)
+			linux-vdso.so.1 =>  (0x00007ffc023aa000)
+			libpthread.so.0 => /lib64/libpthread.so.0 (0x00007f4e483d8000)
+			libnsl.so.2 => not found
+			libdl.so.2 => /lib64/libdl.so.2 (0x00007f4e47fba000)
+			libm.so.6 => /lib64/libm.so.6 (0x00007f4e47cb8000)
+			libcrypt.so.1 => /lib64/libcrypt.so.1 (0x00007f4e47a81000)
+			libutil.so.1 => /lib64/libutil.so.1 (0x00007f4e4787e000)
+			libc.so.6 => /lib64/libc.so.6 (0x00007f4e474b0000)
+			/lib64/ld-linux-x86-64.so.2 (0x00007f4e485f4000)
+			libfreebl3.so => /lib64/libfreebl3.so (0x00007f4e472ad000)
+		```
+		 -
+			----
+			## screenshot
+
+			![Database missing libraries](./images/lld-db-lib-missing.png " ")
+
+	1. Install the missing package, in this case, `libnsl`.
+
+		```
+		$ <copy>dnf install -y libnsl</copy>
+		```
+		```
+		$ <copy>dnf install -y libnsl.i686</copy>
+		```
+		```
+		$ <copy>dnf install -y libnsl2</copy>
+		```
+		```
+		$ <copy>dnf install -y libnsl2.i686</copy>
+		```
 
 ## Acknowledgements
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - February 4, (Sat) 2023
+ - **Last Updated on** - March 11, (Sat) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
