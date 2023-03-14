@@ -192,20 +192,6 @@ The information in this lab revolves around -
 	</if>
 
 	----
-	## Want to *Approve a Pull Request*? Here it is
-
-	When a user submits a Pull Request (PR), Github assigns it with a unique (incremental) ID. As a moderator (admin), you can review the PR, add comments, approve the changes and merge them with the main repo or even request further changes.
-
-	**Procedure**
-
-	1. Log into Github in a web browser and open the repo that has the PR.
-
-	1. Go to the **Pull requests** tab.
-
-	1. work-in-progress
-
-
-	----
 	## Github pages
 
 	You can apply Jekyll themes to your Github pages.
@@ -237,7 +223,7 @@ The information in this lab revolves around -
 
 	 - See the GitHub Pages help documentation for instructions on how to add a theme to your GitHub Pages site, and follow The GitHub Blog for information on additional theme support.
 
-		**Cite**: [Getting Started with GitHub Pages](https://www.youtube.com/watch?v=QyFcl_Fba-k)
+		**Cite**: Video on [Getting Started with GitHub Pages](https://www.youtube.com/watch?v=QyFcl_Fba-k)
 
 		----
 		## Supported Jekyll themes
@@ -393,7 +379,7 @@ The information in this lab revolves around -
 	> **Note**: It may take a few minutes for your fork to build the Github pages.
 
 	----
-	## Create a new clone on your system
+	## Create a new clone from your fork
 
 	After you fork the main repo, you can create a clone of the fork on your local system.
 
@@ -453,7 +439,7 @@ The information in this lab revolves around -
 		Similarly, you can remove clone repos from GitHub Desktop.
 
 	----
-	## Remove clone repo from GitHub Desktop
+	## Remove a clone and clone again
 
 	If you do not want to manage a repo, you can remove it from GitHub Desktop. While removing a repo, you may choose to keep the files and folders on your system or delete them along.
 
@@ -490,6 +476,10 @@ The information in this lab revolves around -
 
 		![Remove repo](./images/desktop/clone-15-remove-repo-deleted.png " ")
 
+		If the clone is moved to another location, then you can **Locate** your clone to add it again. 
+
+		> **Note**: If you want to re-create the clone from your fork, then click **Clone Again**. 
+
 	----
 	## Pull error - **Stash changes**
 
@@ -513,21 +503,18 @@ The information in this lab revolves around -
 
 <if type="gitconcepts">
 
-## Merge fork with main repo (PRs)
+## Pull Requests (PRs) to push changes
 
-Want to merge your updated fork repo with main repo? *Submit a pull request*.   
-After committing your changes to `main`, go to your fork repo and *create a pull request*.
-
-- Options to open your fork repo
+- Submit PRs on remote repo and approve PRs
 
 	----
 	## Open your fork repo
 
 	- **Option A: using a browser**
 
-		1. Log in to your GitHub account in a browser.
+		1. Log on to your GitHub account in a browser.
 
-		1. Go to your fork repo `<your-account>/learning-library`.
+		1. Go to your fork repo `<your-account>/<your-fork>`.
 
 	- **Option B: using GitHub Desktop**
 
@@ -536,14 +523,22 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 		1. From **Branch** &gt; select **Create pull request**.  
 			It opens main repo in a browser.
 
-		1. Go to your fork repo `<your-account>/learning-library`.
-
-		> **Note**: If you have submitted a pull request already and it is under review (waiting for approval), then you cannot create another pull request in parallel. The **Branch** menu will have an option to **Show pull request** instead.
+		1. Go to your fork repo `<your-account>/<your-fork>`.
 
 	----
-	## Submit pull request (PR)
+	## About PRs
 
-	Once you commit (push) your changes from the clone, using either git desktop or git bash, the fork displays the message.
+	Want to merge your updated fork repo with remote repo? *submit a PR*.   
+	After committing your changes to `main`, go to your fork repo and *create a PR*.
+
+	As a moderator (administrator), you can perform tasks, such as review PRs, add comments, approve PRs and merge changes with the remote repo or even request the contributor for further changes. 
+
+	> **Tip**: A moderator can approve PRs from other users, but not their own. 
+
+	----
+	## Submit a PR - <i>contributor</i>
+
+	When you commit (push) your changes from the clone, using either git Desktop or git Bash, the fork displays the message.
 
 	```
 	This branch is 1 commit ahead of [head:repo]
@@ -551,7 +546,7 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 	![1 commit ahead](./images/github/fork-ahead-of-main.png " ")
 
-	Submit a PR to merge your changes with the main repository.
+	Submit a PR to merge your changes with the remote repo.
 
 	1. From your fork repo, go to **Pull requests** &gt; **New pull request**.
 
@@ -563,14 +558,85 @@ After committing your changes to `main`, go to your fork repo and *create a pull
 
 		> **Note**: Do not forget to mention the workshop ID in the subject line of the message.
 
-	1. Click **Create pull request**.   
-		It creates a merge request with a four-digit code and displays a message.
+	1. Click **Create pull request** to submit the PR.   
+		Github assigns each PR with a unique (incremental) ID and displays a message.
 
 		```
 		[user] wants to merge 1 commit into oracle:main from [user]:main
 		```
 
-	Done. Your pull request is submitted for review. Wait for the approval.
+	Done. Your PR is submitted for review. Github may send notification mails depending on your configuration. Next, one of the moderators (administrators) will review the PR and respond.
+
+	> **Did you know..?**   
+	When a user (contributor) submits a PR and it is under review (waiting for approval), further merging is blocked for the user. This means until the currently submitted PR is approved and merged (or rejected), the user cannot create another PR in parallel on the same repo. 
+
+	![PR submitted - merging blocked](./images/github/pr-submitted-merging-blocked.png " ")
+
+	----
+	## Approve a PR - <i>moderator</i>
+
+	Approving a PR involves two major steps: *approve* and *merge*
+
+	- **approve PR** - to accept the change request
+	- **merge PR** - to integrate the modified files with the remote repo
+
+	<ins>**Steps**</ins>
+
+	1. Log on to Github in a web browser and open the repo where the PR is submitted.
+
+	1. Go to the **Pull requests** tab.
+
+		![PR tab - review required](./images/github/approve-pr-01-pr-tab.jpg " ")
+
+		This tab contains a list of open PRs that require review and displays PR information, such as:
+		- PR IDs
+		- how many PRs are open and how many are closed
+		- contributors who submitted the PRs
+		- time when the PRs were submitted
+
+		You can click **Closed** to view the closed PRs.
+
+	1. Click a PR title or summary to view details of the PR.
+
+		![PR details](./images/github/approve-pr-02-pr-details.jpg " ")
+
+		It opens the Conversation tab and displays commit description, if any. It also shows how many commits requested and the number of files changed.
+
+	1. Click **Files changed** to view the modified files and their changes. 
+
+		![Files changed](./images/github/approve-pr-03-files-changed.png " ")
+
+	1. Click **Review changes** on the right to open a window for adding comments and to submit your review. 
+
+		In this window, you can submit your review as follows:
+		- add comments without approving PR
+		- approve PR along with your comments
+		- request further changes
+
+		![Review changes](./images/github/approve-pr-04-review-changes-submit-approval.jpg " ")
+
+		Optionally, you may add comments in the box.
+
+	1. Select *Approve* and then &gt; click **Submit review** to finish the review and approve the PR.   
+		Github displays a message to confirm that you have submitted your review.
+
+		![Review submitted](./images/github/approve-pr-05-review-submitted.jpg " ")
+
+
+		> **Note**: Approving a PR means the change request is accepted. However, the changes are not reflected on the remote repo until the files are merged. 
+
+	1. Select **Merge pull request** to proceed with merging. 
+	
+		![Merge PR](./images/github/approve-pr-06-merge-pr.jpg " ")
+	
+		Click **Confirm merge** to start the merge and to close the PR.   
+		It integrates the changes from the contributor's fork and updates the files on the remote repo.
+
+		![Confirm merge](./images/github/approve-pr-07-confirm-merge.jpg " ")
+
+		Optionally, you may add comments in the box and click **Comment**. 
+
+	You have approved PR the and merged the changes. Github may send notification mails depending on your configuration. The changes will be available on the remote repo after the build and deployment workflow completes. 
 
 </if>
 
@@ -2535,4 +2601,4 @@ To check for disallowed words, download this script on your local system, if not
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
  - **Last Updated on** - March 12, (Sun) 2023
-	- **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
+ - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
