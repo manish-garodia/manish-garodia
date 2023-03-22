@@ -4,7 +4,7 @@
         {
             "title": "Welcome to MG space..!",
             "description": "This is the landing page for my personal space MG.",
-			"publisheddate": "27-Nov-2022",
+			"publisheddate": "18-Mar-2023",
             "filename": "./../common/intro/readme.md",
 			"type": "hidden"
         },
@@ -27,15 +27,15 @@
         {
             "title": "Lab #: Oracle Database Gold Image",
             "description": "Pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.",
-			"publisheddate": "11-Mar-2023",
-            "filename": "./../common/lib-cellar/procedures/install-db-goldimage/install-db-goldimage.md",
+			"publisheddate": "22-Mar-2023",
+            "filename": "./../common/lib-cellar/procedures/db-goldimage/db-goldimage.md",
 			"type": "hidden"
         },
         {
-            "title": "Lab #: Install Oracle EM",
-            "description": "How to install Oracle EM on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EM.",
-			"publisheddate": "04-Feb-2023",
-            "filename": "./../common/lib-cellar/procedures/install-em/install-em.md",
+            "title": "Lab #: Oracle EM",
+            "description": "How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 14 shiphome. It also contains post installation checks, steps to deinstall EM, and some troubleshooting scenarios and tips.",
+			"publisheddate": "22-Mar-2023",
+            "filename": "./../common/lib-cellar/procedures/oracle-em/oracle-em.md",
 			"type": "hidden"
         },
         {

@@ -196,7 +196,7 @@ The information in this lab revolves around -
 
 	You can apply Jekyll themes to your Github pages.
 
-	1. Keep this configuration file under the root folder of your repo. 
+	1. Keep this configuration file under the root folder of your repo.
 
 		- *`_config.yml`*
 
@@ -476,9 +476,9 @@ The information in this lab revolves around -
 
 		![Remove repo](./images/desktop/clone-15-remove-repo-deleted.png " ")
 
-		If the clone is moved to another location, then you can **Locate** your clone to add it again. 
+		If the clone is moved to another location, then you can **Locate** your clone to add it again.
 
-		> **Note**: If you want to re-create the clone from your fork, then click **Clone Again**. 
+		> **Note**: If you want to re-create the clone from your fork, then click **Clone Again**.
 
 	----
 	## Pull error - **Stash changes**
@@ -531,9 +531,9 @@ The information in this lab revolves around -
 	Want to merge your updated fork repo with remote repo? *submit a PR*.   
 	After committing your changes to `main`, go to your fork repo and *create a PR*.
 
-	As a moderator (administrator), you can perform tasks, such as review PRs, add comments, approve PRs and merge changes with the remote repo or even request the contributor for further changes. 
+	As a moderator (administrator), you can perform tasks, such as review PRs, add comments, approve PRs and merge changes with the remote repo or even request the contributor for further changes.
 
-	> **Tip**: A moderator can approve PRs from other users, but not their own. 
+	> **Tip**: A moderator can approve PRs from other users, but not their own.
 
 	----
 	## Submit a PR - <i>contributor</i>
@@ -568,7 +568,7 @@ The information in this lab revolves around -
 	Done. Your PR is submitted for review. Github may send notification mails depending on your configuration. Next, one of the moderators (administrators) will review the PR and respond.
 
 	> **Did you know..?**   
-	When a user (contributor) submits a PR and it is under review (waiting for approval), further merging is blocked for the user. This means until the currently submitted PR is approved and merged (or rejected), the user cannot create another PR in parallel on the same repo. 
+	When a user (contributor) submits a PR and it is under review (waiting for approval), further merging is blocked for the user. This means until the currently submitted PR is approved and merged (or rejected), the user cannot create another PR in parallel on the same repo.
 
 	![PR submitted - merging blocked](./images/github/pr-submitted-merging-blocked.png " ")
 
@@ -602,11 +602,11 @@ The information in this lab revolves around -
 
 		It opens the Conversation tab and displays commit description, if any. It also shows how many commits requested and the number of files changed.
 
-	1. Click **Files changed** to view the modified files and their changes. 
+	1. Click **Files changed** to view the modified files and their changes.
 
 		![Files changed](./images/github/approve-pr-03-files-changed.png " ")
 
-	1. Click **Review changes** on the right to open a window for adding comments and to submit your review. 
+	1. Click **Review changes** on the right to open a window for adding comments and to submit your review.
 
 		In this window, you can submit your review as follows:
 		- add comments without approving PR
@@ -623,20 +623,20 @@ The information in this lab revolves around -
 		![Review submitted](./images/github/approve-pr-05-review-submitted.jpg " ")
 
 
-		> **Note**: Approving a PR means the change request is accepted. However, the changes are not reflected on the remote repo until the files are merged. 
+		> **Note**: Approving a PR means the change request is accepted. However, the changes are not reflected on the remote repo until the files are merged.
 
-	1. Select **Merge pull request** to proceed with merging. 
-	
+	1. Select **Merge pull request** to proceed with merging.
+
 		![Merge PR](./images/github/approve-pr-06-merge-pr.jpg " ")
-	
+
 		Click **Confirm merge** to start the merge and to close the PR.   
 		It integrates the changes from the contributor's fork and updates the files on the remote repo.
 
 		![Confirm merge](./images/github/approve-pr-07-confirm-merge.jpg " ")
 
-		Optionally, you may add comments in the box and click **Comment**. 
+		Optionally, you may add comments in the box and click **Comment**.
 
-	You have approved PR the and merged the changes. Github may send notification mails depending on your configuration. The changes will be available on the remote repo after the build and deployment workflow completes. 
+	You have approved PR the and merged the changes. Github may send notification mails depending on your configuration. The changes will be available on the remote repo after the build and deployment workflow completes.
 
 </if>
 
@@ -1456,7 +1456,7 @@ To check for disallowed words, download this script on your local system, if not
 	If you already have VS Code, then skip this and jump to the plugins section.
 
 	> **Did you know..?**   
-	You do not require VS Code editor installed on your system. Open a `markdown.md` file in *`github.dev`* and it opens the file in VS Code editor in a web browser (online). 
+	You do not require VS Code editor installed on your system. Open a `markdown.md` file in *`github.dev`* and it opens the file in VS Code editor in a web browser (online).
 
 	----
 	## Live Server plugin for VS Code
@@ -1510,6 +1510,8 @@ To check for disallowed words, download this script on your local system, if not
 	 - Click *Port : 5500* at the bottom-right corner of VS Code window to stop Live Server.
 
 		![Close Live Server](./images/editors/vscode-close-live-server.png " ")
+
+		> Another option is to install the Live Server plugin from [here](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 
 		----
 		## Cite reference

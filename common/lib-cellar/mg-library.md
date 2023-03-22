@@ -30,8 +30,8 @@ Pick a topic and open it in a separate tab.
 | sl # | Title                         | Description                |
 |------|-------------------------------|----------------------------|
 | 1    | [Virtual Machines - Real Acions](https://manish-garodia.github.io/mg-playground/topic-title/vm-real-axons/) | How to access VM and configure VNC. |
-| 2    | [Oracle Database Gold Image](https://manish-garodia.github.io/mg-playground/topic-title/install-db-goldimage/) | Pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses some troubleshooting scenarios and tips. |
-| 3    | [Install Oracle EM](https://manish-garodia.github.io/mg-playground/topic-title/install-em/) | How to install Oracle EM on VM. It also discusses the pre-installation setup, troubleshooting tips, and the steps to deinstall EM. |
+| 2    | [Oracle Database Gold Image](https://manish-garodia.github.io/mg-playground/topic-title/db-goldimage/) | Pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses some troubleshooting scenarios and tips. |
+| 3    | [Install Oracle EM](https://manish-garodia.github.io/mg-playground/topic-title/oracle-em/) | How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 14 shiphome. It also contains post installation checks, steps to deinstall EM, and some troubleshooting scenarios and tips. |
 | 4    | [Into the Clouds](https://manish-garodia.github.io/mg-playground/topic-title/into-the-clouds/) | About the features and services in the OCI Tenancy, for example, noVNC, compute instance, custom images, object storage, compartments, to name a few. |
 | 5    | [Fun with git-bits](https://manish-garodia.github.io/mg-playground/topic-title/fun-with-git-bits/) | All you need to know about git ![git](./procedures/fun-with-git-bits/images/git-black-small.png) to get going. |
 | 6    | [Hands down in markdown](https://manish-garodia.github.io/mg-playground/topic-title/hands-down-in-md/) | About markdown basic formatting and tags |
@@ -109,5 +109,5 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 ## Acknowledgements
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - March 11, (Sat) 2023
+ - **Last Updated on** - March 22, (Wed) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)

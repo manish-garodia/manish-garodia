@@ -1,6 +1,6 @@
 # Welcome to MG space..!
 
-![mg space](./common/images/mg-space.jpg " ") 
+![mg space](./common/images/mg-space.jpg " ")
 ----
 
 > Explore the possibilities of learn, unlearn, re-learn
@@ -73,14 +73,15 @@ Captured from meetings, presentations, demos, and more available in oTube.
 | 5    | [Install Oracle Enterprise Manager (Oracle EM)](https://otube.oracle.com/media/t/1_rfywyxmo)  | How to install Oracle Enterprise Manager (Oracle EM) 13.5 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Kurt Engeleiter on 28 June 21  |
 | 6 | [Using Oracle Review](https://otube.oracle.com/media/t/1_zqfln2bg) | How to use Oracle Review for previewing UAT builds and providing comments | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Sarika Surampudi on Nov 09, 21 |
 | 7 | [Preview and publish content on OCI with CPP](https://otube.oracle.com/media/t/1_dlf7sdav) | How to use Content Publishing Pipeline (CPP) for building previews and publishing content on the OCI portal | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Neil Hebert on Oct 04, 22 |
-| 8 | | | | |
+| 8 | [Cloud credits in OCI tenancy](https://otube.oracle.com/media/t/1_4w8suka2) | How to save cloud credits in oci tenancy | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Manish Garodia on March 15, 23 |
+| 9 | | | | |
 
 **Videos - project**
 
 | sl # | Name (hyperlinked)           | Description                          | Channel             |
 |------|------------------------------|--------------------------------------|---------------------|
 | 1    | [Performance Hub in OCI docs](https://otube.oracle.com/media/t/1_h0l5pyuf) | Meeting with Diane Gaskill on 1 Feb 22 regarding Performance Hub documentation in OCI | [Performance Hub OCI](https://otube.oracle.com/channel/t/261319662) |
-| 2    | [UA-PM meet 29 Jun 22](https://otube.oracle.com/media/t/1_495mt4py) | UA/PM Meeting on 29 June 2022 regarding the migration of performance hub documentation from OCI to OHC | [Performance Hub OCI](https://otube.oracle.com/channel/t/261319662) | 
+| 2    | [UA-PM meet 29 Jun 22](https://otube.oracle.com/media/t/1_495mt4py) | UA/PM Meeting on 29 June 2022 regarding the migration of performance hub documentation from OCI to OHC | [Performance Hub OCI](https://otube.oracle.com/channel/t/261319662) |
 | 3 | | | | |
 
 ## Links imgbb
@@ -112,4 +113,3 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
  <b>Questions/Feedback?</b> — Blame <a href="mailto:manish.garodia@oracle.com">@manish.garodia</a>
 </small></p>
 </div>
-

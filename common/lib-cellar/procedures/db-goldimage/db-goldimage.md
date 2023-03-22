@@ -30,7 +30,7 @@ You have multiple database versions (18c, 19c, 21c, 23c,...) on the same host. E
 
 But if you want to use specific listener for each database version, then edit the listener configuration as explained in this lab.
 
-## Task 1: Pre-installation setup
+## Pre-installation setup
 
 Production versions are available to download from [OTN](https://www.oracle.com/database/technologies/oracle-database-software-downloads.html).   
 Oracle Database installers are available internally as gold images.
@@ -204,10 +204,12 @@ Oracle Database installers are available internally as gold images.
 		`Oracle Database sys password` - *We!come1*
 		</if>
 
-## Task 2: Install Oracle Database
+## Install Oracle Database
 
 From the Oracle home location, start `./runInstaller` and select the following.    
 Most fields are auto-filled.
+
+> **Tip**: Run these steps after you unzip the database installer (shiphome gold image or production version) into Oracle home. To get the installer, see [Pre-installation setup](?lab=db-goldimage#Preinstallationsetup).
 
 1. Create and configure a single instance database.
 
@@ -360,7 +362,7 @@ Do not select this check box and run the scripts manually in the later steps.
 
 On completion, the installer displays the finish window.
 
-## Task 3: Database post installation checks
+## Database post installation checks
 
 1. View Oracle SIDs and Oracle homes
 1. View Oracle base locations
@@ -724,7 +726,7 @@ On completion, the installer displays the finish window.
 	```
 
 
-## Task 4: Edit listener config
+## Edit listener config
 
 To modify listener configuration, the high-level sequence is -
 
@@ -1572,7 +1574,7 @@ After stopping the listener -
 		mgarodia  696062  680000  0 20:51 pts/4    00:00:00 grep --color=auto lsn
 		```
 
-## Task 5: Deinstall Oracle Database
+## Deinstall Oracle Database
 
 1. Go to the `deinstall` folder.
 
@@ -1891,5 +1893,5 @@ After stopping the listener -
 ## Acknowledgements
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - March 11, (Sat) 2023
+ - **Last Updated on** - March 22, (Wed) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

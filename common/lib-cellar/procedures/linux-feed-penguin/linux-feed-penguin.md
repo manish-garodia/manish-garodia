@@ -1286,9 +1286,9 @@ A script begins with -
 
 **Cite**: [Run a script from anywhere](https://askubuntu.com/questions/153251/launch-shell-scripts-from-anywhere)
 
-## File system, disk space, OS
+## File system, disk space, OS, packages
 
- - File system and OS related
+ - File system, packages, and OS related
 
 	----
 	## Disk space
@@ -1961,6 +1961,81 @@ A script begins with -
 			```
 
 	----
+	## Upgrade apache-commons-text
+
+	1. Download the [latest apache rpm](https://rpmfind.net/linux/rpm2html/search.php?query=apache-commons-text).
+
+	1. Install the package using yum.
+
+		```
+		$ <copy>yum install apache-commons-text-1.10.0-2.4.noarch.rpm</copy>
+		```
+
+		Package installation proceeds.
+
+		----
+		## View detailed steps
+
+			```
+			Repository ol8_addons is listed more than once in the configuration
+			Repository ol8_appstream is listed more than once in the configuration
+			Repository ol8_baseos_latest is listed more than once in the configuration
+			Repository ol8_u6_baseos_base is listed more than once in the configuration
+			Repository ol8_codeready_builder is listed more than once in the configuration
+			Repository ol8_developer is listed more than once in the configuration
+			Repository ol8_distro_builder is listed more than once in the configuration
+			Repository ol8_leapp is listed more than once in the configuration
+			Repository ol8_kvm_appstream is listed more than once in the configuration
+			Last metadata expiration check: 4:03:58 ago on Mon 20 Mar 2023 11:20:15 AM UTC.
+			Dependencies resolved.
+			===========================================================================================================================================================================================
+			 Package                                    Architecture                 Version                                                Repository                                            Size
+			===========================================================================================================================================================================================
+			Installing:
+			 apache-commons-text                        noarch                       1.10.0-2.4                                             @commandline                                         226 k
+			Installing dependencies:
+			 apache-commons-lang3                       noarch                       3.7-3.module+el8+5206+de031079                         snapshot_ol8_codeready_builder                       483 k
+
+			Transaction Summary
+			===========================================================================================================================================================================================
+			Install  2 Packages
+
+			Total size: 709 k
+			Total download size: 483 k
+			Installed size: 842 k
+			Is this ok [y/N]: y
+			Downloading Packages:
+			apache-commons-lang3-3.7-3.module+el8+5206+de031079.noarch.rpm                                                                                              15 MB/s | 483 kB     00:00
+			-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			Total                                                                                                                                                       14 MB/s | 483 kB     00:00
+			Running transaction check
+			Transaction check succeeded.
+			Running transaction test
+			Transaction test succeeded.
+			Running transaction
+			  Preparing        :                                                                                                                                                                   1/1
+			  Installing       : apache-commons-lang3-3.7-3.module+el8+5206+de031079.noarch                                                                                                        1/2
+			  Installing       : apache-commons-text-1.10.0-2.4.noarch                                                                                                                             2/2
+			  Verifying        : apache-commons-lang3-3.7-3.module+el8+5206+de031079.noarch                                                                                                        1/2
+			  Verifying        : apache-commons-text-1.10.0-2.4.noarch                                                                                                                             2/2
+
+			Installed:
+			  apache-commons-lang3-3.7-3.module+el8+5206+de031079.noarch                                             apache-commons-text-1.10.0-2.4.noarch
+
+			Complete!
+			```
+
+	Verify `apache-commons-text` version
+
+	```
+	$ <copy>rpm -qa | grep -i apache-commons-text</copy>
+	```
+
+	```
+	apache-commons-text-1.10.0-2.4.noarch
+	```
+
+	----
 	## Public IP address
 
 	```
@@ -2108,5 +2183,5 @@ add details about chown, chmod, chgrp
 ## Acknowledgements
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - March 12, (Sun) 2023
+ - **Last Updated on** - March 22, (Wed) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
