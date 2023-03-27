@@ -1186,29 +1186,30 @@ The information in this lab revolves around -
 	----
 	## Common `git` commands
 
-	| Command                                                | Usage                                     |
-	|--------------------------------------------------------|-------------------------------------------|
-	| `cd /d/GitHub`                                         | change drives                             |
-	| `cd <folder-name>`                                     | navigate between folders                  |
-	| `git log`                                              | display log                               |
-	| **Configuration**                                      |
-	| `~/.gitconfig`                                         | git config location                       |
-	| `cat ~/.gitconfig`<br>`more ~/.gitconfig`              | display contents of config file           |
-	| `vi ~/.gitconfig`                                      | modify config file                        |
-	| `git config --list`                                    | display configuration settings            |
-	| `git config --list --show-origin`                      | view all variables in the config file     |
-	| `git config user.name`                                 | display git user name                     |
-	| `git config --global user.name "FIRST-NAME LAST-NAME"` | set git user name                         |
-	| `git config --global user.email "MY-NAME@example.com"` | set git email address                     |
-	| `git remote add origin repository-URL`                 | add repository URL                        |
-	| **Branch**                                             |
-	| `git branch`                                           | display branches in repo                  |
-	| `git branch branch-name`                               | create a new branch                       |
-	| `git branch -d branch-name`                            | remove a branch - <i>**safe** delete</i>  |
-	|`git branch -D branch-name`                             | remove a branch - <i>**force** delete</i> |
-	| 														 | 											 |
+	| Command                                       | Usage                                     |
+	|-----------------------------------------------|-------------------------------------------|
+	| `cd /d/GitHub`                                | change drives                             |
+	| `cd <folder-name>`                            | navigate between folders                  |
+	| `tree.com //a`                                | view directory tree structure             |
+	| `git log`                                     | display log                               |
+	| **Configuration**                             |											|
+	| `~/.gitconfig`                                | git config location                       |
+	| `cat ~/.gitconfig`<br>`more ~/.gitconfig`     | display contents of config file           |
+	| `vi ~/.gitconfig`                             | modify config file                        |
+	| `git config --list`                           | display configuration settings            |
+	| `git config --list --show-origin`             | view all variables in the config file     |
+	| `git config user.name`                        | display git user name                     |
+	| `git config --global user.name "FIRST-NAME LAST-NAME"` | set git user name                |
+	| `git config --global user.email "MY-NAME@example.com"` | set git email address            |
+	| `git remote add origin repository-URL`        | add repository URL                        |
+	| **Branch**                                    |											|
+	| `git branch`                                  | display branches in repo                  |
+	| `git branch branch-name`                      | create a new branch                       |
+	| `git branch -d branch-name`                   | remove a branch - <i>**safe** delete</i>  |
+	|`git branch -D branch-name`                    | remove a branch - <i>**force** delete</i> |
+	| 												| 											|
 	| `git rm` | If you just use only `rm`, you will need to follow it up with `git add <fileRemoved>`. Whereas `git rm` does this in one step (both file removal and staging for deletion on the next commit). It keeps a copy in the local file system until commit. |
-	| `git --version`                                        | current version of git                    |
+	| `git --version`                               | current version of git                    |
 
 	----
 	### Yet to be tested (not verified)
@@ -1218,28 +1219,63 @@ The information in this lab revolves around -
 
 ## Check for disallowed words
 
-To check for disallowed words, download this script on your local system, if not already downloaded, and run it on your labs.
+To check for disallowed words or incorrect usage, download this script on your local system, if not already downloaded, and run it on your labs.
 
-- [wordlist](https://bit.ly/wordlist-mg)
+<!--
+ - [wordlist.sh](https://bit.ly/wordlist-mg)
+ - [wordlist.sh](https://bit.ly/3ZgJ4aj)
+ - [wordlist.sh](https://objectstorage.ap-seoul-1.oraclecloud.com/p/nYgbWDImBDQAqUfiRNFXaA9UueC3w1ZpuEi7YviCUhYptHuY49WDy0eKBQ4G3DFN/n/cnmyhyct1k43/b/mg-store/o/wordlist.sh)
+-->
 
-	This script contains a piece of code that checks for restricted words according to Oracle Documentation Style Guide (OSG).
+ - [wordlist.zip](https://bit.ly/wordlist_test)
+
+	Extract the script `wordlist.sh` from the zip file and store it on your local system, for example in the `Downloads` folder.
+
+	----
+	## About the script - *`wordlist.sh`*
+
+	The script contains a piece of code that checks whether the document contains any disallowed words or incorrect usage according to Oracle Documentation Style Guide (OSG).
+
+	You can run the script in these environments:
+	- git Bash
+	- Windows PowerShell
+
+	> **Note**: Windows Command Prompt does not recognize this script.
 
 	----
 	## Run the script
 
-	1. Open git bash and go to the topmost (workshop) level where the content resides.
+	1. Open git Bash or Windows PowerShell and go to the folder from where you want to check the contents.
 
 		```
 		$ <copy>cd github/your-repo/your-workshop-folder</copy>
 		```
 
-	1. Specify the full path of the script *`wordlist`* and press **Enter** to run it.
-
-		```
-		$ <copy>~/Downloads/wordlist</copy>
-		```
-
+	1. Specify the full path of the script *`wordlist.sh`* and press **Enter** to run it.   
 		In this example, the script is located in the `Downloads` folder.
+
+		**Git Bash**
+
+		```
+		$ <copy>~/Downloads/wordlist.sh</copy>
+		```
+
+		**Windows PowerShell**
+
+		```
+		$ PS <your-workshop><copy>~\Downloads\wordlist.sh</copy>
+		```
+
+		The script searches for disallowed words in all labs under each subfolder.
+
+		> **Note**: The PowerShell window brings up git Bash temporarily to display the search result.
+
+		![Disallowed words search results - git Bash](./images/gitbash/disallowed-words-01-script-results.png " ")
+
+		If the script finds any disallowed word or incorrect usage, then it displays result with the following details -
+		- <font style="color:rgb(177,72,198);">**file name with full path**</font>
+		- <font style="color:rgb(28,168,0);">**line number**</font>
+		- <font style="color:rgb(255,118,118);">**disallowed word or incorrect usage**</font>
 
 	1. The script prompts you to save the results to an `output.txt` file in the `Downloads` folder.
 
@@ -1249,23 +1285,13 @@ To check for disallowed words, download this script on your local system, if not
 
 		Press **y** to save the output file or press **n** or **Enter** to ignore.
 
-		> **Note**: As the `output.txt` file is created in bash (Linux-based), if you view it in Windows, then it may display some junk characters because of conversion between operating systems.
+		> **Note**: As the `output.txt` file is created in Bash (Linux-based), if you view it in Windows, then it may display some junk characters because of conversion between operating systems.
 
-		Viewing the same file in Git Bash does not display any junk characters.
+		Viewing the output file in Git Bash does not display any junk characters.
 
 		```
 		$ <copy>cat ~/Downloads/output.txt</copy>
 		```
-
-	----
-	**Results**
-
-	![Disallowed words search results](./images/gitbash/disallowed-words-01-script-results.png " ")
-
-	The script checks whether the workshop contains any disallowed words. If it finds any such word, then it displays result with the following details -
-	- <font style="color:rgb(177,72,198);">**file name with full path**</font>
-	- <font style="color:rgb(28,168,0);">**line number**</font>
-	- <font style="color:rgb(255,118,118);">**disallowed word or incorrect usage**</font>
 
 	----
 	## Run script without full path
@@ -1285,13 +1311,13 @@ To check for disallowed words, download this script on your local system, if not
 
 		![Advanced system properties](./images/gitbash/disallowed-words-03-advanced-sys-properties.png " ")
 
-		The window displays user variables for your acount and system variables.
+		The window displays user variables for your acount and the system variables.
 
 	1. Under **System variables**, select *Path* and click **Edit** to modify the variable.
 
 		![System variable Path - edit](./images/gitbash/disallowed-words-04-sys-var-path-edit.png " ")
 
-	1. Click **New** and then **Browse** to add the location where the script *wordlist* exists.
+	1. Click **New** and then **Browse** to add the location where the script *`wordlist.sh`* exists.
 
 		![Environment variable Path - new](./images/gitbash/disallowed-words-05-env-var-path-new.png " ")
 
@@ -1322,9 +1348,9 @@ To check for disallowed words, download this script on your local system, if not
 
 	The *$PATH* variable is now set.
 
-	Restart git Bash for the variable to take effect. When you open a new git Bash window, type *wordlist* without the full path to run the script.
+	Restart Git Bash or Windows PowerShell for the variable to take effect. When you open a new git Bash or PowerShell window, type *`wordlist.sh`* without the full path to run the script.
 
-	> **Tip**: Git Bash automatically picks up environment variables defined in your system.
+	> **Tip**: Git Bash and PowerShell automatically picks up environment variables defined in your system.
 
 	----
 	## Need more explanation?
@@ -1334,10 +1360,10 @@ To check for disallowed words, download this script on your local system, if not
 
 	| What the script does                | What the script does not do |
 	|-------------------------------------|-----------------------------|
-	| Looks for disallowed words across all labs in each subfolder      | Does not perform english grammar checks   |
-	| Exclude files, such as images, `index.html`, and `manifest.json`  | Include files in markdown (or text) format |
-	| Checks for most, if not all, words mentioned in the style guide   |  Does not check the `*.docx` files   |
-	| Provides option to save the output to a file  |  Does not fix the issues automatically |
+	| Looks for disallowed words or incorrect usage across all labs in each subfolder | Does not perform english grammar checks   |
+	| Checks the file names and also the contents of the files | <!--Include files in markdown (or text) format--> Does not check files, such as images, `index.html`, and `manifest.json`  |
+	| Checks for most, if not all, words mentioned in the style guide | Does not check the contents of `*.docx` |
+	| Provides option to save the output to a text file  | Does not fix the issues automatically |
 
 	Glance the piece of code inside the script -
 

@@ -13,12 +13,13 @@
 
 | Oracle Livelabs     | Test Env :: Personal space                                                    |
 |---------------------|-------------------------------------------------------------------------------|
-| **new** 		      | [dba-essentials test](./../../../mg-playground/projects/dba-essentials-test)  |
+| **new** 		      | [dba-essentials test](./../../../database-livelabs/projects/dba-essentials-test)  |
 | [common](./../../../oracle-livelabs/common) | [MG Library (topics)](./../../../mg-playground/mg-library) |
 | [database](./../../../oracle-livelabs/database) | [start-here](./../../start-here) |
-| [em-omc](./../../../oracle-livelabs/em-omc) | [sandbox](./../../z-sandbox)         | 
+| [em-omc](./../../../oracle-livelabs/em-omc) | [sandbox](./../../z-sandbox)         |
 |  					| [mg-playground](./../../../mg-playground)  		  |
-| **old**     		  | [mg-library (repo)](./../../../mg-library)        | 
+|  					| [database-livelabs](./../../../database-livelabs)  		  |
+| **old**     		  | [mg-library (repo)](./../../../mg-library)        |
 | [learning-library](./../../../learning-library)  | [musical-lamp](./../../../musical-lamp) 		  |
 
 

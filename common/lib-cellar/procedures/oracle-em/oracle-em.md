@@ -111,7 +111,7 @@ You can install Oracle EM:
 		1. Set the `DISPLAY` environment variable.
 		1. Run the EM Prereq Kit.
 
-		> **Note:** This lab walks you through the steps to install *Oracle EM 13.5*.
+		> **Note**: This lab walks you through the steps to install *Oracle EM 13.5*.
 
 		----
 		**1. Download the EM package and validate**
@@ -240,29 +240,29 @@ You can install Oracle EM:
 
 		1. Installation Type - **Create a new Enterprise Manager system** &gt; *Advanced Install*.
 
-			![EM Advance Install](./images/em-001-advance-install.png " ")**Figure:** EM Advance Install
+			![EM Advance Install](./images/em-001-advance-install.png " ")**Figure**: EM Advance Install
 
 		1. Software Updates - *Skip*
 
-			![Skip Software Updates](./images/em-002-software-updates.png " ")**Figure:** Skip Software Updates
+			![Skip Software Updates](./images/em-002-software-updates.png " ")**Figure**: Skip Software Updates
 
 		1. Prerequisites checks. Sometimes, it displays a script to run.
 
-			![Prerequisites Checks - Verify Environment](./images/em-003a-prereq-check.png " ")**Figure:** Prerequisites Checks - Verify Environment
+			![Prerequisites Checks - Verify Environment](./images/em-003a-prereq-check.png " ")**Figure**: Prerequisites Checks - Verify Environment
 
 			Fix the failed items manually or click **Ignore** to skip the warnings.
 
-			![Ignore Issues in Environment](./images/em-003b-prereq-ignore.png " ")**Figure:** Ignore Issues in Environment
+			![Ignore Issues in Environment](./images/em-003b-prereq-ignore.png " ")**Figure**: Ignore Issues in Environment
 
 			If the environment meets all requirements, the status displays *Succeeded*.
 
-			![Prerequisites checks - Success](./images/em-003c-prereq-success.png " ")**Figure:** Prerequisites checks - Success
+			![Prerequisites checks - Success](./images/em-003c-prereq-success.png " ")**Figure**: Prerequisites checks - Success
 
 			Click **Next** to conitue.
 
 		1. Installation details.
 
-			![EM Home and Base Locations](./images/em-004-base-home-dir.png " ")**Figure:** EM Home and Base Locations
+			![EM Home and Base Locations](./images/em-004-base-home-dir.png " ")**Figure**: EM Home and Base Locations
 
 			- **Middleware Home Location**
 
@@ -284,12 +284,12 @@ You can install Oracle EM:
 
 		1. Select Plug-ins - Leave the defaults.
 
-			![Select Plug-ins to Configure](./images/em-005-plugins.png " ")**Figure:** Select Plug-ins to Configure
+			![Select Plug-ins to Configure](./images/em-005-plugins.png " ")**Figure**: Select Plug-ins to Configure
 
 		1. WebLogic Server Configuration Details.  
 		These credentials are required for the maintenance of EM.
 
-			![WebLogic Server Configuration](./images/em-006-weblogic-config.png " ")**Figure:** WebLogic Server Configuration
+			![WebLogic Server Configuration](./images/em-006-weblogic-config.png " ")**Figure**: WebLogic Server Configuration
 
 			- **WebLogic User Name** - *weblogic*   
 			This is filled in automatically (editable, but do not modify).
@@ -302,12 +302,12 @@ You can install Oracle EM:
 
 			**OMS Instance Base Location** - Leave the default, for example `/scratch/u01/software/em/gc_inst`.
 
-			> **Note:** The password must contain at least 8 characters, begin with a letter, and include at least one numeric value.
+			> **Note**: The password must contain at least 8 characters, begin with a letter, and include at least one numeric value.
 
 		1. Database Connection Details.   
 			This page determines which database to connect to as the repository. In this example, EM connects to 19c.
 
-			![Database Connection Details](./images/em-007-db-connection.png " ")**Figure:** Database Connection Details
+			![Database Connection Details](./images/em-007-db-connection.png " ")**Figure**: Database Connection Details
 
 			- **Database Host Name**
 
@@ -327,12 +327,12 @@ You can install Oracle EM:
 
 			- **Deployment Size** - *Small*/Large (select any)
 
-			> **Note:** The password must contain at least 8 characters, begin with a letter, and include at least one numeric value.
+			> **Note**: The password must contain at least 8 characters, begin with a letter, and include at least one numeric value.
 
 		1. Database Prerequisite Checks.   
 			For failed items, pause the installation, go to the database, and modify the parameters to fix these errors.   
 
-			![Check Database Parameters](./images/em-008a-db-check.png " ")**Figure:** Check Database Parameters
+			![Check Database Parameters](./images/em-008a-db-check.png " ")**Figure**: Check Database Parameters
 
 			For `allow insert with update`, connect to 19c as sysdba and run this in the CDB.
 
@@ -344,11 +344,11 @@ You can install Oracle EM:
 
 			Click **OK** to use the AL32UTF8 character set.
 
-			![Character Set](./images/em-008b-char-set.png " ")**Figure:** Character Set
+			![Character Set](./images/em-008b-char-set.png " ")**Figure**: Character Set
 
 		1. Enterprise Manager Config Details. Set the login credentials for EM.
 
-			![EM Login Password](./images/em-009-em-pwd.png " ")**Figure:** EM Login Password
+			![EM Login Password](./images/em-009-em-pwd.png " ")**Figure**: EM Login Password
 
 			- **SYSMAN Password** - Enter EM login password <if type="hidden">*Welcome_1*</if>   
 			(re-enter to confirm password)
@@ -373,27 +373,27 @@ You can install Oracle EM:
 
 		1. Configure Oracle Software Library Location. Leave the default `/scratch/u01/software/em/swlib`.
 
-			![Software Library Location](./images/em-010-sw-lib.png " ")**Figure:** Software Library Location
+			![Software Library Location](./images/em-010-sw-lib.png " ")**Figure**: Software Library Location
 
 		1. Port Configuration Details - Leave the defaults.
 
-			![Port Configuration Details](./images/em-011-port-config.png " ")**Figure:** Port Configuration Details
+			![Port Configuration Details](./images/em-011-port-config.png " ")**Figure**: Port Configuration Details
 
 			Review the summary of installation and click **Next**.
 
 		1. On the Review page, review the details.
 
-			![Review - top](./images/em-012a-review1.png " ")**Figure:** Review - top
+			![Review - top](./images/em-012a-review1.png " ")**Figure**: Review - top
 
-			![Review - bottom](./images/em-012b-review2.png " ")**Figure:** Review - bottom
+			![Review - bottom](./images/em-012b-review2.png " ")**Figure**: Review - bottom
 
 		1. Click **Install** to start EM installation. The installation progress starts.
 
-			![EM Installation progress](./images/em-013a-install-progress.png " ")**Figure:** EM Installation progress
+			![EM Installation progress](./images/em-013a-install-progress.png " ")**Figure**: EM Installation progress
 
 			 - Run the scripts automatically (or manually as `root` from the terminal).
 
-				![All Root script](./images/em-013b-all-root-script.png " ")**Figure:** All Root script
+				![All Root script](./images/em-013b-all-root-script.png " ")**Figure**: All Root script
 
 				```
 				$ <copy>source /scratch/u01/software/em/middleware/allroot.sh</copy>
@@ -458,9 +458,9 @@ You can install Oracle EM:
 
 		1. On successful completion, the installer displays the Finish window.
 
-			![EM Installation Complete - top](./images/em-014-finish.png " ")**Figure:** EM Installation Complete
+			![EM Installation Complete - top](./images/em-014-finish.png " ")**Figure**: EM Installation Complete
 
-			> **Note:** Before you **Close** the installer, do not forget to note the URLs to access EM.
+			> **Note**: Before you **Close** the installer, do not forget to note the URLs to access EM.
 
 		| Interface                     | Link                                         |
 		|-------------------------------|----------------------------------------------|
@@ -476,7 +476,7 @@ You can install Oracle EM:
 		- Middleware folder - `/scratch/u01/software/em/middleware/bin`
 		- Agent folder - `/scratch/u01/software/em/agent/agent_13.5.0.0.0/bin`
 
-		> **Cite:**    
+		> **Cite**:    
 		> Another EM installation procedure explained here - [Manual EM Shiphome installation on OCI](https://confluence.oraclecorp.com/confluence/display/EMQ/Manual+EM+Shiphome+installation+on+OCI)
 
 
@@ -486,14 +486,14 @@ You can install Oracle EM:
 
 - After installing EM, you can log into the EM console using a web browser.
 
-	> **Note:** You can access the EM console only if OMS and agent are up and running.
+	> **Note**: You can access the EM console only if OMS and agent are up and running.
 
 	----
 	## Log in to EM
 
 	Open this page in a web browser - [EM login](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em).
 
-	![EM login](./images/em-002-login-page.png " ") **Figure:** EM login screen
+	![EM login](./images/em-002-login-page.png " ") **Figure**: EM login screen
 
 	**Credentials**
 	 - User name - *sysman*
@@ -514,7 +514,7 @@ You can install Oracle EM:
 	 - Password - Enter the password <if type="hidden">*Welcome_1*</if>
 	 - Container name - (leave empty)
 
-	> **Note:** If you forget the database password, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
+	> **Note**: If you forget the database password, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
 
 	----
 	## Check OMS status and details
@@ -523,8 +523,16 @@ You can install Oracle EM:
 
 	1. In a terminal, go to the middleware home location.
 
+		**MG old**
+
 		```
 		$ <copy>cd /scratch/u01/software/em/middleware/bin</copy>
+		```
+
+		**JP new**
+
+		```
+		$ <copy>cd /scratch/jayapsub/work/omshome1006/bin</copy>
 		```
 
 	1. Check OMS status.
@@ -569,7 +577,7 @@ You can install Oracle EM:
 		JVMD Engine is Up
 		```
 
-		> **Note:** Before starting OMS server, ensure that the repo database (*19c*) is up and running. If the repo is closed, then OMS will not start.
+		> **Note**: Before starting OMS server, ensure that the repo database (*19c*) is up and running. If the repo is closed, then OMS will not start.
 
 	<ins>Check OMS details</ins> -
 
@@ -621,8 +629,16 @@ You can install Oracle EM:
 
 	1. In a terminal, go to the agent location.
 
+		**old**
+
 		```
 		$ <copy>cd /scratch/u01/software/em/agent/agent_13.5.0.0.0/bin</copy>
+		```
+
+		**new**
+
+		```
+		$ <copy>cd /scratch/jayapsub/work/agentbase1006/agent_13.5.0.0.0/bin</copy>
 		```
 
 	1. Check the agent status.
@@ -631,7 +647,8 @@ You can install Oracle EM:
 		$ <copy>./emctl status agent</copy>
 		```
 
-		Success
+		----
+		## Success old
 
 		```
 		Oracle Enterprise Manager Cloud Control 13c Release 5  
@@ -670,7 +687,48 @@ You can install Oracle EM:
 		Agent is Running and Ready
 		```
 
-		Failure
+		----
+		## Success new
+
+		```
+		Oracle Enterprise Manager Cloud Control 13c Release 5  
+		Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
+		---------------------------------------------------------------
+		Agent Version          : 13.5.0.0.0
+		OMS Version            : 13.5.0.0.0
+		Protocol Version       : 12.1.0.1.0
+		Agent Home             : /scratch/jayapsub/work/agentbase1006/agent_inst
+		Agent Log Directory    : /scratch/jayapsub/work/agentbase1006/agent_inst/sysman/log
+		Agent Binaries         : /scratch/jayapsub/work/agentbase1006/agent_13.5.0.0.0
+		Core JAR Location      : /scratch/jayapsub/work/agentbase1006/agent_13.5.0.0.0/jlib
+		Agent Process ID       : 2015787
+		Parent Process ID      : 2007740
+		Agent URL              : https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:3872/emd/main/
+		Local Agent URL in NAT : https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:3872/emd/main/
+		Repository URL         : https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:4903/empbs/upload
+		Started at             : 2023-03-21 20:25:29
+		Started by user        : jayapsub
+		Operating System       : Linux version 5.4.17-2136.312.3.4.el8uek.x86_64 (amd64)
+		Number of Targets      : 38
+		Last Reload            : (none)
+		Last successful upload                       : 2023-03-23 09:21:47
+		Last attempted upload                        : 2023-03-23 09:21:47
+		Total Megabytes of XML files uploaded so far : 5.71
+		Number of XML files pending upload           : 0
+		Size of XML files pending upload(MB)         : 0
+		Available disk space on upload filesystem    : 70.00%
+		Collection Status                            : Collections enabled
+		Heartbeat Status                             : Ok
+		Last attempted heartbeat to OMS              : 2023-03-23 09:21:21
+		Last successful heartbeat to OMS             : 2023-03-23 09:21:21
+		Next scheduled heartbeat to OMS              : 2023-03-23 09:22:21
+
+		---------------------------------------------------------------
+		Agent is Running and Ready
+		```
+
+		----
+		## Failure
 
 		```
 		Oracle Enterprise Manager Cloud Control 13c Release 5  
@@ -710,7 +768,7 @@ TBD
 
 ## Deinstall EM
 
-> **Caution:** Do not deinstall the repository database (Oracle Database 19c) before deinstalling EM. Else, it will return an error `The OMS delete of EMGC_OMS1 has failed.`
+> **Caution**: Do not deinstall the repository database (Oracle Database 19c) before deinstalling EM. Else, it will return an error `The OMS delete of EMGC_OMS1 has failed.`
 
 - Run `deinstall` manually
 - Deinstall using script
@@ -1146,7 +1204,7 @@ A log file is generated to capture the deinstallation process.
 
 	 - Disable `password verify function`
 
-		> **Note:** To find out what users are using `PASSWORD_VERIFY_FUNCTION`, you need to know which profiles are using the function and then see which users are assigned to that profile.
+		> **Note**: To find out what users are using `PASSWORD_VERIFY_FUNCTION`, you need to know which profiles are using the function and then see which users are assigned to that profile.
 
 		```
 		SQL> <copy>alter profile default limit password_verify_function null;</copy>
@@ -1201,7 +1259,7 @@ A log file is generated to capture the deinstallation process.
 	ERROR: Cannot setup the extract directory /tmp/sfx_HYdGXn (-1).
 	```
 
-	> **Note:** The installer requires *~14 GB* of hard disk space in the temporary directory.
+	> **Note**: The installer requires *~14 GB* of hard disk space in the temporary directory.
 
 	**Solution**   
 	If the default temporary directory does not have the required amount of space, then provide an alternative location for the temporary directory.
@@ -1340,7 +1398,7 @@ A log file is generated to capture the deinstallation process.
 
 	Alternatively, (a longer but working solution is) deinstall both EM and the repository database (Oracle Database 19c) and reinstall them again.
 
-	**Cite:**
+	**Cite**:
 	 - [funoracleapps](https://www.funoracleapps.com/2019/05/oem-13c-installation-failed-with.html)
 	 - [sujeetdba](https://sujeetdba.blogspot.com/2016/09/the-referenced-database-doesnt-contain.html)
 
@@ -1377,7 +1435,7 @@ A log file is generated to capture the deinstallation process.
 		Agent heartbeat status: OMS is unreachable
 		```
 
-	**Solution:**
+	**Solution**:
 
 	- Start OMS.
 
@@ -1468,7 +1526,7 @@ A log file is generated to capture the deinstallation process.
 
 	Clean-up leftover OMS processes manually
 
-	> **Note:** Ensure that the listener and the repository database (19c) are up before proceeding with these steps.
+	> **Note**: Ensure that the listener and the repository database (19c) are up before proceeding with these steps.
 
 	1. Go to the `<OMS_HOME>/bin` directory.
 
@@ -1556,7 +1614,7 @@ A log file is generated to capture the deinstallation process.
 
 	1. Delete ONLY *`.lck`*, *`.pid`*, and *`.state`* files in these locations.
 
-		> **Note:** *DO NOT delete* any other files. *DO NOT delete* the directories themselves.
+		> **Note**: *DO NOT delete* any other files. *DO NOT delete* the directories themselves.
 
 		```
 		$ <copy>cd /scratch/u01/software/em/gc_inst/user_projects/domains/GCDomain/servers/EMGC_OMS1/data/nodemanager</copy>
@@ -1638,7 +1696,7 @@ A log file is generated to capture the deinstallation process.
 	**What went wrong**   
 	OMS wants to communicate with the repository database (for example, 19c) and say good-bye. But either the repository database is deinstalled already from the host or is unreachable.
 
-	 > **Note:** EM refuse to deinstall if the repository database is unavailable.
+	 > **Note**: EM refuse to deinstall if the repository database is unavailable.
 
 	**Workaround**   
 	In such case, you cannot deinstall EM the usual way anymore. You may hard-remove EM from your system. Delete the EM files/folders manually from the middleware home location.

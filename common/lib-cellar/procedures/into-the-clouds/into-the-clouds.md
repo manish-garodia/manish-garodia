@@ -193,10 +193,34 @@ The OCI has **26 regions** that are associated with specific teams.
 			https://objectstorage.ap-seoul-1.oraclecloud.com/p/m7lcmI9dS-GcuDuDPtIngbxMtUVbeOHSYG4K871CK8GsEzwEaUr2kJPY22TVVYXj/n/cnmyhyct1k43/b/bucket-20210824-2326/o/wordlist
 			```
 
-			bitly - short url
+			bitly - short url TBD
 
 			```
 			https://bit.ly/wordlist-mg
+			```
+
+		 - PAR URL for *wordlist.sh* - created on 25 Mar 2023, valid till 31 Dec, 2051.
+
+			```
+			https://objectstorage.ap-seoul-1.oraclecloud.com/p/nYgbWDImBDQAqUfiRNFXaA9UueC3w1ZpuEi7YviCUhYptHuY49WDy0eKBQ4G3DFN/n/cnmyhyct1k43/b/mg-store/o/wordlist.sh
+			```
+
+			bitly - short url
+
+			```
+			https://bit.ly/3ZgJ4aj
+			```
+
+		 - PAR URL for *wordlist.zip* - created on 25 Mar 2023, valid till 31 Dec, 2051.
+
+			```
+			https://objectstorage.ap-seoul-1.oraclecloud.com/p/ysyuZDLAuJZfL2Z2JbED8KuSbS1xer5MJWkzhArtMYDTvqN5CtQpXGpn0tl5CKII/n/cnmyhyct1k43/b/mg-store/o/wordlist.zip
+			```
+
+			bitly - short url
+
+			```
+
 			```
 
 </if>

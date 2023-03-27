@@ -481,16 +481,27 @@ On completion, the installer displays the finish window.
 		```
 		$ <copy>cat orabasetab</copy>
 		```
+
 		```
 		#orabasetab file is used to track Oracle Home associated with Oracle Base
 		/scratch/u01/app/oracle/product/23.0.0/dbhome_1:/scratch/u01/app/mgarodia:OraDB23Home1:Y:
 		```
 
 		Base location for Oracle Database
+
 		```
 		$ /scratch/u01/app/mgarodia
 		```
-		Contents of Oracle base
+
+		Contents of Oracle base - 23c
+
+		```
+		$ ls
+
+		$ admin  audit  diag  oradata  recovery_area
+		```
+
+		Contents of Oracle base - 21c
 
 		```
 		$ ls
