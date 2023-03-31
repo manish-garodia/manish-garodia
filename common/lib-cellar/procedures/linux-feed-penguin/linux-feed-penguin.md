@@ -831,7 +831,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	----
 	## command alias
 
-	Create and run short *aliases* for commands
+	You can create and run you own short *aliases* for commands.
 
 	Syntax
 
@@ -842,12 +842,67 @@ Get hands dirty with Linux commands, tips, and tricks.
 	Example
 
 	```
-	$ alias wr=”cd /var/www/html”
+	$ <copy>alias wr=”cd /var/www/html”</copy>
 	```
 
 	Henceforth, run *`wr`* instead of the complete command.
 
-	> It is worth mentioning that these alias are temporary. THey are applicable to the current terminal session only. If you close the terminal or open a new terminal, it is not valid anymore.
+	> It is worth mentioning that these alias are temporary. They are applicable to the current terminal session only. If you open a new terminal, then it does not recognize your alias anymore.
+
+	**Permanent alias**
+
+	You can create aliases that are persistent in the system.
+
+	1. Create a file *`.bash_aliases`* in your home location. 
+
+		- Windows home (10 or later): `C:\Users\[your-username]`
+		- Linux home: `/home/[your-username]`
+
+	1. Add your aliases to this file.
+
+		```
+		<copy>
+		alias w="wordlist.sh"
+		alias 21c="cd /d/git/GitHub/database-livelabs/projects/dba-essentials-test/db21c-livelabs-workshops/"
+		alias 23c="cd /d/git/GitHub/database-livelabs/projects/dba-essentials-test/db23c-livelabs-workshops/"
+		alias cmn="cd /d/git/GitHub/oracle-livelabs/common/"
+		alias db="cd /d/git/GitHub/oracle-livelabs/database/"
+		alias em="cd /d/git/GitHub/oracle-livelabs/em-omc/"
+		alias ll="cd /d/git/GitHub/database-livelabs/"
+		alias mg="cd /d/git/GitHub/mg-playground/"
+		alias new="cd /c/Programs/Git\ 2.37.1/ ; ./git-bash.exe" && cd /d/git
+		</copy>
+		```
+
+	1. Add the following to *`.bashrc`* to run the aliases automatically.
+
+		```
+		<copy>
+		if [ -f ~/.bash_aliases ]; then
+		. ~/.bash_aliases
+		fi
+		</copy>
+		```
+
+	Your aliases are now stored permanently. Even if you close the terminal or open a new terminal, the aliases are still valid. 
+
+	> **Caution**: Even though it works, avoid adding aliases directly to the `.bashrc` file.
+
+	To view the existing aliases in your system: 
+
+	```
+	$ <copy>alias</copy>
+	```
+
+	```
+	alias ls='ls -F --color=auto --show-control-chars'
+	alias node='winpty node.exe'
+	alias test='cmd'
+	```
+
+	**Cite**
+
+	- [Linux permanent aliases - cyberciti](https://www.cyberciti.biz/faq/create-permanent-bash-alias-linux-unix/)
 
 	----
 	## copy
