@@ -29,7 +29,7 @@ This lab is about markdown basic formatting and tags.
 	<ins>Example</ins>   
 	You _can_ **combine them** also
 
- - *Strikethrough* with two tildes like ~~this~~   
+ - *Strikethrough* with two tildes such as ~~this~~   
 	Maybe, not showing correctly in this lab but works fine on Github.
 
  - *Line breaks* or *soft enter*   
@@ -65,7 +65,7 @@ This lab is about markdown basic formatting and tags.
 
 Create heading styles in two ways:
 
- - **setext** - Use equal sign ====== below the title for heading 1, single line ------ below the title for the next level, etc.
+ - **setext** - Use equal sign ====== under the title for heading 1, single line ------ under the title for the next level, etc.
  - **atx** - Use hashes `#` to create headings. Multiple hashes `##` in a row for subsequent heading levels.
 
 	<ins>Example</ins>    
@@ -89,28 +89,28 @@ You can create up to `######` six levels of heading styles.
 
 	## Numbered list
 
-	Enter 3 blank spaces to indent a nested list (to create sub items).
+	Enter 3 blank spaces to indent a nested list (to create subitems).
 
-	Use Arabic number system (1, 2, 3, ...) or simply use (1, 1, 1,) for simplicity. Both will render the correct sequence.
+	Use Arabic number system (1, 2, 3, ...) or maybe use (1, 1, 1,) for simplicity. Both will render the correct sequence.
 
 
 	<ins>Format</ins>    
 	This is the paragraph.    
 	&nbsp;`1`. Item one   
-	&emsp;&nbsp;`1`. Sub item one   
-	&emsp;&nbsp;`1`. Sub item two   
-	&emsp;&nbsp;`1`. Sub item three   
+	&emsp;&nbsp;`1`. Subitem one   
+	&emsp;&nbsp;`1`. Subitem two   
+	&emsp;&nbsp;`1`. Subitem three   
 	&nbsp; `1`. Item two   
 
 	<ins>Output</ins>   
 	This is the paragraph.
 	1. Item one
-		1. Sub item one
-		1. Sub item two
-		1. Sub item three
+		1. Subitem one
+		1. Subitem two
+		1. Subitem three
 	1. Item two
-		1. Sub item one
-		1. Sub item two
+		1. Subitem one
+		1. Subitem two
 
 	 > **Best practice**: Using 1, 1, 1, prevents manual renumbering, in case of modifications in the list order.
 
@@ -127,15 +127,15 @@ You can create up to `######` six levels of heading styles.
 	<ins>Format</ins>    
 	Alternatively,   
 	&nbsp;\- Dashes   
-	&nbsp;\- for sub points, put two spaces before the dash or star:   
-	&emsp;&nbsp;\- Like this   
+	&nbsp;\- for subpoints, put two spaces before the dash or star:   
+	&emsp;&nbsp;\- As this   
 	&emsp;&nbsp;\- And this
 
 	<ins>Output</ins>   
 	Alternatively,
 	 - Dashes
-	 - for sub points, put two spaces before the dash or star:
-		 - Like this
+	 - for subpoints, put two spaces before the dash or star:
+		 - As this
 		 - And this
 
 ## Images
@@ -143,10 +143,10 @@ You can create up to `######` six levels of heading styles.
 <ins>Format</ins>   
 \!\[Alt Text\](url or path)  
 
-\!\[img-Template](images/md.png "click on the image")
+\!\[img-Template](images/md.png "click the image")
 
 <ins>Output</ins>   
-![img-Template](./images/md.png "click on the image")
+![img-Template](./images/md.png "click the image")
 
 - Other options
 
@@ -154,14 +154,14 @@ You can create up to `######` six levels of heading styles.
 
 	 -- Not fully tested --
 
-	1. Add an image using the above format.
+	1. Add an image using the previous format.
 
-	1. Add `image-filename.txt` under the **files** folder.
+	1. Add `image-file-name.txt` under the **files** folder.
 
 	1. Describe the image in the text file.
 
 	<ins>Example</ins>   
-	![img-Template](./images/md.png "click on the image")
+	![img-Template](./images/md.png "click the image")
 
 	## embed images from url
 
@@ -213,8 +213,8 @@ You can create up to `######` six levels of heading styles.
 	}
 	```
 
-## Acknowledgements
+## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - November 26, (Sat) 2022
+ - **Last Updated on** - April 2, (Sun) 2022
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

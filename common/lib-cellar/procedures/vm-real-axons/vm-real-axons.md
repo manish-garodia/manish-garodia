@@ -16,7 +16,7 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
     <tbody>
         <tr>
             <td rowspan=4>LDAP DSEE and PDIT NIS unix/linux</td>
-            <td row=2>LDAP DSEE and PDIT NIS unix/linux <br>- <b>Login shell:</b> <i>bash</i> or <i>csh</i> <br>- <b>Env or LOB:</b> <i>system LOB (gid=10)</i></td>
+            <td row=2>LDAP DSEE and PDIT NIS unix/linux <br>- <b>Login shell:</b> <i>Bash</i> or <i>csh</i> <br>- <b>Env or LOB:</b> <i>system LOB (gid=10)</i></td>
         </tr>
         <tr>
             <td>Kerberos [ADE_Admin] <br>- <b>LOB:</b> DEV</td>
@@ -27,7 +27,7 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
 <!--
 | for Uno VM | for OCI VM |
 |------------|------------|
-| LDAP DSEE and PDIT NIS unix/linux | LDAP DSEE and PDIT NIS unix/linux <br>Login shell: bash or csh <br> Env or LOB: system LOB (gid=10) |
+| LDAP DSEE and PDIT NIS unix/linux | LDAP DSEE and PDIT NIS unix/linux <br>Login shell: Bash or csh <br> Env or LOB: system LOB (gid=10) |
 |                                     | Kerberos [ADE_Admin] |
 -->
 
@@ -45,7 +45,7 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
 	- LDAP/Kerberos pwd: *Livelabs\*1*
 	</if>
 
-	| VM hostname                                             | Description                           |
+	| VM host name                                            | Description                           |
 	|---------------------------------------------------------|-------------------------------------  |
 	| phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com  | OCI machine <br>IP:    				  |
 	| phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com  | OCI machine <br>IP:    				  |
@@ -56,14 +56,14 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
 
 ## Configure VNC for VM
 
-1. Log into VM using PuTTY
+1. Log in to VM using PuTTY
 1. Start VNC server
 1. Access VM using a VNC viewer
 
-	> **Caution:** Start VNC server only if the server has stopped or after a system reboot. If VNC server is already running, then starting VNC again <ins>assigns a new incremental port number</ins> to the instance.
+	> **Caution:** Start VNC server only if the server has stopped or after a system restart. If VNC server is already running, then starting VNC again <ins>assigns a new incremental port number</ins> to the instance.
 
 	----
-	## 1. Log into VM using PuTTY
+	## 1. Log in to VM using PuTTY
 
 	1. In the **PuTTY Configuration** window, enter the domain host name (or IP address) `oracle_uid@slc10wsw.us.oracle.com`.
 
@@ -179,7 +179,7 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
 
 	1. Open TigerVNC.
 
-	1. Enter the host name and port number `<host-name>:<port-number>` to connect to the VM.
+	1. Enter the host name and port number `[host-name]:[port-number]` to connect to the VM.
 
 		**Example 1**
 
@@ -197,23 +197,23 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
 
 		</if>
 
-		Go to **Options**, under the **Misc** tab select *Shared (don't disconnect other viewers)* to allow simultaneous connections to the VM.
+		Go to **Options**, under the **Misc** tab select *Shared (don't disconnect other viewers)* to enable simultaneous connections to the VM.
 
 		> **Note:** If the `Shared` option is not selected, when one user connects to the VM, then it immediately disconnects any other user who is already connected to the VM.
 
-## Reboot VM
+## Restart VM
 
-You might want to restart your VM for various reasons. After rebooting, the processes and apps do not start up automatically.
+You might want to restart your VM for various reasons. After restarting, the processes and apps do not start up automatically.
 
 The following steps help you get the VM back in its original running state.
 
-1. Reboot VM
+1. Restart VM
 1. Start VNC server
 1. Startup databases
 1. Start OMS and Agent for EM
 
 	----
-	## 1. Reboot VM
+	## 1. Restart VM
 
 	1. For your assigned host devices, open the [Uno site](https://uno.oraclecorp.com/uno/hostdevices).
 
@@ -228,7 +228,7 @@ The following steps help you get the VM back in its original running state.
 
 	Quick steps -
 
-	1. Open putty and log into VM.
+	1. Open putty and log in to VM.
 
 		```
 		$ <copy>phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
@@ -261,7 +261,7 @@ The following steps help you get the VM back in its original running state.
 		See system logs and 'systemctl status vncserver@:1.service' for details.
 		```
 
-	For details, check <i>Start VNC Server</i> under [Task 2: Configure VNC for VM](?lab=vm-real-axons#Task2:ConfigureVNCforVM) explained above.
+	For details, check <i>Start VNC Server</i> under [Task 2: Configure VNC for VM](?lab=vm-real-axons#Task2:ConfigureVNCforVM).
 
 	----
 	## 3. Startup databases
@@ -305,7 +305,7 @@ The following steps help you get the VM back in its original running state.
 			$ [DB19c ORACLE_HOME/bin] <copy>./lsnrctl start listener19c</copy>
 			```
 
-		1. Log into the SQL prompt and start up the database.
+		1. Log in to the SQL prompt and start up the database.
 
 			```
 			$ <copy>./sql / as sysdba</copy>
@@ -345,7 +345,7 @@ The following steps help you get the VM back in its original running state.
 	----
 	## 4. Start OMS and Agent for EM
 
-	When you check the OMS and Agent status from their respective *`bin`* directories, you would find that OMS is down and the Agent is also not running.
+	When you check the OMS and Agent status from their respective *`bin`* directories, you will find that OMS is down and the Agent is also not running.
 
 	**Start OMS** -
 
@@ -379,13 +379,13 @@ The following steps help you get the VM back in its original running state.
 
 ## Troubleshooting
 
-If you face trouble connecting to the VNC server, then *stop* and *restart* the vnc server instead of running it again. Running the VNC server again creates a new (instance) port number and another log file *`hostname:x.log`*.
+If you face trouble connecting to the VNC server, then *stop* and *restart* the vnc server instead of running it again. Running the VNC server again creates a new (instance) port number and another log file *`host-name:x.log`*.
 
 - Scenarios, solutions, troubleshooting options
 
 	## Stop VNC Server
 
-	Kill the process id of the vnc server.
+	Terminate the process id of the vnc server.
 
 		```
 		$ <copy>vncserver -kill :x</copy>
@@ -396,7 +396,7 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 
 	**Problem statement**
 
-	 - Killing the process for VNC server returns an error.
+	 - Terminating the process for VNC server returns an error.
 
 		![Xvnc deadlock](./images/xvnc-deadlock.png)
 
@@ -438,7 +438,7 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 			mgarodia  2431     1  0  2021 ?        00:00:00 /bin/sh /home/mgarodia/.vnc/xstartup
 			```
 
-	1. Ignore the line with *`-color=auto`*. Kill the process (in this example, *2415*) with the name *Xvnc*.
+	1. Ignore the line with *`-color=auto`*. Terminate the process (in this example, *2415*) with the name *Xvnc*.
 
 		```
 		$ <copy>kill 2415</copy>
@@ -448,9 +448,9 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 
 	     - The command `kill -9` sends a signal to terminate the process attached with the PID or the process name. It is a hard way to terminate a single or a set of processes *forcefully* and *immediately* and can create zombies process.
 
-		## Other kill options
+		## Other terminate options
 
-		- You can also kill multiple processes together.
+		- You can also terminate multiple processes together.
 
 			**Syntax**
 
@@ -458,7 +458,7 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 			$ <copy>sudo kill -9</copy> process_id_1  process_id_2 process_id_3
 			```
 
-		- To kill all process of a program, combine the commands.
+		- To terminate all process of a program, combine the commands.
 
 			```
 			$ <copy>sudo kill -9</copy> `pidof programe_name`
@@ -482,7 +482,7 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 		mgarodia  2431     1  0  2021 ?        00:00:00 /bin/sh /home/mgarodia/.vnc/xstartup
 		```
 
-	1. Kill the process of the vnc server once again.
+	1. Terminate the process of the vnc server again.
 
 		```
 		$ <copy>vncserver -kill :x</copy>
@@ -514,8 +514,8 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 
 		The VNC server is back. You can connect with the VNC viewer, for example TigerVNC, again.
 
-## Acknowledgements
+## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - March 12, (Sun) 2023
+ - **Last Updated on** - April 2, (Sun) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

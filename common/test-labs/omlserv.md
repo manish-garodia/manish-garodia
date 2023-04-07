@@ -639,7 +639,7 @@ To learn more about how OML Services support ONNX format models, see resources l
 * [Work with Oracle Machine Learning ONNX Format Models](https://docs.oracle.com/en/database/oracle/machine-learning/omlss/omlss/omls-example-onnx-ml.html)
 * [Work with Oracle Machine Learning ONNX Image Models](https://docs.oracle.com/en/database/oracle/machine-learning/omlss/omlss/omls-example-onnx-image.html)
 
-## Acknowledgements
+## Acknowledgments
 * **Author** - Suresh Rajan, Senior Manager, Oracle Database User Assistance Development
 * **Contributors** -  Mark Hornick, Senior Director, Data Science and Oracle Machine Learning Product Management; Sherry LaMonica, Principal Member of Technical Staff, Oracle Machine Learning
 * **Last Updated By/Date** - Suresh Rajan, December 2021

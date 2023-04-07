@@ -349,7 +349,7 @@ oracle-cares
 thinking-117
 
 
-## Acknowledgements
+## Acknowledgments
 
  - **Author** - github user Rafael Xavier de Souza ()
  - **Created on** - April 10, (Sun) 2022

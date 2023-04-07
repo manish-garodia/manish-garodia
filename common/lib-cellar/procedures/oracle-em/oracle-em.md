@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab explains how to install Oracle EM on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 14 shiphome. It also contains post installation checks, steps to deinstall EM, and some troubleshooting scenarios and tips.
+This lab explains how to install Oracle EM on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 14 shiphome. It also contains postinstallation checks, steps to deinstall EM, and some troubleshooting scenarios and tips.
 
 ## Oracle EM installation
 
@@ -38,7 +38,7 @@ You can install Oracle EM:
 		$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102 135ru14</copy>
 		```
 
-	1. Invoke the view.
+	1. Call the view.
 
 		```
 		$ <copy>ade useview 135ru14</copy>
@@ -93,7 +93,7 @@ You can install Oracle EM:
 		View setup finished at: Tue Mar 21 20:55:15 2023
 		```
 
-	You have installed EM 13.5 RU 14 on your host. You can now perform post installation checks and log in to the EM console in a browser.
+	You have installed EM 13.5 RU 14 on your host. You can now perform postinstallation checks and log in to the EM console in a browser.
 
 	> If you experience issues, then see [Troubleshooting](?lab=oracle-em#Troubleshooting).
 
@@ -104,7 +104,7 @@ You can install Oracle EM:
 	- label: `EMGC_MAIN_LINUX.X64_210321.0130`
 
 		----
-		## Pre-installation setup
+		## Preinstallation setup
 
 		1. Download the EM package and validate.
 		1. Make the bin file executable.
@@ -166,14 +166,14 @@ You can install Oracle EM:
 		...
 		```
 
-		To fix this, set the `DISPLAY` environment variable from the shell you are using, `bash` or `csh`.
+		To fix this, set the `DISPLAY` environment variable from the shell you are using, `Bash` or `csh`.
 
-		 - **Shell - *bash***
+		 - **Shell - *Bash***
 
 			Syntax
 
 			```
-			$ export DISPLAY=<hostname>:<vnc port>.0
+			$ export DISPLAY=[host-name]:[vnc-port].0
 			```
 
 			Example
@@ -187,7 +187,7 @@ You can install Oracle EM:
 			Syntax
 
 			```
-			$ setenv DISPLAY <hostname>:1.0
+			$ setenv DISPLAY [host-name]:1.0
 			```
 
 			Example
@@ -217,7 +217,7 @@ You can install Oracle EM:
 		----
 		## Installation steps
 
-		- Launch the installer
+		- Start the installer
 
 			```
 			$ <copy>./em13500_linux64.bin</copy>
@@ -264,19 +264,19 @@ You can install Oracle EM:
 
 			![EM Home and Base Locations](./images/em-004-base-home-dir.png " ")**Figure**: EM Home and Base Locations
 
-			- **Middleware Home Location**
+			- **Middleware home location**
 
 				```
 				<copy>/scratch/u01/software/em/middleware</copy>
 				```
 
-			- **Agent Base directory**
+			- **Agent base directory**
 
 				```
 				<copy>/scratch/u01/software/em/agent</copy>
 				```
 
-			- **Host Name** (auto-filled)
+			- **Host name** (autofilled)
 
 				```
 				<copy>phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
@@ -294,11 +294,11 @@ You can install Oracle EM:
 			- **WebLogic User Name** - *weblogic*   
 			This is filled in automatically (editable, but do not modify).
 			- **WebLogic Password** - Enter the password <if type="hidden">*Welcome_1*</if>   
-			(re-enter to confirm password)
+			(reenter to confirm password)
 			- **Node Manager User Name** - `nodemanager`   
-			This is filled in automatically (non-editable).
+			This is filled in automatically (noneditable).
 			- **Node Manager Password** - Enter the password <if type="hidden">*Welcome_1*</if>  
-			(re-enter to confirm password)
+			(reenter to confirm password)
 
 			**OMS Instance Base Location** - Leave the default, for example `/scratch/u01/software/em/gc_inst`.
 
@@ -340,7 +340,7 @@ You can install Oracle EM:
 			SQL> <copy>alter system set "_allow_insert_with_update_check"=true scope=both;</copy>
 			```
 
-			Auto-fix if applicable. For more help, see [Troubleshooting](?lab=install-emcc#Task4:Troubleshooting).
+			Autofix if applicable. For more help, see [Troubleshooting](?lab=install-emcc#Task4:Troubleshooting).
 
 			Click **OK** to use the AL32UTF8 character set.
 
@@ -351,9 +351,9 @@ You can install Oracle EM:
 			![EM Login Password](./images/em-009-em-pwd.png " ")**Figure**: EM Login Password
 
 			- **SYSMAN Password** - Enter EM login password <if type="hidden">*Welcome_1*</if>   
-			(re-enter to confirm password)
+			(reenter to confirm password)
 			- **Agent Registration Password** - Enter Agent login password <if type="hidden">*Welcome_1*</if>   
-			(re-enter to confirm password)
+			(reenter to confirm password)
 
 			Oracle Database 19c has some default tablespaces under this location -
 
@@ -482,9 +482,9 @@ You can install Oracle EM:
 
 
 
-## EM post installation checks
+## EM postinstallation checks
 
-- After installing EM, you can log into the EM console using a web browser.
+- After installing EM, you can log in to the EM console using a web browser.
 
 	> **Note**: You can access the EM console only if OMS and agent are up and running.
 
@@ -1137,7 +1137,7 @@ A log file is generated to capture the deinstallation process.
 		$ <copy>exit</copy>
 		```
 
-	1. Re-enter the view.
+	1. Reenter the view.
 
 		```
 		$ <copy>ade useview 135ru14</copy>
@@ -1204,7 +1204,7 @@ A log file is generated to capture the deinstallation process.
 
 	 - Disable `password verify function`
 
-		> **Note**: To find out what users are using `PASSWORD_VERIFY_FUNCTION`, you need to know which profiles are using the function and then see which users are assigned to that profile.
+		> **Note**: To find out what users are using `PASSWORD_VERIFY_FUNCTION`, you must know which profiles are using the function and then see which users are assigned to that profile.
 
 		```
 		SQL> <copy>alter profile default limit password_verify_function null;</copy>
@@ -1217,14 +1217,14 @@ A log file is generated to capture the deinstallation process.
 		```
 
 	----
-	## EM Install: Installer wizard does not launch?
+	## EM Install: Installer wizard does not start?
 
 	**Problem statement**   
-	You try installing EM from the terminal with `./em13500_linux64.bin`. The installation initiates but does not launch the installer window/wizard. The installer either exits with an error or does not display the wizard at all.
+	You try installing EM from the terminal with `./em13500_linux64.bin`. The installation begins but does not display the installer window/wizard. The installer either exits with an error or does not display the wizard at all.
 
 	```
 	...
-	Exception in thread "main" java.awt.AWTError: Can't connect to X11 window server using '<hostname>:1.0' as the value of the DISPL
+	Exception in thread "main" java.awt.AWTError: Can't connect to X11 window server using '[host-name]:1.0' as the value of the DISPL
 		at sun.awt.X11GraphicsEnvironment.initDisplay(Native Method)
 	...
 	...
@@ -1233,10 +1233,10 @@ A log file is generated to capture the deinstallation process.
 	```
 
 	**Cause**   
-	The host authentication was disabled.
+	The host authentication is not enabled.
 
 	**Solution**   
-	Add the client authentication with the `xhost` program. It adds the host name to the list allowed to connect to the X server.
+	Add the client authentication with the `xhost` program. It adds the host name to the list that can connect to the X server.
 
 	```
 	$ <copy>xhost</copy>
@@ -1275,7 +1275,7 @@ A log file is generated to capture the deinstallation process.
 
 	Unset the `CLASSPATH` environment variable.
 
-	 - bash
+	 - Bash
 
 		```
 		$ <copy>export CLASSPATH=""</copy>
@@ -1394,7 +1394,7 @@ A log file is generated to capture the deinstallation process.
 		SQL> <copy>ALTER SYSTEM SET optimizer_dynamic_sampling = 0 SCOPE=both;</copy>
 		```
 
-	Now try the installation again. It should complete successfully.
+	Now try the installation again. It will complete successfully.
 
 	Alternatively, (a longer but working solution is) deinstall both EM and the repository database (Oracle Database 19c) and reinstall them again.
 
@@ -1402,7 +1402,7 @@ A log file is generated to capture the deinstallation process.
 	 - [funoracleapps](https://www.funoracleapps.com/2019/05/oem-13c-installation-failed-with.html)
 	 - [sujeetdba](https://sujeetdba.blogspot.com/2016/09/the-referenced-database-doesnt-contain.html)
 
-	Unsuccessful. Issue did not resolve with this solution.
+	Unsuccessful. The problem did not resolve with this solution.
 
 	----
 	## EM unreachable
@@ -1413,11 +1413,11 @@ A log file is generated to capture the deinstallation process.
 		ERR_CONNECTION_REFUSED
 		```
 
-	### OMS/Agent Errors
+	### OMS/Agent errors
 
-	**Problem: OMS and/or Agent down**
+	**Problem: Either OMS or Agent or both are down**
 
-	- Check OMS status.
+	- Check OMS status
 
 		```
 		$ <copy>./emctl status oms</copy>
@@ -1427,7 +1427,7 @@ A log file is generated to capture the deinstallation process.
 		JVMD Engine is Down
 		```
 
-	- Check Agent status.
+	- Check Agent status
 
 		```
 		$ <copy>./emctl status agent</copy>
@@ -1437,19 +1437,19 @@ A log file is generated to capture the deinstallation process.
 
 	**Solution**:
 
-	- Start OMS.
+	- Start OMS
 
 		```
 		$ <copy>./emctl start oms</copy>
 		```
 
-	- Start agent.
+	- Start agent
 
 		```
 		$ <copy>./emctl start agent</copy>
 		```
 
-	- Force stop OMS.
+	- Force stop OMS
 
 		**Syntax**   
 		`$ <OMS_HOME>/bin>./emctl stop oms -all -force`
@@ -1487,10 +1487,10 @@ A log file is generated to capture the deinstallation process.
 	## Start OMS failed
 
 	**Problem statement**   
-	You issue the command to start oms `./emctl start oms` but it failed.
+	You run the command `./emctl start oms` to start oms but it failed.
 
 	```
-	$ <OMS_HOME>/bin>./emctl start oms
+	$ [OMS_HOME]/bin>./emctl start oms
 
 	Starting Oracle Management Server...
 	Starting WebTier...
@@ -1510,13 +1510,13 @@ A log file is generated to capture the deinstallation process.
 
 	1. Download [oms_start.zip](https://support.oracle.com/epmos/main/downloadattachmentprocessor?parent=DOCUMENT&sourceId=1495519.1&attachid=1495519.1:OMSSTARTZIP&clickstream=yes) file
 
-	1. Copy `oms_start.zip` file to `<OMS_ORACLE_HOME>` directory and unzip contents in the same directory
+	1. Copy `oms_start.zip` file to `[OMS_ORACLE_HOME]` directory and unzip contents in the same directory
 
 		```
 		$ <copy>unzip /scratch/u01/software/em/middleware/oms_start.zip</copy>
 		```
 
-	1. Execute `<OMS_HOME>/oms_start.sh` as per the `readme.txt` file present at `<OMS_HOME>`.
+	1. Run `[OMS_HOME]/oms_start.sh` according to the `readme.txt` file located in `[OMS_HOME]`.
 
 		This script cleans up the leftover processes and may restart OMS successfully.
 
@@ -1524,11 +1524,11 @@ A log file is generated to capture the deinstallation process.
 
 	**Solution 2**
 
-	Clean-up leftover OMS processes manually
+	Cleanup leftover OMS processes manually
 
 	> **Note**: Ensure that the listener and the repository database (19c) are up before proceeding with these steps.
 
-	1. Go to the `<OMS_HOME>/bin` directory.
+	1. Go to the `[OMS_HOME]/bin` directory.
 
 		```
 		$ <copy>cd /scratch/u01/software/em/middleware/bin</copy>
@@ -1554,16 +1554,16 @@ A log file is generated to capture the deinstallation process.
 		$ <copy>ps -ef | grep java</copy>
 		```
 
-	1. Kill the left over OMS java processes.
+	1. Terminate the left over OMS Java processes.
 
 		Graceful
 		```
-		$ <copy>kill <PID></copy>
+		$ <copy>kill [PID]</copy>
 		```
 
 		Force
 		```
-		$ <copy>kill -9<PID></copy>
+		$ <copy>kill -9 [PID]</copy>
 		```
 
 	1. Delete the following files (if they exist).
@@ -1634,7 +1634,7 @@ A log file is generated to capture the deinstallation process.
 	1. `emctl` is executed from the correct `OMS home`.
 	1. `emctl` file size is not zero bytes.
 
-		 If it is zero bytes refer [Note 1404623.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=1495519.1&id=1404623.1): How to Recreate the emctl Script for the Enterprise Manager OMS
+		 If it is zero bytes refer [Note 1404623.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=1495519.1&id=1404623.1): How to re-create the emctl script for the Enterprise Manager OMS
 
 	1. Repository database and listener are up
 	1. SYSMAN connectivity to repository db is successful.
@@ -1660,7 +1660,7 @@ A log file is generated to capture the deinstallation process.
 
 		(Refer Use Case 2 in  [Note 1683050.1](https://support.oracle.com/epmos/faces/DocumentDisplay?parent=DOCUMENT&sourceId=1495519.1&id=1683050.1): OMS Failed to Start With Error 'Oracle Management Server is Down. Console may not be up')
 
-	1. Repository database  table space is not full (alert log file does not have table space full errors).
+	1. Repository database  tablespace is not full (alert log file does not have tablespace full errors).
 
 	1. Enough space is available for the repository database archive logs.
 
@@ -1705,8 +1705,8 @@ A log file is generated to capture the deinstallation process.
 	$ <copy>/scratch/u01/software/em/middleware</copy>
 	```
 
-## Acknowledgements
+## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - March 22, (Wed) 2023
+ - **Last Updated on** - April 2, (Sun) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

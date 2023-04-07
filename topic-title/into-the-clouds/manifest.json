@@ -4,7 +4,7 @@
         {
             "title": "Lab #: Into the Clouds",
             "description": "About the features and services in the OCI Tenancy, for example, noVNC, compute instance, custom images, object storage, compartments, to name a few.",
-			"publisheddate": "12-Mar-2023",
+			"publisheddate": "02-Apr-2023",
             "filename": "./../../common/lib-cellar/procedures/into-the-clouds/into-the-clouds.md",
 			"task_type": "Sections"
         }

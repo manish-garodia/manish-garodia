@@ -106,7 +106,7 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 </if>
 
 
-## Acknowledgements
+## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
  - **Last Updated on** - March 22, (Wed) 2023

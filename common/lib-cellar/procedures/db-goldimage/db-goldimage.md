@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This lab covers the pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.
+This lab covers the preinstallation setup and postinstallation tasks for Oracle Database gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.
 
 ## Database concepts
 
-The error *`ORA-12505`* indicates that the listener is up and you could connect to it, but the listener could not connect with the database. The listener is aware of the database, but does not know whether the database is up because the listener has not received any notification from the database that the database is up.
+The error *`ORA-12505`* indicates that the listener is up and you can connect to it, but the listener could not connect with the database. The listener is aware of the database, but does not know whether the database is up because the listener has not received any notification from the database that the database is up.
 
 It may be due to the following reasons:
  - the database is not started, that is, the instance is idle
@@ -26,11 +26,11 @@ The default listener configuration is:
  - **port** - *1521*
 
 **Scenario**   
-You have multiple database versions (18c, 19c, 21c, 23c,...) on the same host. Each database has a listener associated with it. When you start a listener from any `$ORACLE_HOME/bin`, unless you specify the listener name Oracle Net Manager generally starts the default listener mentioned above. All databases may use the same (default) listener.
+You have multiple database versions (18c, 19c, 21c, 23c,...) on the same host. Each database has a listener associated with it. When you start a listener from any `$ORACLE_HOME/bin`, unless you specify the listener name Oracle Net Manager generally starts the default listener. All databases may use the same (default) listener.
 
 But if you want to use specific listener for each database version, then edit the listener configuration as explained in this lab.
 
-## Pre-installation setup
+## Preinstallation setup
 
 Production versions are available to download from [OTN](https://www.oracle.com/database/technologies/oracle-database-software-downloads.html).   
 Oracle Database installers are available internally as gold images.
@@ -53,7 +53,7 @@ Oracle Database installers are available internally as gold images.
 	| ADC - 230120              	| [/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage](/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage) <br>File - `db_home.zip`       	|
 	| SaltLake - 230120           	| [/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage](/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage) <br>File - `db_home.zip`       	|
 	| HQ - 230120 					| [/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage](/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage) <br>File - `db_home.zip`         |
-	| *ADE - LATEST*      			| [/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage](/ade_autofs/shiphomes/rdbms/linux.x64/MAIN/LATEST/goldimage) <br>File - `db_home.zip`   |
+	| *ADE - LATEST*      			| [/ade_autofs/shiphomes/rdbms/linux.x64/23c/Beta2/230325/goldimage](/ade_autofs/shiphomes/rdbms/linux.x64/23c/Beta2/230325/goldimage) <br>File - `db_home.zip`   |
 
 	Get the 23c gold image -
 
@@ -77,7 +77,7 @@ Oracle Database installers are available internally as gold images.
 		$ <copy>cd /net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage/</copy>
 		```
 
-	1.  Unzip the installer file to the local folder.
+	1.  Extract the installer file to the local folder.
 
 		```
 		$ <copy>unzip -q db_home.zip -d /scratch/u01/app/oracle/product/23.0.0/dbhome_unzip01</copy>
@@ -112,7 +112,7 @@ Oracle Database installers are available internally as gold images.
 		$ <copy> cd /net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/19.3.0.0.0/190417.PRODUCTION</copy>
 		```
 
-	1. Unzip the file to the local system.
+	1. Extract the file to the local system.
 
 		```
 		$ <copy>unzip -q LINUX.X64_193000_db_home.zip -d /scratch/u01/app/oracle/product/19.0.0/dbhome_02</copy>
@@ -125,7 +125,7 @@ Oracle Database installers are available internally as gold images.
            No such file or directory
 		```
 
-		Then, create the directory first and try unzip again.
+		Then, create the directory first and try to extract again.
 
 		```
 		$ <copy>mkdir -p /scratch/u01/app/oracle/product/19.0.0/dbhome_unzip03</copy>
@@ -160,7 +160,7 @@ Oracle Database installers are available internally as gold images.
 		$ <copy>cd /net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/MAIN/221025/goldimage</copy>
 		```
 
-	1. Unzip the installer into the Oracle home folder.   
+	1. Extract the installer into the Oracle home folder.   
 
 		**Syntax**
 
@@ -207,9 +207,9 @@ Oracle Database installers are available internally as gold images.
 ## Install Oracle Database
 
 From the Oracle home location, start `./runInstaller` and select the following.    
-Most fields are auto-filled.
+Most fields are autofilled.
 
-> **Tip**: Run these steps after you unzip the database installer (shiphome gold image or production version) into Oracle home. To get the installer, see [Pre-installation setup](?lab=db-goldimage#Preinstallationsetup).
+> **Tip**: Run these steps after you extract the database installer (shiphome gold image or production version) into Oracle home. To get the installer, see [Pre-installation setup](?lab=db-goldimage#Preinstallationsetup).
 
 1. Create and configure a single instance database.
 
@@ -362,7 +362,7 @@ Do not select this check box and run the scripts manually in the later steps.
 
 On completion, the installer displays the finish window.
 
-## Database post installation checks
+## Database postinstallation checks
 
 1. View Oracle SIDs and Oracle homes
 1. View Oracle base locations
@@ -598,7 +598,7 @@ On completion, the installer displays the finish window.
 			setenv ORACLE_HOME /scratch/u01/app/oracle/product/23.0.0/dbhome_1
 		----------- ------- --------------- -------------------------
 
-		**Shell - bash**
+		**Shell - Bash**
 
 		```
 		<copy>
@@ -626,7 +626,7 @@ On completion, the installer displays the finish window.
 			setenv ORACLE_HOME /scratch/u01/app/oracle/product/21.0.0/dbhome_002
 		----------- ------- --------------- -------------------------
 
-		**Shell - bash**
+		**Shell - Bash**
 
 		```
 		<copy>
@@ -654,7 +654,7 @@ On completion, the installer displays the finish window.
 			setenv ORACLE_HOME /scratch/u01/app/oracle/product/19.0.0/dbhome_02
 		----------- ------- --------------- -------------------------
 
-		**Shell - bash**
+		**Shell - Bash**
 
 		```
 		<copy>
@@ -752,11 +752,11 @@ After stopping the listener -
 
 ![Register Database with Listener](./images/register-db-with-listener.png " ") **Figure:** Register Database with Listener
 
-- The sections below explain how to modify listener configuration.
+- The following sections explain how to modify listener configuration.
 
 	## High-level steps to register database with listener
 
-	 1. Log into the database
+	 1. Log in to the database
 		 - `./sqlplus / as sysdba`
 	 1. Check the existing listener
 		 - `show parameter local_listener`
@@ -777,7 +777,7 @@ After stopping the listener -
 	 - for **21c** - *LISTENER21C* port *1521*
 	 - for **23c** - *LISTENER* port *1523*
 
-	> For detailed steps, check the corresponding database section below.
+	> For detailed steps, check the corresponding database section.
 
 	<!--
 
@@ -862,7 +862,7 @@ After stopping the listener -
 		$ <copy>./lsnrctl start listener19c</copy>
 		```
 
-	 1. Log into the database as *sysdba*.
+	 1. Log in to the database as *sysdba*.
 
 		```
 		$ <copy>./sqlplus / as sysdba</copy>
@@ -1024,7 +1024,7 @@ After stopping the listener -
 		$ <copy>./lsnrctl start listener19c</copy>
 		```
 
-	 1. Log into the database as *sysdba*.
+	 1. Log in to the database as *sysdba*.
 
 		```
 		$ <copy>./sqlplus / as sysdba</copy>
@@ -1174,7 +1174,7 @@ After stopping the listener -
 		$ <copy>./lsnrctl start listener21c</copy>
 		```
 
-	 1. Log into the database as *sysdba*.
+	 1. Log in to the database as *sysdba*.
 
 		```
 		$ <copy>./sqlplus / as sysdba</copy>
@@ -1327,7 +1327,7 @@ After stopping the listener -
 
 		> **Note:** The listener name is optional in this command because it is the default name, *LISTENER*.
 
-	 1. Log into the database as *sysdba*.
+	 1. Log in to the database as *sysdba*.
 
 		```
 		$ <copy>./sqlplus / as sysdba</copy>
@@ -1561,7 +1561,7 @@ After stopping the listener -
 
 	-	For 23c
 
-		> Note the listener name in upper case.
+		> Note the listener name in uppercase.
 
 		```
 		$ <copy>ps -ef | grep LISTENER</copy>
@@ -1601,7 +1601,7 @@ After stopping the listener -
 
 	> **Note**: Only the user, who installed the database on a host, can run `deinstall` to remove the database.
 
-	So, if you install the database as *oracle*, then you cannot deinstall as `mgarodia` or any other user. Else, it returns the following error.
+	So, if you install the database as *oracle*, then you cannot deinstall as `mgarodia` or any other user. In such case, it returns the following error.
 
 	```
 	ERROR: Oracle home not owned by user.
@@ -1642,7 +1642,7 @@ After stopping the listener -
 		$ <copy>chown -R oracle:dba /u01</copy>
 		```
 
-	1. Allow full control to `/u01`.
+	1. Provide full control to `/u01`.
 
 		```
 		$ <copy>chmod 777 /u01</copy>
@@ -1676,7 +1676,7 @@ After stopping the listener -
 	The actual solution depends on:
 	- whether you are su'd to oracle from a different login account.
 	- whether you are using X11 forwarding.
-	- the actual port used by X11 forwarding, which could be 6010 or a different port.
+	- the actual port used by X11 forwarding, which may be 6010 or a different port.
 	- If you logged in and then su'd to oracle, then copy ~/.Xauthority to the oracle account.
 	- If you are using X11 forwarding and the forwarding port is 6010, then DISPLAY=localhost:10.0 is correct.
 	- If you are not using X11 forwarding, and if port 6000 on your PC is reachable from the oracle server, then export DISPLAY=your.pc.ip.address:0.0 is correct.
@@ -1703,17 +1703,21 @@ After stopping the listener -
 		ls -al | grep xdpyinfo
 		</copy>
 		```
+
 		Result: The oracle user has execute privileges.
+
 		```
 		-rwxr-xr-x   1 root root      38112 Feb 23  2015 xdpyinfo
 		```
 
-	1. If the `oracle` user does not have executable privileges, log in as root and execute this command.
+	1. If the `oracle` user does not have executable privileges, log in as root and run this command.
 
 		```
 		$ <copy>xhost +SI:localuser:oracle</copy>
 		```
+
 		Result:
+
 		```
 		localuser:oracle being added to access control list
 		```
@@ -1733,19 +1737,19 @@ After stopping the listener -
 	![DB 19c installation - supportedOSCheck error](./images/install-db19c-err-supportedoscheck.png " ")
 
 	**What happened**   
-	Oracle 19c supports up to Oracle Enterprise Linux (OEL) v8.1. Apparently, the operating system on your VM is OEL v8.2 or higher.
+	Oracle 19c supports up to Oracle Enterprise Linux (OEL) v8.1. Apparently, the operating system on your VM is OEL v8.2 or later.
 
 	The code `[INS-08101]` indicates that `CV_ASSUME_DISTID`, an environmental variable set by the verification program, is not set.
 
 	**What to do**  
 
-	To fix this error, choose from two workarounds - <i>temporary fix</i> or <i>permanent fix</i>.
+	To fix this error, follow one of the workarounds - <i>temporary fix</i> or <i>permanent fix</i>.
 
 	 - Temporary fix
 
 		Export the variable or `setenv` at runtime.
 
-		 - **bash**
+		 - **Bash**
 
 			```
 			$ <copy>export CV_ASSUME_DISTID=OEL8.1</copy>
@@ -1767,7 +1771,7 @@ After stopping the listener -
 			$ <copy>vi $ORACLE_HOME/cv/admin/cvu_config</copy>
 			```
 
-		1. Uncomment the line (around line `#20`) containing the variable. That is, remove the leading pound sign (`#`). Else, add a new line if the variable is missing.
+		1. Uncomment the line (around line `#20`) containing the variable. That is, remove the leading pound sign (`#`). Otherwise, add a new line if the variable is missing.
 
 			```
 			CV_ASSUME_DISTID=OEL5
@@ -1901,8 +1905,8 @@ After stopping the listener -
 		$ <copy>dnf install -y libnsl2.i686</copy>
 		```
 
-## Acknowledgements
+## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - March 22, (Wed) 2023
+ - **Last Updated on** - April 2, (Sun) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

@@ -47,13 +47,13 @@ Get hands dirty with Linux commands, tips, and tricks.
 		/bin/csh
 		```
 
-	 - Default bash prompt
+	 - Default Bash prompt
 
 		```
 		bash-4.4$
 		```
 
-	 - Add date to bash prompt
+	 - Add date to Bash prompt
 
 		```
 		$ <copy>export PS1="$(date +\k:\M:\S) $ "</copy>
@@ -62,7 +62,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		11:17:24 $
 		```
 
-	 - Add user/host information to bash prompt
+	 - Add user/host information to Bash prompt
 
 		```
 		$ <copy>PS1="[\mgarodia@\phoenix123546 \D{\Y\m\d-\H:\M:\S}]\$ "</copy>
@@ -74,7 +74,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		Remove the slashes before every percentage symbol.
 
 		> **Note:** This is a temporary variable.   
-		New terminal opens with the default bash prompt, *`bash-4.4$`*.
+		New terminal opens with the default Bash prompt, *`bash-4.4$`*.
 
 	 To return to the previous mode or go back to the previous shell -
 		 - type *`exit`*   
@@ -92,7 +92,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 	- **Temporary** - Applicable to the current terminal session only.
 
-		From *bash* to *c*
+		From *Bash* to *c*
 
 		```
 		$ <copy>exec csh</copy>
@@ -100,7 +100,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ csh
 		```
 
-		From *c* to *bash*
+		From *c* to *Bash*
 
 		```
 		$ <copy>exec bash</copy>
@@ -121,7 +121,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	Syntax
 
 	```
-	$ su -c <command> <username>
+	$ su -c [command] [user-name]
 	```
 
 	Example
@@ -138,7 +138,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 | shortcut       | action                                                          |
 	 |----------------|-----------------------------------------------------------------|
 	 | **Ctrl** + *L* | clear screen or type *`clear`*                                  |
-	 | **Ctrl** + *D* | logout from sudo user back to the original user                 |
+	 | **Ctrl** + *D* | log out from sudo user back to the original user                |
 	 | **Ctrl** + *U* | erases from the current cursor position to the begining of line |
 	 | **Ctrl** + *A* | moves cursor position to the beginning of line                  |
 	 | **Ctrl** + *E* | moves cursor position to the end of line                        |
@@ -162,12 +162,12 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 		```
 		$ <copy>whoami</copy>
-		[username]
+		[user-name]
 		```
 		or
 		```
 		$ <copy>echo $USER</copy>
-		[username]
+		[user-name]
 		```
 
 	1. **User login shells**
@@ -203,7 +203,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		Syntax
 
 		```
-		$ sudo su - <username> -s <shell>
+		$ sudo su - [user-name] -s <shell>
 		```
 
 		Example, switch to *oracle* with `c` shell.
@@ -238,7 +238,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 	1. **Exit from root**
 
-		To logout from root (or any current user) and to go back to the previous user:
+		To log out from root (or any current user) and to go back to the previous user:
 
 		 - type *`exit`*
 
@@ -271,7 +271,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 		Syntax
 		```
-		$ groups <username>
+		$ groups [user-name]
 		```
 
 		Examples
@@ -292,7 +292,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		Syntax
 
 		```
-		$ id <username>
+		$ id [user-name]
 		```
 
 		for only the current user
@@ -355,7 +355,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	1. **Create a new user**
 
 		```
-		$ <copy>sudo useradd </copy><username>
+		$ <copy>sudo useradd </copy>[user-name]
 		```
 
 	1. **Add user to groups**
@@ -363,7 +363,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		Syntax
 
 		```
-		$ sudo useradd -g (primary group) users -G wheel,developers (secondary groups) <username>
+		$ sudo useradd -g (primary group) users -G wheel,developers (secondary groups) [user-name]
 		```
 
 		Example
@@ -375,7 +375,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	1. **Change user password**
 
 		```
-		$ sudo -u <username> passwd
+		$ sudo -u [user-name] passwd
 		```
 
 	1. **Modify the primary group of user**
@@ -383,7 +383,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		Syntax
 
 		```
-		$ sudo usermod -g <group> <username>
+		$ sudo usermod -g <group> [user-name]
 		```
 
 		Example
@@ -397,7 +397,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		Syntax
 
 		```
-		$ sudo usermod -a -G <group1,group2,group3 use comma with no spaces> <username>
+		$ sudo usermod -a -G <group1,group2,group3 use comma with no spaces> [user-name]
 		```
 
 		Example
@@ -413,13 +413,13 @@ Get hands dirty with Linux commands, tips, and tricks.
 		Syntax
 
 		```
-		$ sudo gpasswd -d <username> <group>
+		$ sudo gpasswd -d [user-name] <group>
 		```
 
 		The option *-d* deletes the user.
 
 		```
-		$ sudo deluser <username< <group>
+		$ sudo deluser [user-name] <group>
 		```
 
 		Example
@@ -433,7 +433,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		Syntax
 
 		```
-		$ sudo usermod -s <shell> <username>
+		$ sudo usermod -s <shell> [user-name]
 		```
 
 		Example
@@ -459,10 +459,16 @@ Get hands dirty with Linux commands, tips, and tricks.
 	----
 	## directories basic
 
-	 - Present working directory
+	 - Print working directory (absolute path)
 
 		```
 		$ <copy>pwd</copy>
+		```
+
+	 - Print working directory (only current directory without the full path)
+
+		```
+		$ <copy>basename "$PWD"<copy>
 		```
 
 	 - List directories and classify, append indicators `/`, `=`, `*`, `@`, `|`, or `>` to items
@@ -681,7 +687,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ <copy>mkdir ~/directory/</copy>
 		```
 
-	 - Create multiple directories and sub directories together
+	 - Create multiple directories and subdirectories together
 
 		```
 		$ <copy>mkdir -p /home/linuxize/music/rock/gothic</copy>
@@ -755,7 +761,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 - go to home directory
 
 		```
-		$ <copy>cd /home/<username></copy>
+		$ <copy>cd /home/[user-name]</copy>
 		```
 		```
 		$ <copy>cd ~</copy>
@@ -766,12 +772,12 @@ Get hands dirty with Linux commands, tips, and tricks.
 		**Option 1** - using *CLI*
 
 		```
-		$ <copy>usermod -d /new-home/directory-location username</copy>
+		$ <copy>usermod -d /new-home/directory-location [user-name]</copy>
 		```
 
-		**Option 2** - edit *bash profile*
+		**Option 2** - edit *.bash_profile*
 
-		1. Open the config file for bash profile.
+		1. Open the config file for Bash profile.
 
 			```
 			$ <copy>vi ~/.bashrc</copy>
@@ -805,7 +811,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		After creating a symlink, you can update it, for example, rename the link or modify it to point to a new location.
 
 		To update a symlink, you can do either of these -
-		 - Delete the link and re-create a new one as above
+		 - Delete the link and re-create a new one as indicated earlier
 		 - Update the existing link with force
 
 		----
@@ -826,7 +832,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		 - ***f*** - enforces changes to the link
 		 - ***n*** - (optional) use this for linking to a folder
 
-		The ***-n*** option is necessary to avoid creating a sub-folder inside that symbolic link, instead of replacing the symbolic link.			
+		The ***-n*** option is necessary to avoid creating a subfolder inside that symbolic link, instead of replacing the symbolic link.			
 
 	----
 	## command alias
@@ -853,10 +859,10 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 	You can create aliases that are persistent in the system.
 
-	1. Create a file *`.bash_aliases`* in your home location. 
+	1. Create a file *`.bash_aliases`* in your home location.
 
-		- Windows home (10 or later): `C:\Users\[your-username]`
-		- Linux home: `/home/[your-username]`
+		- Windows home (10 or later): `C:\Users\[your-user-name]`
+		- Linux home: `/home/[your-user-name]`
 
 	1. Add your aliases to this file.
 
@@ -884,11 +890,11 @@ Get hands dirty with Linux commands, tips, and tricks.
 		</copy>
 		```
 
-	Your aliases are now stored permanently. Even if you close the terminal or open a new terminal, the aliases are still valid. 
+	Your aliases are now stored permanently. Even if you close the terminal or open a new terminal, the aliases are still valid.
 
 	> **Caution**: Even though it works, avoid adding aliases directly to the `.bashrc` file.
 
-	To view the existing aliases in your system: 
+	To view the existing aliases in your system:
 
 	```
 	$ <copy>alias</copy>
@@ -934,10 +940,10 @@ Get hands dirty with Linux commands, tips, and tricks.
 		1. Push the file or folder to the destination.
 
 			```
-			$ scp source-file-name username@destination-host:destination-folder
+			$ scp source-file-name user-name@destination-host:destination-folder
 			```
 			```
-			$ scp -r \home\mgarodia\Downloads\myfile.txt user@host:/path/to/whereyouwant/thefile
+			$ scp -r \home\mgarodia\Downloads\myfile.txt user@host:/path/to/where-you-want/the-file
 			```
 
 		----
@@ -952,7 +958,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		1. Pull files or folders from the source location.
 
 			```
-			$ scp remote-username@host:/remote/file.txt /local/directory
+			$ scp remote-user-name@host:/remote/file.txt /local/directory
 			```
 
 		----
@@ -1010,7 +1016,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		or
 
 		```
-		$ <copy>mv -t /destination/location <source-file1> <source-file2> .... <source-fileN></copy>
+		$ <copy>mv -t /destination/location [source-file1] [source-file2] .... [source-fileN]</copy>
 		```
 
 	 - move files and directories as another user, requires password
@@ -1033,13 +1039,13 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 - Rename a file
 
 		```
-		$ mv <file-old-name> <file-new-name>
+		$ mv [file-old-name] [file-new-name]
 		```
 
 		Similarly, rename a folder
 
 		```
-		$ mv <folder-old-name> <folder-new-name>
+		$ mv [folder-old-name] [folder-new-name]
 		```
 
 	----
@@ -1048,7 +1054,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 - Delete a file
 
 		```
-		$ <copy>rm <filename></copy>
+		$ <copy>rm [file-name]</copy>
 		```
 
 	 - Delete all files
@@ -1066,19 +1072,19 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 - Remove an <i>empty</i> directory
 
 		```
-		$ <copy>rm -d <directory></copy>
+		$ <copy>rm -d [directory]</copy>
 		```
 
-	 - Remove non-empty directories, <i>recursive</i>
+	 - Remove nonempty directories, <i>recursive</i>
 
 		```
-		$ <copy>rm -rd <directory></copy>
+		$ <copy>rm -rd [directory]</copy>
 		```
 
 		- *r* - recursive
 		- *d* - directories
 
-		> **Note:** If the directory you want to delete contains no sub directories, use *`rm -d`*.
+		> **Note:** If the directory you want to delete contains no subdirectories, use *`rm -d`*.
 
 	 - <i>Force delete</i> one or more files (directly without prompt, overrides write-protection)
 
@@ -1088,13 +1094,13 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 		> **Caution:** Force delete removes the file or files instantly without asking for any confirmation. ***Be absolutely sure while running this command***.
 
-	 - <i>Force delete</i> non-empty directories (directly without prompt, overrides write-protection)
+	 - <i>Force delete</i> nonempty directories (directly without prompt, overrides write-protection)
 
 		```
 		$ <copy>rm -rf <directory></copy>
 		```
 
-		> **Caution:** Force delete removes the directory and its underlying files and sub directories instantly without asking for any confirmation. ***Be absolutely sure while running this command***.
+		> **Caution:** Force delete removes the directory and its underlying files and subdirectories instantly without asking for any confirmation. ***Be absolutely sure while running this command***.
 
 	----
 	## Searching for something?? go *find*
@@ -1104,7 +1110,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 - Syntax
 
 		```
-		$ <copy>find . -print | grep <file_name></copy>
+		$ <copy>find . -print | grep [file-name]</copy>
 		```
 
 	 - find specific file type in all subdirectories
@@ -1116,7 +1122,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 - find text within files
 
 		```
-		$ <copy>grep -rinw --color=always <path to file> -e 'pattern'</copy>
+		$ <copy>grep -rinw --color=always [path-to-file] -e 'pattern'</copy>
 		```
 
 		where,
@@ -1124,7 +1130,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		- ***i*** &nbsp;&nbsp;&nbsp; - ignore case
 		- ***n*** &nbsp;&nbsp;&nbsp; - line number
 		- ***w*** &nbsp;&nbsp; - match whole word
-		- ***l*** &nbsp;&nbsp;&nbsp; - show filename
+		- ***l*** &nbsp;&nbsp;&nbsp; - show file name
 		- ***e*** &nbsp;&nbsp;&nbsp; - pattern to find
 
 		Example,
@@ -1198,10 +1204,10 @@ Get hands dirty with Linux commands, tips, and tricks.
 		To view the file permissions, use the *`ls`* command.
 
 		```
-		$ <copy>ls -l file-name</copy>
+		$ <copy>ls -l [file-name]</copy>
 		```
 		```
-		-rw-r--r-- 12 mgarodia wheel 12.0K Nov  27 10:10 file-name
+		-rw-r--r-- 12 mgarodia wheel 12.0K Nov  27 10:10 [file-name]
 		|[-][-][-]-   [------] [---]
 		| |  |  | |      |       |
 		| |  |  | |      |       +-----------> Group
@@ -1288,7 +1294,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 - Extract file and folders from a `*.zip` file.
 
 		```
-		$ unzip filename -d /folder/location
+		$ unzip [file-name] -d /folder/location
 		```
 
 		> **Tip**: If the destination folder does not exit, you may create the folder first.
@@ -1329,7 +1335,7 @@ A script begins with -
 	$ source <script-file>.sh
 	```
 
-### 2. Run a script from **bash**
+### 2. Run a script from **Bash**
 
  - All of these work in bash
 
@@ -1586,7 +1592,7 @@ A script begins with -
 		ORACLE_SUPPORT_PRODUCT_VERSION=8.6
 		```
 
-	 -	*`hostname`*
+	 -	*`host name`*
 
 		```
 		$ <copy>hostname</copy>
@@ -1629,7 +1635,7 @@ A script begins with -
 
 		Though primarily for local users, the *`/etc/issue`* information is shown to both local and network users unless *`/etc/issue.net`* is present and configured. The *`/etc/issue.net`* information is shown only to users who connect from a network.
 
-		To configure them to be displayed when you login via SSH, uncomment *`#Banner`* and specify the desired filename at `/etc/ssh/sshd_config`, like:
+		To configure them to be displayed when you login using SSH, uncomment *`#Banner`* and specify the desired file name at `/etc/ssh/sshd_config`, like:
 
 		```
 		...
@@ -1670,7 +1676,7 @@ A script begins with -
 
 	 - view CPU information, such as processor type, number of CPUs, and so on.
 
-		 - CPU info in short
+		 - CPU information in short
 
 			```
 			$ <copy>lscpu</copy>
@@ -1706,7 +1712,7 @@ A script begins with -
 			Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm rep_good nopl cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd ibrs ibpb stibp vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 nt_good arat umip
 			```
 
-		 - CPU info in details
+		 - CPU information in details
 
 			```
 			$ <copy>cat /proc/cpuinfo</copy>
@@ -1872,7 +1878,7 @@ A script begins with -
 		3031554 mgarodia  20   0 6862428  76860  72780 S   0.3   0.2   0:10.92 ora_diag_o+
  		```
 
-	- Find the process id of, for example, java.
+	- Find the process id of, for example, Java.
 
 		**Option 1**
 
@@ -1897,14 +1903,14 @@ A script begins with -
 		```
 
 	----
-	## java
+	## Java
 
-	- check java, install or upgrade, set env variables
+	- check Java, install or upgrade, set env variables
 
 		----
-		## Check java version
+		## Check Java version
 
-		 - print java version to <i>error stream</i>
+		 - print Java version to <i>error stream</i>
 
 			```
 			$ <copy>java -version</copy>
@@ -1915,7 +1921,7 @@ A script begins with -
 			Java HotSpot(TM) 64-Bit Server VM (build 16.0.1+9-24, mixed mode, sharing)
 			```
 
-		 - print java version to <i>output stream</i>
+		 - print Java version to <i>output stream</i>
 
 			```
 			$ <copy>java --version</copy>
@@ -1926,7 +1932,7 @@ A script begins with -
 			Java HotSpot(TM) 64-Bit Server VM (build 16.0.1+9-24, mixed mode, sharing)
 			```
 
-		 - Check whether java is installed on the system
+		 - Check whether Java is installed on the system
 
 			```
 			$ <copy>where is java</copy>
@@ -1938,7 +1944,7 @@ A script begins with -
 			/usr/bin/java
 			```
 
-		 - Java installer puts several files into different directories. Check the java SDK location.
+		 - Java installer puts several files into different directories. Check the Java SDK location.
 
 			```
 			$ <copy>which java</copy>
@@ -1967,11 +1973,11 @@ A script begins with -
 		```
 
 
-		To upgrade the existing java version
+		To upgrade the existing Java version
 
-		1. Download java from web - [Link to Java 17](https://www.oracle.com/in/java/technologies/downloads/#java17)
+		1. Download Java from web - [Link to Java 17](https://www.oracle.com/in/java/technologies/downloads/#java17)
 
-		1. Check the java copy.
+		1. Check the Java copy.
 
 			```
 			$ <copy>find /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.332.b09-2.el8_6.x86_64/</copy>
@@ -2009,7 +2015,7 @@ A script begins with -
 			</copy>
 			```
 
-		1. Reload `.bash_profile` to bring the above commands into effect.
+		1. Reload `.bash_profile` to bring the previous commands into effect.
 
 			```
 			$ <copy>source ~/.bash_profile</copy>
@@ -2117,14 +2123,14 @@ A script begins with -
  - Fix errors on Linux
 
 	----
-	## Pop-up loop: Authentication required for network proxy
+	## window loop: Authentication required for network proxy
 
 	**Problem statement**   
-	You are connected through the VNC viewer and this pop-up keeps appearing every few minutes.
+	You are connected through the VNC viewer and this window keeps appearing every few minutes.
 
 	![Error: Authentication for network proxy config](./images/auth-required.png " ")
 
-	The pop-up contains the following message -
+	The window contains the following message -
 	```
 	Authentication is required to set the network proxy used for downloading packages
 	An application is attempting to perform an action that requires privleges. Authentication as the super user is required to perform this action
@@ -2205,7 +2211,7 @@ A script begins with -
 
 	**How to fix**
 
-	To prevent this behavior -
+	To prevent this -
 
 	- **Option 1**
 
@@ -2217,11 +2223,22 @@ A script begins with -
 
 	- **Option 2**
 
-		Put the files to extract in double quotes.
+		Put the files to extract in double quotation marks.
 
 		```
 		$ unzip -o somearchive.zip "somedir/*"
 		```
+
+## References
+
+ - [linuxhint - Setup WSL on Windows] (https://linuxhint.com/run-sh-file-windows/)
+
+## Acknowledgments
+
+ - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
+ - **Last Updated on** - April 2, (Apr) 2023
+ - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
+
 
 <!--
 
@@ -2229,14 +2246,8 @@ A script begins with -
 
 ## advanced
 
-## bash profile
+## Bash profile
 
 add details about chown, chmod, chgrp
 
 -->
-
-## Acknowledgements
-
- - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - March 22, (Wed) 2023
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

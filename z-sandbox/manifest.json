@@ -19,7 +19,7 @@
         {
             "title": "Lab #: Virtual Machines - Real Actions",
             "description": "How to access VM and configure VNC.",
-			"publisheddate": "12-Mar-2023",
+			"publisheddate": "02-Apr-2023",
             "filename": "./../common/lib-cellar/procedures/vm-real-axons/vm-real-axons.md",
 			"type": "hidden",
 			"task_type": "Sections"
@@ -27,21 +27,21 @@
         {
             "title": "Lab #: Oracle Database Gold Image",
             "description": "Pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.",
-			"publisheddate": "22-Mar-2023",
+			"publisheddate": "02-Apr-2023",
             "filename": "./../common/lib-cellar/procedures/db-goldimage/db-goldimage.md",
 			"type": "hidden"
         },
         {
             "title": "Lab #: Oracle EM",
             "description": "How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 14 shiphome. It also contains post installation checks, steps to deinstall EM, and some troubleshooting scenarios and tips.",
-			"publisheddate": "22-Mar-2023",
+			"publisheddate": "02-Apr-2023",
             "filename": "./../common/lib-cellar/procedures/oracle-em/oracle-em.md",
 			"type": "hidden"
         },
         {
             "title": "Lab #: Into the Clouds",
             "description": "About the features and services in the OCI Tenancy, for example, noVNC, compute instance, custom images, object storage, compartments, to name a few.",
-			"publisheddate": "12-Mar-2023",
+			"publisheddate": "02-Apr-2023",
             "filename": "./../common/lib-cellar/procedures/into-the-clouds/into-the-clouds.md",
 			"type": "hidden",
 			"task_type": "Sections"
@@ -50,7 +50,7 @@
             "title": "Lab #: Fun with Git-Bits",
             "description": "The information in this lab revolves around github, git desktop, git bash, code editors.",
             "filename": "./../common/lib-cellar/procedures/fun-with-git-bits/fun-with-git-bits.md",
-			"publisheddate": "12-Mar-2023",
+			"publisheddate": "02-Apr-2023",
 			"type": "hidden",
 			"type":{"gitconcepts":"General concepts","gitdesktop":"GitHub Desktop","gitbash":"Git Bash"},
 			"task_type": "Sections"
@@ -59,7 +59,7 @@
             "title": "Lab #: Hands down in Markdown",
             "description": "Using markdown basic formatting and tags.",
             "filename": "./../common/lib-cellar/procedures/hands-down-in-md/hands-down-in-md.md",
-			"publisheddate": "26-Nov-2022",
+			"publisheddate": "02-Apr-2023",
 			"type": "hidden",
 			"task_type": "Formatting"
         },
@@ -67,7 +67,7 @@
             "title": "Lab #: Linux -:- feed the penguin",
             "description": "Get hands dirty with Linux commands, tips, and tricks.",
             "filename": "./../common/lib-cellar/procedures/linux-feed-penguin/linux-feed-penguin.md",
-			"publisheddate": "12-Mar-2023",
+			"publisheddate": "02-Apr-2023",
 			"type": "hidden",
 			"task_type": "Sections"
         },
@@ -91,7 +91,7 @@
             "title": "Lab #: Zoom Barabar Zoom",
             "description": "Integrate Zoom with Outlook calender and add the plug Zoom for Outlook.",
             "filename": "./../common/lib-cellar/procedures/zoom-barabar-zoom/zoom-barabar-zoom.md",
-			"publisheddate": "27-Mar-2022",
+			"publisheddate": "02-Apr-2023",
 			"type": "hidden"
         },
         {

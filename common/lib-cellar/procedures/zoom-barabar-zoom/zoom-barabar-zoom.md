@@ -14,7 +14,7 @@ You can sync up the Zoom application with the Outlook calendar and view the meet
 
 	![Log in to Zoom](./images/zoom-01-login.png " ")
 
-1. Click on the *profile status icon* on the top-right and go to **Settings**.
+1. Click the *profile status icon* on the top-right and go to **Settings**.
 
 	![Settings menu](./images/zoom-02-settings-menu.png " ")
 
@@ -65,11 +65,11 @@ You can sync up the Zoom application with the Outlook calendar and view the meet
 
 	## Other options
 
-	You will also get a pop-up to join a few minutes before the Zoom meeting starts.
+	You will also get a notification to join a few minutes before the Zoom meeting starts.
 
 	![Join meetings](./images/zoom-12-join.png " ")
 
-	If you are the meeting Organizer, you will get a pop-up to start the Zoom meeting.
+	If you are the meeting Organizer, you will get a notification to start the Zoom meeting.
 
 	![Start your Zoom meeting](./images/zoom-13-start.png " ")
 
@@ -77,10 +77,10 @@ You can sync up the Zoom application with the Outlook calendar and view the meet
 
 	![No Zoom link](./images/zoom-14-no-link.png " ")
 
-	> **Note:** Open the meeting in Outlook, add the zoom link in Location or in the body text, and save it. You do not need to send update.   
+	> **Note:** Open the meeting in Outlook, add the zoom link in Location or in the body text, and save it. You do not send update to the attendees.   
 	Adding zoom link to **Subject** will not enable the join option. Also, bitly or other short links are not considered as Zoom meetings.
 
-	As it is attached directly to your profile and not a local installation, I believe it should work device-independent, that is, on mobile phones, tabs, browsers, etc. However, I am yet to try them out.
+	As it is attached directly to your profile and not a local installation, I believe it will work device-independent, that is, on mobile phones, tabs, browsers, etc. However, I am yet to try them out.
 
 
 ## Add the plug-in Zoom for Outlook
@@ -116,7 +116,7 @@ After adding this plug-in *Zoom for Outlook*, you can create Zoom meetings direc
 
 	![text](./images/outlook-04-search-addin.png " ")
 
-1. In the plug-in window, click on **Add** to add the Zoom plug-in to Outlook.
+1. In the plug-in window, click **Add** to add the Zoom plug-in to Outlook.
 
 	![text](./images/outlook-05-zoom-addin.png " ")
 
@@ -124,8 +124,9 @@ The next time you create a new meeting or an appointment in Outlook, you get an 
 
 ![text](./images/outlook-06-zoom-meeting.png " ")
 
-## Acknowledgements
+## Acknowledgments
 
  - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - March 27, (Sun) 2022
+ - **Last Updated on** - April 2, (Sun) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
+

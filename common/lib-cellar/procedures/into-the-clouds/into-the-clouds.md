@@ -23,7 +23,7 @@ The basic steps for setting up a noVNC environment include -
 
 1. Create a custom image and export to the Object Storage.
 
-	The custom image creates a package of the instance that you have configured. It acts as a backup, and you can recreate another instance from it. When you create a new instance from this custom image, it generates a copy of the original instance server with preconfigured settings, for example, libraries, user accounts, applications, and so on. After creating the custom image, you can terminate the instance.
+	The custom image creates a package of the instance that you have configured. It acts as a backup, and you can re-create another instance from it. When you create a new instance from this custom image, it generates a copy of the original instance server with preconfigured settings, for example, libraries, user accounts, applications, and so on. After creating the custom image, you can terminate the instance.
 
 	> **Note:** Do not delete the custom image from the tenancy before publishing it to the OCI marketplace.  
 	After the Livelabs goes to production, it has no dependency on the custom image. Now, if you delete the custom image, connect with the OCI team (Rene or Ashish) to get the image back.
@@ -254,7 +254,7 @@ Either of the following will get you a custom image.
 		::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 		```
 
-		But, if instance needs to be cleaned, it displays a third line.
+		But, if instance requires cleaning, then it displays a third line.
 
 		Example -
 
@@ -352,7 +352,7 @@ Either of the following will get you a custom image.
 
 	1. Log in to the tenancy.
 
-	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.  
+	1. Click the hamburger (sandwich bars) and go to **Compute** &gt; **Custom Images**.  
 	   Check if the compartment is correct.
 
 	1. On the Images page, click **Import image** and specify the following.
@@ -378,7 +378,7 @@ After logging in to the tenancy:
 
    ## 1. To create an instance from scratch
 
-	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+	1. Click the hamburger (sandwich bars) and go to **Compute** &gt; **Instances**.   
 		Check if the compartment is correct.
 
 	1. On the Instances page, click **Create instance**.
@@ -387,14 +387,14 @@ After logging in to the tenancy:
 
    ## 2. To create an instance from an existing image
 
-	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.   
+	1. Click the hamburger (sandwich bars) and go to **Compute** &gt; **Custom Images**.   
 	   Check if the compartment is correct.
 
 	1. Click the *image name* from which you want to create the instance.
 
 	1. On the Custom image details page, click **Create instance**.
 
-		Alternatively, click on the three dots on the right of the image name and select **Create instance**.
+		Alternatively, click the three dots on the right of the image name and select **Create instance**.
 
 	1. Follow [Task 3: How to create a compute instance?](?lab=compute-instance-custom-image#Task3:Howtocreateacomputeinstance?).
 
@@ -414,7 +414,7 @@ Following the **Create instance** button, do these steps.
 			|-----------|------------------|-------------------------|
 			| Placement |                  | Leave the defaults      |
 			| Image     | Oracle Linux 7.9 | Do not change the image |
-			| Shape     | VM.Standard.E2.1.Micro <br>OCPU Count 1 <br>Memory 1 GB <br>Network Bandwidth 0.48 gbps | Change the shape as explained below |   
+			| Shape     | VM.Standard.E2.1.Micro <br>OCPU Count 1 <br>Memory 1 GB <br>Network Bandwidth 0.48 gbps | Change the shape as explained here |   
 	  -->
 	  - **Placement** - <ins>Do not change</ins>
 	  - **Default image** - <ins>Do not change</ins>
@@ -429,9 +429,9 @@ Following the **Create instance** button, do these steps.
 		 - Memory - *1 GB*
 		 - Network Bandwidth - *0.48 gbps*
 
-	  Leave the default placement and image, and change the shape as explained below.
+	  Leave the default placement and image, and change the shape as explained here.
 
-1. Under Image and shape, click **Edit** > **Change shape**.
+1. Under Image and shape, click **Edit** &gt; **Change shape**.
 	- **Instance type** - *Virtual machine* (default selected)
 	- **Shape series** - *AMD*
 	- **Shape name** - *VM.Standard.E3.Flex*
@@ -439,7 +439,7 @@ Following the **Create instance** button, do these steps.
 
 	Click **Select shape**.
 
-	> **Note:** Adding a shape compatibility to an image does not guarantee that the image will work on the shape. You should test the image on the shape after you add compatibility. Some images (especially Windows) might never be cross-compatible with other shapes because of driver or hardware differences.
+	> **Note:** Adding a shape compatibility to an image does not guarantee that the image will work on the shape. You must test the image on the shape after you add compatibility. Some images (especially Windows) might never be cross-compatible with other shapes because of driver or hardware differences.
 
 1. For networking, leave the defaults *vcnyyyymmdd-xxxx*. For example, `vcn-20220131-2306`.
 
@@ -481,7 +481,7 @@ To access the remote desktop for noVNC environment, enable port *6080*.
 
 1. Log in to the tenancy.
 
-1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+1. Click the hamburger (sandwich bars) and go to **Compute** &gt; **Instances**.   
 	Check if the compartment is correct.
 
 1. On the Instances page, click the *instance name* for which you want to enable the port.
@@ -526,7 +526,7 @@ After logging into your tenancy, you can do various administrative activities, s
 	----
 	## 1. To access the Object Storage
 
-	1. Click on the hamburger (sandwich bars) and go to **Storage** > **Buckets**.   
+	1. Click the hamburger (sandwich bars) and go to **Storage** &gt; **Buckets**.   
 		Check if the compartment is correct.
 
 		The Object Storage & Archive Storage page displays the buckets.
@@ -536,12 +536,12 @@ After logging into your tenancy, you can do various administrative activities, s
 	----
 	## 2. To export a custom image
 
-	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.   
+	1. Click the hamburger (sandwich bars) and go to **Compute** &gt; **Custom Images**.   
 		Check if the compartment is correct.
 
 	1. On the Images page, click the *custom image name* that you want to export.
 
-		Alternatively, click on the three dots on the right of the image name and select **Export**.
+		Alternatively, click the three dots on the right of the image name and select **Export**.
 
 	1. On the Custom image details page, click **Export** to export the image to the object store.
 
@@ -550,14 +550,14 @@ After logging into your tenancy, you can do various administrative activities, s
 	----
 	## 3. To delete an image
 
-	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Custom Images**.   
+	1. Click the hamburger (sandwich bars) and go to **Compute** &gt; **Custom Images**.   
 		Check if the compartment is correct.
 
 	1. On the Images page, click the *custom image name* that you want to delete.
 
-		Alternatively, click on the three dots on the right of the image name and select **Delete**.
+		Alternatively, click the three dots on the right of the image name and select **Delete**.
 
-	1. On the Custom image details page, click **More Actions** > **Delete**.
+	1. On the Custom image details page, click **More Actions** &gt; **Delete**.
 
 	1. On the confirmation screen, click **Delete** to remove the custom image permanently.
 
@@ -566,12 +566,12 @@ After logging into your tenancy, you can do various administrative activities, s
 	----
 	## 4. To move resources between compartments
 
-	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+	1. Click the hamburger (sandwich bars) and go to **Compute** &gt; **Instances**.   
 		Check if the compartment is correct.
 
 	1. On the Instances page, click the *instance name* that you want to move.
 
-	1. On the Instance details page, click **More Actions** > **Move Resource**.
+	1. On the Instance details page, click **More Actions** &gt; **Move Resource**.
 
 	1. Select the *compartment* where you want to move the resource.
 
@@ -588,7 +588,7 @@ After logging into your tenancy, you can do various administrative activities, s
 	----
 	## 5. To edit an instance name
 
-	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+	1. Click the hamburger (sandwich bars) and go to **Compute** &gt; **Instances**.   
 		Check if the compartment is correct.
 
 	1. On the Instance details page, click **Edit** and specify a new name.
@@ -598,14 +598,14 @@ After logging into your tenancy, you can do various administrative activities, s
 	----
 	## 6. To terminate an instance
 
-	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+	1. Click the hamburger (sandwich bars) and go to **Compute** &gt; **Instances**.   
 		Check if the compartment is correct.
 
 	1. On the Instances page, click the *instance name* that you want to delete.
 
-		Alternatively, click on the three dots on the right of the instance name and select **Terminate**.
+		Alternatively, click the three dots on the right of the instance name and select **Terminate**.
 
-	1. On the Instance details page, click **More Actions** > **Terminate**.
+	1. On the Instance details page, click **More Actions** &gt; **Terminate**.
 
 	1. On the confirmation screen, select *Permanently delete the attached boot volume*.
 
@@ -615,14 +615,14 @@ After logging into your tenancy, you can do various administrative activities, s
 
 	## 7. To increase the boot volume of an instance
 
-	1. Click on the hamburger (sandwich bars) and go to **Compute** > **Instances**.   
+	1. Click the hamburger (sandwich bars) and go to **Compute** &gt; **Instances**.   
 	   Check if the compartment is correct.
 
 	1. On the Instances page, click the *instance name* for which you want to increase the boot volume.
 
 	1. Under **Resources** on the left, open **Boot volume**.
 
-	1. Click the **Boot volume name** > **Edit**.
+	1. Click the **Boot volume name** &gt; **Edit**.
 
 	1. Increase the **Volume Size** (in GB), for example *64* GB.
 
@@ -698,12 +698,12 @@ After creating the instance from scratch, set up the instance as follows.
 	1. Under Host Name, enter the **Public IP** of the instance.   
 	   Leave the default port *22* and connection type *ssh*.
 
-	1. In the **Category** pane on the left, go to **Connection** > **SSH** > **Auth**.
+	1. In the **Category** pane on the left, go to **Connection** &gt; **SSH** &gt; **Auth**.
 
-	1. **Browse** for the ppk file generated above and click **Open**.
+	1. **Browse** for the ppk file generated earlier and click **Open**.
 
 		> **Note:** Disconnect VPN to connect to the instance server.   
-		Right-click on the title bar which reads PuTTY (inactive) and **Restart Session** > **Yes**, if required.
+		Right-click the title bar which reads PuTTY (inactive) and **Restart Session** &gt; **Yes**, if required.
 
 	   You can **Save the session** for future logins.
 
@@ -788,7 +788,7 @@ After creating the instance from scratch, set up the instance as follows.
 			$ <copy>touch text1.txt</copy>
 			```
 
-		1. View the newly create file with `ls -l` or simply `ls`.
+		1. View the newly create file with `ls -l` or `ls`.
 
 			```
 			$ <copy>ls -l</copy>
@@ -815,7 +815,7 @@ After creating the instance from scratch, set up the instance as follows.
 Change the default home directory in the instance terminal for the `oracle` user.
 
 1. Connect to the instance using the noVNC URL.   
-   A standard noVNC URL looks like this
+   A standard noVNC URL is -
 
 	```
 	http://[your instance public-ip address]:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true
@@ -833,7 +833,7 @@ Change the default home directory in the instance terminal for the `oracle` user
 	$ <copy>vi ~/.bashrc</copy>
 	```
 
-1. Insert the path to the Oracle home location in the bash profile.
+1. Insert the path to the Oracle home location in the Bash profile.
 
 	```
 	<copy>cd /u01/app/oracle/product/21.0.0/dbhome_1</copy>
@@ -852,7 +852,7 @@ Change the default home directory in the instance terminal for the `oracle` user
 Completed till 1:04:43
 
 
-### Change the hostname from the instance
+### Change host name from instance
 
 Ensure to disconnect VPN before proceeding.
 
@@ -894,14 +894,14 @@ chmod g+s /oracle
 
 </if>
 
-## Learn More
+## Learn more
 
 - [Setup Graphical Remote Desktop](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/)
 
 - [Create Custom OCI Compute Image for Marketplace Publishing](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/?lab=7-labs-create-custom-image-for-marketplace)
 
-## Acknowledgements
+## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - March 12, (Sun) 2023
+ - **Last Updated on** - April 2, (Sun) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)

@@ -44,7 +44,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 		- Modified the title of Introduction lab
 		- Modified the Oracle Database SID and Oracle home path in all labs throughout the workshop
 		- Updated the prerequisites in `deinstall-db` and added lab names
-		- Updated the date in acknowledgements
+		- Updated the date in acknowledgments
 		- Other minor changes
 
 		Please approve the PR so that the workshop can be released soon.
@@ -71,7 +71,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 		- Removed the expanable option for Output, changed to normal text
 
 		- Updated the markdown tag in notes
-		- Updated the date in acknowledments
+		- Updated the date in acknowledgments
 		- Modified the workshop title in the manifests
 		- Added 'get started' to livelabs manifest
 
@@ -249,7 +249,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 		- All occurrences of the database name throughout the workshop changed from *orcl.us.oracle.com* to *CDB1*
 		- Updated the code blocks as per the custom image to reflect the new database name
 		- Updated the Oracle home location as per the custom image
-		- Updated the acknowledgement date
+		- Updated the acknowledgment date
 
 		Please approve the PR. Thank you  
 		~MG
@@ -355,7 +355,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 		- Updated *initialize-environment* and added the names of the database instance and the listener for Oracle Database 21c
 		- Replaced the screenshots and added new images to the *manage-targets* and *access-homepage* labs
 		- Removed the comments tags from *manage-targets* and *access-homepage*, and moved the content to rendered output
-		- Also, updated the month to Nov in the *acknowledgements* section across all labs
+		- Also, updated the month to Nov in the *acknowledgments* section across all labs
 
 		Could I request to approve the PR please. Thank you  
 		~MG
@@ -659,7 +659,7 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 		Please approve the PR. Thank you   
 		~MG
 
-## Acknowledgements
+## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
  - **Last Updated on** - March 11, (Sat) 2023

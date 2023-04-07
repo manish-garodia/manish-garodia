@@ -40,7 +40,7 @@
 
 </if>
 
-## Acknowledgements
+## Acknowledgments
 
  - **Author** - Manish Garodia, Team Database UAD
  - **Last Updated on** - November 5, (Sat) 2022
