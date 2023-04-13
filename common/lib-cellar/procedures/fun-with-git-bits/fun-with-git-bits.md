@@ -1267,9 +1267,12 @@ The information in this lab revolves around -
 	- `git revert`   
 	create a new commit with the changes that are rolled back.
 
+</if>
+<if show="hidden">
+
 ## Check for disallowed words
 
-To check for disallowed words or incorrect usage, download this script on your local system, if not already downloaded, and run it on your files.
+To check for disallowed words or incorrect usage, download this file, if not already downloaded, and run it on your contents.
 
 <!--
  - [wordlist.sh](https://bit.ly/wordlist-mg)
@@ -1279,31 +1282,33 @@ To check for disallowed words or incorrect usage, download this script on your l
 
  - [wordlist.zip](https://bit.ly/wordlist_test)
 
-	Extract the script *`wordlist.sh`* from the compressed file and store it on your local system, for example in the `Downloads` folder.
+	Extract the script *`wordlist.sh`* from the compressed file and store it on your system, for example the `Downloads` folder.
 
 	----
 	## About the script - *`wordlist.sh`*
 
-	The script contains a piece of code that checks whether the document contains any disallowed words or incorrect usage according to Oracle Documentation Style Guide (OSG).
+	The script contains a lightweight program that checks whether the documents or labs contain any disallowed words or incorrect usage according to [Oracle Documentation Style Guide (OSG)](https://docs-uat.us.oracle.com/en/sptest/osgxx/) and [Oracle's Inclusive Language standard](https://confluence.oraclecorp.com/confluence/x/Q81_QgE).
 
-	> **Note**: This script works only on the local files on your system, and not on any server or cloud locations.
+	> **Note**: This program works only with local files on your system, and not on any server, network, or cloud locations.
 
-	You can run the script in these environments:
-	- git Bash
-	- Windows PowerShell
+	You can run the program in these environments:
+	- Git Bash
+	- Windows PowerShell (and PowerShell ISE)
 	- Windows Command Prompt
 
-	> **Note**: Windows Command Prompt does not recognize shell script. It internally calls PowerShell to run the script.
+	> **Note**: Windows Command Prompt does not recognize Linux shell programs. It internally calls PowerShell to run the program.
 
 	----
-	## Run the script
+	## Run the program
 
-	Open the CLI window, for example git Bash, Windows PowerShell, or Command Prompt, and do the following.
+	Open a CLI window, such as Git Bash, Windows PowerShell, or Command Prompt, and do the following.
+
+	> **Note**: You require Git Bash to run this program. If you do not have Git Bash on your system, then you can get it from their site - [Git Downloads](https://git-scm.com/downloads).
 
 	1. Go to the folder from where you want to check the contents for disallowed words.
 
 		```
-		$ <copy>cd github/your-repo/your-contents-or-workshop-folder</copy>
+		$ <copy>cd github/[your-repo]/[your-contents-or-workshop-folder]</copy>
 		```
 
 	1. Specify the full path of the script *`wordlist.sh`* and press **Enter** to run it.   
@@ -1315,7 +1320,7 @@ To check for disallowed words or incorrect usage, download this script on your l
 		$ <copy>~/Downloads/wordlist.sh</copy>
 		```
 
-		**Windows PowerShell**
+		**Windows PowerShell** or **Powershell ISE**
 
 		```
 		$ PS [your-workshop]<copy>~\Downloads\wordlist.sh</copy>
@@ -1327,42 +1332,63 @@ To check for disallowed words or incorrect usage, download this script on your l
 		$ [your-workshop]\<copy>powershell ~\Downloads\wordlist.sh</copy>
 		```
 
+		![Run program in command prompt](./images/gitbash/disallowed-words-01-run-program-in-cmd-prompt.png " ")
 
-		> If you get a message that `the command is not recognized`, then either the path to the script is incorrect or the script does not exist at the given location.
+		- Occassionally, you may find some hiccups with PowerShell or Command Prompt.
 
-		For the first run, your system may ask for the app to open the script. Select *Git for Windows*.
+			## Issues with PowerShell
 
-		![Default app to run the script](./images/gitbash/default-app.png " ")
+			- If you get a message that `the command is not recognized`, then either the path to the script is incorrect or the script does not exist at the given location.
 
-		The script searches for disallowed words in all labs and files under each subfolder. Both PowerShell and Command Prompt brings up Git Bash temporarily to display the search result.
+			- If the default application is not set for the file type, then it may display an error.
 
-		![Disallowed words search results - git Bash](./images/gitbash/disallowed-words-01-script-results.png " ")
+				```
+				Program jada-jada failed to run: Application not found at line:1 char:1
+				```
 
-		If the script finds any disallowed word or incorrect usage, then it displays result with the following details -
+				To fix this, right-click the script file and select **Properties**. Change the **Opens with** option to *Git for Windows*.
+
+			- For the first run, your system may ask for the app to open the script. Select *Git for Windows*.
+
+				![Default app to run the script](./images/gitbash/default-app.png " ")
+
+		The program searches for disallowed words in all labs and files under each subfolder. Both PowerShell and Command Prompt brings up Git Bash temporarily to display the search result.
+
+		![Disallowed words search results - git Bash](./images/gitbash/disallowed-words-02-script-results.png " ")
+
+		If the program finds any disallowed word or incorrect usage, then it displays result with the following details -
 		- <font style="color:rgb(177,72,198);">**file name with full path**</font>
 		- <font style="color:rgb(28,168,0);">**line number**</font>
 		- <font style="color:rgb(255,118,118);">**disallowed word or incorrect usage**</font>
 
-	1. The script prompts you to save the results to an *`output.txt`* file.
+	1. The program prompts you to save the results to an *`output.txt`* file.
 
 		```
-		$ <copy>your-account/Downloads/output.txt</copy>
+		$ <copy>[your-account]/Downloads/output.txt</copy>
 		```
 
-		Press **y** to save the output file in the `Downloads` folder or press **n** or **Enter** to ignore.
+		Press **y** to save the output file in the `Downloads` folder or press **n** or **Enter** to ignore. The program creates a `Downloads` folder, if it does not exist.
 
 		> **Note**: As the `output.txt` file is created in Bash (Linux-based), if you view it in Windows, then it may display some junk characters because of conversion between operating systems.
 
-		Viewing the output file in Git Bash does not display any junk characters.
+		After saving the results in the output file, you can view it using a Windows text editor (Notepad, Wordpad, et al.) or the command-line utility. Viewing the output file from the command line does not display junk characters.
+
+		**Git Bash**
 
 		```
 		$ <copy>cat ~/Downloads/output.txt</copy>
 		```
 
-	----
-	## Run script without full path
+		**Windows PowerShell** or **Windows Command Prompt**
 
-	You can run this script as a command from any location without specifying the full path. To achieve this, set the environment variable *`$PATH`* depending on the operating system.  
+		```
+		$ <copy>type ~/Downloads/output.txt</copy>
+		```
+
+	----
+	## Run program without full path
+
+	You can run this program as a command from any location without specifying the full path. To achieve this, set the environment variable *`$PATH`* depending on the operating system.  
 
 	> ***Warning***: Exercise *<ins>utmost caution</ins>* while doing these.
 
@@ -1371,34 +1397,34 @@ To check for disallowed words or incorrect usage, download this script on your l
 
 	1. Right-click **My Computer** or **This PC** &gt; select **Properties**.
 
-		![This PC properties](./images/gitbash/disallowed-words-02-thispc-properties.png " ")
+		![This PC properties](./images/gitbash/disallowed-words-03-thispc-properties.png " ")
 
 		Alternatively, open **Settings** &gt; go to **System**, scroll down and click **About** in the left pane.
 
 	1. Under Related settings on the right, click **Advanced system settings**.
 
-		![System settings](./images/gitbash/disallowed-words-03-sys-settings.png " ")
+		![System settings](./images/gitbash/disallowed-words-04-sys-settings.png " ")
 
 		It opens the the System Properties window.
 
 	1. On the **Advanced** tab &gt; click **Environment Variables**.
 
-		![Advanced system properties](./images/gitbash/disallowed-words-04-advanced-sys-properties.png " ")
+		![Advanced system properties](./images/gitbash/disallowed-words-05-advanced-sys-properties.png " ")
 
 		The window displays user variables for your acount and the system variables.
 
 	1. Under **System variables**, select *Path* and click **Edit** to modify the variable.
 
-		![System variable Path - edit](./images/gitbash/disallowed-words-05-sys-var-path-edit.png " ")
+		![System variable Path - edit](./images/gitbash/disallowed-words-06-sys-var-path-edit.png " ")
 
 	1. Click **New** and then **Browse** to add the location where the script *`wordlist.sh`* exists.
 
-		![Environment variable Path - new](./images/gitbash/disallowed-words-06-env-var-path-new.png " ")
+		![Environment variable Path - new](./images/gitbash/disallowed-words-07-env-var-path-new.png " ")
 
 		> **Caution**: Ensure that you click **New** and browse to the location of the script.   
 		DO NOT edit anything in the Edit environment variable window. Clicking edit will overwrite an existing variable and your system may face serious consequences.
 
-	Click **OK** for all three windows to save your changes and close them.
+	Click **OK** in each window to save your changes and close them.
 
 	You have successfully set the environment variable *$PATH* for Windows system. Similarly, you can set the variable for a Linux system.
 
@@ -1408,10 +1434,10 @@ To check for disallowed words or incorrect usage, download this script on your l
 	It is pretty much quick.
 
 	1. Edit the *`.bashrc`* file.   
-		Usually, the system files `.bashrc` and `.bash_profile` are located in the home folder under `your-account`.
+		> Usually, the system files `.bashrc` and `.bash_profile` are located in the home folder under `[your-account]`.
 
-		 - Windows: `C:\Users\your-account`
-		 - Linux: `/home/your-account`
+		 - Windows: `C:\Users\[your-account]`
+		 - Linux: `/home/[your-account]`
 
 	1. Add the following lines and include the full path of the script file to set the *`$PATH`* variable.
 
@@ -1422,9 +1448,9 @@ To check for disallowed words or incorrect usage, download this script on your l
 
 	The *$PATH* variable is now set.
 
-	Restart Git Bash or Windows PowerShell for the variable to take effect. When you open a new git Bash or PowerShell window, type *`wordlist.sh`* without the full path to run the script.
+	Restart Git Bash, Windows PowerShell, or Command Prompt for the variable to take effect. When you open a new CLI window, type *`wordlist.sh`* without the full path to run the program.
 
-	> **Tip**: Git Bash and PowerShell automatically picks up environment variables defined in your system.
+	> **Tip**: The CLI utilities, Git Bash, PowerShell, and Command Prompt, automatically pick up environment variables defined in your system.
 
 	----
 	## Need more explanation?
@@ -1432,17 +1458,20 @@ To check for disallowed words or incorrect usage, download this script on your l
 	**Background**   
 	OSG recommends a **[Word List](https://docs-uat.us.oracle.com/en/sptest/osgxx/word-list.html)** preferred by the National Standards Organization (NISO). For more information about the NISO sort order, see [Sorting Glossary Entries](https://docs-uat.us.oracle.com/en/sptest/osgxx/sorting-glossary-entries.html#GUID-3219677E-95D8-45FC-92EA-CA554D1E1162).
 
-	| What the script does                | What the script does not do |
-	|-------------------------------------|-----------------------------|
-	| Looks for disallowed words or incorrect usage across all labs in each subfolder | Does not perform english grammar checks   |
+	Another set of guidelines are explained in [Oracle's Inclusive Language standard](https://confluence.oraclecorp.com/confluence/x/Q81_QgE).
+
+	| What the program does               | What the program does not do |
+	|-------------------------------------|------------------------------|
+	| Looks for disallowed words or incorrect usage across all labs and contents in each subfolder | Does not perform English grammar checks   |
 	| Checks the file names and also the contents of the files | <!--Include files in markdown (or text) format--> Does not check files, such as images, `index.html`, and `manifest.json`  |
-	| Checks for most, if not all, words mentioned in Oracle style guide | Does not check the contents of `*.docx` |
+	| Checks for most, if not all, words mentioned in Oracle style guide | Does not check contents of binary files or codes, such as `*.css`, `*.docx`, `*.sql`, `*.yml`, etc. |
+	| Creates a `Downloads` folder under your profile, if it does not exist | Does not affect the existing files and folders on your system |
 	| Provides option to save the output to a text file  | Does not fix the issues automatically |
 
-	Glance the piece of code inside the script -
+	Glance the piece of code inside the program -
 
 	```
-	$ <copy>grep -wrEniTaH -B 0 --color=always 'abort|abortion|above|accessable|acknowledgement|adhoc|ad.hoc|ada.compliant|adaptor|admin|advisor|afterwards|aggre-gator|air.bill|alive|allow|allow.list|allows|alphabetical|alphanumerical|alright|amongst|analogue|and/or|anti|as-of date|as.per|associate to|associated to|auto|backend|back-order|back-up|back.plane|back.slash|back.space|backwards|backwardly|band.width|be escaped|be sure|behave|behavior|being that|below|bi|bitvector|bit-vector|black.hat|blacklist|black.list|blocksize|block-size|boiler-plate|bold.face|boot|bottomup|bottom up|bottom.most|break.point|builtin|built in|bulletted|busy.bar|busy.box|byte.code|c-language|c-shell|cancell|cancelled|cancelling|cancellable|can not|case-insensitive|cashe|cashflow|cash-flow|categorise|cautionlist|caution-list|centigrade|change-able|checkbox|check-box|checkin|checkmark|check-mark|check.list|children elements|choose|classpath|class-path|clean-up|click on|click.jack|client-server|clientside|clusterwide|clipart|clip.board|cloud-native|cluster-wide|co|code-base|colour|commandline|comment out|comprise|comprise.|consideration|contextmenu|context-menu|context sensitive|controlfile|copyprotected|copy protected|crash|crossreference|cross reference|cut-off|data.base|datacenter|data-center|datadictionary|data-dictionary|datafile|data-file|dataflow|data-flow|dataguide|data-guide|datamart|data-mart|dataset|data-set|datasource|data-source|datastore|data-store|datatype|data-type|datawarehouse|data-warehouse|datum|db-key|de|de-escalate|deactivate|dead|dead-lock|deconfigure|de-install|demo|dependant|depress|descripter|desireable|desire|dezoom|dial into|dialup|dialogue|dialogbox|dialog-box|disabled|done|double.click on|doublesided|doubletap|down.time|drilldown|dropdown|dumb|dumpfile|dump-file|dynamic link library|dynalink|easy|easier|else|end-point|end.user|end.line|enterprise-wide|equi-join|execute|fail-back|fail-over|fat.client|fatal|fault tolerant|feed-back|filename|file-name|fileserver|file-server|filesystem|file-system|fingerprint-reader|firm.ware|flow.chart|followup|foo|forwards|formfeed|formatable|formated|freeform|frontend|geo-code|geo-fence|geo-location|geo-spatial|grey|grayed-out|graylist|gray.list|gray.scale|hand-held|handicap|handicapped|hang|hard.code|hard.copy|hard-ware|he|head-count|her|hex|hexa-decimal|high-availability|high level|higher|him|hit|hits|homepage|home-page|hostname|host-name|hot.fix|hot.keys|hotspot|hot-spot|hyperlink|hyper-link|hyper.text|illegal|imbed|impact|indices|info|information on|initiate|initiated|initiating|in.line|input|instal|inter|intra|invite|invoke|irrecoverable|indicative|issue|issuing|italicise|joy.stick|judgement|just|keep in mind|key.store|key.word|kill|labelled|labelling|landscape-mode|launch|left.hand|legal|leverage|licence|life-cycle|like|linearise|line-spacing|link|list.box|live|loadbalancing|log into|logoff|logout|look-up|loop.back|lowcost|lowlevel|lower|lower.case|machine-learning|mailstop|mail-stop|mail.box|main.frame|make-file|man-in-the-middle|mash-up|master|mathematic|matrices|menubar|menu-bar|menu.option|meta.data|mice|micro-service|MS|mono.space|moveable|multi|name.space|navigation-tree|need.to|needs.to|new-line|newsfeed|news-feed|non|normal|normally|numerical|object oriented|obsolete |offsite|off site|off.line|off.load|okay|off.premises|on.board|on.boarding|on.premise|once|one time|on-line|on-screen|on-site|onwards|openended|opensource|open-source|oracle corporation|oracle data.server|oracle database.server|orientate|orientate.|out-of-the-box|outdent|outwards|over.all|over.estimate|over.ride|pageout|page-able|pathname|per.cent|pick-up|please|plugin|plugins|popup|pop-up|portrait-mode|possesses|postal.code|post.installation|post.processor|poweroff|power-off|poweron|power-on|pre|prepend|prepone|preventative|print-out|private-cloud|progress-indicator|pseudo|public-private|pull.down|punch-out|push.button|queriable|queueing|quickstart|quotes|quote.marks|random-access|rearchive|recreate|readonly|readout|read-write|realtime|reboot|re-boot|record-length|record-mark|record oriented|record-size|reoccur|re-design|re-dispatch|re-display|re-enable|re-enter|re-entrant|re-establish|re-evaluate|re-examine|re-execute|re-export|re-generate|re-import|re-initialize|re-insert|re-install|re-installation|remote.host|removeable|re-open|replace-mode|re-route|re-run|re-try|re-usable|right align|right click|right.hand|right.most|roll-up|run-out|run.time|salable|scaleable|screen-reader|scroll.arrow|scroll.bar|scroll.box|scrolling.list|section.508|selfchecking|selfdefining|selfinitializing|selfloading|selfrelocating|semi.annual|semi.monthly|semi.weekly|serverside|server side|setid|set-id|shareable|she|s/he|short term|shortcut.keys|shortcut.menu|should|shut-down|shut-off|sign-in|sign.on|signout|silent.installation|simple|simply|singlesided|sizeable|slave|slider|smart.card|smart.phone|soft.copy|space-bar|spread-sheet|stand-by|stand.alone|start-up|statusbar|status-bar|stylesheet|style-sheet|sub|super.set|super.user|supply-chain|surviving|survivor|swapin|swapout|synch|system-wide|table.space|tap on|tape-mark|tar|task.bar|task.flow|thinclient|thin-client|tick.mark|timecard|timeframe|time-frame|time-out|time-series|timesheet|time share|time-sheet|timeslice|time-slice|timestamp|timezone|time-zone|time.line|to-do|tool.bar|tool.set|tool.tip|topdown|top.most|touchpoint|touch-point|touchscreen|touchsensitive|touch sensitive|towards|track.ball|tradeoff|trouble.free|trouble.shoot|trouble.shooting|trust-keystore|turn.around|typeahead|type.bar|type.case|type.face|ultra|un|unassign|under-estimate|untar|unzip|unzoom|upper.case|up-time|upwards|useable|userdefined|userID|user-ID|username|useroriented|userspecified|usersupplied|userwritten|utilization|utilize|vendee|via|victim|voice frequency|voice grade|voicemail|warmup|webagent|web-agent|webform|web-form|webpage|web-page|webportal|web-portal|webserver|web-server|webservice|web-service|webmaster|web-master|web.site|whitehat|white.hat|whitelist|white.list|wild.card|wish|word-length|work-around|work-flow|work-load|work-sheet|work-space|work-station|world-wide|wrap-around|wrapup|writeback|writeenable|writeprotect|writeup|[cw]ould|zero suppression|zoombox|zoom-box|zoom-in|zoom-out|zip' --exclude={\*index\*,\*initialize-environment\*,\*ISHCONDITION\*,\*manifest\*,\*ocw-livelabs-rat-overview\*,\*prepare-setup\*,\*.gitignore\*,\*git-filter-repo\*,\*wordlist\*,\*.css,\*.gif,\*.\*ish\*,\*.jpg,\*.JPG,*.jpeg,\*.js,\*.json,\*.log,\*.map,\*.old,\*.png,\*.PNG,\*.py,\*.rsp,\*.sql,\*.tmpl,\*.tiff,\*.yaml,\*.yml} --exclude-dir={\*.git\*,\*lintchecker\*,\*learning-library\*,\*sample-tutorial\*,\*tutorial_creator\*,\*vale\*} </copy>
+	$ <copy>grep -wrEniTaH -B 0 --color=always 'above|accessable|ad.hoc|ada.compliant|adaptor|adhoc|admin|advisor|afterwards|aggre-gator|air.bill|alive|allow|allow.list|allowed|allows|alphabetical|alphanumerical|alright|amongst|analogue|and/or|anti|as.per|as-of date|associate to|associate. to|auto|back.plane|back.slash|back.space|backend|back-order|backwardly|backwards|band.width|be escaped|be sure|being that|below|bi|bitvector|bit-vector|black.hat|bogus|boiler-plate|bold.face|boot|bottom up|bottom.most|bottomup|break.point|built in|builtin|bulletted|busy.bar|busy.box|byte.code|can not|cancell|cancellable|cancelled|cancelling|cancells|case-insensitive|cashe|cautionlist|caution-list|centigrade|change-able|check.list|check.lists|checkin|checkins|children elements|c-language|classpath|class-path|cleans-up|clean-up|click on|click.jack|clicked on|clicks on|client-server|clientside|clip.board|cloud-native|clusterwide|cluster-wide|co|code-base|commandline|comment out|commented out|comments out|context sensitive|copy protected|copyprotected|crash|c-shell|cut-off|cuts-off|data.base|dataguide|data-guide|datamart|data-mart|datasource|data-source|datawarehouse|data-warehouse|datum|de|dead|demo|dependant|depress|descripter|dezoom|dial into|dials into|dialsup|dialup|disabled|done|double.click on|double.clicked on|double.clicks on|doublesided|down.time|drilldown|dropdown|dumb|dynamic link library|easier|easy|else|end.line|end.user|end.users|enterprise-wide|equi-join|failed-over|fat|fatal|fault tolerant|feed-back|fingerprint-reader|firm.ware|flow.chart|flow.charts|foo|formatable|formated|forwards|freeform|frontend|geo-code|geo-fence|geo-location|geo-spatial|gray.list|gray.scale|grayed-out|graylist|gray-out|grey|hand-held|hard.code|hard.coded|hard.copy|hard.copies|hard-ware|he|her|hex|hexa-decimal|high level|high-availability|higher|him|hit|homepage|home-page|hot.fix|hot.keys|hyper.text|illegal|in.line|indicative|indices|info|information on|instal|inter|intra|irrecoverable|issue|italicise|joy.stick|judgement|just|keep in mind|key.store|key.stores|key.word|key.words|lady|landscape-mode|left.hand|legal|licence|life-cycle|like|linearise|list.box|live|log into|logged into|logging into|logoff|logout|logs into|loop.back|lowcost|lower|lower.case|lowlevel|machine-learning|mail.box|mailstop|mail-stop|main.frame|main.frames|make-file|man|man-in-the-middle|mash-up|master|mathematic|matrices|men|menu.option|meta.data|mice|mono.space|moveable|multi|name.space|name.spaces|navigation-tree|need.to|needs.to|new-line|newsfeed|news-feed|non|numerical|object oriented|obsolete |off site|off.line|off.load|off.premises|offsite|okay|on.board|on.premise|once|one time|on-line|on-screen|on-site|onwards|openended|opensource|open-source|oracle corporation|oracle data.server|oracle database.server|outdent|out-of-the-box|outwards|over.all|over.estimate|over.ride|page-able|pageout|per.cent|pick-up|picks-up|please|portrait-mode|possesses|post.installation|post.processor|postal.code|postman|poweroff|power-off|poweron|power-on|pre|prepend|preventative|private-cloud|progress-indicator|pseudo|public-private|pull.down|punch-out|punched-out|push.button|push.buttons|queriable|queueing|quickstart|quote.marks|quotes|random-access|readonly|readout|read-write|realtime|rearchive|record oriented|record-length|record-mark|record-size|remote.host|removeable|replace-mode|re-rout|re-run|re-usable|right.hand|right.most|roll-up|run.time|run-out|s/he|salable|salesman|saleswoman|scaleable|screen-reader|scroll.arrow|scroll.bar|scroll.box|scrolling.list|section.508|selfchecking|selfdefining|selfinitializing|selfloading|selfrelocating|semi.annual|semi.monthly|semi.weekly|server side|serverside|setid|set-id|shareable|she|short term|shortcut.keys|shortcut.menu|should|shut-down|shut-off|shuts-off|sign.on|sign-in|signout|silent.installation|simple|simply|singlesided|sizeable|slider|smart.card|smart.phone|soft.copy|soft.copies|space-bar|stand.alone|start-up|statusbar|status-bar|sub|super.set|super.user|supply-chain|surviving|survivor|swapin|swapout|synch|system-wide|table.space|table.spaces|tap on|taps on|tape-mark|tar|task.bar|task.flow|thinclient|thin-client|tick.mark|tick.marks|time share|time.line|time.lines|timeframe|time-frame|time-out|time-series|timeslice|time-slice|timestamp|to-do|tool.bar|tool.bars|tool.set|tool.sets|tool.tip|tool.tips|top.most|topdown|touch sensitive|touchscreen|touchsensitive|towards|track.ball|trouble.free|trust-keystore|turn.around|type.bar|type.case|type.face|typeahead|ultra|un|under-estimate|unzoom|upper.case|up-time|upwards|useable|userdefined|userID|user-ID|username|useroriented|userspecified|usersupplied|userwritten|vendee|via|victim|voice frequency|voice grade|warmup|web.site|web.sites|webagent|web-agent|webform|web-form|webmaster|web-master|webpage|webpages|web-page|web-pages|webportal|web-portal|webserver|webservers|web-server|web-servers|webservice|webservices|web-service|web-services|whitehat|white.hat|whitelist|whitelists|white.list|white.lists|whitepaper|whitepapers|white.paper|white.papers|wild.card|wild.cards|wish|woman|women|word-length|world-wide|wrap-around|writeback|writeenable|writeup|[cw]ould|zero suppression|zoom-in|zoom-out|zip|zipped|zips|zipping' --exclude={\*index\*,\*initialize-environment\*,\*ISHCONDITION\*,\*manifest\*,\*ocw-livelabs-rat-overview\*,\*prepare-setup\*,\*.gitignore\*,\*git-filter-repo\*,\*wordlist\*,\*.css,\*.dsnb,\*.dva,\*.gif,\*.\*ish\*,\*.jpg,\*.JPG,*.jpeg,\*.js,\*.json,\*.log,\*.map,\*.old,\*.png,\*.PNG,\*.py,\*.rsp,\*.sql,\*.tmpl,\*.tiff,\*.yaml,\*.yml} --exclude-dir={\*.git\*,\*lintchecker\*,\*learning-library\*,\*sample-tutorial\*,\*tutorial_creator\*,\*vale\*}</copy>
 	```
 
 	### Qualifiers
@@ -1450,6 +1479,7 @@ To check for disallowed words or incorrect usage, download this script on your l
 	*grep* (Global Regular Expression Print)
 
 	- **`'text1|text2|textn'`** - separate different words with pipes to search for multiple patterns (or words) together
+	- **`w`**, *`--word-regexp`* - match only whole words
 	- **`r`**, *`--recursive`* - include subdirectories
 	- **`E`**, *`--extended-regexp`* - extended regular expression
 	- **`n`**, *`--line-number`* - prints line number
@@ -1458,9 +1488,11 @@ To check for disallowed words or incorrect usage, download this script on your l
 	- **`a`**, *`--text`* - equivalent to --binary-files=text
 	- **`H`**, *`--with-filename`* - prints file name
 	- **`B 0`**, *`--before-context=x`* - prints `x` lines before the context; keep `0` to exclude extra lines
-	- **`color=always`**, *`--colour[=WHEN]`* - use color markers to highlight
-	- **`--exclude=filename`** - skips this single file or directory
-	- **`--exclude={`\*.png,\*.jpg`}`** - skips multiple files and directories together; use backslash  `\` to escape characters
+	- **`color=always`**, *`--colour[=WHEN]`* - use color markers to highlight;	other options are  `never` and `auto`
+	- **`--exclude=FILE_PATTERN`** - skips the file or directory matching this pattern
+	- **`--exclude={\*.png,\*.jpg}`** - skips multiple files together; use backslash  `\` to escape characters
+	- **`--exclude-dir=PATTERN`** - skip the directory matching this pattern
+	- **`--exclude-dir={\*PATTERN1\*,\*PATTERN2\*}`** - skips multiple directories together; use backslash  `\` to escape characters
 
 	More qualifiers -
 
@@ -1471,7 +1503,6 @@ To check for disallowed words or incorrect usage, download this script on your l
 	- `o`, `--only-matching` - shows only matching part
 	- `R`, `--dereference-recursive` - recursive and also follow symbolic links
 	- `v`, `--invert-match` - invert match; displays all but matched words
-	- `w`, `--word-regexp` - match only whole words
 	- `z`, `--null-data` - displays entire contents of matching files
 
 	Other search options -
@@ -2749,5 +2780,5 @@ To check for disallowed words or incorrect usage, download this script on your l
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - April 2, (Sun) 2023
+ - **Last Updated on** - April 8, (Sat) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
