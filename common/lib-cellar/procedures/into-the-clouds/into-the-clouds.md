@@ -223,6 +223,21 @@ The OCI has **26 regions** that are associated with specific teams.
 
 			```
 
+		 - PAR URL for *wordlist.zip* - created on 13 Apr 2023, valid till 31 Dec, 2051.
+
+			```
+			https://objectstorage.ap-seoul-1.oraclecloud.com/p/cllTxmSZnae2rVOoK8pJE7VZLWvJmdSYxWjuNg5kYhXmnWyAzHObGaDoNkfZAyml/n/cnmyhyct1k43/b/mg-store/o/wordlist.zip
+			```
+
+			bitly - short url
+
+			```
+
+			```
+
+
+
+
 </if>
 
 ## Options for custom image

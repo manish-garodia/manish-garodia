@@ -51,7 +51,7 @@
             "description": "The information in this lab revolves around github, git desktop, git bash, code editors.",
             "filename": "./../common/lib-cellar/procedures/fun-with-git-bits/fun-with-git-bits.md",
 			"publisheddate": "08-Apr-2023",
-			"show": "hidden",
+			"type": "hidden",
 			"type":{"gitconcepts":"General concepts","gitdesktop":"GitHub Desktop","gitbash":"Git Bash"},
 			"task_type": "Sections"
 		},

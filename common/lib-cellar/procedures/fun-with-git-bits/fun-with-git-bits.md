@@ -1033,7 +1033,6 @@ The information in this lab revolves around -
 		$ git config --global http.proxy http[s]://userName:password@proxyaddress.com:port
 		```
 
-		<if type="hidden">
 		Example
 
 		```
@@ -1047,7 +1046,6 @@ The information in this lab revolves around -
 			```
 			$ <copy>git config --global --unset http.proxy && git config --global --get http.proxy && git config --global http.proxy http://manish.garodia%40oracle.com:Oracle.com@www-proxy-idc.in.oracle.com:80</copy>
 			```
-		</if>
 
 	----
 	## Start a new repo
@@ -1268,7 +1266,8 @@ The information in this lab revolves around -
 	create a new commit with the changes that are rolled back.
 
 </if>
-<if show="hidden">
+
+<if type="hidden">
 
 ## Check for disallowed words
 
@@ -1280,7 +1279,7 @@ To check for disallowed words or incorrect usage, download this file, if not alr
  - [wordlist.sh](https://objectstorage.ap-seoul-1.oraclecloud.com/p/nYgbWDImBDQAqUfiRNFXaA9UueC3w1ZpuEi7YviCUhYptHuY49WDy0eKBQ4G3DFN/n/cnmyhyct1k43/b/mg-store/o/wordlist.sh)
 -->
 
- - [wordlist.zip](https://bit.ly/wordlist_test)
+ - [wordlist.zip](https://bit.ly/wordlist_mg)
 
 	Extract the script *`wordlist.sh`* from the compressed file and store it on your system, for example the `Downloads` folder.
 
@@ -2107,8 +2106,6 @@ To check for disallowed words or incorrect usage, download this file, if not alr
 	1. Redo the changes again locally and then try to merge/push to the fork.
 
 	> **Caution**: For double-safety, keep backups of the local changes made in the clone.
-
-	</if>
 
 	<if type="gitbash">
 
