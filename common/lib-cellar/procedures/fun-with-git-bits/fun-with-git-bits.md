@@ -240,7 +240,7 @@ The information in this lab revolves around -
 		GitHub Pages supports the following themes.
 		 - Architect
 			![Architect theme](./images/jekyll-themes/jekyll-theme-architect.jpg " ")
-		 - Cayman
+		 - [Cayman](https://jasonlong.github.io/cayman-theme/)
 			![Cayman theme](./images/jekyll-themes/jekyll-theme-cayman.jpg " ")
 		 - Dinky
 			![Dinky theme](./images/jekyll-themes/jekyll-theme-dinky.jpg " ")
@@ -2772,7 +2772,9 @@ To check for disallowed words or incorrect usage, download this file, if not alr
 
 ## References
 
- - [gitkraken - How to download file from GitHub](https://www.gitkraken.com/learn/git/github-download#how-to-downlaod-a-file-from-github)
+ - [How to download file from GitHub - gitkraken](https://www.gitkraken.com/learn/git/github-download#how-to-downlaod-a-file-from-github)
+
+ - [How to Create a Multi-page Website using Github Pages - phuston](https://phuston.github.io/patrickandfrantonarethebestninjas/howto)
 
 ## Acknowledgments
 

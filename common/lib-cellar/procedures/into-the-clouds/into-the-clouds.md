@@ -232,7 +232,7 @@ The OCI has **26 regions** that are associated with specific teams.
 			bitly - short url
 
 			```
-
+			https://bit.ly/wordlist_mg
 			```
 
 

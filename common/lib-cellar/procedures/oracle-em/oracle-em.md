@@ -1705,6 +1705,10 @@ A log file is generated to capture the deinstallation process.
 	$ <copy>/scratch/u01/software/em/middleware</copy>
 	```
 
+## References
+
+- [ADE 4.1 Users Guide - Confluence](https://confluence.oraclecorp.com/confluence/x/1AgYAw)
+
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD

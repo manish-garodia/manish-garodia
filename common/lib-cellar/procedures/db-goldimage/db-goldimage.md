@@ -1790,10 +1790,10 @@ After stopping the listener -
 			```
 
 		----
-		## Cite reference
+		## Cite
 
-		 - [Ed Chen Logic](https://logic.edchen.org/how-to-resolve-ins-08101-unexpected-error/)
-		 - [dbsguru](https://dbsguru.com/solution-for-ins-08101-unexpected-error-supportedoscheck-while-oracle-19c-installation/)
+		 - [Resolve Ins-08101 Unexpected Error - Ed Chen Logic](https://logic.edchen.org/how-to-resolve-ins-08101-unexpected-error/)
+		 - [Unexpected Error Supportedoscheck - dbsguru](https://dbsguru.com/solution-for-ins-08101-unexpected-error-supportedoscheck-while-oracle-19c-installation/)
 		 - [martinberger.com](https://www.martinberger.com/2020/05/install-oracle-19c-rdbms-on-oracle-linux-8-avoid-warning-ins-08101-unexpected-error-while-executing-the-action-at-state-supportedoscheck/)
 
 	----

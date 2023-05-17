@@ -157,10 +157,10 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
 		 - Detailed explanation on how to start VNC using the new practice is explained in [this document](./files/HOWTO.md).
 
 		 - Alternate ways to enable VNC viewer on latest operating system (OL8+) -
-			 - [Install VNC on RHEL 8](https://www.tecmint.com/install-vnc-server-on-rhel-8/)
-			 - [Create VNC on OCI VMs](https://confluence.oraclecorp.com/confluence/display/EMQ/Create+VNC+on+OCI+VM+Instances)
+			 - [Install VNC on RHEL 8 - techmint](https://www.tecmint.com/install-vnc-server-on-rhel-8/)
+			 - [Create VNC on OCI VMs - confluence](https://confluence.oraclecorp.com/confluence/display/EMQ/Create+VNC+on+OCI+VM+Instances)
 
-		 - Want to read more on VNC, [click here](https://en.wikipedia.org/wiki/Virtual_Network_Computing)
+		 - Want to read more on VNC, [click here - wiki](https://en.wikipedia.org/wiki/Virtual_Network_Computing)
 
 	----
 	## 3. Access VM using a VNC viewer
