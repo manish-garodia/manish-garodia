@@ -1267,8 +1267,6 @@ The information in this lab revolves around -
 
 </if>
 
-<if type="hidden">
-
 ## Check for disallowed words
 
 To check for disallowed words or incorrect usage, download this file, if not already downloaded, and run it on your contents.
@@ -1521,8 +1519,6 @@ To check for disallowed words or incorrect usage, download this file, if not alr
 	- [phoenixnap - mutliple patterns](https://phoenixnap.com/kb/grep-multiple-strings)
 
 	- [linuxhint - prompt for input](https://linuxhint.com/prompt-for-input-bash/)
-
-</if>
 
 ## Code editors and plug-ins
 
@@ -2779,5 +2775,5 @@ To check for disallowed words or incorrect usage, download this file, if not alr
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - April 8, (Sat) 2023
+ - **Last Updated on** - May 27, (Sat) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
