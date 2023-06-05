@@ -20,7 +20,7 @@ test PR
 
 [Open mg-playground in clone](http://127.0.0.1:5500/mg-playground/z-sandbox/)
 
-[Open topic title list in clone](http://127.0.0.1:5500/mg-playground/topic-title/)
+[Open n clone](http://127.0.0.1:5500/mg-playground/topic-title/)
 
 | 6-a    | [GitHub pull requests](https://manish-garodia.github.io/mg-playground/topic-title/github-pr/) | History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github. |
 | <if type="hidden">9    | Vi Editor | desc |
