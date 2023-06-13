@@ -1267,9 +1267,9 @@ The information in this lab revolves around -
 
 </if>
 
-## Check for disallowed words :: *Word*<i>list</i> *Check* ::
+## Check for disallowed words :: *Wordlist Check* ::
 
-To check for disallowed words or incorrect usage, download this tool, if not already downloaded, and run it on your contents.
+To check for disallowed words and incorrect usage, download this tool, if not already downloaded, and run it on your contents.
 
 <!--
  - [wordlist.sh](https://bit.ly/wordlist-mg)
@@ -1285,7 +1285,9 @@ To check for disallowed words or incorrect usage, download this tool, if not alr
 	----
 	## About the tool - *`wordlist-check.sh`*
 
-	The tool contains a lightweight, command-line interface (CLI), Linux-based script that checks whether the documents or labs contain any disallowed words or incorrect usage according to [Oracle Documentation Style Guide (OSG)](https://docs-uat.us.oracle.com/en/sptest/osgxx/) and [Oracle's Inclusive Language standard](https://confluence.oraclecorp.com/confluence/x/Q81_QgE).
+	Wordlist Check is a learning tool. 
+
+	It contains a lightweight, command-line interface (CLI), Linux-based script that checks whether the documents or labs contain any disallowed words and incorrect usage according to [Oracle Documentation Style Guide (OSG)](https://docs-uat.us.oracle.com/en/sptest/osgxx/) and [Oracle's Inclusive Language standard](https://confluence.oraclecorp.com/confluence/x/Q81_QgE).
 
 	> **Note**: This tool works only with local files on your system, and not on any server, network, or cloud locations.
 
@@ -1359,7 +1361,7 @@ To check for disallowed words or incorrect usage, download this tool, if not alr
 		If the tool finds any mismatch with Oracle Doc style guide, then it displays result with the following details -
 		- <font style="color:rgb(177,72,198);">**file name with the full path**</font>
 		- <font style="color:rgb(28,168,0);">**line number**</font>
-		- <font style="color:rgb(255,118,118);">**disallowed word or incorrect usage**</font>
+		- <font style="color:rgb(255,118,118);">**disallowed word and incorrect usage**</font>
 
 		> **Tip**: You may ignore some parts in case of exceptions. For example, if the disallowed words are part of statements, commands, code blocks, file names, or UI elements.
 
@@ -1482,8 +1484,8 @@ To check for disallowed words or incorrect usage, download this tool, if not alr
 
 	| What the tool does               | What the tool does not do |
 	|-------------------------------------|------------------------------|
-	| Looks for disallowed words or incorrect usage across all contents in each subfolder | Does not perform English grammar checks   |
-	| Checks for most, if not all, words mentioned in Oracle Doc style guide | <!--Include files in markdown (or text) format--> Does not check contents of binary files, config files, or images, for example `*.css`, `*.sql`, `*.yml`, `*.png`, `*.jpg`, `index.html`, `manifest.json`, etc. |
+	| Looks for disallowed words and incorrect usage across all contents in each subfolder | Does not perform English grammar checks   |
+	| Checks for most, if not all, words mentioned in Oracle Doc style guide | <!--Include files in markdown (or text) format--> Does not check contents of binary files, config files, or images, for example `*.css`, `*.docx`, `*.sql`, `*.yml`, `*.png`, `*.jpg`, `index.html`, `manifest.json`, etc. |
 	| Checks the contents of text files and markdown locally, that is, on your system | Does not check files on a server or network location |
 	| Creates a `Downloads` folder under your profile, if it does not exist | Does not affect the existing files and folders on your system |
 	| Provides option to save the output to a text file  | Does not fix the issues automatically |
@@ -2799,5 +2801,5 @@ To check for disallowed words or incorrect usage, download this tool, if not alr
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - Jun 7, (Wed) 2023
+ - **Last Updated on** - Jun 14, (Wed) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)

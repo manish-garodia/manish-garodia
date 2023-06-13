@@ -34,7 +34,7 @@
         {
             "title": "Lab #: Oracle EM",
             "description": "How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 14 shiphome. It also contains post installation checks, steps to deinstall EM, and some troubleshooting scenarios and tips.",
-			"publisheddate": "02-Apr-2023",
+			"publisheddate": "04-Jun-2023",
             "filename": "./../common/lib-cellar/procedures/oracle-em/oracle-em.md",
 			"type": "hidden"
         },
@@ -50,7 +50,7 @@
             "title": "Lab #: Fun with Git-Bits",
             "description": "The information in this lab revolves around github, git desktop, git bash, code editors.",
             "filename": "./../common/lib-cellar/procedures/fun-with-git-bits/fun-with-git-bits.md",
-			"publisheddate": "27-May-2023",
+			"publisheddate": "14-Jun-2023",
 			"type": "hidden",
 			"type":{"gitconcepts":"General concepts","gitdesktop":"GitHub Desktop","gitbash":"Git Bash"},
 			"task_type": "Sections"
@@ -67,7 +67,7 @@
             "title": "Lab #: Linux -:- feed the penguin",
             "description": "Get hands dirty with Linux commands, tips, and tricks.",
             "filename": "./../common/lib-cellar/procedures/linux-feed-penguin/linux-feed-penguin.md",
-			"publisheddate": "02-Apr-2023",
+			"publisheddate": "03-Jun-2023",
 			"type": "hidden",
 			"task_type": "Sections"
         },

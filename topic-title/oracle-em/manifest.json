@@ -4,7 +4,7 @@
         {
             "title": "Lab #: Oracle EM",
             "description": "How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 14 shiphome. It also contains post installation checks, steps to deinstall EM, and some troubleshooting scenarios and tips.",
-			"publisheddate": "02-Apr-2023",
+			"publisheddate": "04-Jun-2023",
             "filename": "./../../common/lib-cellar/procedures/oracle-em/oracle-em.md"
         }
     ]

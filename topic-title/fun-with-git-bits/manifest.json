@@ -4,7 +4,7 @@
         {
             "title": "Lab #: Fun with Git-Bits",
             "description": "The information in this lab revolves around github, git desktop, git bash, code editors.",
-			"publisheddate": "07-Jun-2023",
+			"publisheddate": "14-Jun-2023",
             "filename": "./../../common/lib-cellar/procedures/fun-with-git-bits/fun-with-git-bits.md",
 			"type":{"gitconcepts":"General concepts","gitdesktop":"GitHub Desktop","gitbash":"Git Bash"},
 			"task_type": "Sections"
