@@ -394,6 +394,8 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 	1. **Modify secondary groups of user**
 
+		Use `sudo` or go to `root` and modify.
+
 		Syntax
 
 		```
@@ -403,7 +405,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		Example
 
 		```
-		$ <copy>sudo usermod -a -G dba,oinstall mgarodia</copy>
+		$ <copy>usermod -a -G dba,oinstall,db_code_access,db_if_access,db_test_access,db_code_access_ro,db_nls_access,em_test_access mgarodia</copy>
 		```
 
 		> **Caution:** Ensure to use the option *-a* to append while modifying the user groups. If you do not use *-a*, the command removes the user from the groups not mentioned after *-G*.
@@ -468,7 +470,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 	 - Print working directory (only current directory without the full path)
 
 		```
-		$ <copy>basename "$PWD"<copy>
+		$ <copy>basename "$PWD"</copy>
 		```
 
 	 - List directories and classify, append indicators `/`, `=`, `*`, `@`, `|`, or `>` to items
@@ -806,6 +808,12 @@ Get hands dirty with Linux commands, tips, and tricks.
 		```
 		$ ln -s target linkname
 		$ ln -s </path/to/file-folder/to-be-linked> </path/of/link/to-be-created>
+		```
+
+		Example
+
+		```
+		$ <copy>ln -s /scratch/mgarodia/23c-install-db 23c-ws1</copy>
 		```
 
 		After creating a symlink, you can update it, for example, rename the link or modify it to point to a new location.
@@ -1184,6 +1192,64 @@ Get hands dirty with Linux commands, tips, and tricks.
 		```
 		$ <copy>ack 'text-to-find-here'</copy>
 		```
+
+		----
+		## Wordlist Check sample
+
+		Glance a piece of code inside the tool, *wordlist-check.sh* -
+
+		```
+		$ <copy>grep -wrEniTaH -B 0 --color=always 'above|accessable|ad.hoc|ada.compliant|adaptor|adhoc|admin|advisor|afterwards|aggre-gator|air.bill|alive|allow|allow.list|allowed|allows|alphabetical|alphanumerical|alright|amongst|analogue|and/or|anti|as.per|as-of date|associate to|associate. to|auto|back.plane|back.slash|back.space|backend|back-order|backwardly|backwards|band.width|be escaped|be sure|being that|below|bi|bitvector|bit-vector|black.hat|bogus|boiler-plate|bold.face|boot|bottom up|bottom.most|bottomup|break.point|built in|builtin|bulletted|busy.bar|busy.box|byte.code|can not|cancell|cancellable|cancelled|cancelling|cancells|case-insensitive|cashe|cautionlist|caution-list|centigrade|change-able|check.list|check.lists|checkin|checkins|children elements|c-language|classpath|class-path|cleans-up|clean-up|click on|click.jack|clicked on|clicks on|client-server|clientside|clip.board|cloud-native|clusterwide|cluster-wide|co|code-base|commandline|comment out|commented out|comments out|context sensitive|copy protected|copyprotected|crash|c-shell|cut-off|cuts-off|data.base|dataguide|data-guide|datamart|data-mart|datasource|data-source|datawarehouse|data-warehouse|datum|de|dead|demo|dependant|depress|descripter|dezoom|dial into|dials into|dialsup|dialup|disabled|done|double.click on|double.clicked on|double.clicks on|doublesided|down.time|drilldown|dropdown|dumb|dynamic link library|easier|easy|else|end.line|end.user|end.users|enterprise-wide|equi-join|failed-over|fat|fatal|fault tolerant|feed-back|fingerprint-reader|firm.ware|flow.chart|flow.charts|foo|formatable|formated|forwards|freeform|frontend|geo-code|geo-fence|geo-location|geo-spatial|gray.list|gray.scale|grayed-out|graylist|gray-out|grey|hand-held|hard.code|hard.coded|hard.copy|hard.copies|hard-ware|he|her|hex|hexa-decimal|high level|high-availability|higher|him|hit|homepage|home-page|hot.fix|hot.keys|hyper.text|illegal|in.line|indicative|indices|info|information on|instal|inter|intra|irrecoverable|issue|italicise|joy.stick|judgement|just|keep in mind|key.store|key.stores|key.word|key.words|lady|landscape-mode|left.hand|legal|licence|life-cycle|like|linearise|list.box|live|log into|logged into|logging into|logoff|logout|logs into|loop.back|lowcost|lower|lower.case|lowlevel|machine-learning|mail.box|mailstop|mail-stop|main.frame|main.frames|make-file|man|man-in-the-middle|mash-up|master|mathematic|matrices|men|menu.option|meta.data|mice|mono.space|moveable|multi|name.space|name.spaces|navigation-tree|need.to|needs.to|new-line|newsfeed|news-feed|non|numerical|object oriented|obsolete |off site|off.line|off.load|off.premises|offsite|okay|on.board|on.premise|once|one time|on-line|on-screen|on-site|onwards|openended|opensource|open-source|oracle corporation|oracle data.server|oracle database.server|outdent|out-of-the-box|outwards|over.all|over.estimate|over.ride|page-able|pageout|per.cent|pick-up|picks-up|please|portrait-mode|possesses|post.installation|post.processor|postal.code|postman|poweroff|power-off|poweron|power-on|pre|prepend|preventative|private-cloud|progress-indicator|pseudo|public-private|pull.down|punch-out|punched-out|push.button|push.buttons|queriable|queueing|quickstart|quote.marks|quotes|random-access|readonly|readout|read-write|realtime|rearchive|record oriented|record-length|record-mark|record-size|remote.host|removeable|replace-mode|re-rout|re-run|re-usable|right.hand|right.most|roll-up|run.time|run-out|s/he|salable|salesman|saleswoman|scaleable|screen-reader|scroll.arrow|scroll.bar|scroll.box|scrolling.list|section.508|selfchecking|selfdefining|selfinitializing|selfloading|selfrelocating|semi.annual|semi.monthly|semi.weekly|server side|serverside|setid|set-id|shareable|she|short term|shortcut.keys|shortcut.menu|should|shut-down|shut-off|shuts-off|sign.on|sign-in|signout|silent.installation|simple|simply|singlesided|sizeable|slider|smart.card|smart.phone|soft.copy|soft.copies|space-bar|stand.alone|start-up|statusbar|status-bar|sub|super.set|super.user|supply-chain|surviving|survivor|swapin|swapout|synch|system-wide|table.space|table.spaces|tap on|taps on|tape-mark|tar|task.bar|task.flow|thinclient|thin-client|tick.mark|tick.marks|time share|time.line|time.lines|timeframe|time-frame|time-out|time-series|timeslice|time-slice|timestamp|to-do|tool.bar|tool.bars|tool.set|tool.sets|tool.tip|tool.tips|top.most|topdown|touch sensitive|touchscreen|touchsensitive|towards|track.ball|trouble.free|trust-keystore|turn.around|type.bar|type.case|type.face|typeahead|ultra|un|under-estimate|unzoom|upper.case|up-time|upwards|useable|userdefined|userID|user-ID|username|useroriented|userspecified|usersupplied|userwritten|vendee|via|victim|voice frequency|voice grade|warmup|web.site|web.sites|webagent|web-agent|webform|web-form|webmaster|web-master|webpage|webpages|web-page|web-pages|webportal|web-portal|webserver|webservers|web-server|web-servers|webservice|webservices|web-service|web-services|whitehat|white.hat|whitelist|whitelists|white.list|white.lists|whitepaper|whitepapers|white.paper|white.papers|wild.card|wild.cards|wish|woman|women|word-length|world-wide|wrap-around|writeback|writeenable|writeup|[cw]ould|zero suppression|zoom-in|zoom-out|zip|zipped|zips|zipping' --exclude={\*index\*,\*initialize-environment\*,\*ISHCONDITION\*,\*manifest\*,\*ocw-livelabs-rat-overview\*,\*prepare-setup\*,\*.gitignore\*,\*git-filter-repo\*,\*wordlist-check\*,\*.css,\*.dsnb,\*.dva,\*.gif,\*.\*ish\*,\*.jpg,\*.JPG,\*.jpeg,\*.js,\*.json,\*.log,\*.map,\*.old,\*.png,\*.PNG,\*.py,\*.rsp,\*.sql,\*.tmpl,\*.tiff,\*.yaml,\*.yml} --exclude-dir={\*.git\*,\*lintchecker\*,\*learning-library\*,\*sample-tutorial\*,\*tutorial_creator\*,\*vale\*}</copy>
+		```
+
+		### Qualifiers
+
+		*grep* (Global Regular Expression Print)
+
+		- **`'text1|text2|textn'`** - separate different words with pipes to search for multiple patterns (or words) together
+		- **`w`**, *`--word-regexp`* - match only whole words
+		- **`r`**, *`--recursive`* - include subdirectories
+		- **`E`**, *`--extended-regexp`* - extended regular expression
+		- **`n`**, *`--line-number`* - prints line number
+		- **`i`**, *`--ignore-case`* - for case independent
+		- **`T`**, *`--initial-tab`* - shows tab spacing
+		- **`a`**, *`--text`* - equivalent to --binary-files=text
+		- **`H`**, *`--with-filename`* - prints file name
+		- **`B 0`**, *`--before-context=x`* - prints `x` lines before the context; keep `0` to exclude extra lines
+		- **`color=always`**, *`--colour[=WHEN]`* - use color markers to highlight;	other options are  `never` and `auto`
+		- **`--exclude=FILE_PATTERN`** - skips the file or directory matching this pattern
+		- **`--exclude={\*.png,\*.jpg}`** - skips multiple files together; use backslash  `\` to escape characters
+		- **`--exclude-dir=PATTERN`** - skip the directory matching this pattern
+		- **`--exclude-dir={\*PATTERN1\*,\*PATTERN2\*}`** - skips multiple directories together; use backslash  `\` to escape characters
+
+		More qualifiers -
+
+		- `c`, `--count` - shows count of words
+		- `h`, `--no-filename` - hides the file names
+		- `l`, `--files-with-matches` - displays only file names containing matches
+		- `L`, `--files-without-matches` - displays only file names without matches
+		- `o`, `--only-matching` - shows only matching part
+		- `R`, `--dereference-recursive` - recursive and also follow symbolic links
+		- `v`, `--invert-match` - invert match; displays all but matched words
+		- `z`, `--null-data` - displays entire contents of matching files
+
+		Other search options -
+
+		```
+		$ grep -e pattern1 -e pattern2 filename-or-filepath
+		$ awk '/error|critical/failed/' /var/log/httpd/error_log
+		$ sed -e '/error/b' -e '/critcial/b' -e d /var/log/apache/nixcraft.com_error_log
+		```
+
+		**Cite**
+
+		- [linuxize - using grep](https://linuxize.com/post/how-to-use-grep-command-to-search-files-in-linux/)
+
+		- [cyberciti - search mutliple words](https://www.cyberciti.biz/faq/searching-multiple-words-string-using-grep/)
+
+		- [phoenixnap - mutliple patterns](https://phoenixnap.com/kb/grep-multiple-strings)
+
+		- [linuxhint - prompt for input](https://linuxhint.com/prompt-for-input-bash/)
 
 	----
 	## The Triplets of Linuxville
@@ -2236,7 +2302,7 @@ A script begins with -
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - April 2, (Apr) 2023
+ - **Last Updated on** - June 17, (Sat) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
 
 
