@@ -67,7 +67,15 @@
             "title": "Lab #: Linux -:- feed the penguin",
             "description": "Get hands dirty with Linux commands, tips, and tricks.",
             "filename": "./../common/lib-cellar/procedures/linux-feed-penguin/linux-feed-penguin.md",
-			"publisheddate": "03-Jun-2023",
+			"publisheddate": "17-Jun-2023",
+			"type": "hidden",
+			"task_type": "Sections"
+        },
+        {
+            "title": "Lab #: Wordlist Check",
+            "description": "A tool to check for disallowed words and incorrect usage in documents.",
+            "filename": "./../common/lib-cellar/procedures/wordlist-check/wordlist-check.md",
+			"publisheddate": "14-Jun-2023",
 			"type": "hidden",
 			"task_type": "Sections"
         },
