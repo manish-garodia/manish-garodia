@@ -31,17 +31,18 @@ Pick a topic and open it in a separate tab.
 |------|-------------------------------|----------------------------|
 | 1    | [Virtual Machines - Real Acions](https://manish-garodia.github.io/mg-playground/topic-title/vm-real-axons/) | How to access VM and configure VNC. |
 | 2    | [Oracle Database Gold Image](https://manish-garodia.github.io/mg-playground/topic-title/db-goldimage/) | Pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses some troubleshooting scenarios and tips. |
-| 3    | [Install Oracle EM](https://manish-garodia.github.io/mg-playground/topic-title/oracle-em/) | How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 14 shiphome. It also contains post installation checks, steps to deinstall EM, and some troubleshooting scenarios and tips. |
+| 3    | [Oracle EM](https://manish-garodia.github.io/mg-playground/topic-title/oracle-em/) | How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 14 shiphome. It also contains post installation checks, steps to deinstall EM, and some troubleshooting scenarios and tips. |
 | 4    | [Into the Clouds](https://manish-garodia.github.io/mg-playground/topic-title/into-the-clouds/) | About the features and services in the OCI Tenancy, for example, noVNC, compute instance, custom images, object storage, compartments, to name a few. |
 | 5    | [Fun with git-bits](https://manish-garodia.github.io/mg-playground/topic-title/fun-with-git-bits/) | All you need to know about git ![git](./procedures/fun-with-git-bits/images/git-black-small.png) to get going. |
 | 6    | [Hands down in markdown](https://manish-garodia.github.io/mg-playground/topic-title/hands-down-in-md/) | About markdown basic formatting and tags |
 | <if type="hidden">6-a    | [GitHub pull requests](https://manish-garodia.github.io/mg-playground/topic-title/github-pr/) | History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github. </if> |
-| 7    | [Zoom Barabar Zoom](https://manish-garodia.github.io/mg-playground/topic-title/zoom-barabar-zoom/) | How to integrate Zoom with Outlook, add plug-in for Outlook |
-| 8    | [Linux -:- feed the penguin](https://manish-garodia.github.io/mg-playground/topic-title/linux-feed-penguin/) | Get hands dirty with Linux commands, tips, and tricks. |
-| 9     | [Silly little things](https://manish-garodia.github.io/mg-playground/topic-title/silly-little-things/) | General concepts, tips, and tricks on anyting and everything |
+| 7    | [Linux -:- feed the penguin](https://manish-garodia.github.io/mg-playground/topic-title/linux-feed-penguin/) | Get hands dirty with Linux commands, tips, and tricks. |
+| 8    | [Wordlist Check](https://manish-garodia.github.io/mg-playground/topic-title/wordlist-check/) | Check for disallowed words and incorrect usage as per Oracle Doc Style Guide |
+| 9    | [Zoom Barabar Zoom](https://manish-garodia.github.io/mg-playground/topic-title/zoom-barabar-zoom/) | How to integrate Zoom with Outlook, add plug-in for Outlook |
+| 10     | [Silly little things](https://manish-garodia.github.io/mg-playground/topic-title/silly-little-things/) | General concepts, tips, and tricks on anyting and everything |
 | <if type="hidden">9    | Vi Editor | desc |
 | 11    | Terraforms explained | desc </if> |
-| 10    | working on it ... | suggest me some |
+| 12    | working on it ... | suggest me some |
 
 ## oTube : : My *channels* and *videos* : :
 
@@ -109,5 +110,5 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - March 22, (Wed) 2023
+ - **Last Updated on** - June 17, (Sat) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)

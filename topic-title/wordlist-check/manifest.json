@@ -4,7 +4,7 @@
         {
             "title": "Lab #: Wordlist Check",
             "description": "A tool to check for disallowed words and incorrect usage in documents.",
-            "filename": "./../common/lib-cellar/procedures/wordlist-check/wordlist-check.md",
+            "filename": "./../../common/lib-cellar/procedures/wordlist-check/wordlist-check.md",
 			"publisheddate": "14-Jun-2023",
 			"task_type": "Sections"
         }
