@@ -1,3 +1,62 @@
+20 June 2023
+------------------
+
+- posted my notes in Nancy's channel
+
+{
+	"blocks": [
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": "mg-playground 🌐"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "context",
+			"elements": [
+				{
+					"type": "mrkdwn",
+					"text": "Hello: :loudspeaker: \n While exploring different areas, I came across certain procedures and issues. I then captured them as tips and tricks and troubleshooting scenarios on various topics, such as `DB, EM, Github, Markdown,` etc. I converted them into my personal notes for quick reference. These notes also contains some videos and demos. "
+				}
+			]
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Check out the _notes_ and _videos_     :arrow_right: "
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "mg playground – click me  :eyes:",
+					"emoji": true
+				},
+				"style": "primary",
+				"value": "mg-playground",
+				"url": "http://bit.ly/mg_play",
+				"action_id": "button-action"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "If you like to read or use them, please feel free. I'd be happy to share them with the team. :books: :open_book:"
+			}
+		}
+	]
+}
+
+
 16 December 2022
 ------------------
 
