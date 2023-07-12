@@ -2,7 +2,7 @@
 
 ## About this tool 
 
-**Wordlist Check** is a learning tool that checks for disallowed words and incorrect usage in documents according to Oracle's standards and guidelines. This lab helps you get familiar with the tool and how to run it on your contents. 
+**Wordlist Check** is a learning tool that checks for disallowed words and incorrect usage in documents according to Oracle's standards and guidelines. This lab helps you get familiar with the tool and learn how to use it. 
 
 ### Objective 
 
@@ -10,7 +10,7 @@ To bring in consistency and improve the quality of documentation with some autom
 
 ## Know the tool
 
-Wordlist Check contains a lightweight Linux-based commands, which runs in a command-line interface (CLI). It works with files that exist locally on your system, and not from a URL or online location.
+Wordlist Check contains a lightweight, Linux-based commands that runs in a command-line interface (CLI). It works with files that exist locally on your system, and not from a URL or online location.
 
 You can run this tool on your documents and contents to check for disallowed words and incorrect usage. 
 
@@ -21,9 +21,9 @@ Another set of guidelines are explained in [Oracle's Inclusive Language standard
 
 | What the tool does                       | What the tool does not do                 |
 |------------------------------------------|-------------------------------------------|
-| Looks for disallowed words and incorrect usage across all contents in each subfolder | Does not perform English grammar checks                             |
-| Checks for most, if not all, words mentioned in Oracle Doc style guide               | Does not check contents of binary files, config files, or images, for example `*.css`, `*.docx`, `*.sql`, `*.yml`, `*.png`, `*.jpg`, `index.html`, `manifest.json`, etc.        |
-| Checks the contents of text files and markdown locally, that is, on your system      | Does not check files from a URL or online location                  |
+| Looks for disallowed words and incorrect usage in files that are in text, markdown, or XML formats | Does not check contents of binary files, config files, or images, for example, `*.css`, `*.docx`, `*.sql`, `*.yml`, `*.png`, `*.jpg`, `index.html`, `manifest.json`, etc.  |
+| Checks for most, if not all, words mentioned in Oracle Doc style guide               | Does not perform English grammar check |
+| Checks the contents across multiple files in each subfolder that are stored locally on your system      | Does not check files from a URL or online location                  |
 | Creates a `Downloads` folder under your profile, if it does not exist                | Does not affect the existing files and folders on your system  |
 | Provides option to save the output to a text file                                    | Does not fix the issues automatically                              |
 {: title="Functions of Wordlist Check"}
@@ -32,19 +32,19 @@ Another set of guidelines are explained in [Oracle's Inclusive Language standard
 
 Follow this link to download the tool:
 
- - [wordlist.zip](https://bit.ly/wordlist_mg)
+ - [wordlist-check.zip](https://bit.ly/wordlist-check-mg)
 
 Extract the file, *`wordlist-check.sh`*, and store it on your system, for example in the `Downloads` folder.
 
-### Prerequisuites
+### Prerequisites
 
 The tool can function in both Windows and Linux (Mac) platforms. Though, internally it requires a Linux environment. 
 
-In a Windows system, you must install *Git Bash* to run this tool. However, it does not require you to know about Git Bash or learn its commands. All you have to do is, install Git Bash so that you can run this tool in Windows.
+On a Windows system, ensure that you have *Git Bash* to run this tool. However, it does not require you to know about Git Bash or learn its commands. All you have to do is, install Git for Windows so that you can run this tool in Windows.
 
 > **Tip**: If you do not have Git Bash, then get it from their site - [Git Downloads](https://git-scm.com/downloads).
 
-In a Linux (Mac) system, you can run this tool in a terminal window. You can also use a VNC viewer or PuTTY to connect to your VM and run this tool. 
+On a Linux (Mac) system, you can run this tool in a terminal window. You can also use a VNC viewer or PuTTY to connect to your VM and run this tool. You do not require installing Git in a Linux system.
 
 ## Run the tool - *Wordlist Check*
 
@@ -57,7 +57,7 @@ You can run the tool in Windows using any of these interfaces:
 
 Open a CLI window, for example Git Bash, Windows PowerShell, or Command Prompt, and do the following.
 
-> **Note**: This tool requires Git Bash to run in a Windows system. If you do not have Git Bash, then you can get it from their site - [Git Downloads](https://git-scm.com/downloads).
+> **Note**: This tool requires Git Bash to run on a Windows system. If you do not have Git Bash, then you can get it from their site - [Git Downloads](https://git-scm.com/downloads).
 
 1. Go to the folder from where you want to check the contents for disallowed words.
 
@@ -88,7 +88,7 @@ Open a CLI window, for example Git Bash, Windows PowerShell, or Command Prompt, 
 
 	![Run in Command Prompt](./images/wordlist-01-run-in-cmd-prompt.png " ")
 
-	- Occassionally, you may find some hiccups with PowerShell or Command Prompt.
+	- Occasionally, you may find some hiccups with PowerShell or Command Prompt.
 
 		## Issues with PowerShell
 
@@ -149,7 +149,7 @@ Open a CLI window, for example Git Bash, Windows PowerShell, or Command Prompt, 
 
 		> **Note**: As the output file is created in Bash (Linux-based) environment, if you view it in a Windows text editor (Notepad, Wordpad, et al.), then it may display some junk characters because of conversion between operating systems.
 
-	Viewing the output file from the command line does not display junk characters. Alternatively, you can use git bash to view the output file. 
+	Viewing the output file from the command line does not display junk characters. Alternatively, you can use Git Bash to view the output file. 
 
 	**Git Bash**
 
@@ -185,7 +185,7 @@ You can run this tool as a command from any location without specifying its full
 
 	![Advanced system properties](./images/wordlist-07-advanced-sys-properties.png " ")
 
-	The window displays user variables for your acount and the system variables.
+	The window displays user variables for your account and the system variables.
 
 1. Under **System variables**, select *Path* and click **Edit** to modify the variable.
 
@@ -222,16 +222,18 @@ It is pretty much quick.
 
 The *$PATH* variable is now set.
 
-Restart the CLI window, that is Git Bash, PowerShell, or Command Prompt for the variable to take effect. When you open a new CLI window, type *`wordlist-check.sh`* without the full path to run the tool.
+Restart the CLI window for the variable to take effect. When you open a new CLI window, type *`wordlist-check.sh`* without the full path to run the tool.
 
-> **Tip**: The CLI utilities, Git Bash, PowerShell, and Command Prompt, automatically pick up environment variables defined in your system.
+> **Tip**: In Windows, the CLI utilities, Git Bash, PowerShell, and Command Prompt, automatically pick up environment variables defined in your system.
 
-## References
+## Important links
 
+ - Download the tool [wordlist-check.zip](https://bit.ly/wordlist-check-mg)
+ - Download Git for Windows from [Git](https://git-scm.com/downloads)
  - [Oracle Documentation Style Guide (OSG)](https://docs-uat.us.oracle.com/en/sptest/osgxx/) 
  - [OSG - Word List](https://docs-uat.us.oracle.com/en/sptest/osgxx/word-list.html)
  - [Oracle's Inclusive Language standard](https://confluence.oraclecorp.com/confluence/x/Q81_QgE)
- - [Notes on using github, git desktop, git bash, code editors](https://bit.ly/git-labs)
+ - Notes on [using github, git desktop, git bash, code editors](https://bit.ly/git-labs)
 
 ## Acknowledgments
 
@@ -239,16 +241,3 @@ Restart the CLI window, that is Git Bash, PowerShell, or Command Prompt for the 
  - **Last updated on** - Jun 14, (Wed) 2023
  - **Questions/Feedback?** - Email [manish.garodia@oracle.com](./intro/files/email.md) or Slack [@mgarodia](https://proddev-database.slack.com/archives/D01NY1FF049)
 
-
-<!--
-
-<if type="hidden">
-</if>
-
- - [wordlist.sh](https://bit.ly/wordlist-mg)
- - [wordlist.sh](https://bit.ly/3ZgJ4aj)
- - [wordlist.zip](https://bit.ly/wordlist_mg)
- - [wordlist.sh](https://objectstorage.ap-seoul-1.oraclecloud.com/p/nYgbWDImBDQAqUfiRNFXaA9UueC3w1ZpuEi7YviCUhYptHuY49WDy0eKBQ4G3DFN/n/cnmyhyct1k43/b/mg-store/o/wordlist.sh)
-
-
--->

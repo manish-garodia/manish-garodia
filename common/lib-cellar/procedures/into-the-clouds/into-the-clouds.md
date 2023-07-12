@@ -235,8 +235,29 @@ The OCI has **26 regions** that are associated with specific teams.
 			https://bit.ly/wordlist_mg
 			```
 
+		 - PAR URL for *wordlist-check.zip* - created on 25 Jun 2023, valid till 31 Dec, 2051.
 
+			```
+			https://objectstorage.ap-seoul-1.oraclecloud.com/p/HQZRih37GzkgfF9QQRS_uvVKZQ6Vy4WfNq0nHYzF19nG8SiVkqOFgHlmR6uycECd/n/cnmyhyct1k43/b/mg-store/o/wordlist-check.zip
+			```
 
+			bitly - short url tool
+
+			```
+			https://bit.ly/wordlist-check-mg
+			```
+
+		 - PAR URL for the tool help text - created on 25 Jun 2023, valid till 31 Dec, 2051.
+
+			```
+			https://manish-garodia.github.io/mg-playground/topic-title/wordlist-check/ 
+			```
+
+			bitly - short url help text
+
+			```
+			https://bit.ly/wordlist-check-help
+			```
 
 </if>
 
