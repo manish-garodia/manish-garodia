@@ -1403,7 +1403,7 @@ A script begins with -
 
 ### 2. Run a script from **Bash**
 
- - All of these work in bash
+ - All of these work in Bash
 
 	```
 	$ sh <script-file>.sh
@@ -2308,12 +2308,13 @@ A script begins with -
 
 <!--
 
-## basic
+basic
 
-## advanced
+advanced
 
-## Bash profile
+Bash profile
 
 add details about chown, chmod, chgrp
+
 
 -->

@@ -319,6 +319,7 @@ Complete list of github markdown emoji markup
 ## Slack emojis
 
 prod
+build_failed
 redbull_oracle
 mega
 postal_horn

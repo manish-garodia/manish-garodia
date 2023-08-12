@@ -209,7 +209,7 @@ Oracle Database installers are available internally as gold images.
 From the Oracle home location, start `./runInstaller` and select the following.    
 Most fields are autofilled.
 
-> **Tip**: Run these steps after you extract the database installer (shiphome gold image or production version) into Oracle home. To get the installer, see [Pre-installation setup](?lab=db-goldimage#Preinstallationsetup).
+> **Tip**: Run these steps after you extract the database installer (shiphome gold image or production version) into Oracle home. To get the installer, see [Preinstallation setup](?lab=db-goldimage#Preinstallationsetup).
 
 1. Create and configure a single instance database.
 
@@ -508,7 +508,7 @@ On completion, the installer displays the finish window.
 
 		$ admin  audit  cfgtoollogs  dbs  diag  fast_recovery_area  homes  oradata  recovery_area
 		```
-		De-install removes all these folders under the base location.
+		Deinstall removes all these folders under the base location.
 
 	----
 	## 3. View system/config files

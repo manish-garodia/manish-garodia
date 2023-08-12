@@ -528,6 +528,41 @@ The information in this lab revolves around -
 - Submit PRs on main repo (upstream) and approve PRs
 
 	----
+	## About PRs
+
+	Want to merge your updated fork repo (origin) with the main repo (upstream)? *submit a PR*.   
+	After committing your changes to `main`, go to your fork repo and *create a PR*.
+
+	As a moderator (administrator), you can perform tasks, such as review PRs, add comments, approve PRs and merge changes with the main repo or even request the contributor for further changes.
+
+	> **Tip**: A moderator can approve PRs from other users, but not their own.
+
+
+	### PR history and total count
+
+	You can use rest APIs to get information about PRs from your account on github, such as history of all PRs, total count of PRs, and so on.
+
+	Open a web browser and run the following search query.
+
+	**Syntax**
+
+	```
+	https://api.github.com/search/issues?q=org:[organization]%20author:[your-account]%20type:pr%20is:merged
+	```
+
+	For example, view all PRs from the account *manish-garodia* for the organization *oracle-livelabs* that *is merged*.
+
+	```
+	<copy> https://api.github.com/search/issues?q=org:oracle-livelabs%20author:manish-garodia%20type:pr%20is:merged</copy>
+	```
+
+	Alternatively, log in to github in a browser and use your user name to view PR history.
+
+	```
+	<copy>https://github.com/pulls?q=is%3Apr+author%3Amanish-garodia+archived%3Afalse+is%3Aclosed</copy>
+	```
+
+	----
 	## Access your fork repo (origin)
 
 	- **Option A: using a browser**
@@ -544,16 +579,6 @@ The information in this lab revolves around -
 			It opens main repo in a browser.
 
 		1. Go to your fork repo `[your-account]/[your-fork]`.
-
-	----
-	## About PRs
-
-	Want to merge your updated fork repo (origin) with the main repo (upstream)? *submit a PR*.   
-	After committing your changes to `main`, go to your fork repo and *create a PR*.
-
-	As a moderator (administrator), you can perform tasks, such as review PRs, add comments, approve PRs and merge changes with the main repo or even request the contributor for further changes.
-
-	> **Tip**: A moderator can approve PRs from other users, but not their own.
 
 	----
 	## Submit a PR - <i>contributor</i>
@@ -665,6 +690,48 @@ The information in this lab revolves around -
 ## Take a plunge into *Git Bash*
 
  - Learn about stage, commit, push, pull, fetch, git configurations, and other commonly used commands
+
+	----
+	## Git version/upgrade
+
+	Check the current version of git installed on your Windows system.
+
+	```
+	$ <copy>git --version</copy>
+	```
+
+	```
+	git version 2.37.1.windows.1
+	```
+
+	****
+
+	For upgrading git to the latest version, you have some scenarios:
+
+	 - Your Git version is *2.14.1* or older. Then, uninstall Git and download the latest setup from their site - [Git Downloads](https://git-scm.com/downloads).
+
+	 - For versions between 2.14.2 and 2.16.1, use this command to upgrade Git:
+
+		```
+		$ <copy>git update</copy>
+		```
+
+	 - For Git 2.16.2 or later, use this command:
+
+		```
+		$ <copy>git update-git-for-Windows</copy>
+		```
+
+		```
+		Warning! `git update` has been deprecated;
+		Please use `git update-git-for-windows` instead.
+		Using proxy server http://manish.garodia%40oracle.com:Oracle.com@www-proxy-idc.in.oracle.com:80 detected from git http.proxy
+		Git for Windows 2.37.1.windows.1 (64-bit)
+		Update 2.41.0.windows.1 is available
+		Download and install Git for Windows v2.41.0.windows.1 [N/y]?
+		```
+
+		> **Tip**: If you use `git update` on the newer versions, then Git reminds that the old command is deprecated and suggests using the new command instead.  
 
 	----
 	## All about commit
@@ -2522,13 +2589,13 @@ The information in this lab revolves around -
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - Jun 14, (Wed) 2023
+ - **Last Updated on** - Aug 12, (Sat) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
 
 <!--
 
 
-## Check for disallowed words :: *Wordlist Check* ::
+Check for disallowed words :: *Wordlist Check* ::
 
 To check for disallowed words and incorrect usage, download this tool, if not already downloaded, and run it on your contents.
 
@@ -2540,215 +2607,6 @@ To check for disallowed words and incorrect usage, download this tool, if not al
  - [wordlist.zip](https://bit.ly/wordlist_mg)
 
 	From the compressed file, extract the tool *`wordlist-check.sh`* and store it on your system, for example the `Downloads` folder.
-
-	----
-	## About the tool - *`wordlist-check.sh`*
-
-	Wordlist Check is a learning tool. 
-
-	It contains a lightweight, command-line interface (CLI), Linux-based script that checks whether the documents or labs contain any disallowed words and incorrect usage according to [Oracle Documentation Style Guide (OSG)](https://docs-uat.us.oracle.com/en/sptest/osgxx/) and [Oracle's Inclusive Language standard](https://confluence.oraclecorp.com/confluence/x/Q81_QgE).
-
-	> **Note**: This tool works only with local files on your system, and not on any server, network, or cloud locations.
-
-	You can run the tool in both Windows and Linux machines. For Windows, use these interfaces:
-	- Git Bash
-	- Windows PowerShell (and PowerShell ISE)
-	- Windows Command Prompt
-
-	> Windows Command Prompt does not recognize Linux shell commands. It internally calls PowerShell to run the tool.
-
-	For Linux, run this tool in a terminal window. You can also connect to your VM using PuTTY, and run this tool. 
-
-	----
-	## Run the tool
-
-	Open a CLI window, for example Git Bash, Windows PowerShell, or Command Prompt, and do the following.
-
-	> **Note**: This tool requires Git Bash to run. If you do not have Git Bash on your system, then you can get it from their site - [Git Downloads](https://git-scm.com/downloads).
-
-	1. Go to the folder from where you want to check the contents for disallowed words.
-
-		```
-		$ <copy>cd [your-contents-folder]</copy>
-		```
-
-	1. Specify the full path of the tool *`wordlist-check.sh`* and press **Enter** to run it.   
-		In this example, the tool is located in the `Downloads` folder.
-
-		**Git Bash**
-
-		```
-		$ <copy>~/Downloads/wordlist-check.sh</copy>
-		```
-
-		**PowerShell** or **Powershell ISE**
-
-		```
-		PS [your-contents-folder] <copy>~\Downloads\wordlist-check.sh</copy>
-		```
-
-		**Command Prompt**
-
-		```
-		[drive]:[your-contents-folder] <copy>powershell ~\Downloads\wordlist-check.sh</copy>
-		```
-
-		![Run in Command Prompt](./images/gitbash/disallowed-words-01-run-in-cmd-prompt.png " ")
-
-		- Occassionally, you may find some hiccups with PowerShell or Command Prompt.
-
-			## Issues with PowerShell
-
-			- If you get a message that `the command is not recognized`, then either the path to the tool is incorrect or the tool does not exist at the given location.
-
-			- If the default application is not set for the file type, then it may display an error.
-
-				```
-				Program jada-jada failed to run: Application not found at line:1 char:1
-				```
-
-				To fix this, right-click the script file and select **Properties**. Change the **Opens with** option to *Git for Windows*.
-
-			- For the first run, your system may ask for the app to open the script. Select *Git for Windows*.
-
-				![Default app to run the tool](./images/gitbash/default-app.png " ")
-
-		The tool searches for disallowed words in your contents under each subfolder. Both PowerShell and Command Prompt brings up Git Bash temporarily to display the search result.
-
-		![Disallowed words search results - git Bash](./images/gitbash/disallowed-words-02-tool-results.png " ")
-
-		If the tool finds any mismatch with Oracle Doc style guide, then it displays result with the following details -
-		- <font style="color:rgb(177,72,198);">**file name with the full path**</font>
-		- <font style="color:rgb(28,168,0);">**line number**</font>
-		- <font style="color:rgb(255,118,118);">**disallowed word and incorrect usage**</font>
-
-		> **Tip**: You may ignore some parts in case of exceptions. For example, if the disallowed words are part of statements, commands, code blocks, file names, or UI elements.
-
-	1. The tool prompts you to save the results to a file, *`wordlist-output.txt`*.
-
-		![Save results to output file](./images/gitbash/disallowed-words-03-save-output.png " ")
-
-		Press **y** or **yes** to save the output file in the `Downloads` folder or press **n** or **Enter** to ignore. The tool creates a `Downloads` folder, if it does not exist.
-
-		```
-		[your-account]/Downloads/wordlist-output.txt
-		```
-
-		### **View Output**
-
-		After saving the results in the *`wordlist-output.txt`* file, you can view it using a command-line utility, for example Command Prompt. 
-		
-		**Command Prompt**
-
-		1. Open Command Prompt and go to the `Downloads` folder in your profile.
-
-			```
-			C:\Users\[your-account] <copy>cd Downloads</copy>
-			```
-
-		1. Run this to view the contents of the output file.
-
-			```
-			<copy>type wordlist-output.txt</copy>
-			```
-
-			![View output file](./images/gitbash/disallowed-words-04-view-output.png " ")
-
-			> **Note**: As the output file is created in Bash (Linux-based) environment, if you view it in a Windows text editor (Notepad, Wordpad, et al.), then it may display some junk characters because of conversion between operating systems.
-
-		Viewing the output file from the command line does not display junk characters. Alternatively, you can use git bash to view the output file. 
-
-		**Git Bash**
-
-		Open Git Bash and run the following.
-
-		```
-		$ <copy>cat ~/Downloads/wordlist-output.txt</copy>
-		```
-
-	----
-	## Run tool without full path
-
-	You can run this tool as a command from any location without specifying its full path. To achieve this, set the environment variable *`$PATH`* depending on the operating system.  
-
-	> ***Warning***: Exercise *<ins>utmost caution</ins>* while doing these.
-
-	----
-	**For Windows**
-
-	1. Right-click **My Computer** or **This PC** &gt; select **Properties**.
-
-		![This PC properties](./images/gitbash/disallowed-words-05-thispc-properties.png " ")
-
-		Alternatively, open **Settings** &gt; go to **System**, scroll down and click **About** in the left pane.
-
-	1. Under Related settings on the right, click **Advanced system settings**.
-
-		![System settings](./images/gitbash/disallowed-words-06-sys-settings.png " ")
-
-		It opens the the System Properties window.
-
-	1. On the **Advanced** tab &gt; click **Environment Variables**.
-
-		![Advanced system properties](./images/gitbash/disallowed-words-07-advanced-sys-properties.png " ")
-
-		The window displays user variables for your acount and the system variables.
-
-	1. Under **System variables**, select *Path* and click **Edit** to modify the variable.
-
-		![System variable Path - edit](./images/gitbash/disallowed-words-08-sys-var-path-edit.png " ")
-
-	1. Click **New** and then **Browse** to add the location where the tool *`wordlist-check.sh`* exists.
-
-		![Environment variable Path - new](./images/gitbash/disallowed-words-09-env-var-path-new.png " ")
-
-		> **Caution**: Ensure that you click **New** and browse to the location of the tool.   
-		DO NOT edit anything in the Edit environment variable window. Clicking edit will overwrite an existing variable and your system may face serious consequences.
-
-	Click **OK** in each window to save your changes and close them.
-
-	You have successfully set the environment variable *$PATH* for Windows system. Similarly, you can set the variable for a Linux system.
-
-	----
-	**For Linux**
-
-	It is pretty much quick.
-
-	1. Edit the *`.bashrc`* file.   
-		> Usually, the system files `.bashrc` and `.bash_profile` are located in the home folder under `[your-account]`.
-
-		 - Windows: `C:\Users\[your-account]`
-		 - Linux: `/home/[your-account]`
-
-	1. Add the following lines and include the full path of the tool to set the *`$PATH`* variable.
-
-		```
-		<copy>export PATH=~/Downloads/:$PATH
-		export PATH=/d/git/GitHub/:$PATH</copy>
-		```
-
-	The *$PATH* variable is now set.
-
-	Restart the CLI window, that is Git Bash, PowerShell, or Command Prompt for the variable to take effect. When you open a new CLI window, type *`wordlist-check.sh`* without the full path to run the tool.
-
-	> **Tip**: The CLI utilities, Git Bash, PowerShell, and Command Prompt, automatically pick up environment variables defined in your system.
-
-	----
-	## Need more explanation?
-
-	**Background**   
-	OSG recommends a **[Word List](https://docs-uat.us.oracle.com/en/sptest/osgxx/word-list.html)** preferred by the National Standards Organization (NISO). For more information about the NISO sort order, see [Sorting Glossary Entries](https://docs-uat.us.oracle.com/en/sptest/osgxx/sorting-glossary-entries.html#GUID-3219677E-95D8-45FC-92EA-CA554D1E1162).
-
-	Another set of guidelines are explained in [Oracle's Inclusive Language standard](https://confluence.oraclecorp.com/confluence/x/Q81_QgE).
-
-	| What the tool does               | What the tool does not do |
-	|-------------------------------------|------------------------------|
-	| Looks for disallowed words and incorrect usage across all contents in each subfolder | Does not perform English grammar checks   |
-	| Checks for most, if not all, words mentioned in Oracle Doc style guide | Does not check contents of binary files, config files, or images, for example `*.css`, `*.docx`, `*.sql`, `*.yml`, `*.png`, `*.jpg`, `index.html`, `manifest.json`, etc. |
-	| Checks the contents of text files and markdown locally, that is, on your system | Does not check files on a server or network location |
-	| Creates a `Downloads` folder under your profile, if it does not exist | Does not affect the existing files and folders on your system |
-	| Provides option to save the output to a text file  | Does not fix the issues automatically |
-	{: title="Functions of Wordlist Check"}
 
 	Glance a piece of code inside the tool -
 
@@ -2805,6 +2663,14 @@ To check for disallowed words and incorrect usage, download this tool, if not al
 
 	- [linuxhint - prompt for input](https://linuxhint.com/prompt-for-input-bash/)
 
+
+<if type="hidden">
+</if>
+
+ - [wordlist.sh](https://bit.ly/wordlist-mg)
+ - [wordlist.sh](https://bit.ly/3ZgJ4aj)
+ - [wordlist.zip](https://bit.ly/wordlist_mg)
+ - [wordlist.sh](https://objectstorage.ap-seoul-1.oraclecloud.com/p/nYgbWDImBDQAqUfiRNFXaA9UueC3w1ZpuEi7YviCUhYptHuY49WDy0eKBQ4G3DFN/n/cnmyhyct1k43/b/mg-store/o/wordlist.sh)
 
 
 -->

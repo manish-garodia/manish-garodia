@@ -5,7 +5,7 @@
             "title": "Lab #: Wordlist Check",
             "description": "A learning tool that checks for disallowed words and incorrect usage in documents according to Oracle's standards and guidelines.",
             "filename": "./../../common/lib-cellar/procedures/wordlist-check/wordlist-check.md",
-			"publisheddate": "14-Jun-2023",
+			"publisheddate": "11-Aug-2023",
 			"task_type": "Sections"
         }
     ]

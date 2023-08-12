@@ -218,16 +218,16 @@ You can create up to `######` six levels of heading styles.
 - Use pipe `|` for columns
 - The first row is the heading
 - The line following the heading is the divider after which the rows start
-- Use colon `:` to set the alignment for the column. For example, colon at the right will make the enture column right-aligned. For center-align, enter colons at both right and left side. 
-- use the syntax to create a custom caption for the table. If you do not provide a custom caption, then the lab renders the default caption format. The caption appears at the top of the table, which cannot be modified. 
+- Use colon `:` to set the alignment for the column. For example, colon at the right will make the enture column right-aligned. For center-align, enter colons at both right and left side.
+- use the syntax to create a custom caption for the table. If you do not provide a custom caption, then the lab renders the default caption format. The caption appears at the top of the table, which cannot be modified.
 
 Syntax
 
 ```
 <copy>
-| Tables   | Are  | Cool  | 
-| -------- |:----:| -----:| 
-| col 3 is | test | $1600 | 
+| Tables   | Are  | Cool  |
+| -------- |:----:| -----:|
+| col 3 is | test | $1600 |
 | col 2 is | test | $12   |
 {: title="The custom caption is here"}
 </copy>
@@ -235,9 +235,9 @@ Syntax
 
 Output
 
-| Tables | Are | Cool | 
-| -------- |:----:| -----:| 
-| col 3 is | test | $1600 | 
+| Tables | Are | Cool |
+| -------- |:----:| -----:|
+| col 3 is | test | $1600 |
 | col 2 is | test | $12 |
 {: title="The custom caption is here"}
 

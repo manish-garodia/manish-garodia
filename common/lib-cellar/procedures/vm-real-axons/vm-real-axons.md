@@ -45,14 +45,14 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
 	- LDAP/Kerberos pwd: *Livelabs\*1*
 	</if>
 
-	| VM host name                                            | Description                           |
-	|---------------------------------------------------------|-------------------------------------  |
-	| phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com  | OCI machine <br>IP:    				  |
-	| phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com  | OCI machine <br>IP:    				  |
-	| phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com   | OCI machine <br>IP: `100.104.88.84`   |
-	| slc10wsw.us.oracle.com:2                                | Uno machine <br>User ID: `1477205`    |
+	| VM host name                                            | Description                          |
+	|---------------------------------------------------------|------------------------------------- |
+	| phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com  | OCI system <br>IP:    			     |
+	| phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com  | OCI system <br>IP:    				 |
+	| phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com   | OCI system <br>IP: `100.104.88.84`   |
+	| slc10wsw.us.oracle.com:2                                | Uno system <br>User ID: `1477205`    |
 	|<if type="hidden">phoenix62465.dev1sub1phx.databasede1phx.oraclevcn.com:1 | Suresh Mohan's VM <br>pwd: *welcome1* </if>|
-	| den03ckl.us.oracle.com:1                                | Temp machine from Subbu <br> cuser:welcome <br>root:Welcome123 |
+	| den03ckl.us.oracle.com:1                                | Temp system from Subbu <br> cuser:welcome <br>root:Welcome123 |
 
 ## Configure VNC for VM
 
@@ -326,6 +326,7 @@ The following steps help you get the VM back in its original running state.
 		Run the scripts in the home location.
 
 		-
+
 			```
 			$ <copy>source ~/23cstart.sh</copy>
 			```

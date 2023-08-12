@@ -250,7 +250,7 @@ The OCI has **26 regions** that are associated with specific teams.
 		 - PAR URL for the tool help text - created on 25 Jun 2023, valid till 31 Dec, 2051.
 
 			```
-			https://manish-garodia.github.io/mg-playground/topic-title/wordlist-check/ 
+			https://manish-garodia.github.io/mg-playground/topic-title/wordlist-check/
 			```
 
 			bitly - short url help text
@@ -549,7 +549,7 @@ You can now connect to the noVNC remote desktop and provision a green button res
 
 ## Manage your tenancy
 
-After logging into your tenancy, you can do various administrative activities, such as:
+After logging in to your tenancy, you can do various administrative activities, such as:
 
 1. Access the Object Storage
 2. Export a custom image
@@ -705,7 +705,7 @@ After creating the instance from scratch, set up the instance as follows.
 
 	To authenticate and connect to the instance server  -
 	- from a **Windows** system - use the *.ppk* file in PuTTY.
-	- from a **Mac** machine - use the *.key* file.
+	- from a **Mac** system - use the *.key* file.
 
 	You can convert the private key (`*.key`) to `*.ppk` using PuTTYgen (or Mobaxterm).
 

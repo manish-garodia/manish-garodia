@@ -11,7 +11,7 @@
         {
             "title": "Lab 1: MG Library : tell-me-how",
             "description": "A collection of topics developed from notes on specific areas. These converge from various sources, for example discussions, trainings, experiments, mistakes, and failures. It also lists down the videos and channels on oTube.",
-			"publisheddate": "17-Jun-2023",
+			"publisheddate": "12-Aug-2023",
             "filename": "./../common/lib-cellar/mg-library.md",
 			"type": "hidden",
 			"task_type": "Topics"
@@ -50,7 +50,7 @@
             "title": "Lab #: Fun with Git-Bits",
             "description": "The information in this lab revolves around github, git desktop, git bash, code editors.",
             "filename": "./../common/lib-cellar/procedures/fun-with-git-bits/fun-with-git-bits.md",
-			"publisheddate": "14-Jun-2023",
+			"publisheddate": "12-Aug-2023",
 			"type": "hidden",
 			"type":{"gitconcepts":"General concepts","gitdesktop":"GitHub Desktop","gitbash":"Git Bash"},
 			"task_type": "Sections"
@@ -75,7 +75,7 @@
             "title": "Lab #: Wordlist Check",
             "description": "A learning tool that checks for disallowed words and incorrect usage in documents according to Oracle's standards and guidelines.",
             "filename": "./../common/lib-cellar/procedures/wordlist-check/wordlist-check.md",
-			"publisheddate": "14-Jun-2023",
+			"publisheddate": "11-Aug-2023",
 			"type": "hidden",
 			"task_type": "Sections"
         },
