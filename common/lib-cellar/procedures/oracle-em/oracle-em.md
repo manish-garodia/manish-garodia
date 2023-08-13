@@ -1,41 +1,221 @@
-# Oracle Enterprise Manager (Oracle EM)
+# Oracle Enterprise Manager (EM)
 
 ## Introduction
 
-This lab explains how to install Oracle EM on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 14 shiphome. It also contains postinstallation checks, steps to deinstall EM, and some troubleshooting scenarios and tips.
+This lab explains how to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 15 shiphome. It also contains postinstallation checks, steps to deinstall EM, and some troubleshooting scenarios and tips.
 
-## Oracle EM installation
+## EM installation
 
-You can install Oracle EM:
+You can install Oracle Enterprise Manager:
 
  - from shiphome setup (RU 14 - latest)
  - from binaries (2021 image - older)
 
-	> Depending on your system configuration, both types of intallation may take quite long (~3-4 hours) to complete.
+	> Depending on your system configuration, both types of installation may take a while (~3-4 hours) to complete.
+
+	----
+	## Preinstallation checks
+
+	- Basic checks before EM installation
+
+		----
+		## ADE access groups
+
+		You require certain access privileges for installing EM.
+
+		 - `db_code_access`
+		 - `db_code_access_ro`
+		 - `db_if_access`
+		 - `db_nls_access`
+		 - `db_test_access`
+		 - `em_test_access`
+
+		Run the `id` command to check the current groups your account belongs to. Log in to [OIM](https://oim.oraclecorp.com/identity/faces/home) and request for entitlements, if you do not have already.
+
+		 > **Tip**: The entitlement `em_code_access` requires second-level approval. You need this entitlement only if you want to change the source code in EMGC labels or develop a plug-in from an EMGC label.   
+		 For creating an EMGC view for testing purpose, only `EM_TEST_ACCESS` is sufficient.
+
+		Find the ADE access groups someone else belongs to.
+
+		1. Set `$ADE_HOME_DIR`
+
+
+			```
+			$ <copy>ade exec $SHELL</copy>
+			```
+
+		1. List the groups for a user.
+
+			```
+			$ADE_HOME_DIR/util/list_groups_for_user.pl -u (user_name)
+			```
+
+			Example
+
+			```
+			$ <copy>$ADE_HOME_DIR/util/list_groups_for_user.pl -u mgarodia</copy>
+			```
+
+			```
+			db_code_access
+			db_code_access_ro
+			db_if_access
+			db_nls_access
+			db_test_access
+			em_test_access
+			Can't locate JSON.pm in @INC (@INC contains: /ade_autofs/ade_infra/ADE_MAIN_LINUX.X64.rdd/LATEST/nde/ade/util /ade_autofs/ade_infra/ADE_MAIN_LINUX.X64.rdd/LATEST/nde/ade/util/../bin/perl/ADE/.. /ade_autofs/ade_infra/ADE_MAIN_LINUX.X64.rdd/LATEST/nde/ade/util/../bin/perl/ADE/../ /ade_autofs/ade_infra/ADE_MAIN_LINUX.X64.rdd/LATEST/nde/ade/util/../bin/perl /usr/local/packages/perl_remote/5.8.8/lib/5.8.8/i686-linux /usr/local/packages/perl_remote/5.8.8/lib/5.8.8 /usr/local/packages/perl_remote/5.8.8/lib/site_perl/5.8.8/i686-linux /usr/local/packages/perl_remote/5.8.8/lib/site_perl/5.8.8 /usr/local/packages/perl_remote/5.8.8/lib/site_perl .) at /ade_autofs/ade_infra/ADE_MAIN_LINUX.X64.rdd/LATEST/nde/ade/util/../bin/perl/ADE/Logging.pm line 93.
+			END failed--call queue aborted.
+			```
+
+		----
+		## Log in to ADE
+
+		1. Run this command.
+
+			```
+			$ <copy>ade okinit</copy>
+			```
+
+			If the previous login is still valid, then it displays the following message.
+
+			```
+			Note : ade okinit is not required as kerberos ticket is currently valid.
+			```
+
+		1. Enter your Kerberos password to authenticate.
+
+			```
+			Kerberos Utilities for Linux: Version 19.0.0.0.0 - Production on 21-MAR-2023 17:01:23
+
+			Copyright (c) 1996, 2020 Oracle.  All rights reserved.
+
+			Password for mgarodia@DEV.ORACLE.COM:
+			```
+
+		----
+		## Check product labels
+
+		1. Check the latest label for EM.
+
+			```
+			$ <copy>ade showlabels -series EMGC_MAIN_LINUX.X64 -latest</copy>
+
+			```
+
+			```
+			Determining most recent label...
+			EMGC_MAIN_LINUX.X64_230811.2300
+			```
+
+			To view all available labels from the series, run the same command without the `-latest` attribute. The latest label for EM is located here -
+
+			```
+			$ cd /ade_autofs/ud322_em/EMGC_MAIN_LINUX.X64.rdd/LATEST
+			```
+
+			## Contents of an EM label
+
+			```
+			ade_info.lmd     emcore      eons           ldap         perl
+			ade_info.lmd.gz  emcsm       ess            network      plsql
+			ant              emdb        exalogicoplan  network_src  precomp
+			asclassic        emdev       fmwtest        ngam         rdbms
+			askernel         emes        gdr            nginst       rdbms_ho
+			assistants       emfa        gradle         nlsrtl       rules
+			balipi           emgc        has            nlsrtl3      security_src
+			bam              emll        iam            nlstools     slax
+			bishiphome       emnsmp      idm            oai          soa
+			bpm              emohc       if9i_src_1     ons          sqlplus
+			buildtools       emopc       if9i_src_2     opatch       tfa
+			charts           emorhc      install        opatchauto   tk_backup_restore
+			dbdev            empa        intgtools      opmn         tk_common
+			dbjava           empl        ip             opsm         ucp
+			dc               empp        ipc            oracle       utl
+			delta.emd        emrt        j2ee           oracore      wlm
+			emacc            emsh        javavm         oracore3     workplace
+			emagent          emsi        JBO_src_1      oratst       wptg
+			emam             emsmf       jdev           osp          xdk
+			emas             emssta      jdevadf        oui          xdo
+			embda            emutil      jdk6           oui_2
+			emcat            emvi        jdk7           ovmemplgn
+			emcfw            emxa        jdk8           panama
+			emcld            encryption  jewt           pcbpel
+			```
+
+		1. View labels of a specific RU, for example, *RU 15*.
+
+			```
+			$ <copy>ade showlabels -series EMGC_13.5.0.0.0-RU-15_LINUX.X64</copy>
+			```
+
+			It displays result as follows.
+
+			```
+			EMGC_13.5.0.0.0-RU-15_LINUX.X64_230408.0150
+			EMGC_13.5.0.0.0-RU-15_LINUX.X64_230409.2028
+			EMGC_13.5.0.0.0-RU-15_LINUX.X64_230414.0726
+			EMGC_13.5.0.0.0-RU-15_LINUX.X64_230428.2230
+			EMGC_13.5.0.0.0-RU-15_LINUX.X64_230511.2230
+			EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230
+			```
+
+		You can use any of these labels to create a view. If a label for a specific date does not exist, then it shows related labels from the series.
+
+		```
+		$ <copy>ade showlabels -series EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102</copy>
+		```
+
+		```
+		ade WARNING: No labels found for series: EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102.
+		ade WARNING: Showing labels for 'EMGC_13.5.0.0.0-RU-14_LINUX.X64', instead.
+					 For faster execution, you may type this command as:
+					 [ade showlabels -series EMGC_13.5.0.0.0-RU-14_LINUX.X64]
+		EMGC_13.5.0.0.0-RU-14_LINUX.X64_230226.2216
+		EMGC_13.5.0.0.0-RU-14_LINUX.X64_230303.1310
+		EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102
+		EMGC_13.5.0.0.0-RU-14_LINUX.X64_230317.0924
+		EMGC_13.5.0.0.0-RU-14_LINUX.X64_230329.0325
+		```
 
 	----
 	## Install EM from shiphome setup (RU 14 - latest)
 
-	1. Get Kerberos authentication.
+	1. Log into ADE using Kerberos authentication.
 
 		```
 		$ <copy>ade okinit</copy>
 		```
 
-		Enter your Kerberos password.
+	1. Create an ADE view with the latest label in the series.
 
 		```
-		Kerberos Utilities for Linux: Version 19.0.0.0.0 - Production on 21-MAR-2023 17:01:23
-
-		Copyright (c) 1996, 2020 Oracle.  All rights reserved.
-
-		Password for mgarodia@DEV.ORACLE.COM:
+		$ <copy>ade createview -series EMGC_MAIN_LINUX.X64 -latest 135ru14</copy>
 		```
 
-	1. Create an ADE view for the latest label.
+		To use a specific label, for example *RU 15* -
 
 		```
-		$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102 135ru14</copy>
+		$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230 135ru15</copy>
+		```
+
+		```
+		ade WARNING: View storage directory specified in ADE_DEFAULT_VIEW_STORAGE_LOC does not exist.
+		Trying to create directory : /scratch/mgarodia/view_storage
+		Connecting to Repository... Connected.
+		Determining most recent label...
+		View will be created on EMGC_MAIN_LINUX.X64_230603.2300
+		View mgarodia_135ru14 in /scratch/mgarodia/view_storage/mgarodia_135ru14 will be refreshed to
+		label EMGC_MAIN_LINUX.X64_230603.2300 (the server /ade_autofs/ud322_em/EMGC_MAIN_LINUX.X64.rdd/230603.2300).
+		Using label default pop_dir_list: emdev/pub,emdev/test/triage/test/src,emdev/test/triage/bin,emagent/test/src/utl,emcore/test/src/eml/tvmlp/tvmlpdp,emcore/test/src/provision/utl,emcore/test/src/tvmg/tvmga,emcore/test/src/tvmg/tvmgp/tvmgpc/cmn
+		The view mgarodia_135ru14 in /scratch/mgarodia/view_storage/mgarodia_135ru14 has been created.
+		```
+
+		> If the folder structure already exists, then it does not display the first two lines on warning and create directory.
+
+		To use the label *RU 14* -
+
+		```
+		$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-14_LINUX.X64_230329.0325 135ru14</copy>
 		```
 
 	1. Call the view.
@@ -46,22 +226,36 @@ You can install Oracle EM:
 
 		```
 		Binding view to label server ade-fss-em01.strgsvcdaiphx.peocorpphxappv1.oraclevcn.com
-		VIEW_NAME     : jayapsub_135ru14
-		HOST_NAME     : phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com
-		VIEW_LOCATION : /scratch/jayapsub/view_storage/jayapsub_135ru14
-		VIEW_LABEL    : EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102
+		VIEW_NAME     : mgarodia_135ru14
+		HOST_NAME     : phoenix242881.dev3sub1phx.databasede3phx.oraclevcn.com
+		VIEW_LOCATION : /scratch/mgarodia/view_storage/mgarodia_135ru14
+		VIEW_LABEL    : EMGC_MAIN_LINUX.X64_230603.2300
 		VIEW_TXN_NAME : NONE
 		VIEW_TXN_MERGE_STATE : NOT MERGING
 		VIEW_REFRESH_STATE   : OK
-		Processing /ade/jayapsub_135ru14/emgc/setup_env.pl
+		Processing /ade/mgarodia_135ru14/emgc/setup_env.pl
 		Setting perl in view
-		Processing /ade/jayapsub_135ru14/emgc/s_setup_env.pl
+		Processing /ade/mgarodia_135ru14/emgc/s_setup_env.pl
+		```
+
+		Run this command manually if the above command does not include this.
+
+		```
+		$ <copy>perl /ade/mgarodia_135ru14/emgc/s_setup_env.pl</copy>
+		```
+
+		If the view does not exist, then it displays an error.
+
+		```
+		ade ERROR: Cannot open '/ade/mgarodia_135ru15/ade_info.vmd' : No such file or directory
 		```
 
 	1. Install EM shiphome.
 
+		> **Note**: Ensure that your `LDAP DSEE and PDIT NIS` account has *dba* as the primary group, otherwise the installation will fail after ~7-8 minutes.
+
 		```
-		$ <copy>setupview -config shiphome</copy>
+		[ mgarodia_135ru14 ] bash-4.4$ <copy>setupview -config shiphome</copy>
 		```
 
 		```
@@ -75,27 +269,50 @@ You can install Oracle EM:
 		Using the shiphome configuration.
 
 		Setup command used is:
-			/ade/jayapsub_135ru14/emdev/test/triage/bin/runtest -setupview -config shiphome
+			/ade/mgarodia_135ru14/emdev/test/triage/bin/runtest -setupview -config shiphome
 
-		View setup started at: Tue Mar 21 17:41:10 2023
+		View setup started at: Mon Jun  5 13:07:11 2023
 
 		Progress can be monitored in:
-		  /ade/jayapsub_135ru14/emgc/setupview.log
+		  /ade/mgarodia_135ru14/emgc/setupview.log
 
-		 Elapsed time: 3:13:36
+		 Elapsed time: 2:41:39
 
 
 		The view setup log is available in:
-		  /ade/jayapsub_135ru14/emgc/triage/work/setupview.log
+		  /ade/mgarodia_135ru14/emgc/triage/work/setupview.log
 
 		View setup succeeded.
 
-		View setup finished at: Tue Mar 21 20:55:15 2023
+		View setup finished at: Mon Jun  5 15:49:00 2023
 		```
 
-	You have installed EM 13.5 RU 14 on your host. You can now perform postinstallation checks and log in to the EM console in a browser.
+	1. Run `exit` to exit the view.
+
+	You have installed *EM 13.5 RU 14* on your host. You can now perform postinstallation checks and log in to the EM console in a browser.
 
 	> If you experience issues, then see [Troubleshooting](?lab=oracle-em#Troubleshooting).
+
+	- You can also delete a view if not required.
+
+		## Delete views
+
+		To delete a view -
+
+		```
+		$ <copy>ade destroyview 135ru15</copy>
+		```
+
+		Enter yes when prompted.
+
+		```
+		Continue destroy view mgarodia_135ru16 ? [yes/no] Enter yes
+		Renaming /scratch/mgarodia/view_storage/mgarodia_135ru16 to /scratch/mgarodia/view_storage/mgarodia_135ru16#zombie ...
+		Removing /scratch/mgarodia/view_storage/mgarodia_135ru16#zombie in the background ...
+		View mgarodia_135ru16 successfully destroyed;
+		Garbage collection of old view storage will take a few minutes,
+		but will not adversely affect other ADE commands.
+		```
 
 	----
 	## Install EM from binaries (2021 image - older)
@@ -111,7 +328,7 @@ You can install Oracle EM:
 		1. Set the `DISPLAY` environment variable.
 		1. Run the EM Prereq Kit.
 
-		> **Note**: This lab walks you through the steps to install *Oracle EM 13.5*.
+		> **Note**: This lab walks you through the steps to install *Oracle Enterprise Manager 13.5*.
 
 		----
 		**1. Download the EM package and validate**
@@ -258,7 +475,7 @@ You can install Oracle EM:
 
 			![Prerequisites checks - Success](./images/em-003c-prereq-success.png " ")**Figure**: Prerequisites checks - Success
 
-			Click **Next** to conitue.
+			Click **Next** to continue.
 
 		1. Installation details.
 
@@ -340,7 +557,7 @@ You can install Oracle EM:
 			SQL> <copy>alter system set "_allow_insert_with_update_check"=true scope=both;</copy>
 			```
 
-			Autofix if applicable. For more help, see [Troubleshooting](?lab=install-emcc#Task4:Troubleshooting).
+			Autofix if applicable. For more help, see [Troubleshooting](?lab=oracle-em#Task4:Troubleshooting).
 
 			Click **OK** to use the AL32UTF8 character set.
 
@@ -1045,16 +1262,40 @@ A log file is generated to capture the deinstallation process.
  - For installation related issues, check the log file under `/tmp/OraInstalldate_time/Installdate_time.log`
 
 	----
-	## Shiphome installation failed
+	## ADE view - Shiphome installation failed
 
 	**Problem statement**  
-	You try to install EM using the shiphome setup `setupview -config shiphome` but failed.
+	You try installing EM using the shiphome setup `setupview -config shiphome` but it failed.
 
 	- Error in shiphome setup
 
 		## View error
 
 		```
+		setupview 1.0-65
+		Copyright (c) 2007, 2023, Oracle and/or its affiliates.
+
+		Setting up the view. This will take some time.
+
+		A repository will be created.
+
+		Using the shiphome configuration.
+
+		Setup command used is:
+			/ade/jayapsub_135ru14/emdev/test/triage/bin/runtest -setupview -config shiphome
+
+		View setup started at: Thu Jun  1 09:47:44 2023
+
+		Progress can be monitored in:
+		  /ade/jayapsub_135ru14/emgc/setupview.log
+
+		 Elapsed time: 0:07:03
+
+
+		The view setup log is available in:
+		  /ade/jayapsub_135ru14/emgc/triage/work/setupview.log
+
+
 		View setup has failed. For details on the failure,
 		please see /ade/jayapsub_135ru14/emgc/triage/work/*.dif.
 
@@ -1089,6 +1330,8 @@ A log file is generated to capture the deinstallation process.
 		> EXTRA_PARAMS=-p LINUX.X64 -s /home/jayapsub -noalways DB_18X000_GOLDIMG_LOC=/net/phxnas204.strgsvcdaiphx.peocorpphxappv1.oraclevcn.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/18.3.0.0.0/PRODUCTION/LINUX.X64_18.3_db_home.zip
 		> Existing entries in oratab for jayapsub is
 		> Cleaning oratab entries
+		> Workaround for pid 956988 Unset EMSTATE=/ade/jayapsub_135ru14/oracle/work/agentStateDir
+		> Workaround for pid 9742422 unset EMSTATE=
 
 		View setup finished at: Tue Mar 21 17:30:48 2023
 
@@ -1096,6 +1339,21 @@ A log file is generated to capture the deinstallation process.
 		WARNING *** Since this setupview failed or was interrupted, recommend running "cleanview [-preserve_build]" (not "ade cleanview") before the next run of setupview
 				*** See also /ade/jayapsub_135ru14/saved_logs/setupview_history.log
 		```
+
+		You also checked the contents of the setup log file.
+
+		```
+		cat /ade/jayapsub_135ru14/saved_logs/setupview_history.log
+		date=06/01/23 09:47:44| message=SETUPVIEW START| label=EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230| timestamp=1685612864
+		date=06/01/23 09:54:50| message=SETUPVIEW END| status=FAIL| label=EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230| timestamp=1685613290
+		date=06/01/23 09:54:50| message=WARNING *** Since this setupview failed or was interrupted, recommend running "cleanview [-preserve_build]" (not "ade cleanview") before the next run of setupview *** See also /ade/jayapsub_135ru14/saved_logs/setupview_history.log
+		date=06/01/23 10:02:26| message=CLEANVIEW END| label=EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230| timestamp=1685613746
+		date=06/01/23 10:04:05| message=SETUPVIEW START| label=EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230| timestamp=1685613845
+		date=06/01/23 10:11:04| message=SETUPVIEW END| status=FAIL| label=EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230| timestamp=1685614264
+		date=06/01/23 10:11:04| message=WARNING *** Since this setupview failed or was interrupted, recommend running "cleanview [-preserve_build]" (not "ade cleanview") before the next run of setupview *** See also /ade/jayapsub_135ru14/saved_logs/setupview_history.log
+		```
+
+	VNC started before the LDAP DBA change. So, terminated and restarted vncserver to update bash. But that did not solve the problem.
 
 	**What to do**  
 	Check the error details and run the setup again.
@@ -1163,7 +1421,90 @@ A log file is generated to capture the deinstallation process.
 		$ <copy>setupview -config shiphome</copy>
 		```
 
-	To view the results of successful installation, see [shiphome setup (RU latest)](?lab=oracle-em#OracleEMinstallation).
+	To view the results of successful installation, see [shiphome setup (RU latest)](?lab=oracle-em#EMinstallation).
+
+	----
+	## Create view failed - permission denied
+
+	**Problem statement**  
+	You try creating a view using `ade createview xxx` but it failed with a warning stating permission denied.
+
+	- Error in ade createview
+
+		## View error
+
+		```
+		ade createview -label EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102 135ru14
+
+		Connecting to Repository... Connected.
+		View mgarodia_135ru14 in /scratch/mgarodia/view_storage/mgarodia_135ru14 will be refreshed to
+		label EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102 (the server /ade_autofs/ud322_em/EMGC_13.5.0.0.0-RU-14_LINUX.X64.rdd/230304.0102).
+		Using label default pop_dir_list: emdev/pub,emdev/test/triage/test/src,emdev/test/triage/bin,emagent/test/src/utl,emcore/test/src/eml/tvmlp/tvmlpdp,emcore/test/src/provision/utl,emcore/test/src/tvmg/tvmga,emcore/test/src/tvmg/tvmgp/tvmgpc/cmn
+		ade WARNING: cannot open file '/ade_autofs/ud322_em/EMGC_13.5.0.0.0-RU-14_LINUX.X64.rdd/230304.0102/emgc/s_setup_env.pl' : Permission denied
+		Createview did not complete. Cleaning up the traces...
+		```
+
+	**Cause**  
+	You do not have the permissions to access the setup PL file because you are not in the EM test group.
+
+	**What to do**  
+	Go to [OIM](https://oim.oraclecorp.com/identity/faces/home) and request entitlement for -
+
+	 - `EM_TEST_ACCESS`
+
+	----
+	## Unable to create view because it already exists
+
+	**Problem statement**  
+
+	You run the following command to create a view.
+
+	```
+	$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230 135ru15</copy>
+	```
+
+	But it returns an error that the view already exists.
+
+	```
+	$ ade ERROR: Already view Exists;Please specify alternate view name or use -force option
+	```
+
+	**Solution 1**
+
+	Use the *`-force`* option as suggested.
+
+	```
+	$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230 135ru15 -force</copy>
+	```
+
+	```
+	Connecting to Repository... Connected.
+	View mgarodia_135ru15 in /scratch/mgarodia/view_storage/mgarodia_135ru15 will be refreshed to
+	label EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230 (the server /ade_autofs/ud322_em/EMGC_13.5.0.0.0-RU-15_LINUX.X64.rdd/230520.2230).
+	Using label default pop_dir_list: emdev/pub,emdev/test/triage/test/src,emdev/test/triage/bin,emagent/test/src/utl,emcore/test/src/eml/tvmlp/tvmlpdp,emcore/test/src/provision/utl,emcore/test/src/tvmg/tvmga,emcore/test/src/tvmg/tvmgp/tvmgpc/cmn
+	The view mgarodia_135ru15 in /scratch/mgarodia/view_storage/mgarodia_135ru15 has been created.
+	```
+
+	**Solution 2**
+
+	Delete the view and re-create it.
+
+	```
+	$ <copy>ade destroyview 135ru15</copy>
+	```
+
+	Enter yes when prompted.
+
+	```
+	Continue destroy view mgarodia_135ru16 ? [yes/no] Enter yes
+	Renaming /scratch/mgarodia/view_storage/mgarodia_135ru16 to /scratch/mgarodia/view_storage/mgarodia_135ru16#zombie ...
+	Removing /scratch/mgarodia/view_storage/mgarodia_135ru16#zombie in the background ...
+	View mgarodia_135ru16 successfully destroyed;
+	Garbage collection of old view storage will take a few minutes,
+	but will not adversely affect other ADE commands.
+	```
+
+	After deleting the view, you can start afresh.
 
 	----
 	## EM Install: Database prerequisites check
@@ -1435,7 +1776,7 @@ A log file is generated to capture the deinstallation process.
 		Agent heartbeat status: OMS is unreachable
 		```
 
-	**Solution**:
+	**Solution**
 
 	- Start OMS
 
@@ -1524,7 +1865,7 @@ A log file is generated to capture the deinstallation process.
 
 	**Solution 2**
 
-	Cleanup leftover OMS processes manually
+	Clean up leftover OMS processes manually
 
 	> **Note**: Ensure that the listener and the repository database (19c) are up before proceeding with these steps.
 
@@ -1643,7 +1984,7 @@ A log file is generated to capture the deinstallation process.
 		$ OMS_HOME/bin/sqlplus sysman@<Connect Descriptor>
 		```
 
-	1. SYSMAN related users acccount status in the repository database is *open*.
+	1. SYSMAN related users account status in the repository database is *open*.
 
 		```
 		SQL><copy>select username,account_status from dba_users where username like 'SYSMAN%' order by username;</copy>
@@ -1673,7 +2014,7 @@ A log file is generated to capture the deinstallation process.
 	## EM Deinstall: OMS delete of EMGC_OMS1 has failed
 
 	**Problem statement**   
-	You run the deinstall command to remove EM from your system. The deinstallation failes with the following error.
+	You run the deinstall command to remove EM from your system. The deinstallation fails with the following error.
 
 	```
 	...
@@ -1712,5 +2053,5 @@ A log file is generated to capture the deinstallation process.
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - April 2, (Sun) 2023
+ - **Last Updated on** - August 13, (Sun) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
