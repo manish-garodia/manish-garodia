@@ -318,17 +318,12 @@ Complete list of github markdown emoji markup
 
 ## Slack emojis
 
-prod
-build_failed
-redbull_oracle
-mega
-postal_horn
-bell
-no_entry
-red_circle
-OOO
+ai_thumbup
 batman-approves
+bedankt
+bell
 blob-help
+build_failed
 carlton
 closed
 completed
@@ -337,22 +332,37 @@ ds-stop
 ds-up
 ds-down
 ds-green-circle
+excellence
+gitlab
 green-dot
 grm-q
 heart_fb
 jumping_pig
 lifering
+mega
 mtg_
-oh_heart
+no_entry
+notsureif
+OOO
+ohheart
 oracle-o
 oracleo
 oracle-cares
+postal_horn
+prod
+red_circle
+redbull_oracle
+snowboarder
 thinking-117
+this
+todo_done
+will do
+yer_not_wrong
 
 
 ## Acknowledgments
 
  - **Author** - github user Rafael Xavier de Souza ()
  - **Created on** - April 10, (Sun) 2022
- - **Last Updated on** - January 20, (Fri) 2023
+ - **Last Updated on** - September 4, (Mon) 2023
  - **Source** - [gist:7360908](https://gist.github.com/rxaviers/7360908)

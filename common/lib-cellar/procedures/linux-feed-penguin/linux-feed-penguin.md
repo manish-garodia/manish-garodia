@@ -53,6 +53,18 @@ Get hands dirty with Linux commands, tips, and tricks.
 		bash-4.4$
 		```
 
+	 - Set custom text for prompt
+
+		```
+		$ <copy>PS1="MyText> "</copy>
+		```
+
+		> Take a backup of the `.bashrc` file before making changes to the Bash profile.
+
+		```
+		$ <copy>cp ~/.bashrc ~/.bashrc.bak</copy>
+		```
+
 	 - Add date to Bash prompt
 
 		```
@@ -2087,6 +2099,53 @@ A script begins with -
 			$ <copy>source ~/.bash_profile</copy>
 			```
 
+		----
+		## Remove Java
+
+		1. Find the Java package
+
+			```
+			$ <copy>rpm -qa | grep jdk</copy>
+			```
+
+		1. Remove the Java package (returned from previous output). 
+
+			```
+			$ <copy>yum remove jdk-11-11.0.18-9.x86_64</copy>
+			```
+
+		1. Remove symbolic links.
+
+			```
+			$ update-alternatives --remove "java" "/usr/lib/jvm/jdk[version]/bin/java"
+			```
+
+			Examples
+
+			```
+			$ update-alternatives --remove "java" "/usr/lib/jvm/jdk-11-oracle-x64/bin/java"
+			$ update-alternatives --remove "javac" "/usr/lib/jvm/jdk-11-oracle-x64/bin/javac"
+			$ update-alternatives --remove "javaws" "/usr/lib/jvm/jdk-11-oracle-x64/bin/javaws"
+			```
+
+		1. Delete the JDK folder.
+
+			```
+			$ rm -r /usr/lib/jvm/jdk[version]
+			```
+
+			Example
+
+			```
+			$ <copy>rm -r /usr/lib/jvm/jdk-11-oracle-x64</copy>
+			```
+
+		Verify if any Java residue is still remaining.
+
+		```
+		$ <copy>java --version</copy>
+		```
+
 	----
 	## Upgrade apache-commons-text
 
@@ -2302,7 +2361,7 @@ A script begins with -
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - June 17, (Sat) 2023
+ - **Last Updated on** - September 19, (Tue) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
 
 

@@ -27,7 +27,7 @@
         {
             "title": "Lab #: Oracle Database Gold Image",
             "description": "Pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.",
-			"publisheddate": "02-Apr-2023",
+			"publisheddate": "31-Oct-2023",
             "filename": "./../common/lib-cellar/procedures/db-goldimage/db-goldimage.md",
 			"type": "hidden"
         },
@@ -67,7 +67,7 @@
             "title": "Lab #: Linux -:- feed the penguin",
             "description": "Get hands dirty with Linux commands, tips, and tricks.",
             "filename": "./../common/lib-cellar/procedures/linux-feed-penguin/linux-feed-penguin.md",
-			"publisheddate": "17-Jun-2023",
+			"publisheddate": "19-Sep-2023",
 			"type": "hidden",
 			"task_type": "Sections"
         },

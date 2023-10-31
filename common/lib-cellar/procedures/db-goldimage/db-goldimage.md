@@ -86,11 +86,15 @@ Oracle Database installers are available internally as gold images.
 	----
 	## Database 21c production
 
+	File - `LINUX.X64_213000_db_home.zip`
+
 	| Production servers      		| Link      |
 	|:------------------------------|-----------|
-	| ADC                    		| [/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION](/net/adcnas481.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION) <br>File - `LINUX.X64_213000_db_home.zip`       |
-	| SLC                    		| [/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION](/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION) <br>File - `LINUX.X64_213000_db_home.zip`       |
-	| HQ                     		| [/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION](/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION) <br>File - `LINUX.X64_213000_db_home.zip`       |
+	| OCI 							|  [/net/phxnas204.strgsvcdaiphx.peocorpphxappv1.oraclevcn.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION](/net/phxnas204.strgsvcdaiphx.peocorpphxappv1.oraclevcn.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION)				|
+	| SaltLake 						|  [/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION](/net/slcnas563.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION) 											 |
+	| HQ 							|  [/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION](/net/rwsnas436.us.oracle.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION) 											 |
+	| ADE 							|  [/ade_autofs/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION](/ade_autofs/shiphomes/rdbms/linux.x64/21c/21.3.0.0.0/210727.PRODUCTION) |
+	{: title="Database 21c production"}
 
 	| Select <i>any</i> server      | Link      |
 	|:------------------------------|-----------|
@@ -1908,5 +1912,5 @@ After stopping the listener -
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - April 2, (Sun) 2023
+ - **Last Updated on** - October 31, (Tue) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
