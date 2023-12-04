@@ -550,7 +550,7 @@ The following steps help you get the VM back in its original running state.
 	**Problem statement**  
 	TigerVNC returns an error that the target machine actively refused the connection.
 
-	![VNC error - actively refused](./images/vm-trouble-02-vnc-connection-refused-61.png)
+	![VNC error - actively refused](./images/vm-trouble-03-vnc-connection-actively-refused-10060.png)
 
 	You then connect to the VM using Putty and try to run the VNC Server. But you get the following error.
 
