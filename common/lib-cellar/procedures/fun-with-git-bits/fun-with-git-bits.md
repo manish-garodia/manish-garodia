@@ -1818,7 +1818,7 @@ The information in this lab revolves around -
 	## Clone and fork out-of-sync - [push origin failed]
 
 	**Problem statement**  
-	You made changes in your clone (local repo) and want to merge them with the fork (origin). You did `commit to main` and then *`push origin`* to update the fork from the clone but it returns an error.
+	You made changes to your clone (local repo) and want to merge them with the fork (origin). You did `commit to main` and then *`push origin`* to update the fork from the clone but it returns an error.
 
 	<if type="gitdesktop">
 	![Update fork from clone rejected](./images/desktop/clone-out-of-sync-01-push-failed.jpg " ")
@@ -2340,7 +2340,7 @@ The information in this lab revolves around -
 	## Recv failure: Connection was reset
 
 	**Problem statement**  
-	You do a `git push origin`, ` git pull origin`, or `git fetch` from Git Bash or Git Desktop and get the following message.
+	You do a `git push origin`, ` git pull origin`, or `git fetch` from Git Bash or Github Desktop and get the following message.
 
 	```
 	fatal: unable to access   
@@ -2350,16 +2350,16 @@ The information in this lab revolves around -
 
 	**What happened**  
 
-	The clone (local repo) cannot talk to the fork (origin) or the main repo (upstream) because of any one of these -
+	The clone (local repo) could not talk to the fork (origin) or the main repo (upstream) because of any one of these -
 	- Port 80 might be blocked
-	- Have you set the proxy configurations?
+	- Have you set the proxy configuration?
 	- Are you still connected to the internet?
 
 	**What to do**  
 
 	1. Check your internet connection.
 	1. VPN must be connected for the clone to talk to the fork. Disconnect VPN and reconnect, if required.
-	1. Check the proxy configurations for git. <if type="hidden">See [Set up proxy config](https://manish-garodia.github.io/mg-playground/z-sandbox/?lab=fun-with-git-bits&type=gitbash#TakeaplungeintoGitBash)</if>
+	1. Check the proxy configuration for git. <if type="hidden">See [Set up proxy config](https://manish-garodia.github.io/mg-playground/z-sandbox/?lab=fun-with-git-bits&type=gitbash#TakeaplungeintoGitBash)</if>
 
 	----
 	## Could not resolve proxy: [proxy-URL]

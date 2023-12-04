@@ -2,7 +2,7 @@
 
 ## OCI Tenancy
 
-This lab discusses about a few features and services in the OCI Tenancy.
+This lab discusses about a few features and services in Oracle Cloud Infrastructure (OCI).
 
 For example,
  - concepts of noVNC environment
@@ -21,12 +21,12 @@ The basic steps for setting up a noVNC environment include -
     - Install the applications
 	- Any other requirements
 
-1. Create a custom image and export to the Object Storage.
+1. Create a custom image and export to the object storage.
 
 	The custom image creates a package of the instance that you have configured. It acts as a backup, and you can re-create another instance from it. When you create a new instance from this custom image, it generates a copy of the original instance server with preconfigured settings, for example, libraries, user accounts, applications, and so on. After creating the custom image, you can terminate the instance.
 
 	> **Note:** Do not delete the custom image from the tenancy before publishing it to the OCI marketplace.  
-	After the Livelabs goes to production, it has no dependency on the custom image. Now, if you delete the custom image, connect with the OCI team (Rene or Ashish) to get the image back.
+	After the Livelabs goes to production, it has no dependency on the custom image. Now, if you delete the custom image, then connect with the Livelabs OCI team to get the image.
 
 ### Points to consider
 
@@ -39,9 +39,9 @@ You cannot transfer files and folders from the local host or a laptop to the noV
 
 The users need not go through these detailed steps to set up their VM. Nor do they have access to the internal systems. The *terraform scripts* automate these steps and create an instance for the users from the custom image. The OCI team (Rene or Ashish) deploys the custom image to the marketplace as *private* because it is not available for public view.
 
-The OCI has **26 regions** that are associated with specific teams.
+With growing customer needs, Oracle keeps expanding its infrastructure by introducing additional regions. As you continue using OCI, Oracle adds new regions to the list. Currently, OCI has **38 regions** that are associated with specific teams. 
  - An image existing in a tenancy is available only to that team. The teams from other regions in the OCI do not have access to that image.
- - But if an image is published to the OCI marketplace, then it is available to all (26) regions in the OCI.
+ - But if an image is published to the OCI marketplace, then it is available to all regions in OCI.
 
 <if type="hidden">
 
@@ -172,6 +172,10 @@ The OCI has **26 regions** that are associated with specific teams.
 			```
 
 		 - PAR URL for *manishgarodia-objectstore-20221206-time.html* - created on 6 Dec 2022, valid till 31 Dec, 2051.
+
+			```
+			https://objectstorage.ap-seoul-1.oraclecloud.com/p/EoSugBzbgMituYPpGuv5T9ZGLBP3K-inJlYnR2UasCiizCVAwM_0jDGpj96cP-K9/n/cnmyhyct1k43/b/bucket-20210824-2326/o/time.html
+			```
 
 			```
 			https://objectstorage.ap-seoul-1.oraclecloud.com/p/dUEnGWixmpsK1TcgbbfEVuTZtQ8h1wiK7rf-rjeg53pI9VstofxSCe4sChHeoCuh/n/cnmyhyct1k43/b/bucket-20210824-2326/o/time.html

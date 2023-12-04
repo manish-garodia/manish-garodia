@@ -175,7 +175,7 @@ This lab shows how to access a Virtual Machine (VM) and configure Virtual Networ
 	- UltraVNC
 	- PocketVNC
 
-	This lab uses TigerVNC, however, you may use what is already installed in your system.
+	> **Note**: This lab uses TigerVNC to connect to VM. However, you can use the client already installed in your system.
 
 	1. Open TigerVNC.
 
@@ -380,34 +380,29 @@ The following steps help you get the VM back in its original running state.
 
 ## Troubleshooting
 
-If you face trouble connecting to the VNC server, then *stop* and *restart* the vnc server instead of running it again. Running the VNC server again creates a new (instance) port number and another log file *`host-name:x.log`*.
-
 - Scenarios, solutions, troubleshooting options
+
+	## Unable to connect to VM (using TigerVNC)
+
+	Having trouble connecting to your VM could be due to various reasons. The workaround might vary depending on the scenario and the primary cause. Some of the scenarios are discussed here.
+
+	> **Tip**: *Stop* and *restart* the vnc server instead of running it again. Every time you run VNC server, it creates a new (instance) port number and another log file *`host-name:x.log`*.
 
 	## Stop VNC Server
 
 	Terminate the process id of the vnc server.
 
-		```
-		$ <copy>vncserver -kill :x</copy>
-		```
-		where, `x` is the server session (port) number. Cite: [vncserver options](https://linux.die.net/man/1/vncserver) page.
+	```
+	$ <copy>vncserver -kill :x</copy>
+	```
+	where, *`x`* is the server session (port) number. Cite: [vncserver options](https://linux.die.net/man/1/vncserver) page.
 
 	## Xvnc seems to be deadlocked
 
-	**Problem statement**
+	**Problem statement**  
+	Terminating the process for VNC server returns an error.
 
-	 - Terminating the process for VNC server returns an error.
-
-		![Xvnc deadlock](./images/xvnc-deadlock.png)
-
-	 - Connecting to TigerVnc returns a timeout error.
-
-		![Unable to connect VNC](./images/vnc-unable-connect-socket-10060.png)
-
-		```
-		Unable to connect to socket. Connection timed out (10060)
-		```
+	![Xvnc deadlock](./images/xvnc-deadlock.png)
 
 	**How to resolve**
 
@@ -447,7 +442,7 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 
 		> **Note:** `Kill` terminates the process gracefully. This is the default and safest way to terminate a process.
 
-	     - The command `kill -9` sends a signal to terminate the process attached with the PID or the process name. It is a hard way to terminate a single or a set of processes *forcefully* and *immediately* and can create zombies process.
+	     - The command `kill -9` sends a signal to terminate the process attached with the PID or the process name. It is a hard way to terminate a single or a set of processes *forcefully* and *immediately* and can create zombie processes.
 
 		## Other terminate options
 
@@ -495,10 +490,9 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 		Killing Xvnc process ID 2415
 		Xvnc process ID 2415 already killed
 		Xvnc did not appear to shut down cleanly. Removing /tmp/.X11-unix/X1
-
 		```
 
-	1. Start up the vncserver. It will use the existing port number `:1`.
+	1. Start the vncserver. It will use the existing port number, for example `:1`.
 
 		```
 		$ <copy>vncserver</copy>
@@ -515,8 +509,71 @@ If you face trouble connecting to the VNC server, then *stop* and *restart* the 
 
 		The VNC server is back. You can connect with the VNC viewer, for example TigerVNC, again.
 
+
+	## Connection timed out or refused
+
+	**Problem statement**  
+	TigerVNC returns an error - unable to connect to socket: connection timeout or refused error.
+
+	![VNC error - timeout](./images/vm-trouble-01-vnc-connection-timeout-10060.png)
+
+	![VNC error - refused](./images/vm-trouble-02-vnc-connection-refused-61.png)
+
+	**What happened**  
+	VNC server is not running.
+
+	**How to resolve**
+
+	1. Verify if the vnc server is running.
+
+		```
+		$ <copy>ps -ef | grep vnc</copy>
+		```
+
+		Output:
+
+		```
+		mgarodia   603 31047  0 03:58 pts/5    00:00:00 grep --color=auto vnc
+		```
+
+		If the result displays a line with *`-color=auto`*, then VNC server is not running.
+
+
+	1. Start the vncserver. It will use the existing port number, for example `:1`.
+
+		```
+		$ <copy>vncserver</copy>
+		```
+
+	## No connection made, target machine actively refused
+
+	**Problem statement**  
+	TigerVNC returns an error that the target machine actively refused the connection.
+
+	![VNC error - actively refused](./images/vm-trouble-02-vnc-connection-refused-61.png)
+
+	You then connect to the VM using Putty and try to run the VNC Server. But you get the following error.
+
+	```
+	$ <copy>vncserver</copy>
+
+	WARNING: vncserver has been replaced by a systemd unit and is now considered deprecated and removed in upstream.
+	Please read /usr/share/doc/tigervnc/HOWTO.md for more information.
+	vncserver: Could not create /home/[your-account]/.vnc.
+	```
+
+	**What happened**  
+	Your home directory does not exist on the VM.
+
+	**What to do**   
+	Nothing. Sit back and relax.
+
+	If you are a new joinee or have applied for LDAP permissions recently, then the home directory is not created immediately.
+
+	> **Note**: LDAP takes around 1 day to set up your account and create your home directory.
+
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - April 2, (Sun) 2023
+ - **Last Updated on** - December 3, (Sun) 2023
  - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
