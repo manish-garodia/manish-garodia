@@ -1,17 +1,20 @@
 {
     "workshoptitle": "Labs in my Sandbox",
+  "include": {
+        "test-lab": "./../common/test-labs/test-lab.md"
+    },
     "tutorials": [
         {
             "title": "Welcome to MG space..!",
             "description": "This is the landing page for my personal space MG.",
-			"publisheddate": "18-Mar-2023",
+			"publisheddate": "09-Jun-2024",
             "filename": "./../common/intro/readme.md",
 			"type": "hidden"
         },
         {
             "title": "Lab 1: MG Library : tell-me-how",
             "description": "A collection of topics developed from notes on specific areas. These converge from various sources, for example discussions, trainings, experiments, mistakes, and failures. It also lists down the videos and channels on oTube.",
-			"publisheddate": "12-Aug-2023",
+			"publisheddate": "09-Jun-2024",
             "filename": "./../common/lib-cellar/mg-library.md",
 			"type": "hidden",
 			"task_type": "Topics"

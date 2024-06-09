@@ -54,8 +54,9 @@ Captured from meetings, presentations, demos, and more.
 
 | sl # | Name (hyperlinked)           | Description                          | Channel             | <if type="hidden">Last updated |</if>
 |------|------------------------------|--------------------------------------|---------------------|
-| 11   | | | | |
-| 10    | [Wordlist Check tool](Wordlist Check tool) | Check for disallowed words and incorrect usage in documentation as per Oracle Style Guide (VIM session) <br>by Manish Garodia on Jul 12, 23 | [mg library](https://otube.oracle.com/channel/t/257943902) | Jul 15, 23 (Sat) |
+| 12   | | | | |
+| 11   | [Authentication](https://oradocs.oracle.com/documents/link/LDB837046FA907998FC0EF7F0146C8D8A5D8494E462B/fileview/DF298DEED9EF157A8CD7F47953F0C38A699F5D03CD48/_Authentication_March2024.mp4) | Alternate ways to Log in | OraDocs | Mar 6, 24 (Wed) |
+| 10    | [Wordlist Check tool](https://otube.oracle.com/media/t/1_7rdf1ghg) | Check for disallowed words and incorrect usage in documentation as per Oracle Style Guide (VIM session) <br>by Manish Garodia on Jul 12, 23 | [mg library](https://otube.oracle.com/channel/t/257943902) | Jul 15, 23 (Sat) |
 | 9    | [Create videos with Zoom](https://otube.oracle.com/media/t/1_ovyk0odu) | How to create videos with Zoom messenge <br>by Manish Garodia on Apr 25, 23 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Apr 25, 23 (Tue) |
 | 8    | [Cloud credits in OCI tenancy](https://otube.oracle.com/media/t/1_4w8suka2) | How to save cloud credits in oci tenancy <br>by Manish Garodia on Mar 15, 23 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Mar 16, 23 (Thu) |
 | 7    | [Preview and publish content on OCI with CPP](https://otube.oracle.com/media/t/1_dlf7sdav) | How to use Content Publishing Pipeline (CPP) for building previews and publishing content on the OCI portal <br>by Neil Hebert on Oct 04, 22 | [Tools and environment](https://otube.oracle.com/channel/t/257957572) | Oct 4, 22 (Tue) |
@@ -84,6 +85,7 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 
 | sl # | Title (hyperlinked)                      | Link                  | Album                      |
 |------|------------------------------------------|-----------------------|----------------------------|
+| 1    | [Github update fork clone](https://ibb.co/4mHh215) 	          | `ibb.co/4mHh215`      	   | [What an image](https://ibb.co/album/LvW0JB)      |
 | 1    | [Github fork ahead of main repo](https://ibb.co/7Kv05WS) 	      | `ibb.co/7Kv05WS`      	   | [What an image](https://ibb.co/album/LvW0JB)      |
 | 2    | [Add Atom to github desktop 1](https://ibb.co/31dcPCh)           | `ibb.co/31dcPCh`           | [What an image](https://ibb.co/album/LvW0JB)      |
 | 3    | [Add Atom to github desktop 2](https://ibb.co/N6yzT62)  	      | `ibb.co/N6yzT62`	       | [What an image](https://ibb.co/album/LvW0JB)      |
@@ -110,5 +112,5 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - August 12, (Sat) 2023
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../intro/files/email.md)
+ - **Last Updated on** - June 9, (Sun) 2024
+ - **Questions/Feedback?** - Blame manish.garodia
