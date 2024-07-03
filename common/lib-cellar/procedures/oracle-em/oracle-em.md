@@ -2,16 +2,16 @@
 
 ## Introduction
 
-This lab explains how to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 15 shiphome. It also contains postinstallation checks, steps to deinstall EM, and some troubleshooting scenarios and tips.
+This lab explains how to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 RU 22 shiphome and for 2021 image. It also contains postinstallation checks, steps to remove EM, and some troubleshooting scenarios and tips.
 
 ## EM installation
 
 You can install Oracle Enterprise Manager:
 
- - from shiphome setup (RU 14 - latest)
- - from binaries (2021 image - older)
+ - from a shiphome setup, for example, RU 22 (latest)
+ - using the binaries, that is, 2021 image (older)
 
-	> Depending on your system configuration, both types of installation may take a while (~3-4 hours) to complete.
+	> Depending on your system configuration, both types of installation may fail a few times or may take a while (~3-4 hours) to complete, if successful. 
 
 	----
 	## Preinstallation checks
@@ -21,40 +21,46 @@ You can install Oracle Enterprise Manager:
 		----
 		## ADE access groups
 
-		You require certain access privileges for installing EM.
+		Along with a Kerberos account, you also require certain access privileges for installing EM. If your account does not belong to these groups, then the installation does not start due to missing permissions. 
+
+		 - `fmw_code_access_ro` &nbsp;&nbsp; - for RU 22
+		 - `em_test_access` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - for RU 14/15
+
+		 > **Tip**: The entitlement `em_code_access` requires second-level approval. You need this entitlement only if you want to change the source code in EMGC labels or develop a plug-in from a label.   
+		 For creating an EMGC view for testing purpose, only `EM_TEST_ACCESS` is sufficient.
+
+		Additional privileges you might require for other activities.
 
 		 - `db_code_access`
 		 - `db_code_access_ro`
 		 - `db_if_access`
 		 - `db_nls_access`
 		 - `db_test_access`
-		 - `em_test_access`
 
-		Run the `id` command to check the current groups your account belongs to. Log in to [OIM](https://oim.oraclecorp.com/identity/faces/home) and request for entitlements, if you do not have already.
+		Check the access groups your user account belongs to.
 
-		 > **Tip**: The entitlement `em_code_access` requires second-level approval. You need this entitlement only if you want to change the source code in EMGC labels or develop a plug-in from an EMGC label.   
-		 For creating an EMGC view for testing purpose, only `EM_TEST_ACCESS` is sufficient.
+		1. Run the *`id`* command to check the current groups of your user. 
 
-		Find the ADE access groups someone else belongs to.
+			```
+			$ id
+			or
+			$ groups [user-account]
+			```
 
-		1. Set `$ADE_HOME_DIR`
+		1. Set `$ADE_HOME_DIR`.
 
 
 			```
 			$ <copy>ade exec $SHELL</copy>
 			```
 
-		1. List the groups for a user.
+		1. List the groups of your user.
 
 			```
-			$ADE_HOME_DIR/util/list_groups_for_user.pl -u (user_name)
+			$ <copy>$ADE_HOME_DIR/util/list_groups_for_user.pl -u [user-account]</copy>
 			```
 
-			Example
-
-			```
-			$ <copy>$ADE_HOME_DIR/util/list_groups_for_user.pl -u mgarodia</copy>
-			```
+			It displays the groups associated with the user. 
 
 			```
 			db_code_access
@@ -67,19 +73,17 @@ You can install Oracle Enterprise Manager:
 			END failed--call queue aborted.
 			```
 
+		1. Log in to identity & access management (OIM) and request for entitlements, if you do not already have.
+
 		----
 		## Log in to ADE
 
-		1. Run this command.
+		To run ADE commands and use the functions:
+
+		1. Obtain the initial ticket for Kerberos. 
 
 			```
 			$ <copy>ade okinit</copy>
-			```
-
-			If the previous login is still valid, then it displays the following message.
-
-			```
-			Note : ade okinit is not required as kerberos ticket is currently valid.
 			```
 
 		1. Enter your Kerberos password to authenticate.
@@ -89,178 +93,177 @@ You can install Oracle Enterprise Manager:
 
 			Copyright (c) 1996, 2020 Oracle.  All rights reserved.
 
-			Password for mgarodia@DEV.ORACLE.COM:
+			Password for [user-account]@DEV.ORACLE.COM:
 			```
 
 		----
 		## Check product labels
 
-		1. Check the latest label for EM.
+		Select the label to install. You can check for a specific label or get the latest label from a series. 
+
+		 - To check the label for, say, *EM 13.5 RU 22* - 
 
 			```
-			$ <copy>ade showlabels -series EMGC_MAIN_LINUX.X64 -latest</copy>
-
+			$ <copy>ade showlabels -series EMGC_PT.13.5.0.0.0-RU-22_LINUX.X64</copy>
 			```
 
 			```
-			Determining most recent label...
-			EMGC_MAIN_LINUX.X64_230811.2300
+			EMGC_PT.13.5.0.0.0-RU-22_LINUX.X64_240507.0650
 			```
 
-			To view all available labels from the series, run the same command without the `-latest` attribute. The latest label for EM is located here -
+			The date stamp for this label is May 7, 2024.
 
-			```
-			$ cd /ade_autofs/ud322_em/EMGC_MAIN_LINUX.X64.rdd/LATEST
-			```
-
-			## Contents of an EM label
-
-			```
-			ade_info.lmd     emcore      eons           ldap         perl
-			ade_info.lmd.gz  emcsm       ess            network      plsql
-			ant              emdb        exalogicoplan  network_src  precomp
-			asclassic        emdev       fmwtest        ngam         rdbms
-			askernel         emes        gdr            nginst       rdbms_ho
-			assistants       emfa        gradle         nlsrtl       rules
-			balipi           emgc        has            nlsrtl3      security_src
-			bam              emll        iam            nlstools     slax
-			bishiphome       emnsmp      idm            oai          soa
-			bpm              emohc       if9i_src_1     ons          sqlplus
-			buildtools       emopc       if9i_src_2     opatch       tfa
-			charts           emorhc      install        opatchauto   tk_backup_restore
-			dbdev            empa        intgtools      opmn         tk_common
-			dbjava           empl        ip             opsm         ucp
-			dc               empp        ipc            oracle       utl
-			delta.emd        emrt        j2ee           oracore      wlm
-			emacc            emsh        javavm         oracore3     workplace
-			emagent          emsi        JBO_src_1      oratst       wptg
-			emam             emsmf       jdev           osp          xdk
-			emas             emssta      jdevadf        oui          xdo
-			embda            emutil      jdk6           oui_2
-			emcat            emvi        jdk7           ovmemplgn
-			emcfw            emxa        jdk8           panama
-			emcld            encryption  jewt           pcbpel
-			```
-
-		1. View labels of a specific RU, for example, *RU 15*.
+		 - To view labels for `RU 15` - 
 
 			```
 			$ <copy>ade showlabels -series EMGC_13.5.0.0.0-RU-15_LINUX.X64</copy>
 			```
 
-			It displays result as follows.
-
 			```
-			EMGC_13.5.0.0.0-RU-15_LINUX.X64_230408.0150
-			EMGC_13.5.0.0.0-RU-15_LINUX.X64_230409.2028
-			EMGC_13.5.0.0.0-RU-15_LINUX.X64_230414.0726
-			EMGC_13.5.0.0.0-RU-15_LINUX.X64_230428.2230
-			EMGC_13.5.0.0.0-RU-15_LINUX.X64_230511.2230
 			EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230
 			```
 
-		You can use any of these labels to create a view. If a label for a specific date does not exist, then it shows related labels from the series.
+		 - To check the latest label from a series -
 
-		```
-		$ <copy>ade showlabels -series EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102</copy>
-		```
+			```
+			$ <copy>ade showlabels -series EMGC_MAIN_LINUX.X64 -latest</copy>
+			```
 
-		```
-		ade WARNING: No labels found for series: EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102.
-		ade WARNING: Showing labels for 'EMGC_13.5.0.0.0-RU-14_LINUX.X64', instead.
-					 For faster execution, you may type this command as:
-					 [ade showlabels -series EMGC_13.5.0.0.0-RU-14_LINUX.X64]
-		EMGC_13.5.0.0.0-RU-14_LINUX.X64_230226.2216
-		EMGC_13.5.0.0.0-RU-14_LINUX.X64_230303.1310
-		EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102
-		EMGC_13.5.0.0.0-RU-14_LINUX.X64_230317.0924
-		EMGC_13.5.0.0.0-RU-14_LINUX.X64_230329.0325
-		```
+			```
+			Determining most recent label...
+			EMGC_MAIN_LINUX.X64_240630.2300
+			```
+
+			The date stamp for this label is June 30, 2024.
+
+		 - To view all available labels from the series, run the same command without the `-latest` attribute. 
+		 
+			```
+			$ <copy>ade showlabels -series EMGC_MAIN_LINUX.X64 -latest</copy>
+			```
+
+			The latest label for EM resides here -
+
+			```
+			$ cd /ade_autofs/ud322_em/EMGC_MAIN_LINUX.X64.rdd/LATEST
+			```
+
+			You can use any available label to create a view. If a label for a specific date does not exist, then it shows related labels from the series.
+
+			```
+			$ <copy>ade showlabels -series EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102</copy>
+			```
+
+			```
+			ade WARNING: No labels found for series: EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102.
+			ade WARNING: Showing labels for 'EMGC_13.5.0.0.0-RU-14_LINUX.X64', instead.
+						 For faster execution, you may type this command as:
+						 [ade showlabels -series EMGC_13.5.0.0.0-RU-14_LINUX.X64]
+			EMGC_13.5.0.0.0-RU-14_LINUX.X64_230329.0325
+			```
+
+			## Contents of an EM label
+
+			```
+			ade_info.lmd     emcld   encryption     jewt         panama
+			ade_info.lmd.gz  emcore  eons           ldap         pcbpel
+			ant              emcsm   ess            network      perl
+			asclassic        emdb    exalogicoplan  network_src  plsql
+			askernel         emdev   fmwtest        ngam         precomp
+			assistants       emes    gdr            nginst       rdbms
+			balipi           emfa    gradle         nlsrtl       rdbms_ho
+			bam              emgc    has            nlsrtl3      rules
+			bishiphome       emll    iam            nlstools     sdo
+			bpm              emnsmp  idm            oai          security_src
+			buildtools       emohc   if9i_src_1     ons          slax
+			charts           emopc   if9i_src_2     opatch       soa
+			ctx              emorhc  install        opatchauto   sqlplus
+			dbdev            empa    intgtools      opmn         tfa
+			dbjava           empl    ip             opsm         tk_backup_restore
+			dc               empp    ipc            oracle       tk_common
+			delta.emd        emrt    j2ee           oracore      ucp
+			emacc            emsh    javavm         oracore3     utl
+			emagent          emsi    JBO_src_1      oratst       wlm
+			emam             emsmf   jdev           osp          workplace
+			emas             emssta  jdevadf        oss          wptg
+			embda            emutil  jdk6           oui          wwg
+			emcat            emvi    jdk7           oui_2        xdk
+			emcfw            emxa    jdk8           ovmemplgn    xdo
+			```
 
 	----
-	## Install EM from shiphome setup (RU 14 - latest)
+	## Install EM from shiphome setup (RU 22 - latest)
 
-	1. Log into ADE using Kerberos authentication.
+	1. Log in to ADE using Kerberos authentication, if not already connected.
 
 		```
 		$ <copy>ade okinit</copy>
 		```
 
-	1. Create an ADE view with the latest label in the series.
+		If the previous login is still valid, then the terminal does not prompt for entering the password.
 
 		```
-		$ <copy>ade createview -series EMGC_MAIN_LINUX.X64 -latest 135ru14</copy>
+		Note : ade okinit is not required as kerberos ticket is currently valid.
 		```
 
-		To use a specific label, for example *RU 15* -
+	1. Create an ADE view with an RU 22 label and provide a view name.   
+		Check the preinstallation section for details.
+
+		Syntax
+	
+		```
+		$ ade createview -label [label] [view-name]
+		```
+
+		Example -
 
 		```
-		$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230 135ru15</copy>
+		$ <copy>ade createview -label EMGC_PT.13.5.0.0.0-RU-22_LINUX.X64_240507.0650 135ru22</copy>
 		```
 
 		```
 		ade WARNING: View storage directory specified in ADE_DEFAULT_VIEW_STORAGE_LOC does not exist.
-		Trying to create directory : /scratch/mgarodia/view_storage
+		Trying to create directory : /scratch/[user-account]/view_storage
 		Connecting to Repository... Connected.
-		Determining most recent label...
-		View will be created on EMGC_MAIN_LINUX.X64_230603.2300
-		View mgarodia_135ru14 in /scratch/mgarodia/view_storage/mgarodia_135ru14 will be refreshed to
-		label EMGC_MAIN_LINUX.X64_230603.2300 (the server /ade_autofs/ud322_em/EMGC_MAIN_LINUX.X64.rdd/230603.2300).
+		View [user-account]_135ru22 in /scratch/[user-account]/view_storage/[user-account]_135ru22 will be refreshed to
+		label EMGC_PT.13.5.0.0.0-RU-22_LINUX.X64_240507.0650 (the server /ade_autofs/ud322_em/EMGC_PT.13.5.0.0.0-RU-22_LINUX.X64.rdd/240507.0650).
 		Using label default pop_dir_list: emdev/pub,emdev/test/triage/test/src,emdev/test/triage/bin,emagent/test/src/utl,emcore/test/src/eml/tvmlp/tvmlpdp,emcore/test/src/provision/utl,emcore/test/src/tvmg/tvmga,emcore/test/src/tvmg/tvmgp/tvmgpc/cmn
-		The view mgarodia_135ru14 in /scratch/mgarodia/view_storage/mgarodia_135ru14 has been created.
+		The view [user-account]_135ru22 in /scratch/[user-account]/view_storage/[user-account]_135ru22 has been created.
 		```
 
-		> If the folder structure already exists, then it does not display the first two lines on warning and create directory.
-
-		To use the label *RU 14* -
+	1. Enter into the view. 
 
 		```
-		$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-14_LINUX.X64_230329.0325 135ru14</copy>
-		```
-
-	1. Call the view.
-
-		```
-		$ <copy>ade useview 135ru14</copy>
+		$ <copy>ade useview 135ru22</copy>
 		```
 
 		```
-		Binding view to label server ade-fss-em01.strgsvcdaiphx.peocorpphxappv1.oraclevcn.com
-		VIEW_NAME     : mgarodia_135ru14
-		HOST_NAME     : phoenix242881.dev3sub1phx.databasede3phx.oraclevcn.com
-		VIEW_LOCATION : /scratch/mgarodia/view_storage/mgarodia_135ru14
-		VIEW_LABEL    : EMGC_MAIN_LINUX.X64_230603.2300
+		Binding view to label server [server-name]
+		VIEW_NAME     : [user-account]_135ru22
+		HOST_NAME     : [example.localhost.com]
+		VIEW_LOCATION : /scratch/[user-account]/view_storage/[user-account]_135ru22
+		VIEW_LABEL    : [RU-label]
 		VIEW_TXN_NAME : NONE
 		VIEW_TXN_MERGE_STATE : NOT MERGING
 		VIEW_REFRESH_STATE   : OK
-		Processing /ade/mgarodia_135ru14/emgc/setup_env.pl
+		Processing /ade/[user-account]_135ru22/emgc/setup_env.pl
 		Setting perl in view
-		Processing /ade/mgarodia_135ru14/emgc/s_setup_env.pl
+		Processing /ade/[user-account]_135ru22/emgc/s_setup_env.pl
 		```
 
-		Run this command manually if the above command does not include this.
-
-		```
-		$ <copy>perl /ade/mgarodia_135ru14/emgc/s_setup_env.pl</copy>
-		```
-
-		If the view does not exist, then it displays an error.
-
-		```
-		ade ERROR: Cannot open '/ade/mgarodia_135ru15/ade_info.vmd' : No such file or directory
-		```
-
-	1. Install EM shiphome.
+	1. Install EM shiphome from the view prompt.
 
 		> **Note**: Ensure that your `LDAP DSEE and PDIT NIS` account has *dba* as the primary group, otherwise the installation will fail after ~7-8 minutes.
 
 		```
-		[ mgarodia_135ru14 ] bash-4.4$ <copy>setupview -config shiphome</copy>
+		[ user-account_135ru22 ] bash-4.4$ <copy>setupview -config shiphome</copy>
 		```
 
+		Sit back and wait for the installation to complete (~3-4 hours). 
+
 		```
-		setupview 1.0-65
-		Copyright (c) 2007, 2023, Oracle and/or its affiliates.
+		setupview 1.0-69
+		Copyright (c) 2007, 2024, Oracle and/or its affiliates.
 
 		Setting up the view. This will take some time.
 
@@ -269,50 +272,130 @@ You can install Oracle Enterprise Manager:
 		Using the shiphome configuration.
 
 		Setup command used is:
-			/ade/mgarodia_135ru14/emdev/test/triage/bin/runtest -setupview -config shiphome
+			/ade/[user-account]_135ru22/emdev/test/triage/bin/runtest -setupview -config shiphome
 
-		View setup started at: Mon Jun  5 13:07:11 2023
+		View setup started at: Day Jul  x 09:18:45 2024
 
 		Progress can be monitored in:
-		  /ade/mgarodia_135ru14/emgc/setupview.log
+		  /ade/[user-account]_135ru22/emgc/setupview.log
 
-		 Elapsed time: 2:41:39
+		 Elapsed time: 2:59:12
 
 
 		The view setup log is available in:
-		  /ade/mgarodia_135ru14/emgc/triage/work/setupview.log
+		  /ade/[user-account]_135ru22/emgc/triage/work/setupview.log
+		```
 
+		On successful installation, you get the following. 
+
+		```
 		View setup succeeded.
 
-		View setup finished at: Mon Jun  5 15:49:00 2023
+		View setup finished at: Day Jul  x 12:18:12 2024
 		```
 
-	1. Run `exit` to exit the view.
+		Congratulations! You have installed *EM 13.5 RU 22* on your host. You can now *`exit`* the view and perform postinstallation checks and log in to the EM console in a browser.
 
-	You have installed *EM 13.5 RU 14* on your host. You can now perform postinstallation checks and log in to the EM console in a browser.
+		## Use older RUs?
+
+		To create a view for *RU 15* -
+
+		1. Specify the label and provide a view name.
+
+			```
+			$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230 135ru15</copy>
+			```
+
+			```
+			ade WARNING: View storage directory specified in ADE_DEFAULT_VIEW_STORAGE_LOC does not exist.
+			Trying to create directory : /scratch/[user-account]/view_storage
+			Connecting to Repository... Connected.
+			Determining most recent label...
+			View will be created on EMGC_MAIN_LINUX.X64_230603.2300
+			View [user-account]_135ru15 in /scratch/[user-account]/view_storage/[user-account]_135ru15 will be refreshed to
+			label EMGC_MAIN_LINUX.X64_230603.2300 (the server /ade_autofs/ud322_em/EMGC_MAIN_LINUX.X64.rdd/230603.2300).
+			Using label default pop_dir_list: emdev/pub,emdev/test/triage/test/src,emdev/test/triage/bin,emagent/test/src/utl,emcore/test/src/eml/tvmlp/tvmlpdp,emcore/test/src/provision/utl,emcore/test/src/tvmg/tvmga,emcore/test/src/tvmg/tvmgp/tvmgpc/cmn
+			The view [user-account]_135ru15 in /scratch/[user-account]/view_storage/[user-account]_135ru15 has been created.
+			```
+
+			> If the folder structure already exists, then it does not display the first two lines on warning and create directory.
+
+			To use *RU 14* -
+
+			```
+			$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-14_LINUX.X64_230329.0325 135ru14</copy>
+			```
+
+		1. Call the view.
+
+			```
+			$ <copy>ade useview 135ru15</copy>
+			```
+
+			```
+			Binding view to label server [server-name]
+			VIEW_NAME     : [user-account]_135ru15
+			HOST_NAME     : [example.localhost.com]
+			VIEW_LOCATION : /scratch/[user-account]/view_storage/[user-account]_135ru15
+			VIEW_LABEL    : EMGC_MAIN_LINUX.X64_230603.2300
+			VIEW_TXN_NAME : NONE
+			VIEW_TXN_MERGE_STATE : NOT MERGING
+			VIEW_REFRESH_STATE   : OK
+			Processing /ade/[user-account]_135ru15/emgc/setup_env.pl
+			Setting perl in view
+			Processing /ade/[user-account]_135ru15/emgc/s_setup_env.pl
+			```
+
+			Run this command manually if the previous command does not include the last line.
+
+			```
+			$ <copy>perl /ade/[user-account]_135ru15/emgc/s_setup_env.pl</copy>
+			```
+
+			If the view does not exist, then it displays an error.
+
+			```
+			ade ERROR: Cannot open '/ade/[user-account]_135ru15/ade_info.vmd' : No such file or directory
+			```
+
+		1. Install EM shiphome.
+
+			```
+			[ user-account_135ru15 ] bash-4.4$ <copy>setupview -config shiphome</copy>
+			```
+
+			```
+			setupview 1.0-65
+			Copyright (c) 2007, 2023, Oracle and/or its affiliates.
+
+			Setting up the view. This will take some time.
+
+			A repository will be created.
+
+			Using the shiphome configuration.
+
+			Setup command used is:
+				/ade/[user-account]_135ru15/emdev/test/triage/bin/runtest -setupview -config shiphome
+
+			View setup started at: Mon Jun  5 13:07:11 2023
+
+			Progress can be monitored in:
+			  /ade/[user-account]_135ru15/emgc/setupview.log
+
+			 Elapsed time: 2:41:39
+
+
+			The view setup log is available in:
+			  /ade/[user-account]_135ru15/emgc/triage/work/setupview.log
+
+			View setup succeeded.
+
+			View setup finished at: Mon Jun  5 15:49:00 2023
+			```
+
+		You have installed *EM 13.5 RU 15* on your host. You can now `exit` the view.
 
 	> If you experience issues, then see [Troubleshooting](?lab=oracle-em#Troubleshooting).
-
-	- You can also delete a view if not required.
-
-		## Delete views
-
-		To delete a view -
-
-		```
-		$ <copy>ade destroyview 135ru15</copy>
-		```
-
-		Enter yes when prompted.
-
-		```
-		Continue destroy view mgarodia_135ru16 ? [yes/no] Enter yes
-		Renaming /scratch/mgarodia/view_storage/mgarodia_135ru16 to /scratch/mgarodia/view_storage/mgarodia_135ru16#zombie ...
-		Removing /scratch/mgarodia/view_storage/mgarodia_135ru16#zombie in the background ...
-		View mgarodia_135ru16 successfully destroyed;
-		Garbage collection of old view storage will take a few minutes,
-		but will not adversely affect other ADE commands.
-		```
 
 	----
 	## Install EM from binaries (2021 image - older)
@@ -390,13 +473,7 @@ You can install Oracle Enterprise Manager:
 			Syntax
 
 			```
-			$ export DISPLAY=[host-name]:[vnc-port].0
-			```
-
-			Example
-
-			```
-			$ <copy>export DISPLAY=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:1.0</copy>
+			$ export DISPLAY=[example.localhost.com]:[vnc-port].0
 			```
 
 		 - **Shell - *csh***
@@ -404,13 +481,7 @@ You can install Oracle Enterprise Manager:
 			Syntax
 
 			```
-			$ setenv DISPLAY [host-name]:1.0
-			```
-
-			Example
-
-			```
-			$ <copy>setenv DISPLAY phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:1.0</copy>
+			$ setenv DISPLAY [example.localhost.com]:1.0
 			```
 
 		----
@@ -424,12 +495,10 @@ You can install Oracle Enterprise Manager:
 
 		### Location of EM installer
 
-		| VM                                   | Path                | Remarks                                 |
-		|--------------------------------------|---------------------|-----------------------------------------|
-		| `phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:1` | `/scratch/mgarodia/installers/emcc135`  | Executable |
-		| `phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:1` | `/scratch/mgarodia/installers/emcc135`  | Executable |
-		| `phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:1`  | `/scratch/u01/installers/emcc135`       | Executable |
-		| `slc10wsw.us.oracle.com:2`                                 | `/scratch/em_software13.5`              |           |
+		| VM                          | Path             | Remarks                                 |
+		|-----------------------------|------------------|-----------------------------------------|
+		| `[example.localhost.com]:1` | `/scratch/[user-account]/installers/emcc135`  | Executable |
+		| `[example.localhost.com]:1` | `/scratch/u01/installers/emcc135`             | Executable |
 
 		----
 		## Installation steps
@@ -496,7 +565,7 @@ You can install Oracle Enterprise Manager:
 			- **Host name** (autofilled)
 
 				```
-				<copy>phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
+				[example.localhost.com]
 				```
 
 		1. Select Plug-ins - Leave the defaults.
@@ -529,7 +598,7 @@ You can install Oracle Enterprise Manager:
 			- **Database Host Name**
 
 				```
-				<copy>phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
+				[example.localhost.com]
 				```
 
 			- **Port** - *1519*   
@@ -538,7 +607,7 @@ You can install Oracle Enterprise Manager:
 			Enter the PDB name followed by the full domain name of the host.
 
 				```
-				<copy>orcl19pdb.dev3sub1phx.databasede3phx.oraclevcn.com</copy>
+				<copy>orcl19pdb.localhost.com</copy>
 				```
 			- **SYS Password** - Enter the password for Oracle Database 19c <if type="hidden">*Welcome_1*</if>   
 
@@ -567,15 +636,15 @@ You can install Oracle Enterprise Manager:
 
 			![EM Login Password](./images/em-009-em-pwd.png " ")**Figure**: EM Login Password
 
-			- **SYSMAN Password** - Enter EM login password <if type="hidden">*Welcome_1*</if>   
+			- **SYSMAN Password** - Enter EM login password   
 			(reenter to confirm password)
-			- **Agent Registration Password** - Enter Agent login password <if type="hidden">*Welcome_1*</if>   
+			- **Agent Registration Password** - Enter Agent login password   
 			(reenter to confirm password)
 
 			Oracle Database 19c has some default tablespaces under this location -
 
 			```
-			$ <copy>/scratch/u01/app/mgarodia19/oradata/ORCL19/orcl19pdb</copy>
+			$ <copy>/scratch/u01/app/[user-account]19/oradata/ORCL19/orcl19pdb</copy>
 			```
 
 			The default tablespaces are *`sysaux01.dbf`*, *`system01.dbf`*, *`temp01.dbf`*, *`undotbs01.dbf`*, and *`users01.dbf`*. The EM installer adds further tablespaces to this location.
@@ -584,9 +653,9 @@ You can install Oracle Enterprise Manager:
 
 			| Tablespace           | File full path                                                       |
 			|----------------------|----------------------------------------------------------------------|
-			| Management           | `/scratch/u01/app/mgarodia/oradata/ORCL/orclpdb/mgmt.dbf`            |
-			| Configuration Data   | `/scratch/u01/app/mgarodia/oradata/ORCL/orclpdb/mgmt_ecm_depot1.dbf` |
-			| JVM Diagnostics Data | `/scratch/u01/app/mgarodia/oradata/ORCL/orclpdb/mgmt_deepdive.dbf`   |
+			| Management           | `/scratch/u01/app/[user-account]/oradata/ORCL/orclpdb/mgmt.dbf`            |
+			| Configuration Data   | `/scratch/u01/app/[user-account]/oradata/ORCL/orclpdb/mgmt_ecm_depot1.dbf` |
+			| JVM Diagnostics Data | `/scratch/u01/app/[user-account]/oradata/ORCL/orclpdb/mgmt_deepdive.dbf`   |
 
 		1. Configure Oracle Software Library Location. Leave the default `/scratch/u01/software/em/swlib`.
 
@@ -625,7 +694,7 @@ You can install Oracle Enterprise Manager:
 				Performing root user operation.
 
 				The following environment variables are set as:
-					ORACLE_OWNER= mgarodia
+					ORACLE_OWNER= [user-account]
 					ORACLE_HOME=  /scratch/u01/software/em/middleware
 				```
 
@@ -677,16 +746,7 @@ You can install Oracle Enterprise Manager:
 
 			![EM Installation Complete - top](./images/em-014-finish.png " ")**Figure**: EM Installation Complete
 
-			> **Note**: Before you **Close** the installer, do not forget to note the URLs to access EM.
-
-		| Interface                     | Link                                         |
-		|-------------------------------|----------------------------------------------|
-		| EM console new                | [https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em)       |
-		| Admin server <br>console new  | [https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7102/console](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7102/console)  |
-		| EM console old2               | [https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em)       |
-		| Admin server <br>console old2 | [https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7102/console](https://phoenix123546.dev3sub1phx.databasede3phx.oraclevcn.com:7102/console)  |
-		| EM console old1               | [https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:7803/em](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:7803/em)        |
-		| Admin server <br>console old1 | [https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:7102/console](https://phoenix62464.dev1sub1phx.databasede1phx.oraclevcn.com:7102/console)   |
+			> **Note**: Before you **Close** the installer, do not forget to note the URLs. You require them to access the EM login page.
 
 		### EM folder locations
 
@@ -695,9 +755,6 @@ You can install Oracle Enterprise Manager:
 
 		> **Cite**:    
 		> Another EM installation procedure explained here - [Manual EM Shiphome installation on OCI](https://confluence.oraclecorp.com/confluence/display/EMQ/Manual+EM+Shiphome+installation+on+OCI)
-
-
-
 
 ## EM postinstallation checks
 
@@ -708,27 +765,27 @@ You can install Oracle Enterprise Manager:
 	----
 	## Log in to EM
 
-	Open this page in a web browser - [EM login](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em).
+	Open the EM login page in a web browser - https://example.localhost.com:7803/em.
 
 	![EM login](./images/em-002-login-page.png " ") **Figure**: EM login screen
 
 	**Credentials**
 	 - User name - *sysman*
-	 - Password - Enter the password <if type="hidden">*Welcome_1*</if>
+	 - Password - Enter the password
 
 	### Log in to EM Express - Decommissioned
 
 	EM Exp for DB 19c
-	 - [CDB$ROOT port 5501](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:5501/em)   
-	 - [ORCL19CCDB port 5502](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:5502/em)   
+	 - [CDB$ROOT port 5501](https://example.localhost.com:5501/em)   
+	 - [ORCL19CCDB port 5502](https://example.localhost.com:5502/em)   
 
 	EM Exp for DB 21c
-	 - [CDB$ROOT port 5500](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:5500/em)
-	 - [ORCLPDB port 5504](https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:5504/em)
+	 - [CDB$ROOT port 5500](https://example.localhost.com:5500/em)
+	 - [ORCLPDB port 5504](https://example.localhost.com:5504/em)
 
 	**Credentials**
 	 - User name - *system*
-	 - Password - Enter the password <if type="hidden">*Welcome_1*</if>
+	 - Password - Enter the password
 	 - Container name - (leave empty)
 
 	> **Note**: If you forget the database password, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
@@ -740,16 +797,16 @@ You can install Oracle Enterprise Manager:
 
 	1. In a terminal, go to the middleware home location.
 
-		**MG old**
+		**EM RUs new**
+
+		```
+		$ <copy>cd /scratch/[user-account]/work/omshome9344/bin</copy>
+		```
+
+		**EM binaries image old**
 
 		```
 		$ <copy>cd /scratch/u01/software/em/middleware/bin</copy>
-		```
-
-		**JP new**
-
-		```
-		$ <copy>cd /scratch/jayapsub/work/omshome1006/bin</copy>
 		```
 
 	1. Check OMS status.
@@ -778,7 +835,7 @@ You can install Oracle Enterprise Manager:
 		JVMD Engine is Down
 		```
 
-		If OMS is down, start the OMS server.
+		If OMS is down, then start the OMS server.
 
 		```
 		$ <copy>./emctl start oms</copy>
@@ -794,11 +851,11 @@ You can install Oracle Enterprise Manager:
 		JVMD Engine is Up
 		```
 
-		> **Note**: Before starting OMS server, ensure that the repo database (*19c*) is up and running. If the repo is closed, then OMS will not start.
+		> **Note**: Before starting OMS server, ensure that the repo database (for example, *19c*) is up and running. If the repo is closed, then OMS will not start.
 
 	<ins>Check OMS details</ins> -
 
-	1. From middleware home, run this command.
+	1. From OMS home, run this command.
 
 		```
 		$ <copy>./emctl status oms -details</copy>
@@ -807,35 +864,38 @@ You can install Oracle Enterprise Manager:
 		```
 		Oracle Enterprise Manager Cloud Control 13c Release 5  
 		Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
+		```
+
+		For older EMs, it may ask for the admin (SYSMAN) password to proceed. 
+
+		```
 		Enter Enterprise Manager Root (SYSMAN) Password :
 		```
 
-	1. Enter SYSMAN password<if type="hidden"> - *Welcome_1*</if>.
-
 		```
-		Console Server Host        : phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com
+		Console Server Host        : [example.localhost.com]
 		HTTP Console Port          : 7788
 		HTTPS Console Port         : 7803
 		HTTP Upload Port           : 4889
 		HTTPS Upload Port          : 4903
-		EM Instance Home           : /scratch/u01/software/em/gc_inst/em/EMGC_OMS1
-		OMS Log Directory Location : /scratch/u01/software/em/gc_inst/em/EMGC_OMS1/sysman/log
+		EM Instance Home           : /scratch/[user-account]/work/insthome9344/em/EMGC_OMS1
+		OMS Log Directory Location : /scratch/[user-account]/work/insthome9344/em/EMGC_OMS1/sysman/log
 		OMS is not configured with SLB or virtual hostname
 		Agent Upload is locked.
 		OMS Console is locked.
 		Active CA ID: 1
-		Console URL: https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:7803/em
-		Upload URL: https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:4903/empbs/upload
+		Console URL: https://[example.localhost.com].com:7803/em
+		Upload URL: https://[example.localhost.com]:4903/empbs/upload
 
 		WLS Domain Information
 		Domain Name            : GCDomain
-		Admin Server Host      : phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com
+		Admin Server Host      : [example.localhost.com]
 		Admin Server HTTPS Port: 7102
 		Admin Server is RUNNING
 
 		Oracle Management Server Information
 		Managed Server Instance Name: EMGC_OMS1
-		Oracle Management Server Instance Host: phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com
+		Oracle Management Server Instance Host: [example.localhost.com]
 		WebTier is Up
 		Oracle Management Server is Up
 		JVMD Engine is Up
@@ -846,16 +906,16 @@ You can install Oracle Enterprise Manager:
 
 	1. In a terminal, go to the agent location.
 
-		**old**
+		**EM RUs new**
+
+		```
+		$ <copy>cd /scratch/[user-account]/work/agentbase9344/agent_13.5.0.0.0/bin</copy>
+		```
+
+		**EM binaries image old**
 
 		```
 		$ <copy>cd /scratch/u01/software/em/agent/agent_13.5.0.0.0/bin</copy>
-		```
-
-		**new**
-
-		```
-		$ <copy>cd /scratch/jayapsub/work/agentbase1006/agent_13.5.0.0.0/bin</copy>
 		```
 
 	1. Check the agent status.
@@ -865,7 +925,47 @@ You can install Oracle Enterprise Manager:
 		```
 
 		----
-		## Success old
+		## Success EM new
+
+		```
+		Oracle Enterprise Manager Cloud Control 13c Release 5  
+		Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
+		---------------------------------------------------------------
+		Agent Version          : 13.5.0.0.0
+		OMS Version            : 13.5.0.0.0
+		Protocol Version       : 12.1.0.1.0
+		Agent Home             : /scratch/[user-account]/work/agentbase9344/agent_inst
+		Agent Log Directory    : /scratch/[user-account]/work/agentbase9344/agent_inst/sysman/log
+		Agent Binaries         : /scratch/[user-account]/work/agentbase9344/agent_13.5.0.0.0
+		Core JAR Location      : /scratch/[user-account]/work/agentbase9344/agent_13.5.0.0.0/jlib
+		Agent Process ID       : 3035426
+		Parent Process ID      : 3035344
+		Agent URL              : https://[example.localhost.com]:3872/emd/main/
+		Local Agent URL in NAT : https://[example.localhost.com]:3872/emd/main/
+		Repository URL         : https://[example.localhost.com]:4903/empbs/upload
+		Started at             : 2024-07-01 11:42:11
+		Started by user        : [user-account]
+		Operating System       : Linux version 5.4.17-2136.327.2.el8uek.x86_64 (amd64)
+		Number of Targets      : 38
+		Last Reload            : (none)
+		Last successful upload                       : 2024-07-02 18:12:56
+		Last attempted upload                        : 2024-07-02 18:12:56
+		Total Megabytes of XML files uploaded so far : 6.44
+		Number of XML files pending upload           : 0
+		Size of XML files pending upload(MB)         : 0
+		Available disk space on upload filesystem    : 67.61%
+		Collection Status                            : Collections enabled
+		Heartbeat Status                             : Ok
+		Last attempted heartbeat to OMS              : 2024-07-02 18:12:57
+		Last successful heartbeat to OMS             : 2024-07-02 18:12:57
+		Next scheduled heartbeat to OMS              : 2024-07-02 18:13:57
+
+		---------------------------------------------------------------
+		Agent is Running and Ready
+		```
+
+		----
+		## Success EM old
 
 		```
 		Oracle Enterprise Manager Cloud Control 13c Release 5  
@@ -880,11 +980,11 @@ You can install Oracle Enterprise Manager:
 		Core JAR Location      : /scratch/u01/software/em/agent/agent_13.5.0.0.0/jlib
 		Agent Process ID       : 3037157
 		Parent Process ID      : 145906
-		Agent URL              : https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:3872/emd/main/
-		Local Agent URL in NAT : https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:3872/emd/main/
-		Repository URL         : https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:4903/empbs/upload
+		Agent URL              : https://[example.localhost.com]:3872/emd/main/
+		Local Agent URL in NAT : https://[example.localhost.com]:3872/emd/main/
+		Repository URL         : https://[example.localhost.com]:4903/empbs/upload
 		Started at             : 2023-02-01 17:21:18
-		Started by user        : mgarodia
+		Started by user        : [user-account]
 		Operating System       : Linux version 5.4.17-2136.312.3.4.el8uek.x86_64 (amd64)
 		Number of Targets      : 46
 		Last Reload            : (none)
@@ -899,46 +999,6 @@ You can install Oracle Enterprise Manager:
 		Last attempted heartbeat to OMS              : 2023-02-04 13:51:27
 		Last successful heartbeat to OMS             : 2023-02-04 13:51:27
 		Next scheduled heartbeat to OMS              : 2023-02-04 13:52:27
-
-		---------------------------------------------------------------
-		Agent is Running and Ready
-		```
-
-		----
-		## Success new
-
-		```
-		Oracle Enterprise Manager Cloud Control 13c Release 5  
-		Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
-		---------------------------------------------------------------
-		Agent Version          : 13.5.0.0.0
-		OMS Version            : 13.5.0.0.0
-		Protocol Version       : 12.1.0.1.0
-		Agent Home             : /scratch/jayapsub/work/agentbase1006/agent_inst
-		Agent Log Directory    : /scratch/jayapsub/work/agentbase1006/agent_inst/sysman/log
-		Agent Binaries         : /scratch/jayapsub/work/agentbase1006/agent_13.5.0.0.0
-		Core JAR Location      : /scratch/jayapsub/work/agentbase1006/agent_13.5.0.0.0/jlib
-		Agent Process ID       : 2015787
-		Parent Process ID      : 2007740
-		Agent URL              : https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:3872/emd/main/
-		Local Agent URL in NAT : https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:3872/emd/main/
-		Repository URL         : https://phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com:4903/empbs/upload
-		Started at             : 2023-03-21 20:25:29
-		Started by user        : jayapsub
-		Operating System       : Linux version 5.4.17-2136.312.3.4.el8uek.x86_64 (amd64)
-		Number of Targets      : 38
-		Last Reload            : (none)
-		Last successful upload                       : 2023-03-23 09:21:47
-		Last attempted upload                        : 2023-03-23 09:21:47
-		Total Megabytes of XML files uploaded so far : 5.71
-		Number of XML files pending upload           : 0
-		Size of XML files pending upload(MB)         : 0
-		Available disk space on upload filesystem    : 70.00%
-		Collection Status                            : Collections enabled
-		Heartbeat Status                             : Ok
-		Last attempted heartbeat to OMS              : 2023-03-23 09:21:21
-		Last successful heartbeat to OMS             : 2023-03-23 09:21:21
-		Next scheduled heartbeat to OMS              : 2023-03-23 09:22:21
 
 		---------------------------------------------------------------
 		Agent is Running and Ready
@@ -974,8 +1034,8 @@ You can install Oracle Enterprise Manager:
 	```
 
 	```
-	/scratch/jayapsub/work/omshome2068
-	/scratch/jayapsub/work/agentbase2068/agent_13.5.0.0.0:/scratch/jayapsub/work/agentbase2068/agent_inst
+	/scratch/[user-account]/work/omshome9344
+	/scratch/[user-account]/work/agentbase9344/agent_13.5.0.0.0:/scratch/[user-account]/work/agentbase9344/agent_inst
 	```
 
 ## Add targets manually
@@ -983,293 +1043,468 @@ You can install Oracle Enterprise Manager:
 TBD
 
 
-## Deinstall EM
+## Remove Views, EM, and Base Repo
 
-> **Caution**: Do not deinstall the repository database (Oracle Database 19c) before deinstalling EM. Else, it will return an error `The OMS delete of EMGC_OMS1 has failed.`
+The removal of EM depends on the version installed. 
 
-- Run `deinstall` manually
-- Deinstall using script
+ - Delete Views
+ - Remove new EM RUs
+ - Remove old EM binaries image
 
-	----
-	## Run `deinstall` manually
-
-	1. Create a temporary directory.
-		```
-		$ <copy>mkdir /scratch/u01/tmp01</copy>
-		```
-
-	1. Copy `<EM_HOME>/sysman/install/EMDeinstall.pl` to the temporary directory.
-
-		**Example**
-		```
-		$ <copy>cp /scratch/u01/software/em/middleware/sysman/install/EMDeinstall.pl /scratch/u01/tmp01</copy>
-		```
-
-	1. Run the `deinstall` command.
-
-		**Syntax**
-		```
-		$ <EM_HOME>/perl/bin/perl <temporary_location>/EMDeinstall.pl -mwHome <EM_HOME> -stageLoc <temporary_location>
-		```
-
-		**Example**
-		```
-		$ <copy>
-		/scratch/u01/software/em/middleware/perl/bin/perl /scratch/u01/tmp_emccdeinstall/EMDeinstall.pl -mwHome /scratch/u01/software/em/middleware -stageLoc /scratch/u01/tmp01
-		</copy>
-		```
-
-		```
-		Refer to /scratch/u01/tmp01/deinstall_2023-03-21_16-14-58.log for deinstall log
-		The home /scratch/u01/software/em/middleware is not configured. Do you want to delete the home? Confirm (y/n):y
-		User confirmed for deinstallation.
-		 The command executed is /scratch/u01/software/em/middleware/oui/bin/detachHome.sh
-		Launcher log file is /tmp/OraInstall2023-03-21_04-15-10PM/launcher2023-03-21_04-15-10PM.log.
-		Checking swap space: must be greater than 500 MB.   Actual 18095 MB    Passed
-		Checking if this platform requires a 64-bit JVM.   Actual 64    Passed (64-bit not required)
-		detachHome was successful.
-		Logs successfully copied to /scratch/u01/app/oraInventory/logs.
-		 return value is : 0
-
-		Deleting the em home
-		The deinstallation of OMS is successful.
-
-		The location of the file is : /etc/oragchomelist
-		```
+	> **Caution**: Do not deinstall or remove the repo or base database (for example, Oracle Database 19c) before deinstalling or removing EM. If you remove the repo first, then deinstallation fails with an error - `The OMS delete of EMGC_OMS1 has failed.`
 
 	----
-	## Deinstall using script
+	## Delete Views
 
-	Run the `deinstall_em.sh` script from the `/scratch/mgarodia/ManishDoc/working-commands` location.
+	You can delete a view if not required. Deleting views and deinstalling EM are independent activities. Deleting a view does not affect the EM installed on your system. 
 
-	```
-	$ <copy>sh /scratch/mgarodia/ManishDoc/working-commands/deinstall_em.sh</copy>
-	```
+	1. 	To delete a view, for example *`135ru14`* -
 
-A log file is generated to capture the deinstallation process.
+		```
+		$ <copy>ade destroyview 135ru14</copy>
+		```
 
-1. Enter ***y*** to confirm deinstalling OMS, Repository, and Agent.
+		You may get this warning if you do not obtain the initial Kerberos ticket. 
 
-	```
-	Refer to /scratch/u01/tmp_emccdeinstall/deinstall_2022-11-09_11-16-55.log for deinstall log
-	Substring valuye is /scratch/u01/software/em/gc_inst
-	This is a First OMS install. So, this deinstalls the OMS , Repository and Agent. Confirm (y/n) y
+		```
+		ade WARNING: Initial Kerberos ticket required
+		ade WARNING: See the ADE FAQ entry:
+		ade WARNING: https://confluence.oraclecorp.com/confluence/display/DBRM/How+to+get+a+Kerberos+ticket
+		```
 
-	User confirmed for deinstallation.
-	```
+		```
+		Continue destroy view [user-account]_135ru14 ? [yes/no] Enter yes
+		```
 
-1. Enter the passwords provided at the time of EM installation<if type="hidden">, *Welcome_1*</if>.
+	1. Enter *yes* when prompted.
 
-	```
-	Enter the SYS Password :
-	Enter the sysman Password :
-	Enter the Admin Server password :
-	```
+		```
+		Renaming /scratch/[user-account]/view_storage/[user-account]_135ru14 to /scratch/[user-account]/view_storage/[user-account]_135ru14#zombie ...
+		Removing /scratch/[user-account]/view_storage/[user-account]_135ru14#zombie in the background ...
+		View [user-account]_135ru14 successfully destroyed;
+		Garbage collection of old view storage will take a few minutes,
+		but will not adversely affect other ADE commands.
+		```
 
-	The system proceeds with the deinstallation.
+	After you delete the view, manually remove EM from your system. 
 
-	----
-	## View deinstall output
+	## Remove new EM RUs
 
-	```
-	dbConnectStr - (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1519)))(CONNECT_DATA=(SERVICE_NAME=orcl19pdb.dev3sub1phx.databasede3phx.oraclevcn.com)))
-	The command executed is /scratch/u01/software/em/agent/agent_13.5.0.0.0/perl/bin/perl /scratch/u01/software/em/agent/agent_13.5.0.0.0/sysman/install/AgentDeinstall.pl -agentHome /scratch/u01/software/em/agent/agent_13.5.0.0.0
-	Mar 21, 2023 2:59:40 PM oracle.sysman.agent.installer.AgentInstaller$StreamGobbler run
-	INFO: Oracle Enterprise Manager Cloud Control 13c Release 5  
-	Mar 21, 2023 2:59:40 PM oracle.sysman.agent.installer.AgentInstaller$StreamGobbler run
-	INFO: Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
-	Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentInstaller$StreamGobbler run
-	INFO: Stopping agent ... stopped.
-	Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentInstaller$StreamGobbler run
-	INFO: Plugin homes:
-	Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentInstaller$StreamGobbler run
-	INFO: Plugin homes:
-	Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentInstaller execCommand
-	SEVERE: STDERR:
+	A quick way to remove the new EM is to delete the `work` and `view_storage` folders.
 
-	STDOUT=
+	1. Delete the `work` folder. 
 
-	Oracle Enterprise Manager Cloud Control 13c Release 5  
-	Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
-	Stopping agent ... stopped.
-	Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentDeinstallation main
-	INFO: Creating directory /scratch/u01/software/em/agent/agent_13.5.0.0.0/install/tmp completed successfully.
-	Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentDeinstallation main
-	INFO: File /etc/oragchomelist exists.
-	Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentDeinstallation main
-	INFO: File /etc/oragchomelist is writable.
-	Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentDeinstallation main
-	INFO: Index :-1 for line : /scratch/u01/software/em/middleware
-	Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentDeinstallation main
-	INFO: Index :0 for line : /scratch/u01/software/em/agent/agent_13.5.0.0.0:/scratch/u01/software/em/agent/agent_inst
-	Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentDeinstallation main
-	INFO: Overwriting the contents since oracle home:/scratch/u01/software/em/agent/agent_13.5.0.0.0 entry already exists.
+		```
+		$ rm -rdf /scratch/[user-acount]/work/
+		```
 
-	The command is /scratch/u01/software/em/middleware/bin/emctl stop oms
+	1. Delete the `view_storage` folder.
 
-	 Stopping oms............ Wait for the completion of the execution.
-	Oracle Enterprise Manager Cloud Control 13c Release 5  
-	Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
-	Stopping Oracle Management Server...
-	Oracle Management Server Successfully Stopped
-	Oracle Management Server is Down
-	JVMD Engine is Down
-	 return value is : 0
+		```
+		$ rm -rdf /scratch/[user-acount]/view_storage/
+		```
 
-	The command is /scratch/u01/software/em/middleware/bin/omsca delete -full -OMSNAME EMGC_OMS1 -AS_USERNAME weblogic -REP_CONN_STR "(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1519)))(CONNECT_DATA=(SERVICE_NAME=orcl19pdb.dev3sub1phx.databasede3phx.oraclevcn.com)))"
+		Switch to `root` if permission denied while deleting any files and directories. 
+	
+	1. `Exit` from root user.
 
-	The oms delete will take sometime. Wait for the completion of the execution. Don't abort the execution.
+	## Remove old EM binaries image
 
-	log4j:WARN No appenders could be found for logger (emctl.secure.oms.SecureOMSCmds).
-	log4j:WARN Please initialize the log4j system properly.
-	log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
-	Oracle Enterprise Manager Cloud Control 13c Release 13.5.0.0.0
-	Copyright (c) 1996, 2021, Oracle. All rights reserved.
+	You do either of the following:
 
-	Do You really want to delete the OMS (Y|N):
-		RCU Logfile: /scratch/u01/software/em/middleware/cfgtoollogs/cfgfw/logs/emsecrepmgr.log
+	 - Run `deinstall` manually
+	 - Deinstall using a script
 
-	Processing command line ....
-	Repository Creation Utility - Checking Prerequisites
-	Checking Global Prerequisites
-	Repository Creation Utility - Checking Prerequisites
-	Checking Component Prerequisites
-	Repository Creation Utility - Drop
-	Repository Drop in progress.
-			Percent Complete: 22
-			Percent Complete: 47
-	Dropping Oracle Platform Security Services(OPSS)
-			Percent Complete: 49
-	Dropping tablespaces in the repository database
-			Percent Complete: 100
+		----
+		## Run `deinstall` manually - for old EM
 
-	Repository Creation Utility: Drop - Completion Summary
+		1. Create a temporary directory.
+			```
+			$ <copy>mkdir /scratch/u01/tmp01</copy>
+			```
 
-	Database details:
-	-----------------------------
-	Connect Descriptor                           : (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1519)))(CONNECT_DATA=(SERVICE_NAME=orcl19pdb.dev3sub1phx.databasede3phx.oraclevcn.com)))
-	Connected As                                 : sys
-	Prefix for (prefixable) Schema Owners        : SYSMAN122140
-	RCU Logfile                                  : /scratch/u01/software/em/middleware/cfgtoollogs/cfgfw/logs/emsecrepmgr.log
+		1. Copy `<EM_HOME>/sysman/install/EMDeinstall.pl` to the temporary directory.
 
-	Component schemas dropped:
-	-----------------------------
-	Component                                    Status         Logfile		
+			**Example**
+			```
+			$ <copy>cp /scratch/u01/software/em/middleware/sysman/install/EMDeinstall.pl /scratch/u01/tmp01</copy>
+			```
 
-	Oracle Platform Security Services            Success        /scratch/u01/software/em/middleware/cfgtoollogs/cfgfw/logs/opss.log
+		1. Run the `deinstall` command.
 
-	Repository Creation Utility - Drop : Operation Completed
-	OMS Deleted successfully
+			**Syntax**
+			```
+			$ <EM_HOME>/perl/bin/perl <temporary_location>/EMDeinstall.pl -mwHome <EM_HOME> -stageLoc <temporary_location>
+			```
 
-	 return value is : 0
+			**Example**
+			```
+			$ <copy>
+			/scratch/u01/software/em/middleware/perl/bin/perl /scratch/u01/tmp_emccdeinstall/EMDeinstall.pl -mwHome /scratch/u01/software/em/middleware -stageLoc /scratch/u01/tmp01
+			</copy>
+			```
 
-	Running the command /scratch/u01/software/em/middleware/sysman/admin/emdrep/bin/RepManager -action drop -dbUser sys -dbRole sysdba -connectString "(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1519)))(CONNECT_DATA=(SERVICE_NAME=orcl19pdb.dev3sub1phx.databasede3phx.oraclevcn.com)))" -mwHome /scratch/u01/software/em/middleware -mwOraHome /scratch/u01/software/em/middleware -oracleHome /scratch/u01/software/em/middleware
+			```
+			Refer to /scratch/u01/tmp01/deinstall_2023-03-21_16-14-58.log for deinstall log
+			The home /scratch/u01/software/em/middleware is not configured. Do you want to delete the home? Confirm (y/n):y
+			User confirmed for deinstallation.
+			 The command executed is /scratch/u01/software/em/middleware/oui/bin/detachHome.sh
+			Launcher log file is /tmp/OraInstall2023-03-21_04-15-10PM/launcher2023-03-21_04-15-10PM.log.
+			Checking swap space: must be greater than 500 MB.   Actual 18095 MB    Passed
+			Checking if this platform requires a 64-bit JVM.   Actual 64    Passed (64-bit not required)
+			detachHome was successful.
+			Logs successfully copied to /scratch/u01/app/oraInventory/logs.
+			 return value is : 0
 
-	Repository drop will take sometime. Wait for the completion of the execution. Don't abort the execution.
+			Deleting the em home
+			The deinstallation of OMS is successful.
 
-	stty: 'standard input': Inappropriate ioctl for device
-	stty: 'standard input': Inappropriate ioctl for device
-	stty: 'standard input': Inappropriate ioctl for device
-	stty: 'standard input': Inappropriate ioctl for device
+			The location of the file is : /etc/oragchomelist
+			```
 
-	java.sql.SQLException: ORA-01017: invalid username/password; logon denied
-			at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:509)
-			at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:456)
-			at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:451)
-			at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1040)
-			at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:552)
-			at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:550)
-			at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:268)
-			at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:501)
-			at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1292)
-			at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1025)
-			at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:743)
-			at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:793)
-			at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:57)
-			at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:747)
-			at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:562)
-			at java.sql.DriverManager.getConnection(DriverManager.java:664)
-			at java.sql.DriverManager.getConnection(DriverManager.java:208)
-			at oracle.sysman.emdrep.schemamanager.EMConnectionHelper.createConnection(EMConnectionHelper.java:234)
-			at oracle.sysman.emdrep.schemamanager.EMConnectionHelper.createConnection(EMConnectionHelper.java:151)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getConnection(EMSchemaManager.java:1246)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getConnection(EMSchemaManager.java:1210)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getConnection(EMSchemaManager.java:909)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.<init>(EMSchemaManager.java:276)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getEMSchemaManager(EMSchemaManager.java:1028)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getEMSchemaManager(EMSchemaManager.java:997)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.main(EMSchemaManager.java:1647)
-	java.sql.SQLException: ORA-01017: invalid username/password; logon denied
-			at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:509)
-			at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:456)
-			at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:451)
-			at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1040)
-			at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:552)
-			at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:550)
-			at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:268)
-			at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:501)
-			at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1292)
-			at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1025)
-			at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:743)
-			at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:793)
-			at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:57)
-			at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:747)
-			at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:562)
-			at java.sql.DriverManager.getConnection(DriverManager.java:664)
-			at java.sql.DriverManager.getConnection(DriverManager.java:208)
-			at oracle.sysman.emdrep.schemamanager.EMConnectionHelper.createConnection(EMConnectionHelper.java:234)
-			at oracle.sysman.emdrep.schemamanager.EMConnectionHelper.createConnection(EMConnectionHelper.java:166)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getConnection(EMSchemaManager.java:1246)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getConnection(EMSchemaManager.java:1210)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getConnection(EMSchemaManager.java:909)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.<init>(EMSchemaManager.java:276)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getEMSchemaManager(EMSchemaManager.java:1028)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getEMSchemaManager(EMSchemaManager.java:997)
-			at oracle.sysman.emdrep.schemamanager.EMSchemaManager.main(EMSchemaManager.java:1647)
-	processing arguments
-	compiling arguments for validation
-	 Enter sys user password   :
-	Verify :
-	Performing PreDropAll action...
-	Enter password for: sys
-	connection properties were
-	{user=sys, password=Welcome_1, internal_logon=SYSDBA}
-	connection properties were
-	{user=sys, password=Welcome_1, internal_logon=SYSDBA}
-	Error found: SQL exception - error has occured during the execution. The error trace message is
-	 java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+		----
+		## Deinstall using script - for old EM
 
-	The Connect Descriptor was (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com)(PORT=1519)))(CONNECT_DATA=(SERVICE_NAME=orcl19cpdb.dev1sub1phx.databasede1phx.oraclevcn.com)))
-	.
-	PreDropAll action failed. return value is : 0
-	The command executed is /scratch/u01/software/em/middleware/oui/bin/detachHome.sh
-	Launcher log file is /tmp/OraInstall2022-11-10_01-27-43PM/launcher2022-11-10_01-27-43PM.log.
-	Checking swap space: must be greater than 500 MB.   Actual 18191 MB    Passed
-	Checking if this platform requires a 64-bit JVM.   Actual 64    Passed (64-bit not required)
-	detachHome was successful.
-	Logs successfully copied to /scratch/u01/app/oraInventory/logs.
-	 return value is : 0
+		For this, you require the *`deinstall_em.sh`* script at the `/scratch/[user-account]/[path-to-script]/working-commands` location.
 
-	Deleting the instance home
-	Deleting the em home
-	The deinstallation of OMS is successful.
+		1. Run the script `deinstall_em.sh`. 
 
-	The location of the file is : /etc/oragchomelist
-	```
+			```
+			$ <copy>sh /scratch/[user-account]/[path-to-script]/working-commands/deinstall_em.sh</copy>
+			```
+
+			A log file is generated to capture the deinstallation process.
+
+			```
+			Refer to /scratch/u01/tmp_emccdeinstall/deinstall_2022-11-09_11-16-55.log for deinstall log
+			Substring valuye is /scratch/u01/software/em/gc_inst
+			This is a First OMS install. So, this deinstalls the OMS , Repository and Agent. Confirm (y/n) y
+			```
+
+		1. Enter ***y*** to confirm deinstalling OMS, Repository, and Agent.
+
+			```
+			User confirmed for deinstallation.
+			```
+
+		1. Enter the passwords provided at the time of EM installation<if type="hidden">, *Welcome_1*</if>.
+
+			```
+			Enter the SYS Password :
+			Enter the sysman Password :
+			Enter the Admin Server password :
+			```
+
+			The system proceeds with the deinstallation.
+
+			----
+			## View deinstall output
+
+			```
+			dbConnectStr - (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=[example.localhost.com])(PORT=1519)))(CONNECT_DATA=(SERVICE_NAME=orcl19pdb.localhost.com)))
+			The command executed is /scratch/u01/software/em/agent/agent_13.5.0.0.0/perl/bin/perl /scratch/u01/software/em/agent/agent_13.5.0.0.0/sysman/install/AgentDeinstall.pl -agentHome /scratch/u01/software/em/agent/agent_13.5.0.0.0
+			Mar 21, 2023 2:59:40 PM oracle.sysman.agent.installer.AgentInstaller$StreamGobbler run
+			INFO: Oracle Enterprise Manager Cloud Control 13c Release 5  
+			Mar 21, 2023 2:59:40 PM oracle.sysman.agent.installer.AgentInstaller$StreamGobbler run
+			INFO: Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
+			Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentInstaller$StreamGobbler run
+			INFO: Stopping agent ... stopped.
+			Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentInstaller$StreamGobbler run
+			INFO: Plugin homes:
+			Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentInstaller$StreamGobbler run
+			INFO: Plugin homes:
+			Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentInstaller execCommand
+			SEVERE: STDERR:
+
+			STDOUT=
+
+			Oracle Enterprise Manager Cloud Control 13c Release 5  
+			Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
+			Stopping agent ... stopped.
+			Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentDeinstallation main
+			INFO: Creating directory /scratch/u01/software/em/agent/agent_13.5.0.0.0/install/tmp completed successfully.
+			Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentDeinstallation main
+			INFO: File /etc/oragchomelist exists.
+			Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentDeinstallation main
+			INFO: File /etc/oragchomelist is writable.
+			Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentDeinstallation main
+			INFO: Index :-1 for line : /scratch/u01/software/em/middleware
+			Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentDeinstallation main
+			INFO: Index :0 for line : /scratch/u01/software/em/agent/agent_13.5.0.0.0:/scratch/u01/software/em/agent/agent_inst
+			Mar 21, 2023 2:59:47 PM oracle.sysman.agent.installer.AgentDeinstallation main
+			INFO: Overwriting the contents since oracle home:/scratch/u01/software/em/agent/agent_13.5.0.0.0 entry already exists.
+
+			The command is /scratch/u01/software/em/middleware/bin/emctl stop oms
+
+			 Stopping oms............ Wait for the completion of the execution.
+			Oracle Enterprise Manager Cloud Control 13c Release 5  
+			Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
+			Stopping Oracle Management Server...
+			Oracle Management Server Successfully Stopped
+			Oracle Management Server is Down
+			JVMD Engine is Down
+			 return value is : 0
+
+			The command is /scratch/u01/software/em/middleware/bin/omsca delete -full -OMSNAME EMGC_OMS1 -AS_USERNAME weblogic -REP_CONN_STR "(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=[example.localhost.com])(PORT=1519)))(CONNECT_DATA=(SERVICE_NAME=orcl19pdb.localhost.com)))"
+
+			The oms delete will take sometime. Wait for the completion of the execution. Don't abort the execution.
+
+			log4j:WARN No appenders could be found for logger (emctl.secure.oms.SecureOMSCmds).
+			log4j:WARN Please initialize the log4j system properly.
+			log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+			Oracle Enterprise Manager Cloud Control 13c Release 13.5.0.0.0
+			Copyright (c) 1996, 2021, Oracle. All rights reserved.
+
+			Do You really want to delete the OMS (Y|N):
+				RCU Logfile: /scratch/u01/software/em/middleware/cfgtoollogs/cfgfw/logs/emsecrepmgr.log
+
+			Processing command line ....
+			Repository Creation Utility - Checking Prerequisites
+			Checking Global Prerequisites
+			Repository Creation Utility - Checking Prerequisites
+			Checking Component Prerequisites
+			Repository Creation Utility - Drop
+			Repository Drop in progress.
+					Percent Complete: 22
+					Percent Complete: 47
+			Dropping Oracle Platform Security Services(OPSS)
+					Percent Complete: 49
+			Dropping tablespaces in the repository database
+					Percent Complete: 100
+
+			Repository Creation Utility: Drop - Completion Summary
+
+			Database details:
+			-----------------------------
+			Connect Descriptor                           : (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=[example.localhost.com])(PORT=1519)))(CONNECT_DATA=(SERVICE_NAME=orcl19pdb.localhost.com)))
+			Connected As                                 : sys
+			Prefix for (prefixable) Schema Owners        : SYSMAN122140
+			RCU Logfile                                  : /scratch/u01/software/em/middleware/cfgtoollogs/cfgfw/logs/emsecrepmgr.log
+
+			Component schemas dropped:
+			-----------------------------
+			Component                                    Status         Logfile		
+
+			Oracle Platform Security Services            Success        /scratch/u01/software/em/middleware/cfgtoollogs/cfgfw/logs/opss.log
+
+			Repository Creation Utility - Drop : Operation Completed
+			OMS Deleted successfully
+
+			 return value is : 0
+
+			Running the command /scratch/u01/software/em/middleware/sysman/admin/emdrep/bin/RepManager -action drop -dbUser sys -dbRole sysdba -connectString "(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=[example.localhost.com])(PORT=1519)))(CONNECT_DATA=(SERVICE_NAME=orcl19pdb.localhost.com)))" -mwHome /scratch/u01/software/em/middleware -mwOraHome /scratch/u01/software/em/middleware -oracleHome /scratch/u01/software/em/middleware
+
+			Repository drop will take sometime. Wait for the completion of the execution. Don't abort the execution.
+
+			stty: 'standard input': Inappropriate ioctl for device
+			stty: 'standard input': Inappropriate ioctl for device
+			stty: 'standard input': Inappropriate ioctl for device
+			stty: 'standard input': Inappropriate ioctl for device
+
+			java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+					at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:509)
+					at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:456)
+					at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:451)
+					at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1040)
+					at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:552)
+					at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:550)
+					at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:268)
+					at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:501)
+					at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1292)
+					at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1025)
+					at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:743)
+					at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:793)
+					at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:57)
+					at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:747)
+					at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:562)
+					at java.sql.DriverManager.getConnection(DriverManager.java:664)
+					at java.sql.DriverManager.getConnection(DriverManager.java:208)
+					at oracle.sysman.emdrep.schemamanager.EMConnectionHelper.createConnection(EMConnectionHelper.java:234)
+					at oracle.sysman.emdrep.schemamanager.EMConnectionHelper.createConnection(EMConnectionHelper.java:151)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getConnection(EMSchemaManager.java:1246)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getConnection(EMSchemaManager.java:1210)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getConnection(EMSchemaManager.java:909)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.<init>(EMSchemaManager.java:276)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getEMSchemaManager(EMSchemaManager.java:1028)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getEMSchemaManager(EMSchemaManager.java:997)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.main(EMSchemaManager.java:1647)
+			java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+					at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:509)
+					at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:456)
+					at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:451)
+					at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1040)
+					at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:552)
+					at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:550)
+					at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:268)
+					at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:501)
+					at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1292)
+					at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1025)
+					at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:743)
+					at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:793)
+					at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:57)
+					at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:747)
+					at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:562)
+					at java.sql.DriverManager.getConnection(DriverManager.java:664)
+					at java.sql.DriverManager.getConnection(DriverManager.java:208)
+					at oracle.sysman.emdrep.schemamanager.EMConnectionHelper.createConnection(EMConnectionHelper.java:234)
+					at oracle.sysman.emdrep.schemamanager.EMConnectionHelper.createConnection(EMConnectionHelper.java:166)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getConnection(EMSchemaManager.java:1246)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getConnection(EMSchemaManager.java:1210)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getConnection(EMSchemaManager.java:909)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.<init>(EMSchemaManager.java:276)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getEMSchemaManager(EMSchemaManager.java:1028)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.getEMSchemaManager(EMSchemaManager.java:997)
+					at oracle.sysman.emdrep.schemamanager.EMSchemaManager.main(EMSchemaManager.java:1647)
+			processing arguments
+			compiling arguments for validation
+			 Enter sys user password   :
+			Verify :
+			Performing PreDropAll action...
+			Enter password for: sys
+			connection properties were
+			{user=sys, password=Welcome_1, internal_logon=SYSDBA}
+			connection properties were
+			{user=sys, password=Welcome_1, internal_logon=SYSDBA}
+			Error found: SQL exception - error has occured during the execution. The error trace message is
+			 java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+			The Connect Descriptor was (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=[example.localhost.com])(PORT=1519)))(CONNECT_DATA=(SERVICE_NAME=orcl19cpdb.localhost.com)))
+			.
+			PreDropAll action failed. return value is : 0
+			The command executed is /scratch/u01/software/em/middleware/oui/bin/detachHome.sh
+			Launcher log file is /tmp/OraInstall2022-11-10_01-27-43PM/launcher2022-11-10_01-27-43PM.log.
+			Checking swap space: must be greater than 500 MB.   Actual 18191 MB    Passed
+			Checking if this platform requires a 64-bit JVM.   Actual 64    Passed (64-bit not required)
+			detachHome was successful.
+			Logs successfully copied to /scratch/u01/app/oraInventory/logs.
+			 return value is : 0
+
+			Deleting the instance home
+			Deleting the em home
+			The deinstallation of OMS is successful.
+
+			The location of the file is : /etc/oragchomelist
+			```
 
 ## Troubleshooting
 
  - For installation related issues, check the log file under `/tmp/OraInstalldate_time/Installdate_time.log`
 
 	----
-	## ADE view - Shiphome installation failed
+	## ADE views: Shiphome installation failed
 
-	**Problem statement**  
-	You try installing EM using the shiphome setup `setupview -config shiphome` but it failed.
+	 - You try installing EM using the shiphome setup *`setupview -config shiphome`* but you hit Mayday. The installation can fail due to various reasons.
 
-	- Error in shiphome setup
+		----
+		## Scenario: Unable to create view because it already exists
 
-		## View error
+		**Problem statement**   
+		You run the following command to create a view.
+
+		```
+		$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230 135ru15</copy>
+		```
+
+		It returns an error that the view already exists.
+
+		```
+		$ ade ERROR: Already view Exists;Please specify alternate view name or use -force option
+		```
+
+		**Solution 1**    
+		Use the *`-force`* option as suggested.
+
+		```
+		$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230 135ru15 -force</copy>
+		```
+
+		```
+		Connecting to Repository... Connected.
+		View [user-account]_135ru15 in /scratch/[user-account]/view_storage/[user-account]_135ru15 will be refreshed to
+		label EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230 (the server /ade_autofs/ud322_em/EMGC_13.5.0.0.0-RU-15_LINUX.X64.rdd/230520.2230).
+		Using label default pop_dir_list: emdev/pub,emdev/test/triage/test/src,emdev/test/triage/bin,emagent/test/src/utl,emcore/test/src/eml/tvmlp/tvmlpdp,emcore/test/src/provision/utl,emcore/test/src/tvmg/tvmga,emcore/test/src/tvmg/tvmgp/tvmgpc/cmn
+		The view [user-account]_135ru15 in /scratch/[user-account]/view_storage/[user-account]_135ru15 has been created.
+		```
+
+		**Solution 2**    
+		Delete the current view and re-create a new view.
+
+		```
+		$ <copy>ade destroyview 135ru15</copy>
+		```
+
+		Enter *yes* when prompted.
+
+		```
+		Continue destroy view [user-account]_135ru16 ? [yes/no] Enter yes
+		Renaming /scratch/[user-account]/view_storage/[user-account]_135ru16 to /scratch/[user-account]/view_storage/[user-account]_135ru16#zombie ...
+		Removing /scratch/[user-account]/view_storage/[user-account]_135ru16#zombie in the background ...
+		View [user-account]_135ru16 successfully destroyed;
+		Garbage collection of old view storage will take a few minutes,
+		but will not adversely affect other ADE commands.
+		```
+
+		After deleting the view, you can start afresh.
+
+		----
+		## Scenario: Create view failed - permission denied 
+
+		**Problem statement**   
+		 - You try creating a view using `ade createview ABC` but it failed with a warning stating permission denied.
+
+			```
+			ade createview -label EMGC_13.5.0.0.0-RU-14_LINUX.X64_230329.0325 135ru14
+			```
+
+			## View error
+
+			```
+			Connecting to Repository... Connected.
+			View [user-account]_135ru14 in /scratch/[user-account]/view_storage/[user-account]_135ru14 will be refreshed to
+			label EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102 (the server /ade_autofs/ud322_em/EMGC_13.5.0.0.0-RU-14_LINUX.X64.rdd/230304.0102).
+			Using label default pop_dir_list: emdev/pub,emdev/test/triage/test/src,emdev/test/triage/bin,emagent/test/src/utl,emcore/test/src/eml/tvmlp/tvmlpdp,emcore/test/src/provision/utl,emcore/test/src/tvmg/tvmga,emcore/test/src/tvmg/tvmgp/tvmgpc/cmn
+			ade WARNING: cannot open file '/ade_autofs/ud322_em/EMGC_ABC.rdd/230304.0102/emgc/s_setup_env.pl' : Permission denied
+			Createview did not complete. Cleaning up the traces...
+			```
+
+		**What went wrong**   
+		You do not have the permissions to install EM (or access the setup PL file) because your user account does not belong to the required group.
+
+		**What to do**   
+		 - Verify that your user account is a part of the access groups that can run the setup. Request for entitlements in OIM required for EM installation. 
+
+			- For RU 22, you require `FMW_CODE_ACCESS_RO`
+			- For RU 14/15, you require `EM_TEST_ACCESS`
+
+		You already have the access privileges in OIM, yet the setup says you do not have them?
+
+		Restart the VNC Server for the new privileges to take effect.
+
+		1. Delete the folders under `/scratch/[user-acount]/work/` and `/scratch/[user-acount]/view_storage/`.
+
+			```
+			$ rm -rdf [directory-name]
+			```
+
+			You might have to switch to `root` for deleting some files and directories, and exit from root user.
+
+		1. Stop the VNC server. 
+
+			```
+			$ vncserver -kill :x
+			or
+			$ kill pidof vncserver
+			```
+
+		1. Start VNC Server (from your user account not as `root`).
+
+			> **Reason**: VNC was already running or had started before the LDAP update. Hence, VNC does not know of the changes to your access privileges.
+
+		----
+		## Scenario: Setup crashed shortly after it started
+
+		**Problem statement**   
+		The installation crashed after only a few minutes.
 
 		```
 		setupview 1.0-65
@@ -1282,24 +1517,24 @@ A log file is generated to capture the deinstallation process.
 		Using the shiphome configuration.
 
 		Setup command used is:
-			/ade/jayapsub_135ru14/emdev/test/triage/bin/runtest -setupview -config shiphome
+			/ade/[user-account]_135ru14/emdev/test/triage/bin/runtest -setupview -config shiphome
 
 		View setup started at: Thu Jun  1 09:47:44 2023
 
 		Progress can be monitored in:
-		  /ade/jayapsub_135ru14/emgc/setupview.log
+		  /ade/[user-account]_135ru14/emgc/setupview.log
 
 		 Elapsed time: 0:07:03
 
 
 		The view setup log is available in:
-		  /ade/jayapsub_135ru14/emgc/triage/work/setupview.log
+		  /ade/[user-account]_135ru14/emgc/triage/work/setupview.log
 
 
 		View setup has failed. For details on the failure,
-		please see /ade/jayapsub_135ru14/emgc/triage/work/*.dif.
+		please see /ade/[user-account]_135ru14/emgc/triage/work/*.dif.
 
-		> /ade/jayapsub_135ru14/emgc/triage/work/check_setup.dif
+		> /ade/[user-account]_135ru14/emgc/triage/work/check_setup.dif
 		0a1,145
 		> ERROR :Unzipping Shiphome has failed on label 230304.0102: UNZIP_SHIP_EMGC.
 		> ERROR: Installer execution failed (1).
@@ -1313,57 +1548,55 @@ A log file is generated to capture the deinstallation process.
 		> Tue Mar 21 17:23:29 UTC 2023
 		> actionStepCheck pre_make_setup status is 0
 		> Tue Mar 21 17:23:40 UTC 2023
-		> Running /ade/jayapsub_135ru14/emgc/test/triage/test/src/make_setup.shiphome
+		> Running /ade/[user-account]_135ru14/emgc/test/triage/test/src/make_setup.shiphome
 		> Using Installed DB for Repository
 		> Running Shiphome runs using farm submit -config shiphome command
 		> Topology Used : 97760
 		> /ade_autofs/ade_infra/AIME_MAIN_LINUX.rdd/230318.2300/dte/DTE
 		> AUTO_HOME=/ade_autofs/ade_infra/AIME_MAIN_LINUX.rdd/230318.2300/dte/DTE
-		> EXTRA_PARAMS=-p LINUX.X64 -s /home/jayapsub -noalways HOME=/home/jayapsub
+		> EXTRA_PARAMS=-p LINUX.X64 -s /home/[user-account] -noalways HOME=/home/[user-account]
 		> VIEW_SERIES is EMGC_13.5.0.0.0-RU-14_LINUX.X64
-		> EXTRA_PARAMS=-p LINUX.X64 -s /home/jayapsub -noalways
+		> EXTRA_PARAMS=-p LINUX.X64 -s /home/[user-account] -noalways
 		>  HOSTTYPE value is x86_64
-		> JDK15HOME= & JAVA_HOME=/ade/jayapsub_135ru14/oracle/jdk
-		> JDK15HOME= & JAVA_HOME=/ade/jayapsub_135ru14/oracle/jdk
+		> JDK15HOME= & JAVA_HOME=/ade/[user-account]_135ru14/oracle/jdk
+		> JDK15HOME= & JAVA_HOME=/ade/[user-account]_135ru14/oracle/jdk
 		> Fetching Shiphome Details for topoid: 97760 in Non REMOTE_OMS case using get_my_shiphomes
-		> INSTALL_PARAMS=DB_18X000_GOLDIMG_LOC=/net/phxnas204.strgsvcdaiphx.peocorpphxappv1.oraclevcn.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/18.3.0.0.0/PRODUCTION/LINUX.X64_18.3_db_home.zip
-		> EXTRA_PARAMS=-p LINUX.X64 -s /home/jayapsub -noalways DB_18X000_GOLDIMG_LOC=/net/phxnas204.strgsvcdaiphx.peocorpphxappv1.oraclevcn.com/export/pd_shiphomes/shiphomes/rdbms/linux.x64/18.3.0.0.0/PRODUCTION/LINUX.X64_18.3_db_home.zip
-		> Existing entries in oratab for jayapsub is
+		> INSTALL_PARAMS=DB_18X000_GOLDIMG_LOC=/net/phxnas.abc.com/[path-to-goldimg-18.3]/LINUX_db_home.zip
+		> EXTRA_PARAMS=-p LINUX.X64 -s /home/[user-account] -noalways DB_18X000_GOLDIMG_LOC=/net/phxnas.abc.com/[path-to-goldimg-18.3]/LINUX_db_home.zip 
+		> Existing entries in oratab for [user-account] is
 		> Cleaning oratab entries
-		> Workaround for pid 956988 Unset EMSTATE=/ade/jayapsub_135ru14/oracle/work/agentStateDir
+		> Workaround for pid 956988 Unset EMSTATE=/ade/[user-account]_135ru14/oracle/work/agentStateDir
 		> Workaround for pid 9742422 unset EMSTATE=
 
 		View setup finished at: Tue Mar 21 17:30:48 2023
 
 
 		WARNING *** Since this setupview failed or was interrupted, recommend running "cleanview [-preserve_build]" (not "ade cleanview") before the next run of setupview
-				*** See also /ade/jayapsub_135ru14/saved_logs/setupview_history.log
+				*** See also /ade/[user-account]_135ru14/saved_logs/setupview_history.log
 		```
 
-		You also checked the contents of the setup log file.
+		You checked the contents of the setup log file.
 
 		```
-		cat /ade/jayapsub_135ru14/saved_logs/setupview_history.log
+		$ cat /ade/[user-account]_135ru14/saved_logs/setupview_history.log
+		```
+
+		```
 		date=06/01/23 09:47:44| message=SETUPVIEW START| label=EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230| timestamp=1685612864
 		date=06/01/23 09:54:50| message=SETUPVIEW END| status=FAIL| label=EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230| timestamp=1685613290
-		date=06/01/23 09:54:50| message=WARNING *** Since this setupview failed or was interrupted, recommend running "cleanview [-preserve_build]" (not "ade cleanview") before the next run of setupview *** See also /ade/jayapsub_135ru14/saved_logs/setupview_history.log
+		date=06/01/23 09:54:50| message=WARNING *** Since this setupview failed or was interrupted, recommend running "cleanview [-preserve_build]" (not "ade cleanview") before the next run of setupview *** See also /ade/[user-account]_135ru14/saved_logs/setupview_history.log
 		date=06/01/23 10:02:26| message=CLEANVIEW END| label=EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230| timestamp=1685613746
 		date=06/01/23 10:04:05| message=SETUPVIEW START| label=EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230| timestamp=1685613845
 		date=06/01/23 10:11:04| message=SETUPVIEW END| status=FAIL| label=EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230| timestamp=1685614264
-		date=06/01/23 10:11:04| message=WARNING *** Since this setupview failed or was interrupted, recommend running "cleanview [-preserve_build]" (not "ade cleanview") before the next run of setupview *** See also /ade/jayapsub_135ru14/saved_logs/setupview_history.log
+		date=06/01/23 10:11:04| message=WARNING *** Since this setupview failed or was interrupted, recommend running "cleanview [-preserve_build]" (not "ade cleanview") before the next run of setupview *** See also /ade/[user-account]_135ru14/saved_logs/setupview_history.log
 		```
 
-	VNC started before the LDAP DBA change. So, terminated and restarted vncserver to update bash. But that did not solve the problem.
-
-	**What to do**  
-	Check the error details and run the setup again.
-
-	1. Go to this location and check the `dif` file.
+		You also checked the error details and the `dif` file. 
 
 		```
 		$ <copy>cd work</copy>
 
-		/ade/jayapsub_135ru14/work
+		/ade/[user-account]_135ru14/work
 		```
 
 		```
@@ -1376,135 +1609,97 @@ A log file is generated to capture the deinstallation process.
 		$ <copy>vi emxt20_shiphome.dif</copy>
 		```
 
-	1. Clean the view
+		You did a `cleanview` but that did not solve the problem.
+
+		**What went wrong**   
+		Your `LDAP DSEE and PDIT NIS` account does not have *dba* as the primary group. 
+
+		**What to do**   
+		Log into OIM and request for the *dba* group. Next, modify your user account to set *dba* as the primary group for your user account.
+
+		----
+		## Scenario: Setup started but crashed midway
+
+		**Problem statement**  
+		The installation started but crashed before completion.
 
 		```
-		$ <copy>cleanview</copy>
+		View setup has failed. For details on the failure,
+		please see /ade/[user-account]_135ru22/emgc/triage/work/*.dif.
+
+		> /ade/[user-account]_135ru22/emgc/triage/work/check_setup.dif
+		0a1,1961
+		> ERROR :Base OMS install has failed on label 240507.0650: OMS_FIRST_EMGC13C.
+		> ERROR :Base OMS install has failed on label 240507.0650: OMS_FIRST_EMGC13C.
+		> *** The installation was Successful, but some configuration assistants were failed or cancelled or skipped. ***
+		> Found failure error message in  /ade/[user-account]_135ru22/oracle/work/OMS_FIRST_EMGC13C/localTaskProcess.log: \*\*\* The installation was Successful, but some configuration assistants were failed or cancelled or skipped. \*\*\*
+		> CA ending line: INFO: oracle.sysman.top.oms:The plug-in OMS Configuration has failed its perform method
+		> *** The installation was Successful, but some configuration assistants were failed or cancelled or skipped. ***
+		> Found failure error message in  /ade/[user-account]_135ru22/oracle/work/OMS_FIRST_EMGC13C/localTaskProcess.log: \*\*\* The installation was Successful, but some configuration assistants were failed or cancelled or skipped. \*\*\*
+		> CA ending line: INFO: oracle.sysman.top.oms:The plug-in OMS Configuration has failed its perform method
+		>  
+		> The setup log is included below for additional diagnostics.
+		>  
+		> Any output below is from the presetup script.
+		> No pre-setup actions were performed.
+		> Day Jun xx 11:22:38 UTC 2024
+		> actionStepCheck pre_make_setup status is 0
+		> Day Jun xx 11:22:48 UTC 2024
+		> Running /ade/[user-account]_135ru22/emgc/test/triage/test/src/make_setup.shiphome
+		> Using Installed DB for Repository
+		> Running Shiphome runs using farm submit -config shiphome command
+		> Topology Used : 97760
+		> /ade_autofs/ud62_fa/AIME_MAIN_LINUX.rdd/240626.0300/dte/DTE
+		> AUTO_HOME=/ade_autofs/ud62_fa/AIME_MAIN_LINUX.rdd/240626.0300/dte/DTE
+		> EXTRA_PARAMS=-p LINUX.X64 -s /home/[user-account] -noalways HOME=/home/[user-account]
+		> VIEW_SERIES is EMGC_PT.13.5.0.0.0-RU-22_LINUX.X64
+		> EXTRA_PARAMS=-p LINUX.X64 -s /home/[user-account] -noalways
+		>  HOSTTYPE value is x86_64-linux
+		> Fetching Shiphome Details for topoid: 97760 in Non REMOTE_OMS case using get_my_shiphomes
+		> INSTALL_PARAMS=DB_18X000_GOLDIMG_LOC=/net/phxnas.abc.com/[path-to-goldimg-18.3]/LINUX_db_home.zip 
+		> EXTRA_PARAMS=-p LINUX.X64 -s /home/[user-account] -noalways DB_18X000_GOLDIMG_LOC=/net/phxnas.abc.com/[path-to-goldimg-18.3]/LINUX_db_home.zip 
+
+		View setup finished at: Day Jun xx 13:18:22 2024
+
+
+		WARNING *** Since this setupview failed or was interrupted, recommend running "cleanview [-preserve_build]" (not "ade cleanview") before the next run of setupview
+				*** See also /ade/[user-account]_135ru22/saved_logs/setupview_history.log
 		```
 
-		```
-		Starting cleanview at Tue Mar 21 17:37:45 UTC 2023
-		Running ade cleanview.  Please wait ...
-		Completed cleanview at Tue Mar 21 17:38:26 UTC 2023
-		Please exit and reenter the view now.
-		```
+		**What to do**
 
-	1. Exit the view.
+		Do a `cleanview` and start the setup again.
 
-		```
-		$ <copy>exit</copy>
-		```
+		----
+		## How to do *cleanview*
 
-	1. Reenter the view.
+		1. Run `cleanview`.  
 
-		```
-		$ <copy>ade useview 135ru14</copy>
-		```
+			```
+			[ user-account_135ru14 ] bash-4.4$ <copy>cleanview</copy>
+			```
 
-		```
-		Binding view to label server ade-fss-em01.strgsvcdaiphx.peocorpphxappv1.oraclevcn.com
-		VIEW_NAME     : jayapsub_135ru14
-		HOST_NAME     : phoenix211284.dev3sub1phx.databasede3phx.oraclevcn.com
-		VIEW_LOCATION : /scratch/jayapsub/view_storage/jayapsub_135ru14
-		VIEW_LABEL    : EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102
-		VIEW_TXN_NAME : NONE
-		VIEW_TXN_MERGE_STATE : NOT MERGING
-		VIEW_REFRESH_STATE   : OK
-		Processing /ade/jayapsub_135ru14/emgc/setup_env.pl
-		Setting perl in view
-		Processing /ade/jayapsub_135ru14/emgc/s_setup_env.pl
-		```
+			```
+			Starting cleanview at Tue Mar 21 17:37:45 UTC 2023
+			Running ade cleanview.  Please wait ...
+			Completed cleanview at Tue Mar 21 17:38:26 UTC 2023
+			Please exit and reenter the view now.
+			```
 
-	1. Run the setup again.
+		1. `Exit` the view.
 
-		```
-		$ <copy>setupview -config shiphome</copy>
-		```
+			```
+			[ user-account_135ru14 ] bash-4.4$ exit
+			exit
+			```
+
+		1. Reenter the view to start again.
+
+			```
+			$ <copy>ade useview 135ru14</copy>
+			```
 
 	To view the results of successful installation, see [shiphome setup (RU latest)](?lab=oracle-em#EMinstallation).
-
-	----
-	## Create view failed - permission denied
-
-	**Problem statement**  
-	You try creating a view using `ade createview xxx` but it failed with a warning stating permission denied.
-
-	- Error in ade createview
-
-		## View error
-
-		```
-		ade createview -label EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102 135ru14
-
-		Connecting to Repository... Connected.
-		View mgarodia_135ru14 in /scratch/mgarodia/view_storage/mgarodia_135ru14 will be refreshed to
-		label EMGC_13.5.0.0.0-RU-14_LINUX.X64_230304.0102 (the server /ade_autofs/ud322_em/EMGC_13.5.0.0.0-RU-14_LINUX.X64.rdd/230304.0102).
-		Using label default pop_dir_list: emdev/pub,emdev/test/triage/test/src,emdev/test/triage/bin,emagent/test/src/utl,emcore/test/src/eml/tvmlp/tvmlpdp,emcore/test/src/provision/utl,emcore/test/src/tvmg/tvmga,emcore/test/src/tvmg/tvmgp/tvmgpc/cmn
-		ade WARNING: cannot open file '/ade_autofs/ud322_em/EMGC_13.5.0.0.0-RU-14_LINUX.X64.rdd/230304.0102/emgc/s_setup_env.pl' : Permission denied
-		Createview did not complete. Cleaning up the traces...
-		```
-
-	**Cause**  
-	You do not have the permissions to access the setup PL file because you are not in the EM test group.
-
-	**What to do**  
-	Go to [OIM](https://oim.oraclecorp.com/identity/faces/home) and request entitlement for -
-
-	 - `EM_TEST_ACCESS`
-
-	----
-	## Unable to create view because it already exists
-
-	**Problem statement**  
-
-	You run the following command to create a view.
-
-	```
-	$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230 135ru15</copy>
-	```
-
-	But it returns an error that the view already exists.
-
-	```
-	$ ade ERROR: Already view Exists;Please specify alternate view name or use -force option
-	```
-
-	**Solution 1**
-
-	Use the *`-force`* option as suggested.
-
-	```
-	$ <copy>ade createview -label EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230 135ru15 -force</copy>
-	```
-
-	```
-	Connecting to Repository... Connected.
-	View mgarodia_135ru15 in /scratch/mgarodia/view_storage/mgarodia_135ru15 will be refreshed to
-	label EMGC_13.5.0.0.0-RU-15_LINUX.X64_230520.2230 (the server /ade_autofs/ud322_em/EMGC_13.5.0.0.0-RU-15_LINUX.X64.rdd/230520.2230).
-	Using label default pop_dir_list: emdev/pub,emdev/test/triage/test/src,emdev/test/triage/bin,emagent/test/src/utl,emcore/test/src/eml/tvmlp/tvmlpdp,emcore/test/src/provision/utl,emcore/test/src/tvmg/tvmga,emcore/test/src/tvmg/tvmgp/tvmgpc/cmn
-	The view mgarodia_135ru15 in /scratch/mgarodia/view_storage/mgarodia_135ru15 has been created.
-	```
-
-	**Solution 2**
-
-	Delete the view and re-create it.
-
-	```
-	$ <copy>ade destroyview 135ru15</copy>
-	```
-
-	Enter yes when prompted.
-
-	```
-	Continue destroy view mgarodia_135ru16 ? [yes/no] Enter yes
-	Renaming /scratch/mgarodia/view_storage/mgarodia_135ru16 to /scratch/mgarodia/view_storage/mgarodia_135ru16#zombie ...
-	Removing /scratch/mgarodia/view_storage/mgarodia_135ru16#zombie in the background ...
-	View mgarodia_135ru16 successfully destroyed;
-	Garbage collection of old view storage will take a few minutes,
-	but will not adversely affect other ADE commands.
-	```
-
-	After deleting the view, you can start afresh.
 
 	----
 	## EM Install: Database prerequisites check
@@ -1583,7 +1778,7 @@ A log file is generated to capture the deinstallation process.
 	$ <copy>xhost</copy>
 
 	access control enabled, only authorized clients can connect
-	SI:localuser:mgarodia
+	SI:localuser:[user-account]
 	```
 
 	Run the EM installer again.
@@ -2053,5 +2248,5 @@ A log file is generated to capture the deinstallation process.
 ## Acknowledgments
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - August 13, (Sun) 2023
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
+ - **Last Updated on** - July 2, (Tue) 2024
+ - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)
