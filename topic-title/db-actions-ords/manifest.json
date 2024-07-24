@@ -1,0 +1,11 @@
+{
+    "workshoptitle": "Labs in MG Library",
+    "tutorials": [
+        {
+            "title": "Lab #: Database Actions - ORDS",
+            "description": "How to install ORDS on a VM or a compute instance running Linux, enable a schema, and log in to the Database Actions console.",
+			"publisheddate": "19-Jul-2024",
+            "filename": "./../../common/lib-cellar/procedures/db-actions-ords/db-actions-ords.md"
+        }
+    ]
+}
