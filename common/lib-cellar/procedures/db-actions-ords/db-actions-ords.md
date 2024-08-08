@@ -934,6 +934,7 @@ Check if:
 
 ## Acknowledgments
 
- - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last updated on** - July 19, (Fri) 2024
+ - **Author** - [](include:author)
+ - **Created on** - July 19, (Fri) 2024
+ - **Last updated on** - July 24, (Wed) 2024
  - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)

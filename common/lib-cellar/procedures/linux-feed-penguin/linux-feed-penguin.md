@@ -53,7 +53,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		bash-4.4$
 		```
 
-	 - Set custom text for prompt
+	 - Set custom text for BASH prompt
 
 		```
 		$ <copy>PS1="MyText> "</copy>
@@ -65,13 +65,41 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ <copy>cp ~/.bashrc ~/.bashrc.bak</copy>
 		```
 
+		Custom CSH prompt -
+
+		```
+		$ <copy>set prompt='%w %D %Y %P %# '</copy>
+		```
+
+		```
+		$ <copy>set prompt="\n%{\033[0;32m%}%n@%m:%{\033[0;33m%}%~%{\033[1;30m%}>%{\033\[1;37m%} "</copy>
+		```
+
+		<!--
+
+		https://superuser.com/questions/399047/customizing-csh-prompt
+
+		First of all, the ${cwd} part isn't giving the full path to the directory I'm in, only the full path to the directory I'm in when .cshrc was sourced. How do I display the current directory?
+
+		Secondly, if I don't include the space at the end of the string the color of the text I type is changed to the color of the directory from the previous part. Is there anyway to do this without adding the space?
+		-->
+
 	 - Add date to Bash prompt
 
 		```
 		$ <copy>export PS1="$(date +\k:\M:\S) $ "</copy>
 		```
+
 		```
 		11:17:24 $
+		```
+
+		```
+		$ <copy>PS1="\u \D{%d-%m-%y - }\t $ "</copy>
+		```
+
+		```
+		your-account 24-07-24 - 10:03:49 $ 
 		```
 
 	 - Add user/host information to Bash prompt
@@ -2360,9 +2388,11 @@ A script begins with -
 
 ## Acknowledgments
 
- - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
+ - **Author** - [](include:author)
+ - **Created on** - November 28, (Mon) 2022
  - **Last Updated on** - September 19, (Tue) 2023
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
+ - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)
+
 
 
 <!--

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab explains how to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 RU 22 shiphome and for 2021 image. It also contains postinstallation checks, steps to remove EM, and some troubleshooting scenarios and tips.
+This lab explains how to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 RU shiphome and for the 2021 image. It also contains postinstallation checks, steps to remove EM, and some troubleshooting scenarios and tips.
 
 ## EM installation
 
@@ -249,6 +249,23 @@ You can install Oracle Enterprise Manager:
 		Processing /ade/[user-account]_135ru22/emgc/setup_env.pl
 		Setting perl in view
 		Processing /ade/[user-account]_135ru22/emgc/s_setup_env.pl
+		[ user-account_135ru22 ] bash-4.4$
+		```
+
+		Before running the EM installation command, you can check details of the view. 
+
+		```
+		[ mgarodia_135ru21 ] bash-5.1$ ade pwv
+		```
+
+		```
+		VIEW_NAME     : [user-account]_135ru21
+		HOST_NAME     : [example.localhost.com]
+		VIEW_LOCATION : /scratch/[user-account]/view_storage/[user-account]_135ru21
+		VIEW_LABEL    : [RU-label]
+		VIEW_TXN_NAME : NONE
+		VIEW_TXN_MERGE_STATE : NOT MERGING
+		VIEW_REFRESH_STATE   : OK
 		```
 
 	1. Install EM shiphome from the view prompt.
@@ -765,7 +782,7 @@ You can install Oracle Enterprise Manager:
 	----
 	## Log in to EM
 
-	Open the EM login page in a web browser - https://example.localhost.com:7803/em.
+	Open the EM login page in a web browser - https://example.localhost.com:7803/em/faces/logon/core-uifwk-console-login.
 
 	![EM login](./images/em-002-login-page.png " ") **Figure**: EM login screen
 
@@ -1943,11 +1960,11 @@ The removal of EM depends on the version installed.
 	----
 	## EM unreachable
 
-		```
-		Checking the connection   
-		Checking the proxy and the firewall   
-		ERR_CONNECTION_REFUSED
-		```
+	```
+	Checking the connection   
+	Checking the proxy and the firewall   
+	ERR_CONNECTION_REFUSED
+	```
 
 	### OMS/Agent errors
 
@@ -2023,7 +2040,7 @@ The removal of EM depends on the version installed.
 	## Start OMS failed
 
 	**Problem statement**   
-	You run the command `./emctl start oms` to start oms but it failed.
+	You try to start OMS from `$OMS_HOME/bin` using `./emctl start oms` but the command failed.
 
 	```
 	$ [OMS_HOME]/bin>./emctl start oms
@@ -2035,6 +2052,14 @@ The removal of EM depends on the version installed.
 	Oracle Management Server is Down
 	JVMD Engine is down
 	```
+
+	OMS home New
+
+	```
+	$ OMS_HOME = <copy>/scratch/[your-account]/work/omshome9344</copy>
+	```
+
+	OMS home Old
 
 	```
 	$ OMS_HOME = <copy>/scratch/u01/software/em/middleware</copy>
@@ -2247,6 +2272,7 @@ The removal of EM depends on the version installed.
 
 ## Acknowledgments
 
- - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
+ - **Author** - [](include:author)
+ - **Created on** - January 6, (Thu) 2022
  - **Last Updated on** - July 2, (Tue) 2024
  - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)

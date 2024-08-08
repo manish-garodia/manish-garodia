@@ -1,6 +1,7 @@
 {
     "workshoptitle": "Labs in my Sandbox",
   "include": {
+        "author": "./../common/intro/files/author.md",
         "test-lab": "./../common/test-labs/test-lab.md"
     },
     "tutorials": [
@@ -21,22 +22,22 @@
         },
         {
             "title": "Lab #: Virtual Machines - Real Actions",
-            "description": "How to access VM and configure VNC.",
+            "description": "Access VMs, set up VNC, and restart VMs with scenarios and troubleshooting tips.",
 			"publisheddate": "03-Dec-2023",
             "filename": "./../common/lib-cellar/procedures/vm-real-axons/vm-real-axons.md",
 			"type": "hidden",
 			"task_type": "Sections"
         },
         {
-            "title": "Lab #: Oracle Database Gold Image",
-            "description": "Pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.",
+            "title": "Lab #: Oracle Database",
+            "description": "How to install Oracle Database on a VM or a compute instance running Linux. It explains some database concepts, preinstallation setup, and postinstallation checks. It also describes the steps to update listener configuration and to deinstall Oracle Database along with some troubleshooting scenarios and tips.",
 			"publisheddate": "31-Oct-2023",
-            "filename": "./../common/lib-cellar/procedures/db-goldimage/db-goldimage.md",
+            "filename": "./../common/lib-cellar/procedures/oracle-db/oracle-db.md",
 			"type": "hidden"
         },
         {
             "title": "Lab #: Oracle Enterprise Manager",
-            "description": "How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 RU 22 shiphome and for 2021 image. It also contains postinstallation checks, steps to remove EM, and some troubleshooting scenarios and tips.",
+            "description": "How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 RU shiphome and for the 2021 image. It also contains postinstallation checks, steps to remove EM, and some troubleshooting scenarios and tips.",
 			"publisheddate": "02-Jul-2024",
             "filename": "./../common/lib-cellar/procedures/oracle-em/oracle-em.md",
 			"type": "hidden"
@@ -83,20 +84,19 @@
 			"task_type": "Sections"
         },
         {
+            "title": "Lab #: Database Actions - ORDS",
+            "description": "How to install ORDS on a VM or a compute instance running Linux, enable a schema, and log in to the Database Actions console.",
+			"publisheddate": "19-Jul-2024",
+            "filename": "./../common/lib-cellar/procedures/db-actions-ords/db-actions-ords.md",
+			"type": "hidden"
+        },
+        {
             "title": "Lab #: Silly little things",
             "description": "General concepts, tips, and tricks on anyting and everything.",
             "filename": "./../common/lib-cellar/misc-concepts/silly-little-things/silly-little-things.md",
 			"publisheddate": "11-Mar-2023",
 			"type": "hidden",
 			"task_type": "Sections"
-        },
-        {
-            "title": "Lab #: GitHub PRs",
-            "description": "History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github.",
-            "filename": "./../common/lib-cellar/misc-concepts/github-pr.md",
-			"publisheddate": "11-Mar-2023",
-			"type": "hidden",
-			"task_type": "Pull Requests"
         },
         {
             "title": "Lab #: Zoom Barabar Zoom",

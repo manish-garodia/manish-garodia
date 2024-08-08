@@ -1,9 +1,12 @@
 {
     "workshoptitle": "Labs in MG Library",
+    "include": {
+        "author": "./../../common/intro/files/author.md"
+    },
     "tutorials": [
         {
             "title": "Lab #: Oracle Enterprise Manager",
-            "description": "How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 RU 22 shiphome and for 2021 image. It also contains postinstallation checks, steps to remove EM, and some troubleshooting scenarios and tips.",
+            "description": "How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 RU shiphome and for the 2021 image. It also contains postinstallation checks, steps to remove EM, and some troubleshooting scenarios and tips.",
 			"publisheddate": "02-Jul-2024",
             "filename": "./../../common/lib-cellar/procedures/oracle-em/oracle-em.md"
         }

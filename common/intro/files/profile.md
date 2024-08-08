@@ -1,1 +1,1 @@
-Linkedin profile: https://www.linkedin.com/in/manish-g-b343253
+GitHub profile: https://github.com/manish-garodia

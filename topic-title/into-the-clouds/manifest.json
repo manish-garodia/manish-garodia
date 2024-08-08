@@ -1,5 +1,8 @@
 {
     "workshoptitle": "Labs in MG Library",
+    "include": {
+        "author": "./../../common/intro/files/author.md"
+    },
     "tutorials": [
         {
             "title": "Lab #: Into the Clouds",

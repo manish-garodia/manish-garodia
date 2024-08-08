@@ -1,18 +1,18 @@
-# Oracle Database Gold Image
+# Oracle Database
 
 ## Introduction
 
-This lab covers the preinstallation setup and postinstallation tasks for Oracle Database gold image. It also discusses the steps to deinstall Oracle Database and some troubleshooting scenarios and tips.
+This lab explains how to install Oracle Database on a VM or a compute instance running Linux. It explains some database concepts, preinstallation setup, and postinstallation checks. It also describes the steps to update listener configuration and to deinstall Oracle Database along with some troubleshooting scenarios and tips.
 
 ## Database concepts
 
 The error *`ORA-12505`* indicates that the listener is up and you can connect to it, but the listener could not connect with the database. The listener is aware of the database, but does not know whether the database is up because the listener has not received any notification from the database that the database is up.
 
-It may be due to the following reasons:
- - the database is not started, that is, the instance is idle
+It can be due to the various reasons:
+ - the database has not started, that is, the database instance is idle
  - the database is not registered with the listener because it started before the listener
 
-When a database starts, it registers itself with the listener if it is already running. If the listener is not running, the database does not register itself.    
+When a database starts, it registers itself with the listener if the listener is already running. If the listener is not running, then the database does not register itself.   
 When a listener starts, it does not go looking for databases that might register with it.
 
  > **Note:** If you try to connect to a wrong database using a wrong SID, then you get   
@@ -26,9 +26,9 @@ The default listener configuration is:
  - **port** - *1521*
 
 **Scenario**   
-You have multiple database versions (18c, 19c, 21c, 23c,...) on the same host. Each database has a listener associated with it. When you start a listener from any `$ORACLE_HOME/bin`, unless you specify the listener name Oracle Net Manager generally starts the default listener. All databases may use the same (default) listener.
+You have different database versions (18c, 19c, 21c, 23ai,...) running on the same host. Each database has a listener associated with it. When you start a listener from any `$ORACLE_HOME/bin`, unless you specify the listener name Oracle Net Manager generally starts the default listener. All databases can use the same (default) listener.
 
-But if you want to use specific listener for each database version, then edit the listener configuration as explained in this lab.
+However, if you want to use a specific listener for each database, then edit the listener configuration as explained in this lab.
 
 ## Preinstallation setup
 
@@ -82,6 +82,8 @@ Oracle Database installers are available internally as gold images.
 		```
 		$ <copy>unzip -q db_home.zip -d /scratch/u01/app/oracle/product/23.0.0/dbhome_unzip01</copy>
 		```
+
+		If you do not specify the `-q` option, then the command displays inflating each and every file. 
 
 	----
 	## Database 21c production
@@ -1888,7 +1890,8 @@ After stopping the listener -
 			/lib64/ld-linux-x86-64.so.2 (0x00007f4e485f4000)
 			libfreebl3.so => /lib64/libfreebl3.so (0x00007f4e472ad000)
 		```
-		 -
+		 - 
+
 			----
 			## screenshot
 
@@ -1911,6 +1914,7 @@ After stopping the listener -
 
 ## Acknowledgments
 
- - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
+ - **Author** - [](include:author)
+ - **Created on** - January 5, (Wed) 2022
  - **Last Updated on** - October 31, (Tue) 2023
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
+ - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)

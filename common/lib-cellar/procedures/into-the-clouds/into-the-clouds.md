@@ -18,7 +18,7 @@ The basic steps for setting up a noVNC environment include -
 1. Prepare the environment with the prerequisites, such as:
     - Create user accounts
 	- Copy files and folders
-    - Install the applications
+    - Install and configure the required applications
 	- Any other requirements
 
 1. Create a custom image and export to the object storage.
@@ -261,6 +261,33 @@ With growing customer needs, Oracle keeps expanding its infrastructure by introd
 
 			```
 			https://bit.ly/wordlist-check-help
+			```
+
+
+		 - PAR URL for *EM image with 23ai*
+
+			Object name - *`em135-ru22-db23ai-20240717`* - created on 17 Jul 2024 Wed, valid till 17 Aug.
+
+			```
+			https://objectstorage.us-ashburn-1.oraclecloud.com/p/MBFAHBTISbSJ0TdjEpv_kWMCnc99qZ8XlvVNbbPSoe_AoOpaaELCYboxkzeRhdg2/n/idrudhdwamji/b/images-for-livelabs-workshops/o/llw-hol-s01-em135-ru22-db23ai
+			```
+
+			New URL
+
+			```
+			https://idrudhdwamji.objectstorage.us-ashburn-1.oci.customer-oci.com/p/MBFAHBTISbSJ0TdjEpv_kWMCnc99qZ8XlvVNbbPSoe_AoOpaaELCYboxkzeRhdg2/n/idrudhdwamji/b/images-for-livelabs-workshops/o/llw-hol-s01-em135-ru22-db23ai
+			```
+
+			Object name - *`llw-hol-s01-em135-ru22-23ai`* - created on 1 Aug 2024 Thu, valid till 30 Aug.
+
+			```
+			https://objectstorage.us-ashburn-1.oraclecloud.com/p/1MCYwa-rWkdVKAx3cuZWg59mKWSCa5i1XT2ZLjXncOjrPxJdP8MLNZUKwZ6983y1/n/idrudhdwamji/b/images-for-livelabs-workshops/o/llw-hol-s01-em135-ru22-23ai
+			```
+
+			New URL
+
+			```
+			https://idrudhdwamji.objectstorage.us-ashburn-1.oci.customer-oci.com/p/1MCYwa-rWkdVKAx3cuZWg59mKWSCa5i1XT2ZLjXncOjrPxJdP8MLNZUKwZ6983y1/n/idrudhdwamji/b/images-for-livelabs-workshops/o/llw-hol-s01-em135-ru22-23ai
 			```
 
 </if>
@@ -942,6 +969,7 @@ chmod g+s /oracle
 
 ## Acknowledgments
 
- - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
+ - **Author** - [](include:author)
+ - **Created on** - January 13, (Thu) 2022
  - **Last Updated on** - April 2, (Sun) 2023
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
+ - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)

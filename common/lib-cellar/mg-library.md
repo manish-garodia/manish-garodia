@@ -22,17 +22,18 @@ Pick a topic from the table to read more about it.
 
 | sl # | Title                         | Description                |
 |------|-------------------------------|----------------------------|
-| 1    | [Virtual Machines - Real Acions](https://manish-garodia.github.io/mg-playground/topic-title/vm-real-axons/) | How to access VM and configure VNC. |
-| 2    | [Oracle Database Gold Image](https://manish-garodia.github.io/mg-playground/topic-title/db-goldimage/) | Pre-installation setup and post installation tasks for Oracle Database gold image. It also discusses some troubleshooting scenarios and tips. |
-| 3    | [Oracle Enterprise Manager](https://manish-garodia.github.io/mg-playground/topic-title/oracle-em/) | How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 2021 image and for RU 14 shiphome. It also contains post installation checks, steps to deinstall EM, and some troubleshooting scenarios and tips. |
-| 4    | [Into the Clouds](https://manish-garodia.github.io/mg-playground/topic-title/into-the-clouds/) | About the features and services in OCI Tenancy, for example, noVNC, compute instance, custom images, object storage, compartments, to name a few |
+| 1    | [Virtual Machines - Real Acions](https://manish-garodia.github.io/mg-playground/topic-title/vm-real-axons/) | Access VMs, set up VNC, and restart VMs with scenarios and troubleshooting tips. |
+| 2    | [Oracle Database](https://manish-garodia.github.io/mg-playground/topic-title/oracle-db/) | How to install Oracle Database on a VM or a compute instance running Linux. It explains some database concepts, preinstallation setup, and postinstallation checks. It also describes the steps to update listener configuration and to deinstall Oracle Database along with some troubleshooting scenarios and tips. |
+| 3    | [Oracle Enterprise Manager](https://manish-garodia.github.io/mg-playground/topic-title/oracle-em/) | How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 RU shiphome and for the 2021 image. It also contains postinstallation checks, steps to remove EM, and some troubleshooting scenarios and tips. |
+| 4    | [Into the Clouds](https://manish-garodia.github.io/mg-playground/topic-title/into-the-clouds/) | About the features and services in OCI tenancy, for example, noVNC, compute instance, custom images, object storage, compartments, to name a few |
 | 5    | [Fun with git-bits](https://manish-garodia.github.io/mg-playground/topic-title/fun-with-git-bits/) | All you need to know about git ![git](./procedures/fun-with-git-bits/images/git-black-small.png) to get going. |
 | 6    | [Hands down in markdown](https://manish-garodia.github.io/mg-playground/topic-title/hands-down-in-md/) | About markdown tags and basic formatting |
 | <if type="hidden">6-a    | [GitHub pull requests](https://manish-garodia.github.io/mg-playground/topic-title/github-pr/) | History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github. </if> |
 | 7    | [Zoom Barabar Zoom](https://manish-garodia.github.io/mg-playground/topic-title/zoom-barabar-zoom/) | How to integrate Zoom with Outlook, add plug-in for Outlook |
 | 8    | [Linux -:- feed the penguin](https://manish-garodia.github.io/mg-playground/topic-title/linux-feed-penguin/) | Get hands dirty with Linux commands, tips, and tricks |
 | 9    | [Wordlist Check conf](https://confluence.oraclecorp.com/confluence/x/XQkasQE) [Wordlist Check lab](https://manish-garodia.github.io/mg-playground/topic-title/wordlist-check/) | A learning tool that checks for disallowed words and incorrect usage in documents according to Oracle's standards and guidelines |
-| 10     | [Silly little things](https://manish-garodia.github.io/mg-playground/topic-title/silly-little-things/) | General concepts, tips, and tricks on anything and everything |
+| 10     | [Database Actions - ORDS](https://manish-garodia.github.io/mg-playground/topic-title/db-actions-ords/) | How to install ORDS on a VM or a compute instance running Linux, enable a schema, and log in to the Database Actions console. |
+| 11     | [Silly little things](https://manish-garodia.github.io/mg-playground/topic-title/silly-little-things/) | General concepts, tips, and tricks on anything and everything |
 | <if type="hidden">9    | Vi Editor | desc |
 | 11    | Terraforms explained | desc </if> |
 | 12    | working on it ... | suggest me some |
@@ -111,6 +112,7 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
 
 ## Acknowledgments
 
- - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
+ - **Author** - [](include:author)
+ - **Created on** - February 1, (Tue) 2022
  - **Last Updated on** - June 9, (Sun) 2024
- - **Questions/Feedback?** - Blame manish.garodia
+ - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)
