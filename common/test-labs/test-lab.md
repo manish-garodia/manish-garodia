@@ -2,7 +2,7 @@ Hello, test me
 
 Ok, tested fine.
 
-test img
+test img 1
 
 ![image title](./../../images/file.png)
 
