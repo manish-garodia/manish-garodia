@@ -2275,4 +2275,4 @@ The removal of EM depends on the version installed.
  - **Author** - [](include:author)
  - **Created on** - January 6, (Thu) 2022
  - **Last Updated on** - July 2, (Tue) 2024
- - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)
+ - **Questions/Feedback?** - Blame [](include:profile)

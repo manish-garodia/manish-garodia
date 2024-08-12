@@ -1917,4 +1917,4 @@ After stopping the listener -
  - **Author** - [](include:author)
  - **Created on** - January 5, (Wed) 2022
  - **Last Updated on** - October 31, (Tue) 2023
- - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)
+ - **Questions/Feedback?** - Blame [](include:profile)

@@ -2391,7 +2391,7 @@ A script begins with -
  - **Author** - [](include:author)
  - **Created on** - November 28, (Mon) 2022
  - **Last Updated on** - September 19, (Tue) 2023
- - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)
+ - **Questions/Feedback?** - Blame [](include:profile)
 
 
 
