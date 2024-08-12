@@ -95,7 +95,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		```
 
 		```
-		$ <copy>PS1="\u \D{%d-%m-%y - }\t $ "</copy>
+		$ <copy>PS1="\u \D{\%d-\%m-\%y - }\t $ "</copy>
 		```
 
 		```
