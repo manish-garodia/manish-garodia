@@ -139,7 +139,7 @@ coming soon... stay tuned
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
  - **Last Updated on** - June 9, (Sun) 2024
- - **Questions/Feedback?** - Blame manish.garodia
+ - **Questions/Feedback?** - Blame [](include:profile)
 
 <if type="hidden"> </if>
 
