@@ -972,4 +972,4 @@ chmod g+s /oracle
  - **Author** - [](include:author)
  - **Created on** - January 13, (Thu) 2022
  - **Last Updated on** - April 2, (Sun) 2023
- - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)
+ - **Questions/Feedback?** - Blame [](include:profile)
