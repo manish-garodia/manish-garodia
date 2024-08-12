@@ -1,1 +1,1 @@
-GitHub profile: https://github.com/manish-garodia
+[@manish.garodia](https://github.com/manish-garodia)

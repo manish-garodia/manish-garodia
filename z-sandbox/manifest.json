@@ -2,6 +2,7 @@
     "workshoptitle": "Labs in my Sandbox",
   "include": {
         "author": "./../common/intro/files/author.md",
+        "profile": "./../common/intro/files/profile.md",
         "test-lab": "./../common/test-labs/test-lab.md"
     },
     "tutorials": [

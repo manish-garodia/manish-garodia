@@ -937,4 +937,4 @@ Check if:
  - **Author** - [](include:author)
  - **Created on** - July 19, (Fri) 2024
  - **Last updated on** - July 24, (Wed) 2024
- - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)
+ - **Questions/Feedback?** - Blame [](include:profile)

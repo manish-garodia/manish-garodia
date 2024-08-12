@@ -1,7 +1,8 @@
 {
     "workshoptitle": "Labs in MG Library",
     "include": {
-        "author": "./../../common/intro/files/author.md"
+        "author": "./../../common/intro/files/author.md",
+        "profile": "./../../common/intro/files/profile.md"
     },
     "tutorials": [
         {

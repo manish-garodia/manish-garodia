@@ -115,4 +115,4 @@ Log in to [imgbb](https://manish-garodia.imgbb.com/) with G-account.
  - **Author** - [](include:author)
  - **Created on** - February 1, (Tue) 2022
  - **Last Updated on** - June 9, (Sun) 2024
- - **Questions/Feedback?** - Blame [@manish.garodia](./../../../intro/files/profile.md)
+ - **Questions/Feedback?** - Blame [](include:profile)
