@@ -808,6 +808,18 @@ You can install Oracle Enterprise Manager:
 	> **Note**: If you forget the database password, dig into the [Admin Guide](https://docs.oracle.com/en/database/oracle/oracle-database/21/admin/index.html) and fish out how to change the password externally.
 
 	----
+	## Check OMS home and agent home
+
+	```
+	$ <copy>cat /etc/oragchomelist </copy>
+	```
+
+	```
+	/scratch/[user-account]/work/omshome9344
+	/scratch/[user-account]/work/agentbase9344/agent_13.5.0.0.0:/scratch/[user-account]/work/agentbase9344/agent_inst
+	```
+
+	----
 	## Check OMS status and details
 
 	<ins>Check OMS status</ins> -
@@ -1042,18 +1054,6 @@ You can install Oracle Enterprise Manager:
 		Copyright (c) 1996, 2021 Oracle Corporation.  All rights reserved.
 		Starting agent ................................................................................... started.
 		```
-
-	----
-	## Check OMS home and agent home
-
-	```
-	$ <copy>cat /etc/oragchomelist </copy>
-	```
-
-	```
-	/scratch/[user-account]/work/omshome9344
-	/scratch/[user-account]/work/agentbase9344/agent_13.5.0.0.0:/scratch/[user-account]/work/agentbase9344/agent_inst
-	```
 
 ## Add targets manually
 
@@ -2274,5 +2274,5 @@ The removal of EM depends on the version installed.
 
  - **Author** - [](include:author)
  - **Created on** - January 6, (Thu) 2022
- - **Last Updated on** - July 2, (Tue) 2024
+ - **Last Updated on** - August 15, (Thu) 2024
  - **Questions/Feedback?** - Blame [](include:profile)
