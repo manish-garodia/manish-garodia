@@ -22,7 +22,6 @@ Pick a topic from the table to read more about it.
 
 | sl # | Title                         | Description                |
 |------|-------------------------------|----------------------------|
-| 1    | [Virtual Machines - Real Acions](https://manish-garodia.github.io/mg-playground/topic-title/vm-real-axons/) | Access VMs, set up VNC, and restart VMs with scenarios and troubleshooting tips. |
 | 2    | [Ways with Oracle Database](https://manish-garodia.github.io/mg-playground/topic-title/oracle-db/) | How to install Oracle Database on a VM or a compute instance running Linux. It explains some database concepts, preinstallation setup, and postinstallation checks. It also describes the steps to update listener configuration and to deinstall Oracle Database along with some troubleshooting scenarios and tips. |
 | 3    | [Oracle Enterprise Manager](https://manish-garodia.github.io/mg-playground/topic-title/oracle-em/) | How to install Oracle Enterprise Manager on a VM running Linux. It covers installation steps for EM 13.5 RU shiphome and for the 2021 image. It also contains postinstallation checks, steps to remove EM, and some troubleshooting scenarios and tips. |
 | 4    | [Into the Clouds](https://manish-garodia.github.io/mg-playground/topic-title/into-the-clouds/) | About the features and services in OCI tenancy, for example, noVNC, compute instance, custom images, object storage, compartments, to name a few |
@@ -37,6 +36,7 @@ Pick a topic from the table to read more about it.
 | <if type="hidden">9    | Vi Editor | desc |
 | 11    | Terraforms explained | desc </if> |
 | 12    | working on it ... | suggest me some |
+{: title="Topics"}
 
 ## oTube : : My *channels* and *videos* : :
 

@@ -116,7 +116,7 @@ Download these using a web browser or from a terminal using CLI.
 
 	Refer [this lab](https://manish-garodia.github.io/mg-playground/topic-title/oracle-db/).
 
-	Skip this if Oracle Database is already installed. 
+	> Skip this if Oracle Database is already installed. 
 
 	----
 	## 4. Check PDB details

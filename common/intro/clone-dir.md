@@ -11,37 +11,22 @@
 
 <div class="heatMap">
 
-| Oracle Livelabs     | Test Env :: Personal space                                                    |
-|---------------------|-------------------------------------------------------------------------------|
-| **new** 		      | [dba-essentials test](./../../../database-livelabs/projects/dba-essentials-test)  |
-| [common](./../../../oracle-livelabs/common) | [MG Library (topics)](./../../../mg-playground/mg-library) |
-| [database](./../../../oracle-livelabs/database) | [start-here](./../../start-here) |
-| [em-omc](./../../../oracle-livelabs/em-omc) | [sandbox](./../../z-sandbox)         |
-|  					| [mg-playground](./../../../mg-playground)  		  |
-|  					| [database-livelabs](./../../../database-livelabs)  		  |
-| **old**     		  | [mg-library (repo)](./../../../mg-library)        |
-| [learning-library](./../../../learning-library)  | [musical-lamp](./../../../musical-lamp) 		  |
+| Oracle Livelabs     | Test Env :: Personal space           | Github Pages                   |
+|---------------------|--------------------------------------|-------------------------------------|
+| **new** 		      | [sandbox](./../../z-sandbox)         | [mg-playground](./../../../mg-playground)                                   |
+| [common](./../../../oracle-livelabs/common)                | [start-here](./../../start-here)    | [database-livelabs](./../../../database-livelabs)   | 
+| [database](./../../../oracle-livelabs/database)   | [topic-title](./../../topic-title/) |        |
+| [em-omc](./../../../oracle-livelabs/em-omc)       | [dba-essentials test](./../../../database-livelabs/projects/dba-essentials-test)  |                                     |
+| **old**                                           | [MG Library (topics)](./../../../mg-playground/mg-library)               |                                              |
+| [learning-library](./../../../learning-library)   | [mg-library (repo)](./../../../bg-manish/mg-library)                   |                                              |
+|                                            | [musical-lamp (repo)](./../../../musical-lamp)  |   |
+{: title="MG clones"}
 
-
-<if type="hidden">
-
-**Oracle Livelabs**
-
- - [learning-library](./../../../learning-library)
- - [common](./../../../oracle-livelabs/common)
- - [em-omc](./../../../oracle-livelabs/em-omc)
-
-**Test Env :: Personal space**
-
- - [dba-essentials test](http://127.0.0.1:3001/mg-playground/projects/dba-essentials-test)
- - [mg-library](./../../../mg-playground/mg-library)
- - [start-here](./../../../mg-playground/start-here)
- - [sandbox](./../../../mg-playground/z-sandbox)
-
-</if>
+</div class="heatMap">
 
 ## Acknowledgments
 
- - **Author** - Manish Garodia, Team Database UAD
- - **Last Updated on** - November 5, (Sat) 2022
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./files/email.md)
+ - **Author** - [](include:author)
+ - **Created on** - November 5, (Sat) 2022
+ - **Last Updated on** - August 25, (Sun) 2024
+ - **Questions/Feedback?** - Blame [](include:profile)

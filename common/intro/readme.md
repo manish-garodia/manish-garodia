@@ -77,7 +77,7 @@ Index of mg space (scope: clone)
 | [clone-dir](http://127.0.0.1:5500)    | `common\intro`                                         |
 | readme [start-here](http://127.0.0.1:5500/mg-playground/start-here/) <if type="hidden">[z-sandbox](http://127.0.0.1:5500/mg-playground/z-sandbox/)</if>             | `common\intro`  		     |
 | [mg-library](http://127.0.0.1:5500/mg-playground/mg-library/)   | `common\lib-cellar`          |
-| [db-goldimage](http://127.0.0.1:5500/mg-playground/topic-title/db-goldimage/)  				 |  `common\lib-cellar\procedures`          |
+| [oracle-db](http://127.0.0.1:5500/mg-playground/topic-title/oracle-db/)  				 |  `common\lib-cellar\procedures`          |
 | [fun-with-git-bits](http://127.0.0.1:5500/mg-playground/topic-title/fun-with-git-bits/)        | `common\lib-cellar\procedures`          |
 |<if type="hidden"> [github-pr](http://127.0.0.1:5500/mg-playground/topic-title/github-pr/)		 | `common\lib-cellar\misc-concepts` </if> |
 | [hands-down-in-md](http://127.0.0.1:5500/mg-playground/topic-title/hands-down-in-md/)          |  `common\lib-cellar\procedures`          |
@@ -137,7 +137,8 @@ coming soon... stay tuned
 
 ## Acknowledgments
 
- - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
+ - **Author** - [](include:author)
+ - **Created on** - December 23, (Thu) 2021
  - **Last Updated on** - June 9, (Sun) 2024
  - **Questions/Feedback?** - Blame [](include:profile)
 
