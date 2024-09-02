@@ -2584,7 +2584,7 @@ The information in this lab revolves around -
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
  - **Last Updated on** - Aug 12, (Sat) 2023
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./intro/files/email.md)
+ - **Questions/Feedback?** - Blame @manish.garodia
 
 <!--
 
