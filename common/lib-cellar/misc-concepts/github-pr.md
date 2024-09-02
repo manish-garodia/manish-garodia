@@ -663,4 +663,4 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
  - **Last Updated on** - March 11, (Sat) 2023
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../intro/files/email.md)
+ - **Questions/Feedback?** - Blame @manish.garodia

@@ -15,7 +15,7 @@
 </i>
 
 ----
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📫 Reach me at [manish.garodia@oracle.com](./files/email.md)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📫 Reach me at @manish.garodia
 
 ## DBA Essentials workshops
 

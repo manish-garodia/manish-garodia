@@ -245,4 +245,4 @@ Output
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
  - **Last Updated on** - May 4, (Thu) 2023
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
+ - **Questions/Feedback?** - Blame @manish.garodia

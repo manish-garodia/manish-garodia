@@ -1,6 +1,6 @@
 # Virtual Machines - Real Actions
 
-## Introduction
+## Introduction - TBD
 
 This lab shows how to access a Virtual Machine (VM) and configure Virtual Network Computing (VNC).
 
@@ -576,4 +576,4 @@ The following steps help you get the VM back in its original running state.
 
  - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
  - **Last Updated on** - December 3, (Sun) 2023
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
+ - **Questions/Feedback?** - Blame @manish.garodia

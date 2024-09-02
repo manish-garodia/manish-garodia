@@ -373,7 +373,7 @@ The next time you open a new terminal window, type *`wordlist-check.sh`* without
 
  - **Author** - Manish Garodia, Team Database UAD
  - **Last updated on** - Aug 11, (Fri) 2023
- - **Questions/Feedback?** - Email [manish.garodia@oracle.com](./intro/files/email.md) or Slack [@mgarodia](https://proddev-database.slack.com/archives/D01NY1FF049)
+ - **Questions/Feedback?** - Email @manish.garodia
 
 <!--
 [wordlist-check.zip](https://bit.ly/wordlist-check-mg)

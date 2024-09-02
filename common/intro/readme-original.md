@@ -2,7 +2,7 @@
 - 👀 I’m interested in GitHub and GitDesktop.  
 - 🌱 I’m from Oracle Database UA development team.
 - 💞️ I’m looking to collaborate on developing workshop on LiveLabs.
-- 📫 Reach me at manish.garodia@oracle.com
+- 📫 Reach me at @manish.garodia
 
 <!---
 manish-garodia/manish-garodia is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

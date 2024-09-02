@@ -11,6 +11,7 @@ coming soon... stay tuned
 
 ## Acknowledgments
 
- - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - March 11, (Sat) 2023
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../intro/files/email.md)
+ - **Author** - [](include:author)
+ - **Created on** - March 11, (Sat) 2023
+ - **Last Updated on** - September 2, (Mon) 2024
+ - **Questions/Feedback?** - Blame [](include:profile)

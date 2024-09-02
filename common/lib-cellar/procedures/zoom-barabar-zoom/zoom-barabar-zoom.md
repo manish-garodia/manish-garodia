@@ -128,5 +128,5 @@ The next time you create a new meeting or an appointment in Outlook, you get an 
 
  - **Author** - Manish Garodia, Team Database UAD
  - **Last Updated on** - April 2, (Sun) 2023
- - **Questions/Feedback?** - Blame [manish.garodia@oracle.com](./../../../intro/files/email.md)
+ - **Questions/Feedback?** - Blame @manish.garodia
 

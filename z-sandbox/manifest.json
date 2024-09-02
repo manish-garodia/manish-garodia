@@ -15,7 +15,7 @@
         },
         {
             "title": "Lab 1: MG Library : tell-me-how",
-            "description": "A collection of topics developed from notes on specific areas. These converge from various sources, for example discussions, trainings, experiments, mistakes, and failures. It also lists down the videos and channels on oTube.",
+            "description": "A backup of learnings and findings developed from experience in different areas. These converge from various sources, for example discussions, trainings, experiments, mistakes, and failures. It also lists down the videos and channels on oTube.",
 			"publisheddate": "09-Jun-2024",
             "filename": "./../common/lib-cellar/mg-library.md",
 			"type": "hidden",

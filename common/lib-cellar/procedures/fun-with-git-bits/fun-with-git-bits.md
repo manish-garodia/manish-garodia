@@ -725,7 +725,7 @@ The information in this lab revolves around -
 		```
 		Warning! `git update` has been deprecated;
 		Please use `git update-git-for-windows` instead.
-		Using proxy server http://manish.garodia%40oracle.com:Oracle.com@www-proxy-idc.in.oracle.com:80 detected from git http.proxy
+		Using proxy server http://username%40org.com:org.com@proxy:port detected from git http.proxy
 		Git for Windows 2.37.1.windows.1 (64-bit)
 		Update 2.41.0.windows.1 is available
 		Download and install Git for Windows v2.41.0.windows.1 [N/y]?
@@ -1091,7 +1091,7 @@ The information in this lab revolves around -
 		Output
 
 		```
-		http://manish.garodia@oracle.com:Oracle.com@www-proxy-idc.in.oracle.com:80
+		http://username@org.com:org.com@proxy:port
 		```
 
 	1.	Syntax
@@ -1100,18 +1100,12 @@ The information in this lab revolves around -
 		$ git config --global http.proxy http[s]://userName:password@proxyaddress.com:port
 		```
 
-		Example
-
-		```
-		$ <copy>git config --global http.proxy http://manish.garodia%40oracle.com:Oracle.com@www-proxy-idc.in.oracle.com:80</copy>
-		```
-
 		> **Note**: Encode `@` in user name with `%40`.
 
 		- <ins>Combined commands</ins>
 
 			```
-			$ <copy>git config --global --unset http.proxy && git config --global --get http.proxy && git config --global http.proxy http://manish.garodia%40oracle.com:Oracle.com@www-proxy-idc.in.oracle.com:80</copy>
+			$ <copy>git config --global --unset http.proxy && git config --global --get http.proxy && git config --global http.proxy http://username%40org.com:org.com@proxy:port</copy>
 			```
 
 	----
@@ -2080,7 +2074,7 @@ The information in this lab revolves around -
 
 		```
 		[detached HEAD 236ec52] WS2 (7141) Released to prod
-		 Author: manish-garodia <manish.garodia@oracle.com>
+		 Author: manish-garodia <email@example.com>
 		 Date: Thu Jan 13 21:26:55 2022 +0530
 		 83 files changed, 1460 insertions(+)
 		 create mode 100644 Live/dba-essentials/em-dba/access-homepage/access-homepage.md
