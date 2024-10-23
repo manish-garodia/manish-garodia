@@ -1559,7 +1559,9 @@ The information in this lab revolves around -
 	This means that your fork is not fully synced with main repo. If you get this message on your fork, how to clean this up without submitting a PR to main repo?
 
 	**What to do**  
-	- Bring your fork repo in sync with main repo (fully up-to-date).
+	- Bring your fork repo in sync with main repo (fully up-to-date). Use GitHub Desktop or GitBash commands to get this resolved. 
+
+		> ***Caution***: Fixing this might discard your changes in the clone repo. It is advisable to take backups before performing these.
 
 	<if type="gitdesktop">
 
@@ -2582,9 +2584,10 @@ The information in this lab revolves around -
 
 ## Acknowledgments
 
- - **Author** - ♏🅰️♑❗💲♓ Team Database UAD
- - **Last Updated on** - Aug 12, (Sat) 2023
- - **Questions/Feedback?** - Blame @manish.garodia
+ - **Author** - [](include:author)
+ - **Created on** - February 5, (Sat) 2022
+ - **Last Updated on** - October 23, (Wed) 2024
+ - **Questions/Feedback?** - Blame [](include:profile)
 
 <!--
 

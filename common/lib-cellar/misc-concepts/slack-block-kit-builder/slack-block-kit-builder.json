@@ -1,3 +1,73 @@
+21 October 2024
+------------------
+
+
+- released workshop 1
+
+
+{
+	"blocks": [
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": ":drum_with_drumsticks:  Published new workshops  :checkered_flag:"
+			}
+		},
+		{
+			"type": "context",
+			"elements": [
+				{
+					"text": ":spiral_calendar_pad:    `October 2024`",
+					"type": "mrkdwn"
+				}
+			]
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":fast_forward:  _*DBA Essentials - Install Oracle Database 23ai*_ \n         _*on OCI Compute*_"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "View Workshop   :eyes:",
+					"emoji": true
+				},
+				"style": "primary",
+				"value": "dba_essentials",
+				"url": "https://livelabs.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=4055",
+				"action_id": "button-action"
+			}
+		},
+		{
+			"type": "context",
+			"elements": [
+				{
+					"type": "mrkdwn",
+					"text": "This workshop helps you install Oracle Database 23ai on a Linux machine and create databases. \n\nThe environment shows two Oracle homes so that users can try both installation options - `Desktop class` and `Server class`. \n\nFurther, users can run DBCA to create databases in each Oracle home. "
+				}
+			]
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "We have this workshop released to production with the brown button. :large_brown_circle: \nThanks to all contributors and teams."
+			}
+		}
+	]
+}
+
+
 20 June 2023
 ------------------
 

@@ -741,6 +741,8 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 	 - Create directories as a <i>tree structure</i>
 
+		Ensure no spaces after the commas. If you have a blank space after a comma, `mkdir` fails with an error - *`Missing '}'`*.
+
 		```
 		$ <copy>mkdir -p food/{icecream/strawberry,fruits,salad,juice/{apple,orange,mixed},soup/chicken/spicy}</copy>
 		```
@@ -2390,7 +2392,7 @@ A script begins with -
 
  - **Author** - [](include:author)
  - **Created on** - November 28, (Mon) 2022
- - **Last Updated on** - September 19, (Tue) 2023
+ - **Last Updated on** - October 23, (Wed) 2024
  - **Questions/Feedback?** - Blame [](include:profile)
 
 

@@ -1,5 +1,0 @@
-You have entered the URL for EMCC in a web browser and logged in as the `sysman` user: https://hostname:portnumber/em.
-
-   ![Image alt text](images/emcc_start_001_url.png)
-
-**Note**: If you get a security certificate warning, ignore the error. Depending on your web browser, click *Advanced* or *More Information* and continue to the login page.
