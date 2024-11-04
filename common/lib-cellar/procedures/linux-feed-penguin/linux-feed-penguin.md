@@ -273,6 +273,10 @@ Get hands dirty with Linux commands, tips, and tricks.
 		```
 
 		```
+		$ <copy>/usr/local/packages/aime/em/run_as_root bash</copy>
+		```
+
+		```
 		$ <copy>sudo su - || (sudo sed -i -e 's|root:x:0:0:root:/root:.*$|root:x:0:0:root:/root:/bin/bash|g' /etc/passwd && sudo su -)</copy>
 		```
 
@@ -511,6 +515,32 @@ Get hands dirty with Linux commands, tips, and tricks.
 
 		```
 		$ <copy>basename "$PWD"</copy>
+		```
+
+	 - List files and directories, excluding hidden ones
+
+		```
+		$ <copy>ls</copy>
+		```
+
+		```
+		$ <copy>ls -D</copy>
+		```
+
+	 - List directories to one-level only, vertically, non-recursive
+
+		```
+		$ <copy>ls -1</copy>
+		```
+
+	 - List files and directories including subdirectories to one-level only
+
+		```
+		$ <copy>ls -D *</copy>
+		```
+
+		```
+		$ <copy>ls -1 *</copy>
 		```
 
 	 - List directories and classify, append indicators `/`, `=`, `*`, `@`, `|`, or `>` to items
@@ -2392,7 +2422,7 @@ A script begins with -
 
  - **Author** - [](include:author)
  - **Created on** - November 28, (Mon) 2022
- - **Last Updated on** - October 23, (Wed) 2024
+ - **Last Updated on** - November 3, (Sun) 2024
  - **Questions/Feedback?** - Blame [](include:profile)
 
 

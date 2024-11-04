@@ -8,7 +8,7 @@
         {
             "title": "Lab #: GitHub PRs",
             "description": "History of pull and merge requests for DBA Essentials workshops committed to OLL master on Github.",
-			"publisheddate": "11-Mar-2023",
+			"publisheddate": "29-Oct-2024",
             "filename": "./../../common/lib-cellar/misc-concepts/github-pr.md",
 			"task_type": "Pull Requests"
         }

@@ -97,11 +97,22 @@ You can install Oracle Enterprise Manager:
 			```
 
 		----
+		## Check existing views
+
+		You can list the views that exist on your system.
+
+		```
+		$ <copy>ade lsviews</copy>
+
+		[user-account]_135ru22               | EMGC_PT.13.5.0.0.0-RU-22_LINUX.X64_240507.0650 | NONE
+		```
+
+		----
 		## Check product labels
 
-		Select the label to install. You can check for a specific label or get the latest label from a series. 
+		Select a label to install. You can check for a specific label or get the latest label from a series. 
 
-		 - To check the label for, say, *EM 13.5 RU 22* - 
+		 - To check a label for, say, *EM 13.5 RU 22* - 
 
 			```
 			$ <copy>ade showlabels -series EMGC_PT.13.5.0.0.0-RU-22_LINUX.X64</copy>
@@ -1108,6 +1119,48 @@ The removal of EM depends on the version installed.
 	## Remove new EM RUs
 
 	A quick way to remove the new EM is to delete the `work` and `view_storage` folders.
+
+	> **Tip**: Before deleting the binaries, delete the view and stop OMS and Agent fully.
+
+	**Presteps**
+
+	1. Go to OMS home and stop OMS. 
+	
+		```
+		$ <copy>./emctl stop oms -all</copy>
+		```
+
+	1. Go to Agent home, stop the agent. 
+
+		```
+		$ <copy>./emctl stop agent</copy>
+		```
+	
+	1. Check if any EM instances are running. 
+
+		```
+		$ <copy>ps -ef | grep -i em</copy>
+		```
+
+		If found, kill the respective pids to stop all EM related processes. For example, for *omshome9344*, run this to stop the residual processes -
+
+		```
+		$ <copy>ps -ef | grep -i 9344 | cut -d ' ' -f 2</copy> <-- to verify
+		```
+
+		```
+		$ <copy>ps -ef | grep -i 9344 | cut -d ' ' -f 3 >> pids</copy>
+		```
+
+		It creates a file named *pids* and copies the process ids of the specified OMS home.
+
+		```
+		$ for i in `cat pids`; do kill -9 $i; done
+		```
+
+		You can now start with the delete steps. 
+
+	**Delete the EM folder**
 
 	1. Delete the `work` folder. 
 
@@ -2274,5 +2327,5 @@ The removal of EM depends on the version installed.
 
  - **Author** - [](include:author)
  - **Created on** - January 6, (Thu) 2022
- - **Last Updated on** - August 15, (Thu) 2024
+ - **Last Updated on** - October 23, (Wed) 2024
  - **Questions/Feedback?** - Blame [](include:profile)

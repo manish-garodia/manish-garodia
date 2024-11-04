@@ -8,6 +8,178 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
 - Workshop PRs
 
+	## WS11 (*11783*)
+
+	- WS11 pull requests
+
+		----
+		## Merge request #*706* - Oct 25, 2024
+
+		Submitted PR [#706](https://github.com/oracle-livelabs/database/pull/706) for WS11 (final copy) from MM's fork on Github on *Fri Oct 25, 2024*. Waiting for approval. Approved on **Oct 25**. Also, resolved the branch out-of-date issue.
+
+		**Sub**: <ins>(#11783) New workshop from the DBA Essentials series - Remove Oracle Database 23ai From Your Host System</ins>
+
+		Hello team,
+
+		We have developed a new workshop -Remove Oracle Database 23ai From Your Host System, WMS ID is #11783.
+
+		It would be great if you approve this PR please, so that we could proceed with publishing to production on priority.
+
+		Thanks for your help and support,
+		MM
+
+	## WS10 (*11782*)
+
+	- WS10 pull requests
+
+		----
+		## Merge request #*315* - Oct 29, 2024
+
+		Submitted PR [#315](https://github.com/oracle-livelabs/em-omc/pull/315) for WS10 (final copy) from MM's fork on Github on *Tue Oct 29, 2024*. Waiting for approval. Approved on **Oct 29**.
+
+		**Sub**: <ins>(#11782) New workshop from the DBA Essentials series - Manage PDBs in Oracle Database 23ai using Oracle Enterprise Manager</ins>
+
+		Hello,
+
+		We have developed a new workshop - Manage PDBs in Oracle Database 23ai using Oracle Enterprise Manager, WMS ID is #11782.
+
+		It would be great if you approve this PR please so that we could proceed with publishing to production on priority.
+
+		Thanks for your help and support.
+
+	## WS9 (*11781*)
+
+	- WS9 pull requests
+
+		----
+		## Merge request #*314* - Oct 25, 2024
+
+		Hi,
+
+		Thank you for pointing this out. I have fixed the file lower case name issue.
+
+		Thanks,
+
+		Hi, please make sure that all images filenames are lowercase from:
+
+		improve-db-performance-using-sql-tuning-advisor/images
+		monitor-general-state-database/images
+
+		----
+		## Merge request #*314* - Oct 25, 2024
+
+		Submitted PR [#314](https://github.com/oracle-livelabs/em-omc/pull/314) for WS9 (final copy) from SM's fork on Github on *Fri Oct 25, 2024*. Waiting for approval. Approved on **Oct 25**. Also, resolved the conflicts related to images and file names lower case.
+
+		**Sub**: <ins>WMS ID#11781 New workshop for 23ai DBA essential series</ins>
+
+		Hi,
+
+		WMS ID#11781
+
+		This is a new workshop for DBA Essentials series, titled Monitor and tune Oracle Database 23ai using Oracle Enterprise Manager. Kindly approve.
+
+		thanks,
+
+	## WS8 (*11774*)
+
+	- WS8 pull requests
+
+		----
+		## Merge request #*705* - Oct 25, 2024
+
+		Submitted PR [#705](https://github.com/oracle-livelabs/database/pull/705) for WS8 (final copy) from SM's fork on Github on *Fri Oct 25, 2024*. Waiting for approval. Approved on **Oct 25**.
+
+		**Sub**: <ins>WMS ID#11774 New workshop for DB Essential series</ins>
+
+		Hi,
+
+		WMS ID#11774
+
+		This is a new workshop for DBA Essentials series, titled Backup and recovery operations for Oracle Database 23ai. Kindly approve.
+
+		thanks,
+
+	## WS7 (*11776*)
+
+	- WS7 pull requests
+
+		----
+		## Merge request #*708* - Oct 25, 2024
+
+		Submitted PR [#708](https://github.com/oracle-livelabs/database/pull/708) for WS7 (final copy) from AA's fork on Github on *Fri Oct 25, 2024*. Waiting for approval. Approved on **Oct 25**.
+
+		**Sub**: <ins>WMS-11776 | Created a new workshop for DBA Essential 23ai series</ins>
+
+		Hello Team,
+
+		We have developed a new workshop:- Manage Schema Objects in Oracle Database 23ai using Database Actions. The WMS id is 11776.
+
+		Would be great if you approve this PR please so that we could proceed with publishing to production on priority.
+
+		Kind Regards,
+		AA
+
+	## WS6 (*11775*)
+
+	- WS6 pull requests
+
+		----
+		## Merge request #*311* - Oct 24, 2024
+
+		Submitted PR [#311](https://github.com/oracle-livelabs/em-omc/pull/311) for WS6 (final copy) from my fork on Github on *Thu Oct 24, 2024*. Waiting for approval. Approved on **Oct 24**. Also, clarified on the numbering of steps.
+
+		**Sub**: <ins>(#11775) New workshop from the DBA Essentials series - manage user accounts for 23ai</ins>
+
+		Hello,
+
+		We have developed a new workshop - Administer user accounts and security for Oracle Database 23ai, WMS ID is #11775.
+
+		Would be great if you approve this PR please so that we could proceed with publishing to production on priority.
+
+		Thanks for your help and support.
+
+		~mg
+
+	## WS5 (*11773*)
+
+	- WS5 pull requests
+
+		----
+		## Merge request #*313* - Oct 24, 2024
+
+		Submitted PR [#313](https://github.com/oracle-livelabs/em-omc/pull/313) for WS5 (final copy) from SM's fork on Github on *Thu Oct 24, 2024*. Waiting for approval. Approved on **Oct 25**.
+
+		**Sub**: <ins>WMS ID#11773 New workshop for 23ai DBA essential series</ins>
+
+		Hi,
+
+		WMS ID#11773
+
+		This is a new workshop for DBA Essentials series, titled Manage storage structures for Oracle Database 23ai. Kindly approve.
+
+		thanks,
+
+	## WS4 (*11772*)
+
+	- WS4 pull requests
+
+		----
+		## Merge request #*312* - Oct 24, 2024
+
+		Submitted PR [#312](https://github.com/oracle-livelabs/em-omc/pull/312) for WS4 (final copy) from AA's fork on Github on *Thu Oct 24, 2024*. Waiting for approval. Approved on **Oct 25**. Also, resolved the branch out-of-date issue.
+
+		**Sub**: <ins>WMS-11772 | Created a new workshop for DBA Essential 23ai series</ins>
+
+		Hello Team,
+
+		We have developed a new workshop:- Manage Instance and Memory for 23ai. The WMS id is 11772.
+
+		Would be great if you approve this PR please so that we could proceed with publishing to production on priority.
+
+		Kind Regards,
+
+		AA
+
 	## WS3 (*11769*)
 
 	- WS3 pull requests
@@ -47,7 +219,9 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 		We have developed a new workshop - Administer Oracle Database 23ai with Oracle Enterprise Manager, WMS ID is #11768.
 
 		Oracle Database 23ai (23.6) GA was Oct 15, Tue. Therefore, to compliment the database release, we would like to publish our workshops from the DBA Essentials series for 23ai.
+
 		Would be great if you approve this PR please so that we could proceed with publishing to production on priority.
+
 		Remaining workshops from the series would follow suit and we intend to publish them all in the next 2 weeks.
 
 		Thanks a lot for your help and support.
@@ -61,13 +235,13 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 		----
 		## Merge request #*702* - Oct 21, 2024
 
-		Submitted PR for WS1 (fixed) from my fork on Github on *Mon Oct 21, 2024*. Waiting for approval. Approved on **Oct xx**.
+		Submitted PR [#702](https://github.com/oracle-livelabs/database/pull/702) for WS1 (fixed) from my fork on Github on *Mon Oct 21, 2024*. Waiting for approval. Approved on **Oct 21**.
 
 		**Sub**: <ins>(#11767) updated youtube video for 23ai and few screens replaced</ins>
 
-		Update to ws1 Install Oracle Database 23ai on OCI Compute
-		Added Juan Loaiza's video on 23ai to the intro lab
-		Modified screenshots to replace 23c with 23ai; correct path for Oracle home
+		Update to ws1 Install Oracle Database 23ai on OCI Compute   
+		Added Juan Loaiza's video on 23ai to the intro lab   
+		Modified screenshots to replace 23c with 23ai; correct path for Oracle home   
 		Updated contributors
 
 		~mg
@@ -78,7 +252,8 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 		updating index.html
 
 		Have updated the inde.html file with the latest. The note looks ok as we are using building-blocks in the workshop.
-		Using the new index.html that has 'https://livelabs.oracle.com' instead of 'https://developer.oracle.com/livelabs'
+
+		Using the new index.html that has '<ins>https://livelabs.oracle.com</ins>' instead of '<ins>https://developer.oracle.com/livelabs</ins>'
 
 		~mg
 
@@ -94,7 +269,9 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 		We have developed a new workshop - Install Oracle Database 23ai on OCI Compute, WMS ID is #11767.
 
 		Oracle Database 23ai (23.6) GA was Oct 15, Tue. Therefore, to compliment the database release, we would like to publish our workshops from the DBA Essentials series for 23ai.
+
 		Would be great if you approve this PR please so that we could proceed with publishing to production on priority.
+
 		Remaining workshops from the series would follow suit and we intend to publish them all in the next 2 weeks.
 
 		Thanks a lot for your help and support.
@@ -756,5 +933,5 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 
  - **Author** - [](include:author)
  - **Created on** - February 20, (Sun) 2022
- - **Last Updated on** - October 17, (Thu) 2024
+ - **Last Updated on** - October 29, (Tue) 2024
  - **Questions/Feedback?** - Blame [](include:profile)
