@@ -476,13 +476,6 @@ Following the **Create instance** button, do these steps.
 1. Select the *compartment* for the instance to create in.  
 
 	## Defaults
-	  <!--
-			| Type      | Details          | Action                  |
-			|-----------|------------------|-------------------------|
-			| Placement |                  | Leave the defaults      |
-			| Image     | Oracle Linux 7.9 | Do not change the image |
-			| Shape     | VM.Standard.E2.1.Micro <br>OCPU Count 1 <br>Memory 1 GB <br>Network Bandwidth 0.48 gbps | Change the shape as explained here |   
-	  -->
 	  - **Placement** - <ins>Do not change</ins>
 	  - **Default image** - <ins>Do not change</ins>
 
@@ -578,7 +571,7 @@ You can now connect to the noVNC remote desktop and provision a green button res
 
 1. Modify the rule and click **Save changes**.
 
-## Manage your tenancy
+## Manage the tenancy
 
 After logging in to your tenancy, you can do various administrative activities, such as:
 
@@ -589,6 +582,7 @@ After logging in to your tenancy, you can do various administrative activities, 
 5. Edit an instance name
 6. Terminate an instance
 7. Increase the boot volume of an instance
+8. Extend the partition
 
 	----
 	## 1. To access the Object Storage
@@ -680,6 +674,7 @@ After logging in to your tenancy, you can do various administrative activities, 
 
 	The instance status displays *Terminated*. After some time, the instance is removed from the tenancy.
 
+	----
 	## 7. To increase the boot volume of an instance
 
 	1. Click the hamburger (sandwich bars) and go to **Compute** &gt; **Instances**.   
@@ -695,31 +690,766 @@ After logging in to your tenancy, you can do various administrative activities, 
 
 	1. Click **Save Changes**.
 
-	After the volume is provisioned, for the volume resize to take effect, log in to puTTY as *opc* and do the following -
+	> **Note**: Increasing the boot volume of an instance does not affect the volume size of the existing custom image. For the custom image to have the new (increased) boot volume, create the image again.
 
-	 - Run the rescan commands.
-	 - Extend the partition manually.
+	After you increase the boot volume, extend the partition and let the system identify the new volume size. 
 
-	**Steps**
+	----
+	## 8. Extend the partition
+
+	Log in to the instance using an ssh client, for example PuTTY, and extend the partition -
+
+	 - For normal volumes
+	 <if type="hidden">- For logical volumes (LVMs)</if>
+
+	> **Note**: If you log in as *opc*, then run the commands with *`sudo`*. If you log in as *`root`*, drop `sudo`.
+
+	### **For normal volumes**
+
+	 - Rescan the disk.
+	 - Extend the partition.
 
 	1. Rescan the disk.
 
+		<ins>Syntax</ins>
+
 		```
-		<copy>
+		$ sudo dd iflag=direct if=/dev/<device_name> of=/dev/null count=1
+		echo "1" | sudo tee /sys/class/block/<device_name>/device/rescan
+		```
+
+		<ins>Example</ins>
+
+		```
+		$ <copy>
 		sudo dd iflag=direct if=/dev/oracleoci/oraclevda of=/dev/null count=1
 		echo "1" | sudo tee /sys/class/block/`readlink /dev/oracleoci/oraclevda | cut -d'/' -f 2`/device/rescan
 		</copy>
 		```
 
-	2. Extend the root partition.
+	1. Extend the root partition.
+
+		Run the `oci-growfs` utility with the *y* option to automatically select `yes` for all prompts.
 
 		```
-		<copy>sudo /usr/libexec/oci-growfs</copy>
+		$ <copy>sudo /usr/libexec/oci-growfs -y</copy>
 		```
 
-	> **Note:** Increasing the boot volume of an instance does not affect the volume size of the existing custom image. For the custom image to have the new (increased) boot volume, create the image again.
+		<if type="hidden">
 
-<if type="hidden">
+		Running this command on a logical volume fails with an error.
+
+		```
+		Partition findmnt: does not exist.
+		An unexpected error occurred: 'type'
+		Stack (most recent call last):
+		  File "/usr/lib/python3.6/site-packages/oci_utils/impl/__init__.py", line 65, in _oci_utils_exception_hook
+			logging.getLogger('oci-utils').critical('An unexpected error occurred: %s', str(value), stack_info=True)
+		```
+
+	### **For logical volumes (LVMs)**
+
+	1. Create a partition and a physical volume. 
+	1. Use the additional volume as one of the following - 
+		- **Option 1**: Add physical volume to a separate volume group
+		- **Option 2**: Extend logical volume of an existing volume group
+
+		## Create a partition and a physical volume
+
+		1. Check details of existing block devices.
+
+			```
+			$ <copy>lsblk</copy>
+			```
+
+			```
+			lsblk: /proc/self/mountinfo: parse error at line 43 -- ignored
+			NAME               MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+			sda                  8:0    0  256G  0 disk
+			├─sda1               8:1    0  100M  0 part /boot/efi
+			├─sda2               8:2    0    1G  0 part /boot
+			└─sda3               8:3    0 45.5G  0 part
+			  ├─ocivolume-root 252:0    0 35.5G  0 lvm  /
+			  └─ocivolume-oled 252:1    0   10G  0 lvm  /var/oled
+			```
+
+		1. Run to the *fdisk* utility.
+
+			```
+			$ <copy>fdisk /dev/sda</copy>
+			```
+
+			```
+			Welcome to fdisk (util-linux 2.32.1).
+			Changes will remain in memory only, until you decide to write them.
+			Be careful before using the write command.
+
+			GPT PMBR size mismatch (97727283 != 536870911) will be corrected by write.
+			The backup GPT table is not on the end of the device. This problem will be corrected by write.
+
+			Command (m for help): m
+			```
+
+			## fdisk help
+
+			```
+			Help:
+
+			  GPT
+			   M   enter protective/hybrid MBR
+
+			  Generic
+			   d   delete a partition
+			   F   list free unpartitioned space
+			   l   list known partition types
+			   n   add a new partition
+			   p   print the partition table
+			   t   change a partition type
+			   v   verify the partition table
+			   i   print information about a partition
+
+			  Misc
+			   m   print this menu
+			   x   extra functionality (experts only)
+
+			  Script
+			   I   load disk layout from sfdisk script file
+			   O   dump disk layout to sfdisk script file
+
+			  Save & Exit
+			   w   write table to disk and exit
+			   q   quit without saving changes
+
+			  Create a new label
+			   g   create a new empty GPT partition table
+			   G   create a new empty SGI (IRIX) partition table
+			   o   create a new empty DOS partition table
+			   s   create a new empty Sun partition table
+
+
+			Command (m for help):
+			``` 
+
+		1. In fdisk, manage the partitions.
+
+			- Press *n* to add a new partion. Enter a partition number or press Enter to use the default. Here, 1, 2, and 3 are already in use.
+
+				Press Enter for First sector and Last sector options.
+
+				```
+				Command (m for help): n
+
+				Partition number (4-128, default 4): 
+				First sector (97726464-536870878, default 97726464): 
+				Last sector, +sectors or +size{K,M,G,T,P} (97726464-536870878, default 536870878): 
+
+				Created a new partition 4 of type 'Linux filesystem' and of size 209.4 GiB.
+				```
+
+				It creates a new partition *4* of type `Linux filesystem`.
+
+			-  Press *t* to change the partition type. Enter the partition number or press Enter to use the default. Enter *31* for partition type `Lunix LVM`. 
+
+				```
+				Command (m for help): t
+
+				Partition number (1-4, default 4): 
+				Partition type (type L to list all types): 31
+
+				Changed type of partition 'Linux filesystem' to 'Linux LVM'.
+				```
+
+				You can check the list of partition types using the *L* command.
+
+			- Press *p* to check the partition table. 
+
+				```
+				Command (m for help): p
+
+				Disk /dev/sda: 256 GiB, 274877906944 bytes, 536870912 sectors
+				Units: sectors of 1 * 512 = 512 bytes
+				Sector size (logical/physical): 512 bytes / 4096 bytes
+				I/O size (minimum/optimal): 4096 bytes / 1048576 bytes
+				Disklabel type: gpt
+				Disk identifier: A8EDFC93-F340-4EA1-A0FF-A579088864BF
+
+				Device        Start       End   Sectors   Size Type
+				/dev/sda1      2048    206847    204800   100M EFI System
+				/dev/sda2    206848   2303999   2097152     1G Linux filesystem
+				/dev/sda3   2304000  97726463  95422464  45.5G Linux LVM
+				/dev/sda4  97726464 536870878 439144415 209.4G Linux LVM
+				```
+
+			- Press *w* to save the changes and exit fdisk. 
+
+				```
+				Command (m for help): w
+				The partition table has been altered.
+				Syncing disks.
+				```
+
+		1. Create a physical volume, *`/dev/sda4`*.
+
+			```
+			$ <copy>pvcreate /dev/sda4</copy>
+
+			  Physical volume "/dev/sda4" successfully created.
+			```
+
+			Verify the physical volumes. 
+
+			```
+			$ <copy>pvs</copy>
+			```
+
+			Notice that the new physical volume, *`/dev/sda4`*, does not belong to any volume group. 
+
+			```
+			  PV         VG        Fmt  Attr PSize   PFree  
+			  /dev/sda3  ocivolume lvm2 a--   45.50g      0 
+			  /dev/sda4            lvm2 ---  209.40g 209.40g
+			```
+
+			You can now add this new physical volume to a separate volume group or extend an existing logical volume. 
+
+		## **Option 1**: Add physical volume to a separate volume group - *u02*
+
+		- Create a volume group and add the physical volume.
+		- Create a logical volume in the new volume group and allocate some size.
+		- Create an `ext4` file system.
+		- Create a directory in root and mount it on the logical volume.
+
+		1. Create a new volume group, *`ocivolume1`*, and add the physical volume, *`/dev/sda4`*, to that group. 
+
+			```
+			$ <copy>vgcreate ocivolume1 /dev/sda4</copy>
+			```
+
+			```
+			  Couldn't create temporary text file name.
+			  Backup of volume group ocivolume1 metadata failed.
+			  Volume group "ocivolume1" successfully created
+			```
+
+			Verify the physical volumes. 
+
+			```
+			$ <copy>pvs</copy>
+			```
+
+			The new physical volume, *`/dev/sda4`*, is now added to the new volume group, *`ocivolume1`*.
+
+			```
+			  PV         VG         Fmt  Attr PSize    PFree   
+			  /dev/sda3  ocivolume  lvm2 a--    45.50g       0 
+			  /dev/sda4  ocivolume1 lvm2 a--  <253.40g <253.40g
+			```
+
+		1. View the existing volume groups. 
+
+			```
+			$ <copy>lvs</copy>
+			```
+
+			Notice that it does not display the new volume group, *`ocivolume1`*. This is because the new volume group does not contain any logical volumes or any mounted file system.
+
+			```
+			  LV   VG        Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+			  oled ocivolume -wi-ao---- 10.00g                                                    
+			  root ocivolume -wi-ao---- 35.50g                                                
+			```
+
+			Check the details of the existing volume group, *`ocivolume`*. 
+
+			```
+			$ <copy>lvdisplay ocivolume</copy>
+			```
+
+			```
+			  --- Logical volume ---
+			  LV Path                /dev/ocivolume/oled
+			  LV Name                oled
+			  VG Name                ocivolume
+			  LV UUID                jySzgj-lfYt-GWsd-PpB8-8eX2-X9NL-w0YaB5
+			  LV Write Access        read/write
+			  LV Creation host, time localhost.localdomain, 2024-06-14 01:19:49 +0000
+			  LV Status              available
+			  # open                 1
+			  LV Size                10.00 GiB
+			  Current LE             2560
+			  Segments               1
+			  Allocation             inherit
+			  Read ahead sectors     auto
+			  - currently set to     4096
+			  Block device           252:1
+			   
+			  --- Logical volume ---
+			  LV Path                /dev/ocivolume/root
+			  LV Name                root
+			  VG Name                ocivolume
+			  LV UUID                fULxDl-ZN2u-Cc6j-O72w-qUTe-QyTs-Pw4CIg
+			  LV Write Access        read/write
+			  LV Creation host, time localhost.localdomain, 2024-06-14 01:19:52 +0000
+			  LV Status              available
+			  # open                 1
+			  LV Size                35.50 GiB
+			  Current LE             9088
+			  Segments               1
+			  Allocation             inherit
+			  Read ahead sectors     auto
+			  - currently set to     4096
+			  Block device           252:0
+			```
+
+			Check the new volume group, *`ocivolume`*. It does not display any information. 
+
+			```
+			$ <copy>lvdisplay ocivolume1</copy>
+			$
+			```
+
+		1. Create a new logical volume, *`u02`*, in the volume group, *`ocivolume1`*. Allocate some size, *`200G`*, to the logical volume. 
+
+			```
+			$ <copy>lvcreate -n u02 --size 200G ocivolume1</copy>
+			```
+
+			If the boot volume is full (100% used), the command fails with an error. 
+
+			```
+			  Couldn't create temporary archive name.
+			```
+
+			To fix this: 
+			- Go to root *`cd /`*
+			- Check disk usage *`du -sh *`*
+			- Clean up some space, delete stuff *`rm -f *`* under - 
+				- `/var/oled/pcp/pmlogger/<hostname>/`
+				- `/var/cache/PackageKit/8.10/metadata`
+
+			Now, try creating the logical volume again. 
+
+			```
+			$ <copy>lvcreate -n u02 --size 200G ocivolume1</copy>
+
+			  Logical volume "u02" created.
+			```
+
+		1. Create a new *`ext4`* file system (partition).
+
+			```
+			$ <copy>mkfs.ext4 /dev/ocivolume1/u02</copy>
+			```
+
+			```
+			mke2fs 1.46.2 (28-Feb-2021)
+			Discarding device blocks: done                            
+			Creating filesystem with 52428800 4k blocks and 13107200 inodes
+			Filesystem UUID: 33259805-ae80-4bb1-b96a-5d528de70bad
+			Superblock backups stored on blocks: 
+				32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
+				4096000, 7962624, 11239424, 20480000, 23887872
+
+			Allocating group tables: done                            
+			Writing inode tables: done                            
+			Creating journal (262144 blocks): done
+			Writing superblocks and filesystem accounting information: done     
+			```
+
+		1. Create a directory, *`/u02`*, under root.
+
+			```
+			$ <copy>mkdir /u02</copy>
+			```
+
+		1. Mount the directory, *`/u02`*, on the logical volume, *`u02`*. 
+
+			```
+			$ mount /dev/ocivolume1/u02 /u02
+			```
+
+			Check that the system displays information about the new logical volume, *`u02`*. 
+
+			```
+			$ vi /etc/fstab 
+			```
+
+			```
+			$ ls /dev/mapper/
+
+			control         ocivolume1-u02  ocivolume-oled  ocivolume-root  
+			```
+
+			If found errors, unmount the directory, *`/u02`*, from the logical volume, *`u02`*. 
+
+			```
+			$ umount /u02
+
+			```
+
+			Go to root and mount again.
+
+			```
+			$ cd
+
+			$ mount -a
+
+			mount: /proc/self/mountinfo: parse error at line 43 -- ignored
+			mount: (hint) your fstab has been modified, but systemd still uses
+				   the old version; use 'systemctl daemon-reload' to reload.
+
+			```
+
+			Use this command to mount the volumes. 
+
+			```
+			$ <copy>mount</copy>
+			```
+
+			 - 
+
+				## Output 
+
+				```
+				mount: /proc/self/mountinfo: parse error at line 43 -- ignored
+				sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime,seclabel)
+				proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+				devtmpfs on /dev type devtmpfs (rw,nosuid,seclabel,size=16235944k,nr_inodes=4058986,mode=755,inode64)
+				securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+				tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev,noexec,seclabel,inode64)
+				devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,seclabel,gid=5,mode=620,ptmxmode=000)
+				tmpfs on /run type tmpfs (rw,nosuid,nodev,seclabel,mode=755,inode64)
+				tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,seclabel,mode=755,inode64)
+				cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,xattr,release_agent=/usr/lib/systemd/systemd-cgroups-agent,name=systemd)
+				pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime,seclabel)
+				efivarfs on /sys/firmware/efi/efivars type efivarfs (rw,nosuid,nodev,noexec,relatime)
+				bpf on /sys/fs/bpf type bpf (rw,nosuid,nodev,noexec,relatime,mode=700)
+				cgroup on /sys/fs/cgroup/rdma type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,rdma)
+				cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,blkio)
+				cgroup on /sys/fs/cgroup/pids type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,pids)
+				cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,perf_event)
+				cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,freezer)
+				cgroup on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,memory)
+				cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,cpuset)
+				cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,cpu,cpuacct)
+				cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,net_cls,net_prio)
+				cgroup on /sys/fs/cgroup/misc type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,misc)
+				cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,hugetlb)
+				cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,seclabel,devices)
+				none on /sys/kernel/tracing type tracefs (rw,relatime,seclabel)
+				configfs on /sys/kernel/config type configfs (rw,relatime)
+				/dev/mapper/ocivolume-root on / type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
+				rpc_pipefs on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw,relatime)
+				selinuxfs on /sys/fs/selinux type selinuxfs (rw,relatime)
+				debugfs on /sys/kernel/debug type debugfs (rw,relatime,seclabel)
+				systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=38,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=17979)
+				hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime,seclabel,pagesize=2M)
+				mqueue on /dev/mqueue type mqueue (rw,relatime,seclabel)
+				binfmt_misc on /proc/sys/fs/binfmt_misc type binfmt_misc (rw,relatime)
+				fusectl on /sys/fs/fuse/connections type fusectl (rw,relatime)
+				/dev/mapper/ocivolume-oled on /var/oled type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
+				/dev/sda2 on /boot type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
+				/dev/sda1 on /boot/efi type vfat (rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=winnt,errors=remount-ro)
+				tmpfs on /run/user/54321 type tmpfs (rw,nosuid,nodev,relatime,seclabel,size=3256748k,mode=700,uid=54321,gid=54321,inode64)
+				gvfsd-fuse on /run/user/54321/gvfs type fuse.gvfsd-fuse (rw,nosuid,nodev,relatime,user_id=54321,group_id=54321)
+				tracefs on /sys/kernel/debug/tracing type tracefs (rw,relatime,seclabel)
+				cgroupfs on /var/lib/oracle/ORA_orcl_bda7066c/bpf/cgroup type cgroup2 (rw,relatime,seclabel)
+				tmpfs on /run/user/986 type tmpfs (rw,nosuid,nodev,relatime,seclabel,size=3256748k,mode=700,uid=986,gid=984,inode64)
+				/dev/sda2 on /mnt type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
+				tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,seclabel,size=3256748k,mode=700,uid=1000,gid=1000,inode64)
+				/dev/mapper/ocivolume1-u02 on /u02 type ext4 (rw,relatime,seclabel,stripe=256)
+				```
+
+		1. Verify that the system identifies the new logical volume in the root partition.
+
+			- Check details of the block devices.
+
+				```
+				$ <copy>lsblk</copy>
+				```
+
+				```
+				lsblk: /proc/self/mountinfo: parse error at line 43 -- ignored
+				NAME               MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+				sda                  8:0    0   300G  0 disk 
+				├─sda1               8:1    0   100M  0 part /boot/efi
+				├─sda2               8:2    0     1G  0 part /mnt
+				├─sda3               8:3    0  45.5G  0 part 
+				│ ├─ocivolume-root 252:0    0  35.5G  0 lvm  /
+				│ └─ocivolume-oled 252:1    0    10G  0 lvm  /var/oled
+				└─sda4               8:4    0 253.4G  0 part 
+				  └─ocivolume1-u02 252:2    0   200G  0 lvm  /u02
+				```
+
+			- Check the disk space usage details. 
+
+				```
+				$ <copy>df -h</copy>
+				```
+
+				```
+				Filesystem                  Size  Used Avail Use% Mounted on
+				devtmpfs                     16G     0   16G   0% /dev
+				tmpfs                        16G     0   16G   0% /dev/shm
+				tmpfs                        16G  1.6G   14G  11% /run
+				tmpfs                        16G     0   16G   0% /sys/fs/cgroup
+				/dev/mapper/ocivolume-root   36G   35G  1.1G  98% /
+				/dev/mapper/ocivolume-oled   10G   10G   60K 100% /var/oled
+				/dev/sda2                  1014M  445M  570M  44% /mnt
+				/dev/sda1                   100M  6.0M   94M   6% /boot/efi
+				tmpfs                       3.2G   36K  3.2G   1% /run/user/54321
+				tmpfs                       3.2G  4.0K  3.2G   1% /run/user/986
+				tmpfs                       3.2G  4.0K  3.2G   1% /run/user/1000
+				/dev/mapper/ocivolume1-u02  196G   28K  186G   1% /u02
+				```
+
+			- Check the logical volumes. 
+
+				```
+				$ <copy>lvs</copy>
+				```
+
+				```
+				  LV   VG         Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+				  oled ocivolume  -wi-ao----  10.00g                                                    
+				  root ocivolume  -wi-ao----  35.50g                                                    
+				  u02  ocivolume1 -wi-ao---- 200.00g                                                    
+				```
+			- List details of your partition
+
+				```
+				fdisk -l
+				```
+
+				```
+				Disk /dev/sda: 300 GiB, 322122547200 bytes, 629145600 sectors
+				Units: sectors of 1 * 512 = 512 bytes
+				Sector size (logical/physical): 512 bytes / 4096 bytes
+				I/O size (minimum/optimal): 4096 bytes / 1048576 bytes
+				Disklabel type: gpt
+				Disk identifier: A8EDFC93-F340-4EA1-A0FF-A579088864BF
+
+				Device        Start       End   Sectors   Size Type
+				/dev/sda1      2048    206847    204800   100M EFI System
+				/dev/sda2    206848   2303999   2097152     1G Linux filesystem
+				/dev/sda3   2304000  97726463  95422464  45.5G Linux LVM
+				/dev/sda4  97726464 629145566 531419103 253.4G Linux LVM
+
+
+				Disk /dev/mapper/ocivolume-root: 35.5 GiB, 38117834752 bytes, 74448896 sectors
+				Units: sectors of 1 * 512 = 512 bytes
+				Sector size (logical/physical): 512 bytes / 4096 bytes
+				I/O size (minimum/optimal): 4096 bytes / 1048576 bytes
+
+
+				Disk /dev/mapper/ocivolume-oled: 10 GiB, 10737418240 bytes, 20971520 sectors
+				Units: sectors of 1 * 512 = 512 bytes
+				Sector size (logical/physical): 512 bytes / 4096 bytes
+				I/O size (minimum/optimal): 4096 bytes / 1048576 bytes
+
+
+				Disk /dev/mapper/ocivolume1-u02: 200 GiB, 214748364800 bytes, 419430400 sectors
+				Units: sectors of 1 * 512 = 512 bytes
+				Sector size (logical/physical): 512 bytes / 4096 bytes
+				I/O size (minimum/optimal): 4096 bytes / 1048576 bytes
+				```
+
+		You have successfully created a new volume group in your boot volume. 
+
+		## **Option 2**: Extend logical volume of an existing volume group - *u01*
+
+		- Extend existing volume group and add the physical volume.
+		- Extend the logical root volume in the volume group and allocate some size.
+		- Increase the size of the file system 
+
+		1. Extend the volume group, *`ocivolume`*, and add the physical volume, *`/dev/sda4`*, to that group. 
+
+			```
+			$ <copy>vgextend ocivolume /dev/sda4</copy>
+
+			  Volume group "ocivolume" successfully extended
+			```
+
+			Verify the physical volumes. 
+
+			```
+			$ <copy>pvs</copy>
+			```
+
+			The new physical volume, *`/dev/sda4`*, is now added to the existing volume group, *`ocivolume`*.
+
+			```
+			  PV         VG        Fmt  Attr PSize    PFree   
+			  /dev/sda3  ocivolume lvm2 a--    45.50g       0 
+			  /dev/sda4  ocivolume lvm2 a--  <209.40g <209.40g
+			```
+
+		1.	Check the details of the existing volume group, *`ocivolume`*.
+
+			```
+			$ <copy>vgdisplay ocivolume</copy>
+			```
+
+			Notice that the volume size includes the new physical volume. 
+
+			```
+			  --- Volume group ---
+			  VG Name               ocivolume
+			  System ID             
+			  Format                lvm2
+			  Metadata Areas        2
+			  Metadata Sequence No  20
+			  VG Access             read/write
+			  VG Status             resizable
+			  MAX LV                0
+			  Cur LV                2
+			  Open LV               2
+			  Max PV                0
+			  Cur PV                2
+			  Act PV                2
+			  VG Size               <254.90 GiB
+			  PE Size               4.00 MiB
+			  Total PE              65254
+			  Alloc PE / Size       11648 / 45.50 GiB
+			  Free  PE / Size       53606 / <209.40 GiB
+			  VG UUID               JqVozX-70KC-bp4l-fQBZ-p0u3-oQOo-iFBsmj   
+			```
+
+		1. Extend the logical root volume in the volume group. Allocate some size, *`100G`*, to the logical volume. 
+
+			```
+			$ <copy>lvextend -L +100G /dev/ocivolume/root</copy>
+			```
+			``` 
+			  Size of logical volume ocivolume/root changed from 35.50 GiB (9088 extents) to 135.50 GiB (34688 extents).
+			  Logical volume ocivolume/root successfully resized.
+			```
+
+			To use the entire free space in the volume group and add it to the logical volume:
+
+			```
+			# <copy>lvextend -l +100%FREE /dev/ocivolume/root</copy>
+
+			  Extending logical volume ocivolume/root to 257.53 GiB
+			  Logical volume ocivolume/root successfully resized
+			```
+
+			Check the disk space usage details.
+
+			```
+			$ <copy>df -h</copy>
+			```
+
+			```
+			Filesystem                  Size  Used Avail Use% Mounted on
+			devtmpfs                     16G     0   16G   0% /dev
+			tmpfs                        16G     0   16G   0% /dev/shm
+			tmpfs                        16G  9.4M   16G   1% /run
+			tmpfs                        16G     0   16G   0% /sys/fs/cgroup
+			/dev/mapper/ocivolume-root   36G   31G  5.4G  86% /
+			/dev/sda2                  1014M  445M  570M  44% /boot
+			/dev/sda1                   100M  6.0M   94M   6% /boot/efi
+			/dev/mapper/ocivolume-oled   10G  216M  9.8G   3% /var/oled
+			tmpfs                       3.2G  4.0K  3.2G   1% /run/user/986
+			tmpfs                       3.2G   28K  3.2G   1% /run/user/54321
+			```
+
+		1. Increase the size of the file system (root partition).
+
+			```
+			$ <copy>xfs_growfs /</copy>
+			```
+
+			```
+			meta-data=/dev/mapper/ocivolume-root isize=512    agcount=4, agsize=2326528 blks
+					 =                       sectsz=512   attr=2, projid32bit=1
+					 =                       crc=1        finobt=1, sparse=1, rmapbt=0
+					 =                       reflink=1    bigtime=0 inobtcount=0
+			data     =                       bsize=4096   blocks=9306112, imaxpct=25
+					 =                       sunit=0      swidth=0 blks
+			naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
+			log      =internal log           bsize=4096   blocks=4544, version=2
+					 =                       sectsz=512   sunit=0 blks, lazy-count=1
+			realtime =none                   extsz=4096   blocks=0, rtextents=0
+			data blocks changed from 9306112 to 35520512
+			```
+
+		1. Verify that the system identifies the new size of the root partition.
+
+			```
+			$ <copy>lsblk</copy>
+			```
+
+			```
+			NAME               MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+			sda                  8:0    0   256G  0 disk 
+			├─sda1               8:1    0   100M  0 part /boot/efi
+			├─sda2               8:2    0     1G  0 part /boot
+			├─sda3               8:3    0  45.5G  0 part 
+			│ ├─ocivolume-root 252:0    0 135.5G  0 lvm  /
+			│ └─ocivolume-oled 252:1    0    10G  0 lvm  /var/oled
+			└─sda4               8:4    0 209.4G  0 part 
+			  └─ocivolume-root 252:0    0 135.5G  0 lvm  /
+			```
+
+			Check the disk space usage details.
+
+			```
+			$ <copy>df -h</copy>
+			```
+
+			```
+			Filesystem                  Size  Used Avail Use% Mounted on
+			devtmpfs                     16G     0   16G   0% /dev
+			tmpfs                        16G     0   16G   0% /dev/shm
+			tmpfs                        16G  9.4M   16G   1% /run
+			tmpfs                        16G     0   16G   0% /sys/fs/cgroup
+			/dev/mapper/ocivolume-root  136G   31G  105G  23% /
+			/dev/sda2                  1014M  445M  570M  44% /boot
+			/dev/sda1                   100M  6.0M   94M   6% /boot/efi
+			/dev/mapper/ocivolume-oled   10G  216M  9.8G   3% /var/oled
+			tmpfs                       3.2G  4.0K  3.2G   1% /run/user/986
+			tmpfs                       3.2G   28K  3.2G   1% /run/user/54321
+			```
+
+		You have successfully extended the existing logical volume (root partition) of your boot volume.
+
+		## Remove logical volume and delete partition
+
+		To delete a partition, first delete the logical volume and remove the physical volume from the volume group. 
+
+		1. Start with removing the logical volume.
+
+			```
+			$ lvremove <logical-volume-name>
+			```
+
+			Alternatively, remove the volume group. It also removes the logical volumes in the group.
+
+			```
+			$ vgremove <volume-group-name>
+			```
+
+			```
+			Do you really want to remove volume group "<volume-group-name>" containing 1 logical volumes? [y/n]: y
+			Do you really want to remove active logical volume <volume-group-name>/<logical-volume-name>? [y/n]: y
+			  Logical volume "<logical-volume-name>" successfully removed.
+			  Volume group "<volume-group-name>" successfully removed
+			```
+
+		1. Check the physical volumes does not display the volume group anymore.
+
+			```
+			$ pvs
+			```
+
+			```
+			  PV         VG        Fmt  Attr PSize   PFree
+			  /dev/sda3  vol-grp lvm2 a--   45.50g      0
+			  /dev/sda4            lvm2 ---  213.40g 213.40g
+			```
+
+		You can now delete the partition using fdisk.
 
 ## Task 6: Set up the instance post creation **wip**
 
@@ -963,9 +1693,9 @@ chmod g+s /oracle
 
 ## Learn more
 
-- [Setup Graphical Remote Desktop](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/)
+- [Setup Graphical Remote Desktop](https://oracle-livelabs.github.io/common/sample-livelabs-templates/create-labs/labs/workshops/compute/)
 
-- [Create Custom OCI Compute Image for Marketplace Publishing](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute/?lab=7-labs-create-custom-image-for-marketplace)
+- [Create Custom OCI Compute Image for Marketplace Publishing](https://oracle-livelabs.github.io/common/sample-livelabs-templates/create-labs/labs/workshops/compute/?lab=7-labs-create-custom-image-for-marketplace)
 
 ## Acknowledgments
 
