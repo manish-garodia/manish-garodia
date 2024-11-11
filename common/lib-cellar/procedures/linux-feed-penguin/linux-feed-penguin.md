@@ -527,7 +527,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		$ <copy>ls -D</copy>
 		```
 
-	 - List directories to one-level only, vertically, non-recursive
+	 - List files and directories to one-level only, vertically, non-recursive
 
 		```
 		$ <copy>ls -1</copy>
@@ -553,7 +553,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		db_templates/  firefox-bms-linux.html  ManishDoc_copy/  ords-21.2.0.174.1826.zip
 		```
 
-	 - List directories recursive *-R*
+	 - List files and directories, recursively *-R*
 
 		```
 		$ <copy>ls -R</copy>
@@ -641,7 +641,7 @@ Get hands dirty with Linux commands, tips, and tricks.
 		in terminal
 
 		```
-		$ <copy>lah</copy>
+		$ <copy>ls -lah</copy>
 		```
 
 		in File Manager, use **Ctrl + H**

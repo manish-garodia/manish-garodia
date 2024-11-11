@@ -761,7 +761,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 			```
 			$ <copy>lsblk</copy>
 			```
-
 			```
 			lsblk: /proc/self/mountinfo: parse error at line 43 -- ignored
 			NAME               MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
@@ -778,7 +777,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 			```
 			$ <copy>fdisk /dev/sda</copy>
 			```
-
 			```
 			Welcome to fdisk (util-linux 2.32.1).
 			Changes will remain in memory only, until you decide to write them.
@@ -924,7 +922,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 			```
 			$ <copy>vgcreate ocivolume1 /dev/sda4</copy>
 			```
-
 			```
 			  Couldn't create temporary text file name.
 			  Backup of volume group ocivolume1 metadata failed.
@@ -964,7 +961,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 			```
 			$ <copy>lvdisplay ocivolume</copy>
 			```
-
 			```
 			  --- Logical volume ---
 			  LV Path                /dev/ocivolume/oled
@@ -1040,7 +1036,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 			```
 			$ <copy>mkfs.ext4 /dev/ocivolume1/u02</copy>
 			```
-
 			```
 			mke2fs 1.46.2 (28-Feb-2021)
 			Discarding device blocks: done                            
@@ -1073,7 +1068,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 			```
 			$ vi /etc/fstab 
 			```
-
 			```
 			$ ls /dev/mapper/
 
@@ -1084,7 +1078,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 
 			```
 			$ umount /u02
-
 			```
 
 			Go to root and mount again.
@@ -1097,7 +1090,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 			mount: /proc/self/mountinfo: parse error at line 43 -- ignored
 			mount: (hint) your fstab has been modified, but systemd still uses
 				   the old version; use 'systemctl daemon-reload' to reload.
-
 			```
 
 			Use this command to mount the volumes. 
@@ -1167,7 +1159,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 				```
 				$ <copy>lsblk</copy>
 				```
-
 				```
 				lsblk: /proc/self/mountinfo: parse error at line 43 -- ignored
 				NAME               MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
@@ -1186,7 +1177,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 				```
 				$ <copy>df -h</copy>
 				```
-
 				```
 				Filesystem                  Size  Used Avail Use% Mounted on
 				devtmpfs                     16G     0   16G   0% /dev
@@ -1208,7 +1198,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 				```
 				$ <copy>lvs</copy>
 				```
-
 				```
 				  LV   VG         Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
 				  oled ocivolume  -wi-ao----  10.00g                                                    
@@ -1220,7 +1209,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 				```
 				fdisk -l
 				```
-
 				```
 				Disk /dev/sda: 300 GiB, 322122547200 bytes, 629145600 sectors
 				Units: sectors of 1 * 512 = 512 bytes
@@ -1339,7 +1327,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 			```
 			$ <copy>df -h</copy>
 			```
-
 			```
 			Filesystem                  Size  Used Avail Use% Mounted on
 			devtmpfs                     16G     0   16G   0% /dev
@@ -1358,8 +1345,7 @@ After logging in to your tenancy, you can do various administrative activities, 
 
 			```
 			$ <copy>xfs_growfs /</copy>
-			```
-
+			```			
 			```
 			meta-data=/dev/mapper/ocivolume-root isize=512    agcount=4, agsize=2326528 blks
 					 =                       sectsz=512   attr=2, projid32bit=1
@@ -1378,8 +1364,7 @@ After logging in to your tenancy, you can do various administrative activities, 
 
 			```
 			$ <copy>lsblk</copy>
-			```
-
+			```			
 			```
 			NAME               MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 			sda                  8:0    0   256G  0 disk 
@@ -1397,7 +1382,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 			```
 			$ <copy>df -h</copy>
 			```
-
 			```
 			Filesystem                  Size  Used Avail Use% Mounted on
 			devtmpfs                     16G     0   16G   0% /dev
@@ -1429,7 +1413,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 			```
 			$ vgremove <volume-group-name>
 			```
-
 			```
 			Do you really want to remove volume group "<volume-group-name>" containing 1 logical volumes? [y/n]: y
 			Do you really want to remove active logical volume <volume-group-name>/<logical-volume-name>? [y/n]: y
@@ -1442,7 +1425,6 @@ After logging in to your tenancy, you can do various administrative activities, 
 			```
 			$ pvs
 			```
-
 			```
 			  PV         VG        Fmt  Attr PSize   PFree
 			  /dev/sda3  vol-grp lvm2 a--   45.50g      0

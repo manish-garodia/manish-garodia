@@ -33,6 +33,30 @@ This lab walks down the history lane of pull and merge requests for DBA Essentia
 	- WS10 pull requests
 
 		----
+		## Merge request #*316* - Nov 5, 2024
+
+		Submitted PR [#316](https://github.com/oracle-livelabs/em-omc/pull/316) for WS10 (ifxed issues) from my fork on Github on *Tue Nov 5, 2024*. Waiting for approval. Approved on **Nov xx**.
+
+		**Sub**: <ins>(#11782) Manage PDBs - updated as per latest labels 23ai and EM RU 22</ins>
+
+		Hi,
+
+		We have made some updates to our workshop (#11782) Manage PDBs. 
+
+		Changes:
+		- Used the latest label for Database 23ai 23.4 and EM 13.5 RU 22
+		- Updated the include files
+		- Fixed formatting issues
+		- Used the new initialize-env lab
+		- scrubbed existing screens
+		- replaced obsolete screens
+		- Updated the manifests for all versions
+		- Verified with the tool Wordlist Check and fixed disallowed words
+		- other minor changes
+
+		Would be great if you please approve the PR and merge the updated labs. Thank you
+
+		----
 		## Merge request #*315* - Oct 29, 2024
 
 		Submitted PR [#315](https://github.com/oracle-livelabs/em-omc/pull/315) for WS10 (final copy) from MM's fork on Github on *Tue Oct 29, 2024*. Waiting for approval. Approved on **Oct 29**.
