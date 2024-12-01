@@ -1066,12 +1066,54 @@ After logging in to your tenancy, you can do various administrative activities, 
 			Check that the system displays information about the new logical volume, *`u02`*. 
 
 			```
-			$ vi /etc/fstab 
+			$ <copy>vi /etc/fstab</copy>
 			```
-			```
-			$ ls /dev/mapper/
 
-			control         ocivolume1-u02  ocivolume-oled  ocivolume-root  
+			Check the file system table contains details about the new volume group and the mount point. Add the new file system manually if `fstab` does not have it. 
+
+			```
+			#
+			# /etc/fstab
+			# Created by anaconda on Fri Jun 14 01:19:56 2024
+			#
+			# Accessible filesystems, by reference, are maintained under '/dev/disk/'.
+			# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info.
+			#
+			# After editing this file, run 'systemctl daemon-reload' to update systemd
+			# units generated from this file.
+			#
+			/dev/mapper/ocivolume-root /                       xfs     defaults        0 0
+			UUID=130b86c1-a2c0-4d62-80c9-3a15d2a8360d /boot                   xfs     defaults        0 0
+			UUID=AA62-3E59          /boot/efi               vfat    defaults,uid=0,gid=0,umask=077,shortname=winnt 0 2
+			/dev/mapper/ocivolume-oled /var/oled               xfs     defaults        0 0
+			tmpfs                   /dev/shm                tmpfs   defaults,nodev,nosuid,noexec      0 0
+			######################################
+			## ORACLE CLOUD INFRASTRUCTURE CUSTOMERS
+			##
+			## If you are adding an iSCSI remote block volume to this file you MUST
+			## include the '_netdev' mount option or your instance will become
+			## unavailable after the next reboot.
+			## SCSI device names are not stable across reboots; please use the device UUID instead of /dev path.
+			##
+			## Example:
+			## UUID="94c5aade-8bb1-4d55-ad0c-388bb8aa716a"   /data1    xfs       defaults,noatime,_netdev      0      2
+			##
+			## More information:
+			## https://docs.us-phoenix-1.oraclecloud.com/Content/Block/Tasks/connectingtoavolume.htm
+			/.swapfile      none    swap    sw,comment=cloudconfig  0       0
+			/dev/mapper/ocivolume1-u02      /u02    ext4    defaults        0       0
+			```
+
+			Check `/dev/mapper`.
+
+			```
+			$ <copy>ls -l /dev/mapper/</copy>
+
+			total 0
+			crw-------. 1 root root 10, 236 Oct 17 10:43 control
+			lrwxrwxrwx. 1 root root       7 Nov  7 11:10 ocivolume1-u02 -> ../dm-2
+			lrwxrwxrwx. 1 root root       7 Oct 17 10:43 ocivolume-oled -> ../dm-1
+			lrwxrwxrwx. 1 root root       7 Oct 17 10:43 ocivolume-root -> ../dm-0
 			```
 
 			If found errors, unmount the directory, *`/u02`*, from the logical volume, *`u02`*. 
@@ -1432,6 +1474,14 @@ After logging in to your tenancy, you can do various administrative activities, 
 			```
 
 		You can now delete the partition using fdisk.
+
+		> **Cite**:
+
+		 - [Network Lessons - extend lvm partition](https://networklessons.com/uncategorized/extend-lvm-partition)
+
+		 - [RH - physical vol admin](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/5/html/logical_volume_manager_administration/physvol_admin#physvol_create)
+
+		 - [baeldung - combine LVMs](https://www.baeldung.com/linux/lvm-combine-logical-volumes)
 
 ## Task 6: Set up the instance post creation **wip**
 

@@ -540,7 +540,7 @@ The information in this lab revolves around -
 
 	### PR history and total count
 
-	You can use rest APIs to get information about PRs from your account on github, such as history of all PRs, total count of PRs, and so on.
+	You can use rest APIs to get information about PRs from your Github account, such as history of all PRs, total count of PRs, and so on.
 
 	Open a web browser and run the following search query.
 
@@ -557,6 +557,14 @@ The information in this lab revolves around -
 	```
 
 	Alternatively, log in to github in a browser and use your user name to view PR history.
+
+	**Syntax**
+
+	```
+	<copy>https://github.com/pulls?page=1&q=is%3Apr+author%3A<GIT-USER-NAME>+archived%3Afalse+is%3Aclosed</copy>
+	```
+
+	Example
 
 	```
 	<copy>https://github.com/pulls?q=is%3Apr+author%3Amanish-garodia+archived%3Afalse+is%3Aclosed</copy>
@@ -613,9 +621,32 @@ The information in this lab revolves around -
 	That's it. Your PR is submitted for review. Github may send notification mails depending on your configuration. Next, one of the moderators (administrators) will review the PR and respond.
 
 	> **Did you know..?**   
-	When a user (contributor) submits a PR and it is under review (waiting for approval), further merging is blocked for the user. This means until the currently submitted PR is approved and merged (or rejected), the user cannot create another PR in parallel on the same repo.
+	When a user (contributor) submits a PR and it is under review (waiting for approval), Github blocks further merging for the user. This means until a moderator (administrator) approves and merges (or rejects) your PR, the user cannot create another PR in parallel on the same repo.
 
 	![PR submitted - merging blocked](./images/github/pr-submitted-merging-blocked.png " ")
+
+	## Resolve conflicts in PR
+
+	A moderator approves your PR and merges the changes only if the PR is error-free. If the PR has any issues or conflicts, you can do the following:
+
+	 - **Submit a merge request** 
+
+		Do not create another PR but submit a merge request instead. 
+
+		1. Fix the issues in your clone (main repo). This overwrites your previous changes.
+		1. Commit to main, that is, push origin from your clone to your fork. 
+
+		All these changes are included in the same PR.
+
+	 - **Withdraw a PR altogether** 
+
+		You may want to withdraw a PR and resubmit a new one for various reasons, for example, a conflict in the PR is quite complicated and might take longer to resolve, or you found some mistakes in the PR, etc. 
+
+		1. Go to your repository on Github. 
+		1. Click **Pull requests** and open your PR. 
+		1. Select *Close pull request*.
+
+		You can now submit a new PR. 
 
 	----
 	## Approve a PR - <i>moderator</i>
@@ -1814,7 +1845,7 @@ The information in this lab revolves around -
 	## Clone and fork out-of-sync - [push origin failed]
 
 	**Problem statement**  
-	You made changes to your clone (local repo) and want to merge them with the fork (origin). You did `commit to main` and then *`push origin`* to update the fork from the clone but it returns an error.
+	You made changes to your clone (main repo) and want to merge them with the fork (origin). You did `commit to main` and then *`push origin`* to update the fork from the clone but it returned an error.
 
 	<if type="gitdesktop">
 	![Update fork from clone rejected](./images/desktop/clone-out-of-sync-01-push-failed.jpg " ")
@@ -1824,13 +1855,30 @@ The information in this lab revolves around -
 
 	```
 	$ <copy>git push origin main</copy>
+	```
 
-	To https://github.com/[your-account]/[your-repo]
+	Error 1
+
+	```
+	To https://github.com/[your-account]/[your-repo].git
 	 ! [rejected]        main -> main (non-fast-forward)
-	error: failed to push some refs to 'https://github.com/[your-account]/[your-repo]'
+	error: failed to push some refs to 'https://github.com/[your-account]/[your-repo].git'
 	hint: Updates were rejected because the tip of your current branch is behind
 	hint: its remote counterpart. Integrate the remote changes (e.g.
 	hint: 'git pull ...') before pushing again.
+	hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+	```
+
+	Error 2
+
+	```
+	To https://github.com/[your-account]/[your-repo].git
+	 ! [rejected]        main -> main (fetch first)
+	error: failed to push some refs to 'https://github.com/[your-account]/[your-repo].git'
+	hint: Updates were rejected because the remote contains work that you do not
+	hint: have locally. This is usually caused by another repository pushing to
+	hint: the same ref. If you want to integrate the remote changes, use
+	hint: 'git pull' before pushing again.
 	hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 	```
 
@@ -1839,13 +1887,13 @@ The information in this lab revolves around -
 	</if>
 
 	**What happened**   
-	You arrived at a conflict between the clone (local repo) and the fork (origin). The fork is already up-to-date with more recent commits that are not pulled to the clone. In short, you are modifying the clone while it is already behind the fork.
+	You arrived at a conflict where the clone (main repo) is behind the fork (origin). The fork contains more recent commits that are not pulled to the clone. In short, you have modified an older clone and trying to update your fork which contains more changes.
 
 	**What to do**
 
 	<ins>Option 1</ins> -
 
-	1. Fetch the latest commits from fork.
+	1. Fetch the latest commits from your fork.
 
 	<if type="gitbash">
 
@@ -1868,12 +1916,51 @@ The information in this lab revolves around -
 		$ <copy>git pull origin main</copy>
 		```
 
-		If you still get a conflict, then try Option 2.
+		It opens an editor where you can optionally enter a commit message. 
+		
+	1. Save and close the editor with **Esc + :wq**.
 
 		```
-		CONFLICT (modify/delete): readme.md deleted in 921c3ada40b3848f5c2b36c5af6123224cfcc3ca and modified in HEAD.  Version HEAD of readme.md left in tree.
-		Automatic merge failed; fix conflicts and then commit the result.
+		remote: Enumerating objects: 5, done.
+		remote: Counting objects: 100% (5/5), done.
+		remote: Compressing objects: 100% (3/3), done.
+		remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+		Unpacking objects: 100% (3/3), 963 bytes | 120.00 KiB/s, done.
+		From https://github.com/[your-account]/[your-repo].git
+		   dd7146f..dcd05ea  main       -> origin/main
+		Merge made by the 'ort' strategy.
+		 404.md | 1 +
+		 1 file changed, 1 insertion(+)
 		```
+
+		Your clone is now updated from the fork and also contains your recent changes. 
+
+	1. Push all changes from your clone to the fork. 
+
+		```
+		$ <copy>git push origin main</copy>
+		```
+
+		```
+		Enumerating objects: 9, done.
+		Counting objects: 100% (8/8), done.
+		Delta compression using up to 20 threads
+		Compressing objects: 100% (5/5), done.
+		Writing objects: 100% (5/5), 1.04 KiB | 1.04 MiB/s, done.
+		Total 5 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+		remote: Resolving deltas: 100% (4/4), completed with 2 local objects.
+		To https://github.com/[your-account]/[your-repo].git
+		   dcd05ea..9431b34  main -> main
+		```
+
+	Both your clone and the fork are now up-to-date.
+
+	However, if you get a conflict when you `pull origin`, then try Option 2.
+
+	```
+	CONFLICT (modify/delete): readme.md deleted in 921c3ada40b3848f5c2b36c5af6123224cfcc3ca and modified in HEAD.  Version HEAD of readme.md left in tree.
+	Automatic merge failed; fix conflicts and then commit the result.
+	```
 
 	</if>
 
@@ -2344,18 +2431,25 @@ The information in this lab revolves around -
 	Recv failure: Connection was reset
 	```
 
+	```
+	fatal: unable to access 'https://github.com/[your-account]/[your-repo].git/': Failed to connect to github.com port 443 after 21232 ms: Couldn't connect to server
+	```
+
 	**What happened**  
 
 	The clone (local repo) could not talk to the fork (origin) or the main repo (upstream) because of any one of these -
 	- Port 80 might be blocked
-	- Have you set the proxy configuration?
+	- Have you set proxy configuration?
 	- Are you still connected to the internet?
 
 	**What to do**  
 
 	1. Check your internet connection.
-	1. VPN must be connected for the clone to talk to the fork. Disconnect VPN and reconnect, if required.
 	1. Check the proxy configuration for git. <if type="hidden">See [Set up proxy config](https://manish-garodia.github.io/mg-playground/z-sandbox/?lab=fun-with-git-bits&type=gitbash#TakeaplungeintoGitBash)</if>
+	1. For the clone to talk to the fork.
+
+		- If you have set proxy, then VPN must be connected. Disconnect VPN and reconnect, if required.
+		- If your account does not have a proxy, then disconnect VPN and try again without VPN. 
 
 	----
 	## Could not resolve proxy: [proxy-URL]
@@ -2578,6 +2672,8 @@ The information in this lab revolves around -
 
 ## References
 
+ - [git docs](https://git-scm.com/docs/)
+
  - [How to download file from GitHub - gitkraken](https://www.gitkraken.com/learn/git/github-download#how-to-downlaod-a-file-from-github)
 
  - [How to Create a Multi-page Website using Github Pages - phuston](https://phuston.github.io/patrickandfrantonarethebestninjas/howto)
@@ -2586,7 +2682,7 @@ The information in this lab revolves around -
 
  - **Author** - [](include:author)
  - **Created on** - February 5, (Sat) 2022
- - **Last Updated on** - October 23, (Wed) 2024
+ - **Last Updated on** - December 1, (Sun) 2024
  - **Questions/Feedback?** - Blame [](include:profile)
 
 <!--
